@@ -122,14 +122,14 @@ StartCatchEmMode: ; 0x1003f
 	ld a, [wCurrentStage]
 	rst JumpTable  ; calls JumpToFuncInTable
 CallTable_10124: ; 0x10124
-	dw Func_10871      ; STAGE_RED_FIELD_TOP
-	dw Func_10871      ; STAGE_RED_FIELD_BOTTOM
-	dw Func_1098c      ; STAGE_BLUE_FIELD_TOP
-	dw Func_1098c      ; STAGE_BLUE_FIELD_BOTTOM
-	dw Func_10871_TODO ; STAGE_GOLD_FIELD_TOP
-	dw Func_10871_TODO ; STAGE_GOLD_FIELD_BOTTOM
-	dw Func_1098c_TODO ; STAGE_SILVER_FIELD_TOP
-	dw Func_1098c_TODO ; STAGE_SILVER_FIELD_BOTTOM
+	dw Func_10871             ; STAGE_RED_FIELD_TOP
+	dw Func_10871             ; STAGE_RED_FIELD_BOTTOM
+	dw Func_1098c             ; STAGE_BLUE_FIELD_TOP
+	dw Func_1098c             ; STAGE_BLUE_FIELD_BOTTOM
+	dw Func_10871_GoldField   ; STAGE_GOLD_FIELD_TOP
+	dw Func_10871_GoldField   ; STAGE_GOLD_FIELD_BOTTOM
+	dw Func_1098c_SilverField ; STAGE_SILVER_FIELD_TOP
+	dw Func_1098c_SilverField ; STAGE_SILVER_FIELD_BOTTOM
 
 CheckForMew:
 ; Sets the encountered mon to Mew if the following conditions are met:
@@ -174,14 +174,14 @@ ConcludeCatchEmMode: ; 0x10157
 	ld a, [wCurrentStage]
 	rst JumpTable  ; calls JumpToFuncInTable
 CallTable_10178: ; 0x10178
-	dw Func_108f5      ; STAGE_RED_FIELD_TOP
-	dw Func_108f5      ; STAGE_RED_FIELD_BOTTOM
-	dw Func_109fc      ; STAGE_BLUE_FIELD_TOP
-	dw Func_109fc      ; STAGE_BLUE_FIELD_BOTTOM
-	dw Func_108f5_TODO ; STAGE_GOLD_FIELD_TOP
-	dw Func_108f5_TODO ; STAGE_GOLD_FIELD_BOTTOM
-	dw Func_109fc_TODO ; STAGE_SILVER_FIELD_TOP
-	dw Func_109fc_TODO ; STAGE_SILVER_FIELD_BOTTOM
+	dw Func_108f5             ; STAGE_RED_FIELD_TOP
+	dw Func_108f5             ; STAGE_RED_FIELD_BOTTOM
+	dw Func_109fc             ; STAGE_BLUE_FIELD_TOP
+	dw Func_109fc             ; STAGE_BLUE_FIELD_BOTTOM
+	dw Func_108f5_GoldField   ; STAGE_GOLD_FIELD_TOP
+	dw Func_108f5_GoldField   ; STAGE_GOLD_FIELD_BOTTOM
+	dw Func_109fc_SilverField ; STAGE_SILVER_FIELD_TOP
+	dw Func_109fc_SilverField ; STAGE_SILVER_FIELD_BOTTOM
 
 Func_10184: ; 0x10184
 	ld a, [wCurrentStage]
@@ -1099,6 +1099,13 @@ Func_107b0: ; 0x107b0
 	callba LoadSlotCaveCoverGraphics_RedField
 	ret
 
+Func_107b0_GoldField: ; 0x107b0
+	xor a
+	ld [wSlotIsOpen], a
+	ld [wIndicatorStates + 4], a
+	callba LoadSlotCaveCoverGraphics_GoldField
+	ret
+
 Func_107c2: ; 0x107c2
 	ld a, $1e
 	ld [wFramesUntilSlotCaveOpens], a
@@ -1278,6 +1285,93 @@ Func_108f5: ; 0x108f5
 	call QueueGraphicsToLoad
 	ret
 
+Func_10871_GoldField:
+	ld a, [wCurrentCatchEmMon]
+	ld c, a
+	ld b, $0
+	ld hl, EvolutionLineIds
+	add hl, bc
+	ld a, [hl] ; a contains evolution line id
+	ld c, a
+	ld b, $0
+	ld l, c
+	ld h, b
+	sla l
+	rl h
+	sla l
+	rl h
+	sla l
+	rl h
+	sla l
+	rl h
+	add hl, bc
+	add hl, bc
+	add hl, bc
+	ld c, l
+	ld b, h
+	ld hl, CatchEmModeInitialIndicatorStates
+	add hl, bc
+	ld de, wIndicatorStates
+	ld b, $13  ; number of indicators
+.loop
+	ld a, [hli]
+	ld [de], a
+	inc de
+	dec b
+	jr nz, .loop
+	xor a
+	ld [wRightAlleyCount], a
+	call Func_107b0_GoldField
+	ld a, $4
+	ld [wd7ad], a
+	ld de, $0002
+	call PlaySong
+	ld a, [wCurrentStage]
+	bit 0, a
+	jr nz, .asm_108d3
+	callba LoadStageCollisionAttributes
+	callba LoadFieldStructureGraphics_GoldField
+	ret
+
+.asm_108d3
+	callba ClearAllRedIndicators
+	callba Func_10184
+	ld a, [hGameBoyColorFlag]
+	and a
+	callba nz, Func_102bc
+	ret
+
+Func_108f5_GoldField: ; 0x108f5
+	call ResetIndicatorStates
+	call Func_107c2
+	call SetLeftAndRightAlleyArrowIndicatorStates_GoldField
+	call Func_107e9
+	ld a, [wCurrentStage]
+	bit 0, a
+	ret z
+	callba ClearAllIndicators_GoldField
+	call Func_10432
+	callba LoadMapBillboardTileData
+	ld a, Bank(StageSharedBonusSlotGlowGfx)
+	ld hl, StageSharedBonusSlotGlowGfx
+	ld de, vTilesOB tile $1a
+	ld bc, $0160red
+	call LoadVRAMData
+	ld a, BANK(StageSharedBonusSlotGlow2Gfx)
+	ld hl, StageSharedBonusSlotGlow2Gfx
+	ld de, vTilesOB tile $38
+	ld bc, $0020
+	call LoadVRAMData
+	ld hl, BlankSaverSpaceTileDataGoldField
+	ld a, BANK(BlankSaverSpaceTileDataGoldField)
+	call QueueGraphicsToLoad
+	ld a, [wPreviousNumPokeballs]
+	callba LoadPokeballsGraphics_GoldField
+	ld hl, CaughtPokeballTileDataPointers
+	ld a, BANK(CaughtPokeballTileDataPointers)
+	call QueueGraphicsToLoad
+	ret
+
 BlankSaverSpaceTileDataRedField:
 	db 3
 	dw BlankSaverSpaceTileDataRedField1
@@ -1394,6 +1488,88 @@ Func_109fc: ; 0x109fc
 	call LoadVRAMData
 	ld hl, BlankSaverSpaceTileDataBlueField
 	ld a, BANK(BlankSaverSpaceTileDataBlueField)
+	call QueueGraphicsToLoad
+	ld a, [wPreviousNumPokeballs]
+	callba LoadPokeballsGraphics_RedField
+	ld hl, Data_10a88
+	ld a, BANK(Data_10a88)
+	call QueueGraphicsToLoad
+	ret
+
+Func_1098c_SilverField:
+	ld a, [wCurrentCatchEmMon]
+	ld c, a
+	ld b, $0
+	ld hl, EvolutionLineIds
+	add hl, bc
+	ld a, [hl]
+	ld c, a
+	ld b, $0
+	ld l, c
+	ld h, b
+	sla l
+	rl h
+	sla l
+	rl h
+	sla l
+	rl h
+	sla l
+	rl h
+	add hl, bc
+	add hl, bc
+	add hl, bc
+	ld c, l
+	ld b, h
+	ld hl, CatchEmModeInitialIndicatorStates
+	add hl, bc
+	ld de, wIndicatorStates
+	ld b, $13  ; number of indicators
+.loop
+	ld a, [hli]
+	ld [de], a
+	inc de
+	dec b
+	jr nz, .loop
+	xor a
+	ld [wRightAlleyCount], a
+	callba CloseSlotCave
+	ld de, $0002
+	call PlaySong
+	ld a, [wCurrentStage]
+	bit 0, a
+	ret z
+	callba Func_1c2cb
+	ld [hFarCallTempA], a
+	ld a, $4
+	ld hl, Func_10184
+	call BankSwitch
+	ld a, [hGameBoyColorFlag]
+	and a
+	callba nz, Func_102bc
+	ret
+
+Func_109fc_SilverField:
+	call ResetIndicatorStates
+	call Func_107c2
+	callba SetLeftAndRightAlleyArrowIndicatorStates_SilverField
+	ld a, [wCurrentStage]
+	bit 0, a
+	ret z
+	callba Func_1c2cb
+	call Func_10432
+	callba LoadMapBillboardTileData
+	ld a, BANK(StageSharedBonusSlotGlowGfx)
+	ld hl, StageSharedBonusSlotGlowGfx
+	ld de, vTilesOB tile $1a
+	ld bc, $0160
+	call LoadVRAMData
+	ld a, BANK(StageSharedBonusSlotGlow2Gfx)
+	ld hl, StageSharedBonusSlotGlow2Gfx
+	ld de, vTilesOB tile $38
+	ld bc, $0020
+	call LoadVRAMData
+	ld hl, BlankSaverSpaceTileDataSilverField
+	ld a, BANK(BlankSaverSpaceTileDataSilverField)
 	call QueueGraphicsToLoad
 	ld a, [wPreviousNumPokeballs]
 	callba LoadPokeballsGraphics_RedField

@@ -2941,6 +2941,7 @@ LoadBonusMultiplierRailingGraphics_RedField_GameboyColor: ; 0x16f7b
 	ret
 
 GetBCDForNextBonusMultiplier_RedField: ; 0x16f95
+GetBCDForNextBonusMultiplier:
 ; Gets the BCD representation of the next bonus multplier value.
 ; Output:  [wBonusMultiplierTensDigit] = the tens digit
 ;          [wBonusMultiplierOnesDigit] = the ones digit

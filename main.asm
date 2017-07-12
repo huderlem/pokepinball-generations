@@ -420,6 +420,8 @@ INCLUDE "engine/pinball_game/load_stage_data/load_blue_field.asm"
 INCLUDE "engine/pinball_game/object_collision/blue_stage_object_collision.asm"
 INCLUDE "engine/pinball_game/object_collision/blue_stage_resolve_collision.asm"
 INCLUDE "engine/pinball_game/draw_sprites/draw_blue_field_sprites.asm"
+INCLUDE "engine/pinball_game/stage_init/init_gold_field.asm"
+INCLUDE "engine/pinball_game/stage_init/init_silver_field.asm"
 
 SECTION "bank8", ROMX
 

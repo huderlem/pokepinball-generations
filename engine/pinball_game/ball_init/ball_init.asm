@@ -30,36 +30,24 @@ InitBallForStage: ; 0x83ba
 	ld a, [wCurrentStage]
 	call CallInFollowingTable
 CallTable_8404: ; 0x8404
-	; STAGE_RED_FIELD_TOP
-	padded_dab InitBallRedField
-	; STAGE_RED_FIELD_BOTTOM
-	padded_dab InitBallRedField
-	padded_dab Func_1804a
-	padded_dab Func_1804a
-	; STAGE_BLUE_FIELD_TOP
-	padded_dab InitBallBlueField
-	; STAGE_BLUE_FIELD_BOTTOM
-	padded_dab InitBallBlueField
-	; STAGE_GENGAR_BONUS
-	padded_dab InitBallGengarBonusStage
-	; STAGE_GENGAR_BONUS
-	padded_dab InitBallGengarBonusStage
-	; STAGE_MEWTWO_BONUS
-	padded_dab InitBallMewtwoBonusStage
-	; STAGE_MEWTWO_BONUS
-	padded_dab InitBallMewtwoBonusStage
-	; STAGE_MEOWTH_BONUS
-	padded_dab InitBallMeowthBonusStage
-	; STAGE_MEOWTH_BONUS
-	padded_dab InitBallMeowthBonusStage
-	; STAGE_DIGLETT_BONUS
-	padded_dab InitBallDiglettBonusStage
-	; STAGE_DIGLETT_BONUS
-	padded_dab InitBallDiglettBonusStage
-	; STAGE_SEEL_BONUS
-	padded_dab InitBallSeelBonusStage
-	; STAGE_SEEL_BONUS
-	padded_dab InitBallSeelBonusStage
+	padded_dab InitBallRedField ; STAGE_RED_FIELD_TOP
+	padded_dab InitBallRedField ; STAGE_RED_FIELD_BOTTOM
+	padded_dab InitBallBlueField ; STAGE_BLUE_FIELD_TOP
+	padded_dab InitBallBlueField ; STAGE_BLUE_FIELD_BOTTOM
+	padded_dab InitBallGoldField ; STAGE_GOLD_FIELD_TOP
+	padded_dab InitBallGoldField ; STAGE_GOLD_FIELD_BOTTOM
+	padded_dab InitBallSilverField ; STAGE_SILVER_FIELD_TOP
+	padded_dab InitBallSilverField ; STAGE_SILVER_FIELD_BOTTOM
+	padded_dab InitBallGengarBonusStage ; STAGE_GENGAR_BONUS
+	padded_dab InitBallGengarBonusStage ; STAGE_GENGAR_BONUS
+	padded_dab InitBallMewtwoBonusStage ; STAGE_MEWTWO_BONUS
+	padded_dab InitBallMewtwoBonusStage ; STAGE_MEWTWO_BONUS
+	padded_dab InitBallMeowthBonusStage ; STAGE_MEOWTH_BONUS
+	padded_dab InitBallMeowthBonusStage ; STAGE_MEOWTH_BONUS
+	padded_dab InitBallDiglettBonusStage ; STAGE_DIGLETT_BONUS
+	padded_dab InitBallDiglettBonusStage ; STAGE_DIGLETT_BONUS
+	padded_dab InitBallSeelBonusStage ; STAGE_SEEL_BONUS
+	padded_dab InitBallSeelBonusStage ; STAGE_SEEL_BONUS
 
 TryLoadWildMonCollisionMask: ; 0x8444
 	ld a, [wInSpecialMode]

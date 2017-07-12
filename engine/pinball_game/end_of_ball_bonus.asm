@@ -105,18 +105,20 @@ HandleBallBonusForCurrentField: ; 0xf60a
 	ld a, [wCurrentStage]
 	rst JumpTable  ; calls JumpToFuncInTable
 CallTable_f60d: ; 0xf60d
-	dw HandleBallBonusRedField  ; STAGE_RED_FIELD_TOP
-	dw HandleBallBonusRedField  ; STAGE_RED_FIELD_BOTTOM
-	dw DoNothing_f9f2
-	dw DoNothing_f9f2
-	dw HandleBallBonusBlueField ; STAGE_BLUE_FIELD_TOP
-	dw HandleBallBonusBlueField ; STAGE_BLUE_FIELD_BOTTOM
-	dw DoNothing_faf6           ; STAGE_GENGAR_BONUS
-	dw DoNothing_faf6           ; STAGE_GENGAR_BONUS
-	dw DoNothing_faf7           ; STAGE_MEWTWO_BONUS
-	dw DoNothing_faf7           ; STAGE_MEWTWO_BONUS
-	dw DoNothing_faf8           ; STAGE_MEOWTH_BONUS
-	dw DoNothing_faf8           ; STAGE_MEOWTH_BONUS
+	dw HandleBallBonusRedField    ; STAGE_RED_FIELD_TOP
+	dw HandleBallBonusRedField    ; STAGE_RED_FIELD_BOTTOM
+	dw HandleBallBonusBlueField   ; STAGE_BLUE_FIELD_TOP
+	dw HandleBallBonusBlueField   ; STAGE_BLUE_FIELD_BOTTOM
+	dw HandleBallBonusGoldField   ; STAGE_GOLD_FIELD_TOP
+	dw HandleBallBonusGoldField   ; STAGE_GOLD_FIELD_BOTTOM
+	dw HandleBallBonusSilverField ; STAGE_SILVER_FIELD_TOP
+	dw HandleBallBonusSilverField ; STAGE_SILVER_FIELD_BOTTOM
+	dw DoNothing_faf6             ; STAGE_GENGAR_BONUS
+	dw DoNothing_faf6             ; STAGE_GENGAR_BONUS
+	dw DoNothing_faf7             ; STAGE_MEWTWO_BONUS
+	dw DoNothing_faf7             ; STAGE_MEWTWO_BONUS
+	dw DoNothing_faf8             ; STAGE_MEOWTH_BONUS
+	dw DoNothing_faf8             ; STAGE_MEOWTH_BONUS
 
 HandleNumPokemonCaughtBallBonus: ; 0xf626
 	ld de, wBottomMessageText + $01
@@ -649,9 +651,6 @@ HandleSpinnerTurnsBallBonus_RedField: ; 0xf9ca
 	ld de, PointsPerSpinnerTurn
 	call Func_f853
 	call Func_f824
-	ret
-
-DoNothing_f9f2: ; 0xf9f2
 	ret
 
 HandleBallBonusBlueField: ; 0xf9f3

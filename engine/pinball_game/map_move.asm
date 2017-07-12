@@ -2,12 +2,14 @@ Func_301ce: ; 0x301ce
 	ld a, [wCurrentStage]
 	call CallInFollowingTable
 PointerTable_301d4: ; 0x301d4
-	padded_dab Func_314ae ; STAGE_RED_FIELD_TOP
-	padded_dab Func_314ae ; STAGE_RED_FIELD_BOTTOM
-	padded_dab Func_314ae
-	padded_dab Func_314ae
-	padded_dab Func_3161b ; STAGE_BLUE_FIELD_TOP
-	padded_dab Func_3161b ; STAGE_BLUE_FIELD_BOTTOM
+	padded_dab Func_314ae      ; STAGE_RED_FIELD_TOP
+	padded_dab Func_314ae      ; STAGE_RED_FIELD_BOTTOM
+	padded_dab Func_3161b      ; STAGE_BLUE_FIELD_TOP
+	padded_dab Func_3161b      ; STAGE_BLUE_FIELD_BOTTOM
+	padded_dab Func_314ae_TODO ; STAGE_GOLD_FIELD_TOP
+	padded_dab Func_314ae_TODO ; STAGE_GOLD_FIELD_BOTTOM
+	padded_dab Func_3161b_TODO ; STAGE_SILVER_FIELD_TOP
+	padded_dab Func_3161b_TODO ; STAGE_SILVER_FIELD_BOTTOM
 
 StartMapMoveMode: ; 0x301ec
 	ld a, [wInSpecialMode]
@@ -31,12 +33,14 @@ StartMapMoveMode: ; 0x301ec
 	ld a, [wCurrentStage]
 	rst JumpTable  ; calls JumpToFuncInTable
 CallTable_3021f: ; 0x3021f
-	dw Func_311b4 ; STAGE_RED_FIELD_TOP
-	dw Func_311b4 ; STAGE_RED_FIELD_BOTTOM
-	dw DoNothing_31324
-	dw DoNothing_31324
-	dw Func_31326 ; STAGE_BLUE_FIELD_TOP
-	dw Func_31326 ; STAGE_BLUE_FIELD_BOTTOM
+	dw Func_311b4      ; STAGE_RED_FIELD_TOP
+	dw Func_311b4      ; STAGE_RED_FIELD_BOTTOM
+	dw Func_31326      ; STAGE_BLUE_FIELD_TOP
+	dw Func_31326      ; STAGE_BLUE_FIELD_BOTTOM
+	dw Func_311b4_TODO ; STAGE_GOLD_FIELD_TOP
+	dw Func_311b4_TODO ; STAGE_GOLD_FIELD_BOTTOM
+	dw Func_31326_TODO ; STAGE_SILVER_FIELD_TOP
+	dw Func_31326_TODO ; STAGE_SILVER_FIELD_BOTTOM
 
 Func_3022b: ; 0x3022b
 	xor a
@@ -49,12 +53,14 @@ Func_3022b: ; 0x3022b
 	ld a, [wCurrentStage]
 	rst JumpTable  ; calls JumpToFuncInTable
 CallTable_30247: ; 0x30247
-	dw Func_31234 ; STAGE_RED_FIELD_TOP
-	dw Func_31234 ; STAGE_RED_FIELD_BOTTOM
-	dw DoNothing_31325
-	dw DoNothing_31325
-	dw Func_313c3 ; STAGE_BLUE_FIELD_TOP
-	dw Func_313c3 ; STAGE_BLUE_FIELD_TOP
+	dw Func_31234      ; STAGE_RED_FIELD_TOP
+	dw Func_31234      ; STAGE_RED_FIELD_BOTTOM
+	dw Func_313c3      ; STAGE_BLUE_FIELD_TOP
+	dw Func_313c3      ; STAGE_BLUE_FIELD_TOP
+	dw Func_31234_TODO ; STAGE_GOLD_FIELD_TOP
+	dw Func_31234_TODO ; STAGE_GOLD_FIELD_BOTTOM
+	dw Func_313c3_TODO ; STAGE_SILVER_FIELD_TOP
+	dw Func_313c3_TODO ; STAGE_SILVER_FIELD_TOP
 
 INCLUDE "engine/pinball_game/billboard_tiledata.asm"
 
@@ -245,12 +251,6 @@ SecondMapMoveSet_RedField:
 	db SAFARI_ZONE
 	db SEAFOAM_ISLANDS
 	db CINNABAR_ISLAND
-
-DoNothing_31324: ; 0x31324
-	ret
-
-DoNothing_31325: ; 0x31325
-	ret
 
 Func_31326: ; 0x31326
 	ld a, [wMapMoveDirection]

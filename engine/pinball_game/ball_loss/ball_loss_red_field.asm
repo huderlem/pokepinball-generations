@@ -98,7 +98,3 @@ Func_ddfd: ; 0xddfd
 	or c
 	ld [wStageCollisionState], a
 	ret
-
-Func_de4e: ; 0xde4e
-; unused
-	ret

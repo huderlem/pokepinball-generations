@@ -120,6 +120,7 @@ ExitFieldSelectScreen: ; 0xd774
 StartingStages: ; 0xd7d1
 ; wSelectedFieldIndex is used to index this array
 	db STAGE_RED_FIELD_BOTTOM, STAGE_BLUE_FIELD_BOTTOM
+	db STAGE_GOLD_FIELD_BOTTOM, STAGE_SILVER_FIELD_BOTTOM
 
 MoveFieldSelectCursor: ; 0xd7d3
 ; When the player presses Right or Left, the stage is

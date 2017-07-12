@@ -27,10 +27,12 @@ InitializeCurrentStage: ; 0x8311
 CallTable_8348: ; 0x8348
 	padded_dab InitRedField          ; STAGE_RED_FIELD_TOP
 	padded_dab InitRedField          ; STAGE_RED_FIELD_BOTTOM
-	padded_dab Func_18000
-	padded_dab Func_18000
 	padded_dab InitBlueField         ; STAGE_BLUE_FIELD_TOP
 	padded_dab InitBlueField         ; STAGE_BLUE_FIELD_BOTTOM
+	padded_dab InitGoldField         ; STAGE_GOLD_FIELD_TOP
+	padded_dab InitGoldField         ; STAGE_GOLD_FIELD_BOTTOM
+	padded_dab InitSilverField       ; STAGE_SILVER_FIELD_TOP
+	padded_dab InitSilverField       ; STAGE_SILVER_FIELD_BOTTOM
 	padded_dab InitGengarBonusStage  ; STAGE_GENGAR_BONUS
 	padded_dab InitGengarBonusStage  ; STAGE_GENGAR_BONUS
 	padded_dab InitMewtwoBonusStage  ; STAGE_MEWTWO_BONUS

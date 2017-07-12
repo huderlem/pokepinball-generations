@@ -124,10 +124,12 @@ StartCatchEmMode: ; 0x1003f
 CallTable_10124: ; 0x10124
 	dw Func_10871      ; STAGE_RED_FIELD_TOP
 	dw Func_10871      ; STAGE_RED_FIELD_BOTTOM
-	dw DoNothing_1098a
-	dw DoNothing_1098a
 	dw Func_1098c      ; STAGE_BLUE_FIELD_TOP
 	dw Func_1098c      ; STAGE_BLUE_FIELD_BOTTOM
+	dw Func_10871_TODO ; STAGE_GOLD_FIELD_TOP
+	dw Func_10871_TODO ; STAGE_GOLD_FIELD_BOTTOM
+	dw Func_1098c_TODO ; STAGE_SILVER_FIELD_TOP
+	dw Func_1098c_TODO ; STAGE_SILVER_FIELD_BOTTOM
 
 CheckForMew:
 ; Sets the encountered mon to Mew if the following conditions are met:
@@ -174,10 +176,12 @@ ConcludeCatchEmMode: ; 0x10157
 CallTable_10178: ; 0x10178
 	dw Func_108f5      ; STAGE_RED_FIELD_TOP
 	dw Func_108f5      ; STAGE_RED_FIELD_BOTTOM
-	dw DoNothing_1098b
-	dw DoNothing_1098b
 	dw Func_109fc      ; STAGE_BLUE_FIELD_TOP
 	dw Func_109fc      ; STAGE_BLUE_FIELD_BOTTOM
+	dw Func_108f5_TODO ; STAGE_GOLD_FIELD_TOP
+	dw Func_108f5_TODO ; STAGE_GOLD_FIELD_BOTTOM
+	dw Func_109fc_TODO ; STAGE_SILVER_FIELD_TOP
+	dw Func_109fc_TODO ; STAGE_SILVER_FIELD_BOTTOM
 
 Func_10184: ; 0x10184
 	ld a, [wCurrentStage]
@@ -1315,12 +1319,6 @@ CaughtPokeballTileData:
 	dw CaughtPokeballGfx
 	db Bank(CaughtPokeballGfx)
 	db $00
-
-DoNothing_1098a: ; 0x1098a
-	ret
-
-DoNothing_1098b: ; 0x1098b
-	ret
 
 Func_1098c: ; 0x1098c
 	ld a, [wCurrentCatchEmMon]

@@ -4,10 +4,12 @@ Func_10a95: ; 0x19a95
 PointerTable_10a9b: ; 0x10a9b
 	padded_dab Func_20581 ; STAGE_RED_FIELD_TOP
 	padded_dab Func_20581 ; STAGE_RED_FIELD_BOTTOM
-	padded_dab Func_20581
-	padded_dab Func_20581
 	padded_dab Func_20bae ; STAGE_BLUE_FIELD_TOP
 	padded_dab Func_20bae ; STAGE_BLUE_FIELD_BOTTOM
+	padded_dab Func_20581_TODO ; STAGE_GOLD_FIELD_TOP
+	padded_dab Func_20581_TODO ; STAGE_GOLD_FIELD_BOTTOM
+	padded_dab Func_20bae_TODO ; STAGE_SILVER_FIELD_TOP
+	padded_dab Func_20bae_TODO ; STAGE_SILVER_FIELD_BOTTOM
 
 StartEvolutionMode: ; 0x10ab3
 	ld a, [wInSpecialMode]
@@ -16,12 +18,14 @@ StartEvolutionMode: ; 0x10ab3
 	ld a, [wCurrentStage]
 	rst JumpTable  ; calls JumpToFuncInTable
 StartEvolutionMode_CallTable: ; 0x10abc
-	dw StartEvolutionMode_RedField ; STAGE_RED_FIELD_TOP
-	dw StartEvolutionMode_RedField ; STAGE_RED_FIELD_BOTTOM
-	dw StartEvolutionMode_UnusedField
-	dw StartEvolutionMode_UnusedField
-	dw StartEvolutionMode_BlueField ; STAGE_BLUE_FIELD_TOP
-	dw StartEvolutionMode_BlueField ; STAGE_BLUE_FIELD_BOTTOM
+	dw StartEvolutionMode_RedField    ; STAGE_RED_FIELD_TOP
+	dw StartEvolutionMode_RedField    ; STAGE_RED_FIELD_BOTTOM
+	dw StartEvolutionMode_BlueField   ; STAGE_BLUE_FIELD_TOP
+	dw StartEvolutionMode_BlueField   ; STAGE_BLUE_FIELD_BOTTOM
+	dw StartEvolutionMode_GoldField   ; STAGE_GOLD_FIELD_TOP
+	dw StartEvolutionMode_GoldField   ; STAGE_GOLD_FIELD_BOTTOM
+	dw StartEvolutionMode_SilverField ; STAGE_SILVER_FIELD_TOP
+	dw StartEvolutionMode_SilverField ; STAGE_SILVER_FIELD_BOTTOM
 
 ConcludeEvolutionMode: ; 0x10ac8
 	xor a
@@ -39,12 +43,14 @@ ConcludeEvolutionMode: ; 0x10ac8
 	ld a, [wCurrentStage]
 	rst JumpTable  ; calls JumpToFuncInTable
 ConcludeEvolutionMode_CallTable: ; 0x10af3
-	dw ConcludeEvolutionMode_RedField ; STAGE_RED_FIELD_TOP
-	dw ConcludeEvolutionMode_RedField ; STAGE_RED_FIELD_BOTTOM
-	dw DoNothing_11060
-	dw DoNothing_11060
-	dw ConcludeEvolutionMode_BlueField ; STAGE_BLUE_FIELD_TOP
-	dw ConcludeEvolutionMode_BlueField ; STAGE_BLUE_FIELD_TOP
+	dw ConcludeEvolutionMode_RedField    ; STAGE_RED_FIELD_TOP
+	dw ConcludeEvolutionMode_RedField    ; STAGE_RED_FIELD_BOTTOM
+	dw ConcludeEvolutionMode_BlueField   ; STAGE_BLUE_FIELD_TOP
+	dw ConcludeEvolutionMode_BlueField   ; STAGE_BLUE_FIELD_TOP
+	dw ConcludeEvolutionMode_GoldField   ; STAGE_GOLD_FIELD_TOP
+	dw ConcludeEvolutionMode_GoldField   ; STAGE_GOLD_FIELD_BOTTOM
+	dw ConcludeEvolutionMode_SilverField ; STAGE_SILVER_FIELD_TOP
+	dw ConcludeEvolutionMode_SilverField ; STAGE_SILVER_FIELD_TOP
 
 LoadRedFieldTopGraphics: ; 0x10aff
 	ld a, [wCurrentStage]
@@ -725,17 +731,6 @@ ConcludeEvolutionMode_RedField: ; 0x10fe3
 	ld hl, CaughtPokeballTileDataPointers
 	ld a, BANK(CaughtPokeballTileDataPointers)
 	call QueueGraphicsToLoad
-	ret
-
-StartEvolutionMode_UnusedField: ; 0x11054
-	ld a, [wNumPartyMons]
-	and a
-	ret z
-	call SelectPokemonToEvolve
-	call InitEvolutionModeForMon
-	ret
-
-DoNothing_11060: ; 0x11060
 	ret
 
 StartEvolutionMode_BlueField: ; 0x11061

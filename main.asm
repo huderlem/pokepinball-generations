@@ -390,10 +390,6 @@ INCLUDE "engine/pinball_game/draw_sprites/draw_red_field_sprites.asm"
 
 SECTION "bank6", ROMX
 
-INCLUDE "engine/pinball_game/stage_init/init_unused_stage.asm"
-INCLUDE "engine/pinball_game/ball_init/ball_init_unused_stage.asm"
-INCLUDE "engine/pinball_game/load_stage_data/load_unused_stage.asm"
-INCLUDE "engine/pinball_game/draw_sprites/draw_unused_stage_sprites.asm"
 INCLUDE "engine/pinball_game/stage_init/init_gengar_bonus.asm"
 INCLUDE "engine/pinball_game/ball_init/ball_init_gengar_bonus.asm"
 INCLUDE "engine/pinball_game/load_stage_data/load_gengar_bonus.asm"
@@ -558,9 +554,6 @@ StageBlueFieldTopBaseGameBoyGfx: ; 0x6b2a0
 SECTION "bank1b", ROMX
 
 INCLUDE "data/mon_gfx/mon_billboard_pics_4.asm"
-
-UnusedStageGfx: ; 0x6f000
-	INCBIN "gfx/stage/unused_stage.2bpp"
 
 SECTION "bank1c", ROMX
 

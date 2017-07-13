@@ -1139,6 +1139,16 @@ Func_107e9: ; 0x107e9
 	ld [wd7ad], a
 	ret
 
+Func_107e9_GoldField:
+	ld a, [wLeftAlleyCount]
+	cp $3
+	ld a, $4
+	jr nz, .asm_107f4
+	ld a, $6
+.asm_107f4
+	ld [wd7ad], a
+	ret
+
 PlayLowTimeSfx: ; 0x107f8
 	ld a, [wTimerFrames]
 	and a

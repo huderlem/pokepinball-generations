@@ -758,6 +758,182 @@ HandleSpinnerTurnsBallBonus_BlueField: ; 0xface  :)
 	call Func_f824
 	ret
 
+HandleBallBonusGoldField:
+	call HandleBellsproutEntriesBallBonus_GoldField
+	call HandleDugtrioTriplesBallBonus_GoldField
+	call HandleCAVECompletionsBallBonus_GoldField
+	call HandleSpinnerTurnsBallBonus_GoldField
+	ret
+
+HandleBellsproutEntriesBallBonus_GoldField:
+	ld de, wBottomMessageText + $03
+	ld hl, BellsproutCounterText
+	call PlaceTextAlphanumericOnly
+	ld hl, wBottomMessageText + $03
+	ld a, [wNumBellsproutEntries]
+	call Func_f78e
+	ld bc, $0040
+	ld de, $0000
+	call Func_f80d
+	ld hl, wNumBellsproutEntries
+	ld de, PointsPerBellsproutEntry
+	call Func_f853
+	call Func_f824
+	ret
+
+HandleDugtrioTriplesBallBonus_GoldField: ; 0xf97a
+	ld de, wBottomMessageText + $04
+	ld hl, DugtrioCounterText
+	call PlaceTextAlphanumericOnly
+	ld hl, wBottomMessageText + $04
+	ld a, [wNumDugtrioTriples]
+	call Func_f78e
+	ld bc, $0040
+	ld de, $0000
+	call Func_f80d
+	ld hl, wNumDugtrioTriples
+	ld de, PointsPerDugtrioTriple
+	call Func_f853
+	call Func_f824
+	ret
+
+HandleCAVECompletionsBallBonus_GoldField: ; 0xf9a2
+	ld de, wBottomMessageText + $03
+	ld hl, CaveShotCounterText
+	call PlaceTextAlphanumericOnly
+	ld hl, wBottomMessageText + $03
+	ld a, [wNumCAVECompletions]
+	call Func_f78e
+	ld bc, $0040
+	ld de, $0000
+	call Func_f80d
+	ld hl, wNumCAVECompletions
+	ld de, PointsPerCAVECompletion
+	call Func_f853
+	call Func_f824
+	ret
+
+HandleSpinnerTurnsBallBonus_GoldField: ; 0xf9ca
+	ld de, wBottomMessageText + $01
+	ld hl, SpinnerTurnsCounterText
+	call PlaceTextAlphanumericOnly
+	ld hl, wBottomMessageText + $01
+	ld a, [wNumSpinnerTurns]
+	call Func_f78e
+	ld bc, $0040
+	ld de, $0000
+	call Func_f80d
+	ld hl, wNumSpinnerTurns
+	ld de, PointsPerSpinnerTurn
+	call Func_f853
+	call Func_f824
+	ret
+
+HandleBallBonusBlueField_SilverField: ; 0xf9f3
+	call HandleCloysterEntriesBallBonus_SilverField
+	call HandleSlowpokeEntriesBallBonus_SilverField
+	call HandlePoliwagTriplesBallBonus_SilverField
+	call HandlePsyduckTriplesBallBonus_SilverField
+	call HandleCAVECompletionsBallBonus_SilverField
+	call HandleSpinnerTurnsBallBonus_SilverField
+	ret
+
+HandleCloysterEntriesBallBonus_SilverField: ; 0xfa06
+	ld de, wBottomMessageText + $04
+	ld hl, CloysterCounterText
+	call PlaceTextAlphanumericOnly
+	ld hl, wBottomMessageText + $04
+	ld a, [wNumCloysterEntries]
+	call Func_f78e
+	ld bc, $0040
+	ld de, $0000
+	call Func_f80d
+	ld hl, wNumCloysterEntries
+	ld de, PointsPerCloysterEntry
+	call Func_f853
+	call Func_f824
+	ret
+
+HandleSlowpokeEntriesBallBonus_SilverField: ; 0xfa2e
+	ld de, wBottomMessageText + $04
+	ld hl, SlowpokeCounterText
+	call PlaceTextAlphanumericOnly
+	ld hl, wBottomMessageText + $04
+	ld a, [wNumSlowpokeEntries]
+	call Func_f78e
+	ld bc, $0040
+	ld de, $0000
+	call Func_f80d
+	ld hl, wNumSlowpokeEntries
+	ld de, PointsPerSlowpokeEntry
+	call Func_f853
+	call Func_f824
+	ret
+
+HandlePoliwagTriplesBallBonus_SilverField: ; 0xfa56
+	ld de, wBottomMessageText + $04
+	ld hl, PoliwagCounterText
+	call PlaceTextAlphanumericOnly
+	ld hl, wBottomMessageText + $04
+	ld a, [wNumPoliwagTriples]
+	call Func_f78e
+	ld bc, $0040
+	ld de, $0000
+	call Func_f80d
+	ld hl, wNumPoliwagTriples
+	ld de, PointsPerPoliwagTriple
+	call Func_f853
+	call Func_f824
+	ret
+
+HandlePsyduckTriplesBallBonus_SilverField: ; 0xfa7e
+	ld de, wBottomMessageText + $04
+	ld hl, PsyduckCounterText
+	call PlaceTextAlphanumericOnly
+	ld hl, wBottomMessageText + $04
+	ld a, [wNumPsyduckTriples]
+	call Func_f78e
+	ld bc, $0040
+	ld de, $0000
+	call Func_f80d
+	ld hl, wNumPsyduckTriples
+	ld de, PointsPerPsyduckTriple
+	call Func_f853
+	call Func_f824
+	ret
+
+HandleCAVECompletionsBallBonus_SilverField: ; 0xfaa6
+	ld de, wBottomMessageText + $03
+	ld hl, CaveShotCounterText
+	call PlaceTextAlphanumericOnly
+	ld hl, wBottomMessageText + $03
+	ld a, [wNumCAVECompletions]
+	call Func_f78e
+	ld bc, $0040
+	ld de, $0000
+	call Func_f80d
+	ld hl, wNumCAVECompletions
+	ld de, PointsPerCAVECompletion
+	call Func_f853
+	call Func_f824
+	ret
+
+HandleSpinnerTurnsBallBonus_SilverField: ; 0xface  :)
+	ld de, wBottomMessageText + $01
+	ld hl, SpinnerTurnsCounterText
+	call PlaceTextAlphanumericOnly
+	ld hl, wBottomMessageText + $01
+	ld a, [wNumSpinnerTurns]
+	call Func_f78e
+	ld bc, $0040
+	ld de, $0000
+	call Func_f80d
+	ld hl, wNumSpinnerTurns
+	ld de, PointsPerSpinnerTurn
+	call Func_f853
+	call Func_f824
+	ret
+
 DoNothing_faf6: ; 0xfaf6
 	ret
 

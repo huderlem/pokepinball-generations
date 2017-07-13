@@ -121,14 +121,14 @@ Func_10000: ; 0x10000
 	ld a, [wCurrentStage]
 	call CallInFollowingTable
 CallTable_10027: ; 0x10027
-	padded_dab Func_20000      ; STAGE_RED_FIELD_TOP
-	padded_dab Func_20000      ; STAGE_RED_FIELD_BOTTOM
-	padded_dab Func_202bc      ; STAGE_BLUE_FIELD_TOP
-	padded_dab Func_202bc      ; STAGE_BLUE_FIELD_BOTTOM
-	padded_dab Func_20000_TODO ; STAGE_GOLD_FIELD_TOP
-	padded_dab Func_20000_TODO ; STAGE_GOLD_FIELD_BOTTOM
-	padded_dab Func_202bc_TODO ; STAGE_SILVER_FIELD_TOP
-	padded_dab Func_202bc_TODO ; STAGE_SILVER_FIELD_BOTTOM
+	padded_dab Func_20000             ; STAGE_RED_FIELD_TOP
+	padded_dab Func_20000             ; STAGE_RED_FIELD_BOTTOM
+	padded_dab Func_202bc             ; STAGE_BLUE_FIELD_TOP
+	padded_dab Func_202bc             ; STAGE_BLUE_FIELD_BOTTOM
+	padded_dab Func_20000_GoldField   ; STAGE_GOLD_FIELD_TOP
+	padded_dab Func_20000_GoldField   ; STAGE_GOLD_FIELD_BOTTOM
+	padded_dab Func_202bc_SilverField ; STAGE_SILVER_FIELD_TOP
+	padded_dab Func_202bc_SilverField ; STAGE_SILVER_FIELD_BOTTOM
 
 INCLUDE "engine/pinball_game/catchem_mode.asm"
 INCLUDE "engine/pinball_game/evolution_mode.asm"

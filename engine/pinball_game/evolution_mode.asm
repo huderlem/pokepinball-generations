@@ -6,10 +6,10 @@ PointerTable_10a9b: ; 0x10a9b
 	padded_dab Func_20581 ; STAGE_RED_FIELD_BOTTOM
 	padded_dab Func_20bae ; STAGE_BLUE_FIELD_TOP
 	padded_dab Func_20bae ; STAGE_BLUE_FIELD_BOTTOM
-	padded_dab Func_20581_TODO ; STAGE_GOLD_FIELD_TOP
-	padded_dab Func_20581_TODO ; STAGE_GOLD_FIELD_BOTTOM
-	padded_dab Func_20bae_TODO ; STAGE_SILVER_FIELD_TOP
-	padded_dab Func_20bae_TODO ; STAGE_SILVER_FIELD_BOTTOM
+	padded_dab Func_20581_GoldField   ; STAGE_GOLD_FIELD_TOP
+	padded_dab Func_20581_GoldField   ; STAGE_GOLD_FIELD_BOTTOM
+	padded_dab Func_20bae_SilverField ; STAGE_SILVER_FIELD_TOP
+	padded_dab Func_20bae_SilverField ; STAGE_SILVER_FIELD_BOTTOM
 
 StartEvolutionMode: ; 0x10ab3
 	ld a, [wInSpecialMode]
@@ -856,6 +856,255 @@ ConcludeEvolutionMode_BlueField: ; 0x11195
 	callba LoadPokeballsGraphics_RedField
 	ld hl, Data_10a88
 	ld a, BANK(Data_10a88)
+	call QueueGraphicsToLoad
+	ret
+
+StartEvolutionMode_GoldField: ; 0x10ebb
+	ld a, [wNumPartyMons]
+	and a
+	ret z
+	call SelectPokemonToEvolve
+	call InitEvolutionModeForMon
+	ld a, [wd555]
+	sub $2
+	ld c, a
+	sla c
+	ld hl, IndicatorStatesPointerTable_10f3b_GoldField
+	add hl, bc
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	ld de, wIndicatorStates
+	ld b, $13
+.loop
+	ld a, [hli]
+	ld [de], a
+	inc de
+	dec b
+	jr nz, .loop
+	xor a
+	ld [wLeftAlleyCount], a
+	call Func_107b0_GoldField
+	ld a, $2
+	ld [wd7ad], a
+	ld de, $0002
+	call PlaySong
+	call SetPokemonSeenFlag
+	ld a, [wCurrentStage]
+	bit 0, a
+	jr nz, .asm_10f0b
+	ld a, BANK(EvolutionTrinketsGfx)
+	ld hl, EvolutionTrinketsGfx
+	ld de, vTilesSH tile $10
+	ld bc, $00e0
+	call LoadOrCopyVRAMData
+	ret
+
+.asm_10f0b
+	ld a, BANK(EvolutionTrinketsGfx)
+	ld hl, EvolutionTrinketsGfx
+	ld de, vTilesOB tile $20
+	ld bc, $00e0
+	call LoadOrCopyVRAMData
+	callba ClearAllGoldIndicators
+	callba Func_10184
+	ld a, [hGameBoyColorFlag]
+	and a
+	callba nz, Func_102bc
+	ret
+
+IndicatorStatesPointerTable_10f3b_GoldField: ; 0x10f3b
+	dw IndicatorStates_10f4b_GoldField
+	dw IndicatorStates_10f5e_GoldField
+	dw IndicatorStates_10f71_GoldField
+	dw IndicatorStates_10f84_GoldField
+	dw IndicatorStates_10f97_GoldField
+	dw IndicatorStates_10faa_GoldField
+	dw IndicatorStates_10fbd_GoldField
+	dw IndicatorStates_10fd0_GoldField
+
+IndicatorStates_10f4b_GoldField:  ; 0x10f4b
+	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $01, $00, $00, $00, $01, $01, $00, $00, $00, $00
+
+IndicatorStates_10f5e_GoldField:  ; 0x10f5e
+	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $01, $00, $01, $00, $01, $01, $00, $00, $00, $00
+
+IndicatorStates_10f71_GoldField:  ; 0x10f71
+	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $01, $00, $01, $01, $01, $01, $00, $00, $00, $00
+
+IndicatorStates_10f84_GoldField:  ; 0x10f84
+	db $00, $00, $00, $00, $00, $00, $00, $00, $01, $01, $00, $01, $01, $01, $01, $00, $00, $00, $00
+
+IndicatorStates_10f97_GoldField:  ; 0x10f97
+	db $00, $00, $00, $80, $00, $00, $00, $00, $01, $01, $01, $01, $01, $01, $01, $00, $00, $00, $00
+
+IndicatorStates_10faa_GoldField:  ; 0x10faa
+	db $00, $00, $80, $80, $00, $00, $00, $00, $01, $01, $01, $01, $01, $01, $01, $00, $00, $00, $00
+
+IndicatorStates_10fbd_GoldField:  ; 0x10fbd
+	db $00, $00, $80, $80, $00, $00, $00, $01, $01, $01, $01, $01, $01, $01, $01, $00, $00, $00, $00
+
+IndicatorStates_10fd0_GoldField:  ; 0x10fd0
+	db $00, $00, $80, $80, $00, $00, $01, $01, $01, $01, $01, $01, $01, $01, $01, $00, $00, $00, $00
+
+ConcludeEvolutionMode_GoldField: ; 0x10fe3
+	call ResetIndicatorStates
+	call Func_107c2
+	call SetLeftAndRightAlleyArrowIndicatorStates_GoldField
+	call Func_107e9_GoldField
+	ld a, [wCurrentStage]
+	bit 0, a
+	jp z, LoadGoldFieldTopGraphics
+	callba ClearAllGoldIndicators
+	callba LoadSlotCaveCoverGraphics_GoldField
+	callba LoadMapBillboardTileData
+	ld a, BANK(StageSharedBonusSlotGlowGfx)
+	ld hl, StageSharedBonusSlotGlowGfx + $60
+	ld de, vTilesOB tile $20
+	ld bc, $00e0
+	call LoadVRAMData
+	ld a, [hGameBoyColorFlag]
+	and a
+	jr z, .asm_11036
+	ld a, BANK(StageGoldFieldBottomOBJPalette7)
+	ld hl, StageGoldFieldBottomOBJPalette7
+	ld de, $0078
+	ld bc, $0008
+	call Func_7dc
+.asm_11036
+	ld hl, BlankSaverSpaceTileDataGoldField
+	ld a, BANK(BlankSaverSpaceTileDataGoldField)
+	call QueueGraphicsToLoad
+	ld a, [wPreviousNumPokeballs]
+	callba LoadPokeballsGraphics_RedField
+	ld hl, CaughtPokeballTileDataPointers
+	ld a, BANK(CaughtPokeballTileDataPointers)
+	call QueueGraphicsToLoad
+	ret
+
+StartEvolutionMode_SilverField: ; 0x11061
+	ld a, [wNumPartyMons]
+	and a
+	ret z
+	call SelectPokemonToEvolve
+	call InitEvolutionModeForMon
+	ld a, $1
+	ld [wd643], a
+	ld a, [wd555]
+	sub $2
+	ld c, a
+	sla c
+	ld hl, IndicatorStatesPointerTable_110ed_SilverField
+	add hl, bc
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	ld de, wIndicatorStates
+	ld b, $13
+.asm_11085
+	ld a, [hli]
+	ld [de], a
+	inc de
+	dec b
+	jr nz, .asm_11085
+	xor a
+	ld [wLeftAlleyCount], a
+	callba CloseSlotCave
+	ld a, $2
+	ld [wd7ad], a
+	ld de, $0002
+	call PlaySong
+	call SetPokemonSeenFlag
+	ld a, [wCurrentStage]
+	bit 0, a
+	jr nz, .asm_110bd
+	ld a, BANK(EvolutionTrinketsGfx)
+	ld hl, EvolutionTrinketsGfx
+	ld de, vTilesOB tile $60
+	ld bc, $00e0
+	call LoadOrCopyVRAMData
+	ret
+
+.asm_110bd
+	ld a, BANK(EvolutionTrinketsGfx)
+	ld hl, EvolutionTrinketsGfx
+	ld de, vTilesOB tile $20
+	ld bc, $00e0
+	call LoadOrCopyVRAMData
+	callba Func_1c2cb
+	callba Func_10184
+	ld a, [hGameBoyColorFlag]
+	and a
+	callba nz, Func_102bc
+	ret
+
+IndicatorStatesPointerTable_110ed_SilverField: ; 0x110ed
+	dw IndicatorStates_110fd_SilverField
+	dw IndicatorStates_11110_SilverField
+	dw IndicatorStates_11123_SilverField
+	dw IndicatorStates_11136_SilverField
+	dw IndicatorStates_11149_SilverField
+	dw IndicatorStates_1115c_SilverField
+	dw IndicatorStates_1116f_SilverField
+	dw IndicatorStates_11182_SilverField
+
+IndicatorStates_110fd_SilverField: ; 0x110fd
+	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $01, $00, $00, $00, $01, $01, $00, $00, $00, $00
+
+IndicatorStates_11110_SilverField: ; 0x11110
+	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $01, $00, $01, $00, $01, $01, $00, $00, $00, $00
+
+IndicatorStates_11123_SilverField: ; 0x11123
+	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $01, $00, $01, $01, $01, $01, $00, $00, $00, $00
+
+IndicatorStates_11136_SilverField: ; 0x11136
+	db $00, $00, $80, $00, $00, $00, $00, $00, $01, $01, $00, $01, $01, $01, $01, $00, $00, $00, $00
+
+IndicatorStates_11149_SilverField: ; 0x11149
+	db $00, $00, $80, $80, $00, $00, $00, $00, $01, $01, $01, $01, $01, $01, $01, $00, $00, $00, $00
+
+IndicatorStates_1115c_SilverField: ; 0x1115c
+	db $00, $00, $80, $80, $00, $00, $00, $00, $01, $01, $01, $01, $01, $01, $01, $00, $00, $00, $00
+
+IndicatorStates_1116f_SilverField: ; 0x1116f
+	db $80, $00, $80, $80, $00, $00, $00, $01, $01, $01, $01, $01, $01, $01, $01, $00, $00, $00, $00
+
+IndicatorStates_11182_SilverField: ; 0x11182
+	db $80, $00, $80, $80, $00, $00, $01, $01, $01, $01, $01, $01, $01, $01, $01, $00, $00, $00, $00
+
+ConcludeEvolutionMode_SilverField: ; 0x11195
+	xor a
+	ld [wd643], a
+	call ResetIndicatorStates
+	call Func_107c2
+	callba SetLeftAndRightAlleyArrowIndicatorStates_SilverField
+	ld a, [wCurrentStage]
+	bit 0, a
+	jp z, LoadSilverFieldTopGraphics
+	callba Func_1c2cb_SilverField
+	callba LoadSlotCaveCoverGraphics_SilverField
+	callba LoadMapBillboardTileData
+	ld a, Bank(StageSharedBonusSlotGlowGfx)
+	ld hl, StageSharedBonusSlotGlowGfx + $60
+	ld de, vTilesOB tile $20
+	ld bc, $00e0
+	call LoadVRAMData
+	ld a, [hGameBoyColorFlag]
+	and a
+	jr z, .asm_111f0
+	ld a, BANK(StageSilverFieldBottomOBJPalette7)
+	ld hl, StageSilverFieldBottomOBJPalette7
+	ld de, $0078
+	ld bc, $0008
+	call Func_7dc
+.asm_111f0
+	ld hl, BlankSaverSpaceTileDataSilverField
+	ld a, BANK(BlankSaverSpaceTileDataSilverField)
+	call QueueGraphicsToLoad
+	ld a, [wPreviousNumPokeballs]
+	callba LoadPokeballsGraphics_RedField
+	ld hl, Data_10a88_SilverField
+	ld a, BANK(Data_10a88_SilverField)
 	call QueueGraphicsToLoad
 	ret
 

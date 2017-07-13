@@ -1099,7 +1099,7 @@ ConcludeEvolutionMode_SilverField: ; 0x11195
 
 LoadBlueFieldTopGraphics: ; 0x1120e
 	ld a, [wCurrentStage]
-	sub $4
+	sub STAGE_BLUE_FIELD_TOP
 	res 0, a
 	ld c, a
 	ld b, $0
@@ -1194,7 +1194,7 @@ VideoData_10b2a_GoldField: ; 0x10b2a
 
 LoadSilverFieldTopGraphics: ; 0x1120e
 	ld a, [wCurrentStage]
-	sub $4
+	sub STAGE_SILVER_FIELD_TOP
 	res 0, a
 	ld c, a
 	ld b, $0

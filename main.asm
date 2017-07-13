@@ -418,12 +418,6 @@ INCLUDE "engine/pinball_game/load_stage_data/load_blue_field.asm"
 INCLUDE "engine/pinball_game/object_collision/blue_stage_object_collision.asm"
 INCLUDE "engine/pinball_game/object_collision/blue_stage_resolve_collision.asm"
 INCLUDE "engine/pinball_game/draw_sprites/draw_blue_field_sprites.asm"
-INCLUDE "engine/pinball_game/stage_init/init_gold_field.asm"
-INCLUDE "engine/pinball_game/stage_init/init_silver_field.asm"
-INCLUDE "engine/pinball_game/draw_sprites/draw_silver_field_sprites.asm"
-INCLUDE "engine/pinball_game/ball_init/ball_init_silver_field.asm"
-INCLUDE "engine/pinball_game/draw_sprites/draw_gold_field_sprites.asm"
-INCLUDE "engine/pinball_game/ball_init/ball_init_gold_field.asm"
 
 SECTION "bank8", ROMX
 
@@ -1521,13 +1515,22 @@ StageGoldFieldTopCollisionAttributes7:
 
 SECTION "bank46", ROMX
 
-INCLUDE "engine/pinball_game/catchem_mode/choose_wild_mon.asm"
 INCLUDE "engine/pinball_game/object_collision/silver_stage_resolve_collision.asm"
 INCLUDE "engine/pinball_game/object_collision/silver_stage_object_collision.asm"
+INCLUDE "engine/pinball_game/stage_init/init_silver_field.asm"
+INCLUDE "engine/pinball_game/ball_init/ball_init_silver_field.asm"
 INCLUDE "engine/pinball_game/load_stage_data/load_silver_field.asm"
+INCLUDE "engine/pinball_game/draw_sprites/draw_silver_field_sprites.asm"
 
 SECTION "bank47", ROMX
 
 INCLUDE "engine/pinball_game/object_collision/gold_stage_resolve_collision.asm"
 INCLUDE "engine/pinball_game/object_collision/gold_stage_object_collision.asm"
+INCLUDE "engine/pinball_game/stage_init/init_gold_field.asm"
+INCLUDE "engine/pinball_game/ball_init/ball_init_gold_field.asm"
 INCLUDE "engine/pinball_game/load_stage_data/load_gold_field.asm"
+INCLUDE "engine/pinball_game/draw_sprites/draw_gold_field_sprites.asm"
+
+SECTION "bank48", ROMX
+
+INCLUDE "engine/pinball_game/catchem_mode/choose_wild_mon.asm"

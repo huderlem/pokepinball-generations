@@ -1,15 +1,16 @@
-Func_301ce: ; 0x301ce
+HandleMapModeCollision: ; 0x301ce
 	ld a, [wCurrentStage]
 	call CallInFollowingTable
-PointerTable_301d4: ; 0x301d4
-	padded_dab Func_314ae             ; STAGE_RED_FIELD_TOP
-	padded_dab Func_314ae             ; STAGE_RED_FIELD_BOTTOM
-	padded_dab Func_3161b             ; STAGE_BLUE_FIELD_TOP
-	padded_dab Func_3161b             ; STAGE_BLUE_FIELD_BOTTOM
-	padded_dab Func_314ae_GoldField   ; STAGE_GOLD_FIELD_TOP
-	padded_dab Func_314ae_GoldField   ; STAGE_GOLD_FIELD_BOTTOM
-	padded_dab Func_3161b_SilverField ; STAGE_SILVER_FIELD_TOP
-	padded_dab Func_3161b_SilverField ; STAGE_SILVER_FIELD_BOTTOM
+
+HandleMapModeCollisionPointerTable: ; 0x301d4
+	padded_dab HandleRedMapModeCollision    ; STAGE_RED_FIELD_TOP
+	padded_dab HandleRedMapModeCollision    ; STAGE_RED_FIELD_BOTTOM
+	padded_dab HandleBlueMapModeCollision   ; STAGE_BLUE_FIELD_TOP
+	padded_dab HandleBlueMapModeCollision   ; STAGE_BLUE_FIELD_BOTTOM
+	padded_dab HandleGoldMapModeCollision   ; STAGE_GOLD_FIELD_TOP
+	padded_dab HandleGoldMapModeCollision   ; STAGE_GOLD_FIELD_BOTTOM
+	padded_dab HandleSilverMapModeCollision ; STAGE_SILVER_FIELD_TOP
+	padded_dab HandleSilverMapModeCollision ; STAGE_SILVER_FIELD_BOTTOM
 
 StartMapMoveMode: ; 0x301ec
 	ld a, [wInSpecialMode]
@@ -424,21 +425,21 @@ SecondMapMoveSet_BlueField:
 	db SAFFRON_CITY
 	db CINNABAR_ISLAND
 
-Func_314ae: ; 0x314ae
+HandleRedMapModeCollision: ; 0x314ae
 	ld a, [wTimerActive]
 	and a
-	ld a, [wd54c]
+	ld a, [wSpecialModeCollisionID]
 	jr z, .asm_314d0
 	cp $1
-	jp z, Func_31591
+	jp z, OpenRedMapMoveSlotFromLeft
 	cp $3
-	jp z, Func_31591
+	jp z, OpenRedMapMoveSlotFromLeft
 	cp $2
-	jp z, Func_315b3
+	jp z, OpenRedMapMoveSlotFromRight
 	cp $5
-	jp z, Func_315b3
+	jp z, OpenRedMapMoveSlotFromRight
 	cp $d
-	jp z, Func_315d5
+	jp z, ResolveSucsessfulRedMapMove
 .asm_314d0
 	cp $0
 	jr z, .asm_314d6
@@ -486,11 +487,11 @@ UpdateMapMove_RedField: ; 0x3151f handle map move timer and fail when it expires
 	ld [wLeftDiglettAnimationController], a
 	ld [wRightDiglettAnimationController], a
 	callba PlayLowTimeSfx
-	ld a, [wd57e] ;if ??? is 0, quit, else make it zero (this only truns once per something?) and handle a failed map move
+	ld a, [wTimeRanOut] ;if ??? is 0, quit, else make it zero (this only truns once per something?) and handle a failed map move
 	and a
 	ret z
 	xor a
-	ld [wd57e], a
+	ld [wTimeRanOut], a
 	ld a, $3
 	ld [wd54d], a
 	xor a
@@ -515,13 +516,13 @@ UpdateMapMove_RedField: ; 0x3151f handle map move timer and fail when it expires
 	call LoadScrollingText
 	ret
 
-Func_31591: ; 0x31591
+OpenRedMapMoveSlotFromLeft: ; 0x31591
 	ld a, [wMapMoveDirection]
 	and a
-	jr nz, .asm_315b1
+	jr nz, .NotApplicibleOrCompleted
 	ld a, [wIndicatorStates]
 	and a
-	jr z, .asm_315b1
+	jr z, .NotApplicibleOrCompleted
 	xor a
 	ld [wIndicatorStates], a
 	ld [wIndicatorStates + 2], a
@@ -530,17 +531,17 @@ Func_31591: ; 0x31591
 	ld a, $1
 	ld [wSlotIsOpen], a
 	ld [wd54d], a
-.asm_315b1
+.NotApplicibleOrCompleted
 	scf
 	ret
 
-Func_315b3: ; 0x315b3
+OpenRedMapMoveSlotFromRight: ; 0x315b3
 	ld a, [wMapMoveDirection]
 	and a
-	jr z, .asm_315d3
+	jr z, .NotApplicibleOrCompleted
 	ld a, [wIndicatorStates + 1]
 	and a
-	jr z, .asm_315d3
+	jr z, .NotApplicibleOrCompleted
 	xor a
 	ld [wIndicatorStates + 1], a
 	ld [wIndicatorStates + 3], a
@@ -549,11 +550,11 @@ Func_315b3: ; 0x315b3
 	ld a, $1
 	ld [wSlotIsOpen], a
 	ld [wd54d], a
-.asm_315d3
+.NotApplicibleOrCompleted
 	scf
 	ret
 
-Func_315d5: ; 0x315d5
+ResolveSucsessfulRedMapMove: ; 0x315d5
 	ld de, $0000
 	call PlaySong
 	rst AdvanceFrame
@@ -574,10 +575,10 @@ Func_315d5: ; 0x315d5
 	scf
 	ret
 
-Func_3161b: ; 0x3161b
+HandleBlueMapModeCollision: ; 0x3161b
 	ld a, [wTimerActive]
 	and a
-	ld a, [wd54c]
+	ld a, [wSpecialModeCollisionID]
 	jr z, .asm_3163d
 	cp $1
 	jp z, Func_31708
@@ -640,11 +641,11 @@ UpdateMapMove_BlueField: ; 0x3168c
 	ld a, $1
 	ld [wPoliwagState], a
 	callba PlayLowTimeSfx
-	ld a, [wd57e]
+	ld a, [wTimeRanOut]
 	and a
 	ret z
 	xor a
-	ld [wd57e], a
+	ld [wTimeRanOut], a
 	ld a, $3
 	ld [wd54d], a
 	xor a
@@ -729,21 +730,21 @@ Func_3174c: ; 0x3174c
 	ret
 
 
-Func_314ae_GoldField: ; 0x314ae
+HandleGoldMapModeCollision: ; 0x314ae
 	ld a, [wTimerActive]
 	and a
-	ld a, [wd54c]
+	ld a, [wSpecialModeCollisionID]
 	jr z, .asm_314d0
 	cp $1
-	jp z, Func_31591_GoldField
+	jp z, OpenGoldMapMoveSlotFromLeft
 	cp $3
-	jp z, Func_31591_GoldField
+	jp z, OpenGoldMapMoveSlotFromLeft
 	cp $2
-	jp z, Func_315b3_GoldField
+	jp z, OpenGoldMapMoveSlotFromRight
 	cp $5
-	jp z, Func_315b3_GoldField
+	jp z, OpenGoldMapMoveSlotFromRight
 	cp $d
-	jp z, Func_315d5_GoldField
+	jp z, ResolveSucsessfulGoldMapMove
 .asm_314d0
 	cp $0
 	jr z, .asm_314d6
@@ -791,11 +792,11 @@ UpdateMapMove_GoldField:
 	ld [wLeftDiglettAnimationController], a
 	ld [wRightDiglettAnimationController], a
 	callba PlayLowTimeSfx
-	ld a, [wd57e] ;if ??? is 0, quit, else make it zero (this only truns once per something?) and handle a failed map move
+	ld a, [wTimeRanOut]
 	and a
 	ret z
 	xor a
-	ld [wd57e], a
+	ld [wTimeRanOut], a
 	ld a, $3
 	ld [wd54d], a
 	xor a
@@ -820,7 +821,7 @@ UpdateMapMove_GoldField:
 	call LoadScrollingText
 	ret
 
-Func_31591_GoldField: ; 0x31591
+OpenGoldMapMoveSlotFromLeft: ; 0x31591
 	ld a, [wMapMoveDirection]
 	and a
 	jr nz, .asm_315b1
@@ -839,7 +840,7 @@ Func_31591_GoldField: ; 0x31591
 	scf
 	ret
 
-Func_315b3_GoldField: ; 0x315b3
+OpenGoldMapMoveSlotFromRight: ; 0x315b3
 	ld a, [wMapMoveDirection]
 	and a
 	jr z, .asm_315d3
@@ -858,7 +859,7 @@ Func_315b3_GoldField: ; 0x315b3
 	scf
 	ret
 
-Func_315d5_GoldField: ; 0x315d5
+ResolveSucsessfulGoldMapMove: ; 0x315d5
 	ld de, $0000
 	call PlaySong
 	rst AdvanceFrame
@@ -1046,10 +1047,10 @@ SecondMapMoveSet_GoldField:
 
 
 
-Func_3161b_SilverField: ; 0x3161b
+HandleSilverMapModeCollision: ; 0x3161b
 	ld a, [wTimerActive]
 	and a
-	ld a, [wd54c]
+	ld a, [wSpecialModeCollisionID]
 	jr z, .asm_3163d
 	cp $1
 	jp z, Func_31708_SilverField
@@ -1112,11 +1113,11 @@ UpdateMapMove_SilverField: ; 0x3168c
 	ld a, $1
 	ld [wPoliwagState], a
 	callba PlayLowTimeSfx
-	ld a, [wd57e]
+	ld a, [wTimeRanOut]
 	and a
 	ret z
 	xor a
-	ld [wd57e], a
+	ld [wTimeRanOut], a
 	ld a, $3
 	ld [wd54d], a
 	xor a

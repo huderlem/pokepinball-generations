@@ -1,5 +1,5 @@
-Func_20000_GoldField: ; 0x20000
-	ld a, [wd54c]
+HandleGoldCatchEmCollision: ; 0x20000
+	ld a, [wSpecialModeCollisionID]
 	cp $4
 	jp z, Func_20230_GoldField
 	cp $c
@@ -140,9 +140,9 @@ Func_200d3_GoldField: ; 0x200d3
 
 .hitMonThreeTimes
 	xor a
-	ld [wd57e], a
+	ld [wTimeRanOut], a
 	ld a, $1
-	ld [wd57f], a
+	ld [wPauseTimer], a
 	ld hl, wd54d
 	inc [hl]
 	ld c, $2
@@ -211,11 +211,11 @@ Func_201ce_GoldField: ; 0x201ce
 
 Func_201f2_GoldField: ; 0x201f2
 	callba PlayLowTimeSfx
-	ld a, [wd57e]
+	ld a, [wTimeRanOut]
 	and a
 	ret z
 	xor a
-	ld [wd57e], a
+	ld [wTimeRanOut], a
 	ld a, $7
 	ld [wd54d], a
 	; Automatically set Mew as caught, since you can't possibly catch it

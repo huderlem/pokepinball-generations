@@ -2,18 +2,18 @@ GenRandom: ; 0x959
 	push bc
 	push de
 	push hl
-	ld a, [wd811]
+	ld a, [wRNGPointer]
 	ld c, a
-	ld b, $0
+	ld b, $0 ;load ??? into c
 	inc a
-	cp 54 + 1
+	cp 54 + 1 ;inc ???, if ??? is 55 do alot of subtraction and make ??? 0
 	jr nz, .asm_96e
-	call Func_9fa
+	call UpdateRNG
 	xor a
 	ld bc, $0000
 .asm_96e
-	ld [wd811], a
-	ld hl, wd812
+	ld [wRNGPointer], a ;place wRNGPointer + 1 back in
+	ld hl, wRNGValues ;choose number generated based on wRNGPointer and all the subtraction
 	add hl, bc
 	ld a, [hl]
 	pop hl
@@ -21,53 +21,55 @@ GenRandom: ; 0x959
 	pop bc
 	ret
 
-Func_97a: ; 0x97a
-	ld a, [wd810]
+ResetRNG: ; 0x97a
+	ld a, [wRNGModulus]
 	ld d, a
-	ld a, $0
+	ld a, $0 ; wasted instruction (debug that was never commented out?)
+	; [wRNGSub] = [sRNGMod] % [wRNGModulus]
 	ld a, [sRNGMod]
-.asm_983
+.modulo
 	cp d
-	jr c, .asm_989
+	jr c, .okay
 	sub d
-	jr .asm_983
+	jr .modulo
 
-.asm_989
-	ld [wd80f], a
-	ld [wd848], a
+.okay
+	ld [wRNGSub], a
+	ld [wRNGSub2], a
 	ld e, $1
-	ld hl, Data_9c4
-	ld a, $36
-.asm_996
+	ld hl, .Data
+	ld a, 54
+.copy_prng
 	push af
 	ld c, [hl]
 	inc hl
 	ld b, $0
 	push hl
-	ld hl, wd812
+	ld hl, wRNGValues
 	add hl, bc
 	ld [hl], e
-	ld a, [wd80f]
+	ld a, [wRNGSub]
 	sub e
-	jr nc, .asm_9a8
+	jr nc, .next
 	add d
-.asm_9a8
+.next
 	ld e, a
 	ld a, [hl]
-	ld [wd80f], a
+	ld [wRNGSub], a
 	pop hl
 	pop af
 	dec a
-	jr nz, .asm_996
-	call Func_9fa
-	call Func_9fa
-	call Func_9fa
-	ld a, $0
+	jr nz, .copy_prng
+	call UpdateRNG
+	call UpdateRNG
+	call UpdateRNG
+	ld a, $0 ; wasted instruction (debug that was never commented out?)
 	call GenRandom
 	ld [sRNGMod], a
 	ret
 
-Data_9c4:
+.Data
+; offsets from wRNGValues
 	db $14, $29, $07, $1c, $31, $0f, $24, $02, $17
 	db $2c, $0a, $1f, $34, $12, $27, $05, $1a, $2f
 	db $0d, $22, $00, $15, $2a, $08, $1d, $32, $10
@@ -75,45 +77,49 @@ Data_9c4:
 	db $06, $1b, $30, $0e, $23, $01, $16, $2b, $09
 	db $1e, $33, $11, $26, $04, $19, $2e, $0c, $21
 
-Func_9fa: ; 0x9fa
-	ld a, [wd810]
+UpdateRNG: ; 0x9fa
+; Adjusts two RNG values using wRNGModulus
+	ld a, [wRNGModulus]
 	ld d, a
-	ld bc, wd812
-	ld hl, wd812 + $1f
+ ; [d812] = ([d812] - 24 * [d831]) % [d810]
+	ld bc, wRNGValues
+	ld hl, wRNGValues + $1f
 	ld e, $18
-.asm_a06
+.loop
 	ld a, [bc]
 	sub [hl]
-	jr nc, .asm_a0b
+	jr nc, .no_carry
 	add d
-.asm_a0b
+.no_carry
 	ld [bc], a
 	dec e
-	jr nz, .asm_a06
-	ld bc, wd812 + $18
-	ld hl, wd812
+	jr nz, .loop
+ ; [d82a] = ([d82a] - 31 * [d812]) % [d810]
+	ld bc, wRNGValues + $18 ; d82a
+	ld hl, wRNGValues
 	ld e, $1f
-.asm_a17
+.loop2
 	ld a, [bc]
 	sub [hl]
-	jr nc, .asm_a1c
+	jr nc, .no_carry2
 	add d
-.asm_a1c
+.no_carry2
 	ld [bc], a
 	dec e
-	jr nz, .asm_a17
+	jr nz, .loop2
 	ret
 
-Func_a21: ; 0xa21
+RandomRange: ; 0xa21
+; Random value 0 <= x < a
 	push bc
 	push hl
 	ld c, a
 	ld b, $0
-	ld hl, Data_a38
+	ld hl, EvensAndOdds
 	add hl, bc
 	ld l, [hl]
 	call GenRandom
-	call Func_dd4
+	call HorrendousMultiplyAbyL
 	inc h
 	srl h
 	ld a, h
@@ -121,7 +127,10 @@ Func_a21: ; 0xa21
 	pop bc
 	ret
 
-Data_a38:
+EvensAndOdds:
+; The first 128 bytes are the first 128 even numbers starting at 0.
+; The next 128 bytes are the first 128 odd numbers starting at 1.
+; The (a)th element is essentially what you'd get from rlca.
 x = 0
 REPT 128
 	db x | ((x >> 7) & 1)

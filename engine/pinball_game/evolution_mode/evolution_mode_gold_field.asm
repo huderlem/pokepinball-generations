@@ -1,21 +1,21 @@
-Func_20581_GoldField: ; 0x20581
-	ld a, [wd54c]
+HandleGoldEvoModeCollision: ; 0x20581
+	ld a, [wSpecialModeCollisionID]
 	cp $4
-	jp z, Func_2080f_GoldField
+	jp z, Func_2080f_GoldField ;voltorb
 	cp $3
 	jp z, Func_20839_GoldField
 	cp $5
-	jp z, Func_2085a_GoldField
+	jp z, Func_2085a_GoldField ;bellsprout
 	cp $6
-	jp z, Func_20887_GoldField
+	jp z, Func_20887_GoldField ;staryu
 	cp $7
-	jp z, Func_208a8_GoldField
+	jp z, Func_208a8_GoldField ;diglett
 	cp $8
-	jp z, Func_208c9_GoldField
+	jp z, Func_208c9_GoldField ;diglett
 	cp $9
-	jp z, Func_208ea_GoldField
+	jp z, Func_208ea_GoldField ;right rail?
 	cp $a
-	jp z, Func_2090b_GoldField
+	jp z, Func_2090b_GoldField ;right rail?
 	cp $b
 	jp z, Func_2092c_GoldField
 	cp $c
@@ -226,11 +226,11 @@ Func_2077b_GoldField: ; 0x2077b
 	call Func_20a55_GoldField
 .asm_2078e
 	callba PlayLowTimeSfx
-	ld a, [wd57e]
+	ld a, [wTimeRanOut]
 	and a
 	ret z
 	xor a
-	ld [wd57e], a
+	ld [wTimeRanOut], a
 	ld a, $2
 	ld [wd54d], a
 	xor a
@@ -640,7 +640,7 @@ asm_20a9f_GoldField:
 
 Func_20af5_GoldField: ; 0x20af5
 	ld a, $11
-	call Func_a21
+	call RandomRange
 	ld c, a
 	ld b, $0
 	ld hl, wd566

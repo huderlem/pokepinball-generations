@@ -1,15 +1,16 @@
-Func_10a95: ; 0x19a95
+HandleEvoModeCollision: ; 0x19a95
 	ld a, [wCurrentStage]
 	call CallInFollowingTable
-PointerTable_10a9b: ; 0x10a9b
-	padded_dab Func_20581 ; STAGE_RED_FIELD_TOP
-	padded_dab Func_20581 ; STAGE_RED_FIELD_BOTTOM
-	padded_dab Func_20bae ; STAGE_BLUE_FIELD_TOP
-	padded_dab Func_20bae ; STAGE_BLUE_FIELD_BOTTOM
-	padded_dab Func_20581_GoldField   ; STAGE_GOLD_FIELD_TOP
-	padded_dab Func_20581_GoldField   ; STAGE_GOLD_FIELD_BOTTOM
-	padded_dab Func_20bae_SilverField ; STAGE_SILVER_FIELD_TOP
-	padded_dab Func_20bae_SilverField ; STAGE_SILVER_FIELD_BOTTOM
+
+HandleEvoModeCollisionPointerTable: ; 0x10a9b
+	padded_dab HandleRedEvoModeCollision    ; STAGE_RED_FIELD_TOP
+	padded_dab HandleRedEvoModeCollision    ; STAGE_RED_FIELD_BOTTOM
+	padded_dab HandleBlueEvoModeCollision   ; STAGE_BLUE_FIELD_TOP
+	padded_dab HandleBlueEvoModeCollision   ; STAGE_BLUE_FIELD_BOTTOM
+	padded_dab HandleGoldEvoModeCollision   ; STAGE_GOLD_FIELD_TOP
+	padded_dab HandleGoldEvoModeCollision   ; STAGE_GOLD_FIELD_BOTTOM
+	padded_dab HandleSilverEvoModeCollision ; STAGE_SILVER_FIELD_TOP
+	padded_dab HandleSilverEvoModeCollision ; STAGE_SILVER_FIELD_BOTTOM
 
 StartEvolutionMode: ; 0x10ab3
 	ld a, [wInSpecialMode]
@@ -449,7 +450,7 @@ InitEvolutionModeForMon: ; 0x10d1d
 	jr nz, .asm_10d8a
 	xor a
 .asm_10d8a
-	call Func_a21
+	call RandomRange
 	sla a
 	ld c, a
 	pop hl
@@ -484,7 +485,7 @@ InitEvolutionModeForMon: ; 0x10d1d
 .asm_10dc0
 	push bc
 	ld a, c
-	call Func_a21
+	call RandomRange
 	ld c, a
 	ld b, $0
 	ld hl, wd55c

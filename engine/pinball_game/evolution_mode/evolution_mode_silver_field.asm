@@ -1,5 +1,5 @@
-Func_20bae_SilverField: ; 0x20bae
-	ld a, [wd54c]
+HandleSilverEvoModeCollision: ; 0x20bae
+	ld a, [wSpecialModeCollisionID]
 	cp $4
 	jp z, Func_20e34_SilverField
 	cp $1
@@ -223,11 +223,11 @@ Func_20da0_SilverField: ; 0x20da0
 	call Func_21079_SilverField
 .asm_20db3
 	callba PlayLowTimeSfx
-	ld a, [wd57e]
+	ld a, [wTimeRanOut]
 	and a
 	ret z
 	xor a
-	ld [wd57e], a
+	ld [wTimeRanOut], a
 	ld a, $2
 	ld [wd54d], a
 	xor a
@@ -638,7 +638,7 @@ asm_210c7_SilverField:
 
 Func_2111d_SilverField: ; 0x2111d
 	ld a, $11
-	call Func_a21
+	call RandomRange
 	ld c, a
 	ld b, $0
 	ld hl, wd566

@@ -83,9 +83,9 @@ Func_140f9_GoldField: ; 0x140f9
 	ld [wStageCollisionMap + $103], a ;load into the collision map?
 	ld a, $2
 .asm_1410c
-	call LoadDiglettGraphics
+	call LoadDiglettGraphics_GoldField
 	ld a, [wLeftMapMoveCounter]
-	call LoadDiglettNumberGraphics
+	call LoadDiglettNumberGraphics_GoldField
 	ld a, [wRightDiglettAnimationController]
 	and a
 	jr z, .asm_14127
@@ -96,10 +96,10 @@ Func_140f9_GoldField: ; 0x140f9
 	ld a, $2
 .asm_14127
 	add $3
-	call LoadDiglettGraphics
+	call LoadDiglettGraphics_GoldField
 	ld a, [wRightMapMoveCounter]
 	add $4
-	call LoadDiglettNumberGraphics
+	call LoadDiglettNumberGraphics_GoldField
 	ret
 
 ClearAllGoldIndicators: ; 0x14135

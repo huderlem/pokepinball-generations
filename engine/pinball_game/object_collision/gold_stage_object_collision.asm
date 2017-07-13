@@ -32,6 +32,7 @@ CheckGoldStageEvolutionTrinketCollision: ; 0x1441e
 	and a
 	ret z
 	ld a, [wCurrentStage]
+	and 1
 	ld hl, GoldStageEvolutionTrinketCoordinatePointers
 	ld c, a
 	ld b, $0

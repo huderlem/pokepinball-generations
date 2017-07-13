@@ -1,25 +1,25 @@
 DrawSpritesGoldFieldTop:
 	ld bc, $7f00
-	call DrawTimer
-	call DrawVoltorbSprites_GoldField
+	callba DrawTimer
+	callba DrawVoltorbSprites_GoldField
 	call Func_17d34_GoldField
 	call Func_17d59_GoldField
 	call Func_17d7a_GoldField
 	call Func_17d92_GoldField
 	call Func_17de1_GoldField
-	call DrawPinball
+	callba DrawPinball
 	call Func_17efb_GoldField
 	call Func_17f64_GoldField
 	ret
 
 DrawSpritesGoldFieldBottom: ; 0x1757e
 	ld bc, $7f00
-	call DrawTimer
-	call DrawMonCaptureAnimation
+	callba DrawTimer
+	callba DrawMonCaptureAnimation
 	call DrawAnimatedMon_GoldField
 	call DrawPikachuSavers_GoldField
 	callba DrawFlippers
-	call DrawPinball
+	callba DrawPinball
 	call Func_17f0f_GoldField
 	call Func_17f75_GoldField
 	call DrawSlotGlow_GoldField

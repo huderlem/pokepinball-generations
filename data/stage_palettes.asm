@@ -1453,6 +1453,30 @@ FieldSelectScreenOBJPalette0: ; 0xdd140
 	RGB 21, 21, 21
 	RGB 0, 0, 0
 
+FieldSelectScreenPalettes_Kanto:
+FieldSelectScreenBGPalette0_Kanto: ; 0xdd100
+	RGB 31, 31, 31
+	RGB 31, 20, 0
+	RGB 31, 0, 0
+	RGB 0, 0, 0
+FieldSelectScreenBGPalette1_Kanto: ; 0xdd108
+	RGB 31, 31, 31
+	RGB 0, 22, 31
+	RGB 0, 0, 31
+	RGB 0, 0, 0
+
+FieldSelectScreenPalettes_Johto:
+FieldSelectScreenBGPalette0_Johto: ; 0xdd100
+	RGB 31, 31, 31
+	RGB 31, 24, 0
+	RGB 14, 10, 1
+	RGB 3, 0, 0
+FieldSelectScreenBGPalette1_Johto: ; 0xdd108
+	RGB 31, 31, 31
+	RGB 22, 22, 22
+	RGB 10, 10, 12
+	RGB 0, 0, 0
+
 StageGoldFieldTopPalettes: ; 0xdc980
 StageGoldFieldTopBGPalette0: ; 0xdc980
 	RGB 31, 31, 31

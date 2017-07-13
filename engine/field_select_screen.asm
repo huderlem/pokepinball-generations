@@ -17,8 +17,8 @@ LoadFieldSelectScreen: ; 0xd6dd
 	xor a
 	ld [hSCX], a
 	ld [hSCY], a
-	ld hl, FieldSelectGfxPointers
-	ld a, [hGameBoyColorFlag]
+	xor a
+	ld hl, FieldSelectGfxPointers_Kanto
 	call LoadVideoData
 	call ClearOAMBuffer
 	ld a, $8
@@ -34,16 +34,10 @@ LoadFieldSelectScreen: ; 0xd6dd
 	inc [hl]
 	ret
 
-FieldSelectGfxPointers: ; 0xd71c
-	dw FieldSelectGfx_GameBoy
-	dw FieldSelectGfx_GameBoyColor
+FieldSelectGfxPointers_Kanto: ; 0xd71c
+	dw FieldSelectGfx_Kanto
 
-FieldSelectGfx_GameBoy: ; 0xd720
-	VIDEO_DATA_TILES   FieldSelectScreenGfx, vTilesSH - $100, $d00
-	VIDEO_DATA_TILEMAP FieldSelectTilemap, vBGMap, $240
-	db $FF, $FF ; terminators
-
-FieldSelectGfx_GameBoyColor: ; 0xd730
+FieldSelectGfx_Kanto: ; 0xd730
 	VIDEO_DATA_TILES    FieldSelectScreenGfx, vTilesSH - $100, $d00
 	VIDEO_DATA_TILEMAP  FieldSelectTilemap, vBGMap, $240
 	VIDEO_DATA_BGATTR   FieldSelectBGAttributes, vBGMap, $240
@@ -54,6 +48,9 @@ ChooseFieldToPlay: ; 0xd74e
 	call MoveFieldSelectCursor
 	ld hl, FieldSelectBorderAnimationData
 	call AnimateBlinkingFieldSelectBorder
+	ld a, [hNewlyPressedButtons]
+	and (D_UP | D_DOWN)
+	jp nz, ChangeFieldSelectRegion
 	ld a, [hNewlyPressedButtons]
 	and (A_BUTTON | B_BUTTON)
 	ret z
@@ -66,6 +63,29 @@ ChooseFieldToPlay: ; 0xd74e
 	call PlaySoundEffect
 	ld hl, wScreenState
 	inc [hl]
+	ret
+
+INCLUDE "data/queued_tiledata/field_select_switch_regions.asm"
+
+ChangeFieldSelectRegion:
+	ld a, [wWhichFieldSelectRegion]
+	cp 1 ; Is it Johto?
+	jr z, .switchToKanto
+	; switching to Johto
+	ld a, Bank(FieldSelectJohto_PaletteData)
+	ld bc, FieldSelectJohto_PaletteData
+	ld de, LoadPalettes
+	call QueueGraphicsToLoadWithFunc
+	ld a, 1
+	ld [wWhichFieldSelectRegion], a
+	ret
+.switchToKanto
+	ld a, Bank(FieldSelectKanto_PaletteData)
+	ld bc, FieldSelectKanto_PaletteData
+	ld de, LoadPalettes
+	call QueueGraphicsToLoadWithFunc
+	xor a
+	ld [wWhichFieldSelectRegion], a
 	ret
 
 ExitFieldSelectScreen: ; 0xd774
@@ -86,7 +106,11 @@ ExitFieldSelectScreen: ; 0xd774
 	ld a, [wd8f6]
 	bit BIT_A_BUTTON, a
 	jr z, .pressedB
+	ld a, [wWhichFieldSelectRegion]
+	sla a
+	ld c, a
 	ld a, [wSelectedFieldIndex]
+	add c
 	ld c, a
 	ld b, $0
 	ld hl, StartingStages
@@ -119,7 +143,7 @@ ExitFieldSelectScreen: ; 0xd774
 
 StartingStages: ; 0xd7d1
 ; wSelectedFieldIndex is used to index this array
-	db STAGE_GOLD_FIELD_BOTTOM, STAGE_SILVER_FIELD_BOTTOM
+	db STAGE_RED_FIELD_BOTTOM, STAGE_BLUE_FIELD_BOTTOM
 	db STAGE_GOLD_FIELD_BOTTOM, STAGE_SILVER_FIELD_BOTTOM
 
 MoveFieldSelectCursor: ; 0xd7d3

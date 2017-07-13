@@ -2479,7 +2479,12 @@ wBootCheck:: ; 0xdaa3
 ; Used to do a single check during first VBLANK.
 	ds $1
 
-; $25c bytes of free space
+wWhichFieldSelectRegion:: ; 0xdaa4
+; 0 = KANTO
+; 1 = JOHTO
+	ds $1
+
+; $25b bytes of free space
 
 SECTION "Audio RAM", WRAMX
 wdd00:: ; 0xdd00

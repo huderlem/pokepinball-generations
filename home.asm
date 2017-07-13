@@ -1210,7 +1210,7 @@ QueueGraphicsToLoadWithFunc: ; 0x10c5
 ; Queues graphics data to be loaded into VRAM with the given function at the next available time.
 ; See the data/queued_tiledata/ directory to view the data that is loaded by this function.
 ; Input: de: function that is responsible for loading the chunk of VRAM data
-;		 hl: pointer to data
+;		 bc: pointer to data
 ;		  a: bank of data
 	push af
 	ld a, [rLCDC]

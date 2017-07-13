@@ -6,8 +6,8 @@ _LoadStageDataGoldFieldTop: ; 0x14000
 	call UpdateSpinnerChargeGraphics_GoldField
 	call Func_14234_GoldField
 	call LoadSlotCaveCoverGraphics_GoldField
-	call Func_142fc
-	call LoadTimerGraphics
+	callba Func_142fc
+	callba LoadTimerGraphics
 	ret
 
 _LoadStageDataGoldFieldBottom: ; 0x1401c
@@ -18,14 +18,14 @@ _LoadStageDataGoldFieldBottom: ; 0x1401c
 	call Func_14282_GoldField
 	call Func_1414b_GoldField
 	call Func_14234_GoldField
-	call LoadAgainTextGraphics
-	call DrawBallSaverIcon
+	callba LoadAgainTextGraphics
+	callba DrawBallSaverIcon
 	call Func_140f9_GoldField
 	call LoadStaryuGraphics_Bottom_GoldField
 	call Func_140e2_GoldField
 	call LoadSlotCaveCoverGraphics_GoldField
-	call Func_142fc
-	call LoadTimerGraphics
+	callba Func_142fc
+	callba LoadTimerGraphics
 	ret
 
 Func_14091_GoldField: ; 0x14091

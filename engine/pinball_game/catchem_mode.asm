@@ -1365,7 +1365,7 @@ Func_108f5_GoldField: ; 0x108f5
 	ld a, Bank(StageSharedBonusSlotGlowGfx)
 	ld hl, StageSharedBonusSlotGlowGfx
 	ld de, vTilesOB tile $1a
-	ld bc, $0160red
+	ld bc, $0160
 	call LoadVRAMData
 	ld a, BANK(StageSharedBonusSlotGlow2Gfx)
 	ld hl, StageSharedBonusSlotGlow2Gfx

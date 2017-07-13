@@ -1069,10 +1069,10 @@ HandleSilverMapModeCollision: ; 0x3161b
 	ret
 
 .asm_31643
-	call UpdateMapMove_BlueField
+	call UpdateMapMove_SilverField
 	ld a, [wd54d]
 	call CallInFollowingTable
-PointerTable_3164c: ; 0x3164c
+PointerTable_3164c_SilverField: ; 0x3164c
 	padded_dab Func_3165c_SilverField
 	padded_dab Func_3165e_SilverField
 	padded_dab Func_31660_SilverField

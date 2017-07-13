@@ -86,9 +86,9 @@ Func_1c235_SilverField: ; 0x1c235
 .asm_1c249
 	xor a
 .asm_1c24a
-	call LoadPsyduckOrPoliwagGraphics
+	call LoadPsyduckOrPoliwagGraphics_SilverField
 	ld a, [wLeftMapMoveCounter]
-	call LoadPsyduckOrPoliwagNumberGraphics
+	call LoadPsyduckOrPoliwagNumberGraphics_SilverField
 	ld a, [hGameBoyColorFlag]
 	and a
 	jr z, .asm_1c267
@@ -106,7 +106,7 @@ Func_1c235_SilverField: ; 0x1c235
 .asm_1c267
 	ld a, $8
 .asm_1c269
-	call LoadPsyduckOrPoliwagNumberGraphics
+	call LoadPsyduckOrPoliwagNumberGraphics_SilverField
 	ld a, [wRightMapMoveDiglettFrame]
 	and a
 	jr z, .asm_1c295
@@ -134,10 +134,10 @@ Func_1c235_SilverField: ; 0x1c235
 .asm_1c295
 	ld a, $2
 .asm_1c297
-	call LoadPsyduckOrPoliwagGraphics
+	call LoadPsyduckOrPoliwagGraphics_SilverField
 	ld a, [wRightMapMoveCounter]
 	add $4
-	call LoadPsyduckOrPoliwagNumberGraphics
+	call LoadPsyduckOrPoliwagNumberGraphics_SilverField
 	ld a, [hGameBoyColorFlag]
 	and a
 	jr z, .asm_1c2b7
@@ -155,15 +155,15 @@ Func_1c235_SilverField: ; 0x1c235
 .asm_1c2b7
 	ld a, $9
 .asm_1c2b9
-	call LoadPsyduckOrPoliwagNumberGraphics
+	call LoadPsyduckOrPoliwagNumberGraphics_SilverField
 	ret
 
 .asm_1c2bd
 	ld a, $6
-	call LoadPsyduckOrPoliwagGraphics
+	call LoadPsyduckOrPoliwagGraphics_SilverField
 	ld a, [wRightMapMoveCounter]
 	add $4
-	call LoadPsyduckOrPoliwagNumberGraphics
+	call LoadPsyduckOrPoliwagNumberGraphics_SilverField
 	ret
 
 Func_1c2cb_SilverField: ; 0x1c2cb

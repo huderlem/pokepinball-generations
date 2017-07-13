@@ -352,6 +352,6 @@ ROMX $44
 	org $4000
 	"bank44"
 
-ROMX $45
+ROMX $46
 	org $4000
-	"bank45"
+	"bank46"

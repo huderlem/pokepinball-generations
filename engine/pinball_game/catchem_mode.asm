@@ -1129,6 +1129,24 @@ SetLeftAndRightAlleyArrowIndicatorStates_RedField: ; 0x107c8
 	ld [wIndicatorStates], a
 	ret
 
+SetLeftAndRightAlleyArrowIndicatorStates_GoldField: ; 0x107c8
+	ld a, [wRightAlleyCount]
+	cp $3
+	jr z, .asm_107d1
+	set 7, a
+.asm_107d1
+	ld [wIndicatorStates + 1], a
+	ld a, [wRightAlleyCount]
+	cp $2
+	jr c, .asm_107e0
+	ld a, $80
+	ld [wIndicatorStates + 3], a
+.asm_107e0
+	ld a, [wLeftAlleyCount]
+	set 7, a
+	ld [wIndicatorStates], a
+	ret
+
 Func_107e9: ; 0x107e9
 	ld a, [wLeftAlleyCount]
 	cp $3
@@ -1359,7 +1377,7 @@ Func_108f5_GoldField: ; 0x108f5
 	ld a, [wCurrentStage]
 	bit 0, a
 	ret z
-	callba ClearAllIndicators_GoldField
+	callba ClearAllGoldIndicators
 	call Func_10432
 	callba LoadMapBillboardTileData
 	ld a, Bank(StageSharedBonusSlotGlowGfx)
@@ -1628,4 +1646,64 @@ Data_10a8b:
 	dw vTilesSH tile $2e
 	dw CaughtPokeballGfx
 	db Bank(CaughtPokeballGfx)
+	db $00
+
+BlankSaverSpaceTileDataGoldField:
+	db 3
+	dw BlankSaverSpaceTileDataGoldField1
+	dw BlankSaverSpaceTileDataGoldField2
+	dw BlankSaverSpaceTileDataGoldField3
+
+BlankSaverSpaceTileDataGoldField1:
+	dw Func_11d2
+	db $20, $02
+	dw vTilesSH tile $2e
+	dw StageGoldFieldBottomBaseGameBoyColorGfx + $2e0
+	db Bank(StageGoldFieldBottomBaseGameBoyColorGfx)
+	db $00
+
+BlankSaverSpaceTileDataGoldField2:
+	dw Func_11d2
+	db $20, $02
+	dw vTilesSH tile $30
+	dw StageGoldFieldBottomBaseGameBoyColorGfx + $300
+	db Bank(StageGoldFieldBottomBaseGameBoyColorGfx)
+	db $00
+
+BlankSaverSpaceTileDataGoldField3:
+	dw Func_11d2
+	db $20, $02
+	dw vTilesSH tile $32
+	dw StageGoldFieldBottomBaseGameBoyColorGfx + $320
+	db Bank(StageGoldFieldBottomBaseGameBoyColorGfx)
+	db $00
+
+BlankSaverSpaceTileDataSilverField:
+	db 3
+	dw BlankSaverSpaceTileDataSilverField1
+	dw BlankSaverSpaceTileDataSilverField2
+	dw BlankSaverSpaceTileDataSilverField3
+
+BlankSaverSpaceTileDataSilverField1:
+	dw Func_11d2
+	db $20, $02
+	dw vTilesSH tile $2e
+	dw StageSilverFieldBottomBaseGameBoyColorGfx + $2e0
+	db Bank(StageSilverFieldBottomBaseGameBoyColorGfx)
+	db $00
+
+BlankSaverSpaceTileDataSilverField2:
+	dw Func_11d2
+	db $20, $02
+	dw vTilesSH tile $30
+	dw StageSilverFieldBottomBaseGameBoyColorGfx + $300
+	db Bank(StageSilverFieldBottomBaseGameBoyColorGfx)
+	db $00
+
+BlankSaverSpaceTileDataSilverField3:
+	dw Func_11d2
+	db $20, $02
+	dw vTilesSH tile $32
+	dw StageSilverFieldBottomBaseGameBoyColorGfx + $320
+	db Bank(StageSilverFieldBottomBaseGameBoyColorGfx)
 	db $00

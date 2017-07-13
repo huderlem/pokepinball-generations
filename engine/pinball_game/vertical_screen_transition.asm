@@ -45,12 +45,7 @@ LoadStageData: ; 0xe6c2
 	ld a, $90
 .gotWindowYPos
 	ld [hWY], a
-	ld hl, StageGfxPointers_GameBoy
-	ld a, [hGameBoyColorFlag]
-	and a
-	jr z, .loadData
 	ld hl, StageGfxPointers_GameBoyColor
-.loadData
 	ld a, [wCurrentStage]
 	call LoadVideoData
 	xor a

@@ -33,7 +33,7 @@ HandleSilverEvoModeCollision: ; 0x20bae
 	call Func_20da0_SilverField
 	ld a, [wd54d]
 	call CallInFollowingTable
-PointerTable_20bfc: ; 0x20bfc
+PointerTable_20bfc_SilverField: ; 0x20bfc
 	padded_dab Func_20c08_SilverField
 	padded_dab Func_20d30_SilverField
 	padded_dab Func_20d7c_SilverField

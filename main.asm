@@ -89,6 +89,8 @@ INCLUDE "engine/pinball_game/draw_pikachu_saver_icon.asm"
 INCLUDE "engine/pinball_game/ball_gfx.asm"
 INCLUDE "engine/pinball_game/ball_loss/ball_loss_red_field.asm"
 INCLUDE "engine/pinball_game/ball_loss/ball_loss_blue_field.asm"
+INCLUDE "engine/pinball_game/ball_loss/ball_loss_silver_field.asm"
+INCLUDE "engine/pinball_game/ball_loss/ball_loss_gold_field.asm"
 INCLUDE "engine/pinball_game/ball_loss/ball_loss_gengar_bonus.asm"
 INCLUDE "engine/pinball_game/ball_loss/ball_loss_mewtwo_bonus.asm"
 INCLUDE "engine/pinball_game/ball_loss/ball_loss_meowth_bonus.asm"
@@ -419,6 +421,10 @@ INCLUDE "engine/pinball_game/object_collision/blue_stage_resolve_collision.asm"
 INCLUDE "engine/pinball_game/draw_sprites/draw_blue_field_sprites.asm"
 INCLUDE "engine/pinball_game/stage_init/init_gold_field.asm"
 INCLUDE "engine/pinball_game/stage_init/init_silver_field.asm"
+INCLUDE "engine/pinball_game/draw_sprites/draw_silver_field_sprites.asm"
+INCLUDE "engine/pinball_game/ball_init/ball_init_silver_field.asm"
+INCLUDE "engine/pinball_game/draw_sprites/draw_gold_field_sprites.asm"
+INCLUDE "engine/pinball_game/ball_init/ball_init_gold_field.asm"
 
 SECTION "bank8", ROMX
 
@@ -426,6 +432,9 @@ INCLUDE "engine/pinball_game/catchem_mode/catchem_mode_red_field.asm"
 INCLUDE "engine/pinball_game/catchem_mode/catchem_mode_blue_field.asm"
 INCLUDE "engine/pinball_game/evolution_mode/evolution_mode_red_field.asm"
 INCLUDE "engine/pinball_game/evolution_mode/evolution_mode_blue_field.asm"
+
+INCLUDE "engine/pinball_game/object_collision/silver_stage_resolve_collision.asm"
+INCLUDE "engine/pinball_game/object_collision/silver_stage_object_collision.asm"
 
 SECTION "bank9", ROMX
 
@@ -441,6 +450,8 @@ INCLUDE "engine/pinball_game/load_stage_data/load_seel_bonus.asm"
 INCLUDE "engine/pinball_game/object_collision/seel_bonus_object_collision.asm"
 INCLUDE "engine/pinball_game/object_collision/seel_bonus_resolve_collision.asm"
 INCLUDE "engine/pinball_game/draw_sprites/draw_seel_bonus_sprites.asm"
+INCLUDE "engine/pinball_game/load_stage_data/load_silver_field.asm"
+INCLUDE "engine/pinball_game/load_stage_data/load_gold_field.asm"
 
 SECTION "banka", ROMX
 
@@ -461,15 +472,20 @@ INCLUDE "engine/pinball_game/ball_init/ball_init_red_field.asm"
 INCLUDE "engine/pinball_game/bonus_multiplier.asm"
 INCLUDE "engine/pinball_game/extra_ball.asm"
 INCLUDE "engine/pinball_game/map_move.asm"
+INCLUDE "engine/pinball_game/catchem_mode/catchem_mode_gold_field.asm"
+INCLUDE "engine/pinball_game/catchem_mode/catchem_mode_silver_field.asm"
+INCLUDE "engine/pinball_game/evolution_mode/evolution_mode_gold_field.asm"
+INCLUDE "engine/pinball_game/evolution_mode/evolution_mode_silver_field.asm"
 
 SECTION "bankd", ROMX
 
-SlotOnPic: ; 0x34000
-	INCBIN "gfx/billboard/slot/slot_on.2bpp"
-SlotOffPic: ; 0x34180
-	INCBIN "gfx/billboard/slot/slot_off.2bpp"
+INCLUDE "engine/pinball_game/object_collision/gold_stage_resolve_collision.asm"
+INCLUDE "engine/pinball_game/object_collision/gold_stage_object_collision.asm"
 
-SECTION "bankd.2", ROMX
+SlotOnPic:
+	INCBIN "gfx/billboard/slot/slot_on.2bpp"
+SlotOffPic:
+	INCBIN "gfx/billboard/slot/slot_off.2bpp"
 
 StageSeelBonusCollisionMasks: ; 0x37f00
 	INCBIN "data/collision/masks/seel_bonus.masks"
@@ -521,14 +537,7 @@ SECTION "bank18", ROMX
 
 INCLUDE "data/mon_gfx/mon_billboard_pics_1.asm"
 
-StageRedFieldTopStatusBarSymbolsGfx_GameBoy: ; 0x63000
-	INCBIN "gfx/stage/red_top/status_bar_symbols_gameboy.2bpp"
-
-	INCBIN "gfx/unused_pocket_monster.2bpp"
-
-SECTION "bank18.2", ROMX
-
-StageRedFieldTopBaseGameBoyGfx: ; 0x632a0
+StageRedFieldTopBaseGameBoyGfx:
 	INCBIN "gfx/stage/red_top/red_top_base_gameboy.2bpp"
 
 SECTION "bank19", ROMX
@@ -541,12 +550,6 @@ StageBlueFieldBottomBaseGameBoyGfx: ; 0x67000
 SECTION "bank1a", ROMX
 
 INCLUDE "data/mon_gfx/mon_billboard_pics_3.asm"
-
-StageBlueFieldTopStatusBarSymbolsGfx_GameBoy: ; 0x6b000
-	INCBIN "gfx/stage/blue_top/status_bar_symbols_gameboy.2bpp"
-
-	INCBIN "gfx/unused_pocket_monster.2bpp"
-	ds $20 ; free space
 
 StageBlueFieldTopBaseGameBoyGfx: ; 0x6b2a0
 	INCBIN "gfx/stage/blue_top/blue_top_base_gameboy.2bpp"
@@ -686,8 +689,6 @@ SECTION "bank27", ROMX
 StageRedFieldTopStatusBarSymbolsGfx_GameBoyColor: ; 0x9c000
 	INCBIN "gfx/stage/red_top/status_bar_symbols_gameboycolor.2bpp"
 
-	INCBIN "gfx/unused_pocket_monster_2.2bpp"
-
 SECTION "bank27.2", ROMX
 
 StageRedFieldTopBaseGameBoyColorGfx: ; 0x9c2a0
@@ -705,8 +706,6 @@ SECTION "bank28", ROMX
 
 StageBlueFieldTopStatusBarSymbolsGfx_GameBoyColor: ; 0xa0000
 	INCBIN "gfx/stage/blue_top/status_bar_symbols_gameboycolor.2bpp"
-
-	INCBIN "gfx/unused_pocket_monster_2.2bpp"
 
 SECTION "bank28.2", ROMX
 
@@ -821,7 +820,6 @@ StageRedFieldBottomIndicatorsGfx_Gameboy: ; 0xb0000
 
 StageRedFieldTopCollisionAttributes6: ; 0xb3000
 	INCBIN "data/collision/maps/red_stage_top_6.collision"
-	INCBIN "data/collision/unused_trailing_data.bin"
 
 FieldSelectTilemap: ; 0xb3800
 	INCBIN "gfx/tilemaps/field_select.map"
@@ -897,11 +895,8 @@ OptionMenuBGMSETextGfx: ; 0xb6b10
 
 StageRedFieldTopCollisionAttributes5: ; 0xb6c00
 	INCBIN "data/collision/maps/red_stage_top_5.collision"
-	INCBIN "data/collision/unused_trailing_data.bin"
-
 StageRedFieldTopCollisionAttributes4: ; 0xb7400
 	INCBIN "data/collision/maps/red_stage_top_4.collision"
-	INCBIN "data/collision/unused_trailing_data.bin"
 
 INCLUDE "data/mon_gfx/mon_billboard_palette_maps_5.asm"
 
@@ -909,19 +904,15 @@ SECTION "bank2e", ROMX
 
 StageRedFieldTopCollisionAttributes3: ; 0xb8000
 	INCBIN "data/collision/maps/red_stage_top_3.collision"
-	INCBIN "data/collision/unused_trailing_data.bin"
 
 StageRedFieldTopCollisionAttributes2: ; 0xb8800
 	INCBIN "data/collision/maps/red_stage_top_2.collision"
-	INCBIN "data/collision/unused_trailing_data.bin"
 
 StageRedFieldTopCollisionAttributes1: ; 0xb9000
 	INCBIN "data/collision/maps/red_stage_top_1.collision"
-	INCBIN "data/collision/unused_trailing_data.bin"
 
 StageRedFieldTopCollisionAttributes0: ; 0xb9800
 	INCBIN "data/collision/maps/red_stage_top_0.collision"
-	INCBIN "data/collision/unused_trailing_data.bin"
 
 StageRedFieldTopTilemap_GameBoy: ; 0xba000
 	INCBIN "gfx/tilemaps/stage_red_field_top_gameboy.map"
@@ -949,7 +940,6 @@ StageRedFieldTopCollisionMasks3: ; 0xbc800
 
 StageRedFieldTopCollisionAttributes7: ; 0xbd000
 	INCBIN "data/collision/maps/red_stage_top_7.collision"
-	INCBIN "data/collision/unused_trailing_data.bin"
 
 StageRedFieldBottomCollisionAttributes: ; 0xbd800
 	INCBIN "data/collision/maps/red_stage_bottom.collision"
@@ -980,9 +970,6 @@ EraseAllDataBGAttributes: ; 0xbfc00
 
 SECTION "bank30", ROMX
 
-StageBlueFieldBottomTilemap_GameBoy: ; 0xc0000
-	INCBIN "gfx/tilemaps/stage_blue_field_bottom_gameboy.map"
-
 SECTION "bank30.2", ROMX
 
 StageBlueFieldTopCollisionMasks: ; 0xc0800
@@ -990,7 +977,6 @@ StageBlueFieldTopCollisionMasks: ; 0xc0800
 
 StageBlueFieldTopCollisionAttributesBallEntrance: ; 0xc1000
 	INCBIN "data/collision/maps/blue_stage_top_ball_entrance.collision"
-	INCBIN "data/collision/unused_trailing_data.bin"
 
 HighScoresTilemap2: ; 0xc1800
 	INCBIN "gfx/tilemaps/high_scores_screen_2.map"
@@ -1003,7 +989,6 @@ HighScoresTilemap4: ; 0xc2400
 
 StageBlueFieldTopCollisionAttributes: ; 0xc2800
 	INCBIN "data/collision/maps/blue_stage_top.collision"
-	INCBIN "data/collision/unused_trailing_data.bin"
 
 OptionMenuTilemap2: ; 0xc3000
 	INCBIN "gfx/tilemaps/option_menu_2.map"
@@ -1027,7 +1012,6 @@ SECTION "bank31", ROMX
 
 StageBlueFieldBottomCollisionAttributes: ; 0xc4000
 	INCBIN "data/collision/maps/blue_stage_bottom.collision"
-	INCBIN "data/collision/unused_trailing_data.bin"
 
 PokedexTilemap:
 	INCBIN "gfx/tilemaps/pokedex.map"
@@ -1162,14 +1146,15 @@ SECTION "bank34", ROMX
 
 INCLUDE "data/collision/mon_collision_masks.asm"
 
-INCBIN "gfx/tilemaps/unused_tilemap_d2800.map"
-
 DiglettBonusTilemap_GameBoyColor: ; 0xd3000
 	INCBIN "gfx/tilemaps/stage_diglett_bonus_gameboycolor.map"
 DiglettBonusTilemap2_GameBoyColor: ; 0xd3400
 	INCBIN "gfx/tilemaps/stage_diglett_bonus_gameboycolor_2.map"
 
-INCBIN "data/unused_data_d3800.bin"
+StageSilverFieldBottomTilemap_GameBoyColor:
+	INCBIN "gfx/tilemaps/stage_silver_field_bottom_gameboycolor.map"
+StageSilverFieldBottomTilemap2_GameBoyColor:
+	INCBIN "gfx/tilemaps/stage_silver_field_bottom_gameboycolor_2.map"
 
 SECTION "bank35", ROMX
 
@@ -1425,3 +1410,120 @@ SECTION "bank3f", ROMX
 
 FlipperVerticalCollisionAttributes2: ; 0xfc000
 	INCBIN "data/collision/flippers/vertical_attributes_1"
+
+SECTION "bank40", ROMX
+
+StageSilverFieldBottomBaseGameBoyColorGfx:
+	INCBIN "gfx/stage/silver_bottom/silver_bottom_base_gameboycolor.2bpp"
+StageSilverFieldBottomGfx1:
+	INCBIN "gfx/stage/silver_bottom/silver_bottom_1.2bpp"
+StageSilverFieldTopBaseGameBoyColorGfx:
+	INCBIN "gfx/stage/silver_top/silver_top_base_gameboycolor.2bpp"
+StageSilverFieldTopGfx4:
+	INCBIN "gfx/stage/silver_top/silver_top_4.2bpp"
+StageGoldFieldTopGfx6:
+	INCBIN "gfx/stage/gold_top/gold_top_6.2bpp"
+
+SECTION "bank41", ROMX
+
+StageSilverFieldTopGfx3: ; 0xd6600
+	INCBIN "gfx/stage/silver_top/silver_top_3.2bpp"
+StageSilverFieldTopGfx1: ; 0xd67a0
+	INCBIN "gfx/stage/silver_top/silver_top_1.2bpp"
+StageSilverFieldTopGfx2: ; 0xd6a00
+	INCBIN "gfx/stage/silver_top/silver_top_2.2bpp"
+StageSilverFieldTopStatusBarSymbolsGfx_GameBoyColor: ; 0xa0000
+	INCBIN "gfx/stage/silver_top/status_bar_symbols_gameboycolor.2bpp"
+
+StageSilverFieldTopTilemap_GameBoyColor:
+	INCBIN "gfx/tilemaps/stage_silver_field_top_gameboycolor.map"
+StageSilverFieldTopTilemap2_GameBoyColor:
+	INCBIN "gfx/tilemaps/stage_silver_field_top_gameboycolor_2.map"
+
+StageGoldFieldTopTilemap_GameBoyColor: ; 0xbe000
+	INCBIN "gfx/tilemaps/stage_gold_field_top_gameboycolor.map"
+StageGoldFieldTopTilemap2_GameBoyColor: ; 0xbe400
+	INCBIN "gfx/tilemaps/stage_gold_field_top_gameboycolor_2.map"
+StageGoldFieldBottomTilemap_GameBoyColor: ; 0xbe800
+	INCBIN "gfx/tilemaps/stage_gold_field_bottom_gameboycolor.map"
+StageGoldFieldBottomTilemap2_GameBoyColor: ; 0xbec00
+	INCBIN "gfx/tilemaps/stage_gold_field_bottom_gameboycolor_2.map"
+
+StageGoldFieldBottomBaseGameBoyColorGfx:
+	INCBIN "gfx/stage/gold_bottom/gold_bottom_base_gameboycolor.2bpp"
+StageGoldFieldBottomGfx5:
+	INCBIN "gfx/stage/gold_bottom/gold_bottom_5.2bpp"
+StageGoldFieldTopStatusBarSymbolsGfx_GameBoyColor:
+	INCBIN "gfx/stage/gold_top/status_bar_symbols_gameboycolor.2bpp"
+
+SECTION "bank42", ROMX
+
+StageGoldFieldTopBaseGameBoyColorGfx:
+	INCBIN "gfx/stage/gold_top/gold_top_base_gameboycolor.2bpp"
+StageGoldFieldTopGfx3:
+	INCBIN "gfx/stage/gold_top/gold_top_3.2bpp"
+StageGoldFieldTopGfx1:
+	INCBIN "gfx/stage/gold_top/gold_top_1.2bpp"
+StageGoldFieldTopGfx2:
+	INCBIN "gfx/stage/gold_top/gold_top_2.2bpp"
+StageGoldFieldTopGfx4:
+	INCBIN "gfx/stage/gold_top/gold_top_4.2bpp"
+StageGoldFieldTopGfx5:
+	INCBIN "gfx/stage/gold_top/gold_top_5.2bpp"
+
+SECTION "bank43", ROMX
+
+StageGoldFieldBottomBaseGameBoyGfx:
+	INCBIN  "gfx/stage/gold_bottom/gold_bottom_base_gameboy.2bpp"
+StageGoldFieldTopBaseGameBoyGfx:
+	INCBIN "gfx/stage/gold_top/gold_top_base_gameboy.2bpp"
+StageSilverFieldBottomBaseGameBoyGfx:
+	INCBIN "gfx/stage/silver_bottom/silver_bottom_base_gameboy.2bpp"
+StageSilverFieldTopBaseGameBoyGfx:
+	INCBIN "gfx/stage/silver_top/silver_top_base_gameboy.2bpp"
+
+SECTION "bank44", ROMX
+
+StageSilverFieldBottomCollisionMasks:
+	INCBIN "data/collision/masks/silver_stage_bottom.masks"
+StageSilverFieldBottomCollisionAttributes:
+	INCBIN "data/collision/maps/silver_stage_bottom.collision"
+StageSilverFieldTopCollisionMasks:
+	INCBIN "data/collision/masks/silver_stage_top.masks"
+StageSilverFieldTopCollisionAttributes:
+	INCBIN "data/collision/maps/silver_stage_top.collision"
+StageSilverFieldTopCollisionAttributesBallEntrance:
+	INCBIN "data/collision/maps/silver_stage_top_ball_entrance.collision"
+
+StageGoldFieldBottomCollisionMasks:
+	INCBIN "data/collision/masks/gold_stage_bottom.masks"
+StageGoldFieldBottomCollisionAttributes:
+	INCBIN "data/collision/maps/gold_stage_bottom.collision"
+StageGoldFieldTopCollisionMasks0:
+	INCBIN "data/collision/masks/red_stage_top_0.masks"
+StageGoldFieldTopCollisionMasks1:
+	INCBIN "data/collision/masks/gold_stage_top_1.masks"
+StageGoldFieldTopCollisionMasks2:
+	INCBIN "data/collision/masks/gold_stage_top_2.masks"
+
+SECTION "bank45", ROMX
+
+StageGoldFieldTopCollisionMasks3:
+	INCBIN "data/collision/masks/gold_stage_top_3.masks"
+
+StageGoldFieldTopCollisionAttributes0:
+	INCBIN "data/collision/maps/gold_stage_top_0.collision"
+StageGoldFieldTopCollisionAttributes1:
+	INCBIN "data/collision/maps/gold_stage_top_1.collision"
+StageGoldFieldTopCollisionAttributes2:
+	INCBIN "data/collision/maps/gold_stage_top_2.collision"
+StageGoldFieldTopCollisionAttributes3:
+	INCBIN "data/collision/maps/gold_stage_top_3.collision"
+StageGoldFieldTopCollisionAttributes4:
+	INCBIN "data/collision/maps/gold_stage_top_4.collision"
+StageGoldFieldTopCollisionAttributes5:
+	INCBIN "data/collision/maps/gold_stage_top_5.collision"
+StageGoldFieldTopCollisionAttributes6:
+	INCBIN "data/collision/maps/gold_stage_top_6.collision"
+StageGoldFieldTopCollisionAttributes7:
+	INCBIN "data/collision/maps/gold_stage_top_7.collision"

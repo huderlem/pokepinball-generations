@@ -62,23 +62,11 @@ HandleInGameMenu: ; 0x86d7
 	ld [hLastLYC], a
 	ld a, $ff
 	ld [hLCDCMask], a
-	ld a, [hGameBoyColorFlag]
-	and a
-	jr nz, .asm_8778
-	ld a, Bank(StageRedFieldTopStatusBarSymbolsGfx_GameBoy)
-	ld hl, StageRedFieldTopStatusBarSymbolsGfx_GameBoy + $60
-	ld de, vTilesSH + $60
-	ld bc, $0010
-	call LoadVRAMData
-	jr .asm_8786
-
-.asm_8778
 	ld a, Bank(StageRedFieldTopStatusBarSymbolsGfx_GameBoyColor)
 	ld hl, StageRedFieldTopStatusBarSymbolsGfx_GameBoyColor + $60
 	ld de, vTilesSH + $60
 	ld bc, $0010
 	call LoadVRAMData
-.asm_8786
 	call FillBottomMessageBufferWithBlackTile
 	pop af
 	ld [wd917], a

@@ -1179,7 +1179,7 @@ ResolveBonusMultiplierCollision_SilverField: ; 0x1d438
 	callba CheckSpecialModeColision
 	ld a, [wd610]
 	cp $3
-	jp nz, asm_1d4fa
+	jp nz, asm_1d4fa_SilverField
 	ld a, $1
 	ld [wd610], a
 	ld a, $3
@@ -1187,7 +1187,7 @@ ResolveBonusMultiplierCollision_SilverField: ; 0x1d438
 	ld a, [wBonusMultiplierTensDigit]
 	set 7, a
 	ld [wBonusMultiplierTensDigit], a
-	jr asm_1d4fa
+	jr asm_1d4fa_SilverField
 
 .hitRightRailing
 	ld a, [hGameBoyColorFlag]
@@ -1206,7 +1206,7 @@ ResolveBonusMultiplierCollision_SilverField: ; 0x1d438
 	callba CheckSpecialModeColision
 	ld a, [wd611]
 	cp $3
-	jr nz, asm_1d4fa
+	jr nz, asm_1d4fa_SilverField
 	ld a, $1
 	ld [wd610], a
 	ld a, $1
@@ -1234,7 +1234,7 @@ ResolveBonusMultiplierCollision_SilverField: ; 0x1d438
 	ld [wd615], a
 	ld a, $1
 	ld [wd613], a
-asm_1d4fa: ; 0x1d4fa
+asm_1d4fa_SilverField: ; 0x1d4fa
 	ld bc, TenPoints
 	callba AddBigBCD6FromQueueWithBallMultiplier
 	ld a, [wBonusMultiplierTensDigit]

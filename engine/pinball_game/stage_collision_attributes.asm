@@ -34,10 +34,12 @@ LoadStageCollisionAttributes: ; 0xe578
 StageCollisionAttributesPointers: ; 0xe5a7
 	dw StageRedFieldTopCollisionAttributesPointers
 	dw StageRedFieldBottomCollisionAttributesPointers
-	dw StageUnusedCollisionAttributesPointers
-	dw StageUnused2CollisionAttributesPointers
 	dw StageBlueFieldTopCollisionAttributesPointers
 	dw StageBlueFieldBottomCollisionAttributesPointers
+	dw StageGoldFieldTopCollisionAttributesPointers
+	dw StageGoldFieldBottomCollisionAttributesPointers
+	dw StageSilverFieldTopCollisionAttributesPointers
+	dw StageSilverFieldBottomCollisionAttributesPointers
 	dw StageGengarBonusCollisionAttributesPointers
 	dw StageGengarBonusCollisionAttributesPointers
 	dw StageMewtwoBonusCollisionAttributesPointers
@@ -73,14 +75,6 @@ StageRedFieldBottomCollisionAttributesPointers: ; 0xe5f8
 	dwb StageRedFieldBottomCollisionAttributes, Bank(StageRedFieldBottomCollisionAttributes)
 	dwb StageRedFieldBottomCollisionMasks, Bank(StageRedFieldBottomCollisionMasks)
 
-StageUnusedCollisionAttributesPointers: ; 0xe5ff
-; This entry is never used
-	db $00
-
-StageUnused2CollisionAttributesPointers: ; 0xe600
-; This entry is never used
-	db $00
-
 StageBlueFieldTopCollisionAttributesPointers: ; 0xe601
 	db $01  ; multiple pair entries
 	dwb StageBlueFieldTopCollisionAttributesBallEntrance, Bank(StageBlueFieldTopCollisionAttributesBallEntrance)
@@ -92,6 +86,42 @@ StageBlueFieldBottomCollisionAttributesPointers: ; 0xe60e
 	db $00  ; single pair entry
 	dwb StageBlueFieldBottomCollisionAttributes, Bank(StageBlueFieldBottomCollisionAttributes)
 	dwb StageBlueFieldBottomCollisionMasks, Bank(StageBlueFieldBottomCollisionMasks)
+
+StageGoldFieldTopCollisionAttributesPointers: ; 0xe5c7
+	db $01  ; multiple pair entries
+	dwb StageGoldFieldTopCollisionAttributes0, Bank(StageGoldFieldTopCollisionAttributes0)
+	dwb StageGoldFieldTopCollisionMasks0, Bank(StageGoldFieldTopCollisionMasks0)
+	dwb StageGoldFieldTopCollisionAttributes1, Bank(StageGoldFieldTopCollisionAttributes1)
+	dwb StageGoldFieldTopCollisionMasks0, Bank(StageGoldFieldTopCollisionMasks0)
+	dwb StageGoldFieldTopCollisionAttributes2, Bank(StageGoldFieldTopCollisionAttributes2)
+	dwb StageGoldFieldTopCollisionMasks1, Bank(StageGoldFieldTopCollisionMasks1)
+	dwb StageGoldFieldTopCollisionAttributes3, Bank(StageGoldFieldTopCollisionAttributes3)
+	dwb StageGoldFieldTopCollisionMasks1, Bank(StageGoldFieldTopCollisionMasks1)
+	dwb StageGoldFieldTopCollisionAttributes4, Bank(StageGoldFieldTopCollisionAttributes4)
+	dwb StageGoldFieldTopCollisionMasks2, Bank(StageGoldFieldTopCollisionMasks2)
+	dwb StageGoldFieldTopCollisionAttributes5, Bank(StageGoldFieldTopCollisionAttributes5)
+	dwb StageGoldFieldTopCollisionMasks2, Bank(StageGoldFieldTopCollisionMasks2)
+	dwb StageGoldFieldTopCollisionAttributes6, Bank(StageGoldFieldTopCollisionAttributes6)
+	dwb StageGoldFieldTopCollisionMasks3, Bank(StageGoldFieldTopCollisionMasks3)
+	dwb StageGoldFieldTopCollisionAttributes7, Bank(StageGoldFieldTopCollisionAttributes7)
+	dwb StageGoldFieldTopCollisionMasks3, Bank(StageGoldFieldTopCollisionMasks3)
+
+StageGoldFieldBottomCollisionAttributesPointers: ; 0xe5f8
+	db $00  ; single pair entry
+	dwb StageGoldFieldBottomCollisionAttributes, Bank(StageGoldFieldBottomCollisionAttributes)
+	dwb StageGoldFieldBottomCollisionMasks, Bank(StageGoldFieldBottomCollisionMasks)
+
+StageSilverFieldTopCollisionAttributesPointers: ; 0xe601
+	db $01  ; multiple pair entries
+	dwb StageSilverFieldTopCollisionAttributesBallEntrance, Bank(StageSilverFieldTopCollisionAttributesBallEntrance)
+	dwb StageSilverFieldTopCollisionMasks, Bank(StageSilverFieldTopCollisionMasks)
+	dwb StageSilverFieldTopCollisionAttributes, Bank(StageSilverFieldTopCollisionAttributes)
+	dwb StageSilverFieldTopCollisionMasks, Bank(StageSilverFieldTopCollisionMasks)
+
+StageSilverFieldBottomCollisionAttributesPointers: ; 0xe60e
+	db $00  ; single pair entry
+	dwb StageSilverFieldBottomCollisionAttributes, Bank(StageSilverFieldBottomCollisionAttributes)
+	dwb StageSilverFieldBottomCollisionMasks, Bank(StageSilverFieldBottomCollisionMasks)
 
 StageGengarBonusCollisionAttributesPointers: ; 0xe615
 	db $01  ; multiple pair entries

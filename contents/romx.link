@@ -51,8 +51,6 @@ ROMX $0C
 ROMX $0D
 	org $4000
 	"bankd"
-	org $7f00
-	"bankd.2"
 
 ROMX $0E
 	org $4000
@@ -95,8 +93,6 @@ ROMX $17
 ROMX $18
 	org $4000
 	"bank18"
-	org $72a0
-	"bank18.2"
 
 ROMX $19
 	org $4000
@@ -335,3 +331,27 @@ ROMX $3E
 ROMX $3F
 	org $4000
 	"bank3f"
+
+ROMX $40
+	org $4000
+	"bank40"
+
+ROMX $41
+	org $4000
+	"bank41"
+
+ROMX $42
+	org $4000
+	"bank42"
+
+ROMX $43
+	org $4000
+	"bank43"
+
+ROMX $44
+	org $4000
+	"bank44"
+
+ROMX $45
+	org $4000
+	"bank45"

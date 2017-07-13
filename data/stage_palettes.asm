@@ -1452,3 +1452,335 @@ FieldSelectScreenOBJPalette0: ; 0xdd140
 	RGB 31, 31, 31
 	RGB 21, 21, 21
 	RGB 0, 0, 0
+
+StageGoldFieldTopPalettes: ; 0xdc980
+StageGoldFieldTopBGPalette0: ; 0xdc980
+	RGB 31, 31, 31
+	RGB 13, 20, 31
+	RGB 31, 4, 4
+	RGB 0, 0, 0
+StageGoldFieldTopBGPalette1: ; 0xdc988
+	RGB 31, 31, 31
+	RGB 24, 31, 0
+	RGB 31, 0, 0
+	RGB 3, 0, 0
+StageGoldFieldTopBGPalette2: ; 0xdc990
+	RGB 31, 31, 31
+	RGB 11, 25, 31
+	RGB 0, 11, 31
+	RGB 0, 0, 0
+StageGoldFieldTopBGPalette3: ; 0xdc998
+	RGB 31, 31, 31
+	RGB 31, 13, 13
+	RGB 31, 0, 0
+	RGB 0, 0, 0
+StageGoldFieldTopBGPalette4: ; 0xdc9a0
+	RGB 31, 31, 31
+	RGB 31, 0, 31
+	RGB 31, 0, 0
+	RGB 0, 0, 0
+StageGoldFieldTopBGPalette5: ; 0xdc9a8
+	RGB 24, 31, 0
+	RGB 31, 0, 31
+	RGB 31, 0, 0
+	RGB 0, 0, 0
+StageGoldFieldTopBGPalette6: ; 0xdc9b0
+	RGB 31, 31, 31
+	RGB 13, 13, 31
+	RGB 31, 0, 0
+	RGB 0, 0, 0
+StageGoldFieldTopBGPalette7: ; 0xdc9b8
+	RGB 31, 31, 31
+	RGB 31, 13, 13
+	RGB 31, 0, 0
+	RGB 0, 0, 0
+
+StageGoldFieldTopOBJPalette0: ; 0xdc9c0
+	RGB 21, 21, 21
+	RGB 31, 31, 31
+	RGB 31, 5, 4
+	RGB 0, 0, 0
+StageGoldFieldTopOBJPalette1: ; 0xdc9c8
+	RGB 31, 31, 31
+	RGB 31, 19, 22
+	RGB 21, 0, 0
+	RGB 4, 0, 0
+StageGoldFieldTopOBJPalette2: ; 0xdc9d0
+	RGB 20, 20, 20
+	RGB 31, 31, 31
+	RGB 31, 0, 31
+	RGB 0, 0, 0
+StageGoldFieldTopOBJPalette3: ; 0xdc9d8
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 31, 22, 0
+	RGB 10, 4, 0
+StageGoldFieldTopOBJPalette4: ; 0xdc9e0
+	RGB 20, 20, 20
+	RGB 18, 31, 18
+	RGB 5, 19, 0
+	RGB 0, 7, 0
+StageGoldFieldTopOBJPalette5: ; 0xdc9e8
+	RGB 31, 31, 31
+	RGB 31, 20, 0
+	RGB 31, 15, 16
+	RGB 5, 2, 0
+StageGoldFieldTopOBJPalette6: ; 0xdc9f0
+	RGB 20, 20, 20
+	RGB 0, 31, 25
+	RGB 0, 18, 14
+	RGB 0, 0, 0
+StageGoldFieldTopOBJPalette7: ; 0xdc9f8
+	RGB 31, 31, 31
+	RGB 31, 15, 13
+	RGB 21, 0, 0
+	RGB 4, 0, 0
+
+StageGoldFieldBottomPalettes: ; 0xdca80
+StageGoldFieldBottomBGPalette0: ; 0xdca80
+	RGB 31, 31, 31
+	RGB 13, 20, 31
+	RGB 31, 4, 4
+	RGB 0, 0, 0
+StageGoldFieldBottomBGPalette1: ; 0xdca88
+	RGB 31, 31, 31
+	RGB 24, 31, 0
+	RGB 31, 0, 0
+	RGB 3, 0, 0
+StageGoldFieldBottomBGPalette2: ; 0xdca90
+	RGB 31, 31, 31
+	RGB 11, 25, 31
+	RGB 0, 11, 31
+	RGB 0, 0, 0
+StageGoldFieldBottomBGPalette3: ; 0xdca98
+	RGB 31, 31, 31
+	RGB 31, 13, 13
+	RGB 31, 0, 0
+	RGB 0, 0, 0
+StageGoldFieldBottomBGPalette4: ; 0xdcaa0
+	RGB 31, 31, 31
+	RGB 31, 0, 31
+	RGB 31, 0, 0
+	RGB 0, 0, 0
+StageGoldFieldBottomBGPalette5: ; 0xdcaa8
+	RGB 31, 31, 31
+	RGB 20, 20, 20
+	RGB 8, 8, 8
+	RGB 0, 0, 0
+StageGoldFieldBottomBGPalette6: ; 0xdcab0
+	RGB 29, 30, 31
+	RGB 27, 20, 10
+	RGB 2, 16, 1
+	RGB 0, 0, 0
+StageGoldFieldBottomBGPalette7: ; 0xdcab8
+	RGB 29, 30, 31
+	RGB 5, 17, 31
+	RGB 26, 3, 1
+	RGB 0, 0, 0
+
+StageGoldFieldBottomOBJPalette0: ; 0xdcac0
+	RGB 21, 21, 21
+	RGB 31, 31, 31
+	RGB 31, 5, 4
+	RGB 0, 0, 0
+StageGoldFieldBottomOBJPalette1: ; 0xdcac8
+	RGB 31, 31, 31
+	RGB 21, 21, 21
+	RGB 27, 21, 0
+	RGB 0, 0, 0
+StageGoldFieldBottomOBJPalette2: ; 0xdcad0
+	RGB 21, 21, 21
+	RGB 31, 31, 31
+	RGB 21, 21, 27
+	RGB 0, 0, 0
+StageGoldFieldBottomOBJPalette3: ; 0xdcad8
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 8, 8, 8
+	RGB 0, 0, 0
+StageGoldFieldBottomOBJPalette4: ; 0xdcae0
+	RGB 21, 21, 21
+	RGB 31, 28, 0
+	RGB 29, 0, 0
+	RGB 0, 0, 0
+StageGoldFieldBottomOBJPalette5: ; 0xdcae8
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 8, 8, 8
+	RGB 0, 0, 0
+StageGoldFieldBottomOBJPalette6: ; 0xdcaf0
+	RGB 20, 20, 20
+	RGB 0, 31, 25
+	RGB 0, 18, 14
+	RGB 0, 0, 0
+StageGoldFieldBottomOBJPalette7: ; 0xdcaf8
+	RGB 31, 31, 31
+	RGB 31, 30, 16
+	RGB 27, 24, 8
+	RGB 23, 19, 3
+
+StageSilverFieldTopPalettes:  ; 0xdcb00
+StageSilverFieldTopBGPalette0: ; 0xdcb00
+	RGB 31, 31, 31
+	RGB 13, 20, 31
+	RGB 31, 4, 4
+	RGB 0, 0, 0
+StageSilverFieldTopBGPalette1: ; 0xdcb08
+	RGB 31, 31, 31
+	RGB 11, 25, 31
+	RGB 0, 11, 31
+	RGB 0, 0, 0
+StageSilverFieldTopBGPalette2: ; 0xdcb10
+	RGB 31, 31, 31
+	RGB 4, 23, 13
+	RGB 0, 13, 4
+	RGB 0, 0, 0
+StageSilverFieldTopBGPalette3: ; 0xdcb18
+	RGB 31, 31, 31
+	RGB 31, 29, 0
+	RGB 15, 8, 0
+	RGB 0, 0, 0
+StageSilverFieldTopBGPalette4: ; 0xdcb20
+	RGB 31, 31, 31
+	RGB 31, 0, 0
+	RGB 16, 0, 0
+	RGB 0, 0, 0
+StageSilverFieldTopBGPalette5: ; 0xdcb28
+	RGB 31, 31, 31
+	RGB 20, 20, 20
+	RGB 8, 8, 8
+	RGB 0, 0, 0
+StageSilverFieldTopBGPalette6: ; 0xdcb30
+	RGB 31, 31, 31
+	RGB 13, 13, 31
+	RGB 31, 0, 0
+	RGB 0, 0, 0
+StageSilverFieldTopBGPalette7: ; 0xdcb38
+	RGB 31, 31, 31
+	RGB 20, 20, 20
+	RGB 8, 8, 8
+	RGB 0, 0, 0
+
+StageSilverFieldTopOBJPalette0: ; 0xdcb40
+	RGB 21, 21, 21
+	RGB 31, 31, 31
+	RGB 31, 5, 4
+	RGB 0, 0, 0
+StageSilverFieldTopOBJPalette1: ; 0xdcb48
+	RGB 31, 31, 31
+	RGB 31, 13, 15
+	RGB 23, 4, 6
+	RGB 0, 0, 0
+StageSilverFieldTopOBJPalette2: ; 0xdcb50
+	RGB 21, 21, 21
+	RGB 31, 31, 31
+	RGB 31, 26, 0
+	RGB 10, 6, 0
+StageSilverFieldTopOBJPalette3: ; 0xdcb58
+	RGB 31, 31, 31
+	RGB 24, 22, 26
+	RGB 12, 10, 14
+	RGB 0, 0, 0
+StageSilverFieldTopOBJPalette4: ; 0xdcb60
+	RGB 21, 21, 21
+	RGB 31, 31, 31
+	RGB 8, 8, 8
+	RGB 0, 0, 0
+StageSilverFieldTopOBJPalette5: ; 0xdcb68
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 8, 8, 8
+	RGB 0, 0, 0
+StageSilverFieldTopOBJPalette6: ; 0xdcb70
+	RGB 21, 21, 21
+	RGB 0, 31, 25
+	RGB 0, 18, 14
+	RGB 0, 0, 0
+StageSilverFieldTopOBJPalette7: ; 0xdcb78
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 8, 8, 8
+	RGB 0, 0, 0
+
+StageSilverFieldBottomPalettes: ; 0xdcb80
+StageSilverFieldBottomBGPalette0: ; 0xdcb80
+	RGB 31, 31, 31
+	RGB 13, 20, 31
+	RGB 31, 4, 4
+	RGB 0, 0, 0
+StageSilverFieldBottomBGPalette1: ; 0xdcb88
+	RGB 31, 31, 31
+	RGB 11, 25, 31
+	RGB 0, 11, 31
+	RGB 0, 0, 0
+StageSilverFieldBottomBGPalette2: ; 0xdcb90
+	RGB 31, 31, 31
+	RGB 4, 23, 13
+	RGB 0, 13, 4
+	RGB 0, 0, 0
+StageSilverFieldBottomBGPalette3: ; 0xdcb98
+	RGB 31, 31, 31
+	RGB 31, 29, 0
+	RGB 15, 8, 0
+	RGB 0, 0, 0
+StageSilverFieldBottomBGPalette4: ; 0xdcba0
+	RGB 31, 31, 31
+	RGB 31, 0, 0
+	RGB 16, 0, 0
+	RGB 0, 0, 0
+StageSilverFieldBottomBGPalette5: ; 0xdcba8
+	RGB 31, 31, 31
+	RGB 20, 20, 20
+	RGB 8, 8, 8
+	RGB 0, 0, 0
+StageSilverFieldBottomBGPalette6: ; 0xdcbb0
+	RGB 31, 31, 31
+	RGB 15, 20, 31
+	RGB 7, 11, 21
+	RGB 0, 0, 0
+StageSilverFieldBottomBGPalette7: ; 0xdcbb8
+	RGB 31, 31, 31
+	RGB 27, 20, 10
+	RGB 24, 7, 5
+	RGB 0, 0, 0
+
+StageSilverFieldBottomOBJPalette0: ; 0xdcbc0
+	RGB 21, 21, 21
+	RGB 31, 31, 31
+	RGB 31, 5, 4
+	RGB 0, 0, 0
+StageSilverFieldBottomOBJPalette1: ; 0xdcbc8
+	RGB 31, 31, 31
+	RGB 21, 21, 21
+	RGB 27, 21, 0
+	RGB 0, 0, 0
+StageSilverFieldBottomOBJPalette2: ; 0xdcbd0
+	RGB 21, 21, 21
+	RGB 31, 31, 31
+	RGB 21, 21, 27
+	RGB 0, 0, 0
+StageSilverFieldBottomOBJPalette3: ; 0xdcbd8
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 8, 8, 8
+	RGB 0, 0, 0
+StageSilverFieldBottomOBJPalette4: ; 0xdcbe0
+	RGB 21, 21, 21
+	RGB 31, 28, 0
+	RGB 29, 0, 0
+	RGB 0, 0, 0
+StageSilverFieldBottomOBJPalette5: ; 0xdcbe8
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 8, 8, 8
+	RGB 0, 0, 0
+StageSilverFieldBottomOBJPalette6: ; 0xdcbf0
+	RGB 21, 21, 21
+	RGB 0, 31, 25
+	RGB 0, 18, 14
+	RGB 0, 0, 0
+StageSilverFieldBottomOBJPalette7: ; 0xdcbf8
+	RGB 31, 31, 31
+	RGB 31, 30, 16
+	RGB 27, 24, 8
+	RGB 23, 19, 3

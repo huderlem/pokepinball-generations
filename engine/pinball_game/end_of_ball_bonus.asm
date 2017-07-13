@@ -829,7 +829,7 @@ HandleSpinnerTurnsBallBonus_GoldField: ; 0xf9ca
 	call Func_f824
 	ret
 
-HandleBallBonusBlueField_SilverField: ; 0xf9f3
+HandleBallBonusSilverField: ; 0xf9f3
 	call HandleCloysterEntriesBallBonus_SilverField
 	call HandleSlowpokeEntriesBallBonus_SilverField
 	call HandlePoliwagTriplesBallBonus_SilverField

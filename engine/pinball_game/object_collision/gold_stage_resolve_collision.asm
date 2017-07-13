@@ -1952,7 +1952,7 @@ LoadSlotCaveCoverGraphics_GoldField: ; 0x16425
 	ld a, [hGameBoyColorFlag]
 	and a
 	jr z, .asm_16441
-	ld hl, TileDataPointers_164a1_Gold
+	ld hl, TileDataPointers_164a1_GoldField
 .asm_16441
 	add hl, bc
 	ld a, [hli]
@@ -2742,6 +2742,24 @@ LoadBonusMultiplierRailingGraphics_GoldField_GameboyColor: ; 0x16f7b
 	ret
 
 INCLUDE "data/queued_tiledata/gold_field/bonus_multiplier_railings.asm"
+
+INCLUDE "data/queued_tiledata/gold_field/pokeballs.asm"
+
+LoadPokeballsGraphics_GoldField: ; 0x1f265
+; Loads the graphics for the list of pokeballs underneath the billboard picture.
+	sla a
+	ld c, a
+	ld b, $0
+	ld hl, TileDataPointers_1f2b9_GoldField
+	add hl, bc
+	ld a, [hli]
+	ld c, a
+	ld a, [hli]
+	ld b, a
+	ld a, Bank(TileDataPointers_1f2b9_GoldField)
+	ld de, LoadTileLists
+	call QueueGraphicsToLoadWithFunc
+	ret
 
 UpdatePokeballs_GoldField: ; 0x174d0
 ; Update the pokeballs underneath the billboard, which blink for awhile after catch'em mode and evolution mode.

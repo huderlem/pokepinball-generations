@@ -682,17 +682,6 @@ UpdateBottomText: ; 0x33e3
 	ret nz ;if text has displayed, we are done, else
 	ld [wBottomTextEnabled], a ; disable bottom text
 	call FillBottomMessageBufferWithBlackTile ;fill with default data?
-	ld a, [hGameBoyColorFlag]
-	and a
-	jr nz, .gameboyColor
-	ld a, Bank(StageRedFieldTopStatusBarSymbolsGfx_GameBoy)
-	ld hl, $30 + StageRedFieldTopStatusBarSymbolsGfx_GameBoy
-	ld de, $8830
-	ld bc, $0040
-	call LoadOrCopyVRAMData
-	ret
-
-.gameboyColor
 	ld a, Bank(StageRedFieldTopStatusBarSymbolsGfx_GameBoyColor)
 	ld hl, $30 + StageRedFieldTopStatusBarSymbolsGfx_GameBoyColor
 	ld de, $8830

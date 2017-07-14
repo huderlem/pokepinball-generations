@@ -1,5 +1,5 @@
 InitBallGoldField:
-	ld a, [wd496]
+	ld a, [wReturningFromBonusStage]
 	and a
 	jp nz, StartBallAfterBonusStageGoldField
 	ld a, $0
@@ -83,7 +83,7 @@ StartBallAfterBonusStageGoldField: ; 0x30128
 	ld [wBallYVelocity + 1], a
 	ld [wBallXVelocity], a
 	ld [wBallXVelocity + 1], a
-	ld [wd496], a
+	ld [wReturningFromBonusStage], a
 	ld [wSCX], a
 	ld [wd7be], a
 	ld a, [wBallTypeBackup]

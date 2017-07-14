@@ -55,7 +55,7 @@ ResetDataForStageInitialization: ; 0x8388
 	ret
 .asm_8398
 	ld a, [wCurrentStage]
-	cp STAGE_FIRST_BONUS_STAGE
+	cp FIRST_BONUS_STAGE
 	ret nc  ; Check if bonus stage
 	ld hl, wPartyMons
 	ld bc, $0170

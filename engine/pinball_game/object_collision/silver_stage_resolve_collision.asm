@@ -2580,9 +2580,9 @@ DoSlotLogic_SilverField: ; 0x1e830
 	xor a
 	ld [wBonusStageSlotRewardActive], a
 	ld a, $1
-	ld [wd495], a
+	ld [wGoingToBonusStage], a
 	ld [wMoveToNextScreenState], a
-	ld a, [wd498]
+	ld a, [wNextBonusStage]
 	ld c, a
 	ld b, $0
 	ld hl, BonusStages_SilverField
@@ -2686,7 +2686,7 @@ OpenSlotCave_SilverField: ; 0x1e9c0
 	ld a, [wOpenedSlotByGetting3Pokeballs]
 	and a
 	jr z, .asm_1e9dc
-	ld a, [wd498]
+	ld a, [wNextBonusStage]
 	add $15
 	jr .asm_1e9e3
 

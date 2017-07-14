@@ -1405,76 +1405,100 @@ GengarBonusOBJPalette7: ; 0xdd0f8
 	RGB 8, 8, 8
 	RGB 0, 0, 0
 
-FieldSelectScreenPalettes: ; 0xdd100
-FieldSelectScreenBGPalette0: ; 0xdd100
-	RGB 31, 31, 31
-	RGB 31, 20, 0
-	RGB 31, 0, 0
-	RGB 0, 0, 0
-FieldSelectScreenBGPalette1: ; 0xdd108
-	RGB 31, 31, 31
-	RGB 0, 22, 31
-	RGB 0, 0, 31
-	RGB 0, 0, 0
-FieldSelectScreenBGPalette2: ; 0xdd110
-	RGB 31, 31, 31
-	RGB 31, 0, 0
-	RGB 0, 25, 0
-	RGB 0, 0, 0
-FieldSelectScreenBGPalette3: ; 0xdd118
-	RGB 31, 0, 31
-	RGB 31, 0, 31
-	RGB 31, 0, 31
-	RGB 31, 0, 31
-FieldSelectScreenBGPalette4: ; 0xdd120
-	RGB 31, 0, 31
-	RGB 31, 0, 31
-	RGB 31, 0, 31
-	RGB 31, 0, 31
-FieldSelectScreenBGPalette5: ; 0xdd128
-	RGB 31, 0, 31
-	RGB 31, 0, 31
-	RGB 31, 0, 31
-	RGB 31, 0, 31
-FieldSelectScreenBGPalette6: ; 0xdd130
-	RGB 31, 0, 31
-	RGB 31, 0, 31
-	RGB 31, 0, 31
-	RGB 31, 0, 31
-FieldSelectScreenBGPalette7: ; 0xdd138
-	RGB 31, 0, 31
-	RGB 31, 0, 31
-	RGB 31, 0, 31
-	RGB 31, 0, 31
+FieldSelectScreenPalettes_Kanto: ; 0xdd100
+FieldSelectScreenBGPalette0_Kanto: ; 0xdd100
+	RGB 31,31,31
+	RGB 31,31,31
+	RGB 29,1,1
+	RGB 0,0,0
+FieldSelectScreenBGPalette1_Kanto: ; 0xdd108
+	RGB 31,31,31
+	RGB 20,20,20
+	RGB 10,10,10
+	RGB 0,0,0
+FieldSelectScreenBGPalette2_Kanto: ; 0xdd110
+	RGB 31,31,31
+	RGB 31,20,10
+	RGB 26,10,6
+	RGB 0,0,0
+FieldSelectScreenBGPalette3_Kanto: ; 0xdd118
+	RGB 31,31,31
+	RGB 21,25,29
+	RGB 13,18,24
+	RGB 0,0,0
+FieldSelectScreenBGPalette4_Kanto: ; 0xdd120
+	RGB 31,31,31
+	RGB 25,25,25
+	RGB 31,0,0
+	RGB 0,0,0
+FieldSelectScreenBGPalette5_Kanto: ; 0xdd128
+	RGB 31,31,31
+	RGB 25,25,25
+	RGB 0,0,31
+	RGB 0,0,0
+FieldSelectScreenBGPalette6_Kanto: ; 0xdd128
+	RGB 31,31,0
+	RGB 31,31,0
+	RGB 31,31,0
+	RGB 31,31,0
+FieldSelectScreenBGPalette7_Kanto: ; 0xdd128
+	RGB 31,31,0
+	RGB 31,31,0
+	RGB 31,31,0
+	RGB 31,31,0
 
-FieldSelectScreenOBJPalette0: ; 0xdd140
+FieldSelectScreenOBJPalette0_Kanto: ; 0xdd140
 	RGB 10, 10, 10
 	RGB 31, 31, 31
 	RGB 21, 21, 21
 	RGB 0, 0, 0
 
-FieldSelectScreenPalettes_Kanto:
-FieldSelectScreenBGPalette0_Kanto: ; 0xdd100
-	RGB 31, 31, 31
-	RGB 31, 20, 0
-	RGB 31, 0, 0
-	RGB 0, 0, 0
-FieldSelectScreenBGPalette1_Kanto: ; 0xdd108
-	RGB 31, 31, 31
-	RGB 0, 22, 31
-	RGB 0, 0, 31
-	RGB 0, 0, 0
-
-FieldSelectScreenPalettes_Johto:
+FieldSelectScreenPalettes_Johto: ; 0xdd100
 FieldSelectScreenBGPalette0_Johto: ; 0xdd100
-	RGB 31, 31, 31
-	RGB 31, 24, 0
-	RGB 14, 10, 1
-	RGB 3, 0, 0
+	RGB 31,31,31
+	RGB 31,31,31
+	RGB 29,1,1
+	RGB 0,0,0
 FieldSelectScreenBGPalette1_Johto: ; 0xdd108
+	RGB 31,31,31
+	RGB 20,20,20
+	RGB 10,10,10
+	RGB 0,0,0
+FieldSelectScreenBGPalette2_Johto: ; 0xdd110
+	RGB 31,31,31
+	RGB 31,07,03
+	RGB 07,15,03
+	RGB 0,0,0
+FieldSelectScreenBGPalette3_Johto: ; 0xdd118
+	RGB 31,31,31
+	RGB 25, 17, 28
+	RGB 10, 00, 31
+	RGB 0,0,0
+FieldSelectScreenBGPalette4_Johto: ; 0xdd120
+	RGB 31,31,31
+	RGB 25,25,25
+	RGB 20,11,0
+	RGB 0,0,0
+FieldSelectScreenBGPalette5_Johto: ; 0xdd128
+	RGB 31,31,31
+	RGB 25,25,25
+	RGB 8,8,20
+	RGB 0,0,0
+FieldSelectScreenBGPalette6_Johto: ; 0xdd128
+	RGB 31,31,0
+	RGB 31,31,0
+	RGB 31,31,0
+	RGB 31,31,0
+FieldSelectScreenBGPalette7_Johto: ; 0xdd128
+	RGB 31,31,0
+	RGB 31,31,0
+	RGB 31,31,0
+	RGB 31,31,0
+
+FieldSelectScreenOBJPalette0_Johto: ; 0xdd140
+	RGB 10, 10, 10
 	RGB 31, 31, 31
-	RGB 22, 22, 22
-	RGB 10, 10, 12
+	RGB 21, 21, 21
 	RGB 0, 0, 0
 
 StageGoldFieldTopPalettes: ; 0xdc980

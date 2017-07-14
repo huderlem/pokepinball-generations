@@ -608,11 +608,12 @@ SECTION "bank22", ROMX
 INCLUDE "data/mon_gfx/mon_animated_pics_4.asm"
 
 FieldSelectScreenGfx:
+	INCBIN "gfx/field_select/arrow.2bpp"
 FieldSelectBlinkingBorderGfx: ; 0x8b000
 	INCBIN "gfx/field_select/blinking_border.2bpp"
-FieldSelectGfx: ; 0x8b100
-	INCBIN "gfx/field_select/field_select_tiles.2bpp"
-
+FieldSelectGfx_Kanto: ; 0x8b100
+	INCBIN "gfx/field_select/field_select_tiles_kanto.2bpp"
+FieldSelectGfx_Kanto_End:
 GengarBonusGastlyGfx: ; 0x8bd00
 	INCBIN "gfx/stage/gengar_bonus/gastly.interleave.2bpp"
 
@@ -806,10 +807,11 @@ StageRedFieldBottomIndicatorsGfx_Gameboy: ; 0xb0000
 StageRedFieldTopCollisionAttributes6: ; 0xb3000
 	INCBIN "data/collision/maps/red_stage_top_6.collision"
 
-FieldSelectTilemap: ; 0xb3800
-	INCBIN "gfx/tilemaps/field_select.map"
-FieldSelectBGAttributes: ; 0xb3c00
-	INCBIN "gfx/bgattr/field_select.bgattr"
+FieldSelectTilemap_Kanto: ; 0xb3800
+	INCBIN "gfx/tilemaps/field_select_kanto.map"
+FieldSelectTilemap_Kanto_End:
+FieldSelectBGAttributes_Kanto: ; 0xb3c00
+	INCBIN "gfx/bgattr/field_select_kanto.bgattr"
 
 SECTION "bank2d", ROMX
 
@@ -1534,3 +1536,13 @@ INCLUDE "engine/pinball_game/draw_sprites/draw_gold_field_sprites.asm"
 SECTION "bank48", ROMX
 
 INCLUDE "engine/pinball_game/catchem_mode/choose_wild_mon.asm"
+
+FieldSelectGfx_Johto:
+	INCBIN "gfx/field_select/field_select_tiles_johto.2bpp"
+FieldSelectGfx_Johto_End:
+FieldSelectTilemap_Johto:
+	INCBIN "gfx/tilemaps/field_select_johto.map"
+FieldSelectTilemap_Johto_End:
+FieldSelectBGAttributes_Johto:
+	INCBIN "gfx/bgattr/field_select_johto.bgattr"
+

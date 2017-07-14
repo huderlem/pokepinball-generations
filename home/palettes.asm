@@ -84,7 +84,7 @@ FadeIn: ; 0xbbe
 	inc de
 	dec b
 	jr nz, .loop
-	ld bc, $0002
+	ld bc, $0001
 	call AdvanceFrames
 	ld hl, hBGP
 	ld de, wBGP
@@ -98,7 +98,7 @@ FadeIn: ; 0xbbe
 	inc de
 	dec b
 	jr nz, .loop2
-	ld bc, $0002
+	ld bc, $0001
 	call AdvanceFrames
 	ld hl, hBGP
 	ld de, wBGP
@@ -116,7 +116,7 @@ FadeIn: ; 0xbbe
 	inc de
 	dec b
 	jr nz, .loop3
-	ld bc, $0002
+	ld bc, $0001
 	call AdvanceFrames
 	ret
 

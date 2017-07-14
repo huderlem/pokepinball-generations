@@ -17,8 +17,9 @@ LoadFieldSelectScreen: ; 0xd6dd
 	xor a
 	ld [hSCX], a
 	ld [hSCY], a
+	ld [wWhichFieldSelectRegion], a ; KANTO
 	xor a
-	ld hl, FieldSelectGfxPointers_Kanto
+	ld hl, FieldSelectGfxPointers
 	call LoadVideoData
 	call ClearOAMBuffer
 	ld a, $8
@@ -34,14 +35,28 @@ LoadFieldSelectScreen: ; 0xd6dd
 	inc [hl]
 	ret
 
-FieldSelectGfxPointers_Kanto: ; 0xd71c
-	dw FieldSelectGfx_Kanto
+FieldSelectGfxPointers: ; 0xd71c
+	dw FieldSelectGfxList_Initial
+	dw FieldSelectGfxList_Kanto
+	dw FieldSelectGfxList_Johto
 
-FieldSelectGfx_Kanto: ; 0xd730
-	VIDEO_DATA_TILES    FieldSelectScreenGfx, vTilesSH - $100, $d00
-	VIDEO_DATA_TILEMAP  FieldSelectTilemap, vBGMap, $240
-	VIDEO_DATA_BGATTR   FieldSelectBGAttributes, vBGMap, $240
-	VIDEO_DATA_PALETTES FieldSelectScreenPalettes, $48
+FieldSelectGfxList_Initial: ; 0xd730
+	VIDEO_DATA_TILES    FieldSelectScreenGfx, vTilesSH - $110, $d10
+	VIDEO_DATA_TILEMAP  FieldSelectTilemap_Kanto, vBGMap, $240
+	VIDEO_DATA_BGATTR   FieldSelectBGAttributes_Kanto, vBGMap, $240
+	VIDEO_DATA_PALETTES FieldSelectScreenPalettes_Kanto, $48
+	db $FF, $FF ; terminators
+
+FieldSelectGfxList_Kanto:
+	VIDEO_DATA_TILES    FieldSelectGfx_Kanto, vTilesSH, (FieldSelectGfx_Kanto_End - FieldSelectGfx_Kanto)
+	VIDEO_DATA_TILEMAP  FieldSelectTilemap_Kanto, vBGMap, (FieldSelectTilemap_Kanto_End - FieldSelectTilemap_Kanto)
+	VIDEO_DATA_PALETTES FieldSelectScreenPalettes_Kanto, $48
+	db $FF, $FF ; terminators
+
+FieldSelectGfxList_Johto:
+	VIDEO_DATA_TILES    FieldSelectGfx_Johto, vTilesSH, (FieldSelectGfx_Johto_End - FieldSelectGfx_Johto)
+	VIDEO_DATA_TILEMAP  FieldSelectTilemap_Johto, vBGMap, (FieldSelectTilemap_Johto_End - FieldSelectTilemap_Johto)
+	VIDEO_DATA_PALETTES FieldSelectScreenPalettes_Johto, $48
 	db $FF, $FF ; terminators
 
 ChooseFieldToPlay: ; 0xd74e
@@ -68,24 +83,44 @@ ChooseFieldToPlay: ; 0xd74e
 INCLUDE "data/queued_tiledata/field_select_switch_regions.asm"
 
 ChangeFieldSelectRegion:
+	bit BIT_D_UP, a
+	jr z, .didntPressUp
 	ld a, [wWhichFieldSelectRegion]
-	cp 1 ; Is it Johto?
-	jr z, .switchToKanto
-	; switching to Johto
-	ld a, Bank(FieldSelectJohto_PaletteData)
-	ld bc, FieldSelectJohto_PaletteData
-	ld de, LoadPalettes
-	call QueueGraphicsToLoadWithFunc
+	cp REGION_KANTO
+	ret z
+	jr .move
+.didntPressUp
+	bit BIT_D_DOWN, a
+	jr z, .done
+	ld a, [wWhichFieldSelectRegion]
+	cp REGION_JOHTO
+	ret z
+.move
+	call ClearOAMBuffer
+	call FadeOut
+	call DisableLCD
+	ld a, [wWhichFieldSelectRegion]
+	cp REGION_JOHTO ; Is it Johto?
+	jr z, .checkKanto
+	; switch to johto
+	ld a, 2
+	ld hl, FieldSelectGfxPointers
+	call LoadVideoData
+	ld a, REGION_JOHTO
+	ld [wWhichFieldSelectRegion], a
+	jr .done
+.checkKanto
+	cp REGION_KANTO
+	jr z, .done
 	ld a, 1
+	ld hl, FieldSelectGfxPointers
+	call LoadVideoData
+	ld a, REGION_KANTO
 	ld [wWhichFieldSelectRegion], a
-	ret
-.switchToKanto
-	ld a, Bank(FieldSelectKanto_PaletteData)
-	ld bc, FieldSelectKanto_PaletteData
-	ld de, LoadPalettes
-	call QueueGraphicsToLoadWithFunc
-	xor a
-	ld [wWhichFieldSelectRegion], a
+.done
+	call SetAllPalettesWhite
+	call EnableLCD
+	call FadeIn
 	ret
 
 ExitFieldSelectScreen: ; 0xd774
@@ -218,6 +253,7 @@ AnimateBlinkingFieldSelectBorder: ; 0xd7fb
 	ld a, [hl]
 .asm_d838
 	ld [wFieldSelectBlinkingBorderFrame], a
+	call UpdateRegionArrows
 	pop hl
 	ret
 
@@ -240,3 +276,45 @@ FieldSelectConfirmationAnimationData:
 FieldSelectBorderOAMPixelOffsetData:
 	dw $2A42
 	dw $7242
+
+UpdateRegionArrows:
+	ld hl, wOAMBufferEnd - 8
+	; Up Arrow
+	ld a, [wWhichFieldSelectRegion]
+	cp REGION_KANTO
+	jr z, .skipUpArrow
+	call .increaseOAMBufferSize
+	ld a, [wFieldSelectBlinkingBorderFrame]
+	srl a
+	srl a
+	add $20
+	ld [hli], a
+	ld a, $54
+	ld [hli], a
+	ld a, $6f
+	ld [hli], a
+	ld a, $40
+	ld [hli], a
+.skipUpArrow
+	ld a, [wWhichFieldSelectRegion]	
+	cp REGION_JOHTO
+	jr z, .skipDownArrow
+	call .increaseOAMBufferSize
+	ld a, [wFieldSelectBlinkingBorderFrame]
+	srl a
+	srl a
+	add $84
+	ld [hli], a
+	ld a, $54
+	ld [hli], a
+	ld a, $6f
+	ld [hli], a
+	ld a, $00
+	ld [hli], a
+.skipDownArrow
+	ret
+.increaseOAMBufferSize
+	ld a, [wOAMBufferSize]
+	add 4
+	ld [wOAMBufferSize], a
+	ret

@@ -2412,19 +2412,33 @@ high_scores: MACRO
 \1Id:: ds 4
 ENDM
 
-wRedHighScores:: ; 0xd9fd
+wRedHighScores::
 	high_scores wRedHighScore1
 	high_scores wRedHighScore2
 	high_scores wRedHighScore3
 	high_scores wRedHighScore4
 	high_scores wRedHighScore5
 
-wBlueHighScores:: ; 0xd9fd
+wBlueHighScores::
 	high_scores wBlueHighScore1
 	high_scores wBlueHighScore2
 	high_scores wBlueHighScore3
 	high_scores wBlueHighScore4
 	high_scores wBlueHighScore5
+
+wGoldHighScores::
+	high_scores wGoldHighScore1
+	high_scores wGoldHighScore2
+	high_scores wGoldHighScore3
+	high_scores wGoldHighScore4
+	high_scores wGoldHighScore5
+
+wSilverHighScores::
+	high_scores wSilverHighScore1
+	high_scores wSilverHighScore2
+	high_scores wSilverHighScore3
+	high_scores wSilverHighScore4
+	high_scores wSilverHighScore5
 
 wda7f:: ; 0xda7f
 	ds $1
@@ -2491,8 +2505,6 @@ wWhichFieldSelectRegion:: ; 0xdaa4
 ; 0 = KANTO
 ; 1 = JOHTO
 	ds $1
-
-; $25b bytes of free space
 
 SECTION "Audio RAM", WRAMX
 wdd00:: ; 0xdd00

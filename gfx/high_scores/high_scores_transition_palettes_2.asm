@@ -1,4 +1,4 @@
-HighScoresTransitionPalettes9: ; 0xd7e00
+HighScoresTransitionPalettes9_Kanto: ; 0xd7e00
 	; BG Palette 0
 	RGB 31, 31, 31
 	RGB 17, 0, 15
@@ -47,7 +47,7 @@ HighScoresTransitionPalettes9: ; 0xd7e00
 	RGB 19, 8, 17
 	RGB 0, 0, 0
 
-HighScoresTransitionPalettes10: ; 0xd7e40
+HighScoresTransitionPalettes10_Kanto: ; 0xd7e40
 	; BG Palette 0
 	RGB 31, 31, 31
 	RGB 19, 0, 12
@@ -96,7 +96,7 @@ HighScoresTransitionPalettes10: ; 0xd7e40
 	RGB 18, 8, 19
 	RGB 0, 0, 0
 
-HighScoresTransitionPalettes11: ; 0xd7e80
+HighScoresTransitionPalettes11_Kanto: ; 0xd7e80
 	; BG Palette 0
 	RGB 31, 31, 31
 	RGB 21, 0, 10
@@ -145,7 +145,7 @@ HighScoresTransitionPalettes11: ; 0xd7e80
 	RGB 16, 8, 20
 	RGB 0, 0, 0
 
-HighScoresTransitionPalettes12: ; 0xd7ec0
+HighScoresTransitionPalettes12_Kanto: ; 0xd7ec0
 	; BG Palette 0
 	RGB 31, 31, 31
 	RGB 23, 0, 8
@@ -194,7 +194,7 @@ HighScoresTransitionPalettes12: ; 0xd7ec0
 	RGB 15, 8, 21
 	RGB 0, 0, 0
 
-HighScoresTransitionPalettes13: ; 0xd7f00
+HighScoresTransitionPalettes13_Kanto: ; 0xd7f00
 	; BG Palette 0
 	RGB 31, 31, 31
 	RGB 25, 0, 6
@@ -243,7 +243,7 @@ HighScoresTransitionPalettes13: ; 0xd7f00
 	RGB 14, 8, 23
 	RGB 0, 0, 0
 
-HighScoresTransitionPalettes14: ; 0xd7f40
+HighScoresTransitionPalettes14_Kanto: ; 0xd7f40
 	; BG Palette 0
 	RGB 31, 31, 31
 	RGB 27, 0, 4
@@ -292,7 +292,7 @@ HighScoresTransitionPalettes14: ; 0xd7f40
 	RGB 12, 8, 24
 	RGB 0, 0, 0
 
-HighScoresTransitionPalettes15: ; 0xd7f80
+HighScoresTransitionPalettes15_Kanto: ; 0xd7f80
 	; BG Palette 0
 	RGB 31, 31, 31
 	RGB 29, 0, 2
@@ -341,7 +341,7 @@ HighScoresTransitionPalettes15: ; 0xd7f80
 	RGB 11, 9, 25
 	RGB 0, 0, 0
 
-HighScoresTransitionPalettes16: ; 0xd7fc0
+HighScoresTransitionPalettes16_Kanto: ; 0xd7fc0
 	; BG Palette 0
 	RGB 31, 31, 31
 	RGB 31, 0, 0

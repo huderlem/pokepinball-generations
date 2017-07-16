@@ -22,9 +22,15 @@ Func_ca8f: ; 0xca8f
 	ld hl, wRedHighScore5Points + $5
 	ld a, [wHighScoresStage]
 	and a
-	jr z, .asm_caae
+	jr z, .gotPointer
+	cp 1
 	ld hl, wBlueHighScore5Points + $5
-.asm_caae
+	jr z, .gotPointer
+	cp 2
+	ld hl, wGoldHighScore5Points + $5
+	jr z, .gotPointer
+	ld hl, wSilverHighScore5Points + $5
+.gotPointer
 	ld b, $5
 .asm_cab0
 	ld de, wScore + $5
@@ -62,10 +68,19 @@ Func_ca8f: ; 0xca8f
 	ld de, wRedHighScore5Id + 3
 	ld a, [wHighScoresStage]
 	and a
-	jr z, .asm_caeb
+	jr z, .gotPointers
+	cp 1
 	ld hl, wBlueHighScore4Id + 3
 	ld de, wBlueHighScore5Id + 3
-.asm_caeb
+	jr z, .gotPointers
+	cp 2
+	ld hl, wGoldHighScore4Id + 3
+	ld de, wGoldHighScore5Id + 3
+	jr z, .gotPointers
+	ld hl, wSilverHighScore4Id + 3
+	ld de, wSilverHighScore5Id + 3
+	jr z, .gotPointers
+.gotPointers
 	ld a, $5
 .asm_caed
 	cp b
@@ -121,26 +136,35 @@ Func_cb14: ; 0xcb14
 	set 1, [hl]
 	ld a, $3
 	ld [hHBlankRoutine], a
-	ld a, [hGameBoyColorFlag]
-	and a
-	jr z, .asm_cb51
 	ld a, [wHighScoresStage]
-	inc a
-.asm_cb51
+	push af
 	ld hl, HighScoresVideoDataPointers
 	call LoadVideoData
 	call ClearOAMBuffer
 	ld a, $20
 	ld [wda82], a
 	call Func_d211
+	pop af ; a = [wHighScoresStage]
+	cp 2
+	jr nc, .checkJohto
 	hlCoord 0, 14, vBGMap
 	ld de, wRedHighScore5Id + $3
 	call Func_d2cb
 	hlCoord 0, 14, vBGWin
 	ld de, wBlueHighScore5Id + $3
 	call Func_d2cb
+	jr .ok
+.checkJohto
+	;cp 4
+	hlCoord 0, 14, vBGMap
+	ld de, wGoldHighScore5Id + $3
+	call Func_d2cb
+	hlCoord 0, 14, vBGWin
+	ld de, wSilverHighScore5Id + $3
+	call Func_d2cb
+.ok
 	ld a, [wHighScoresStage]
-	and a
+	bit 0, a
 	jr z, .asm_cb7f
 	ld hl, hLCDC
 	set 3, [hl]
@@ -192,34 +216,13 @@ Func_cb14: ; 0xcb14
 	ret
 
 HighScoresVideoDataPointers: ; 0xcbe3
-	dw HighScoresVideoData_GameBoy
 	dw HighScoresRedStageVideoData_GameBoyColor
 	dw HighScoresBlueStageVideoData_GameBoyColor
-
-HighScoresVideoData_GameBoy: ; 0xcbe9
-	VIDEO_DATA_TILES HighScoresBaseGameBoyGfx, vTilesOB, $1800
-	VIDEO_DATA_TILEMAP HighScoresTilemap, vBGMap, $400
-	VIDEO_DATA_TILEMAP HighScoresTilemap2, vBGWin, $400
-	dw HighScoresTilemap + $3c0
-	db Bank(HighScoresTilemap)
-	dw vBGMap
-	dw ($40 << 2)
-	dw HighScoresTilemap + $280
-	db Bank(HighScoresTilemap)
-	dw vBGMap + $200
-	dw ($40 << 2)
-	dw HighScoresTilemap2 + $3c0
-	db Bank(HighScoresTilemap2)
-	dw vBGWin
-	dw ($40 << 2)
-	dw HighScoresTilemap2 + $280
-	db Bank(HighScoresTilemap2)
-	dw vBGWin + $200
-	dw ($40 << 2)
-	db $FF, $FF  ; terminators
+	dw HighScoresGoldStageVideoData_GameBoyColor
+	dw HighScoresSilverStageVideoData_GameBoyColor
 
 HighScoresRedStageVideoData_GameBoyColor: ; 0xcc1c
-	VIDEO_DATA_TILES HighScoresBaseGameBoyGfx, vTilesOB, $1800
+	VIDEO_DATA_TILES HighScoresBaseGameBoyGfx_Kanto, vTilesOB, $1800
 	VIDEO_DATA_TILEMAP HighScoresTilemap, vBGMap, $400
 	VIDEO_DATA_TILEMAP HighScoresTilemap2, vBGWin, $400
 	VIDEO_DATA_TILEMAP_BANK2 HighScoresTilemap4, vBGMap, $400
@@ -244,7 +247,7 @@ HighScoresRedStageVideoData_GameBoyColor: ; 0xcc1c
 	db $FF, $FF
 
 HighScoresBlueStageVideoData_GameBoyColor: ; 0xcc64
-	VIDEO_DATA_TILES HighScoresBaseGameBoyGfx, vTilesOB, $1800
+	VIDEO_DATA_TILES HighScoresBaseGameBoyGfx_Kanto, vTilesOB, $1800
 	VIDEO_DATA_TILEMAP HighScoresTilemap, vBGMap, $400
 	VIDEO_DATA_TILEMAP HighScoresTilemap2, vBGWin, $400
 	VIDEO_DATA_TILEMAP_BANK2 HighScoresTilemap4, vBGMap, $400
@@ -266,6 +269,56 @@ HighScoresBlueStageVideoData_GameBoyColor: ; 0xcc64
 	dw vBGWin + $200
 	dw ($40 << 2)
 	VIDEO_DATA_PALETTES HighScoresBlueStagePalettes, $80
+	db $FF, $FF  ; terminators
+
+HighScoresGoldStageVideoData_GameBoyColor: ; 0xcc1c
+	VIDEO_DATA_TILES HighScoresBaseGameBoyGfx_Johto, vTilesOB, $1800
+	VIDEO_DATA_TILEMAP HighScoresTilemap, vBGMap, $400
+	VIDEO_DATA_TILEMAP HighScoresTilemap2, vBGWin, $400
+	VIDEO_DATA_TILEMAP_BANK2 HighScoresTilemap4, vBGMap, $400
+	VIDEO_DATA_TILEMAP_BANK2 HighScoresTilemap5, vBGWin, $400
+	dw HighScoresTilemap + $3c0
+	db Bank(HighScoresTilemap)
+	dw vBGMap
+	dw ($40 << 2)
+	dw HighScoresTilemap + $280
+	db Bank(HighScoresTilemap)
+	dw vBGMap + $200
+	dw ($40 << 2)
+	dw HighScoresTilemap2 + $3c0
+	db Bank(HighScoresTilemap2)
+	dw vBGWin
+	dw ($40 << 2)
+	dw HighScoresTilemap2 + $280
+	db Bank(HighScoresTilemap2)
+	dw vBGWin + $200
+	dw ($40 << 2)
+	VIDEO_DATA_PALETTES HighScoresGoldStagePalettes, $80
+	db $FF, $FF
+
+HighScoresSilverStageVideoData_GameBoyColor: ; 0xcc64
+	VIDEO_DATA_TILES HighScoresBaseGameBoyGfx_Johto, vTilesOB, $1800
+	VIDEO_DATA_TILEMAP HighScoresTilemap, vBGMap, $400
+	VIDEO_DATA_TILEMAP HighScoresTilemap2, vBGWin, $400
+	VIDEO_DATA_TILEMAP_BANK2 HighScoresTilemap4, vBGMap, $400
+	VIDEO_DATA_TILEMAP_BANK2 HighScoresTilemap5, vBGWin, $400
+	dw HighScoresTilemap + $3c0
+	db Bank(HighScoresTilemap)
+	dw vBGMap
+	dw ($40 << 2)
+	dw HighScoresTilemap + $280
+	db Bank(HighScoresTilemap)
+	dw vBGMap + $200
+	dw ($40 << 2)
+	dw HighScoresTilemap2 + $3c0
+	db Bank(HighScoresTilemap2)
+	dw vBGWin
+	dw ($40 << 2)
+	dw HighScoresTilemap2 + $280
+	db Bank(HighScoresTilemap2)
+	dw vBGWin + $200
+	dw ($40 << 2)
+	VIDEO_DATA_PALETTES HighScoresSilverStagePalettes, $80
 	db $FF, $FF  ; terminators
 
 Func_ccac: ; 0xccac
@@ -349,16 +402,28 @@ Func_ccb6: ; 0xccb6
 	deCoord 0, 2, vBGWin
 	ld bc, $01c0
 	call LoadVRAMData
+	ld a, [wHighScoresStage]
+	cp 2
+	jr nc, .checkJohto
 	hlCoord 0, 14, vBGMap
 	ld de, wRedHighScore5Id + $3
 	call Func_d361
 	hlCoord 0, 14, vBGWin
 	ld de, wBlueHighScore5Id + $3
 	call Func_d361
+	jr .ok
+.checkJohto
+	hlCoord 0, 14, vBGMap
+	ld de, wGoldHighScore5Id + $3
+	call Func_d361
+	hlCoord 0, 14, vBGWin
+	ld de, wSilverHighScore5Id + $3
+	call Func_d361
+.ok
 	ld hl, wRedHighScore1Points
 	ld de, $a000
 	ld bc, $0082
-	call SaveData
+	call SaveData ; TODO
 	ret
 
 Func_cd6c: ; 0xcd6c
@@ -861,8 +926,8 @@ Func_d042: ; 0xd042
 	ret
 
 Func_d0e3: ; 0xd0e3
-	ld a, BANK(HighScoresBaseGameBoyGfx)
-	ld hl, HighScoresBaseGameBoyGfx + $800
+	ld a, BANK(HighScoresBaseGameBoyGfx_Kanto)
+	ld hl, HighScoresBaseGameBoyGfx_Kanto + $800
 	call Func_1a21
 	ld a, [wd86d]
 	and a
@@ -974,7 +1039,13 @@ Func_d18b: ; 0xd18b
 	ld a, [wHighScoresStage]
 	and a
 	jr z, .asm_d1ae
+	cp 1
 	ld hl, wBlueHighScore1Name
+	jr z, .asm_d1ae
+	cp 2
+	ld hl, wGoldHighScore1Name
+	jr z, .asm_d1ae
+	ld hl, wSilverHighScore1Name
 .asm_d1ae
 	add hl, de
 	ld a, [hl]
@@ -1086,7 +1157,7 @@ AnimateHighScoresArrow: ; 0xd24f
 .noOverflow
 	ld [wHighScoresArrowAnimationCounter], a
 	ld a, [wHighScoresStage]
-	and a
+	bit 0, a
 	ld c, $77
 	ld a, $95
 	ld hl, HighScoresRightArrowOAMPixelXOffsets
@@ -1370,6 +1441,12 @@ CopyInitialHighScores: ; 0xd3ff
 	call CopyInitialHighScoresForStage
 	ld hl, InitialHighScores
 	ld de, wBlueHighScore1Points
+	call CopyInitialHighScoresForStage
+	ld hl, InitialHighScores
+	ld de, wGoldHighScore1Points
+	call CopyInitialHighScoresForStage
+	ld hl, InitialHighScores
+	ld de, wSilverHighScore1Points
 
 CopyInitialHighScoresForStage: ; 0xd40e
 ; input:  hl = address of high score entries
@@ -1422,7 +1499,7 @@ Func_d46f: ; 0xd46f
 	ld e, a
 	hlCoord 3, 2, vBGMap
 	ld a, [wHighScoresStage]
-	and a
+	bit 0, a
 	jr z, .asm_d496
 	hlCoord 3, 2, vBGWin
 .asm_d496
@@ -1444,7 +1521,13 @@ Func_d46f: ; 0xd46f
 	ld a, [wHighScoresStage]
 	and a
 	jr z, .asm_d4b8
+	cp 1
 	ld hl, wBlueHighScore1Name
+	jr z, .asm_d4b8
+	cp 2
+	ld hl, wGoldHighScore1Name
+	jr z, .asm_d4b8
+	ld hl, wSilverHighScore1Name
 .asm_d4b8
 	add hl, de
 	ld a, [hl]
@@ -1463,20 +1546,24 @@ Func_d46f: ; 0xd46f
 
 Func_d4cf: ; 0xd4cf
 	ld a, [hNewlyPressedButtons]
+	bit BIT_D_UP, a
+	jp nz, ChangeHighScoresRegion_Up
+	bit BIT_D_DOWN, a
+	jp nz, ChangeHighScoresRegion_Down
 	ld b, a
 	ld a, [wHighScoresStage]
-	bit 4, b
+	bit BIT_D_RIGHT, b
 	jr z, .asm_d4e3
-	and a
+	bit 0, a
 	ret nz
 	lb de, $00, $03
 	call PlaySoundEffect
 	jr .asm_d4f0
 
 .asm_d4e3
-	bit 5, b
+	bit BIT_D_LEFT, b
 	ret z
-	and a
+	bit 0, a
 	ret z
 	lb de, $00, $03
 	call PlaySoundEffect
@@ -1519,8 +1606,8 @@ Func_d4cf: ; 0xd4cf
 	ld hl, hLCDC
 	res 5, [hl]
 	set 3, [hl]
-	ld a, $1
-	ld [wHighScoresStage], a
+	ld hl, wHighScoresStage
+	set 0, [hl]
 	call Func_d5d0
 	ret
 
@@ -1560,9 +1647,33 @@ Func_d4cf: ; 0xd4cf
 	ld [hSCX], a
 	ld hl, hLCDC
 	res 5, [hl]
-	xor a
-	ld [wHighScoresStage], a
+	ld hl, wHighScoresStage
+	res 0, [hl]
 	call Func_d5d0
+	ret
+
+ChangeHighScoresRegion_Up:
+	ld a, [wHighScoresStage]
+	cp 2
+	ret c
+	dec a
+	dec a
+	ld [wHighScoresStage], a
+	jp ChangeHighScoresRegion
+
+ChangeHighScoresRegion_Down:
+	ld a, [wHighScoresStage]
+	cp 2
+	ret nc
+	inc a
+	inc a
+	ld [wHighScoresStage], a
+	jp ChangeHighScoresRegion
+
+ChangeHighScoresRegion:
+; Destination stage stored in wHighScoresStage.
+	xor a
+	ld [wScreenState], a
 	ret
 
 Func_d57b: ; 0xd57b
@@ -1663,7 +1774,12 @@ TransitionHighScoresPalettes: ; 0xd626
 	sla c
 	add c
 	ld c, a
-	ld hl, HighScoresPalettesTransition
+	ld a, [wHighScoresStage]
+	cp 2
+	ld hl, HighScoresPalettesTransition_Kanto
+	jr c, .ok
+	ld hl, HighScoresPalettesTransition_Johto
+.ok
 	add hl, bc
 	ld a, [hli]
 	ld c, a
@@ -1682,26 +1798,47 @@ TransitionHighScoresPalettes: ; 0xd626
 	call Func_7dc
 	ret
 
-HighScoresPalettesTransition: ; 0xd65a
+HighScoresPalettesTransition_Kanto: ; 0xd65a
 ; When switching between the Red and Blue field high scores, the palette
 ; of the rows fades between red and blue. This table defines the transition
 ; of those palettes.
-	dwb HighScoresTransitionPalettes1,  Bank(HighScoresTransitionPalettes1)
-	dwb HighScoresTransitionPalettes2,  Bank(HighScoresTransitionPalettes2)
-	dwb HighScoresTransitionPalettes3,  Bank(HighScoresTransitionPalettes3)
-	dwb HighScoresTransitionPalettes4,  Bank(HighScoresTransitionPalettes4)
-	dwb HighScoresTransitionPalettes5,  Bank(HighScoresTransitionPalettes5)
-	dwb HighScoresTransitionPalettes6,  Bank(HighScoresTransitionPalettes6)
-	dwb HighScoresTransitionPalettes7,  Bank(HighScoresTransitionPalettes7)
-	dwb HighScoresTransitionPalettes8,  Bank(HighScoresTransitionPalettes8)
-	dwb HighScoresTransitionPalettes9,  Bank(HighScoresTransitionPalettes9)
-	dwb HighScoresTransitionPalettes10, Bank(HighScoresTransitionPalettes10)
-	dwb HighScoresTransitionPalettes11, Bank(HighScoresTransitionPalettes11)
-	dwb HighScoresTransitionPalettes12, Bank(HighScoresTransitionPalettes12)
-	dwb HighScoresTransitionPalettes13, Bank(HighScoresTransitionPalettes13)
-	dwb HighScoresTransitionPalettes14, Bank(HighScoresTransitionPalettes14)
-	dwb HighScoresTransitionPalettes15, Bank(HighScoresTransitionPalettes15)
-	dwb HighScoresTransitionPalettes16, Bank(HighScoresTransitionPalettes16)
+	dwb HighScoresTransitionPalettes1_Kanto,  Bank(HighScoresTransitionPalettes1_Kanto)
+	dwb HighScoresTransitionPalettes2_Kanto,  Bank(HighScoresTransitionPalettes2_Kanto)
+	dwb HighScoresTransitionPalettes3_Kanto,  Bank(HighScoresTransitionPalettes3_Kanto)
+	dwb HighScoresTransitionPalettes4_Kanto,  Bank(HighScoresTransitionPalettes4_Kanto)
+	dwb HighScoresTransitionPalettes5_Kanto,  Bank(HighScoresTransitionPalettes5_Kanto)
+	dwb HighScoresTransitionPalettes6_Kanto,  Bank(HighScoresTransitionPalettes6_Kanto)
+	dwb HighScoresTransitionPalettes7_Kanto,  Bank(HighScoresTransitionPalettes7_Kanto)
+	dwb HighScoresTransitionPalettes8_Kanto,  Bank(HighScoresTransitionPalettes8_Kanto)
+	dwb HighScoresTransitionPalettes9_Kanto,  Bank(HighScoresTransitionPalettes9_Kanto)
+	dwb HighScoresTransitionPalettes10_Kanto, Bank(HighScoresTransitionPalettes10_Kanto)
+	dwb HighScoresTransitionPalettes11_Kanto, Bank(HighScoresTransitionPalettes11_Kanto)
+	dwb HighScoresTransitionPalettes12_Kanto, Bank(HighScoresTransitionPalettes12_Kanto)
+	dwb HighScoresTransitionPalettes13_Kanto, Bank(HighScoresTransitionPalettes13_Kanto)
+	dwb HighScoresTransitionPalettes14_Kanto, Bank(HighScoresTransitionPalettes14_Kanto)
+	dwb HighScoresTransitionPalettes15_Kanto, Bank(HighScoresTransitionPalettes15_Kanto)
+	dwb HighScoresTransitionPalettes16_Kanto, Bank(HighScoresTransitionPalettes16_Kanto)
+
+HighScoresPalettesTransition_Johto: ; 0xd65a
+; When switching between the Gold and Silver field high scores, the palette
+; of the rows fades between gold and silver. This table defines the transition
+; of those palettes.
+	dwb HighScoresTransitionPalettes1_Johto,  Bank(HighScoresTransitionPalettes1_Johto)
+	dwb HighScoresTransitionPalettes2_Johto,  Bank(HighScoresTransitionPalettes2_Johto)
+	dwb HighScoresTransitionPalettes3_Johto,  Bank(HighScoresTransitionPalettes3_Johto)
+	dwb HighScoresTransitionPalettes4_Johto,  Bank(HighScoresTransitionPalettes4_Johto)
+	dwb HighScoresTransitionPalettes5_Johto,  Bank(HighScoresTransitionPalettes5_Johto)
+	dwb HighScoresTransitionPalettes6_Johto,  Bank(HighScoresTransitionPalettes6_Johto)
+	dwb HighScoresTransitionPalettes7_Johto,  Bank(HighScoresTransitionPalettes7_Johto)
+	dwb HighScoresTransitionPalettes8_Johto,  Bank(HighScoresTransitionPalettes8_Johto)
+	dwb HighScoresTransitionPalettes9_Johto,  Bank(HighScoresTransitionPalettes9_Johto)
+	dwb HighScoresTransitionPalettes10_Johto, Bank(HighScoresTransitionPalettes10_Johto)
+	dwb HighScoresTransitionPalettes11_Johto, Bank(HighScoresTransitionPalettes11_Johto)
+	dwb HighScoresTransitionPalettes12_Johto, Bank(HighScoresTransitionPalettes12_Johto)
+	dwb HighScoresTransitionPalettes13_Johto, Bank(HighScoresTransitionPalettes13_Johto)
+	dwb HighScoresTransitionPalettes14_Johto, Bank(HighScoresTransitionPalettes14_Johto)
+	dwb HighScoresTransitionPalettes15_Johto, Bank(HighScoresTransitionPalettes15_Johto)
+	dwb HighScoresTransitionPalettes16_Johto, Bank(HighScoresTransitionPalettes16_Johto)
 
 Func_d68a: ; 0xd68a
 	push bc

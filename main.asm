@@ -765,8 +765,8 @@ PinballMasterballMiniGfx: ; 0xa9600
 PinballBallSuperMiniGfx: ; 0xa9800
 	INCBIN "gfx/stage/ball_mini.w32.interleave.2bpp"
 
-HighScoresBaseGameBoyGfx: ; 0xa9a00
-	INCBIN "gfx/high_scores/high_scores_base_gameboy.2bpp"
+HighScoresBaseGameBoyGfx_Kanto: ; 0xa9a00
+	INCBIN "gfx/high_scores/high_scores_base_gameboy_kanto.2bpp"
 
 MeowthBonusBaseGameBoyColorGfx: ; 0xab200
 	INCBIN "gfx/stage/meowth_bonus/meowth_bonus_base_gameboycolor.2bpp"
@@ -1546,3 +1546,7 @@ FieldSelectTilemap_Johto_End:
 FieldSelectBGAttributes_Johto:
 	INCBIN "gfx/bgattr/field_select_johto.bgattr"
 
+INCLUDE "gfx/high_scores/high_scores_transition_palettes_johto.asm"
+
+HighScoresBaseGameBoyGfx_Johto:
+	INCBIN "gfx/high_scores/high_scores_base_gameboy_johto.2bpp"

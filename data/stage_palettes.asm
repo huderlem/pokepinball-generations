@@ -907,6 +907,172 @@ HighScoresRedStageOBJPalette7: ; 0xdcdf8
 	RGB 31, 31, 31
 	RGB 31, 31, 31
 
+HighScoresGoldStagePalettes: ; 0xdcd80
+HighScoresGoldStageBGPalette0: ; 0xdcd80
+	RGB 31, 31, 31
+	RGB 23, 23, 23
+	RGB 14, 14, 14
+	RGB 5, 5, 5
+HighScoresGoldStageBGPalette1: ; 0xdcd88
+	RGB 31, 31, 31
+	RGB 15, 15, 17
+	RGB 31, 22, 0
+	RGB 0, 0, 0
+HighScoresGoldStageBGPalette2: ; 0xdcd90
+	RGB 31, 31, 31
+	RGB 17, 17, 19
+	RGB 31, 22, 0
+	RGB 0, 0, 0
+HighScoresGoldStageBGPalette3: ; 0xdcd98
+	RGB 31, 31, 31
+	RGB 19, 19, 21
+	RGB 31, 22, 0
+	RGB 0, 0, 0
+HighScoresGoldStageBGPalette4: ; 0xdcda0
+	RGB 31, 31, 31
+	RGB 21, 21, 23
+	RGB 31, 22, 0
+	RGB 0, 0, 0
+HighScoresGoldStageBGPalette5: ; 0xdcda8
+	RGB 31, 31, 31
+	RGB 23, 23, 25
+	RGB 31, 22, 0
+	RGB 0, 0, 0
+HighScoresGoldStageBGPalette6: ; 0xdcdb0
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+HighScoresGoldStageBGPalette7: ; 0xdcdb8
+	RGB 31, 29, 4
+	RGB 29, 18, 0
+	RGB 31, 0, 0
+	RGB 5, 5, 5
+
+HighScoresGoldStageOBJPalette0: ; 0xdcdc0
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 31, 6, 6
+	RGB 0, 0, 0
+HighScoresGoldStageOBJPalette1: ; 0xdcdc8
+	RGB 31, 31, 31
+	RGB 31, 29, 4
+	RGB 29, 18, 0
+	RGB 0, 0, 0
+HighScoresGoldStageOBJPalette2: ; 0xdcdd0
+	RGB 20, 20, 20
+	RGB 31, 31, 31
+	RGB 14, 14, 14
+	RGB 5, 5, 5
+HighScoresGoldStageOBJPalette3: ; 0xdcdd8
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+HighScoresGoldStageOBJPalette4: ; 0xdcde0
+	RGB 31, 31, 31
+	RGB 31, 0, 0
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+HighScoresGoldStageOBJPalette5: ; 0xdcde8
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+HighScoresGoldStageOBJPalette6: ; 0xdcdf0
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+HighScoresGoldStageOBJPalette7: ; 0xdcdf8
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+
+HighScoresSilverStagePalettes: ; 0xdcd00
+HighScoresSilverStageBGPalette0: ; 0xdcd00
+	RGB 31, 31, 31
+	RGB 23, 23, 23
+	RGB 14, 14, 14
+	RGB 5, 5, 5
+HighScoresSilverStageBGPalette1: ; 0xdcd08
+	RGB 31, 31, 31
+	RGB 31, 8, 0
+	RGB 12, 11, 14
+	RGB 0, 0, 0
+HighScoresSilverStageBGPalette2: ; 0xdcd10
+	RGB 31, 31, 31
+	RGB 31, 14, 0
+	RGB 12, 11, 14
+	RGB 0, 0, 0
+HighScoresSilverStageBGPalette3: ; 0xdcd18
+	RGB 31, 31, 31
+	RGB 31, 20, 0
+	RGB 12, 11, 14
+	RGB 0, 0, 0
+HighScoresSilverStageBGPalette4: ; 0xdcd20
+	RGB 31, 31, 31
+	RGB 31, 26, 0
+	RGB 12, 11, 14
+	RGB 0, 0, 0
+HighScoresSilverStageBGPalette5: ; 0xdcd28
+	RGB 31, 31, 31
+	RGB 31, 30, 0
+	RGB 12, 11, 14
+	RGB 0, 0, 0
+HighScoresSilverStageBGPalette6: ; 0xdcd30
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+HighScoresSilverStageBGPalette7: ; 0xdcd38
+	RGB 31, 29, 4
+	RGB 29, 18, 0
+	RGB 31, 0, 0
+	RGB 5, 5, 5
+
+HighScoresSilverStageOBJPalette0: ; 0xdcd40
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 9, 9, 27
+	RGB 0, 0, 0
+HighScoresSilverStageOBJPalette1: ; 0xdcd48
+	RGB 31, 31, 31
+	RGB 31, 29, 4
+	RGB 29, 18, 0
+	RGB 0, 0, 0
+HighScoresSilverStageOBJPalette2: ; 0xdcd50
+	RGB 20, 20, 20
+	RGB 31, 31, 31
+	RGB 14, 14, 14
+	RGB 5, 5, 5
+HighScoresSilverStageOBJPalette3: ; 0xdcd58
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+HighScoresSilverStageOBJPalette4: ; 0xdcd60
+	RGB 31, 31, 31
+	RGB 31, 0, 0
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+HighScoresSilverStageOBJPalette5: ; 0xdcd68
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+HighScoresSilverStageOBJPalette6: ; 0xdcd70
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+HighScoresSilverStageOBJPalette7: ; 0xdcd88
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+
 OptionMenuPalettes: ; 0xdce00
 OptionMenuBGPalette0: ; 0xdce00
 	RGB 31, 31, 31

@@ -421,7 +421,7 @@ Func_ccb6: ; 0xccb6
 	call Func_d361
 .ok
 	ld hl, wRedHighScore1Points
-	ld de, $a000
+	ld de, sHighScores
 	ld bc, $0082
 	call SaveData ; TODO
 	ret
@@ -588,7 +588,7 @@ Func_cdce: ; 0xcdce
 	ld de, wBlueHighScore5Id + $3
 	call Func_d361
 	ld hl, wRedHighScore1Points
-	ld de, $a000
+	ld de, sHighScores
 	ld bc, $0082
 	call SaveData
 	and a
@@ -1087,7 +1087,7 @@ Func_d1d2: ; 0xd1d2
 	ld hl, wScreenState
 	inc [hl]
 	ld hl, wRedHighScore1Points
-	ld de, $a000
+	ld de, sHighScores
 	ld bc, $0082
 	call SaveData
 	ret

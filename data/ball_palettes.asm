@@ -24,6 +24,6 @@ MasterBallObjPalette: ; 0xdd180
 
 GSBallObjPalette:
 	RGB 21, 21, 21
-	RGB 31, 31, 31
-	RGB 30,  30, 0
+	RGB 25, 25, 25
+	RGB 30,  24, 0
 	RGB  0,  0,  0

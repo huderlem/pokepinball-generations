@@ -422,8 +422,8 @@ Func_ccb6: ; 0xccb6
 .ok
 	ld hl, wRedHighScore1Points
 	ld de, sHighScores
-	ld bc, $0082
-	call SaveData ; TODO
+	ld bc, $0104
+	call SaveData
 	ret
 
 Func_cd6c: ; 0xcd6c
@@ -589,7 +589,7 @@ Func_cdce: ; 0xcdce
 	call Func_d361
 	ld hl, wRedHighScore1Points
 	ld de, sHighScores
-	ld bc, $0082
+	ld bc, $0104
 	call SaveData
 	and a
 	ret
@@ -1088,7 +1088,7 @@ Func_d1d2: ; 0xd1d2
 	inc [hl]
 	ld hl, wRedHighScore1Points
 	ld de, sHighScores
-	ld bc, $0082
+	ld bc, $0104
 	call SaveData
 	ret
 
@@ -1672,8 +1672,10 @@ ChangeHighScoresRegion_Down:
 
 ChangeHighScoresRegion:
 ; Destination stage stored in wHighScoresStage.
-	xor a
+	ld a, 1
 	ld [wScreenState], a
+	xor a
+	ld [wda7f], a
 	ret
 
 Func_d57b: ; 0xd57b

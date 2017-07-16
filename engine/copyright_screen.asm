@@ -71,7 +71,7 @@ FadeOutCopyrightScreenAndLoadData: ; 0x82a8
 	call DisableLCD
 	ld hl, sHighScores
 	ld de, wRedHighScore1Points
-	ld bc, $0082
+	ld bc, $0104
 	call LoadSavedData
 	jr c, .loadedHighScores
 	callba CopyInitialHighScores

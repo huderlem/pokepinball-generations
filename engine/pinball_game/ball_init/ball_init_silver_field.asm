@@ -57,7 +57,7 @@ InitBallSilverField:
 	ld [wRightDiglettAnimationController], a
 	ld a, $3
 	ld [wd610], a
-	call GetBCDForNextBonusMultiplier
+	callba GetBCDForNextBonusMultiplier
 	ld a, $10
 	call SetSongBank
 	ld de, $0001

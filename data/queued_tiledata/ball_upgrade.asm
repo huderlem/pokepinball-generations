@@ -1,10 +1,9 @@
 PinballUpgradeTransition_TileDataPointers:
-	dw TransitionToPokeBallPointers  ; POKE_BALL
-	dw TransitionToPokeBallPointers  ; POKE_BALL
-	dw TransitionToGreatBallPointers ; GREAT_BALL
-	dw TransitionToUltraBallPointers ; ULTRA_BALL
-	dw TransitionToUltraBallPointers ; ULTRA_BALL
+	dw TransitionToPokeBallPointers   ; POKE_BALL
+	dw TransitionToGreatBallPointers  ; GREAT_BALL
+	dw TransitionToUltraBallPointers  ; ULTRA_BALL
 	dw TransitionToMasterBallPointers ; MASTER_BALL
+	dw TransitionToGSBallPointers     ; GS_BALL
 
 TransitionToPokeBallPointers:
 	db 11
@@ -61,6 +60,20 @@ TransitionToMasterBallPointers:
 	dw TransitionToMasterBall_TileData_9
 	dw TransitionToMasterBall_TileData_10
 	dw TransitionToMasterBall_TileData_11
+
+TransitionToGSBallPointers:
+	db 11
+	dw TransitionToGSBall_TileData_1
+	dw TransitionToGSBall_TileData_2
+	dw TransitionToGSBall_TileData_3
+	dw TransitionToGSBall_TileData_4
+	dw TransitionToGSBall_TileData_5
+	dw TransitionToGSBall_TileData_6
+	dw TransitionToGSBall_TileData_7
+	dw TransitionToGSBall_TileData_8
+	dw TransitionToGSBall_TileData_9
+	dw TransitionToGSBall_TileData_10
+	dw TransitionToGSBall_TileData_11
 
 TransitionToPokeBall_TileData_1:
 	dw Func_11d2
@@ -414,13 +427,100 @@ TransitionToMasterBall_TileData_11:
 	db Bank(PinballMasterballGfx)
 	db $00
 
+TransitionToGSBall_TileData_1:
+	dw Func_11d2
+	db $30, $03
+	dw (vTilesOB tile $40)
+	dw PinballGSBallGfx + $0
+	db Bank(PinballGSBallGfx)
+	db $00
+
+TransitionToGSBall_TileData_2:
+	dw Func_11d2
+	db $30, $03
+	dw (vTilesOB tile $43)
+	dw PinballGSBallGfx + $30
+	db Bank(PinballGSBallGfx)
+	db $00
+
+TransitionToGSBall_TileData_3:
+	dw Func_11d2
+	db $30, $03
+	dw (vTilesOB tile $46)
+	dw PinballGSBallGfx + $60
+	db Bank(PinballGSBallGfx)
+	db $00
+
+TransitionToGSBall_TileData_4:
+	dw Func_11d2
+	db $30, $03
+	dw (vTilesOB tile $49)
+	dw PinballGSBallGfx + $90
+	db Bank(PinballGSBallGfx)
+	db $00
+
+TransitionToGSBall_TileData_5:
+	dw Func_11d2
+	db $30, $03
+	dw (vTilesOB tile $4c)
+	dw PinballGSBallGfx + $c0
+	db Bank(PinballGSBallGfx)
+	db $00
+
+TransitionToGSBall_TileData_6:
+	dw Func_11d2
+	db $30, $03
+	dw (vTilesOB tile $4f)
+	dw PinballGSBallGfx + $f0
+	db Bank(PinballGSBallGfx)
+	db $00
+
+TransitionToGSBall_TileData_7:
+	dw Func_11d2
+	db $30, $03
+	dw (vTilesOB tile $52)
+	dw PinballGSBallGfx + $120
+	db Bank(PinballGSBallGfx)
+	db $00
+
+TransitionToGSBall_TileData_8:
+	dw Func_11d2
+	db $30, $03
+	dw (vTilesOB tile $55)
+	dw PinballGSBallGfx + $150
+	db Bank(PinballGSBallGfx)
+	db $00
+
+TransitionToGSBall_TileData_9:
+	dw Func_11d2
+	db $30, $03
+	dw (vTilesOB tile $58)
+	dw PinballGSBallGfx + $180
+	db Bank(PinballGSBallGfx)
+	db $00
+
+TransitionToGSBall_TileData_10:
+	dw Func_11d2
+	db $30, $03
+	dw (vTilesOB tile $5b)
+	dw PinballGSBallGfx + $1b0
+	db Bank(PinballGSBallGfx)
+	db $00
+
+TransitionToGSBall_TileData_11:
+	dw Func_11d2
+	db $20, $02
+	dw (vTilesOB tile $5e)
+	dw PinballGSBallGfx + $1e0
+	db Bank(PinballGSBallGfx)
+	db $00
+
 PinballUpgradeTransitionPalettes:
-	dw TransitionToPokeBall_PaletteData
 	dw TransitionToPokeBall_PaletteData
 	dw TransitionToGreatBall_PaletteData
 	dw TransitionToUltraBall_PaletteData
-	dw TransitionToUltraBall_PaletteData
 	dw TransitionToMasterBall_PaletteData
+	dw TransitionToGSBall_PaletteData
 
 TransitionToPokeBall_PaletteData:
 	db $08
@@ -452,4 +552,12 @@ TransitionToMasterBall_PaletteData:
 	db $40
 	dw MasterBallObjPalette
 	db Bank(MasterBallObjPalette)
+	db $00 ; terminator
+
+TransitionToGSBall_PaletteData:
+	db $08
+	db $04 ; number of colors
+	db $40
+	dw GSBallObjPalette
+	db Bank(GSBallObjPalette)
 	db $00 ; terminator

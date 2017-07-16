@@ -809,8 +809,8 @@ ResolveBallUpgradeTriggersCollision_GoldField: ; 0x1535d
 	ld bc, FourHundredPoints
 	callba AddBigBCD6FromQueueWithBallMultiplier
 	ld a, [wBallType]
-	cp MASTER_BALL
-	jr z, .masterBall
+	cp GS_BALL
+	jr z, .gsBall
 	lb de, $06, $3a
 	call PlaySoundEffect
 	call FillBottomMessageBufferWithBlackTile
@@ -818,18 +818,10 @@ ResolveBallUpgradeTriggersCollision_GoldField: ; 0x1535d
 	ld de, FieldMultiplierText
 	ld hl, wScrollingText1
 	call LoadScrollingText
-	ld a, [wBallType]
-	ld c, a
-	ld b, $0
-	ld hl, BallTypeProgressionGoldField
-	add hl, bc
-	ld a, [hl]
-	ld [wBallType], a
-	add $30
-	ld [wBottomMessageText + $12], a
+	callba UpgradeBall
 	jr .done
 
-.masterBall
+.gsBall
 	lb de, $0f, $4d
 	call PlaySoundEffect
 	ld bc, OneMillionPoints
@@ -994,23 +986,13 @@ UpdatePinballUpgradeBlinkingAnimation_GoldField: ; 0x154a9
 	ld [hl], a
 	ret
 
-BallTypeProgressionGoldField: ; 0x15505
-; Determines the next upgrade for the Ball.
-	db GREAT_BALL   ; POKE_BALL -> GREAT_BALL
-	db GREAT_BALL   ; unused
-	db ULTRA_BALL   ; GREAT_BALL -> ULTRA_BALL
-	db MASTER_BALL  ; ULTRA_BALL -> MASTER_BALL
-	db MASTER_BALL  ; unused
-	db MASTER_BALL  ; MASTER_BALL -> MASTER_BALL
-
 BallTypeDegradationGoldField: ; 0x1550b
 ; Determines the previous upgrade for the Ball.
 	db POKE_BALL   ; POKE_BALL -> POKE_BALL
-	db POKE_BALL   ; unused
 	db POKE_BALL   ; GREAT_BALL -> POKE_BALL
 	db GREAT_BALL  ; ULTRA_BALL -> GREAT_BALL
-	db ULTRA_BALL  ; unused
 	db ULTRA_BALL  ; MASTER_BALL -> GREAT_BALL
+	db MASTER_BALL ; GS_BALL -> MASTER_BALL
 
 INCLUDE "data/queued_tiledata/gold_field/ball_upgrade_triggers.asm"
 

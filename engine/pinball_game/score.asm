@@ -59,18 +59,39 @@ Func_8569:
 	ld [hli], a
 	ret
 
+GetFieldMultiplierValueForBall:
+; Returns value in b.
+	ld a, [wBallType]
+	ld c, a
+	ld b, 0
+	ld hl, BallTypeFieldMultpliers
+	add hl, bc
+	ld a, [hli]
+	ld b, a
+	ret
+
+BallTypeFieldMultpliers:
+	db 1 ; POKE_BALL
+	db 2 ; GREAT_BALL
+	db 3 ; ULTRA_BALL
+	db 5 ; MASTER_BALL
+	db 5 ; GS_BALL
+
 AddBigBCD6FromQueueWithBallMultiplier: ; 0x8576
 	ld h, b
 	ld l, c
 	ld a, [wAddScoreQueueOffset]
 	ld e, a
 	ld d, wAddScoreQueue / $100
+	push hl
 	ld a, [wBallType]
-	and a
-	jr nz, .asm_8585
-	inc a
-.asm_8585
+	ld c, a
+	ld b, 0
+	ld hl, BallTypeFieldMultpliers
+	add hl, bc
+	ld a, [hl]
 	ld b, a
+	pop hl
 	jr asm_8592
 
 AddBigBCD6FromQueue: ; 0x8588

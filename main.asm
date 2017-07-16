@@ -1550,3 +1550,15 @@ INCLUDE "gfx/high_scores/high_scores_transition_palettes_johto.asm"
 
 HighScoresBaseGameBoyGfx_Johto:
 	INCBIN "gfx/high_scores/high_scores_base_gameboy_johto.2bpp"
+
+PinballGSBallShakeGfx:
+	INCBIN "gfx/stage/ball_gsball_shake.w16.interleave.2bpp"
+PinballGSBallGfx:
+	INCBIN "gfx/stage/ball_gsball.w32.interleave.2bpp"
+PinballGSBallMiniGfx:
+	INCBIN "gfx/stage/ball_gsball_mini.w32.interleave.2bpp"
+
+
+SECTION "bank49", ROMX
+
+INCLUDE "engine/pinball_game/transition_ball_upgrade.asm"

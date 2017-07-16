@@ -240,42 +240,7 @@ Func_1c305_SilverField: ; 0x1c305
 	ld de, vTilesSH tile $10
 	ld bc, $0180
 	call FarCopyData
-	ld a, [wBallType]
-	cp GREAT_BALL
-	jr nc, .notPokeball
-	ld a, Bank(PinballPokeballShakeGfx)
-	ld hl, PinballPokeballShakeGfx
-	ld de, vTilesOB tile $38
-	ld bc, $0040
-	call FarCopyData
-	ret
-
-.notPokeball
-	cp ULTRA_BALL
-	jr nc, .notGreatball
-	ld a, Bank(PinballGreatballShakeGfx)
-	ld hl, PinballGreatballShakeGfx
-	ld de, vTilesOB tile $38
-	ld bc, $0040
-	call FarCopyData
-	ret
-
-.notGreatball
-	cp MASTER_BALL
-	jr nc, .notUltraBall
-	ld a, Bank(PinballUltraballShakeGfx)
-	ld hl, PinballUltraballShakeGfx
-	ld de, vTilesOB tile $38
-	ld bc, $0040
-	call FarCopyData
-	ret
-
-.notUltraBall
-	ld a, Bank(PinballMasterballShakeGfx)
-	ld hl, PinballMasterballShakeGfx
-	ld de, vTilesOB tile $38
-	ld bc, $0040
-	call FarCopyData
+	callba LoadShakeBallGfx_DuringLoadStage
 	ret
 
 Func_1c3ac_SilverField: ; 0x1c3ac

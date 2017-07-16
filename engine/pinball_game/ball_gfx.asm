@@ -2,83 +2,61 @@ LoadBallGfx: ; 0xdcc3
 	xor a
 	ld [wd4c8], a
 	ld a, [wBallType]
-	cp GREAT_BALL
-	jr nc, .notPokeBall
-	ld a, Bank(PinballPokeballGfx)
-	ld hl, PinballPokeballGfx
+	ld b, a
+	add b
+	add b ; multiply ball type id by 3
+	ld c, a
+	ld b, 0
+	ld hl, BallGfxPointers
+	add hl, bc ; hl points to entry in BallGfxPointers
+	ld a, [hli]
+	ld e, a
+	ld a, [hli]
+	ld d, a
+	ld a, [hli]
+	ld h, d
+	ld l, e ; hl = gfx pointer, a = bank of gfx
 	ld de, vTilesOB tile $40
 	ld bc, $0200
 	call LoadOrCopyVRAMData
 	ret
 
-.notPokeBall
-	cp ULTRA_BALL
-	jr nc, .notGreatBall
-	ld a, Bank(PinballGreatballGfx)
-	ld hl, PinballGreatballGfx
-	ld de, vTilesOB tile $40
-	ld bc, $0200
-	call LoadOrCopyVRAMData
-	ret
-
-.notGreatBall
-	cp MASTER_BALL
-	jr nc, .notUltraBall
-	ld a, Bank(PinballUltraballGfx)
-	ld hl, PinballUltraballGfx
-	ld de, vTilesOB tile $40
-	ld bc, $0200
-	call LoadOrCopyVRAMData
-	ret
-
-.notUltraBall
-	ld a, Bank(PinballMasterballGfx)
-	ld hl, PinballMasterballGfx
-	ld de, vTilesOB tile $40
-	ld bc, $0200
-	call LoadOrCopyVRAMData
-	ret
+BallGfxPointers:
+	dwb PinballPokeballGfx, Bank(PinballPokeballGfx)
+	dwb PinballGreatballGfx, Bank(PinballGreatballGfx)
+	dwb PinballUltraballGfx, Bank(PinballUltraballGfx)
+	dwb PinballMasterballGfx, Bank(PinballMasterballGfx)
+	dwb PinballGSBallGfx, Bank(PinballGSBallGfx)
 
 LoadMiniBallGfx: ; 0xdd12
 	ld a, $1
 	ld [wd4c8], a
 	ld a, [wBallType]
-	cp GREAT_BALL
-	jr nc, .notPokeBall
-	ld a, Bank(PinballPokeballMiniGfx)
-	ld hl, PinballPokeballMiniGfx
+	ld b, a
+	add b
+	add b ; multiply ball type id by 3
+	ld c, a
+	ld b, 0
+	ld hl, MiniBallGfxPointers
+	add hl, bc ; hl points to entry in MiniBallGfxPointers
+	ld a, [hli]
+	ld e, a
+	ld a, [hli]
+	ld d, a
+	ld a, [hli]
+	ld h, d
+	ld l, e ; hl = gfx pointer, a = bank of gfx
 	ld de, vTilesOB tile $40
 	ld bc, $0200
 	call LoadOrCopyVRAMData
 	ret
 
-.notPokeBall
-	cp ULTRA_BALL
-	jr nc, .notGreatBall
-	ld a, Bank(PinballGreatballMiniGfx)
-	ld hl, PinballGreatballMiniGfx
-	ld de, vTilesOB tile $40
-	ld bc, $0200
-	call LoadOrCopyVRAMData
-	ret
-
-.notGreatBall
-	cp MASTER_BALL
-	jr nc, .notUltraBall
-	ld a, Bank(PinballUltraballMiniGfx)
-	ld hl, PinballUltraballMiniGfx
-	ld de, vTilesOB tile $40
-	ld bc, $0200
-	call LoadOrCopyVRAMData
-	ret
-
-.notUltraBall
-	ld a, Bank(PinballMasterballMiniGfx)
-	ld hl, PinballMasterballMiniGfx
-	ld de, vTilesOB tile $40
-	ld bc, $0200
-	call LoadOrCopyVRAMData
-	ret
+MiniBallGfxPointers:
+	dwb PinballPokeballMiniGfx, Bank(PinballPokeballMiniGfx)
+	dwb PinballGreatballMiniGfx, Bank(PinballGreatballMiniGfx)
+	dwb PinballUltraballMiniGfx, Bank(PinballUltraballMiniGfx)
+	dwb PinballMasterballMiniGfx, Bank(PinballMasterballMiniGfx)
+	dwb PinballGSBallMiniGfx, Bank(PinballGSBallMiniGfx)
 
 LoadSuperMiniPinballGfx: ; 0xdd62
 ; Loads the mini pinball graphics, which are used when entering the Slot or Ditto caves.

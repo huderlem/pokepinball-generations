@@ -2090,15 +2090,7 @@ ResolveBallUpgradeTriggersCollision_BlueField: ; 0x1e356
 	ld hl, wScrollingText1
 	ld de, FieldMultiplierText
 	call LoadScrollingText
-	ld a, [wBallType]
-	ld c, a
-	ld b, $0
-	ld hl, BallTypeProgression2BlueField
-	add hl, bc
-	ld a, [hl]
-	ld [wBallType], a
-	add $30
-	ld [wBottomMessageText + $12], a
+	callba UpgradeBall
 	jr .done
 
 .masterBall
@@ -2253,23 +2245,12 @@ UpdatePinballUpgradeBlinkingAnimation_BlueField: ; 0x1e4b8
 	ld [hl], a
 	ret
 
-BallTypeProgression2BlueField: ; 0x1e514
-; Determines the next upgrade for the Ball.
-	db GREAT_BALL   ; POKE_BALL -> GREAT_BALL
-	db GREAT_BALL   ; unused
-	db ULTRA_BALL   ; GREAT_BALL -> ULTRA_BALL
-	db MASTER_BALL  ; ULTRA_BALL -> MASTER_BALL
-	db MASTER_BALL  ; unused
-	db MASTER_BALL  ; MASTER_BALL -> MASTER_BALL
-
 BallTypeDegradation2BlueField: ; 0x1e51a
 ; Determines the previous upgrade for the Ball.
 	db POKE_BALL   ; POKE_BALL -> POKE_BALL
-	db POKE_BALL   ; unused
 	db POKE_BALL   ; GREAT_BALL -> POKE_BALL
 	db GREAT_BALL  ; ULTRA_BALL -> GREAT_BALL
-	db ULTRA_BALL  ; unused
-	db ULTRA_BALL  ; MASTER_BALL -> GREAT_BALL
+	db ULTRA_BALL  ; MASTER_BALL -> ULTRA_BALL
 
 INCLUDE "data/queued_tiledata/blue_field/ball_upgrade_triggers.asm"
 

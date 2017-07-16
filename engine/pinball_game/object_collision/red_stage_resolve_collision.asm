@@ -982,15 +982,7 @@ ResolveBallUpgradeTriggersCollision_RedField: ; 0x1535d
 	ld de, FieldMultiplierText
 	ld hl, wScrollingText1
 	call LoadScrollingText
-	ld a, [wBallType]
-	ld c, a
-	ld b, $0
-	ld hl, BallTypeProgressionRedField
-	add hl, bc
-	ld a, [hl]
-	ld [wBallType], a
-	add $30
-	ld [wBottomMessageText + $12], a
+	call UpgradeBall
 	jr .done
 
 .masterBall
@@ -1013,7 +1005,7 @@ ResolveBallUpgradeTriggersCollision_RedField: ; 0x1535d
 	ld de, FieldMultiplierSpecialBonusText
 	call LoadScrollingText
 .done
-	call TransitionPinballUpgrade
+	callba TransitionPinballUpgrade
 	jr LoadPinballUpgradeTriggersGraphics_RedField
 
 .updatePinballUpgradeTriggersAnimation
@@ -1158,23 +1150,66 @@ UpdatePinballUpgradeBlinkingAnimation_RedField: ; 0x154a9
 	ld [hl], a
 	ret
 
-BallTypeProgressionRedField: ; 0x15505
-; Determines the next upgrade for the Ball.
+UpgradeBall:
+	ld a, [wCurrentStage]
+	res 0, a
+	ld b, 0
+	ld c, a
+	ld hl, BallTypeProgressionPointers
+	add hl, bc
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	ld a, [wBallType]
+	ld b, 0
+	ld c, a
+	add hl, bc
+	ld a, [hl]
+	ld [wBallType], a
+	callba GetFieldMultiplierValueForBall
+	ld a, b
+	add $30
+	ld [wBottomMessageText + $12], a
+	ret
+
+BallTypeProgressionPointers:
+	dw BallTypeProgressionRedField    ; STAGE_RED_FIELD
+	dw BallTypeProgressionBlueField   ; STAGE_BLUE_FIELD
+	dw BallTypeProgressionGoldField   ; STAGE_GOLD_FIELD
+	dw BallTypeProgressionSilverField ; STAGE_SILVER_FIELD
+
+BallTypeProgressionRedField:
 	db GREAT_BALL   ; POKE_BALL -> GREAT_BALL
-	db GREAT_BALL   ; unused
 	db ULTRA_BALL   ; GREAT_BALL -> ULTRA_BALL
 	db MASTER_BALL  ; ULTRA_BALL -> MASTER_BALL
-	db MASTER_BALL  ; unused
 	db MASTER_BALL  ; MASTER_BALL -> MASTER_BALL
+
+BallTypeProgressionBlueField:
+	db GREAT_BALL   ; POKE_BALL -> GREAT_BALL
+	db ULTRA_BALL   ; GREAT_BALL -> ULTRA_BALL
+	db MASTER_BALL  ; ULTRA_BALL -> MASTER_BALL
+	db MASTER_BALL  ; MASTER_BALL -> MASTER_BALL
+
+BallTypeProgressionGoldField:
+	db GREAT_BALL   ; POKE_BALL -> GREAT_BALL
+	db ULTRA_BALL   ; GREAT_BALL -> ULTRA_BALL
+	db MASTER_BALL  ; ULTRA_BALL -> MASTER_BALL
+	db GS_BALL      ; MASTER_BALL -> GS_BALL
+	db GS_BALL      ; GS_BALL -> GS_BALL
+
+BallTypeProgressionSilverField:
+	db GREAT_BALL   ; POKE_BALL -> GREAT_BALL
+	db ULTRA_BALL   ; GREAT_BALL -> ULTRA_BALL
+	db MASTER_BALL  ; ULTRA_BALL -> MASTER_BALL
+	db GS_BALL      ; MASTER_BALL -> GS_BALL
+	db GS_BALL      ; GS_BALL -> GS_BALL
 
 BallTypeDegradationRedField: ; 0x1550b
 ; Determines the previous upgrade for the Ball.
 	db POKE_BALL   ; POKE_BALL -> POKE_BALL
-	db POKE_BALL   ; unused
 	db POKE_BALL   ; GREAT_BALL -> POKE_BALL
 	db GREAT_BALL  ; ULTRA_BALL -> GREAT_BALL
-	db ULTRA_BALL  ; unused
-	db ULTRA_BALL  ; MASTER_BALL -> GREAT_BALL
+	db ULTRA_BALL  ; MASTER_BALL -> ULTRA_BALL
 
 INCLUDE "data/queued_tiledata/red_field/ball_upgrade_triggers.asm"
 
@@ -1210,43 +1245,8 @@ UpdateBallTypeUpgradeCounter_RedField: ; 0x15575
 	ld a, PINBALL_UPGRADE_FRAMES_COUNTER >> 8
 	ld [wBallTypeCounter + 1], a
 .pokeball
-	call TransitionPinballUpgrade
+	callba TransitionPinballUpgrade
 	ret
-
-TransitionPinballUpgrade: ; 0x155a7
-	ld a, [wBallType]
-	ld c, a
-	sla c
-	ld b, $0
-	ld hl, PinballUpgradeTransition_TileDataPointers
-	add hl, bc
-	ld a, [hli]
-	ld h, [hl]
-	ld l, a
-	ld a, Bank(PinballUpgradeTransition_TileDataPointers)
-	call QueueGraphicsToLoad
-	; fall through
-
-TransitionPinballUpgradePalette: ; 0x155bb
-	ld a, [hGameBoyColorFlag]
-	and a
-	ret z
-	; gameboy color
-	ld a, [wBallType]
-	sla a
-	ld c, a
-	ld b, $0
-	ld hl, PinballUpgradeTransitionPalettes
-	add hl, bc
-	ld c, [hl]
-	inc hl
-	ld b, [hl]
-	ld a, BANK(PinballUpgradeTransitionPalettes)
-	ld de, LoadPalettes
-	call QueueGraphicsToLoadWithFunc
-	ret
-
-INCLUDE "data/queued_tiledata/ball_upgrade.asm"
 
 ResolveRedStageBoardTriggerCollision: ; 0x1581f
 	ld a, [wWhichBoardTrigger]

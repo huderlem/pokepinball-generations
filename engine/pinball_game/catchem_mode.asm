@@ -632,42 +632,53 @@ BallCaptureInit: ; 0x10496
 LoadShakeBallGfx: ; 0x104e2
 ; Loads the graphics for the ball shaking after a pokemon is caught.
 	ld a, [wBallType]
-	cp GREAT_BALL
-	jr nc, .notPokeball
-	ld a, Bank(PinballPokeballShakeGfx)
-	ld hl, PinballPokeballShakeGfx
+	ld b, a
+	add b
+	add b ; multiply ball type id by 3
+	ld c, a
+	ld b, 0
+	ld hl, BallShakeGfxPointers
+	add hl, bc ; hl points to entry in BallShakeGfxPointers
+	ld a, [hli]
+	ld e, a
+	ld a, [hli]
+	ld d, a
+	ld a, [hli]
+	ld h, d
+	ld l, e ; hl = gfx pointer, a = bank of gfx
 	ld de, vTilesOB tile $38
 	ld bc, $0040
 	call LoadVRAMData
 	ret
 
-.notPokeball
-	cp ULTRA_BALL
-	jr nc, .notGreatball
-	ld a, Bank(PinballGreatballShakeGfx)
-	ld hl, PinballGreatballShakeGfx
+LoadShakeBallGfx_DuringLoadStage:
+; Loads the graphics for the ball shaking after a pokemon is caught.
+	ld a, [wBallType]
+	ld b, a
+	add b
+	add b ; multiply ball type id by 3
+	ld c, a
+	ld b, 0
+	ld hl, BallShakeGfxPointers
+	add hl, bc ; hl points to entry in BallShakeGfxPointers
+	ld a, [hli]
+	ld e, a
+	ld a, [hli]
+	ld d, a
+	ld a, [hli]
+	ld h, d
+	ld l, e ; hl = gfx pointer, a = bank of gfx
 	ld de, vTilesOB tile $38
 	ld bc, $0040
-	call LoadVRAMData
+	call FarCopyData
 	ret
 
-.notGreatball
-	cp MASTER_BALL
-	jr nc, .notUltraBall
-	ld a, Bank(PinballUltraballShakeGfx)
-	ld hl, PinballUltraballShakeGfx
-	ld de, vTilesOB tile $38
-	ld bc, $0040
-	call LoadVRAMData
-	ret
-
-.notUltraBall
-	ld a, Bank(PinballMasterballShakeGfx)
-	ld hl, PinballMasterballShakeGfx
-	ld de, vTilesOB tile $38
-	ld bc, $0040
-	call LoadVRAMData
-	ret
+BallShakeGfxPointers:
+	dwb PinballPokeballShakeGfx, Bank(PinballPokeballShakeGfx)
+	dwb PinballGreatballShakeGfx, Bank(PinballGreatballShakeGfx)
+	dwb PinballUltraballShakeGfx, Bank(PinballUltraballShakeGfx)
+	dwb PinballMasterballShakeGfx, Bank(PinballMasterballShakeGfx)
+	dwb PinballGSBallShakeGfx, Bank(PinballGSBallShakeGfx)
 
 CapturePokemon: ; 0x1052d
 	ld a, [wBallCaptureAnimationFrame]

@@ -189,42 +189,7 @@ Func_1414b: ; 0x1414b
 	ld de, vTilesSH tile $10
 	ld bc, $0180
 	call FarCopyData
-	ld a, [wBallType]
-	cp GREAT_BALL
-	jr nc, .notPokeball
-	ld a, Bank(PinballPokeballShakeGfx)
-	ld hl, PinballPokeballShakeGfx
-	ld de, vTilesOB tile $38
-	ld bc, $0040
-	call FarCopyData
-	ret
-
-.notPokeball
-	cp ULTRA_BALL
-	jr nc, .notGreatball
-	ld a, Bank(PinballGreatballShakeGfx)
-	ld hl, PinballGreatballShakeGfx
-	ld de, vTilesOB tile $38
-	ld bc, $0040
-	call FarCopyData
-	ret
-
-.notGreatball
-	cp MASTER_BALL
-	jr nc, .notUltraball
-	ld a, Bank(PinballUltraballShakeGfx)
-	ld hl, PinballUltraballShakeGfx
-	ld de, vTilesOB tile $38
-	ld bc, $0040
-	call FarCopyData
-	ret
-
-.notUltraball
-	ld a, Bank(PinballMasterballShakeGfx)
-	ld hl, PinballMasterballShakeGfx
-	ld de, vTilesOB tile $38
-	ld bc, $0040
-	call FarCopyData
+	callba LoadShakeBallGfx_DuringLoadStage
 	ret
 
 Func_141f2: ; 0x141f2
@@ -397,42 +362,31 @@ Func_142fc: ; 0x142fc
 	and a
 	ret z
 	ld a, [wBallType]
-	cp GREAT_BALL
-	jr nc, .notPokeball
-	ld a, BANK(PokeBallObjPalette)
-	ld hl, PokeBallObjPalette
+	ld b, a
+	add b
+	add b ; multiply ball type id by 3
+	ld c, a
+	ld b, 0
+	ld hl, BallPalettePointers
+	add hl, bc ; hl points to entry in BallPalettePointers
+	ld a, [hli]
+	ld e, a
+	ld a, [hli]
+	ld d, a
+	ld a, [hli]
+	ld h, d
+	ld l, e ; hl = gfx pointer, a = bank of gfx
 	ld de, $0040
 	ld bc, $0008
 	call FarCopyCGBPals
 	ret
 
-.notPokeball
-	cp ULTRA_BALL
-	jr nc, .notGreatball
-	ld a, BANK(GreatBallObjPalette)
-	ld hl, GreatBallObjPalette
-	ld de, $0040
-	ld bc, $0008
-	call FarCopyCGBPals
-	ret
-
-.notGreatball
-	cp MASTER_BALL
-	jr nc, .notUltraball
-	ld a, BANK(UltraBallObjPalette)
-	ld hl, UltraBallObjPalette
-	ld de, $0040
-	ld bc, $0008
-	call FarCopyCGBPals
-	ret
-
-.notUltraball
-	ld a, BANK(MasterBallObjPalette)
-	ld hl, MasterBallObjPalette
-	ld de, $0040
-	ld bc, $0008
-	call FarCopyCGBPals
-	ret
+BallPalettePointers:
+	dwb PokeBallObjPalette, Bank(PokeBallObjPalette)
+	dwb GreatBallObjPalette, Bank(GreatBallObjPalette)
+	dwb UltraBallObjPalette, Bank(UltraBallObjPalette)
+	dwb MasterBallObjPalette, Bank(MasterBallObjPalette)
+	dwb GSBallObjPalette, Bank(GSBallObjPalette)
 
 Func_14377: ; 0x14377
 	ld a, [wInSpecialMode]

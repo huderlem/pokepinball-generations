@@ -238,11 +238,10 @@ Func_ef1e: ; 0xef1e
 BallTypeMultipliers: ; 0xef2f
 ; Score multiplier for each ball type.
 	db $00  ; POKE_BALL
-	db $00
 	db $01  ; GREAT_BALL
 	db $02  ; ULTRA_BALL
-	db $02
 	db $02  ; MASTER_BALL
+	db $02  ; GS_BALL
 
 INCLUDE "engine/pinball_game/ball_saver/ball_saver_30.asm"
 INCLUDE "engine/pinball_game/ball_saver/ball_saver_60.asm"
@@ -361,9 +360,16 @@ SlotRewardUpgradeBall: ; 0xf040
 	ld [wBallTypeCounter], a
 	ld a, $e
 	ld [wBallTypeCounter + 1], a
+	ld hl, BestBallForStages
+	ld a, [wCurrentStage]
+	ld b, 0
+	ld c, a
+	add hl, bc
+	ld a, [hli]
+	ld b, a
 	ld a, [wBallType]
-	cp MASTER_BALL
-	jr z, .masterBall
+	cp b
+	jr z, .bestBall
 	lb de, $06, $3a
 	call PlaySoundEffect
 	call FillBottomMessageBufferWithBlackTile
@@ -371,19 +377,12 @@ SlotRewardUpgradeBall: ; 0xf040
 	ld de, FieldMultiplierText
 	ld hl, wScrollingText1
 	call LoadScrollingText
-	; upgrade ball type
-	ld a, [wBallType]
-	ld c, a
-	ld b, $0
-	ld hl, BallTypeProgressionBlueField
-	add hl, bc
-	ld a, [hl]
-	ld [wBallType], a
+	callba UpgradeBall
 	add $30
 	ld [wBottomMessageText + $12], a
 	jr .asm_f0b0
 
-.masterBall
+.bestBall
 	lb de, $0f, $4d
 	call PlaySoundEffect
 	ld bc, OneMillionPoints
@@ -406,14 +405,15 @@ SlotRewardUpgradeBall: ; 0xf040
 	callba TransitionPinballUpgradePalette
 	ret
 
-BallTypeProgressionBlueField: ; 0xf0bb
-; Determines the next upgrade for the Ball.
-	db GREAT_BALL   ; POKE_BALL -> GREAT_BALL
-	db GREAT_BALL   ; unused
-	db ULTRA_BALL   ; GREAT_BALL -> ULTRA_BALL
-	db MASTER_BALL  ; ULTRA_BALL -> MASTER_BALL
-	db MASTER_BALL  ; unused
-	db MASTER_BALL  ; MASTER_BALL -> MASTER_BALL
+BestBallForStages:
+	db MASTER_BALL ; STAGE_RED_FIELD_TOP
+	db MASTER_BALL ; STAGE_RED_FIELD_BOTTOM
+	db MASTER_BALL ; STAGE_BLUE_FIELD_TOP
+	db MASTER_BALL ; STAGE_BLUE_FIELD_BOTTOM
+	db GS_BALL     ; STAGE_GOLD_FIELD_TOP
+	db GS_BALL     ; STAGE_GOLD_FIELD_BOTTOM
+	db GS_BALL     ; STAGE_SILVER_FIELD_TOP
+	db GS_BALL     ; STAGE_SILVER_FIELD_BOTTOM
 
 SlotBonusMultiplier: ; 0xf0c1
 	ld a, $4

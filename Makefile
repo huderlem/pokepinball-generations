@@ -1,4 +1,4 @@
-.PHONY: all tools compare clean tidy
+.PHONY: all tools clean tidy
 
 .SUFFIXES:
 .SECONDEXPANSION:
@@ -10,7 +10,7 @@ OBJS := main.o wram.o sram.o
 
 MD5 := md5sum -c
 
-all: $(ROM) compare
+all: $(ROM)
 
 ifeq (,$(filter tools clean tidy,$(MAKECMDGOALS)))
 Makefile: tools
@@ -23,10 +23,6 @@ endif
 $(ROM): $(OBJS) contents/contents.link
 	rgblink -n $(ROM:.gbc=.sym) -m $(ROM:.gbc=.map) -l contents/contents.link -o $@ $(OBJS)
 	rgbfix -jsvc -k 01 -l 0x33 -m 0x1e -p 0 -r 02 -t "POKEPINBALL" -i VPHE $@
-
-# For contributors to make sure a change didn't affect the contents of the rom.
-compare: $(ROM)
-	@$(MD5) rom.md5
 
 tools:
 	$(MAKE) -C tools

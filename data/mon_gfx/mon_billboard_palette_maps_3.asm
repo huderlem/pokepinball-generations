@@ -94,7 +94,11 @@ ArticunoBillboardBGPaletteMap: ; 0xd9568
 	db $6, $6, $6, $6, $6, $6
 	db $6, $6, $6, $6, $6, $6
 
-	ds $280 ; free space
+EggBillboardBGPaletteMap:
+	db $6, $6, $6, $6, $6, $6
+	db $6, $6, $6, $6, $6, $6
+	db $6, $6, $6, $6, $6, $6
+	db $6, $6, $6, $6, $6, $6
 
 ZapdosBillboardBGPaletteMap: ; 0xd9800
 	db $6, $6, $6, $6, $6, $6

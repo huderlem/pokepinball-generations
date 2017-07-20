@@ -62,7 +62,7 @@ MewtwoBillboardBGPalette2: ; 0xdc758
 	RGB 31, 31, 31
 	RGB 28, 23, 28
 	RGB 20, 5, 18
-	RGB 0, 0, 0
+	RGB 0, 0, 0 
 
 MewBillboardBGPalette1: ; 0xdc760
 	RGB 31, 31, 31
@@ -75,12 +75,18 @@ MewBillboardBGPalette2: ; 0xdc768
 	RGB 0, 10, 31
 	RGB 0, 0, 0
 
-UnusedPalettes_dc770: ; 0xdc770
+EggBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 31, 23, 7
-	RGB 9, 19, 30
+	RGB 25, 22, 7
+	RGB 19, 11, 0
+	RGB 0, 0, 0
+EggBillboardBGPalette2:
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+	RGB 0, 0, 0
 	RGB 0, 0, 0
 
+UnusedPalettes_dc770: ; 0xdc770
 	RGB 31, 31, 31
 	RGB 31, 23, 7
 	RGB 9, 19, 30

@@ -112,9 +112,9 @@ CheckSpecialModeColision: ; 0x10000
 	ld a, c
 	ld [wSpecialModeCollisionID], a
 	ld a, [wSpecialMode]
-	cp SPECIAL_MODE_CATCHEM ;branch based on mode
+	cp SPECIAL_MODE_EVOLUTION ;branch based on mode
 	jp z, HandleEvoModeCollision ;call evo mode logic
-	cp SPECIAL_MODE_EVOLUTION
+	cp SPECIAL_MODE_MAP_MOVE
 	jr nz, .CatchMode  ;call catch mode logic
 	callba HandleMapModeCollision ;call map move logic
 	ret
@@ -135,13 +135,12 @@ HandleCatchEmCollisionCallTable: ; 0x10027
 
 INCLUDE "engine/pinball_game/catchem_mode.asm"
 INCLUDE "engine/pinball_game/evolution_mode.asm"
-INCLUDE "data/evolution_line_starts.asm"
 INCLUDE "data/evolution_lines.asm"
 INCLUDE "data/evolution_methods.asm"
 INCLUDE "data/mon_names.asm"
 INCLUDE "data/mon_initial_indicator_states.asm"
 
-Data_1298b: ; 0x1298b
+EvolutionModeIndicatorSets: ; 0x1298b
 ; This has to do with which indicators will need to be hit to evolve the pokemon.
 	db $01  ; BULBASAUR
 	db $02  ; IVYSAUR
@@ -549,7 +548,6 @@ INCLUDE "data/mon_gfx/mon_billboard_pics_5.asm"
 
 UncaughtPokemonBackgroundPic:
 	INCBIN "gfx/pokedex/uncaught_pokemon.2bpp"
-	INCBIN "gfx/pokedex/uncaught_pokemon.2bpp" ; This pic is unnecessarily duplicated.
 
 SECTION "bank1c.2", ROMX
 
@@ -1233,6 +1231,8 @@ UnusedEvolutionTextGfx: ; 0xd8ce0
 
 EvolutionProgressIconsGfx:
 	INCBIN "gfx/stage/evolution_progress_icons.2bpp"
+BreedingProgressIconGfx:
+	INCBIN "gfx/stage/breeding_progress_icon.2bpp"
 
 CaughtPokeballGfx: ; 0xd8f60
 	INCBIN "gfx/stage/caught_pokeball.2bpp"
@@ -1296,10 +1296,8 @@ INCLUDE "data/mon_gfx/mon_animated_palettes_3.asm"
 
 EvolutionTrinketsGfx:
 	INCBIN "gfx/stage/shared/evolution_trinkets.2bpp"
-
-Unknown_dbf60: ; 0xdbf60
-; this seems to be unused garbage
-	INCBIN "data/unknown/unused_dbf60.bin"
+BreedingTrinketGfx:
+	INCBIN "gfx/stage/shared/breeding_trinket.2bpp"
 
 SECTION "bank37", ROMX
 

@@ -262,6 +262,11 @@ Func_2077b_GoldField: ; 0x2077b
 	call Func_30db
 	ld hl, wScrollingText1
 	ld de, EvolutionFailedText
+	ld a, [wCurrentEvolutionType]
+	cp EVO_BREEDING
+	jr nz, .ok
+	ld de, BreedingFailedText
+.ok
 	call LoadScrollingText
 	ret
 
@@ -475,11 +480,29 @@ Func_2094d_GoldField: ; 0x2094d
 	scf
 	ret
 
+EvolutionIconIds_GoldField:
+	db $00
+	db $01 ; EVO_THUNDER_STONE
+	db $02 ; EVO_MOON_STONE
+	db $03 ; EVO_FIRE_STONE
+	db $04 ; EVO_LEAF_STONE
+	db $05 ; EVO_WATER_STONE
+	db $06 ; EVO_LINK_CABLE
+	db $07 ; EVO_EXPERIENCE
+	db $01 ; EVO_BREEDING
+
 Func_20977_GoldField: ; 0x20977
 	lb de, $07, $46
 	call PlaySoundEffect
 	call Func_20af5_GoldField
 	ld a, [wCurrentEvolutionType]
+	push hl
+	ld hl, EvolutionIconIds_GoldField
+	ld b, 0
+	ld c, a
+	add hl, bc
+	ld a, [hl]
+	pop hl
 	ld [hl], a
 	ld [wd551], a
 	ld a, [wIndicatorStates + 2]
@@ -553,6 +576,9 @@ Func_209eb_GoldField: ; 0x209eb
 	ld a, [wCurrentEvolutionType]
 	cp EVO_EXPERIENCE
 	ld de, PokemonIsTiredText
+	jr z, .asm_20a50
+	cp EVO_BREEDING
+	ld de, KeepWalkingText
 	jr z, .asm_20a50
 	ld de, ItemNotFoundText
 .asm_20a50
@@ -647,7 +673,12 @@ Func_20af5_GoldField: ; 0x20af5
 	add hl, bc
 	ret
 
-Func_20b02_GoldField: ; 0x20b02
+
+Func_20b02_GoldField:
+	callba LoadFinalEvolutionMonBillboardPic
+	ret
+
+LoadFinalEvolutionMonBillboardPic:
 	ld a, [wCurrentEvolutionMon]
 	cp $ff
 	jr nz, .asm_20b0c
@@ -681,9 +712,6 @@ Func_20b02_GoldField: ; 0x20b02
 	ld bc, $0180
 	call LoadOrCopyVRAMData
 	pop bc
-	ld a, [hGameBoyColorFlag]
-	and a
-	jr z, .asm_20b80
 	push bc
 	ld hl, MonBillboardPaletteMapPointers
 	add hl, bc
@@ -715,7 +743,6 @@ Func_20b02_GoldField: ; 0x20b02
 	ld bc, $10b0
 	ld hl, rBGPI
 	call Func_8e1
-.asm_20b80
 	callba Func_10e0a
 	call Func_3475
 	ld de, $0000

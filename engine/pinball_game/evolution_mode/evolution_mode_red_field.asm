@@ -262,6 +262,11 @@ Func_2077b: ; 0x2077b
 	call Func_30db
 	ld hl, wScrollingText1
 	ld de, EvolutionFailedText
+	ld a, [wCurrentEvolutionType]
+	cp EVO_BREEDING
+	jr nz, .ok
+	ld de, BreedingFailedText
+.ok
 	call LoadScrollingText
 	ret
 
@@ -475,11 +480,29 @@ Func_2094d: ; 0x2094d
 	scf
 	ret
 
+EvolutionIconIds_RedField:
+	db $00
+	db $01 ; EVO_THUNDER_STONE
+	db $02 ; EVO_MOON_STONE
+	db $03 ; EVO_FIRE_STONE
+	db $04 ; EVO_LEAF_STONE
+	db $05 ; EVO_WATER_STONE
+	db $06 ; EVO_LINK_CABLE
+	db $07 ; EVO_EXPERIENCE
+	db $01 ; EVO_BREEDING
+
 Func_20977: ; 0x20977
 	lb de, $07, $46
 	call PlaySoundEffect
 	call Func_20af5
 	ld a, [wCurrentEvolutionType]
+	push hl
+	ld hl, EvolutionIconIds_RedField
+	ld b, 0
+	ld c, a
+	add hl, bc
+	ld a, [hl]
+	pop hl
 	ld [hl], a
 	ld [wd551], a
 	ld a, [wIndicatorStates + 2]
@@ -553,6 +576,9 @@ Func_209eb: ; 0x209eb
 	ld a, [wCurrentEvolutionType]
 	cp EVO_EXPERIENCE
 	ld de, PokemonIsTiredText
+	jr z, .asm_20a50
+	cp EVO_BREEDING
+	ld de, KeepWalkingText
 	jr z, .asm_20a50
 	ld de, ItemNotFoundText
 .asm_20a50
@@ -648,84 +674,5 @@ Func_20af5: ; 0x20af5
 	ret
 
 Func_20b02: ; 0x20b02
-	ld a, [wCurrentEvolutionMon]
-	cp $ff
-	jr nz, .asm_20b0c
-	ld a, [wCurrentCatchEmMon]
-.asm_20b0c
-	ld c, a
-	ld b, $0
-	sla c
-	rl b
-	add c
-	ld c, a
-	jr nc, .asm_20b18
-	inc b
-.asm_20b18
-	push bc
-	ld hl, MonBillboardPicPointers
-	add hl, bc
-	ld a, Bank(MonBillboardPicPointers)
-	call ReadByteFromBank
-	inc hl
-	ld c, a
-	ld a, Bank(MonBillboardPicPointers)
-	call ReadByteFromBank
-	inc hl
-	ld b, a
-	ld a, Bank(MonBillboardPicPointers)
-	call ReadByteFromBank
-	ld h, b
-	ld l, c
-	ld de, vTilesSH tile $10
-	ld bc, $0180
-	call LoadOrCopyVRAMData
-	pop bc
-	ld a, [hGameBoyColorFlag]
-	and a
-	jr z, .asm_20b80
-	push bc
-	ld hl, MonBillboardPaletteMapPointers
-	add hl, bc
-	ld a, Bank(MonBillboardPaletteMapPointers)
-	call ReadByteFromBank
-	inc hl
-	ld e, a
-	ld a, Bank(MonBillboardPaletteMapPointers)
-	call ReadByteFromBank
-	inc hl
-	ld d, a
-	ld a, Bank(MonBillboardPaletteMapPointers)
-	call ReadByteFromBank
-	hlCoord 7, 4, vBGMap
-	call LoadBillboardPaletteMap
-	pop bc
-	ld hl, MonBillboardPalettePointers
-	add hl, bc
-	ld a, Bank(MonBillboardPalettePointers)
-	call ReadByteFromBank
-	inc hl
-	ld e, a
-	ld a, Bank(MonBillboardPalettePointers)
-	call ReadByteFromBank
-	inc hl
-	ld d, a
-	ld a, Bank(MonBillboardPalettePointers)
-	call ReadByteFromBank
-	ld bc, $10b0
-	ld hl, rBGPI
-	call Func_8e1
-.asm_20b80
-	callba Func_10e0a
-	call Func_3475
-	ld de, $0000
-	call PlaySong
-	rst AdvanceFrame
-	lb de, $2d, $26
-	call PlaySoundEffect
-	callba Func_10825
-	call Func_3475
-	ld a, $1
-	ld [wd54d], a
-	scf
+	callba LoadFinalEvolutionMonBillboardPic
 	ret

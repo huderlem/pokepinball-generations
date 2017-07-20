@@ -101,17 +101,33 @@ FindItemsText:
 	db $05, $54, $45, $14, $00, $33
 	db "FIND ITEMS @"
 
+StartBreedingText:
+	db $05, $54, $43, $14, $00, $37
+	db "START BREEDING @"
+
 EvolutionFailedText:
 	db $05, $54, $42, $14, $00, $39
 	db "EVOLUTION FAILED @"
+
+BreedingFailedText:
+	db $05, $54, $42, $14, $00, $39
+	db "BREEDING FAILED @"
 
 ItEvolvedIntoAText:
 	db $05, $54, $00, $00, $00, $26
 	db "IT EVOLVED INTO A @"
 
+EggHatchedIntoAText:
+	db $05, $54, $00, $00, $00, $26
+	db "IT HATCHED INTO A @"
+
 ItEvolvedIntoAnText:
 	db $05, $54, $00, $00, $00, $27
 	db "IT EVOLVED INTO AN @"
+
+EggHatchedIntoAnText:
+	db $05, $54, $00, $00, $00, $27
+	db "IT HATCHED INTO AN @"
 
 Data_2b1c:
 	db $05, $66, $40, $14, $20, $4b
@@ -137,6 +153,10 @@ ItemNotFoundText:
 	db $05, $54, $43, $14, $00, $37
 	db "ITEM NOT FOUND @"
 
+KeepWalkingText:
+	db $05, $54, $43, $14, $00, $35
+	db "KEEP WALKING @"
+
 PokemonRecoveredText:
 	db $05, $54, $41, $14, $00, $3a
 	db "POKeMON RECOVERED @"
@@ -157,6 +177,7 @@ EvolutionTypeGetTextPointers:
 	dw GetWaterStoneText
 	dw GetLinkCableText
 	dw GetExperienceText
+	dw TakeStepsText
 
 GetExperienceText:
 	db $05, $54, $43, $14, $00, $37
@@ -185,6 +206,10 @@ GetMoonStoneText:
 GetLinkCableText:
 	db $05, $54, $42, $14, $00, $39
 	db "GET A LINK CABLE @"
+
+TakeStepsText:
+	db $05, $54, $42, $14, $00, $38
+	db "TAKE MANY STEPS @"
 
 MapMoveFailedText:
 	db $05, $54, $42, $14, $00, $38

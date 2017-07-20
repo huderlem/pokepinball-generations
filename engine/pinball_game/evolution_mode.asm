@@ -97,17 +97,33 @@ VideoData_10b2a: ; 0x10b2a
 	dw $8900
 	dw $E0
 
-Func_10b3f: ; 0x10b3f
+ShowEvolutionStartText: ; 0x10b3f
 	call FillBottomMessageBufferWithBlackTile
 	call Func_30db
 	ld hl, wScrollingText1
 	ld a, [wCurrentEvolutionType]
+	cp EVO_BREEDING
+	jr nz, .checkExp
+	call IsBreedingAllowed
+	ld a, [wCurrentEvolutionType]
+	jr c, .checkExp
+	ld de, StartBreedingText
+	jr .showText
+.checkExp
 	cp EVO_EXPERIENCE
 	ld de, StartTrainingText
-	jr z, .asm_10b55
+	jr z, .showText
 	ld de, FindItemsText
-.asm_10b55
+.showText
 	call LoadScrollingText
+	ret
+
+IsBreedingAllowed:
+; Don't breed on Red/Blue stages
+; Sets carry flag if not allowed.
+	;ld a, [wCurrentStage]
+	;cp STAGE_BLUE_FIELD_BOTTOM + 1
+	and a
 	ret
 
 InitEvolutionSelectionMenu: ; 0x10b59
@@ -322,6 +338,9 @@ UpdateEvolutionSelectionList: ; 0x10c38
 	ret
 
 PlaceEvolutionInParty: ; 0x10ca5
+	ld a, [wCurrentEvolutionType]
+	cp EVO_BREEDING
+	jr z, .breedingMode
 	ld a, [wCurSelectedPartyMon]
 	ld c, a
 	ld b, $0
@@ -331,6 +350,18 @@ PlaceEvolutionInParty: ; 0x10ca5
 	cp $ff
 	ret z
 	ld [hl], a
+	ret
+.breedingMode
+	ld a, [wNumPartyMons]
+	ld c, a
+	ld b, $0
+	ld hl, wPartyMons
+	add hl, bc
+	ld a, [wCurrentEvolutionMon]
+	ld [hl], a
+	ld a, [wNumPartyMons]
+	inc a
+	ld [wNumPartyMons], a
 	ret
 
 SelectPokemonToEvolve: ; 0x10cb7
@@ -356,7 +387,7 @@ SelectPokemonToEvolve: ; 0x10cb7
 	ld bc, $0030
 	call LoadVRAMData
 	call FillBottomMessageBufferWithBlackTile
-	ld a, SPECIAL_MODE_CATCHEM
+	ld a, SPECIAL_MODE_EVOLUTION
 	ld [wDrawBottomMessageBox], a
 	ld [wInSpecialMode], a
 	ld [wSpecialMode], a
@@ -384,7 +415,7 @@ InitEvolutionModeForMon: ; 0x10d1d
 	ld a, [wCurrentCatchEmMon]
 	ld c, a
 	ld b, $0
-	ld hl, Data_1298b
+	ld hl, EvolutionModeIndicatorSets
 	add hl, bc
 	ld a, [hl]
 	add $2
@@ -446,7 +477,18 @@ InitEvolutionModeForMon: ; 0x10d1d
 	ld a, [hli]  ; a = mon id of evolution
 	dec a
 	ld [wCurrentEvolutionMon], a
-	ld a, [hl]  ; a = evoluion type id
+	ld a, [hl]  ; a = evolution type id
+	cp EVO_BREEDING
+	jr nz, .ok
+	call IsBreedingAllowed
+	jr c, .breedingNotAllowed
+	ld a, EVO_BREEDING
+	jr .ok
+.breedingNotAllowed
+	ld a, $FF
+	ld [wCurrentEvolutionMon], a
+	ld a, EVO_EXPERIENCE
+.ok
 	ld [wCurrentEvolutionType], a
 	xor a
 	ld [wd554], a
@@ -488,11 +530,11 @@ InitEvolutionModeForMon: ; 0x10d1d
 	dec b
 	jr nz, .asm_10dc0
 	callba InitBallSaverForCatchEmMode
-	call Func_10b3f
+	call ShowEvolutionStartText
 	call Func_3579
 	ld a, [wCurrentStage]
 	bit 0, a
-	jr z, .asm_10e09
+	jr z, .done
 	ld a, BANK(StageRedFieldBottomBaseGameBoyColorGfx)
 	ld hl, StageRedFieldBottomBaseGameBoyColorGfx + $300
 	ld de, vTilesSH tile $2e
@@ -503,7 +545,7 @@ InitEvolutionModeForMon: ; 0x10d1d
 	deCoord 6, 8, vBGMap
 	ld bc, (CatchBarTilesEnd - CatchBarTiles)
 	call LoadOrCopyVRAMData
-.asm_10e09
+.done
 	ret
 
 Func_10e0a: ; 0x10e0a
@@ -522,7 +564,12 @@ Func_10e0a: ; 0x10e0a
 	rl b
 	ld hl, PokemonNames + 1
 	add hl, bc
-	ld de, ItEvolvedIntoAnText  ; "It evolved into an"
+	ld de, ItEvolvedIntoAnText
+	ld a, [wCurrentEvolutionType]
+	cp EVO_BREEDING
+	jr nz, .gotText
+	ld de, EggHatchedIntoAnText
+.gotText
 	ld bc, Data_2b34
 	ld a, [hl]
 	; check if mon's name starts with a vowel, so it can print "an", instead of "a"
@@ -537,6 +584,11 @@ Func_10e0a: ; 0x10e0a
 	cp "O"
 	jr z, .nameStartsWithVowel
 	ld de, ItEvolvedIntoAText  ; "It evolved into a"
+	ld a, [wCurrentEvolutionType]
+	cp EVO_BREEDING
+	jr nz, .gotText2
+	ld de, EggHatchedIntoAText
+.gotText2
 	ld bc, Data_2b1c
 .nameStartsWithVowel
 	push hl
@@ -633,24 +685,34 @@ StartEvolutionMode_RedField: ; 0x10ebb
 	ld a, [wCurrentStage]
 	bit 0, a
 	jr nz, .asm_10f0b
-	ld a, BANK(EvolutionTrinketsGfx)
-	ld hl, EvolutionTrinketsGfx
 	ld de, vTilesSH tile $10
-	ld bc, $00e0
-	call LoadOrCopyVRAMData
-	ret
+	jp LoadEvolutionTrinketGfx
 
 .asm_10f0b
-	ld a, BANK(EvolutionTrinketsGfx)
-	ld hl, EvolutionTrinketsGfx
 	ld de, vTilesOB tile $20
-	ld bc, $00e0
-	call LoadOrCopyVRAMData
+	call LoadEvolutionTrinketGfx
 	callba ClearAllRedIndicators
 	callba Func_10184
 	ld a, [hGameBoyColorFlag]
 	and a
 	callba nz, Func_102bc
+	ret
+
+LoadEvolutionTrinketGfx:
+; de = destination for gfx
+	ld a, [wCurrentEvolutionType]
+	cp EVO_BREEDING
+	jr z, .breeding
+	ld hl, EvolutionTrinketsGfx
+	ld bc, $00e0
+	ld a, BANK(EvolutionTrinketsGfx)
+	jr .load
+.breeding
+	ld hl, BreedingTrinketGfx
+	ld bc, $0020
+	ld a, BANK(BreedingTrinketGfx)
+.load
+	call LoadOrCopyVRAMData
 	ret
 
 IndicatorStatesPointerTable_10f3b: ; 0x10f3b
@@ -758,19 +820,12 @@ StartEvolutionMode_BlueField: ; 0x11061
 	ld a, [wCurrentStage]
 	bit 0, a
 	jr nz, .asm_110bd
-	ld a, BANK(EvolutionTrinketsGfx)
-	ld hl, EvolutionTrinketsGfx
 	ld de, vTilesOB tile $60
-	ld bc, $00e0
-	call LoadOrCopyVRAMData
-	ret
+	jp LoadEvolutionTrinketGfx
 
 .asm_110bd
-	ld a, BANK(EvolutionTrinketsGfx)
-	ld hl, EvolutionTrinketsGfx
 	ld de, vTilesOB tile $20
-	ld bc, $00e0
-	call LoadOrCopyVRAMData
+	call LoadEvolutionTrinketGfx
 	callba Func_1c2cb
 	callba Func_10184
 	ld a, [hGameBoyColorFlag]
@@ -882,19 +937,12 @@ StartEvolutionMode_GoldField: ; 0x10ebb
 	ld a, [wCurrentStage]
 	bit 0, a
 	jr nz, .asm_10f0b
-	ld a, BANK(EvolutionTrinketsGfx)
-	ld hl, EvolutionTrinketsGfx
 	ld de, vTilesSH tile $10
-	ld bc, $00e0
-	call LoadOrCopyVRAMData
-	ret
+	jp LoadEvolutionTrinketGfx
 
 .asm_10f0b
-	ld a, BANK(EvolutionTrinketsGfx)
-	ld hl, EvolutionTrinketsGfx
 	ld de, vTilesOB tile $20
-	ld bc, $00e0
-	call LoadOrCopyVRAMData
+	call LoadEvolutionTrinketGfx
 	callba ClearAllGoldIndicators
 	callba Func_10184
 	ld a, [hGameBoyColorFlag]
@@ -1007,19 +1055,12 @@ StartEvolutionMode_SilverField: ; 0x11061
 	ld a, [wCurrentStage]
 	bit 0, a
 	jr nz, .asm_110bd
-	ld a, BANK(EvolutionTrinketsGfx)
-	ld hl, EvolutionTrinketsGfx
 	ld de, vTilesOB tile $60
-	ld bc, $00e0
-	call LoadOrCopyVRAMData
-	ret
+	jp LoadEvolutionTrinketGfx
 
 .asm_110bd
-	ld a, BANK(EvolutionTrinketsGfx)
-	ld hl, EvolutionTrinketsGfx
 	ld de, vTilesOB tile $20
-	ld bc, $00e0
-	call LoadOrCopyVRAMData
+	call LoadEvolutionTrinketGfx
 	callba Func_1c2cb
 	callba Func_10184
 	ld a, [hGameBoyColorFlag]

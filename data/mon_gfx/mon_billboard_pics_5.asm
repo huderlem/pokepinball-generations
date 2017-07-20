@@ -26,3 +26,6 @@ MewPic: ; 0x71200
 	INCBIN "gfx/billboard/mon_pics/mew.2bpp"
 MewSilhouettePic:  ; 0x71380
 	INCBIN "gfx/billboard/mon_silhouettes/mew.2bpp"
+
+EggPic:
+	INCBIN "gfx/billboard/mon_pics/egg.2bpp"

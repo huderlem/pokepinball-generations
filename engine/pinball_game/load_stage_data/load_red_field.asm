@@ -160,7 +160,7 @@ Func_1414b: ; 0x1414b
 	and a
 	ret z
 	ld a, [wSpecialMode]
-	cp SPECIAL_MODE_EVOLUTION
+	cp SPECIAL_MODE_MAP_MOVE
 	ret z
 	ld a, [wd5c6]
 	and a
@@ -232,7 +232,7 @@ Func_14234: ; 0x14234
 	and a
 	ret z
 	ld a, [wSpecialMode]
-	cp SPECIAL_MODE_CATCHEM
+	cp SPECIAL_MODE_EVOLUTION
 	ret nz
 	ld a, [wd554]
 	cp $3
@@ -240,19 +240,13 @@ Func_14234: ; 0x14234
 	ld a, [wCurrentStage]
 	bit 0, a
 	jr nz, .asm_1425c
-	ld a, BANK(EvolutionTrinketsGfx)
-	ld hl, EvolutionTrinketsGfx
 	ld de, vTilesSH tile $10
-	ld bc, $00e0
-	call FarCopyData
+	call LoadEvolutionTrinketGfx_RedField
 	jr .asm_1426a
 
 .asm_1425c
-	ld a, BANK(EvolutionTrinketsGfx)
-	ld hl, EvolutionTrinketsGfx
 	ld de, vTilesOB tile $20
-	ld bc, $00e0
-	call FarCopyData
+	call LoadEvolutionTrinketGfx_RedField
 .asm_1426a
 	ld a, [wd551]
 	and a
@@ -265,6 +259,23 @@ Func_14234: ; 0x14234
 	ld de, $0070
 	ld bc, $0010
 	call FarCopyCGBPals
+	ret
+
+LoadEvolutionTrinketGfx_RedField:
+; de = destination for gfx
+	ld a, [wCurrentEvolutionType]
+	cp EVO_BREEDING
+	jr z, .breeding
+	ld a, BANK(EvolutionTrinketsGfx)
+	ld hl, EvolutionTrinketsGfx
+	ld bc, $00e0
+	jr .load
+.breeding
+	ld a, BANK(BreedingTrinketGfx)
+	ld hl, BreedingTrinketGfx
+	ld bc, $0020
+.load
+	call FarCopyData
 	ret
 
 Func_14282: ; 0x14282
@@ -280,7 +291,7 @@ Func_14282: ; 0x14282
 	ret
 
 .asm_14296
-	cp SPECIAL_MODE_CATCHEM
+	cp SPECIAL_MODE_EVOLUTION
 	jr nz, .asm_1429e
 	call Func_142c3
 	ret
@@ -414,7 +425,7 @@ Func_14377: ; 0x14377
 
 .asm_143b1
 	ld a, [wSpecialMode]
-	cp SPECIAL_MODE_EVOLUTION
+	cp SPECIAL_MODE_MAP_MOVE
 	ret nz
 	ld a, [wd54d]
 	cp $3

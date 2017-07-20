@@ -116,6 +116,16 @@ Func_10184: ; 0x10184
 	ld a, [wCurrentStage]
 	bit 0, a
 	ret z
+	ld a, [wCurrentEvolutionMon]
+	cp $ff
+	jr z, .loadRegularPic
+	ld a, [wSpecialMode]
+	cp SPECIAL_MODE_EVOLUTION
+	jr nz, .loadRegularPic
+	ld a, [wCurrentEvolutionType]
+	cp EVO_BREEDING
+	jr z, .loadBreedingPic
+.loadRegularPic
 	ld a, [wCurrentCatchEmMon]
 	ld c, a
 	ld b, $0
@@ -142,6 +152,27 @@ Func_10184: ; 0x10184
 	ld [$ff90], a
 	ld a, [hli]
 	ld [$ff91], a
+	jr .loaded
+.loadBreedingPic
+	; load egg pic
+	ld bc, $0000
+	ld hl, EggBillboardPicPointers
+	add hl, bc
+	ld a, [hli]
+	ld [$ff8c], a
+	ld a, [hli]
+	ld [$ff8d], a
+	ld a, [hl]
+	ld [$ff8e], a
+	ld hl, EggBillboardPaletteMapPointers
+	add hl, bc
+	ld a, [hli]
+	ld [$ff8f], a
+	ld a, [hli]
+	ld [$ff90], a
+	ld a, [hli]
+	ld [$ff91], a
+.loaded
 	ld de, wc000
 	ld hl, wd586
 	ld c, $0
@@ -311,6 +342,16 @@ Data_102a4: ; 0x102a4
 	db $00, $07, $06, $01, $0E, $15, $14, $0F, $04, $0B, $0A, $05, $0C, $13, $12, $0D, $02, $09, $08, $03, $10, $17, $16, $11
 
 Func_102bc: ; 0x102bc
+	ld a, [wSpecialMode]
+	cp SPECIAL_MODE_EVOLUTION
+	jr nz, .loadNormalPalette
+	ld a, [wCurrentEvolutionType]
+	cp EVO_BREEDING
+	jr nz, .loadNormalPalette
+	ld bc, $0000
+	ld hl, EggBillboardPalettePointers
+	jr .gotPointer
+.loadNormalPalette
 	ld a, [wCurrentCatchEmMon]
 	ld c, a
 	ld b, $0
@@ -322,6 +363,7 @@ Func_102bc: ; 0x102bc
 	inc b
 .asm_102cb
 	ld hl, MonBillboardPalettePointers
+.gotPointer
 	add hl, bc
 	ld a, [hli]
 	ld [$ff8c], a

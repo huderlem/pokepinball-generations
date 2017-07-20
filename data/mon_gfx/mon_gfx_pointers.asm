@@ -762,3 +762,12 @@ MonAnimatedPicPointers: ; 0x13264
 	dwb DratiniAnimatedPic, Bank(DratiniAnimatedPic)
 	dwb MewtwoAnimatedPic, Bank(MewtwoAnimatedPic)
 	dwb MewAnimatedPic, Bank(MewAnimatedPic)
+
+EggBillboardPicPointers:
+	dwb EggPic, Bank(EggPic)
+
+EggBillboardPaletteMapPointers:
+	dwb EggBillboardBGPaletteMap, Bank(EggBillboardBGPaletteMap)
+
+EggBillboardPalettePointers:
+	dwb EggBillboardBGPalette1, Bank(EggBillboardBGPalette1)

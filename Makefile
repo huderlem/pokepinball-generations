@@ -1,4 +1,4 @@
-.PHONY: all tools clean tidy
+.PHONY: all tools clean tidy tpp
 
 .SUFFIXES:
 .SECONDEXPANSION:
@@ -10,7 +10,11 @@ OBJS := main.o wram.o sram.o
 
 MD5 := md5sum -c
 
+COMPILE_FLAGS :=
+
 all: $(ROM)
+tpp: COMPILE_FLAGS += -D _TPP
+tpp: all
 
 ifeq (,$(filter tools clean tidy,$(MAKECMDGOALS)))
 Makefile: tools
@@ -18,7 +22,7 @@ endif
 
 %.o: dep = $(shell tools/scan_includes $(@D)/$*.asm)
 %.o: %.asm $$(dep)
-	rgbasm -h -o $@ $<
+	rgbasm $(COMPILE_FLAGS) -h -o $@ $<
 
 $(ROM): $(OBJS) contents/contents.link
 	rgblink -n $(ROM:.gbc=.sym) -m $(ROM:.gbc=.map) -l contents/contents.link -o $@ $(OBJS)

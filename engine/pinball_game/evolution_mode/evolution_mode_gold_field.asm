@@ -2,7 +2,7 @@ HandleGoldEvoModeCollision: ; 0x20581
 	ld a, [wSpecialModeCollisionID]
 	cp SPECIAL_COLLISION_VOLTORB
 	jp z, Func_2080f_GoldField ;voltorb
-	cp SPECIAL_COLLISION_STARYU_ALLY_TRIGGER
+	cp SPECIAL_COLLISION_STARYU_ALLEY_TRIGGER
 	jp z, Func_20839_GoldField
 	cp SPECIAL_COLLISION_BELLSPROUT
 	jp z, Func_2085a_GoldField ;bellsprout

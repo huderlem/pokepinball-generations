@@ -176,7 +176,7 @@ Func_14209_GoldField: ; 0x14209
 	ret
 
 Func_14210_GoldField: ; 0x14210
-	ld hl, wd586
+	ld hl, wBillboardTilesIlluminationStates
 	ld b, $18
 .asm_14215
 	ld a, [hli]

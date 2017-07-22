@@ -24,7 +24,7 @@ StartCatchEmMode: ; 0x1003f
 	ld [wd5c2], a
 	ld a, [hli]
 	ld [wd5c3], a ;load the 3 bytes into ????
-	ld hl, wd586
+	ld hl, wBillboardTilesIlluminationStates
 	ld a, [wd5b6]
 	ld c, a
 	and a
@@ -174,7 +174,7 @@ Func_10184: ; 0x10184
 	ld [$ff91], a
 .loaded
 	ld de, wc000
-	ld hl, wd586
+	ld hl, wBillboardTilesIlluminationStates
 	ld c, $0
 .asm_101bb
 	ld a, [hli]
@@ -878,7 +878,7 @@ Func_10648: ; 0x10648
 	jr nz, .asm_10677
 	ld a, $14
 	ld [wd54e], a
-	ld hl, wd586
+	ld hl, wBillboardTilesIlluminationStates
 	ld b, $18
 .asm_1065e
 	ld a, [wd54f]

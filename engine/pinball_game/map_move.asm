@@ -432,7 +432,7 @@ HandleRedMapModeCollision: ; 0x314ae
 	jr z, .asm_314d0
 	cp SPECIAL_COLLISION_LEFT_TRIGGER
 	jp z, OpenRedMapMoveSlotFromLeft
-	cp SPECIAL_COLLISION_STARYU_ALLY_TRIGGER
+	cp SPECIAL_COLLISION_STARYU_ALLEY_TRIGGER
 	jp z, OpenRedMapMoveSlotFromLeft
 	cp SPECIAL_COLLISION_RIGHT_TRIGGER
 	jp z, OpenRedMapMoveSlotFromRight
@@ -737,7 +737,7 @@ HandleGoldMapModeCollision: ; 0x314ae
 	jr z, .asm_314d0
 	cp SPECIAL_COLLISION_LEFT_TRIGGER
 	jp z, OpenGoldMapMoveSlotFromLeft
-	cp SPECIAL_COLLISION_STARYU_ALLY_TRIGGER
+	cp SPECIAL_COLLISION_STARYU_ALLEY_TRIGGER
 	jp z, OpenGoldMapMoveSlotFromLeft
 	cp SPECIAL_COLLISION_RIGHT_TRIGGER
 	jp z, OpenGoldMapMoveSlotFromRight

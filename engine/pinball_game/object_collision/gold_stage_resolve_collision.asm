@@ -814,7 +814,7 @@ ResolveBallUpgradeTriggersCollision_GoldField: ; 0x1535d
 	lb de, $06, $3a
 	call PlaySoundEffect
 	call FillBottomMessageBufferWithBlackTile
-	call Func_30db
+	call EnableBottomText
 	ld de, FieldMultiplierText
 	ld hl, wScrollingText1
 	call LoadScrollingText
@@ -831,7 +831,7 @@ ResolveBallUpgradeTriggersCollision_GoldField: ; 0x1535d
 	push bc
 	push de
 	call FillBottomMessageBufferWithBlackTile
-	call Func_30db
+	call EnableBottomText
 	ld hl, wScrollingText2
 	ld de, DigitsText1to8
 	call Func_32cc
@@ -1892,7 +1892,7 @@ DoSlotLogic_GoldField: ; 0x16352
 
 ShowScrollingGoToBonusText_GoldField: ; 0x163f2
 	call FillBottomMessageBufferWithBlackTile
-	call Func_30db
+	call EnableBottomText
 	ld hl, wScrollingText3
 	ld a, [wNextStage]
 	ld de, GoToDiglettStageText
@@ -2631,7 +2631,7 @@ ShowBonusMultiplierMessage_GoldField: ; 0x16ef5
 	xor a
 	ld [wd613], a
 	call FillBottomMessageBufferWithBlackTile
-	call Func_30db
+	call EnableBottomText
 	ld hl, wScrollingText1
 	ld de, BonusMultiplierText
 	call LoadScrollingText

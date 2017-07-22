@@ -1,32 +1,32 @@
 HandleGoldEvoModeCollision: ; 0x20581
 	ld a, [wSpecialModeCollisionID]
-	cp $4
+	cp SPECIAL_COLLISION_VOLTORB
 	jp z, Func_2080f_GoldField ;voltorb
-	cp $3
+	cp SPECIAL_COLLISION_STARYU_ALLY_TRIGGER
 	jp z, Func_20839_GoldField
-	cp $5
+	cp SPECIAL_COLLISION_BELLSPROUT
 	jp z, Func_2085a_GoldField ;bellsprout
-	cp $6
+	cp SPECIAL_COLLISION_STARYU
 	jp z, Func_20887_GoldField ;staryu
-	cp $7
+	cp SPECIAL_COLLISION_LEFT_DIGLETT
 	jp z, Func_208a8_GoldField ;diglett
-	cp $8
+	cp SPECIAL_COLLISION_RIGHT_DIGLETT
 	jp z, Func_208c9_GoldField ;diglett
-	cp $9
+	cp SPECIAL_COLLISION_LEFT_BONUS_MULTIPLIER
 	jp z, Func_208ea_GoldField ;right rail?
-	cp $a
+	cp SPECIAL_COLLISION_RIGHT_BONUS_MULTIPLIER
 	jp z, Func_2090b_GoldField ;right rail?
-	cp $b
+	cp SPECIAL_COLLISION_BALL_UPGRADE
 	jp z, Func_2092c_GoldField
-	cp $c
+	cp SPECIAL_COLLISION_SPINNER
 	jp z, Func_2094d_GoldField
-	cp $d
+	cp SPECIAL_COLLISION_SLOT_HOLE
 	jp z, Func_20b02_GoldField
-	cp $2
+	cp SPECIAL_COLLISION_RIGHT_TRIGGER
 	jp z, Func_20a65_GoldField
-	cp $1
+	cp SPECIAL_COLLISION_LEFT_TRIGGER
 	jp z, Func_20a82_GoldField
-	cp $0
+	cp SPECIAL_COLLISION_NOTHING
 	jr z, .asm_205cb
 	scf
 	ret
@@ -73,7 +73,7 @@ Func_205e0_GoldField: ; 0x205e0
 	ld bc, OneMillionPoints
 	callba AddBigBCD6FromQueue
 	call FillBottomMessageBufferWithBlackTile
-	call Func_30db
+	call EnableBottomText
 	ld de, YeahYouGotItText
 	ld hl, wScrollingText1
 	call LoadScrollingText
@@ -259,7 +259,7 @@ Func_2077b_GoldField: ; 0x2077b
 .asm_207f5
 	callba StopTimer
 	call FillBottomMessageBufferWithBlackTile
-	call Func_30db
+	call EnableBottomText
 	ld hl, wScrollingText1
 	ld de, EvolutionFailedText
 	ld a, [wCurrentEvolutionType]
@@ -273,7 +273,7 @@ Func_2077b_GoldField: ; 0x2077b
 Func_2080f_GoldField: ; 0x2080f
 	ld bc, $0001
 	ld de, $5000
-	call Func_3538
+	call AddBCDEToJackpot
 	ld a, [wd551]
 	and a
 	jr nz, .asm_20837
@@ -316,7 +316,7 @@ Func_20839_GoldField: ; 0x20839
 Func_2085a_GoldField: ; 0x2085a
 	ld bc, $0007
 	ld de, $5000
-	call Func_3538
+	call AddBCDEToJackpot
 	ld a, [wd551]
 	and a
 	jr nz, .asm_20885
@@ -460,7 +460,7 @@ Func_2092c_GoldField: ; 0x2092c
 Func_2094d_GoldField: ; 0x2094d
 	ld bc, $0000
 	ld de, $1500
-	call Func_3538
+	call AddBCDEToJackpot
 	ld a, [wd551]
 	and a
 	jr nz, .asm_20975
@@ -528,7 +528,7 @@ Func_20977_GoldField: ; 0x20977
 	ld bc, ThreeHundredThousandPoints
 	callba AddBigBCD6FromQueue
 	call FillBottomMessageBufferWithBlackTile
-	call Func_30db
+	call EnableBottomText
 	ld a, [wCurrentEvolutionType]
 	dec a
 	ld c, a
@@ -571,7 +571,7 @@ Func_209eb_GoldField: ; 0x209eb
 	ld bc, ThreeHundredThousandPoints
 	callba AddBigBCD6FromQueue
 	call FillBottomMessageBufferWithBlackTile
-	call Func_30db
+	call EnableBottomText
 	ld hl, wScrollingText1
 	ld a, [wCurrentEvolutionType]
 	cp EVO_EXPERIENCE
@@ -652,7 +652,7 @@ asm_20a9f_GoldField:
 	call Func_7dc
 .asm_20ada
 	call FillBottomMessageBufferWithBlackTile
-	call Func_30db
+	call EnableBottomText
 	ld a, [wCurrentEvolutionType]
 	cp EVO_EXPERIENCE
 	ld de, PokemonRecoveredText
@@ -744,14 +744,14 @@ LoadFinalEvolutionMonBillboardPic:
 	ld hl, rBGPI
 	call Func_8e1
 	callba Func_10e0a
-	call Func_3475
+	call MainLoopUntilTextIsClear
 	ld de, $0000
 	call PlaySong
 	rst AdvanceFrame
 	lb de, $2d, $26
 	call PlaySoundEffect
-	callba Func_10825
-	call Func_3475
+	callba ShowJackpotText
+	call MainLoopUntilTextIsClear
 	ld a, $1
 	ld [wd54d], a
 	scf

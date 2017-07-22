@@ -1,30 +1,30 @@
 HandleSilverEvoModeCollision: ; 0x20bae
 	ld a, [wSpecialModeCollisionID]
-	cp $4
+	cp SPECIAL_COLLISION_SHELLDER
 	jp z, Func_20e34_SilverField
-	cp $1
+	cp SPECIAL_COLLISION_LEFT_TRIGGER
 	jp z, Func_21089_SilverField
-	cp $e
+	cp SPECIAL_COLLISION_CLOYSTER
 	jp z, Func_20e5e_SilverField
-	cp $f
+	cp SPECIAL_COLLISION_SLOWPOKE
 	jp z, Func_20e82_SilverField
-	cp $7
+	cp SPECIAL_COLLISION_POLIWAG
 	jp z, Func_20ea6_SilverField
-	cp $8
+	cp SPECIAL_COLLISION_PSYDUCK
 	jp z, Func_20ec7_SilverField
-	cp $9
+	cp SPECIAL_COLLISION_LEFT_BONUS_MULTIPLIER
 	jp z, Func_20ee8_SilverField
-	cp $a
+	cp SPECIAL_COLLISION_RIGHT_BONUS_MULTIPLIER
 	jp z, Func_20f09_SilverField
-	cp $b
+	cp SPECIAL_COLLISION_BALL_UPGRADE
 	jp z, Func_20f2a_SilverField
-	cp $c
+	cp SPECIAL_COLLISION_SPINNER
 	jp z, Func_20f4b_SilverField
-	cp $d
+	cp SPECIAL_COLLISION_SLOT_HOLE
 	jp z, Func_2112a_SilverField
-	cp $2
+	cp SPECIAL_COLLISION_RIGHT_TRIGGER
 	jp z, Func_2105c_SilverField
-	cp $0
+	cp SPECIAL_COLLISION_NOTHING
 	jr z, .asm_20bf3
 	scf
 	ret
@@ -70,7 +70,7 @@ Func_20c08_SilverField: ; 0x20c08
 	ld bc, OneMillionPoints
 	callba AddBigBCD6FromQueue
 	call FillBottomMessageBufferWithBlackTile
-	call Func_30db
+	call EnableBottomText
 	ld de, YeahYouGotItText
 	ld hl, wScrollingText1
 	call LoadScrollingText
@@ -256,7 +256,7 @@ Func_20da0_SilverField: ; 0x20da0
 .asm_20e1a
 	callba StopTimer
 	call FillBottomMessageBufferWithBlackTile
-	call Func_30db
+	call EnableBottomText
 	ld hl, wScrollingText1
 	ld de, EvolutionFailedText
 	ld a, [wCurrentEvolutionType]
@@ -270,7 +270,7 @@ Func_20da0_SilverField: ; 0x20da0
 Func_20e34_SilverField: ; 0x20e34
 	ld bc, $0001
 	ld de, $5000
-	call Func_3538
+	call AddBCDEToJackpot
 	ld a, [wd551]
 	and a
 	jr nz, .asm_20e5c
@@ -435,7 +435,7 @@ Func_20f2a_SilverField: ; 0x20f2a
 Func_20f4b_SilverField: ; 0x20f4b
 	ld bc, $0000
 	ld de, $1500
-	call Func_3538
+	call AddBCDEToJackpot
 	ld a, [wd551]
 	and a
 	jr nz, .asm_20f73
@@ -505,7 +505,7 @@ Func_20f75_SilverField: ; 0x20f75
 	ld bc, ThreeHundredThousandPoints
 	callba AddBigBCD6FromQueue
 	call FillBottomMessageBufferWithBlackTile
-	call Func_30db
+	call EnableBottomText
 	ld a, [wCurrentEvolutionType]
 	dec a
 	ld c, a
@@ -549,7 +549,7 @@ Func_20fef_SilverField: ; 0x20fef
 	ld bc, ThreeHundredThousandPoints
 	callba AddBigBCD6FromQueue
 	call FillBottomMessageBufferWithBlackTile
-	call Func_30db
+	call EnableBottomText
 	ld hl, wScrollingText1
 	ld a, [wCurrentEvolutionType]
 	cp EVO_EXPERIENCE
@@ -650,7 +650,7 @@ asm_210c7_SilverField:
 	call Func_7dc
 .asm_21102
 	call FillBottomMessageBufferWithBlackTile
-	call Func_30db
+	call EnableBottomText
 	ld a, [wCurrentEvolutionType]
 	cp EVO_EXPERIENCE
 	ld de, PokemonRecoveredText

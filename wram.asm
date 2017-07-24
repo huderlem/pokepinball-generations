@@ -1,3 +1,6 @@
+INCLUDE "macros.asm"
+INCLUDE "constants/pokemon_constants.asm"
+
 ; OAM Animations use this 3-byte struct.
 animation: MACRO
 \1FrameCounter:: ds 1
@@ -536,7 +539,12 @@ wCollidedAlleyTriggers:: ; 0xd521
 ; These bytes are pretty unnecessary, but the original code decided it would use a roundabout way to decide which function to call based on wWhichBoardTriggerId was collided with.
 	ds $8
 
-	ds $6 ; free space
+wScratchBuffer::
+; A temporary buffer used to do scratch work.
+; Uses:
+; 1. LoadCryData uses all 6 bytes to pass the loaded data back to the audio engine in a different bank.
+; 2. Hold bank of mon's pokedex description when loading its text.
+	ds $6
 
 wIndicatorStates:: ; 0xd52f 0 = evo arrows, 1 = catch arrows, 2 = left small alley, 3 = bellsprout, 4 = slot. bit 7 controls if enabled and flashing, bit 1 and 2 control is solid (set = solid)
 	ds $13
@@ -2404,10 +2412,7 @@ wd961:: ; 0xd961
 	ds $1
 
 wPokedexFlags:: ; 0xd962
-	ds $96
-
-wd9f8:: ; 0xd9f8
-	ds $1
+	ds NUM_POKEMON
 
 wNumPokemonSeen:: ; 0xd9f9
 	ds $2

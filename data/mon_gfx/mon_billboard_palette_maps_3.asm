@@ -195,5 +195,3 @@ UnusedBillboardBGPaletteMap_d9968: ; 0xd9968
 	db $8, $8, $8, $8, $8, $8
 	db $8, $8, $8, $8, $8, $8
 	db $8, $8, $8, $8, $8, $8
-	
-	ds $280 ; free space

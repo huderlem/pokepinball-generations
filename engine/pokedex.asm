@@ -732,10 +732,6 @@ Func_28513: ; 0x28513
 	ret nz
 	ld a, [wd95e]
 	ld b, a
-	ld a, [wd9f8]
-	and a
-	ld a, NUM_POKEMON - 1
-	jr z, .asm_2852d
 	ld a, NUM_POKEMON
 .asm_2852d
 	ld d, a
@@ -1301,10 +1297,15 @@ Func_288c6: ; 0x288c6
 	ld hl, Unknown_2c000
 	jr z, .asm_288f4
 	ld a, [wCurPokedexIndex]
-	ld c, a
+	ld h, $0
+	ld l, a
 	ld b, $0
+	ld c, a
 	sla c
 	rl b
+	add hl, bc
+	ld b, h
+	ld c, l
 	ld hl, PokedexDescriptionPointers
 	add hl, bc
 	ld a, BANK(PokedexDescriptionPointers)
@@ -1313,7 +1314,11 @@ Func_288c6: ; 0x288c6
 	ld c, a
 	ld a, BANK(PokedexDescriptionPointers)
 	call ReadByteFromBank
+	inc hl
 	ld b, a
+	ld a, BANK(PokedexDescriptionPointers)
+	call ReadByteFromBank
+	ld [wScratchBuffer], a
 	ld h, b
 	ld l, c
 .asm_288f4
@@ -2233,7 +2238,7 @@ ENDR
 	ret
 
 Func_2957c: ; 0x2957c
-	ld a, BANK(PokedexDescriptionPointers)
+	ld a, [wScratchBuffer]
 	call ReadByteFromBank
 	inc hl
 	and a

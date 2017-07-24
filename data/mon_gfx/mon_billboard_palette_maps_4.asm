@@ -94,8 +94,6 @@ TaurosBillboardBGPaletteMap: ; 0xda568
 	db $6, $7, $6, $6, $6, $6
 	db $6, $6, $6, $6, $6, $6
 
-	ds $280 ; free space
-
 BulbasaurBillboardBGPaletteMap: ; 0xda800
 	db $7, $7, $7, $7, $7, $7
 	db $7, $7, $7, $7, $7, $7
@@ -191,5 +189,3 @@ PidgeyBillboardBGPaletteMap: ; 0xda968
 	db $7, $7, $7, $7, $7, $7
 	db $7, $7, $7, $7, $7, $7
 	db $7, $7, $7, $7, $7, $7
-
-	ds $280 ; free space

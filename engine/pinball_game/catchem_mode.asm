@@ -138,19 +138,29 @@ Func_10184: ; 0x10184
 .asm_10199
 	ld hl, MonBillboardPicPointers
 	add hl, bc
-	ld a, [hli]
+	ld a, Bank(MonBillboardPicPointers)
+	call ReadByteFromBank
 	ld [$ff8c], a
-	ld a, [hli]
+	inc hl
+	ld a, Bank(MonBillboardPicPointers)
+	call ReadByteFromBank
 	ld [$ff8d], a
-	ld a, [hl]
+	inc hl
+	ld a, Bank(MonBillboardPicPointers)
+	call ReadByteFromBank
 	ld [$ff8e], a
 	ld hl, MonBillboardPaletteMapPointers
 	add hl, bc
-	ld a, [hli]
+	ld a, Bank(MonBillboardPaletteMapPointers)
+	call ReadByteFromBank
 	ld [$ff8f], a
-	ld a, [hli]
+	inc hl
+	ld a, Bank(MonBillboardPaletteMapPointers)
+	call ReadByteFromBank
 	ld [$ff90], a
-	ld a, [hli]
+	inc hl
+	ld a, Bank(MonBillboardPaletteMapPointers)
+	call ReadByteFromBank
 	ld [$ff91], a
 	jr .loaded
 .loadBreedingPic
@@ -158,19 +168,29 @@ Func_10184: ; 0x10184
 	ld bc, $0000
 	ld hl, EggBillboardPicPointers
 	add hl, bc
-	ld a, [hli]
+	ld a, Bank(EggBillboardPicPointers)
+	call ReadByteFromBank
 	ld [$ff8c], a
-	ld a, [hli]
+	inc hl
+	ld a, Bank(EggBillboardPicPointers)
+	call ReadByteFromBank
 	ld [$ff8d], a
-	ld a, [hl]
+	inc hl
+	ld a, Bank(EggBillboardPicPointers)
+	call ReadByteFromBank
 	ld [$ff8e], a
 	ld hl, EggBillboardPaletteMapPointers
 	add hl, bc
-	ld a, [hli]
+	ld a, Bank(EggBillboardPaletteMapPointers)
+	call ReadByteFromBank
 	ld [$ff8f], a
-	ld a, [hli]
+	inc hl
+	ld a, Bank(EggBillboardPaletteMapPointers)
+	call ReadByteFromBank
 	ld [$ff90], a
-	ld a, [hli]
+	inc hl
+	ld a, Bank(EggBillboardPaletteMapPointers)
+	call ReadByteFromBank
 	ld [$ff91], a
 .loaded
 	ld de, wc000
@@ -365,11 +385,16 @@ Func_102bc: ; 0x102bc
 	ld hl, MonBillboardPalettePointers
 .gotPointer
 	add hl, bc
-	ld a, [hli]
+	ld a, Bank(MonBillboardPalettePointers)
+	call ReadByteFromBank
 	ld [$ff8c], a
-	ld a, [hli]
+	inc hl
+	ld a, Bank(MonBillboardPalettePointers)
+	call ReadByteFromBank
 	ld [$ff8d], a
-	ld a, [hl]
+	inc hl
+	ld a, Bank(MonBillboardPalettePointers)
+	call ReadByteFromBank
 	ld [$ff8e], a
 	ld de, wc1b8
 	ld a, $10
@@ -411,11 +436,16 @@ Func_10301: ; 0x10301
 .asm_10310
 	ld hl, MonAnimatedPalettePointers
 	add hl, bc
-	ld a, [hli]
+	ld a, Bank(MonAnimatedPalettePointers)
+	call ReadByteFromBank
 	ld [$ff8c], a
-	ld a, [hli]
+	inc hl
+	ld a, Bank(MonAnimatedPalettePointers)
+	call ReadByteFromBank
 	ld [$ff8d], a
-	ld a, [hl]
+	inc hl
+	ld a, Bank(MonAnimatedPalettePointers)
+	call ReadByteFromBank
 	ld [$ff8e], a
 	ld de, wc1b8
 	ld a, $10
@@ -478,11 +508,16 @@ Func_10362: ; 0x10362
 .asm_10371
 	ld hl, MonAnimatedPicPointers
 	add hl, bc
-	ld a, [hli]
+	ld a, Bank(MonAnimatedPicPointers)
+	call ReadByteFromBank
 	ld [$ff8c], a
-	ld a, [hli]
+	inc hl
+	ld a, Bank(MonAnimatedPicPointers)
+	call ReadByteFromBank
 	ld [$ff8d], a
-	ld a, [hl]
+	inc hl
+	ld a, Bank(MonAnimatedPicPointers)
+	call ReadByteFromBank
 	ld [$ff8e], a
 	ld de, wc150
 	ld bc, $0000
@@ -1209,31 +1244,7 @@ Func_10848: ; 0x10848
 	ret
 
 Func_10871: ; 0x10871
-	ld a, [wCurrentCatchEmMon]
-	ld c, a
-	ld b, $0
-	ld hl, EvolutionLineIds
-	add hl, bc
-	ld a, [hl] ; a contains evolution line id
-	ld c, a
-	ld b, $0
-	ld l, c
-	ld h, b
-	sla l
-	rl h
-	sla l
-	rl h
-	sla l
-	rl h
-	sla l
-	rl h
-	add hl, bc
-	add hl, bc
-	add hl, bc
-	ld c, l
-	ld b, h
 	ld hl, CatchEmModeInitialIndicatorStates
-	add hl, bc
 	ld de, wIndicatorStates
 	ld b, $13  ; number of indicators
 .loop
@@ -1296,31 +1307,7 @@ Func_108f5: ; 0x108f5
 	ret
 
 Func_10871_GoldField:
-	ld a, [wCurrentCatchEmMon]
-	ld c, a
-	ld b, $0
-	ld hl, EvolutionLineIds
-	add hl, bc
-	ld a, [hl] ; a contains evolution line id
-	ld c, a
-	ld b, $0
-	ld l, c
-	ld h, b
-	sla l
-	rl h
-	sla l
-	rl h
-	sla l
-	rl h
-	sla l
-	rl h
-	add hl, bc
-	add hl, bc
-	add hl, bc
-	ld c, l
-	ld b, h
 	ld hl, CatchEmModeInitialIndicatorStates
-	add hl, bc
 	ld de, wIndicatorStates
 	ld b, $13  ; number of indicators
 .loop
@@ -1425,31 +1412,7 @@ CaughtPokeballTileData:
 	db $00
 
 Func_1098c: ; 0x1098c
-	ld a, [wCurrentCatchEmMon]
-	ld c, a
-	ld b, $0
-	ld hl, EvolutionLineIds
-	add hl, bc
-	ld a, [hl]
-	ld c, a
-	ld b, $0
-	ld l, c
-	ld h, b
-	sla l
-	rl h
-	sla l
-	rl h
-	sla l
-	rl h
-	sla l
-	rl h
-	add hl, bc
-	add hl, bc
-	add hl, bc
-	ld c, l
-	ld b, h
 	ld hl, CatchEmModeInitialIndicatorStates
-	add hl, bc
 	ld de, wIndicatorStates
 	ld b, $13  ; number of indicators
 .loop
@@ -1507,31 +1470,7 @@ Func_109fc: ; 0x109fc
 	ret
 
 Func_1098c_SilverField:
-	ld a, [wCurrentCatchEmMon]
-	ld c, a
-	ld b, $0
-	ld hl, EvolutionLineIds
-	add hl, bc
-	ld a, [hl]
-	ld c, a
-	ld b, $0
-	ld l, c
-	ld h, b
-	sla l
-	rl h
-	sla l
-	rl h
-	sla l
-	rl h
-	sla l
-	rl h
-	add hl, bc
-	add hl, bc
-	add hl, bc
-	ld c, l
-	ld b, h
 	ld hl, CatchEmModeInitialIndicatorStates
-	add hl, bc
 	ld de, wIndicatorStates
 	ld b, $13  ; number of indicators
 .loop

@@ -293,9 +293,108 @@ EvolutionModeIndicatorSets: ; 0x1298b
 	db $04  ; DRAGONITE
 	db $04  ; MEWTWO
 	db $06  ; MEW
+	db $01  ; CHIKORITA
+	db $02  ; BAYLEEF
+	db $03  ; MEGANIUM
+	db $01  ; CYNDAQUIL
+	db $02  ; QUILAVA
+	db $03  ; TYPHLOSION
+	db $01  ; TOTODILE
+	db $02  ; CROCONAW
+	db $03  ; FERALIGATR
+	db $01  ; SENTRET
+	db $03  ; FURRET
+	db $01  ; HOOTHOOT
+	db $03  ; NOCTOWL
+	db $01  ; LEDYBA
+	db $03  ; LEDIAN
+	db $01  ; SPINARAK
+	db $03  ; ARIADOS
+	db $04  ; CROBAT
+	db $01  ; CHINCHOU
+	db $03  ; LANTURN
+	db $01  ; PICHU
+	db $01  ; CLEFFA
+	db $01  ; IGGLYBUFF
+	db $01  ; TOGEPI
+	db $03  ; TOGETIC
+	db $01  ; NATU
+	db $03  ; XATU
+	db $01  ; MAREEP
+	db $02  ; FLAAFFY
+	db $03  ; AMPHAROS
+	db $04  ; BELLOSSOM
+	db $01  ; MARILL
+	db $03  ; AZUMARILL
+	db $04  ; SUDOWOODO
+	db $04  ; POLITOED
+	db $01  ; HOPPIP
+	db $02  ; SKIPLOOM
+	db $03  ; JUMPLUFF
+	db $04  ; AIPOM
+	db $01  ; SUNKERN
+	db $03  ; SUNFLORA
+	db $04  ; YANMA
+	db $01  ; WOOPER
+	db $03  ; QUAGSIRE
+	db $04  ; ESPEON
+	db $04  ; UMBREON
+	db $03  ; MURKROW
+	db $04  ; SLOWKING
+	db $03  ; MISDREAVUS
+	db $01  ; UNOWN
+	db $04  ; WOBBUFFET
+	db $04  ; GIRAFARIG
+	db $01  ; PINECO
+	db $03  ; FORRETRESS
+	db $04  ; DUNSPARCE
+	db $04  ; GLIGAR
+	db $04  ; STEELIX
+	db $01  ; SNUBBULL
+	db $03  ; GRANBULL
+	db $04  ; QWILFISH
+	db $04  ; SCIZOR
+	db $04  ; SHUCKLE
+	db $04  ; HERACROSS
+	db $01  ; SNEASEL
+	db $01  ; TEDDIURSA
+	db $03  ; URSARING
+	db $01  ; SLUGMA
+	db $03  ; MAGCARGO
+	db $01  ; SWINUB
+	db $03  ; PILOSWINE
+	db $04  ; CORSOLA
+	db $01  ; REMORAID
+	db $03  ; OCTILLERY
+	db $04  ; DELIBIRD
+	db $04  ; MANTINE
+	db $04  ; SKARMORY
+	db $01  ; HOUNDOUR
+	db $03  ; HOUNDOOM
+	db $04  ; KINGDRA
+	db $01  ; PHANPY
+	db $03  ; DONPHAN
+	db $04  ; PORYGON2
+	db $03  ; STANTLER
+	db $03  ; SMEARGLE
+	db $01  ; TYROGUE
+	db $04  ; HITMONTOP
+	db $01  ; SMOOCHUM
+	db $01  ; ELEKID
+	db $01  ; MAGBY
+	db $04  ; MILTANK
+	db $04  ; BLISSEY
+	db $04  ; RAIKOU
+	db $04  ; ENTEI
+	db $04  ; SUICUNE
+	db $01  ; LARVITAR
+	db $02  ; PUPITAR
+	db $03  ; TYRANITAR
+	db $04  ; LUGIA
+	db $04  ; HO_OH
+	db $06  ; CELEBI
 
 INCLUDE "data/catchem_timer_values.asm"
-INCLUDE "data/mon_gfx/mon_gfx_pointers.asm"
 INCLUDE "data/mon_animated_sprite_types.asm"
 INCLUDE "data/collision/mon_collision_mask_pointers.asm"
 
@@ -347,8 +446,7 @@ Data_13685: ; 0x13685
 	db $02, $02, $10 ; EVOLINE_VOLTORB
 	db $12, $12, $10 ; EVOLINE_EXEGGCUTE
 	db $12, $12, $10 ; EVOLINE_CUBONE
-	db $14, $10, $10 ; EVOLINE_HITMONLEE
-	db $14, $10, $10 ; EVOLINE_HITMONCHAN
+	db $14, $10, $10 ; EVOLINE_TYROGUE
 	db $14, $12, $10 ; EVOLINE_LICKITUNG
 	db $11, $11, $10 ; EVOLINE_KOFFING
 	db $14, $14, $10 ; EVOLINE_RHYHORN
@@ -380,6 +478,57 @@ Data_13685: ; 0x13685
 	db $12, $12, $0E ; EVOLINE_DRATINI
 	db $14, $14, $0E ; EVOLINE_MEWTWO
 	db $14, $14, $0E ; EVOLINE_MEW
+	db $12, $12, $10 ; EVOLINE_CHIKORITA ; TODO: update these for the new pokemon. not sure what this data is even used for.
+	db $12, $12, $10 ; EVOLINE_CYNDAQUIL
+	db $12, $12, $10 ; EVOLINE_TOTODILE
+	db $12, $12, $10 ; EVOLINE_SENTRET
+	db $12, $12, $10 ; EVOLINE_HOOTHOOT
+	db $12, $12, $10 ; EVOLINE_LEDYBA
+	db $12, $12, $10 ; EVOLINE_SPINARAK
+	db $12, $12, $10 ; EVOLINE_CHINCHOU
+	db $12, $12, $10 ; EVOLINE_TOGEPI
+	db $12, $12, $10 ; EVOLINE_NATU
+	db $12, $12, $10 ; EVOLINE_MAREEP
+	db $12, $12, $10 ; EVOLINE_MARILL
+	db $12, $12, $10 ; EVOLINE_SUDOWOODO
+	db $12, $12, $10 ; EVOLINE_HOPPIP
+	db $12, $12, $10 ; EVOLINE_AIPOM
+	db $12, $12, $10 ; EVOLINE_SUNKERN
+	db $12, $12, $10 ; EVOLINE_YANMA
+	db $12, $12, $10 ; EVOLINE_WOOPER
+	db $12, $12, $10 ; EVOLINE_MURKROW
+	db $12, $12, $10 ; EVOLINE_MISDREAVUS
+	db $12, $12, $10 ; EVOLINE_UNOWN
+	db $12, $12, $10 ; EVOLINE_WOBBUFFET
+	db $12, $12, $10 ; EVOLINE_GIRAFARIG
+	db $12, $12, $10 ; EVOLINE_PINECO
+	db $12, $12, $10 ; EVOLINE_DUNSPARCE
+	db $12, $12, $10 ; EVOLINE_GLIGAR
+	db $12, $12, $10 ; EVOLINE_SNUBBULL
+	db $12, $12, $10 ; EVOLINE_QWILFISH
+	db $12, $12, $10 ; EVOLINE_SHUCKLE
+	db $12, $12, $10 ; EVOLINE_HERACROSS
+	db $12, $12, $10 ; EVOLINE_SNEASEL
+	db $12, $12, $10 ; EVOLINE_TEDDIURSA
+	db $12, $12, $10 ; EVOLINE_SLUGMA
+	db $12, $12, $10 ; EVOLINE_SWINUB
+	db $12, $12, $10 ; EVOLINE_CORSOLA
+	db $12, $12, $10 ; EVOLINE_REMORAID
+	db $12, $12, $10 ; EVOLINE_DELIBIRD
+	db $12, $12, $10 ; EVOLINE_MANTINE
+	db $12, $12, $10 ; EVOLINE_SKARMORY
+	db $12, $12, $10 ; EVOLINE_HOUNDOUR
+	db $12, $12, $10 ; EVOLINE_PHANPY
+	db $12, $12, $10 ; EVOLINE_STANTLER
+	db $12, $12, $10 ; EVOLINE_SMEARGLE
+	db $12, $12, $10 ; EVOLINE_MILTANK
+	db $12, $12, $10 ; EVOLINE_RAIKOU
+	db $12, $12, $10 ; EVOLINE_ENTEI
+	db $12, $12, $10 ; EVOLINE_SUICUNE
+	db $12, $12, $10 ; EVOLINE_LARVITAR
+	db $12, $12, $10 ; EVOLINE_LUGIA
+	db $12, $12, $10 ; EVOLINE_HO_OH
+	db $12, $12, $10 ; EVOLINE_CELEBI
 
 SECTION "bank5", ROMX
 
@@ -450,7 +599,7 @@ Unknown_2c000: ; 0x2c000
 	dex_text " "
 	dex_end
 
-INCLUDE "text/pokedex_descriptions.asm"
+INCLUDE "text/pokedex_descriptions_1.asm"
 
 SECTION "bankc", ROMX
 
@@ -1556,7 +1705,62 @@ PinballGSBallGfx:
 PinballGSBallMiniGfx:
 	INCBIN "gfx/stage/ball_gsball_mini.w32.interleave.2bpp"
 
+INCLUDE "audio/cries.asm"
+
 
 SECTION "bank49", ROMX
 
 INCLUDE "engine/pinball_game/transition_ball_upgrade.asm"
+INCLUDE "data/mon_gfx/mon_animated_palettes_4.asm"
+
+SECTION "bank4a", ROMX
+
+INCLUDE "text/pokedex_descriptions_2.asm"
+
+SECTION "bank4b", ROMX
+
+INCLUDE "data/mon_gfx/mon_animated_pics_6.asm"
+
+SECTION "bank4c", ROMX
+
+INCLUDE "data/mon_gfx/mon_animated_pics_7.asm"
+
+SECTION "bank4d", ROMX
+
+INCLUDE "data/mon_gfx/mon_animated_pics_8.asm"
+
+SECTION "bank4e", ROMX
+
+INCLUDE "data/mon_gfx/mon_animated_pics_9.asm"
+
+SECTION "bank4f", ROMX
+
+INCLUDE "data/mon_gfx/mon_billboard_palette_maps_6.asm"
+
+SECTION "bank50", ROMX
+
+INCLUDE "data/mon_gfx/mon_billboard_palettes_7.asm"
+
+SECTION "bank51", ROMX
+
+INCLUDE "data/mon_gfx/mon_billboard_pics_11.asm"
+
+SECTION "bank52", ROMX
+
+INCLUDE "data/mon_gfx/mon_billboard_pics_12.asm"
+
+SECTION "bank53", ROMX
+
+INCLUDE "data/mon_gfx/mon_billboard_pics_13.asm"
+
+SECTION "bank54", ROMX
+
+INCLUDE "data/mon_gfx/mon_billboard_pics_14.asm"
+
+SECTION "bank55", ROMX
+
+INCLUDE "data/mon_gfx/mon_billboard_pics_15.asm"
+
+SECTION "bank56", ROMX
+
+INCLUDE "data/mon_gfx/mon_gfx_pointers.asm"

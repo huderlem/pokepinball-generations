@@ -94,8 +94,6 @@ DrowzeeBillboardBGPaletteMap: ; 0xd8568
 	db $6, $6, $6, $6, $6, $6
 	db $6, $6, $6, $6, $6, $6
 
-	ds $280 ; free space
-
 HypnoBillboardBGPaletteMap: ; 0xd8800
 	db $6, $6, $6, $6, $6, $6
 	db $6, $6, $6, $6, $7, $7
@@ -191,5 +189,3 @@ RhydonBillboardBGPaletteMap: ; 0xd8968
 	db $6, $6, $6, $6, $6, $6
 	db $6, $6, $6, $6, $6, $6
 	db $6, $6, $6, $6, $6, $6
-
-	ds $280 ; free space

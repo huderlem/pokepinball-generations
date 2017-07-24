@@ -28,9 +28,6 @@ MewtwoAnimatedCollisionMask: ; 0xd04680
 	INCBIN "data/collision/mon_masks/mewtwo_collision.1bpp"
 MewAnimatedCollisionMask: ; 0xd04700
 	INCBIN "data/collision/mon_masks/mew_collision.1bpp"
-
-	ds $80 ; free space
-
 LickitungAnimatedCollisionMask: ; 0xd0800
 	INCBIN "data/collision/mon_masks/lickitung_collision.1bpp"
 KoffingAnimatedCollisionMask: ; 0xd0880
@@ -158,4 +155,59 @@ ClefairyAnimatedCollisionMask: ; 0xd2680
 VulpixAnimatedCollisionMask: ; 0xd2700
 	INCBIN "data/collision/mon_masks/vulpix_collision.1bpp"
 JigglypuffAnimatedCollisionMask: ; 0xd2780
+	INCBIN "data/collision/mon_masks/jigglypuff_collision.1bpp"
+
+; TODO make sure no pokemon are using this
+ChikoritaAnimatedCollisionMask:
+CyndaquilAnimatedCollisionMask:
+TotodileAnimatedCollisionMask:
+SentretAnimatedCollisionMask:
+HoothootAnimatedCollisionMask:
+LedybaAnimatedCollisionMask:
+SpinarakAnimatedCollisionMask:
+ChinchouAnimatedCollisionMask:
+TogepiAnimatedCollisionMask:
+NatuAnimatedCollisionMask:
+MareepAnimatedCollisionMask:
+MarillAnimatedCollisionMask:
+SudowoodoAnimatedCollisionMask:
+HoppipAnimatedCollisionMask:
+AipomAnimatedCollisionMask:
+SunkernAnimatedCollisionMask:
+YanmaAnimatedCollisionMask:
+WooperAnimatedCollisionMask:
+MurkrowAnimatedCollisionMask:
+MisdreavusAnimatedCollisionMask:
+UnownAnimatedCollisionMask:
+WobbuffetAnimatedCollisionMask:
+GirafarigAnimatedCollisionMask:
+PinecoAnimatedCollisionMask:
+DunsparceAnimatedCollisionMask:
+GligarAnimatedCollisionMask:
+SnubbullAnimatedCollisionMask:
+QwilfishAnimatedCollisionMask:
+ShuckleAnimatedCollisionMask:
+HeracrossAnimatedCollisionMask:
+SneaselAnimatedCollisionMask:
+TeddiursaAnimatedCollisionMask:
+SlugmaAnimatedCollisionMask:
+SwinubAnimatedCollisionMask:
+CorsolaAnimatedCollisionMask:
+RemoraidAnimatedCollisionMask:
+DelibirdAnimatedCollisionMask:
+MantineAnimatedCollisionMask:
+SkarmoryAnimatedCollisionMask:
+HoundourAnimatedCollisionMask:
+PhanpyAnimatedCollisionMask:
+StantlerAnimatedCollisionMask:
+SmeargleAnimatedCollisionMask:
+TyrogueAnimatedCollisionMask:
+MiltankAnimatedCollisionMask:
+RaikouAnimatedCollisionMask:
+EnteiAnimatedCollisionMask:
+SuicuneAnimatedCollisionMask:
+LarvitarAnimatedCollisionMask:
+LugiaAnimatedCollisionMask:
+HoOhAnimatedCollisionMask:
+CelebiAnimatedCollisionMask:
 	INCBIN "data/collision/mon_masks/jigglypuff_collision.1bpp"

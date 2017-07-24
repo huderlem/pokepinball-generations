@@ -1,155 +1,255 @@
 PokedexDescriptionPointers: ; 0x2c002
-	dw BulbasaurPokedexDescription
-	dw IvysaurPokedexDescription
-	dw VenusaurPokedexDescription
-	dw CharmanderPokedexDescription
-	dw CharmeleonPokedexDescription
-	dw CharizardPokedexDescription
-	dw SquirtlePokedexDescription
-	dw WartortlePokedexDescription
-	dw BlastoisePokedexDescription
-	dw CaterpiePokedexDescription
-	dw MetapodPokedexDescription
-	dw ButterfreePokedexDescription
-	dw WeedlePokedexDescription
-	dw KakunaPokedexDescription
-	dw BeedrillPokedexDescription
-	dw PidgeyPokedexDescription
-	dw PidgeottoPokedexDescription
-	dw PidgeotPokedexDescription
-	dw RattataPokedexDescription
-	dw RaticatePokedexDescription
-	dw SpearowPokedexDescription
-	dw FearowPokedexDescription
-	dw EkansPokedexDescription
-	dw ArbokPokedexDescription
-	dw PikachuPokedexDescription
-	dw RaichuPokedexDescription
-	dw SandshrewPokedexDescription
-	dw SandslashPokedexDescription
-	dw NidoranFPokedexDescription
-	dw NidorinaPokedexDescription
-	dw NidoqueenPokedexDescription
-	dw NidoranMPokedexDescription
-	dw NidorinoPokedexDescription
-	dw NidokingPokedexDescription
-	dw ClefairyPokedexDescription
-	dw ClefablePokedexDescription
-	dw VulpixPokedexDescription
-	dw NinetalesPokedexDescription
-	dw JigglypuffPokedexDescription
-	dw WigglytuffPokedexDescription
-	dw ZubatPokedexDescription
-	dw GolbatPokedexDescription
-	dw OddishPokedexDescription
-	dw GloomPokedexDescription
-	dw VileplumePokedexDescription
-	dw ParasPokedexDescription
-	dw ParasectPokedexDescription
-	dw VenonatPokedexDescription
-	dw VenomothPokedexDescription
-	dw DiglettPokedexDescription
-	dw DugtrioPokedexDescription
-	dw MeowthPokedexDescription
-	dw PersianPokedexDescription
-	dw PsyduckPokedexDescription
-	dw GolduckPokedexDescription
-	dw MankeyPokedexDescription
-	dw PrimeapePokedexDescription
-	dw GrowlithePokedexDescription
-	dw ArcaninePokedexDescription
-	dw PoliwagPokedexDescription
-	dw PoliwhirlPokedexDescription
-	dw PoliwrathPokedexDescription
-	dw AbraPokedexDescription
-	dw KadabraPokedexDescription
-	dw AlakazamPokedexDescription
-	dw MachopPokedexDescription
-	dw MachokePokedexDescription
-	dw MachampPokedexDescription
-	dw BellsproutPokedexDescription
-	dw WeepinbellPokedexDescription
-	dw VictreebellPokedexDescription
-	dw TentacoolPokedexDescription
-	dw TentacruelPokedexDescription
-	dw GeodudePokedexDescription
-	dw GravelerPokedexDescription
-	dw GolemPokedexDescription
-	dw PonytaPokedexDescription
-	dw RapidashPokedexDescription
-	dw SlowpokePokedexDescription
-	dw SlowbroPokedexDescription
-	dw MagnemitePokedexDescription
-	dw MagnetonPokedexDescription
-	dw FarfetchdPokedexDescription
-	dw DoduoPokedexDescription
-	dw DodrioPokedexDescription
-	dw SeelPokedexDescription
-	dw DewgongPokedexDescription
-	dw GrimerPokedexDescription
-	dw MukPokedexDescription
-	dw ShellderPokedexDescription
-	dw CloysterPokedexDescription
-	dw GastlyPokedexDescription
-	dw HaunterPokedexDescription
-	dw GengarPokedexDescription
-	dw OnixPokedexDescription
-	dw DrowzeePokedexDescription
-	dw HypnoPokedexDescription
-	dw KrabbyPokedexDescription
-	dw KinglerPokedexDescription
-	dw VoltorbPokedexDescription
-	dw ElectrodePokedexDescription
-	dw ExeggcutePokedexDescription
-	dw ExeggutorPokedexDescription
-	dw CubonePokedexDescription
-	dw MarowakPokedexDescription
-	dw HitmonleePokedexDescription
-	dw HitmonchanPokedexDescription
-	dw LickitungPokedexDescription
-	dw KoffingPokedexDescription
-	dw WeezingPokedexDescription
-	dw RhyhornPokedexDescription
-	dw RhydonPokedexDescription
-	dw ChanseyPokedexDescription
-	dw TangelaPokedexDescription
-	dw KangaskhanPokedexDescription
-	dw HorseaPokedexDescription
-	dw SeadraPokedexDescription
-	dw GoldeenPokedexDescription
-	dw SeakingPokedexDescription
-	dw StaryuPokedexDescription
-	dw StarmiePokedexDescription
-	dw MrMimePokedexDescription
-	dw ScytherPokedexDescription
-	dw JynxPokedexDescription
-	dw ElectabuzzPokedexDescription
-	dw MagmarPokedexDescription
-	dw PinsirPokedexDescription
-	dw TaurosPokedexDescription
-	dw MagikarpPokedexDescription
-	dw GyaradosPokedexDescription
-	dw LaprasPokedexDescription
-	dw DittoPokedexDescription
-	dw EeveePokedexDescription
-	dw VaporeonPokedexDescription
-	dw JolteonPokedexDescription
-	dw FlareonPokedexDescription
-	dw PorygonPokedexDescription
-	dw OmanytePokedexDescription
-	dw OmastarPokedexDescription
-	dw KabutoPokedexDescription
-	dw KabutopsPokedexDescription
-	dw AerodactylPokedexDescription
-	dw SnorlaxPokedexDescription
-	dw ArticunoPokedexDescription
-	dw ZapdosPokedexDescription
-	dw MoltresPokedexDescription
-	dw DratiniPokedexDescription
-	dw DragonairPokedexDescription
-	dw DragonitePokedexDescription
-	dw MewtwoPokedexDescription
-	dw MewPokedexDescription
+	dwb BulbasaurPokedexDescription, Bank(BulbasaurPokedexDescription)
+	dwb HoOhPokedexDescription, Bank(HoOhPokedexDescription)
+	dwb VenusaurPokedexDescription, Bank(VenusaurPokedexDescription)
+	dwb CharmanderPokedexDescription, Bank(CharmanderPokedexDescription)
+	dwb CharmeleonPokedexDescription, Bank(CharmeleonPokedexDescription)
+	dwb CharizardPokedexDescription, Bank(CharizardPokedexDescription)
+	dwb SquirtlePokedexDescription, Bank(SquirtlePokedexDescription)
+	dwb WartortlePokedexDescription, Bank(WartortlePokedexDescription)
+	dwb BlastoisePokedexDescription, Bank(BlastoisePokedexDescription)
+	dwb CaterpiePokedexDescription, Bank(CaterpiePokedexDescription)
+	dwb MetapodPokedexDescription, Bank(MetapodPokedexDescription)
+	dwb ButterfreePokedexDescription, Bank(ButterfreePokedexDescription)
+	dwb WeedlePokedexDescription, Bank(WeedlePokedexDescription)
+	dwb KakunaPokedexDescription, Bank(KakunaPokedexDescription)
+	dwb BeedrillPokedexDescription, Bank(BeedrillPokedexDescription)
+	dwb PidgeyPokedexDescription, Bank(PidgeyPokedexDescription)
+	dwb PidgeottoPokedexDescription, Bank(PidgeottoPokedexDescription)
+	dwb PidgeotPokedexDescription, Bank(PidgeotPokedexDescription)
+	dwb RattataPokedexDescription, Bank(RattataPokedexDescription)
+	dwb RaticatePokedexDescription, Bank(RaticatePokedexDescription)
+	dwb SpearowPokedexDescription, Bank(SpearowPokedexDescription)
+	dwb FearowPokedexDescription, Bank(FearowPokedexDescription)
+	dwb EkansPokedexDescription, Bank(EkansPokedexDescription)
+	dwb ArbokPokedexDescription, Bank(ArbokPokedexDescription)
+	dwb PikachuPokedexDescription, Bank(PikachuPokedexDescription)
+	dwb RaichuPokedexDescription, Bank(RaichuPokedexDescription)
+	dwb SandshrewPokedexDescription, Bank(SandshrewPokedexDescription)
+	dwb SandslashPokedexDescription, Bank(SandslashPokedexDescription)
+	dwb NidoranFPokedexDescription, Bank(NidoranFPokedexDescription)
+	dwb NidorinaPokedexDescription, Bank(NidorinaPokedexDescription)
+	dwb NidoqueenPokedexDescription, Bank(NidoqueenPokedexDescription)
+	dwb NidoranMPokedexDescription, Bank(NidoranMPokedexDescription)
+	dwb NidorinoPokedexDescription, Bank(NidorinoPokedexDescription)
+	dwb NidokingPokedexDescription, Bank(NidokingPokedexDescription)
+	dwb ClefairyPokedexDescription, Bank(ClefairyPokedexDescription)
+	dwb ClefablePokedexDescription, Bank(ClefablePokedexDescription)
+	dwb VulpixPokedexDescription, Bank(VulpixPokedexDescription)
+	dwb NinetalesPokedexDescription, Bank(NinetalesPokedexDescription)
+	dwb JigglypuffPokedexDescription, Bank(JigglypuffPokedexDescription)
+	dwb WigglytuffPokedexDescription, Bank(WigglytuffPokedexDescription)
+	dwb ZubatPokedexDescription, Bank(ZubatPokedexDescription)
+	dwb GolbatPokedexDescription, Bank(GolbatPokedexDescription)
+	dwb OddishPokedexDescription, Bank(OddishPokedexDescription)
+	dwb GloomPokedexDescription, Bank(GloomPokedexDescription)
+	dwb VileplumePokedexDescription, Bank(VileplumePokedexDescription)
+	dwb ParasPokedexDescription, Bank(ParasPokedexDescription)
+	dwb ParasectPokedexDescription, Bank(ParasectPokedexDescription)
+	dwb VenonatPokedexDescription, Bank(VenonatPokedexDescription)
+	dwb VenomothPokedexDescription, Bank(VenomothPokedexDescription)
+	dwb DiglettPokedexDescription, Bank(DiglettPokedexDescription)
+	dwb DugtrioPokedexDescription, Bank(DugtrioPokedexDescription)
+	dwb MeowthPokedexDescription, Bank(MeowthPokedexDescription)
+	dwb PersianPokedexDescription, Bank(PersianPokedexDescription)
+	dwb PsyduckPokedexDescription, Bank(PsyduckPokedexDescription)
+	dwb GolduckPokedexDescription, Bank(GolduckPokedexDescription)
+	dwb MankeyPokedexDescription, Bank(MankeyPokedexDescription)
+	dwb PrimeapePokedexDescription, Bank(PrimeapePokedexDescription)
+	dwb GrowlithePokedexDescription, Bank(GrowlithePokedexDescription)
+	dwb ArcaninePokedexDescription, Bank(ArcaninePokedexDescription)
+	dwb PoliwagPokedexDescription, Bank(PoliwagPokedexDescription)
+	dwb PoliwhirlPokedexDescription, Bank(PoliwhirlPokedexDescription)
+	dwb PoliwrathPokedexDescription, Bank(PoliwrathPokedexDescription)
+	dwb AbraPokedexDescription, Bank(AbraPokedexDescription)
+	dwb KadabraPokedexDescription, Bank(KadabraPokedexDescription)
+	dwb AlakazamPokedexDescription, Bank(AlakazamPokedexDescription)
+	dwb MachopPokedexDescription, Bank(MachopPokedexDescription)
+	dwb MachokePokedexDescription, Bank(MachokePokedexDescription)
+	dwb MachampPokedexDescription, Bank(MachampPokedexDescription)
+	dwb BellsproutPokedexDescription, Bank(BellsproutPokedexDescription)
+	dwb WeepinbellPokedexDescription, Bank(WeepinbellPokedexDescription)
+	dwb VictreebellPokedexDescription, Bank(VictreebellPokedexDescription)
+	dwb TentacoolPokedexDescription, Bank(TentacoolPokedexDescription)
+	dwb TentacruelPokedexDescription, Bank(TentacruelPokedexDescription)
+	dwb GeodudePokedexDescription, Bank(GeodudePokedexDescription)
+	dwb GravelerPokedexDescription, Bank(GravelerPokedexDescription)
+	dwb GolemPokedexDescription, Bank(GolemPokedexDescription)
+	dwb PonytaPokedexDescription, Bank(PonytaPokedexDescription)
+	dwb RapidashPokedexDescription, Bank(RapidashPokedexDescription)
+	dwb SlowpokePokedexDescription, Bank(SlowpokePokedexDescription)
+	dwb SlowbroPokedexDescription, Bank(SlowbroPokedexDescription)
+	dwb MagnemitePokedexDescription, Bank(MagnemitePokedexDescription)
+	dwb MagnetonPokedexDescription, Bank(MagnetonPokedexDescription)
+	dwb FarfetchdPokedexDescription, Bank(FarfetchdPokedexDescription)
+	dwb DoduoPokedexDescription, Bank(DoduoPokedexDescription)
+	dwb DodrioPokedexDescription, Bank(DodrioPokedexDescription)
+	dwb SeelPokedexDescription, Bank(SeelPokedexDescription)
+	dwb DewgongPokedexDescription, Bank(DewgongPokedexDescription)
+	dwb GrimerPokedexDescription, Bank(GrimerPokedexDescription)
+	dwb MukPokedexDescription, Bank(MukPokedexDescription)
+	dwb ShellderPokedexDescription, Bank(ShellderPokedexDescription)
+	dwb CloysterPokedexDescription, Bank(CloysterPokedexDescription)
+	dwb GastlyPokedexDescription, Bank(GastlyPokedexDescription)
+	dwb HaunterPokedexDescription, Bank(HaunterPokedexDescription)
+	dwb GengarPokedexDescription, Bank(GengarPokedexDescription)
+	dwb OnixPokedexDescription, Bank(OnixPokedexDescription)
+	dwb DrowzeePokedexDescription, Bank(DrowzeePokedexDescription)
+	dwb HypnoPokedexDescription, Bank(HypnoPokedexDescription)
+	dwb KrabbyPokedexDescription, Bank(KrabbyPokedexDescription)
+	dwb KinglerPokedexDescription, Bank(KinglerPokedexDescription)
+	dwb VoltorbPokedexDescription, Bank(VoltorbPokedexDescription)
+	dwb ElectrodePokedexDescription, Bank(ElectrodePokedexDescription)
+	dwb ExeggcutePokedexDescription, Bank(ExeggcutePokedexDescription)
+	dwb ExeggutorPokedexDescription, Bank(ExeggutorPokedexDescription)
+	dwb CubonePokedexDescription, Bank(CubonePokedexDescription)
+	dwb MarowakPokedexDescription, Bank(MarowakPokedexDescription)
+	dwb HitmonleePokedexDescription, Bank(HitmonleePokedexDescription)
+	dwb HitmonchanPokedexDescription, Bank(HitmonchanPokedexDescription)
+	dwb LickitungPokedexDescription, Bank(LickitungPokedexDescription)
+	dwb KoffingPokedexDescription, Bank(KoffingPokedexDescription)
+	dwb WeezingPokedexDescription, Bank(WeezingPokedexDescription)
+	dwb RhyhornPokedexDescription, Bank(RhyhornPokedexDescription)
+	dwb RhydonPokedexDescription, Bank(RhydonPokedexDescription)
+	dwb ChanseyPokedexDescription, Bank(ChanseyPokedexDescription)
+	dwb TangelaPokedexDescription, Bank(TangelaPokedexDescription)
+	dwb KangaskhanPokedexDescription, Bank(KangaskhanPokedexDescription)
+	dwb HorseaPokedexDescription, Bank(HorseaPokedexDescription)
+	dwb SeadraPokedexDescription, Bank(SeadraPokedexDescription)
+	dwb GoldeenPokedexDescription, Bank(GoldeenPokedexDescription)
+	dwb SeakingPokedexDescription, Bank(SeakingPokedexDescription)
+	dwb StaryuPokedexDescription, Bank(StaryuPokedexDescription)
+	dwb StarmiePokedexDescription, Bank(StarmiePokedexDescription)
+	dwb MrMimePokedexDescription, Bank(MrMimePokedexDescription)
+	dwb ScytherPokedexDescription, Bank(ScytherPokedexDescription)
+	dwb JynxPokedexDescription, Bank(JynxPokedexDescription)
+	dwb ElectabuzzPokedexDescription, Bank(ElectabuzzPokedexDescription)
+	dwb MagmarPokedexDescription, Bank(MagmarPokedexDescription)
+	dwb PinsirPokedexDescription, Bank(PinsirPokedexDescription)
+	dwb TaurosPokedexDescription, Bank(TaurosPokedexDescription)
+	dwb MagikarpPokedexDescription, Bank(MagikarpPokedexDescription)
+	dwb GyaradosPokedexDescription, Bank(GyaradosPokedexDescription)
+	dwb LaprasPokedexDescription, Bank(LaprasPokedexDescription)
+	dwb DittoPokedexDescription, Bank(DittoPokedexDescription)
+	dwb EeveePokedexDescription, Bank(EeveePokedexDescription)
+	dwb VaporeonPokedexDescription, Bank(VaporeonPokedexDescription)
+	dwb JolteonPokedexDescription, Bank(JolteonPokedexDescription)
+	dwb FlareonPokedexDescription, Bank(FlareonPokedexDescription)
+	dwb PorygonPokedexDescription, Bank(PorygonPokedexDescription)
+	dwb OmanytePokedexDescription, Bank(OmanytePokedexDescription)
+	dwb OmastarPokedexDescription, Bank(OmastarPokedexDescription)
+	dwb KabutoPokedexDescription, Bank(KabutoPokedexDescription)
+	dwb KabutopsPokedexDescription, Bank(KabutopsPokedexDescription)
+	dwb AerodactylPokedexDescription, Bank(AerodactylPokedexDescription)
+	dwb SnorlaxPokedexDescription, Bank(SnorlaxPokedexDescription)
+	dwb ArticunoPokedexDescription, Bank(ArticunoPokedexDescription)
+	dwb ZapdosPokedexDescription, Bank(ZapdosPokedexDescription)
+	dwb MoltresPokedexDescription, Bank(MoltresPokedexDescription)
+	dwb DratiniPokedexDescription, Bank(DratiniPokedexDescription)
+	dwb DragonairPokedexDescription, Bank(DragonairPokedexDescription)
+	dwb DragonitePokedexDescription, Bank(DragonitePokedexDescription)
+	dwb MewtwoPokedexDescription, Bank(MewtwoPokedexDescription)
+	dwb MewPokedexDescription, Bank(MewPokedexDescription)
+	dwb ChikoritaPokedexDescription, Bank(ChikoritaPokedexDescription)
+	dwb BayleefPokedexDescription, Bank(BayleefPokedexDescription)
+	dwb MeganiumPokedexDescription, Bank(MeganiumPokedexDescription)
+	dwb CyndaquilPokedexDescription, Bank(CyndaquilPokedexDescription)
+	dwb QuilavaPokedexDescription, Bank(QuilavaPokedexDescription)
+	dwb TyphlosionPokedexDescription, Bank(TyphlosionPokedexDescription)
+	dwb TotodilePokedexDescription, Bank(TotodilePokedexDescription)
+	dwb CroconawPokedexDescription, Bank(CroconawPokedexDescription)
+	dwb FeraligatrPokedexDescription, Bank(FeraligatrPokedexDescription)
+	dwb SentretPokedexDescription, Bank(SentretPokedexDescription)
+	dwb FurretPokedexDescription, Bank(FurretPokedexDescription)
+	dwb HoothootPokedexDescription, Bank(HoothootPokedexDescription)
+	dwb NoctowlPokedexDescription, Bank(NoctowlPokedexDescription)
+	dwb LedybaPokedexDescription, Bank(LedybaPokedexDescription)
+	dwb LedianPokedexDescription, Bank(LedianPokedexDescription)
+	dwb SpinarakPokedexDescription, Bank(SpinarakPokedexDescription)
+	dwb AriadosPokedexDescription, Bank(AriadosPokedexDescription)
+	dwb CrobatPokedexDescription, Bank(CrobatPokedexDescription)
+	dwb ChinchouPokedexDescription, Bank(ChinchouPokedexDescription)
+	dwb LanturnPokedexDescription, Bank(LanturnPokedexDescription)
+	dwb PichuPokedexDescription, Bank(PichuPokedexDescription)
+	dwb CleffaPokedexDescription, Bank(CleffaPokedexDescription)
+	dwb IgglybuffPokedexDescription, Bank(IgglybuffPokedexDescription)
+	dwb TogepiPokedexDescription, Bank(TogepiPokedexDescription)
+	dwb TogeticPokedexDescription, Bank(TogeticPokedexDescription)
+	dwb NatuPokedexDescription, Bank(NatuPokedexDescription)
+	dwb XatuPokedexDescription, Bank(XatuPokedexDescription)
+	dwb MareepPokedexDescription, Bank(MareepPokedexDescription)
+	dwb FlaaffyPokedexDescription, Bank(FlaaffyPokedexDescription)
+	dwb AmpharosPokedexDescription, Bank(AmpharosPokedexDescription)
+	dwb BellossomPokedexDescription, Bank(BellossomPokedexDescription)
+	dwb MarillPokedexDescription, Bank(MarillPokedexDescription)
+	dwb AzumarillPokedexDescription, Bank(AzumarillPokedexDescription)
+	dwb SudowoodoPokedexDescription, Bank(SudowoodoPokedexDescription)
+	dwb PolitoedPokedexDescription, Bank(PolitoedPokedexDescription)
+	dwb HoppipPokedexDescription, Bank(HoppipPokedexDescription)
+	dwb SkiploomPokedexDescription, Bank(SkiploomPokedexDescription)
+	dwb JumpluffPokedexDescription, Bank(JumpluffPokedexDescription)
+	dwb AipomPokedexDescription, Bank(AipomPokedexDescription)
+	dwb SunkernPokedexDescription, Bank(SunkernPokedexDescription)
+	dwb SunfloraPokedexDescription, Bank(SunfloraPokedexDescription)
+	dwb YanmaPokedexDescription, Bank(YanmaPokedexDescription)
+	dwb WooperPokedexDescription, Bank(WooperPokedexDescription)
+	dwb QuagsirePokedexDescription, Bank(QuagsirePokedexDescription)
+	dwb EspeonPokedexDescription, Bank(EspeonPokedexDescription)
+	dwb UmbreonPokedexDescription, Bank(UmbreonPokedexDescription)
+	dwb MurkrowPokedexDescription, Bank(MurkrowPokedexDescription)
+	dwb SlowkingPokedexDescription, Bank(SlowkingPokedexDescription)
+	dwb MisdreavusPokedexDescription, Bank(MisdreavusPokedexDescription)
+	dwb UnownPokedexDescription, Bank(UnownPokedexDescription)
+	dwb WobbuffetPokedexDescription, Bank(WobbuffetPokedexDescription)
+	dwb GirafarigPokedexDescription, Bank(GirafarigPokedexDescription)
+	dwb PinecoPokedexDescription, Bank(PinecoPokedexDescription)
+	dwb ForretressPokedexDescription, Bank(ForretressPokedexDescription)
+	dwb DunsparcePokedexDescription, Bank(DunsparcePokedexDescription)
+	dwb GligarPokedexDescription, Bank(GligarPokedexDescription)
+	dwb SteelixPokedexDescription, Bank(SteelixPokedexDescription)
+	dwb SnubbullPokedexDescription, Bank(SnubbullPokedexDescription)
+	dwb GranbullPokedexDescription, Bank(GranbullPokedexDescription)
+	dwb QwilfishPokedexDescription, Bank(QwilfishPokedexDescription)
+	dwb ScizorPokedexDescription, Bank(ScizorPokedexDescription)
+	dwb ShucklePokedexDescription, Bank(ShucklePokedexDescription)
+	dwb HeracrossPokedexDescription, Bank(HeracrossPokedexDescription)
+	dwb SneaselPokedexDescription, Bank(SneaselPokedexDescription)
+	dwb TeddiursaPokedexDescription, Bank(TeddiursaPokedexDescription)
+	dwb UrsaringPokedexDescription, Bank(UrsaringPokedexDescription)
+	dwb SlugmaPokedexDescription, Bank(SlugmaPokedexDescription)
+	dwb MagcargoPokedexDescription, Bank(MagcargoPokedexDescription)
+	dwb SwinubPokedexDescription, Bank(SwinubPokedexDescription)
+	dwb PiloswinePokedexDescription, Bank(PiloswinePokedexDescription)
+	dwb CorsolaPokedexDescription, Bank(CorsolaPokedexDescription)
+	dwb RemoraidPokedexDescription, Bank(RemoraidPokedexDescription)
+	dwb OctilleryPokedexDescription, Bank(OctilleryPokedexDescription)
+	dwb DelibirdPokedexDescription, Bank(DelibirdPokedexDescription)
+	dwb MantinePokedexDescription, Bank(MantinePokedexDescription)
+	dwb SkarmoryPokedexDescription, Bank(SkarmoryPokedexDescription)
+	dwb HoundourPokedexDescription, Bank(HoundourPokedexDescription)
+	dwb HoundoomPokedexDescription, Bank(HoundoomPokedexDescription)
+	dwb KingdraPokedexDescription, Bank(KingdraPokedexDescription)
+	dwb PhanpyPokedexDescription, Bank(PhanpyPokedexDescription)
+	dwb DonphanPokedexDescription, Bank(DonphanPokedexDescription)
+	dwb Porygon2PokedexDescription, Bank(Porygon2PokedexDescription)
+	dwb StantlerPokedexDescription, Bank(StantlerPokedexDescription)
+	dwb SmearglePokedexDescription, Bank(SmearglePokedexDescription)
+	dwb TyroguePokedexDescription, Bank(TyroguePokedexDescription)
+	dwb HitmontopPokedexDescription, Bank(HitmontopPokedexDescription)
+	dwb SmoochumPokedexDescription, Bank(SmoochumPokedexDescription)
+	dwb ElekidPokedexDescription, Bank(ElekidPokedexDescription)
+	dwb MagbyPokedexDescription, Bank(MagbyPokedexDescription)
+	dwb MiltankPokedexDescription, Bank(MiltankPokedexDescription)
+	dwb BlisseyPokedexDescription, Bank(BlisseyPokedexDescription)
+	dwb RaikouPokedexDescription, Bank(RaikouPokedexDescription)
+	dwb EnteiPokedexDescription, Bank(EnteiPokedexDescription)
+	dwb SuicunePokedexDescription, Bank(SuicunePokedexDescription)
+	dwb LarvitarPokedexDescription, Bank(LarvitarPokedexDescription)
+	dwb PupitarPokedexDescription, Bank(PupitarPokedexDescription)
+	dwb TyranitarPokedexDescription, Bank(TyranitarPokedexDescription)
+	dwb LugiaPokedexDescription, Bank(LugiaPokedexDescription)
+	dwb HoOhPokedexDescription, Bank(HoOhPokedexDescription)
+	dwb CelebiPokedexDescription, Bank(CelebiPokedexDescription)
 
 RhydonPokedexDescription: ; 0x2c130
 	dex_text "Protected by an"

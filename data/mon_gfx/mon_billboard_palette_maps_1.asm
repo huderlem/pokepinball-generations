@@ -94,8 +94,6 @@ VenonatBillboardBGPaletteMap: ; 0xd7368
 	db $6, $6, $6, $6, $6, $6
 	db $6, $6, $6, $6, $6, $6
 
-	ds $280 ; free space
-
 VenomothBillboardBGPaletteMap: ; 0xd7600
 	db $6, $6, $6, $6, $6, $6
 	db $6, $6, $6, $6, $6, $6
@@ -192,8 +190,6 @@ KadabraBillboardBGPaletteMap: ; 0xd7768
 	db $6, $7, $6, $6, $6, $6
 	db $6, $6, $6, $6, $6, $6
 
-	ds $280 ; free space
-
 AlakazamBillboardBGPaletteMap: ; 0xd7a00
 	db $6, $6, $6, $6, $6, $6
 	db $6, $6, $6, $6, $6, $6
@@ -289,5 +285,3 @@ SlowbroBillboardBGPaletteMap: ; 0xd7b68
 	db $6, $6, $6, $6, $6, $6
 	db $6, $6, $6, $6, $6, $6
 	db $6, $6, $6, $6, $6, $6
-
-	ds $280 ; free space

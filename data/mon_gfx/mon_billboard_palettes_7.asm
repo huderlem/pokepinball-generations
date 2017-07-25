@@ -1,12 +1,12 @@
 ChikoritaBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 21, 21, 21
-	RGB 11, 11, 11
+	RGB 23, 28, 16
+	RGB 6, 18, 5
 	RGB 0, 0, 0
 ChikoritaBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 21, 21, 21
-	RGB 11, 11, 11
+	RGB 23, 28, 16
+	RGB 24, 0, 1
 	RGB 0, 0, 0
 
 BayleefBillboardBGPalette1:

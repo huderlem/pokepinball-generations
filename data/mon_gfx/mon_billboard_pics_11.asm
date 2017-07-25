@@ -1,7 +1,7 @@
 ChikoritaPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/chikorita.2bpp"
 ChikoritaSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/chikorita.2bpp"
 BayleefPic:
 	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
 BayleefSilhouettePic:

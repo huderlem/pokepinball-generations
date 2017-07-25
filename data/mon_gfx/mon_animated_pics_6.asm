@@ -1,5 +1,5 @@
 ChikoritaAnimatedPic:
-	INCBIN "gfx/billboard/mon_animated/jigglypuff.w32.interleave.2bpp"
+	INCBIN "gfx/billboard/mon_animated/chikorita.w32.interleave.2bpp"
 CyndaquilAnimatedPic:
 	INCBIN "gfx/billboard/mon_animated/jigglypuff.w32.interleave.2bpp"
 TotodileAnimatedPic:

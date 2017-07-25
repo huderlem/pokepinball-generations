@@ -150,7 +150,7 @@ MonSpecies: ; 0x29f0f
 	db SPECIES_DRAGON     ; DRAGONITE
 	db SPECIES_GENETIC    ; MEWTWO
 	db SPECIES_NEW_SPECIE ; MEW
-	db SPECIES_NEW_SPECIE ; CHIKORITA ; TODO: make these correct for new pokemon
+	db SPECIES_LEAF       ; CHIKORITA ; TODO: make these correct for new pokemon
 	db SPECIES_NEW_SPECIE ; BAYLEEF
 	db SPECIES_NEW_SPECIE ; MEGANIUM
 	db SPECIES_NEW_SPECIE ; CYNDAQUIL

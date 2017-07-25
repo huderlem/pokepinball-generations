@@ -751,15 +751,15 @@ PokedexMonAttributesTexts: ; 0x2a85ds
 	db $83 ; end
 ; MEW
 	db $31, $35, $31, $00 ; Dex number 151
-	db $20, $31, $72, $34, $00 ; Height 01'4"
+	db $20, $32, $72, $34, $00 ; Height 01'4"
 	db $20, $20, $20, $39, $00 ; Weight 0009
 	db $83 ; end
 
 ; TODO: fill out this data for new pokemon
 ; CHIKORITA
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $31, $35, $32, $00 ; Dex number 152
+	db $20, $32, $70, $31, $00 ; Height 1'11"
+	db $20, $20, $31, $34, $00 ; Weight 0014
 	db $83 ; end
 ; BAYLEEF
 	db $31, $35, $31, $00 ; Dex number ???

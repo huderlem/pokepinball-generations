@@ -1,10 +1,10 @@
 ChikoritaPokedexDescription:
-	dex_text "The larger its"
-	dex_line "petals, the more"
-	dex_line "toxic pollen it"
-	dex_line "contains. Its big"
-	dex_line "head is heavy and"
-	dex_line "hard to hold up."
+	dex_text "It uses the leaf"
+	dex_line "on its head to"
+	dex_line "determine the"
+	dex_line "temperature and"
+	dex_line "humidity. It"
+	dex_line "loves sunbathing"
 	dex_end
 
 BayleefPokedexDescription:

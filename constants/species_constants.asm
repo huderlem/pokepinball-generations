@@ -97,3 +97,4 @@ const_value = 0
 	const SPECIES_GENETIC    ; $5E
 	const SPECIES_NEW_SPECIE ; $5F
 	const SPECIES_RAT        ; $60
+	const SPECIES_LEAF       ; $61

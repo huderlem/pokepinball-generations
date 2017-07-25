@@ -1,8 +1,8 @@
 ChikoritaBillboardBGPaletteMap:
-	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
+	db $6, $6, $6, $6, $6, $6
+	db $6, $7, $7, $6, $6, $6
+	db $6, $7, $7, $6, $6, $6
+	db $6, $7, $7, $6, $6, $6
 
 BayleefBillboardBGPaletteMap:
 	db $7, $7, $7, $7, $7, $7

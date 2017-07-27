@@ -758,7 +758,7 @@ PokedexMonAttributesTexts: ; 0x2a85ds
 ; TODO: fill out this data for new pokemon
 ; CHIKORITA
 	db $31, $35, $32, $00 ; Dex number 152
-	db $20, $32, $70, $31, $00 ; Height 1'11"
+	db $20, $32, $70, $31, $00 ; Height 2'11"
 	db $20, $20, $31, $34, $00 ; Weight 0014
 	db $83 ; end
 ; BAYLEEF

@@ -387,3 +387,39 @@ ROMX $4d
 ROMX $4e
 	org $4000
 	"bank4e"
+
+ROMX $4f
+	org $4000
+	"bank4f"
+
+ROMX $50
+	org $4000
+	"bank50"
+
+ROMX $51
+	org $4000
+	"bank51"
+
+ROMX $52
+	org $4000
+	"bank52"
+
+ROMX $53
+	org $4000
+	"bank53"
+
+ROMX $54
+	org $4000
+	"bank54"
+
+ROMX $55
+	org $4000
+	"bank55"
+
+ROMX $56
+	org $4000
+	"bank56"
+
+ROMX $57
+	org $4000
+	"bank57"

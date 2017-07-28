@@ -1764,3 +1764,7 @@ INCLUDE "data/mon_gfx/mon_billboard_pics_15.asm"
 SECTION "bank56", ROMX
 
 INCLUDE "data/mon_gfx/mon_gfx_pointers.asm"
+
+SECTION "bank57", ROMX
+
+INCLUDE "text/pokedex_species_names.asm"

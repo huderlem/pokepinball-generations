@@ -1,396 +1,167 @@
-; THESE ARE NOT POINTERS. THEY ARE VARIABLE-WIDTH-FONT CHARACTERS.
-; VARIABLE-WIDTH-FONT STILL NEEDS DOCUMENTATION.
-; SEE LoadDexVWFCharacter.
-
-MonSpeciesNames: ; 0x29fa6
-	; SEED
-	dw $7282, $6482, $6482, $6382, $4081, $4081, $4081, $4081, $4081, $4081, $4081
-	db $00
-
-	; LIZARD
-	dw $6B82, $6882, $7982, $6082, $7182, $6382, $4081, $4081, $4081, $4081, $4081
-	db $00
-
-	; FLAME
-	dw $6582, $6B82, $6082, $6C82, $6482, $4081, $4081, $4081, $4081, $4081, $4081
-	db $00
-
-	; TINYTURTLE
-	dw $7382, $6882, $6D82, $7882, $7382, $7482, $7182, $7382, $6B82, $6482, $4081
-	db $00
-
-	; TURTLE
-	dw $7382, $7482, $7182, $7382, $6B82, $6482, $4081, $4081, $4081, $4081, $4081
-	db $00
-
-	; SHELLFISH
-	dw $7282, $6782, $6482, $6B82, $6B82, $6582, $6882, $7282, $6782, $4081, $4081
-	db $00
-
-	; WORM
-	dw $7682, $6E82, $7182, $6C82, $4081, $4081, $4081, $4081, $4081, $4081, $4081
-	db $00
-
-	; COCOON
-	dw $6282, $6E82, $6282, $6E82, $6E82, $6D82, $4081, $4081, $4081, $4081, $4081
-	db $00
-
-	; BUTTERFLY
-	dw $6182, $7482, $7382, $7382, $6482, $7182, $6582, $6B82, $7882, $4081, $4081
-	db $00
-
-	; HAIRY_BUG
-	dw $6782, $6082, $6882, $7182, $7882, $4081, $6182, $7482, $6682, $4081, $4081
-	db $00
-
-	; POISON_BEE
-	dw $6F82, $6E82, $6882, $7282, $6E82, $6D82, $4081, $6182, $6482, $6482, $4081
-	db $00
-
-	; TINY_BIRD
-	dw $7382, $6882, $6D82, $7882, $4081, $6182, $6882, $7182, $6382, $4081, $4081
-	db $00
-
-	; BIRD
-	dw $6182, $6882, $7182, $6382, $4081, $4081, $4081, $4081, $4081, $4081, $4081
-	db $00
-
-	; MOUSE
-	dw $6C82, $6E82, $7482, $7282, $6482, $4081, $4081, $4081, $4081, $4081, $4081
-	db $00
-
-	; BEAK
-	dw $6182, $6482, $6082, $6A82, $4081, $4081, $4081, $4081, $4081, $4081, $4081
-	db $00
-
-	; SNAKE
-	dw $7282, $6D82, $6082, $6A82, $6482, $4081, $4081, $4081, $4081, $4081, $4081
-	db $00
-
-	; COBRA
-	dw $6282, $6E82, $6182, $7182, $6082, $4081, $4081, $4081, $4081, $4081, $4081
-	db $00
-
-	; POISON_PIN
-	dw $6F82, $6E82, $6882, $7282, $6E82, $6D82, $4081, $6F82, $6882, $6D82, $4081
-	db $00
-
-	; DRILL
-	dw $6382, $7182, $6882, $6B82, $6B82, $4081, $4081, $4081, $4081, $4081, $4081
-	db $00
-
-	; FAIRY
-	dw $6582, $6082, $6882, $7182, $7882, $4081, $4081, $4081, $4081, $4081, $4081
-	db $00
-
-	; FOX
-	dw $6582, $6E82, $7782, $4081, $4081, $4081, $4081, $4081, $4081, $4081, $4081
-	db $00
-
-	; BALLOON
-	dw $6182, $6082, $6B82, $6B82, $6E82, $6E82, $6D82, $4081, $4081, $4081, $4081
-	db $00
-
-	; BAT
-	dw $6182, $6082, $7382, $4081, $4081, $4081, $4081, $4081, $4081, $4081, $4081
-	db $00
-
-	; WEED
-	dw $7682, $6482, $6482, $6382, $4081, $4081, $4081, $4081, $4081, $4081, $4081
-	db $00
-
-	; FLOWER
-	dw $6582, $6B82, $6E82, $7682, $6482, $7182, $4081, $4081, $4081, $4081, $4081
-	db $00
-
-	; MUSHROOM
-	dw $6C82, $7482, $7282, $6782, $7182, $6E82, $6E82, $6C82, $4081, $4081, $4081
-	db $00
-
-	; INSECT
-	dw $6882, $6D82, $7282, $6482, $6282, $7382, $4081, $4081, $4081, $4081, $4081
-	db $00
-
-	; POISONMOTH
-	dw $6F82, $6E82, $6882, $7282, $6E82, $6D82, $6C82, $6E82, $7382, $6782, $4081
-	db $00
-
-	; MOLE
-	dw $6C82, $6E82, $6B82, $6482, $4081, $4081, $4081, $4081, $4081, $4081, $4081
-	db $00
-
-	; SCRATCHCAT
-	dw $7282, $6282, $7182, $6082, $7382, $6282, $6782, $6282, $6082, $7382, $4081
-	db $00
-
-	; CLASSY_CAT
-	dw $6282, $6B82, $6082, $7282, $7282, $7882, $4081, $6282, $6082, $7382, $4081
-	db $00
-
-	; DUCK
-	dw $6382, $7482, $6282, $6A82, $4081, $4081, $4081, $4081, $4081, $4081, $4081
-	db $00
-
-	; PIG_MONKEY
-	dw $6F82, $6882, $6682, $4081, $6C82, $6E82, $6D82, $6A82, $6482, $7882, $4081
-	db $00
-
-	; PUPPY
-	dw $6F82, $7482, $6F82, $6F82, $7882, $4081, $4081, $4081, $4081, $4081, $4081
-	db $00
-
-	; LEGENDARY
-	dw $6B82, $6482, $6682, $6482, $6D82, $6382, $6082, $7182, $7882, $4081, $4081
-	db $00
-
-	; TADPOLE
-	dw $7382, $6082, $6382, $6F82, $6E82, $6B82, $6482, $4081, $4081, $4081, $4081
-	db $00
-
-	; PSI
-	dw $6F82, $7282, $6882, $4081, $4081, $4081, $4081, $4081, $4081, $4081, $4081
-	db $00
-
-	; SUPERPOWER
-	dw $7282, $7482, $6F82, $6482, $7182, $6F82, $6E82, $7682, $6482, $7182, $4081
-	db $00
-
-	; FLYCATCHER
-	dw $6582, $6B82, $7882, $6282, $6082, $7382, $6282, $6782, $6482, $7182, $4081
-	db $00
-
-	; JELLYFISH
-	dw $6982, $6482, $6B82, $6B82, $7882, $6582, $6882, $7282, $6782, $4081, $4081
-	db $00
-
-	; ROCK
-	dw $7182, $6E82, $6282, $6A82, $4081, $4081, $4081, $4081, $4081, $4081, $4081
-	db $00
-
-	; MEGATON
-	dw $6C82, $6482, $6682, $6082, $7382, $6E82, $6D82, $4081, $4081, $4081, $4081
-	db $00
-
-	; FIRE_HORSE
-	dw $6582, $6882, $7182, $6482, $4081, $6782, $6E82, $7182, $7282, $6482, $4081
-	db $00
-
-	; DOPEY
-	dw $6382, $6E82, $6F82, $6482, $7882, $4081, $4081, $4081, $4081, $4081, $4081
-	db $00
-
-	; HERMITCRAB
-	dw $6782, $6482, $7182, $6C82, $6882, $7382, $6282, $7182, $6082, $6182, $4081
-	db $00
-
-	; MAGNET
-	dw $6C82, $6082, $6682, $6D82, $6482, $7382, $4081, $4081, $4081, $4081, $4081
-	db $00
-
-	; WILD_DUCK
-	dw $7682, $6882, $6B82, $6382, $4081, $6382, $7482, $6282, $6A82, $4081, $4081
-	db $00
-
-	; TWIN_BIRD
-	dw $7382, $7682, $6882, $6D82, $4081, $6182, $6882, $7182, $6382, $4081, $4081
-	db $00
-
-	; TRIPLEBIRD
-	dw $7382, $7182, $6882, $6F82, $6B82, $6482, $6182, $6882, $7182, $6382, $4081
-	db $00
-
-	; SEA_LION
-	dw $7282, $6482, $6082, $4081, $6B82, $6882, $6E82, $6D82, $4081, $4081, $4081
-	db $00
-
-	; SLUDGE
-	dw $7282, $6B82, $7482, $6382, $6682, $6482, $4081, $4081, $4081, $4081, $4081
-	db $00
-
-	; BIVALVE
-	dw $6182, $6882, $7582, $6082, $6B82, $7582, $6482, $4081, $4081, $4081, $4081
-	db $00
-
-	; GAS
-	dw $6682, $6082, $7282, $4081, $4081, $4081, $4081, $4081, $4081, $4081, $4081
-	db $00
-
-	; SHADOW
-	dw $7282, $6782, $6082, $6382, $6E82, $7682, $4081, $4081, $4081, $4081, $4081
-	db $00
-
-	; ROCK_SNAKE
-	dw $7182, $6E82, $6282, $6A82, $4081, $7282, $6D82, $6082, $6A82, $6482, $4081
-	db $00
-
-	; HYPNOSIS
-	dw $6782, $7882, $6F82, $6D82, $6E82, $7282, $6882, $7282, $4081, $4081, $4081
-	db $00
-
-	; RIVER_CRAB
-	dw $7182, $6882, $7582, $6482, $7182, $4081, $6282, $7182, $6082, $6182, $4081
-	db $00
-
-	; PINCER
-	dw $6F82, $6882, $6D82, $6282, $6482, $7182, $4081, $4081, $4081, $4081, $4081
-	db $00
-
-	; BALL
-	dw $6182, $6082, $6B82, $6B82, $4081, $4081, $4081, $4081, $4081, $4081, $4081
-	db $00
-
-	; EGG
-	dw $6482, $6682, $6682, $4081, $4081, $4081, $4081, $4081, $4081, $4081, $4081
-	db $00
-
-	; COCONUT
-	dw $6282, $6E82, $6282, $6E82, $6D82, $7482, $7382, $4081, $4081, $4081, $4081
-	db $00
-
-	; LONELY
-	dw $6B82, $6E82, $6D82, $6482, $6B82, $7882, $4081, $4081, $4081, $4081, $4081
-	db $00
-
-	; BONEKEEPER
-	dw $6182, $6E82, $6D82, $6482, $6A82, $6482, $6482, $6F82, $6482, $7182, $4081
-	db $00
-
-	; KICKING
-	dw $6A82, $6882, $6282, $6A82, $6882, $6D82, $6682, $4081, $4081, $4081, $4081
-	db $00
-
-	; PUNCHING
-	dw $6F82, $7482, $6D82, $6282, $6782, $6882, $6D82, $6682, $4081, $4081, $4081
-	db $00
-
-	; LICKING
-	dw $6B82, $6882, $6282, $6A82, $6882, $6D82, $6682, $4081, $4081, $4081, $4081
-	db $00
-
-	; POISON_GAS
-	dw $6F82, $6E82, $6882, $7282, $6E82, $6D82, $4081, $6682, $6082, $7282, $4081
-	db $00
-
-	; SPIKES
-	dw $7282, $6F82, $6882, $6A82, $6482, $7282, $4081, $4081, $4081, $4081, $4081
-	db $00
-
-	; VINE
-	dw $7582, $6882, $6D82, $6482, $4081, $4081, $4081, $4081, $4081, $4081, $4081
-	db $00
-
-	; PARENT
-	dw $6F82, $6082, $7182, $6482, $6D82, $7382, $4081, $4081, $4081, $4081, $4081
-	db $00
-
-	; DRAGON
-	dw $6382, $7182, $6082, $6682, $6E82, $6D82, $4081, $4081, $4081, $4081, $4081
-	db $00
-
-	; GOLDFISH
-	dw $6682, $6E82, $6B82, $6382, $6582, $6882, $7282, $6782, $4081, $4081, $4081
-	db $00
-
-	; STARSHAPE
-	dw $7282, $7382, $6082, $7182, $7282, $6782, $6082, $6F82, $6482, $4081, $4081
-	db $00
-
-	; MYSTERIOUS
-	dw $6C82, $7882, $7282, $7382, $6482, $7182, $6882, $6E82, $7482, $7282, $4081
-	db $00
-
-	; BARRIER
-	dw $6182, $6082, $7182, $7182, $6882, $6482, $7182, $4081, $4081, $4081, $4081
-	db $00
-
-	; MANTIS
-	dw $6C82, $6082, $6D82, $7382, $6882, $7282, $4081, $4081, $4081, $4081, $4081
-	db $00
-
-	; HUMANSHAPE
-	dw $6782, $7482, $6C82, $6082, $6D82, $7282, $6782, $6082, $6F82, $6482, $4081
-	db $00
-
-	; ELECTRIC
-	dw $6482, $6B82, $6482, $6282, $7382, $7182, $6882, $6282, $4081, $4081, $4081
-	db $00
-
-	; SPITFIRE
-	dw $7282, $6F82, $6882, $7382, $6582, $6882, $7182, $6482, $4081, $4081, $4081
-	db $00
-
-	; STAGBEETLE
-	dw $7282, $7382, $6082, $6682, $6182, $6482, $6482, $7382, $6B82, $6482, $4081
-	db $00
-
-	; WILD_BULL
-	dw $7682, $6882, $6B82, $6382, $4081, $6182, $7482, $6B82, $6B82, $4081, $4081
-	db $00
-
-	; FISH
-	dw $6582, $6882, $7282, $6782, $4081, $4081, $4081, $4081, $4081, $4081, $4081
-	db $00
-
-	; ATROCIOUS
-	dw $6082, $7382, $7182, $6E82, $6282, $6882, $6E82, $7482, $7282, $4081, $4081
-	db $00
-
-	; TRANSPORT
-	dw $7382, $7182, $6082, $6D82, $7282, $6F82, $6E82, $7182, $7382, $4081, $4081
-	db $00
-
-	; TRANSFORM
-	dw $7382, $7182, $6082, $6D82, $7282, $6582, $6E82, $7182, $6C82, $4081, $4081
-	db $00
-
-	; EVOLUTION
-	dw $6482, $7582, $6E82, $6B82, $7482, $7382, $6882, $6E82, $6D82, $4081, $4081
-	db $00
-
-	; BUBBLE_JET
-	dw $6182, $7482, $6182, $6182, $6B82, $6482, $4081, $6982, $6482, $7382, $4081
-	db $00
-
-	; LIGHTNING
-	dw $6B82, $6882, $6682, $6782, $7382, $6D82, $6882, $6D82, $6682, $4081, $4081
-	db $00
-
-	; FLAME_2
-	dw $6582, $6B82, $6082, $6C82, $6482, $4081, $4081, $4081, $4081, $4081, $4081
-	db $00
-
-	; VIRTUAL
-	dw $7582, $6882, $7182, $7382, $7482, $6082, $6B82, $4081, $4081, $4081, $4081
-	db $00
-
-	; SPIRAL
-	dw $7282, $6F82, $6882, $7182, $6082, $6B82, $4081, $4081, $4081, $4081, $4081
-	db $00
-
-	; FOSSIL
-	dw $6582, $6E82, $7282, $7282, $6882, $6B82, $4081, $4081, $4081, $4081, $4081
-	db $00
-
-	; SLEEPING
-	dw $7282, $6B82, $6482, $6482, $6F82, $6882, $6D82, $6682, $4081, $4081, $4081
-	db $00
-
-	; FREEZE
-	dw $6582, $7182, $6482, $6482, $7982, $6482, $4081, $4081, $4081, $4081, $4081
-	db $00
-
-	; GENETIC
-	dw $6682, $6482, $6D82, $6482, $7382, $6882, $6282, $4081, $4081, $4081, $4081
-	db $00
-
-	; NEW_SPECIE
-	dw $6D82, $6482, $7682, $4081, $7282, $6F82, $6482, $6282, $6882, $6482, $4081
-	db $00
-
-	; RAT
-	dw $7182, $6082, $7382, $4081, $4081, $4081, $4081, $4081, $4081, $4081, $4081
-	db $00
-
-	; LEAF
-	dw $6B82, $6482, $6082, $6582, $4081, $4081, $4081, $4081, $4081, $4081, $4081
-	db $00
+MonSpeciesNamesPointers: ; 0x29fa6
+	dwb SpeciesNameSeed, Bank(SpeciesNameSeed)
+	dwb SpeciesNameLizard, Bank(SpeciesNameLizard)
+	dwb SpeciesNameFlame, Bank(SpeciesNameFlame)
+	dwb SpeciesNameTinyturtle, Bank(SpeciesNameTinyturtle)
+	dwb SpeciesNameTurtle, Bank(SpeciesNameTurtle)
+	dwb SpeciesNameShellfish, Bank(SpeciesNameShellfish)
+	dwb SpeciesNameWorm, Bank(SpeciesNameWorm)
+	dwb SpeciesNameCocoon, Bank(SpeciesNameCocoon)
+	dwb SpeciesNameButterfly, Bank(SpeciesNameButterfly)
+	dwb SpeciesNameHairyBug, Bank(SpeciesNameHairyBug)
+	dwb SpeciesNamePoisonBee, Bank(SpeciesNamePoisonBee)
+	dwb SpeciesNameTinyBird, Bank(SpeciesNameTinyBird)
+	dwb SpeciesNameBird, Bank(SpeciesNameBird)
+	dwb SpeciesNameMouse, Bank(SpeciesNameMouse)
+	dwb SpeciesNameBeak, Bank(SpeciesNameBeak)
+	dwb SpeciesNameSnake, Bank(SpeciesNameSnake)
+	dwb SpeciesNameCobra, Bank(SpeciesNameCobra)
+	dwb SpeciesNamePoisonPin, Bank(SpeciesNamePoisonPin)
+	dwb SpeciesNameDrill, Bank(SpeciesNameDrill)
+	dwb SpeciesNameFairy, Bank(SpeciesNameFairy)
+	dwb SpeciesNameFox, Bank(SpeciesNameFox)
+	dwb SpeciesNameBalloon, Bank(SpeciesNameBalloon)
+	dwb SpeciesNameBat, Bank(SpeciesNameBat)
+	dwb SpeciesNameWeed, Bank(SpeciesNameWeed)
+	dwb SpeciesNameFlower, Bank(SpeciesNameFlower)
+	dwb SpeciesNameMushroom, Bank(SpeciesNameMushroom)
+	dwb SpeciesNameInsect, Bank(SpeciesNameInsect)
+	dwb SpeciesNamePoisonmoth, Bank(SpeciesNamePoisonmoth)
+	dwb SpeciesNameMole, Bank(SpeciesNameMole)
+	dwb SpeciesNameScratchcat, Bank(SpeciesNameScratchcat)
+	dwb SpeciesNameClassyCat, Bank(SpeciesNameClassyCat)
+	dwb SpeciesNameDuck, Bank(SpeciesNameDuck)
+	dwb SpeciesNamePigMonkey, Bank(SpeciesNamePigMonkey)
+	dwb SpeciesNamePuppy, Bank(SpeciesNamePuppy)
+	dwb SpeciesNameLegendary, Bank(SpeciesNameLegendary)
+	dwb SpeciesNameTadpole, Bank(SpeciesNameTadpole)
+	dwb SpeciesNamePsi, Bank(SpeciesNamePsi)
+	dwb SpeciesNameSuperpower, Bank(SpeciesNameSuperpower)
+	dwb SpeciesNameFlycatcher, Bank(SpeciesNameFlycatcher)
+	dwb SpeciesNameJellyfish, Bank(SpeciesNameJellyfish)
+	dwb SpeciesNameRock, Bank(SpeciesNameRock)
+	dwb SpeciesNameMegaton, Bank(SpeciesNameMegaton)
+	dwb SpeciesNameFireHorse, Bank(SpeciesNameFireHorse)
+	dwb SpeciesNameDopey, Bank(SpeciesNameDopey)
+	dwb SpeciesNameHermitcrab, Bank(SpeciesNameHermitcrab)
+	dwb SpeciesNameMagnet, Bank(SpeciesNameMagnet)
+	dwb SpeciesNameWildDuck, Bank(SpeciesNameWildDuck)
+	dwb SpeciesNameTwinBird, Bank(SpeciesNameTwinBird)
+	dwb SpeciesNameTriplebird, Bank(SpeciesNameTriplebird)
+	dwb SpeciesNameSeaLion, Bank(SpeciesNameSeaLion)
+	dwb SpeciesNameSludge, Bank(SpeciesNameSludge)
+	dwb SpeciesNameBivalve, Bank(SpeciesNameBivalve)
+	dwb SpeciesNameGas, Bank(SpeciesNameGas)
+	dwb SpeciesNameShadow, Bank(SpeciesNameShadow)
+	dwb SpeciesNameRockSnake, Bank(SpeciesNameRockSnake)
+	dwb SpeciesNameHypnosis, Bank(SpeciesNameHypnosis)
+	dwb SpeciesNameRiverCrab, Bank(SpeciesNameRiverCrab)
+	dwb SpeciesNamePincer, Bank(SpeciesNamePincer)
+	dwb SpeciesNameBall, Bank(SpeciesNameBall)
+	dwb SpeciesNameEgg, Bank(SpeciesNameEgg)
+	dwb SpeciesNameCoconut, Bank(SpeciesNameCoconut)
+	dwb SpeciesNameLonely, Bank(SpeciesNameLonely)
+	dwb SpeciesNameBonekeeper, Bank(SpeciesNameBonekeeper)
+	dwb SpeciesNameKicking, Bank(SpeciesNameKicking)
+	dwb SpeciesNamePunching, Bank(SpeciesNamePunching)
+	dwb SpeciesNameLicking, Bank(SpeciesNameLicking)
+	dwb SpeciesNamePoisonGas, Bank(SpeciesNamePoisonGas)
+	dwb SpeciesNameSpikes, Bank(SpeciesNameSpikes)
+	dwb SpeciesNameVine, Bank(SpeciesNameVine)
+	dwb SpeciesNameParent, Bank(SpeciesNameParent)
+	dwb SpeciesNameDragon, Bank(SpeciesNameDragon)
+	dwb SpeciesNameGoldfish, Bank(SpeciesNameGoldfish)
+	dwb SpeciesNameStarshape, Bank(SpeciesNameStarshape)
+	dwb SpeciesNameMysterious, Bank(SpeciesNameMysterious)
+	dwb SpeciesNameBarrier, Bank(SpeciesNameBarrier)
+	dwb SpeciesNameMantis, Bank(SpeciesNameMantis)
+	dwb SpeciesNameHumanshape, Bank(SpeciesNameHumanshape)
+	dwb SpeciesNameElectric, Bank(SpeciesNameElectric)
+	dwb SpeciesNameSpitfire, Bank(SpeciesNameSpitfire)
+	dwb SpeciesNameStagbeetle, Bank(SpeciesNameStagbeetle)
+	dwb SpeciesNameWildBull, Bank(SpeciesNameWildBull)
+	dwb SpeciesNameFish, Bank(SpeciesNameFish)
+	dwb SpeciesNameAtrocious, Bank(SpeciesNameAtrocious)
+	dwb SpeciesNameTransport, Bank(SpeciesNameTransport)
+	dwb SpeciesNameTransform, Bank(SpeciesNameTransform)
+	dwb SpeciesNameEvolution, Bank(SpeciesNameEvolution)
+	dwb SpeciesNameBubbleJet, Bank(SpeciesNameBubbleJet)
+	dwb SpeciesNameLightning, Bank(SpeciesNameLightning)
+	dwb SpeciesNameFlame2, Bank(SpeciesNameFlame2)
+	dwb SpeciesNameVirtual, Bank(SpeciesNameVirtual)
+	dwb SpeciesNameSpiral, Bank(SpeciesNameSpiral)
+	dwb SpeciesNameFossil, Bank(SpeciesNameFossil)
+	dwb SpeciesNameSleeping, Bank(SpeciesNameSleeping)
+	dwb SpeciesNameFreeze, Bank(SpeciesNameFreeze)
+	dwb SpeciesNameGenetic, Bank(SpeciesNameGenetic)
+	dwb SpeciesNameNewSpecie, Bank(SpeciesNameNewSpecie)
+	dwb SpeciesNameRat, Bank(SpeciesNameRat)
+	dwb SpeciesNameLeaf, Bank(SpeciesNameLeaf)
+	dwb SpeciesNameHerb, Bank(SpeciesNameHerb)
+	dwb SpeciesNameFireMouse, Bank(SpeciesNameFireMouse)
+	dwb SpeciesNameVolcano, Bank(SpeciesNameVolcano)
+	dwb SpeciesNameBigJaw, Bank(SpeciesNameBigJaw)
+	dwb SpeciesNameScout, Bank(SpeciesNameScout)
+	dwb SpeciesNameLongBody, Bank(SpeciesNameLongBody)
+	dwb SpeciesNameOwl, Bank(SpeciesNameOwl)
+	dwb SpeciesNameFiveStar, Bank(SpeciesNameFiveStar)
+	dwb SpeciesNameStringSpit, Bank(SpeciesNameStringSpit)
+	dwb SpeciesNameLongLeg, Bank(SpeciesNameLongLeg)
+	dwb SpeciesNameAngler, Bank(SpeciesNameAngler)
+	dwb SpeciesNameLight, Bank(SpeciesNameLight)
+	dwb SpeciesNameTinyMouse, Bank(SpeciesNameTinyMouse)
+	dwb SpeciesNameStarShape, Bank(SpeciesNameStarShape)
+	dwb SpeciesNameSpikeBall, Bank(SpeciesNameSpikeBall)
+	dwb SpeciesNameHappiness, Bank(SpeciesNameHappiness)
+	dwb SpeciesNameMystic, Bank(SpeciesNameMystic)
+	dwb SpeciesNameWool, Bank(SpeciesNameWool)
+	dwb SpeciesNameAquaMouse, Bank(SpeciesNameAquaMouse)
+	dwb SpeciesNameAquaRabbit, Bank(SpeciesNameAquaRabbit)
+	dwb SpeciesNameImitation, Bank(SpeciesNameImitation)
+	dwb SpeciesNameFrog, Bank(SpeciesNameFrog)
+	dwb SpeciesNameCottonweed, Bank(SpeciesNameCottonweed)
+	dwb SpeciesNameLongTail, Bank(SpeciesNameLongTail)
+	dwb SpeciesNameSun, Bank(SpeciesNameSun)
+	dwb SpeciesNameClearWing, Bank(SpeciesNameClearWing)
+	dwb SpeciesNameWaterFish, Bank(SpeciesNameWaterFish)
+	dwb SpeciesNameMoonlight, Bank(SpeciesNameMoonlight)
+	dwb SpeciesNameDarkness, Bank(SpeciesNameDarkness)
+	dwb SpeciesNameRoyal, Bank(SpeciesNameRoyal)
+	dwb SpeciesNameScreech, Bank(SpeciesNameScreech)
+	dwb SpeciesNameSymbol, Bank(SpeciesNameSymbol)
+	dwb SpeciesNamePatient, Bank(SpeciesNamePatient)
+	dwb SpeciesNameLongNeck, Bank(SpeciesNameLongNeck)
+	dwb SpeciesNameBagworm, Bank(SpeciesNameBagworm)
+	dwb SpeciesNameLandSnake, Bank(SpeciesNameLandSnake)
+	dwb SpeciesNameFlyScorpion, Bank(SpeciesNameFlyScorpion)
+	dwb SpeciesNameIronSnake, Bank(SpeciesNameIronSnake)
+	dwb SpeciesNameMold, Bank(SpeciesNameMold)
+	dwb SpeciesNameSingleHorn, Bank(SpeciesNameSingleHorn)
+	dwb SpeciesNameSharpClaw, Bank(SpeciesNameSharpClaw)
+	dwb SpeciesNameLittleBear, Bank(SpeciesNameLittleBear)
+	dwb SpeciesNameHibernator, Bank(SpeciesNameHibernator)
+	dwb SpeciesNameLava, Bank(SpeciesNameLava)
+	dwb SpeciesNamePig, Bank(SpeciesNamePig)
+	dwb SpeciesNameSwine, Bank(SpeciesNameSwine)
+	dwb SpeciesNameCoral, Bank(SpeciesNameCoral)
+	dwb SpeciesNameJet, Bank(SpeciesNameJet)
+	dwb SpeciesNameDelivery, Bank(SpeciesNameDelivery)
+	dwb SpeciesNameKite, Bank(SpeciesNameKite)
+	dwb SpeciesNameArmorBird, Bank(SpeciesNameArmorBird)
+	dwb SpeciesNameDark, Bank(SpeciesNameDark)
+	dwb SpeciesNameLong_nose, Bank(SpeciesNameLong_nose)
+	dwb SpeciesNameArmor, Bank(SpeciesNameArmor)
+	dwb SpeciesNameBig_horn, Bank(SpeciesNameBig_horn)
+	dwb SpeciesNamePainter, Bank(SpeciesNamePainter)
+	dwb SpeciesNameScuffle, Bank(SpeciesNameScuffle)
+	dwb SpeciesNameHandstand, Bank(SpeciesNameHandstand)
+	dwb SpeciesNameKiss, Bank(SpeciesNameKiss)
+	dwb SpeciesNameLiveCoal, Bank(SpeciesNameLiveCoal)
+	dwb SpeciesNameMilkCow, Bank(SpeciesNameMilkCow)
+	dwb SpeciesNameThunder, Bank(SpeciesNameThunder)
+	dwb SpeciesNameAurora, Bank(SpeciesNameAurora)
+	dwb SpeciesNameRockSkin, Bank(SpeciesNameRockSkin)
+	dwb SpeciesNameHardShell, Bank(SpeciesNameHardShell)
+	dwb SpeciesNameDiving, Bank(SpeciesNameDiving)
+	dwb SpeciesNameRainbow, Bank(SpeciesNameRainbow)
+	dwb SpeciesNameTimeTravel, Bank(SpeciesNameTimeTravel)

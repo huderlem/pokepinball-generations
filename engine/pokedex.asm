@@ -1383,6 +1383,7 @@ Func_28931: ; 0x28931
 	ld [wd860], a
 	xor a
 	ld [wd861], a
+	ld [wScratchBuffer + 1], a ; load VWF text from this same bank.
 	ld bc, $500a
 	ld de, vTilesBG tile $50
 	call Func_28e09
@@ -1443,6 +1444,7 @@ Func_28993: ; 0x28993
 	xor a
 	ld [wd860], a
 	ld [wd861], a
+	ld [wScratchBuffer + 1], a ; load VWF text from this same bank.
 	ld bc, $500a ; not a pointer
 	call Func_28e09
 	pop hl
@@ -1470,18 +1472,17 @@ Func_289c8: ; 0x289c8
 	ld l, c
 	sla l
 	rl h
-	sla l
-	rl h
-	sla l
-	rl h
 	add hl, bc
+	ld bc, MonSpeciesNamesPointers
 	add hl, bc
-	add hl, bc  ; value * 11
-	sla l
-	rl h
-	add hl, bc  ; value * 23
-	ld bc, MonSpeciesNames
-	add hl, bc
+	ld a, [hli]
+	ld c, a
+	ld a, [hli]
+	ld b, a
+	ld a, [hl]
+	ld [wScratchBuffer], a
+	ld h, b
+	ld l, c
 .pokemonNotOwned
 	ld a, $ff
 	ld [wd860], a
@@ -1489,6 +1490,8 @@ Func_289c8: ; 0x289c8
 	ld [wd861], a
 	ld bc, $5816
 	ld de, vTilesBG tile $5a
+	ld a, 1
+	ld [wScratchBuffer + 1], a ; load VWF text from another bank.
 	call Func_28e09
 	ret
 
@@ -2325,8 +2328,20 @@ Func_2957c: ; 0x2957c
 	scf
 	ret
 
-Func_295e1: ; 0x295e1
+ReadCharForVWF:
+	ld a, [wScratchBuffer + 1]
+	and a
+	jr z, .sameBank
+	ld a, [wScratchBuffer]
+	call ReadByteFromBank
+	inc hl
+	ret
+.sameBank
 	ld a, [hli]
+	ret
+
+Func_295e1: ; 0x295e1
+	call ReadCharForVWF
 	and a
 	ret z
 	cp $80
@@ -2337,7 +2352,7 @@ Func_295e1: ; 0x295e1
 
 .asm_295ed
 	ld b, a
-	ld a, [hli]
+	call ReadCharForVWF
 	ld c, a
 .asm_295f0
 	ld a, b

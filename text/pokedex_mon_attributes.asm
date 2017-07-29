@@ -754,505 +754,503 @@ PokedexMonAttributesTexts: ; 0x2a85ds
 	db $20, $32, $72, $34, $00 ; Height 01'4"
 	db $20, $20, $20, $39, $00 ; Weight 0009
 	db $83 ; end
-
-; TODO: fill out this data for new pokemon
 ; CHIKORITA
 	db $31, $35, $32, $00 ; Dex number 152
-	db $20, $32, $70, $31, $00 ; Height 2'11"
+	db $20, $32, $70, $31, $00 ; Height 02'11"
 	db $20, $20, $31, $34, $00 ; Weight 0014
 	db $83 ; end
 ; BAYLEEF
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $31, $35, $33, $00 ; Dex number 153
+	db $20, $33, $70, $31, $00 ; Height 03'11"
+	db $20, $20, $33, $35, $00 ; Weight 0035
 	db $83 ; end
 ; MEGANIUM
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $31, $35, $34, $00 ; Dex number 154
+	db $20, $35, $70, $31, $00 ; Height 05'11"
+	db $20, $32, $32, $32, $00 ; Weight 0222
 	db $83 ; end
 ; CYNDAQUIL
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $31, $35, $35, $00 ; Dex number 155
+	db $20, $31, $72, $38, $00 ; Height 01'8"
+	db $20, $20, $31, $37, $00 ; Weight 0017
 	db $83 ; end
 ; QUILAVA
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $31, $35, $36, $00 ; Dex number 156
+	db $20, $32, $70, $31, $00 ; Height 02'11"
+	db $20, $20, $34, $32, $00 ; Weight 0042
 	db $83 ; end
 ; TYPHLOSION
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $31, $35, $37, $00 ; Dex number 157
+	db $20, $35, $72, $37, $00 ; Height 05'7"
+	db $20, $31, $37, $35, $00 ; Weight 0175
 	db $83 ; end
 ; TOTODILE
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $31, $35, $38, $00 ; Dex number 158
+	db $20, $32, $72, $30, $00 ; Height 02'0"
+	db $20, $20, $32, $31, $00 ; Weight 0021
 	db $83 ; end
 ; CROCONAW
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $31, $35, $39, $00 ; Dex number 159
+	db $20, $33, $72, $37, $00 ; Height 03'7"
+	db $20, $20, $35, $35, $00 ; Weight 0055
 	db $83 ; end
 ; FERALIGATR
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $31, $36, $30, $00 ; Dex number 160
+	db $20, $37, $72, $37, $00 ; Height 07'7"
+	db $20, $31, $39, $36, $00 ; Weight 0196
 	db $83 ; end
 ; SENTRET
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $31, $36, $31, $00 ; Dex number 161
+	db $20, $32, $72, $37, $00 ; Height 02'7"
+	db $20, $20, $31, $33, $00 ; Weight 0013
 	db $83 ; end
 ; FURRET
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $31, $36, $32, $00 ; Dex number 162
+	db $20, $35, $70, $31, $00 ; Height 05'11"
+	db $20, $20, $37, $32, $00 ; Weight 0072
 	db $83 ; end
 ; HOOTHOOT
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $31, $36, $33, $00 ; Dex number 163
+	db $20, $32, $72, $34, $00 ; Height 02'4"
+	db $20, $20, $34, $37, $00 ; Weight 0047
 	db $83 ; end
 ; NOCTOWL
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $31, $36, $34, $00 ; Dex number 164
+	db $20, $35, $72, $33, $00 ; Height 05'3"
+	db $20, $20, $39, $30, $00 ; Weight 0090
 	db $83 ; end
 ; LEDYBA
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $31, $36, $35, $00 ; Dex number 165
+	db $20, $33, $72, $33, $00 ; Height 03'3"
+	db $20, $20, $32, $34, $00 ; Weight 0024
 	db $83 ; end
 ; LEDIAN
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $31, $36, $36, $00 ; Dex number 166
+	db $20, $34, $72, $37, $00 ; Height 04'7"
+	db $20, $20, $37, $39, $00 ; Weight 0079
 	db $83 ; end
 ; SPINARAK
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $31, $36, $37, $00 ; Dex number 167
+	db $20, $31, $72, $38, $00 ; Height 01'8"
+	db $20, $20, $31, $39, $00 ; Weight 0019
 	db $83 ; end
 ; ARIADOS
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $31, $36, $38, $00 ; Dex number 168
+	db $20, $33, $72, $37, $00 ; Height 03'7"
+	db $20, $20, $37, $34, $00 ; Weight 0074
 	db $83 ; end
 ; CROBAT
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $31, $36, $39, $00 ; Dex number 169
+	db $20, $35, $70, $31, $00 ; Height 05'11"
+	db $20, $31, $36, $35, $00 ; Weight 0165
 	db $83 ; end
 ; CHINCHOU
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $31, $37, $30, $00 ; Dex number 170
+	db $20, $31, $72, $38, $00 ; Height 01'8"
+	db $20, $20, $32, $37, $00 ; Weight 0027
 	db $83 ; end
 ; LANTURN
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $31, $37, $31, $00 ; Dex number 171
+	db $20, $33, $70, $31, $00 ; Height 03'11"
+	db $20, $20, $35, $30, $00 ; Weight 0050
 	db $83 ; end
 ; PICHU
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $31, $37, $32, $00 ; Dex number 172
+	db $20, $31, $72, $30, $00 ; Height 01'0"
+	db $20, $20, $20, $34, $00 ; Weight 0004
 	db $83 ; end
 ; CLEFFA
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $31, $37, $33, $00 ; Dex number 173
+	db $20, $31, $72, $30, $00 ; Height 01'0"
+	db $20, $20, $20, $37, $00 ; Weight 0007
 	db $83 ; end
 ; IGGLYBUFF
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $31, $37, $34, $00 ; Dex number 174
+	db $20, $31, $72, $30, $00 ; Height 01'0"
+	db $20, $20, $20, $32, $00 ; Weight 0002
 	db $83 ; end
 ; TOGEPI
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $31, $37, $35, $00 ; Dex number 175
+	db $20, $31, $72, $30, $00 ; Height 01'0"
+	db $20, $20, $20, $33, $00 ; Weight 0003
 	db $83 ; end
 ; TOGETIC
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $31, $37, $36, $00 ; Dex number 176
+	db $20, $32, $72, $30, $00 ; Height 02'0"
+	db $20, $20, $20, $37, $00 ; Weight 0007
 	db $83 ; end
 ; NATU
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $31, $37, $37, $00 ; Dex number 177
+	db $20, $30, $72, $38, $00 ; Height 00'8"
+	db $20, $20, $20, $34, $00 ; Weight 0004
 	db $83 ; end
 ; XATU
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $31, $37, $38, $00 ; Dex number 178
+	db $20, $34, $70, $31, $00 ; Height 04'11"
+	db $20, $20, $33, $33, $00 ; Weight 0033
 	db $83 ; end
 ; MAREEP
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $31, $37, $39, $00 ; Dex number 179
+	db $20, $32, $72, $30, $00 ; Height 02'0"
+	db $20, $20, $31, $37, $00 ; Weight 0017
 	db $83 ; end
 ; FLAAFFY
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $31, $38, $30, $00 ; Dex number 180
+	db $20, $32, $72, $37, $00 ; Height 02'7"
+	db $20, $20, $32, $39, $00 ; Weight 0029
 	db $83 ; end
 ; AMPHAROS
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $31, $38, $31, $00 ; Dex number 181
+	db $20, $34, $72, $37, $00 ; Height 04'7"
+	db $20, $31, $33, $36, $00 ; Weight 0136
 	db $83 ; end
 ; BELLOSSOM
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $31, $38, $32, $00 ; Dex number 182
+	db $20, $31, $72, $34, $00 ; Height 01'4"
+	db $20, $20, $31, $33, $00 ; Weight 0013
 	db $83 ; end
 ; MARILL
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $31, $38, $33, $00 ; Dex number 183
+	db $20, $31, $72, $34, $00 ; Height 01'4"
+	db $20, $20, $31, $39, $00 ; Weight 0019
 	db $83 ; end
 ; AZUMARILL
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $31, $38, $34, $00 ; Dex number 184
+	db $20, $32, $72, $37, $00 ; Height 02'7"
+	db $20, $20, $36, $33, $00 ; Weight 0063
 	db $83 ; end
 ; SUDOWOODO
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $31, $38, $35, $00 ; Dex number 185
+	db $20, $33, $70, $31, $00 ; Height 03'11"
+	db $20, $20, $38, $34, $00 ; Weight 0084
 	db $83 ; end
 ; POLITOED
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $31, $38, $36, $00 ; Dex number 186
+	db $20, $33, $72, $37, $00 ; Height 03'7"
+	db $20, $20, $37, $35, $00 ; Weight 0075
 	db $83 ; end
 ; HOPPIP
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $31, $38, $37, $00 ; Dex number 187
+	db $20, $31, $72, $34, $00 ; Height 01'4"
+	db $20, $20, $20, $31, $00 ; Weight 0001
 	db $83 ; end
 ; SKIPLOOM
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $31, $38, $38, $00 ; Dex number 188
+	db $20, $32, $72, $30, $00 ; Height 02'0"
+	db $20, $20, $20, $32, $00 ; Weight 0002
 	db $83 ; end
 ; JUMPLUFF
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $31, $38, $39, $00 ; Dex number 189
+	db $20, $32, $72, $37, $00 ; Height 02'7"
+	db $20, $20, $20, $37, $00 ; Weight 0007
 	db $83 ; end
 ; AIPOM
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $31, $39, $30, $00 ; Dex number 190
+	db $20, $32, $72, $37, $00 ; Height 02'7"
+	db $20, $20, $32, $35, $00 ; Weight 0025
 	db $83 ; end
 ; SUNKERN
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $31, $39, $31, $00 ; Dex number 191
+	db $20, $31, $72, $30, $00 ; Height 01'0"
+	db $20, $20, $20, $34, $00 ; Weight 0004
 	db $83 ; end
 ; SUNFLORA
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $31, $39, $32, $00 ; Dex number 192
+	db $20, $32, $72, $37, $00 ; Height 02'7"
+	db $20, $20, $31, $39, $00 ; Weight 0019
 	db $83 ; end
 ; YANMA
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $31, $39, $33, $00 ; Dex number 193
+	db $20, $33, $70, $31, $00 ; Height 03'11"
+	db $20, $20, $38, $34, $00 ; Weight 0084
 	db $83 ; end
 ; WOOPER
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $31, $39, $34, $00 ; Dex number 194
+	db $20, $31, $72, $34, $00 ; Height 01'4"
+	db $20, $20, $31, $39, $00 ; Weight 0019
 	db $83 ; end
 ; QUAGSIRE
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $31, $39, $35, $00 ; Dex number 195
+	db $20, $34, $72, $37, $00 ; Height 04'7"
+	db $20, $31, $36, $35, $00 ; Weight 0165
 	db $83 ; end
 ; ESPEON
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $31, $39, $36, $00 ; Dex number 196
+	db $20, $32, $70, $31, $00 ; Height 02'11"
+	db $20, $20, $35, $38, $00 ; Weight 0058
 	db $83 ; end
 ; UMBREON
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $31, $39, $37, $00 ; Dex number 197
+	db $20, $33, $72, $33, $00 ; Height 03'3"
+	db $20, $20, $36, $30, $00 ; Weight 0060
 	db $83 ; end
 ; MURKROW
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $31, $39, $38, $00 ; Dex number 198
+	db $20, $31, $72, $38, $00 ; Height 01'8"
+	db $20, $20, $20, $35, $00 ; Weight 0005
 	db $83 ; end
 ; SLOWKING
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $31, $39, $39, $00 ; Dex number 199
+	db $20, $36, $72, $37, $00 ; Height 06'7"
+	db $20, $31, $37, $35, $00 ; Weight 0175
 	db $83 ; end
 ; MISDREAVUS
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $32, $30, $30, $00 ; Dex number 200
+	db $20, $32, $72, $34, $00 ; Height 02'4"
+	db $20, $20, $20, $32, $00 ; Weight 0002
 	db $83 ; end
 ; UNOWN
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $32, $30, $31, $00 ; Dex number 201
+	db $20, $31, $72, $38, $00 ; Height 01'8"
+	db $20, $20, $31, $31, $00 ; Weight 0011
 	db $83 ; end
 ; WOBBUFFET
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $32, $30, $32, $00 ; Dex number 202
+	db $20, $34, $72, $33, $00 ; Height 04'3"
+	db $20, $20, $36, $33, $00 ; Weight 0063
 	db $83 ; end
 ; GIRAFARIG
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $32, $30, $33, $00 ; Dex number 203
+	db $20, $34, $70, $31, $00 ; Height 04'11"
+	db $20, $20, $39, $32, $00 ; Weight 0092
 	db $83 ; end
 ; PINECO
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $32, $30, $34, $00 ; Dex number 204
+	db $20, $32, $72, $30, $00 ; Height 02'0"
+	db $20, $20, $31, $36, $00 ; Weight 0016
 	db $83 ; end
 ; FORRETRESS
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $32, $30, $35, $00 ; Dex number 205
+	db $20, $33, $70, $31, $00 ; Height 03'11"
+	db $20, $32, $37, $37, $00 ; Weight 0277
 	db $83 ; end
 ; DUNSPARCE
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $32, $30, $36, $00 ; Dex number 206
+	db $20, $34, $70, $31, $00 ; Height 04'11"
+	db $20, $20, $33, $31, $00 ; Weight 0031
 	db $83 ; end
 ; GLIGAR
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $32, $30, $37, $00 ; Dex number 207
+	db $20, $33, $72, $37, $00 ; Height 03'7"
+	db $20, $31, $34, $33, $00 ; Weight 0143
 	db $83 ; end
 ; STEELIX
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $32, $30, $38, $00 ; Dex number 208
+	db $33, $30, $72, $32, $00 ; Height 30'2"
+	db $20, $38, $38, $32, $00 ; Weight 0882
 	db $83 ; end
 ; SNUBBULL
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $32, $30, $39, $00 ; Dex number 209
+	db $20, $32, $72, $30, $00 ; Height 02'0"
+	db $20, $20, $31, $37, $00 ; Weight 0017
 	db $83 ; end
 ; GRANBULL
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $32, $31, $30, $00 ; Dex number 210
+	db $20, $34, $72, $37, $00 ; Height 04'7"
+	db $20, $31, $30, $37, $00 ; Weight 0107
 	db $83 ; end
 ; QWILFISH
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $32, $31, $31, $00 ; Dex number 211
+	db $20, $31, $72, $38, $00 ; Height 01'8"
+	db $20, $20, $20, $39, $00 ; Weight 0009
 	db $83 ; end
 ; SCIZOR
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $32, $31, $32, $00 ; Dex number 212
+	db $20, $35, $70, $31, $00 ; Height 5'11"
+	db $20, $32, $36, $30, $00 ; Weight 0260
 	db $83 ; end
 ; SHUCKLE
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $32, $31, $33, $00 ; Dex number 213
+	db $20, $32, $72, $30, $00 ; Height 02'0"
+	db $20, $20, $34, $35, $00 ; Weight 0045
 	db $83 ; end
 ; HERACROSS
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $32, $31, $34, $00 ; Dex number 214
+	db $20, $34, $70, $31, $00 ; Height 04'11"
+	db $20, $31, $31, $39, $00 ; Weight 0119
 	db $83 ; end
 ; SNEASEL
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $32, $31, $35, $00 ; Dex number 215
+	db $20, $32, $70, $31, $00 ; Height 02'11"
+	db $20, $20, $36, $32, $00 ; Weight 0062
 	db $83 ; end
 ; TEDDIURSA
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $32, $31, $36, $00 ; Dex number 216
+	db $20, $32, $72, $30, $00 ; Height 02'0"
+	db $20, $20, $31, $39, $00 ; Weight 0019
 	db $83 ; end
 ; URSARING
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $32, $31, $37, $00 ; Dex number 217
+	db $20, $35, $70, $31, $00 ; Height 05'11"
+	db $20, $32, $37, $37, $00 ; Weight 0277
 	db $83 ; end
 ; SLUGMA
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $32, $31, $38, $00 ; Dex number 218
+	db $20, $32, $72, $34, $00 ; Height 02'4"
+	db $20, $20, $37, $37, $00 ; Weight 0077
 	db $83 ; end
 ; MAGCARGO
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $32, $31, $39, $00 ; Dex number 219
+	db $20, $32, $72, $37, $00 ; Height 02'7"
+	db $20, $31, $32, $31, $00 ; Weight 0121
 	db $83 ; end
 ; SWINUB
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $32, $32, $30, $00 ; Dex number 220
+	db $20, $31, $72, $34, $00 ; Height 01'4"
+	db $20, $20, $31, $34, $00 ; Weight 0014
 	db $83 ; end
 ; PILOSWINE
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $32, $32, $31, $00 ; Dex number 221
+	db $20, $33, $72, $37, $00 ; Height 03'7"
+	db $20, $31, $32, $33, $00 ; Weight 0123
 	db $83 ; end
 ; CORSOLA
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $32, $32, $32, $00 ; Dex number 222
+	db $20, $32, $72, $30, $00 ; Height 02'0"
+	db $20, $20, $31, $31, $00 ; Weight 0011
 	db $83 ; end
 ; REMORAID
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $32, $32, $33, $00 ; Dex number 223
+	db $20, $32, $72, $30, $00 ; Height 02'0"
+	db $20, $20, $32, $37, $00 ; Weight 0027
 	db $83 ; end
 ; OCTILLERY
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $32, $32, $34, $00 ; Dex number 224
+	db $20, $32, $70, $31, $00 ; Height 02'11"
+	db $20, $20, $36, $33, $00 ; Weight 0063
 	db $83 ; end
 ; DELIBIRD
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $32, $32, $35, $00 ; Dex number 225
+	db $20, $32, $70, $31, $00 ; Height 02'11"
+	db $20, $20, $33, $35, $00 ; Weight 0035
 	db $83 ; end
 ; MANTINE
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $32, $32, $36, $00 ; Dex number 226
+	db $20, $36, $70, $31, $00 ; Height 06'11"
+	db $20, $34, $38, $35, $00 ; Weight 0485
 	db $83 ; end
 ; SKARMORY
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $32, $32, $37, $00 ; Dex number 227
+	db $20, $35, $72, $37, $00 ; Height 5'7"
+	db $20, $31, $31, $31, $00 ; Weight 0111
 	db $83 ; end
 ; HOUNDOUR
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $32, $32, $38, $00 ; Dex number 228
+	db $20, $32, $72, $30, $00 ; Height 02'0"
+	db $20, $20, $32, $34, $00 ; Weight 0024
 	db $83 ; end
 ; HOUNDOOM
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $32, $32, $39, $00 ; Dex number 229
+	db $20, $34, $72, $37, $00 ; Height 04'7"
+	db $20, $20, $37, $37, $00 ; Weight 0077
 	db $83 ; end
 ; KINGDRA
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $32, $33, $30, $00 ; Dex number 230
+	db $20, $35, $70, $31, $00 ; Height 05'11"
+	db $20, $33, $33, $35, $00 ; Weight 0335
 	db $83 ; end
 ; PHANPY
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $32, $33, $31, $00 ; Dex number 231
+	db $20, $31, $72, $38, $00 ; Height 01'8"
+	db $20, $20, $37, $34, $00 ; Weight 0074
 	db $83 ; end
 ; DONPHAN
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $32, $33, $32, $00 ; Dex number 232
+	db $20, $33, $72, $37, $00 ; Height 03'7"
+	db $20, $32, $36, $35, $00 ; Weight 0265
 	db $83 ; end
 ; PORYGON2
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $32, $33, $33, $00 ; Dex number 233
+	db $20, $32, $72, $30, $00 ; Height 02'0"
+	db $20, $20, $37, $32, $00 ; Weight 0072
 	db $83 ; end
 ; STANTLER
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $32, $33, $34, $00 ; Dex number 234
+	db $20, $34, $72, $37, $00 ; Height 04'7"
+	db $20, $31, $35, $37, $00 ; Weight 0157
 	db $83 ; end
 ; SMEARGLE
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $32, $33, $35, $00 ; Dex number 235
+	db $20, $33, $70, $31, $00 ; Height 03'11"
+	db $20, $31, $32, $38, $00 ; Weight 0128
 	db $83 ; end
 ; TYROGUE
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $32, $33, $36, $00 ; Dex number 236
+	db $20, $32, $72, $34, $00 ; Height 02'4"
+	db $20, $20, $34, $36, $00 ; Weight 0046
 	db $83 ; end
 ; HITMONTOP
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $32, $33, $37, $00 ; Dex number 237
+	db $20, $34, $72, $37, $00 ; Height 04'7"
+	db $20, $31, $30, $36, $00 ; Weight 0106
 	db $83 ; end
 ; SMOOCHUM
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $32, $33, $38, $00 ; Dex number 238
+	db $20, $31, $72, $34, $00 ; Height 01'4"
+	db $20, $20, $31, $33, $00 ; Weight 0013
 	db $83 ; end
 ; ELEKID
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $32, $33, $39, $00 ; Dex number 239
+	db $20, $32, $72, $30, $00 ; Height 02'0"
+	db $20, $20, $35, $32, $00 ; Weight 0052
 	db $83 ; end
 ; MAGBY
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $32, $34, $30, $00 ; Dex number 240
+	db $20, $32, $72, $34, $00 ; Height 02'4"
+	db $20, $20, $34, $37, $00 ; Weight 0047
 	db $83 ; end
 ; MILTANK
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $32, $34, $31, $00 ; Dex number 241
+	db $20, $33, $70, $31, $00 ; Height 03'11"
+	db $20, $31, $36, $36, $00 ; Weight 0166
 	db $83 ; end
 ; BLISSEY
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $32, $34, $32, $00 ; Dex number 242
+	db $20, $34, $70, $31, $00 ; Height 04'11"
+	db $20, $31, $30, $33, $00 ; Weight 0103
 	db $83 ; end
 ; RAIKOU
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $32, $34, $33, $00 ; Dex number 243
+	db $20, $36, $72, $33, $00 ; Height 06'03"
+	db $20, $33, $39, $32, $00 ; Weight 0392
 	db $83 ; end
 ; ENTEI
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $32, $34, $34, $00 ; Dex number 244
+	db $20, $36, $70, $31, $00 ; Height 06'11"
+	db $20, $34, $33, $37, $00 ; Weight 0437
 	db $83 ; end
 ; SUICUNE
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $32, $34, $35, $00 ; Dex number 245
+	db $20, $36, $72, $37, $00 ; Height 06'7"
+	db $20, $34, $31, $32, $00 ; Weight 0412
 	db $83 ; end
 ; LARVITAR
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $32, $34, $36, $00 ; Dex number 246
+	db $20, $32, $72, $30, $00 ; Height 02'0"
+	db $20, $31, $35, $39, $00 ; Weight 0159
 	db $83 ; end
 ; PUPITAR
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $32, $34, $37, $00 ; Dex number 247
+	db $20, $33, $70, $31, $00 ; Height 03'11"
+	db $20, $33, $33, $35, $00 ; Weight 0335
 	db $83 ; end
 ; TYRANITAR
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $32, $34, $38, $00 ; Dex number 248
+	db $20, $36, $72, $37, $00 ; Height 06'7"
+	db $20, $34, $34, $35, $00 ; Weight 0445
 	db $83 ; end
 ; LUGIA
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $32, $34, $39, $00 ; Dex number 249
+	db $31, $37, $72, $31, $00 ; Height 17'1"
+	db $20, $34, $37, $36, $00 ; Weight 0476
 	db $83 ; end
 ; HO_OH
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $32, $35, $30, $00 ; Dex number 250
+	db $31, $32, $72, $36, $00 ; Height 12'6"
+	db $20, $34, $33, $39, $00 ; Weight 0439
 	db $83 ; end
 ; CELEBI
-	db $31, $35, $31, $00 ; Dex number ???
-	db $20, $31, $72, $34, $00 ; Height ??'?"
-	db $20, $20, $20, $39, $00 ; Weight ????
+	db $32, $35, $31, $00 ; Dex number 251
+	db $20, $32, $72, $30, $00 ; Height 02'0"
+	db $20, $20, $31, $31, $00 ; Weight 0011
 	db $83 ; end

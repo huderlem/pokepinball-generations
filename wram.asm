@@ -544,6 +544,7 @@ wScratchBuffer::
 ; Uses:
 ; 1. LoadCryData uses all 6 bytes to pass the loaded data back to the audio engine in a different bank.
 ; 2. Hold bank of mon's pokedex description when loading its text.
+; 3. Hold bank of mon's pokedex species name when loading its text.
 	ds $6
 
 wIndicatorStates:: ; 0xd52f 0 = evo arrows, 1 = catch arrows, 2 = left small alley, 3 = bellsprout, 4 = slot. bit 7 controls if enabled and flashing, bit 1 and 2 control is solid (set = solid), +9 is the arrow pointing to voltorb on red evo mode

@@ -1,3 +1,6 @@
+INCLUDE "macros.asm"
+INCLUDE "constants/pokemon_constants.asm"
+
 SECTION "SRAM 0", SRAM
 
 saved_data: MACRO
@@ -10,9 +13,9 @@ saved_data: MACRO
 ENDM
 
 	saved_data sHighScores, $104  ; a000
-	saved_data sPokedexFlags, $98 ; a210
-	saved_data sKeyConfigs, $e    ; a348
+	saved_data sPokedexFlags, (NUM_POKEMON + 1)
+	saved_data sKeyConfigs, $e
 	saved_data sSaveGame, $4c3    ; a36C
 
-	ds $305
+	ds $23d
 sRNGMod:: ; afff

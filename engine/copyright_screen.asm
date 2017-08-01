@@ -78,7 +78,7 @@ FadeOutCopyrightScreenAndLoadData: ; 0x82a8
 .loadedHighScores
 	ld hl, sPokedexFlags
 	ld de, wPokedexFlags
-	ld bc, $0098
+	ld bc, (NUM_POKEMON + 1)
 	call LoadSavedData
 	jr c, .asm_82de
 	callba ClearPokedexData

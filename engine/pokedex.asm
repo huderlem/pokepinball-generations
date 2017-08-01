@@ -1461,6 +1461,8 @@ Func_289c8: ; 0x289c8
 	add hl, bc
 	bit 1, [hl]
 	ld hl, BlankSpeciesName
+	ld a, Bank(BlankSpeciesName)
+	ld [wScratchBuffer], a
 	jr z, .pokemonNotOwned
 	ld a, [wCurPokedexIndex]
 	ld c, a

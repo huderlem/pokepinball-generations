@@ -1,4 +1,3 @@
-; TODO: set correct palettes for gen 2 mons
 ChikoritaAnimatedObjPalette1:
 	RGB 31, 31, 31
 	RGB 23, 28, 16
@@ -8,28 +7,6 @@ ChikoritaAnimatedObjPalette2:
 	RGB 31, 31, 31
 	RGB 23, 28, 16
 	RGB 12, 21, 10
-	RGB 0, 0, 0
-
-BayleefAnimatedObjPalette1:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-BayleefAnimatedObjPalette2:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-
-MeganiumAnimatedObjPalette1:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-MeganiumAnimatedObjPalette2:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
 	RGB 0, 0, 0
 
 CyndaquilAnimatedObjPalette1:

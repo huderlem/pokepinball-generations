@@ -3,9 +3,9 @@ CleffaPic:
 CleffaSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
 IgglybuffPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/igglybuff.2bpp"
 IgglybuffSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/igglybuff.2bpp"
 TogepiPic:
 	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
 TogepiSilhouettePic:
@@ -15,17 +15,17 @@ TogeticPic:
 TogeticSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
 NatuPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/natu.2bpp"
 NatuSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/natu.2bpp"
 XatuPic:
 	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
 XatuSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
 MareepPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/mareep.2bpp"
 MareepSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/mareep.2bpp"
 FlaaffyPic:
 	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
 FlaaffySilhouettePic:
@@ -35,9 +35,9 @@ AmpharosPic:
 AmpharosSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
 BellossomPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/bellossom.2bpp"
 BellossomSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/bellossom.2bpp"
 MarillPic:
 	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
 MarillSilhouettePic:
@@ -51,9 +51,9 @@ SudowoodoPic:
 SudowoodoSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
 PolitoedPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/politoed.2bpp"
 PolitoedSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/politoed.2bpp"
 HoppipPic:
 	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
 HoppipSilhouettePic:

@@ -11,9 +11,9 @@ EspeonPic:
 EspeonSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
 UmbreonPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/umbreon.2bpp"
 UmbreonSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/umbreon.2bpp"
 MurkrowPic:
 	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
 MurkrowSilhouettePic:

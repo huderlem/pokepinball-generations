@@ -1,19 +1,19 @@
 SneaselPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/sneasel.2bpp"
 SneaselSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/sneasel.2bpp"
 TeddiursaPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/teddiursa.2bpp"
 TeddiursaSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/teddiursa.2bpp"
 UrsaringPic:
 	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
 UrsaringSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
 SlugmaPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/slugma.2bpp"
 SlugmaSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/slugma.2bpp"
 MagcargoPic:
 	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
 MagcargoSilhouettePic:
@@ -35,9 +35,9 @@ RemoraidPic:
 RemoraidSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
 OctilleryPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/octillery.2bpp"
 OctillerySilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/octillery.2bpp"
 DelibirdPic:
 	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
 DelibirdSilhouettePic:
@@ -59,9 +59,9 @@ HoundoomPic:
 HoundoomSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
 KingdraPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/kingdra.2bpp"
 KingdraSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/kingdra.2bpp"
 PhanpyPic:
 	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
 PhanpySilhouettePic:
@@ -71,9 +71,9 @@ DonphanPic:
 DonphanSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
 Porygon2Pic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/porygon2.2bpp"
 Porygon2SilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/porygon2.2bpp"
 StantlerPic:
 	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
 StantlerSilhouettePic:

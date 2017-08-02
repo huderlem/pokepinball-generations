@@ -7,17 +7,17 @@ BayleefPic:
 BayleefSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
 MeganiumPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/meganium.2bpp"
 MeganiumSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/meganium.2bpp"
 CyndaquilPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/cyndaquil.2bpp"
 CyndaquilSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/cyndaquil.2bpp"
 QuilavaPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/quilava.2bpp"
 QuilavaSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/quilava.2bpp"
 TyphlosionPic:
 	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
 TyphlosionSilhouettePic:
@@ -27,17 +27,17 @@ TotodilePic:
 TotodileSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
 CroconawPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/croconaw.2bpp"
 CroconawSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/croconaw.2bpp"
 FeraligatrPic:
 	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
 FeraligatrSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
 SentretPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/sentret.2bpp"
 SentretSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/sentret.2bpp"
 FurretPic:
 	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
 FurretSilhouettePic:
@@ -67,17 +67,17 @@ AriadosPic:
 AriadosSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
 CrobatPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/crobat.2bpp"
 CrobatSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/crobat.2bpp"
 ChinchouPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/chinchou.2bpp"
 ChinchouSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/chinchou.2bpp"
 LanturnPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/lanturn.2bpp"
 LanturnSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/lanturn.2bpp"
 PichuPic:
 	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
 PichuSilhouettePic:

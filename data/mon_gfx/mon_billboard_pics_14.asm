@@ -27,9 +27,9 @@ PiloswinePic:
 PiloswineSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
 CorsolaPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/corsola.2bpp"
 CorsolaSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/corsola.2bpp"
 RemoraidPic:
 	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
 RemoraidSilhouettePic:
@@ -47,9 +47,9 @@ MantinePic:
 MantineSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
 SkarmoryPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/skarmory.2bpp"
 SkarmorySilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/skarmory.2bpp"
 HoundourPic:
 	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
 HoundourSilhouettePic:
@@ -63,13 +63,13 @@ KingdraPic:
 KingdraSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/kingdra.2bpp"
 PhanpyPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/phanpy.2bpp"
 PhanpySilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/phanpy.2bpp"
 DonphanPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/donphan.2bpp"
 DonphanSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/donphan.2bpp"
 Porygon2Pic:
 	INCBIN "gfx/billboard/mon_pics/porygon2.2bpp"
 Porygon2SilhouettePic:

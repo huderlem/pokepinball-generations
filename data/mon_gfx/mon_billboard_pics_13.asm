@@ -39,9 +39,9 @@ GirafarigPic:
 GirafarigSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
 PinecoPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/pineco.2bpp"
 PinecoSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/pineco.2bpp"
 ForretressPic:
 	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
 ForretressSilhouettePic:

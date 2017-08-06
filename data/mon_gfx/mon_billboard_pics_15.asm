@@ -11,9 +11,9 @@ SmoochumPic:
 SmoochumSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/smoochum.2bpp"
 ElekidPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/elekid.2bpp"
 ElekidSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/elekid.2bpp"
 MagbyPic:
 	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
 MagbySilhouettePic:
@@ -39,9 +39,9 @@ SuicunePic:
 SuicuneSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
 LarvitarPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/larvitar.2bpp"
 LarvitarSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/larvitar.2bpp"
 PupitarPic:
 	INCBIN "gfx/billboard/mon_pics/pupitar.2bpp"
 PupitarSilhouettePic:
@@ -51,9 +51,9 @@ TyranitarPic:
 TyranitarSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/tyranitar.2bpp"
 LugiaPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/lugia.2bpp"
 LugiaSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/lugia.2bpp"
 HoOhPic:
 	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
 HoOhSilhouettePic:

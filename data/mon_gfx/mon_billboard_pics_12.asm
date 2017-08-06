@@ -43,9 +43,9 @@ MarillPic:
 MarillSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
 AzumarillPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/azumarill.2bpp"
 AzumarillSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/azumarill.2bpp"
 SudowoodoPic:
 	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
 SudowoodoSilhouettePic:
@@ -71,9 +71,9 @@ AipomPic:
 AipomSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
 SunkernPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/sunkern.2bpp"
 SunkernSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/sunkern.2bpp"
 SunfloraPic:
 	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
 SunfloraSilhouettePic:

@@ -23,9 +23,9 @@ TyphlosionPic:
 TyphlosionSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
 TotodilePic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/totodile.2bpp"
 TotodileSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/totodile.2bpp"
 CroconawPic:
 	INCBIN "gfx/billboard/mon_pics/croconaw.2bpp"
 CroconawSilhouettePic:
@@ -47,9 +47,9 @@ HoothootPic:
 HoothootSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
 NoctowlPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/noctowl.2bpp"
 NoctowlSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/noctowl.2bpp"
 LedybaPic:
 	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
 LedybaSilhouettePic:

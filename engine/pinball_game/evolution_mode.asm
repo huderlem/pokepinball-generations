@@ -447,33 +447,27 @@ InitEvolutionModeForMon: ; 0x10d1d
 	ld a, [wCurrentCatchEmMon]
 	ld c, a
 	ld b, $0
-	sla c  ; multiply mon id by 6
-	rl b
-	add c
-	ld c, a
-	jr nc, .noCarry
-	inc b
-.noCarry
 	sla c
-	rl b
+	rl b  ; multiply mon id by 2
 	ld hl, MonEvolutions
 	add hl, bc
-	push hl
-	ld bc, $03ff
-.countMonEvolutionsLoop
 	ld a, [hli]
-	and a
-	jr z, .noEvolution
-	inc c
-.noEvolution
+	ld h, [hl]
+	ld l, a ; hl points to mon's evolution methods
 	inc hl
-	dec b
-	jr nz, .countMonEvolutionsLoop
-	ld a, c
-	cp $ff
-	jr nz, .asm_10d8a
-	xor a
-.asm_10d8a
+	push hl
+	dec hl
+	ld a, [hl]
+	and a
+	jr nz, .chooseEvolution
+	; no evolutions
+	pop hl
+	ld a, $ff
+	ld [wCurrentEvolutionMon], a
+	ld a, EVO_EXPERIENCE
+	jr .setEvolutionType
+.chooseEvolution
+	dec a
 	call RandomRange
 	sla a
 	ld c, a
@@ -484,16 +478,16 @@ InitEvolutionModeForMon: ; 0x10d1d
 	ld [wCurrentEvolutionMon], a
 	ld a, [hl]  ; a = evolution type id
 	cp EVO_BREEDING
-	jr nz, .ok
+	jr nz, .setEvolutionType
 	call IsBreedingAllowed
 	jr c, .breedingNotAllowed
 	ld a, EVO_BREEDING
-	jr .ok
+	jr .setEvolutionType
 .breedingNotAllowed
 	ld a, $FF
 	ld [wCurrentEvolutionMon], a
 	ld a, EVO_EXPERIENCE
-.ok
+.setEvolutionType
 	ld [wCurrentEvolutionType], a
 	xor a
 	ld [wd554], a

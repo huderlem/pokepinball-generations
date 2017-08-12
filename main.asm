@@ -478,7 +478,7 @@ CatchSpriteFrameDurations: ; 0x13685
 	db $12, $12, $0E ; EVOLINE_DRATINI
 	db $14, $14, $0E ; EVOLINE_MEWTWO
 	db $14, $14, $0E ; EVOLINE_MEW
-	db $12, $12, $10 ; EVOLINE_CHIKORITA ; TODO: update these for the new pokemon. not sure what this data is even used for.
+	db $12, $12, $10 ; EVOLINE_CHIKORITA
 	db $12, $12, $10 ; EVOLINE_CYNDAQUIL
 	db $12, $12, $10 ; EVOLINE_TOTODILE
 	db $12, $12, $10 ; EVOLINE_SENTRET
@@ -1768,3 +1768,7 @@ INCLUDE "data/mon_gfx/mon_gfx_pointers.asm"
 SECTION "bank57", ROMX
 
 INCLUDE "text/pokedex_species_names.asm"
+
+SECTION "bank58", ROMX
+
+INCLUDE "data/billboard/map_pics_2.asm"

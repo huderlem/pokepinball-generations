@@ -61,3 +61,6 @@ ENDM
 	BillboardPicturePointer SeafoamIslandsPic
 	BillboardPicturePointer CinnabarIslandPic
 	BillboardPicturePointer IndigoPlateauPic
+	BillboardPicturePointer GoldenrodCityPic
+	BillboardPicturePointer OlivineCityPic
+	BillboardPicturePointer TinTowerPic

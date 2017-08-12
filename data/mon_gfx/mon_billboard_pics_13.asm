@@ -31,9 +31,9 @@ UnownPic:
 UnownSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
 WobbuffetPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/wobbuffet.2bpp"
 WobbuffetSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/wobbuffet.2bpp"
 GirafarigPic:
 	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
 GirafarigSilhouettePic:
@@ -79,6 +79,6 @@ ShucklePic:
 ShuckleSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
 HeracrossPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/heracross.2bpp"
 HeracrossSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/heracross.2bpp"

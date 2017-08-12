@@ -47,9 +47,9 @@ AzumarillPic:
 AzumarillSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/azumarill.2bpp"
 SudowoodoPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/sudowoodo.2bpp"
 SudowoodoSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/sudowoodo.2bpp"
 PolitoedPic:
 	INCBIN "gfx/billboard/mon_pics/politoed.2bpp"
 PolitoedSilhouettePic:

@@ -18,3 +18,7 @@ const_value = 0
 	const SEAFOAM_ISLANDS    ; $f
 	const CINNABAR_ISLAND    ; $10
 	const INDIGO_PLATEAU     ; $11
+
+	const GOLDENROD_CITY     ; $12
+	const OLIVINE_CITY       ; $13
+	const TIN_TOWER          ; $14

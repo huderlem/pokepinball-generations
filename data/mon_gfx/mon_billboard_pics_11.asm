@@ -43,9 +43,9 @@ FurretPic:
 FurretSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
 HoothootPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/hoothoot.2bpp"
 HoothootSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/hoothoot.2bpp"
 NoctowlPic:
 	INCBIN "gfx/billboard/mon_pics/noctowl.2bpp"
 NoctowlSilhouettePic:

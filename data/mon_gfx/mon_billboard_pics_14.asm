@@ -39,13 +39,13 @@ OctilleryPic:
 OctillerySilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/octillery.2bpp"
 DelibirdPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/delibird.2bpp"
 DelibirdSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/delibird.2bpp"
 MantinePic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/mantine.2bpp"
 MantineSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/mantine.2bpp"
 SkarmoryPic:
 	INCBIN "gfx/billboard/mon_pics/skarmory.2bpp"
 SkarmorySilhouettePic:

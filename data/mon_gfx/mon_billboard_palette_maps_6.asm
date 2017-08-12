@@ -65,9 +65,9 @@ FurretBillboardBGPaletteMap:
 	db $7, $7, $7, $7, $7, $7
 
 HoothootBillboardBGPaletteMap:
-	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $6, $7, $7, $7
+	db $7, $6, $6, $6, $7, $7
+	db $7, $6, $6, $7, $7, $7
 	db $7, $7, $7, $7, $7, $7
 
 NoctowlBillboardBGPaletteMap:
@@ -197,10 +197,10 @@ AzumarillBillboardBGPaletteMap:
 	db $7, $7, $7, $7, $7, $7
 
 SudowoodoBillboardBGPaletteMap:
-	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
+	db $6, $7, $7, $7, $7, $7
+	db $6, $6, $7, $7, $6, $6
+	db $6, $7, $7, $7, $6, $6
+	db $7, $7, $7, $7, $7, $6
 
 PolitoedBillboardBGPaletteMap:
 	db $7, $7, $7, $7, $7, $7
@@ -301,7 +301,7 @@ UnownBillboardBGPaletteMap:
 WobbuffetBillboardBGPaletteMap:
 	db $7, $7, $7, $7, $7, $7
 	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $6, $6, $7, $7
 	db $7, $7, $7, $7, $7, $7
 
 GirafarigBillboardBGPaletteMap:
@@ -372,8 +372,8 @@ ShuckleBillboardBGPaletteMap:
 
 HeracrossBillboardBGPaletteMap:
 	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $6, $6, $7, $7
+	db $7, $7, $6, $6, $7, $7
 	db $7, $7, $7, $7, $7, $7
 
 SneaselBillboardBGPaletteMap:
@@ -439,12 +439,12 @@ OctilleryBillboardBGPaletteMap:
 DelibirdBillboardBGPaletteMap:
 	db $7, $7, $7, $7, $7, $7
 	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $6, $6, $7
+	db $7, $7, $7, $6, $7, $7
 
 MantineBillboardBGPaletteMap:
 	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $6
 	db $7, $7, $7, $7, $7, $7
 	db $7, $7, $7, $7, $7, $7
 

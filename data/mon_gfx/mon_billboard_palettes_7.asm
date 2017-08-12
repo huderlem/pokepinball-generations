@@ -121,13 +121,13 @@ FurretBillboardBGPalette2:
 
 HoothootBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 21, 21, 21
-	RGB 11, 11, 11
+	RGB 21, 15, 12
+	RGB 26, 4, 4
 	RGB 0, 0, 0
 HoothootBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 21, 21, 21
-	RGB 11, 11, 11
+	RGB 21, 15, 12
+	RGB 10, 6, 5
 	RGB 0, 0, 0
 
 NoctowlBillboardBGPalette1:
@@ -363,13 +363,13 @@ AzumarillBillboardBGPalette2:
 
 SudowoodoBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 21, 21, 21
-	RGB 11, 11, 11
+	RGB 6, 14, 7
+	RGB 18, 11, 8
 	RGB 0, 0, 0
 SudowoodoBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 21, 21, 21
-	RGB 11, 11, 11
+	RGB 27, 18, 0
+	RGB 18, 11, 8
 	RGB 0, 0, 0
 
 PolitoedBillboardBGPalette1:
@@ -549,14 +549,14 @@ UnownBillboardBGPalette2:
 	RGB 0, 0, 0
 
 WobbuffetBillboardBGPalette1:
-	RGB 31, 31, 31
-	RGB 21, 21, 21
-	RGB 11, 11, 11
+	RGB 14, 23, 29
+	RGB 21, 4, 5
+	RGB 3, 13, 18
 	RGB 0, 0, 0
 WobbuffetBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 21, 21, 21
-	RGB 11, 11, 11
+	RGB 14, 23, 29
+	RGB 3, 13, 18
 	RGB 0, 0, 0
 
 GirafarigBillboardBGPalette1:
@@ -682,13 +682,13 @@ ShuckleBillboardBGPalette2:
 
 HeracrossBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 21, 21, 21
-	RGB 11, 11, 11
+	RGB 5, 14, 21
+	RGB 30, 28, 10
 	RGB 0, 0, 0
 HeracrossBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 21, 21, 21
-	RGB 11, 11, 11
+	RGB 5, 14, 21
+	RGB 4, 10, 15
 	RGB 0, 0, 0
 
 SneaselBillboardBGPalette1:
@@ -803,24 +803,24 @@ OctilleryBillboardBGPalette2:
 
 DelibirdBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 21, 21, 21
-	RGB 11, 11, 11
+	RGB 23, 26, 29
+	RGB 30, 25, 6
 	RGB 0, 0, 0
 DelibirdBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 21, 21, 21
-	RGB 11, 11, 11
+	RGB 23, 26, 29
+	RGB 31, 7, 7
 	RGB 0, 0, 0
 
 MantineBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 21, 21, 21
-	RGB 11, 11, 11
+	RGB 24, 22, 23
+	RGB 20, 21, 20
 	RGB 0, 0, 0
 MantineBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 21, 21, 21
-	RGB 11, 11, 11
+	RGB 24, 22, 23
+	RGB 9, 12, 15
 	RGB 0, 0, 0
 
 SkarmoryBillboardBGPalette1:

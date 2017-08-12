@@ -77,13 +77,13 @@ FeraligatrAnimatedObjPalette2:
 
 SentretAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 22, 15, 10
+	RGB 15, 7, 4
 	RGB 0, 0, 0
 SentretAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 22, 15, 10
+	RGB 15, 7, 4
 	RGB 0, 0, 0
 
 FurretAnimatedObjPalette1:
@@ -407,13 +407,13 @@ AipomAnimatedObjPalette2:
 
 SunkernAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 31, 31, 1
+	RGB 14, 22, 0
 	RGB 0, 0, 0
 SunkernAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 31, 31, 1
+	RGB 14, 22, 0
 	RGB 0, 0, 0
 
 SunfloraAnimatedObjPalette1:
@@ -440,13 +440,13 @@ YanmaAnimatedObjPalette2:
 
 WooperAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 16, 20, 25
+	RGB 10, 8, 14
 	RGB 0, 0, 0
 WooperAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 16, 20, 25
+	RGB 10, 8, 14
 	RGB 0, 0, 0
 
 QuagsireAnimatedObjPalette1:

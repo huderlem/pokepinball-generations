@@ -2724,8 +2724,11 @@ LoadBonusMultiplierRailingGraphics_GoldField_GameboyColor: ; 0x16f7b
 
 INCLUDE "data/queued_tiledata/gold_field/bonus_multiplier_railings.asm"
 
-INCLUDE "data/queued_tiledata/gold_field/pokeballs.asm"
-
+UpdatePokeballs_GoldField: ; 0x174d0
+; Update the pokeballs underneath the billboard, which blink for awhile after catch'em mode and evolution mode.
+	call UpdateBlinkingPokeballs_GoldField
+	ret nc
+	; fall through
 LoadPokeballsGraphics_GoldField: ; 0x1f265
 ; Loads the graphics for the list of pokeballs underneath the billboard picture.
 	sla a
@@ -2741,12 +2744,6 @@ LoadPokeballsGraphics_GoldField: ; 0x1f265
 	ld de, LoadTileLists
 	call QueueGraphicsToLoadWithFunc
 	ret
-
-UpdatePokeballs_GoldField: ; 0x174d0
-; Update the pokeballs underneath the billboard, which blink for awhile after catch'em mode and evolution mode.
-	call UpdateBlinkingPokeballs_GoldField
-	ret nc
-	; fall through
 
 UpdateBlinkingPokeballs_GoldField: ; 0x174ea
 	ld a, [wPreviousNumPokeballs]
@@ -2784,3 +2781,5 @@ UpdateBlinkingPokeballs_GoldField: ; 0x174ea
 	ld a, [wNumPokeballs]
 	scf
 	ret
+
+INCLUDE "data/queued_tiledata/gold_field/pokeballs.asm"

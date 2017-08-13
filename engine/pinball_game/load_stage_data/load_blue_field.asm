@@ -412,7 +412,7 @@ Func_1c4b6: ; 0x1c4b6
 	and a
 	jr z, .asm_1c4d2
 	ld a, [wNextBonusStage]
-	add $15
+	add $3
 	callba LoadBillboardTileData
 	ret
 
@@ -420,7 +420,7 @@ Func_1c4b6: ; 0x1c4b6
 	ld a, [wOpenedSlotByGetting4CAVELights]
 	and a
 	jr z, .asm_1c4e5
-	ld a, $1a
+	ld a, $8
 	callba LoadBillboardTileData
 	ret
 
@@ -441,10 +441,9 @@ Func_1c4b6: ; 0x1c4b6
 .asm_1c508
 	ld a, [wSlotIsOpen]
 	and a
-	ld a, $14
+	ld a, $2
 	jr nz, .asm_1c515
 	ld a, [wMapMoveDirection]
-	add $12
 .asm_1c515
 	callba LoadBillboardTileData
 	ret

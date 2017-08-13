@@ -1962,14 +1962,14 @@ OpenSlotCave_GoldField: ; 0x164e3
 	and a
 	jr z, .asm_164ff
 	ld a, [wNextBonusStage]
-	add $15
+	add $3
 	jr .asm_16506
 
 .asm_164ff
 	ld a, [wOpenedSlotByGetting4CAVELights]
 	and a
 	ret z
-	ld a, $1a
+	ld a, $8 ; "Slot On" billboard picture id
 .asm_16506
 	ld hl, wCurrentStage
 	bit 0, [hl]
@@ -2059,8 +2059,7 @@ ChooseInitialMap_GoldField: ; 0x1658f
 	lb de, $00, $48
 	call PlaySoundEffect
 	pop af
-	add (PalletTownPic_Pointer - BillboardPicturePointers) / 3 ; map billboard pictures start at the $29th entry in BillboardPicturePointers
-	callba LoadBillboardPicture
+	callba LoadMapBillboardPicture
 	ld b, $20  ; number of frames to delay before the next map is shown
 .waitOnCurrentMap
 	push bc

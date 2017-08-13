@@ -1,7 +1,27 @@
-LoadMapBillboardTileData: ; 0x30253
+LoadMapBillboardTileData:
 	ld a, [wCurrentMap]
-	; fall through
-LoadBillboardTileData: ; 0x30256
+	sla a
+	ld c, a
+	ld b, $0
+	push bc
+	ld hl, MapBillboardTileDataPointers
+	add hl, bc
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	ld a, Bank(MapBillboardTileDataPointers)
+	call QueueGraphicsToLoad
+	pop bc
+	ld hl, MapBillboardPaletteDataPointers
+	add hl, bc
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	ld a, Bank(MapBillboardPaletteDataPointers)
+	call QueueGraphicsToLoad
+	ret
+
+LoadBillboardTileData:
 	sla a
 	ld c, a
 	ld b, $0
@@ -14,9 +34,6 @@ LoadBillboardTileData: ; 0x30256
 	ld a, Bank(BillboardTileDataPointers)
 	call QueueGraphicsToLoad
 	pop bc
-	ld a, [hGameBoyColorFlag]
-	and a
-	ret z
 	ld hl, BillboardPaletteDataPointers
 	add hl, bc
 	ld a, [hli]

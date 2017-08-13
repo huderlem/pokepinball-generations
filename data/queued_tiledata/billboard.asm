@@ -1,4 +1,4 @@
-BillboardTileDataPointers: ; 0x3027a
+MapBillboardTileDataPointers:
 	dw PalletTownBillboardTileDataList
 	dw ViridianCityBillboardTileDataList
 	dw ViridianForestBillboardTileDataList
@@ -17,6 +17,8 @@ BillboardTileDataPointers: ; 0x3027a
 	dw SeafoamIslandsBillboardTileDataList
 	dw CinnabarIslandBillboardTileDataList
 	dw IndigoPlateauBillboardTileDataList
+
+BillboardTileDataPointers:
 	dw HurryUp2OnBillboardTileDataList
 	dw HurryUpOnBillboardTileDataList
 	dw GoToNextOnBillboardTileDataList
@@ -2052,7 +2054,7 @@ SlotOnBillboardTileData8: ; 0x30ce1
 	db Bank(SlotOnPic)
 	db $00
 
-BillboardPaletteDataPointers: ; 0x30ceb
+MapBillboardPaletteDataPointers:
 	dw PalletTownBillboardPaletteData
 	dw ViridianCityBillboardPaletteData
 	dw ViridianForestBillboardPaletteData
@@ -2071,6 +2073,8 @@ BillboardPaletteDataPointers: ; 0x30ceb
 	dw SeafoamIslandsBillboardPaletteData
 	dw CinnabarIslandBillboardPaletteData
 	dw IndigoPlateauBillboardPaletteData
+
+BillboardPaletteDataPointers:
 	dw HurryUp2OnBillboardPaletteData
 	dw HurryUpOnBillboardPaletteData
 	dw GoToNextOnBillboardPaletteData

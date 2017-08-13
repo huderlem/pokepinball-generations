@@ -126,8 +126,7 @@ ChooseInitialMap_SilverField: ; 0x1c839
 	lb de, $00, $48
 	call PlaySoundEffect
 	pop af
-	add (PalletTownPic_Pointer - BillboardPicturePointers) / 3  ; map billboard pictures start at the $29th entry in BillboardPicturePointers
-	callba LoadBillboardPicture
+	callba LoadMapBillboardPicture
 	ld b, $20  ; number of frames to delay before the next map is shown
 .waitOnCurrentMap
 	push bc
@@ -2669,14 +2668,14 @@ OpenSlotCave_SilverField: ; 0x1e9c0
 	and a
 	jr z, .asm_1e9dc
 	ld a, [wNextBonusStage]
-	add $15
+	add $3
 	jr .asm_1e9e3
 
 .asm_1e9dc
 	ld a, [wOpenedSlotByGetting4CAVELights]
 	and a
 	ret z
-	ld a, $1a ; "Slot On" billboard picture id
+	ld a, $8 ; "Slot On" billboard picture id
 .asm_1e9e3
 	ld hl, wCurrentStage
 	bit 0, [hl]

@@ -1,4 +1,3 @@
-BlueStageWildMons: ; 0x1144d
 BlueStageViridianCityWildMons: ; 0x1144d
 	db BULBASAUR
 	db SQUIRTLE
@@ -17,7 +16,7 @@ BlueStageViridianCityWildMons: ; 0x1144d
 	db TENTACOOL
 	db GOLDEEN
 
-BlueStagePalleViridianCityonsRare: ; 0x1145d
+BlueStageViridianCityonsRare: ; 0x1145d
 	db BULBASAUR
 	db BULBASAUR
 	db BULBASAUR

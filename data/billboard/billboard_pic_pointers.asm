@@ -1,4 +1,4 @@
-BillboardPicturePointers: ; 0xf1b8
+BillboardPicturePointers:
 BillboardPicturePointer: MACRO
 \1_Pointer: dab \1
 ENDM
@@ -43,6 +43,8 @@ ENDM
 	BillboardPicturePointer BonusMultiplierX3OnPic
 	BillboardPicturePointer BonusMultiplierX4OnPic
 	BillboardPicturePointer BonusMultiplierX5OnPic
+
+MapBillboardPicturePointers:
 	BillboardPicturePointer PalletTownPic
 	BillboardPicturePointer ViridianCityPic
 	BillboardPicturePointer ViridianForestPic

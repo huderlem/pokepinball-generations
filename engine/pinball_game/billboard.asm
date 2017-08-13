@@ -1,4 +1,4 @@
-LoadBillboardPicture: ; 0xf178
+LoadBillboardPicture:
 ; Loads a billboard picture's tiles into VRAM
 ; input:  a = billboard picture id
 	push hl
@@ -8,6 +8,30 @@ LoadBillboardPicture: ; 0xf178
 	add c  ; a has been multplied by 3 becuase entires in BillboardPicturePointers are 3 bytes long
 	ld c, a
 	ld hl, BillboardPicturePointers
+	add hl, bc
+	ld a, [hli]
+	ld c, a
+	ld a, [hli]
+	ld b, a
+	ld a, [hl]
+	ld h, b
+	ld l, c
+	ld de, vTilesSH tile $10   ; destination address to copy the tiles
+	ld bc, $180    ; billboard pictures are $180 bytes
+	call LoadVRAMData  ; loads the tiles into VRAM
+	pop hl
+	ret
+
+LoadMapBillboardPicture:
+; Loads a billboard picture's tiles into VRAM
+; input:  a = map id
+	push hl
+	ld c, a
+	ld b, $0
+	sla c
+	add c  ; a has been multplied by 3 becuase entires in MapBillboardPicturePointers are 3 bytes long
+	ld c, a
+	ld hl, MapBillboardPicturePointers
 	add hl, bc
 	ld a, [hli]
 	ld c, a

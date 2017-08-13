@@ -28,7 +28,6 @@ StartMapMoveMode: ; 0x301ec
 	bit 0, a
 	jr z, .asm_3021b
 	ld a, [wMapMoveDirection]
-	add $12
 	call LoadBillboardTileData
 .asm_3021b
 	ld a, [wCurrentStage]

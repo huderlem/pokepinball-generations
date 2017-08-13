@@ -324,7 +324,7 @@ Func_14377_GoldField: ; 0x14377
 	and a
 	jr z, .asm_14393
 	ld a, [wNextBonusStage]
-	add $15
+	add $3
 	callba LoadBillboardTileData
 	ret
 
@@ -332,7 +332,7 @@ Func_14377_GoldField: ; 0x14377
 	ld a, [wOpenedSlotByGetting4CAVELights]
 	and a
 	jr z, .asm_143a6
-	ld a, $1a
+	ld a, $8
 	callba LoadBillboardTileData
 	ret
 
@@ -353,10 +353,9 @@ Func_14377_GoldField: ; 0x14377
 .asm_143c9
 	ld a, [wSlotIsOpen]
 	and a
-	ld a, $14
+	ld a, $2
 	jr nz, .asm_143d6
 	ld a, [wMapMoveDirection]
-	add $12
 .asm_143d6
 	callba LoadBillboardTileData
 	ret

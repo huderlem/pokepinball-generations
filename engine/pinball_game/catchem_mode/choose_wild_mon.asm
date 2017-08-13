@@ -6,27 +6,30 @@ ChooseWildMon:
 	sla a
 	ld c, a ;store twice current stage to use a pointer offset
 	ld b, $0
-	push bc
-	ld hl, WildMonOffsetsPointers
+	ld hl, MapWildMonsPointers
 	add hl, bc
 	ld a, [hli] ;hl = pointer to wild mon pointer table
 	ld h, [hl]
 	ld l, a
 	ld a, [wCurrentMap]
-	sla a
-	ld c, a
-	add hl, bc ;go to correct location in table
+	ld b, a
+.loop
 	ld a, [hli]
-	ld c, a
-	ld a, [hl]
-	ld b, a ;bc = offset needed to reach correct wild table
-	pop de ;pop current stage offset
-	ld hl, WildMonPointers
-	add hl, de
-	ld a, [hli] ;fetch start od correct wilds table, place in hl
+	cp b
+	jr z, .foundMap
+	cp $FF
+	jr z, .mapNotFound
+	inc hl
+	inc hl
+	jr .loop
+.mapNotFound
+	; Major error.  Wild mon data not found for current map. Default to Red stage pallet town, I guess.
+	ld hl, RedStageWildMonsPointers + 1
+.foundMap
+	; [hl] = pointer to wild mons for map
+	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	add hl, bc
 	call GenRandom
 	and $f
 	call CheckForMew ;a = $10 if mew, else is less
@@ -51,11 +54,8 @@ CheckForMew:
 	push af
 	cp $f  ; random number equals $f (1 in 16)
 	jr nz, .NotMew
-	ld a, c
-	cp (BlueStageIndigoPlateauWildMons - BlueStageWildMons) & $ff  ; check if low-byte of map mons offset is Indigo Plateau
-	jr nz, .NotMew
-	ld a, b
-	cp (BlueStageIndigoPlateauWildMons - BlueStageWildMons) >> 8  ; check if high-byte of map mons offset is Indigo Plateau
+	ld a, [wCurrentMap]
+	cp INDIGO_PLATEAU
 	jr nz, .NotMew
 	ld a, [wRareMonsFlag]
 	cp $8

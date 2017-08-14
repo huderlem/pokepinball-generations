@@ -344,7 +344,7 @@ VBlank: ; 0x2f2
 	ld [wToggleAudioEngineUpdateMethod], a
 	ld a, $1
 	ld [wUpdateAudioEngineUsingTimerInterrupt], a
-	ld a, -68
+	ld a, $78
 	ld [rTMA], a
 	ld a, $0
 	ld [rTAC], a
@@ -3601,6 +3601,31 @@ Data_372d:
 	dw TiltUpLeftForce
 	dw TiltUpRightForce
 	dw TiltUpOnlyForce
+
+SetDoubleSpeedMode:
+	ld a, [rKEY1]
+	bit 7, a
+	ret nz
+	jp ToggleDoubleSpeedMode
+
+SetNormalSpeedMode:
+	ld a, [rKEY1]
+	bit 7, a
+	ret z
+	; fall through
+ToggleDoubleSpeedMode:
+	ld a, [rIE]
+	push af
+	xor a
+	ld [rIE], a
+	ld a, $30
+	ld [rJOYP], a
+	ld a, 1
+	ld [rKEY1], a
+	stop
+	pop af
+	ld [rIE], a
+	ret
 
 SECTION "bank0.2", ROM0
 

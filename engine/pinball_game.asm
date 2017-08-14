@@ -9,6 +9,7 @@ PinballGameScreenFunctions: ; 0xd857
 	dw GameScreenFunction_EndBall
 
 GameScreenFunction_LoadGFX: ; 0xd861
+	call SetDoubleSpeedMode
 	xor a
 	ld [wd908], a
 	callba InitializeCurrentStage
@@ -318,6 +319,7 @@ TransitionToHighScoresScreen: ; 0xdb5d
 	ld [wCurrentScreen], a
 	xor a
 	ld [wScreenState], a
+	call SetNormalSpeedMode
 	ret
 
 HighScoresStageMapping: ; 0xdb99

@@ -18,4 +18,5 @@ SaveGame: ; 0xda05
 	ld [wCurrentScreen], a
 	xor a
 	ld [wScreenState], a
+	call SetNormalSpeedMode
 	ret

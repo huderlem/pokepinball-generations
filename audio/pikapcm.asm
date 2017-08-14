@@ -90,6 +90,7 @@ PikachuThundershockSoundClip:  ; 0x50d2c
 	db $f0, $00, $00  ; unused
 
 PlayPikachuPCM: ; 0x51f56
+	call SetNormalSpeedMode
 ; Plays the audio PCM at [hl]
 	ld a, [hli]
 	ld c, a
@@ -122,6 +123,7 @@ PlayPikachuPCM: ; 0x51f56
 	ld a, c
 	or b
 	jr nz, .loop
+	call SetDoubleSpeedMode
 	ret
 
 LoadNextSoundClipSample: ; 0x51f94

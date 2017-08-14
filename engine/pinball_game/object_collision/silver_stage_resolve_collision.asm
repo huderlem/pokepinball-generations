@@ -127,10 +127,10 @@ ChooseInitialMap_SilverField: ; 0x1c839
 	call PlaySoundEffect
 	pop af
 	callba LoadMapBillboardPicture
-	ld b, $20  ; number of frames to delay before the next map is shown
+	ld b, $A  ; number of frames to delay before the next map is shown
 .waitOnCurrentMap
 	push bc
-	callba Delay1Frame
+	rst AdvanceFrame
 	ld hl, wKeyConfigBallStart
 	call IsKeyPressed
 	jr nz, .ballStartKeyPressed

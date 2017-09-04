@@ -1,5 +1,6 @@
 INCLUDE "macros.asm"
 INCLUDE "constants/pokemon_constants.asm"
+INCLUDE "constants/pinball_game_constants.asm"
 
 ; OAM Animations use this 3-byte struct.
 animation: MACRO
@@ -2505,6 +2506,23 @@ wWhichFieldSelectRegion:: ; 0xdaa4
 ; 1 = JOHTO
 	ds $1
 
+wCollectLogFlag::
+    ds 1
+
+wLogTableNumber::
+wLogBalllevel::
+    ds 1
+
+wLogRarity::
+wLogMapMoves::
+wLogCleared::
+wLogEvoStages::
+    ds 1
+
+wLogEvoDataStorage::
+    ds 2 * LOGGING_SPACE
+
+
 SECTION "Audio RAM", WRAMX
 wdd00:: ; 0xdd00
 	ds $1
@@ -2542,7 +2560,7 @@ wde92:: ; 0xde92
 wde93:: ; 0xde93
 	ds $1
 
-wde94:: ; 0xde94
+wde94:: ; 0xde94a
 	ds $1
 
 wde95:: ; 0xde95

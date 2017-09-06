@@ -22,3 +22,4 @@ const_value = 0
 	const GOLDENROD_CITY     ; $12
 	const OLIVINE_CITY       ; $13
 	const TIN_TOWER          ; $14
+	const BURNED_TOWER       ; $15

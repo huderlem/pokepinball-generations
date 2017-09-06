@@ -1721,6 +1721,11 @@ SECTION "bank4b", ROMX
 
 INCLUDE "data/mon_gfx/mon_animated_pics_6.asm"
 
+RoamingDogsMiniGfx:
+	INCBIN "gfx/stage/roaming_dogs_mini.interleave.2bpp"
+	INCBIN "gfx/stage/roaming_dogs_portal.interleave.2bpp"
+RoamingDogsMiniGfx_End:
+
 SECTION "bank4c", ROMX
 
 INCLUDE "data/mon_gfx/mon_animated_pics_7.asm"

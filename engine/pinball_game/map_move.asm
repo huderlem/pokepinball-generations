@@ -874,6 +874,7 @@ ResolveSucsessfulGoldMapMove: ; 0x315d5
 	ld a, [wBottomTextEnabled]
 	and a
 	jr nz, .asm_31603
+	callba TryReleaseRoamingDogs
 	ld a, $2
 	ld [wd54d], a
 	scf
@@ -1195,6 +1196,7 @@ Func_3174c_SilverField: ; 0x3174c
 	ld a, [wBottomTextEnabled]
 	and a
 	jr nz, .asm_3177a
+	callba TryReleaseRoamingDogs
 	ld a, $2
 	ld [wd54d], a
 	scf
@@ -1371,3 +1373,5 @@ SecondMapMoveSet_SilverField:
 	db SAFARI_ZONE
 	db SAFFRON_CITY
 	db CINNABAR_ISLAND
+
+INCLUDE "engine/pinball_game/roaming_dogs.asm"

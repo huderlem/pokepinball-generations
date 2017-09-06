@@ -422,3 +422,7 @@ CloysterCounterText:
 
 SlowpokeCounterText:
 	db "  0 SLOWPOKE@"
+
+ReleasedBeastsText:
+	db $05, $54, $42, $14, $00, $38
+	db "RELEASED BEASTS @"

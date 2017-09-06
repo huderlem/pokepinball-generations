@@ -1802,6 +1802,17 @@ wd7c1:: ; 0xd7c1
 wd7c2:: ; 0xd7c2
 	ds $1
 
+wRoamingDogsStatus::
+; bit 0:  1 if the roaming dogs have been released
+; bit 1:  1 if Raikou was caught
+; bit 2:  1 if Entei was caught
+; bit 3:  1 if Suicune was caught
+	ds $1
+
+;
+; End sSaveGame
+;
+
 wSubTileBallXPos:: ; 0xd7c3
 	ds $1
 

@@ -33,7 +33,7 @@ StartCatchEmMode: ; 0x1003f
 	ret nz  ; don't start catch 'em mode if we're already doing something like Map Move mode
 	ld a, $1
 	ld [wInSpecialMode], a  ; set special mode flag
-	callba ChooseWildMon	
+	callba ChooseWildMon
 	ld a, [wCurrentCatchEmMon]
 	ld c, a
 	ld b, $0
@@ -129,6 +129,8 @@ ConcludeCatchEmMode: ; 0x10157
 	ld [wNumMonHits], a
 	call ClearWildMonCollisionMask
 	callba StopTimer
+	ld a, 1
+	ld [wCollectLogFlag], a
 	ld a, [wCurrentStage]
 	rst JumpTable  ; calls JumpToFuncInTable
 CallTable_10178: ; 0x10178
@@ -1079,8 +1081,20 @@ AddCaughtPokemonToParty: ; 0x1073d
 	ld b, $0
 	ld hl, wPartyMons
 	add hl, bc
+	cp LOGGING_SPACE
 	ld a, [wCurrentCatchEmMon]
 	ld [hl], a
+	jr nc, .SkipLoggingIfFull
+	ld hl, wLogEvoDataStorage
+	add hl, bc
+	add hl, bc
+	ld a, [wLogTableNumber]
+	ld [hli], a
+	ld a, [wLogCleared]
+	ld [hl], a
+	set 2, a
+	ld [wLogCleared], a
+.SkipLoggingIfFull
 	ld a, [wNumPartyMons]
 	inc a
 	ld [wNumPartyMons], a

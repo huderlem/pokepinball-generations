@@ -48,6 +48,25 @@ ChooseWildMon:
 .saveMonId
 	dec a
 	ld [wCurrentCatchEmMon], a ;stores 1 less than ID
+	ld a, [wCurrentStage]
+	srl a
+	sla a
+	sla a
+	sla a
+	ld b, a
+	ld a, [wBallType]
+	add b
+	ld [wLogTableNumber], a
+	ld a, [wNumMapMoves]
+	sla a
+	sla a
+	sla a
+	sla a
+	ld b, a
+	ld a, [wRareMonsFlag]
+	or b
+	ld b, a
+	ld [wLogMapMoves],a
 	ret
 
 CheckForMew:

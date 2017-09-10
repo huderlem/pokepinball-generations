@@ -1,5 +1,5 @@
 InitRedField: ; 0x30000
-	ld a, [wd7c1]
+	ld a, [wLoadingSavedGame]
 	and a
 	ret nz
 	xor a
@@ -12,7 +12,7 @@ InitRedField: ; 0x30000
 	ld [hl], a
 	ld [wNumPartyMons], a
 	ld [wCurBonusMultiplierFromFieldEvents], a
-	ld [wd4c9], a
+	ld [wLostBall], a
 	ld [wBallType], a
 	ld [wd4c8], a
 	ld hl, wPreviousNumPokeballs
@@ -20,7 +20,7 @@ InitRedField: ; 0x30000
 	ld [hli], a ; wNumPokeballs
 	ld [hli], a ; wPokeballBlinkingCounter
 	ld [wDisableHorizontalScrollForBallStart], a
-	ld [wd7be], a
+	ld [wFlippersDisabled], a
 	ld [wCurrentMap], a  ; PALLET_TOWN
 	ld a, $1
 	ld [wd49d], a
@@ -42,8 +42,8 @@ InitRedField: ; 0x30000
 	ld [wIndicatorStates + 1], a
 	callba Start20SecondSaverTimer
 	callba GetBCDForNextBonusMultiplier_RedField
-	ld a, $f
+	ld a, Bank(Music_RedField)
 	call SetSongBank
-	ld de, $0001
+	ld de, MUSIC_RED_FIELD
 	call PlaySong
 	ret

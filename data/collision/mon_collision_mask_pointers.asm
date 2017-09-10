@@ -117,7 +117,7 @@ MonAnimatedCollisionMaskPointers: ; 0x134c0
 	dwb TangelaAnimatedCollisionMask, Bank(TangelaAnimatedCollisionMask)
 	dwb KangaskhanAnimatedCollisionMask, Bank(KangaskhanAnimatedCollisionMask)
 	dwb HorseaAnimatedCollisionMask, Bank(HorseaAnimatedCollisionMask)
-	dwb LickitungAnimatedCollisionMask, Bank(LickitungAnimatedCollisionMask)
+	dwb SeadraAnimatedCollisionMask, Bank(SeadraAnimatedCollisionMask)
 	dwb GoldeenAnimatedCollisionMask, Bank(GoldeenAnimatedCollisionMask)
 	dwb LickitungAnimatedCollisionMask, Bank(LickitungAnimatedCollisionMask)
 	dwb StaryuAnimatedCollisionMask, Bank(StaryuAnimatedCollisionMask)

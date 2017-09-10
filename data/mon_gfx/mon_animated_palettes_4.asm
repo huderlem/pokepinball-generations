@@ -11,68 +11,24 @@ ChikoritaAnimatedObjPalette2:
 
 CyndaquilAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 29, 25, 15
+	RGB 31, 0, 0
 	RGB 0, 0, 0
 CyndaquilAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-
-QuilavaAnimatedObjPalette1:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-QuilavaAnimatedObjPalette2:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-
-TyphlosionAnimatedObjPalette1:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-TyphlosionAnimatedObjPalette2:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 29, 25, 15
+	RGB 31, 0, 0
 	RGB 0, 0, 0
 
 TotodileAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 13, 22, 28
+	RGB 31, 11, 4
 	RGB 0, 0, 0
 TotodileAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-
-CroconawAnimatedObjPalette1:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-CroconawAnimatedObjPalette2:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-
-FeraligatrAnimatedObjPalette1:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-FeraligatrAnimatedObjPalette2:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 13, 22, 28
+	RGB 31, 11, 4
 	RGB 0, 0, 0
 
 SentretAnimatedObjPalette1:
@@ -86,323 +42,125 @@ SentretAnimatedObjPalette2:
 	RGB 15, 7, 4
 	RGB 0, 0, 0
 
-FurretAnimatedObjPalette1:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-FurretAnimatedObjPalette2:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-
 HoothootAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 25, 20, 16
+	RGB 19, 11, 5
 	RGB 0, 0, 0
 HoothootAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-
-NoctowlAnimatedObjPalette1:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-NoctowlAnimatedObjPalette2:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 25, 20, 16
+	RGB 19, 11, 5
 	RGB 0, 0, 0
 
 LedybaAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 31, 27, 16
+	RGB 26, 7, 0
 	RGB 0, 0, 0
 LedybaAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-
-LedianAnimatedObjPalette1:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-LedianAnimatedObjPalette2:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 31, 27, 16
+	RGB 26, 7, 0
 	RGB 0, 0, 0
 
 SpinarakAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 30, 29, 0
+	RGB 11, 22, 4
 	RGB 0, 0, 0
 SpinarakAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-
-AriadosAnimatedObjPalette1:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-AriadosAnimatedObjPalette2:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-
-CrobatAnimatedObjPalette1:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-CrobatAnimatedObjPalette2:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 30, 29, 0
+	RGB 11, 22, 4
 	RGB 0, 0, 0
 
 ChinchouAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 30, 27, 17
+	RGB 15, 19, 25
 	RGB 0, 0, 0
 ChinchouAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-
-LanturnAnimatedObjPalette1:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-LanturnAnimatedObjPalette2:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-
-PichuAnimatedObjPalette1:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-PichuAnimatedObjPalette2:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-
-CleffaAnimatedObjPalette1:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-CleffaAnimatedObjPalette2:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-
-IgglybuffAnimatedObjPalette1:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-IgglybuffAnimatedObjPalette2:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 30, 27, 17
+	RGB 15, 19, 25
 	RGB 0, 0, 0
 
 TogepiAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 31, 29, 22
+	RGB 28, 7, 3
 	RGB 0, 0, 0
 TogepiAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-
-TogeticAnimatedObjPalette1:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-TogeticAnimatedObjPalette2:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 31, 29, 22
+	RGB 28, 7, 3
 	RGB 0, 0, 0
 
 NatuAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 10, 24, 9
+	RGB 31, 9, 0
 	RGB 0, 0, 0
 NatuAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-
-XatuAnimatedObjPalette1:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-XatuAnimatedObjPalette2:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 10, 24, 9
+	RGB 31, 9, 0
 	RGB 0, 0, 0
 
 MareepAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 30, 24, 8
+	RGB 11, 17, 25
 	RGB 0, 0, 0
 MareepAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-
-FlaaffyAnimatedObjPalette1:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-FlaaffyAnimatedObjPalette2:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-
-AmpharosAnimatedObjPalette1:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-AmpharosAnimatedObjPalette2:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-
-BellossomAnimatedObjPalette1:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-BellossomAnimatedObjPalette2:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 30, 24, 8
+	RGB 11, 17, 25
 	RGB 0, 0, 0
 
 MarillAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 12, 18, 31
+	RGB 8, 12, 20
 	RGB 0, 0, 0
 MarillAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-
-AzumarillAnimatedObjPalette1:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-AzumarillAnimatedObjPalette2:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 12, 18, 31
+	RGB 8, 12, 20
 	RGB 0, 0, 0
 
 SudowoodoAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 27, 14, 3
+	RGB 13, 19, 5
 	RGB 0, 0, 0
 SudowoodoAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-
-PolitoedAnimatedObjPalette1:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-PolitoedAnimatedObjPalette2:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 27, 14, 3
+	RGB 13, 19, 5
 	RGB 0, 0, 0
 
 HoppipAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 30, 11, 17
+	RGB 11, 24, 6
 	RGB 0, 0, 0
 HoppipAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-
-SkiploomAnimatedObjPalette1:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-SkiploomAnimatedObjPalette2:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-
-JumpluffAnimatedObjPalette1:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-JumpluffAnimatedObjPalette2:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 30, 11, 17
+	RGB 11, 24, 6
 	RGB 0, 0, 0
 
 AipomAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 29, 23, 12
+	RGB 18, 10, 19
 	RGB 0, 0, 0
 AipomAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 29, 23, 12
+	RGB 18, 10, 19
 	RGB 0, 0, 0
 
 SunkernAnimatedObjPalette1:
@@ -416,26 +174,15 @@ SunkernAnimatedObjPalette2:
 	RGB 14, 22, 0
 	RGB 0, 0, 0
 
-SunfloraAnimatedObjPalette1:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-SunfloraAnimatedObjPalette2:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-
 YanmaAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 21, 30, 11
+	RGB 31, 14, 9
 	RGB 0, 0, 0
 YanmaAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 21, 30, 11
+	RGB 31, 14, 9
 	RGB 0, 0, 0
 
 WooperAnimatedObjPalette1:
@@ -449,629 +196,387 @@ WooperAnimatedObjPalette2:
 	RGB 10, 8, 14
 	RGB 0, 0, 0
 
-QuagsireAnimatedObjPalette1:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-QuagsireAnimatedObjPalette2:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-
-EspeonAnimatedObjPalette1:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-EspeonAnimatedObjPalette2:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-
-UmbreonAnimatedObjPalette1:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-UmbreonAnimatedObjPalette2:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-
 MurkrowAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 27, 22, 0
+	RGB 6, 7, 17
 	RGB 0, 0, 0
 MurkrowAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-
-SlowkingAnimatedObjPalette1:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-SlowkingAnimatedObjPalette2:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 27, 22, 0
+	RGB 6, 7, 17
 	RGB 0, 0, 0
 
 MisdreavusAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 11, 17, 20
+	RGB 24, 7, 9
 	RGB 0, 0, 0
 MisdreavusAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 11, 17, 20
+	RGB 24, 7, 9
 	RGB 0, 0, 0
 
 UnownAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 10, 14, 15
+	RGB 5, 7, 8
 	RGB 0, 0, 0
 UnownAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 10, 14, 15
+	RGB 5, 7, 8
 	RGB 0, 0, 0
 
 WobbuffetAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 14, 23, 29
+	RGB 9, 15, 18
 	RGB 0, 0, 0
 WobbuffetAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 14, 23, 29
+	RGB 9, 15, 18
 	RGB 0, 0, 0
 
 GirafarigAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 28, 24, 5
+	RGB 30, 14, 15
 	RGB 0, 0, 0
 GirafarigAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 28, 24, 5
+	RGB 30, 14, 15
 	RGB 0, 0, 0
 
 PinecoAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 10, 17, 20
+	RGB 7, 12, 14
 	RGB 0, 0, 0
 PinecoAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-
-ForretressAnimatedObjPalette1:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-ForretressAnimatedObjPalette2:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 10, 17, 20
+	RGB 7, 12, 14
 	RGB 0, 0, 0
 
 DunsparceAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 30, 27, 0
+	RGB 3, 19, 28
 	RGB 0, 0, 0
 DunsparceAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 30, 27, 0
+	RGB 3, 19, 28
 	RGB 0, 0, 0
 
 GligarAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 25, 15, 21
+	RGB 13, 19, 26
 	RGB 0, 0, 0
 GligarAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-
-SteelixAnimatedObjPalette1:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-SteelixAnimatedObjPalette2:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 25, 15, 21
+	RGB 13, 19, 26
 	RGB 0, 0, 0
 
 SnubbullAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 28, 14, 16
+	RGB 8, 12, 16
 	RGB 0, 0, 0
 SnubbullAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-
-GranbullAnimatedObjPalette1:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-GranbullAnimatedObjPalette2:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 28, 14, 16
+	RGB 8, 12, 16
 	RGB 0, 0, 0
 
 QwilfishAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 26, 26, 18
+	RGB 8, 14, 12
 	RGB 0, 0, 0
 QwilfishAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-
-ScizorAnimatedObjPalette1:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-ScizorAnimatedObjPalette2:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 26, 26, 18
+	RGB 8, 14, 12
 	RGB 0, 0, 0
 
 ShuckleAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 31, 22, 5
+	RGB 21, 4, 3
 	RGB 0, 0, 0
 ShuckleAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 31, 22, 5
+	RGB 21, 4, 3
 	RGB 0, 0, 0
 
 HeracrossAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 25, 21, 5
+	RGB 4, 11, 17
 	RGB 0, 0, 0
 HeracrossAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 25, 21, 5
+	RGB 4, 11, 17
 	RGB 0, 0, 0
 
 SneaselAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 31, 0, 12
+	RGB 1, 8, 12
 	RGB 0, 0, 0
 SneaselAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 31, 0, 12
+	RGB 1, 8, 12
 	RGB 0, 0, 0
 
 TeddiursaAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 22, 14, 6
+	RGB 14, 7, 4
 	RGB 0, 0, 0
 TeddiursaAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-
-UrsaringAnimatedObjPalette1:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-UrsaringAnimatedObjPalette2:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 22, 14, 6
+	RGB 14, 7, 4
 	RGB 0, 0, 0
 
 SlugmaAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 30, 25, 12
+	RGB 26, 9, 3
 	RGB 0, 0, 0
 SlugmaAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-
-MagcargoAnimatedObjPalette1:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-MagcargoAnimatedObjPalette2:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 30, 25, 12
+	RGB 26, 9, 3
 	RGB 0, 0, 0
 
 SwinubAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 23, 15, 11
+	RGB 11, 6, 4
 	RGB 0, 0, 0
 SwinubAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-
-PiloswineAnimatedObjPalette1:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-PiloswineAnimatedObjPalette2:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 23, 15, 11
+	RGB 11, 6, 4
 	RGB 0, 0, 0
 
 CorsolaAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 29, 14, 17
+	RGB 23, 11, 13
 	RGB 0, 0, 0
 CorsolaAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 29, 14, 17
+	RGB 23, 11, 13
 	RGB 0, 0, 0
 
 RemoraidAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 11, 22, 31
+	RGB 0, 10, 30
 	RGB 0, 0, 0
 RemoraidAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-
-OctilleryAnimatedObjPalette1:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-OctilleryAnimatedObjPalette2:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 11, 22, 31
+	RGB 0, 10, 30
 	RGB 0, 0, 0
 
 DelibirdAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 31, 28, 0
+	RGB 27, 6, 9
 	RGB 0, 0, 0
 DelibirdAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 31, 28, 0
+	RGB 27, 6, 9
 	RGB 0, 0, 0
 
 MantineAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 24, 24, 24
+	RGB 5, 5, 13
 	RGB 0, 0, 0
 MantineAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 24, 24, 24
+	RGB 5, 5, 13
 	RGB 0, 0, 0
 
 SkarmoryAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 21, 21, 22
+	RGB 31, 0, 3
 	RGB 0, 0, 0
 SkarmoryAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 21, 21, 22
+	RGB 31, 0, 3
 	RGB 0, 0, 0
 
 HoundourAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 27, 17, 10
+	RGB 11, 10, 10
 	RGB 0, 0, 0
 HoundourAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-
-HoundoomAnimatedObjPalette1:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-HoundoomAnimatedObjPalette2:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-
-KingdraAnimatedObjPalette1:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-KingdraAnimatedObjPalette2:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 27, 17, 10
+	RGB 11, 10, 10
 	RGB 0, 0, 0
 
 PhanpyAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 19, 27, 30
+	RGB 25, 6, 2
 	RGB 0, 0, 0
 PhanpyAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-
-DonphanAnimatedObjPalette1:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-DonphanAnimatedObjPalette2:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-
-Porygon2AnimatedObjPalette1:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-Porygon2AnimatedObjPalette2:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 19, 27, 30
+	RGB 25, 6, 2
 	RGB 0, 0, 0
 
 StantlerAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 26, 23, 10
+	RGB 24, 20, 14
 	RGB 0, 0, 0
 StantlerAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 26, 23, 10
+	RGB 24, 20, 14
 	RGB 0, 0, 0
 
 SmeargleAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 27, 25, 22
+	RGB 19, 10, 6
 	RGB 0, 0, 0
 SmeargleAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 27, 25, 22
+	RGB 19, 10, 6
 	RGB 0, 0, 0
 
 TyrogueAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 26, 22, 26
+	RGB 19, 11, 6
 	RGB 0, 0, 0
 TyrogueAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-
-HitmontopAnimatedObjPalette1:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-HitmontopAnimatedObjPalette2:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-
-SmoochumAnimatedObjPalette1:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-SmoochumAnimatedObjPalette2:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-
-ElekidAnimatedObjPalette1:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-ElekidAnimatedObjPalette2:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-
-MagbyAnimatedObjPalette1:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-MagbyAnimatedObjPalette2:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 26, 22, 26
+	RGB 19, 11, 6
 	RGB 0, 0, 0
 
 MiltankAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 30, 26, 16
+	RGB 27, 17, 16
 	RGB 0, 0, 0
 MiltankAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-
-BlisseyAnimatedObjPalette1:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-BlisseyAnimatedObjPalette2:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 30, 26, 16
+	RGB 27, 17, 16
 	RGB 0, 0, 0
 
 RaikouAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 14, 24, 24
+	RGB 28, 25, 2
 	RGB 0, 0, 0
 RaikouAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 14, 24, 24
+	RGB 28, 25, 2
 	RGB 0, 0, 0
 
 EnteiAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 25, 24, 16
+	RGB 21, 11, 4
 	RGB 0, 0, 0
 EnteiAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 25, 24, 16
+	RGB 21, 11, 4
 	RGB 0, 0, 0
 
 SuicuneAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 6, 18, 23
+	RGB 16, 13, 18
 	RGB 0, 0, 0
 SuicuneAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 6, 18, 23
+	RGB 16, 13, 18
 	RGB 0, 0, 0
 
 LarvitarAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 15, 18, 9
+	RGB 24, 0, 0
 	RGB 0, 0, 0
 LarvitarAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-
-PupitarAnimatedObjPalette1:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-PupitarAnimatedObjPalette2:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-
-TyranitarAnimatedObjPalette1:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-TyranitarAnimatedObjPalette2:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 15, 18, 9
+	RGB 24, 0, 0
 	RGB 0, 0, 0
 
 LugiaAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 22, 22, 22
+	RGB 12, 16, 27
 	RGB 0, 0, 0
 LugiaAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 22, 22, 22
+	RGB 12, 16, 27
 	RGB 0, 0, 0
 
 HoOhAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 27, 29, 11
+	RGB 31, 7, 3
 	RGB 0, 0, 0
 HoOhAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 27, 29, 11
+	RGB 31, 7, 3
 	RGB 0, 0, 0
 
 CelebiAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 25, 28, 14
+	RGB 14, 22, 7
 	RGB 0, 0, 0
 CelebiAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
+	RGB 25, 28, 14
+	RGB 14, 22, 7
 	RGB 0, 0, 0
+
+SeadraAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 18
+	RGB 13, 22, 28
+	RGB 0, 0, 0
+SeadraAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 18
+	RGB 13, 22, 28
 	RGB 0, 0, 0

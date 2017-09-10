@@ -2,14 +2,14 @@ DrawSpritesGoldFieldTop:
 	ld bc, $7f00
 	callba DrawTimer
 	callba DrawVoltorbSprites_GoldField
-	call Func_17d34_GoldField
-	call Func_17d59_GoldField
-	call Func_17d7a_GoldField
-	call Func_17d92_GoldField
-	call Func_17de1_GoldField
+	call DrawDitto_GoldField
+	call DrawBellsproutHead_GoldField
+	call DrawBellsproutBody_GoldField
+	call DrawStaryu_GoldField
+	call DrawSpinner_GoldField
 	callba DrawPinball
-	call Func_17efb_GoldField
-	call Func_17f64_GoldField
+	call DrawEvolutionIndicatorArrows_GoldFieldTop
+	call DrawEvolutionTrinket_GoldFieldTop
 	ret
 
 DrawSpritesGoldFieldBottom: ; 0x1757e
@@ -20,8 +20,8 @@ DrawSpritesGoldFieldBottom: ; 0x1757e
 	call DrawPikachuSavers_GoldField
 	callba DrawFlippers
 	callba DrawPinball
-	call Func_17f0f_GoldField
-	call Func_17f75_GoldField
+	call DrawEvolutionIndicatorArrows_GoldFieldBottom
+	call DrawEvolutionTrinket_GoldFieldBottom
 	call DrawSlotGlow_GoldField
 	ret
 
@@ -128,7 +128,7 @@ AnimationData_17d27_GoldField:
 	db $02, $02
 	db $00 ; terminator
 
-Func_17d34_GoldField: ; 0x17d34
+DrawDitto_GoldField: ; 0x17d34
 	ld a, $0
 	ld hl, hSCX
 	sub [hl]
@@ -156,7 +156,7 @@ OAMIds_17d51_GoldField:
 	db $CA
 	db $CA
 
-Func_17d59_GoldField: ; 0x17d59
+DrawBellsproutHead_GoldField: ; 0x17d59
 	ld a, $74
 	ld hl, hSCX
 	sub [hl]
@@ -168,19 +168,19 @@ Func_17d59_GoldField: ; 0x17d59
 	ld a, [wBellsproutAnimationFrame]
 	ld e, a
 	ld d, $0
-	ld hl, BellsproutAnimationOAMIds_GoldField
+	ld hl, BellsproutHeadAnimationOAMIds_GoldField
 	add hl, de
 	ld a, [hl]
 	call LoadOAMData
 	ret
 
-BellsproutAnimationOAMIds_GoldField: ; 0x17d76
+BellsproutHeadAnimationOAMIds_GoldField: ; 0x17d76
 	db $BE
 	db $BF
 	db $C0
 	db $C1
 
-Func_17d7a_GoldField: ; 0x17d7a
+DrawBellsproutBody_GoldField: ; 0x17d7a
 	ld a, [hGameBoyColorFlag]
 	and a
 	ret z
@@ -196,7 +196,7 @@ Func_17d7a_GoldField: ; 0x17d7a
 	call LoadOAMData
 	ret
 
-Func_17d92_GoldField: ; 0x17d92
+DrawStaryu_GoldField: ; 0x17d92
 	ld a, [hGameBoyColorFlag]
 	and a
 	ret z
@@ -245,7 +245,7 @@ AnimationData_17dd0_GoldField:
 	db $13, $01
 	db $0 ; terminator
 
-Func_17de1_GoldField: ; 0x17de1
+DrawSpinner_GoldField: ; 0x17de1
 	ld a, $88
 	ld hl, hSCX
 	sub [hl]
@@ -259,19 +259,14 @@ Func_17de1_GoldField: ; 0x17de1
 	srl a
 	ld e, a
 	ld d, $0
-	ld hl, OAMIds_17e02_GoldField
+	ld hl, SpinnerOAMIds_GoldField
 	add hl, de
 	ld a, [hl]
 	call LoadOAMData
 	ret
 
-OAMIds_17e02_GoldField: ; 0x17e02
-	db $C2
-	db $C3
-	db $C4
-	db $C5
-	db $C6
-	db $C7
+SpinnerOAMIds_GoldField: ; 0x17e02
+	db $C2, $C3, $C4, $C5, $C6, $C7
 
 DrawPikachuSavers_GoldField: ; 0x17e08
 	ld a, [hSCX]
@@ -319,29 +314,29 @@ PikachuSaverOAMOffsets_GoldStage:
 	dw $7E0F
 	dw $7E92
 
-Func_17efb_GoldField: ; 0x17efb
-	ld a, [wd551]
+DrawEvolutionIndicatorArrows_GoldFieldTop: ; 0x17efb
+	ld a, [wEvolutionObjectsDisabled]
 	and a
 	ret nz
 	ld a, [hNumFramesDropped]
 	bit 4, a
 	ret z
 	ld de, wIndicatorStates + 5
-	ld hl, OAMData_17f3a_GoldField
+	ld hl, EvolutionIndicatorArrowsOAM_GoldFieldTop
 	ld b, $6
-	jr asm_17f21_GoldField
+	jr DrawEvolutionIndicatorArrows_GoldField
 
-Func_17f0f_GoldField: ; 0x17f0f
-	ld a, [wd551]
+DrawEvolutionIndicatorArrows_GoldFieldBottom: ; 0x17f0f
+	ld a, [wEvolutionObjectsDisabled]
 	and a
 	ret nz
 	ld a, [hNumFramesDropped]
 	bit 4, a
 	ret z
 	ld de, wIndicatorStates + 11
-	ld hl, OAMData_17f4c_GoldField
+	ld hl, EvolutionIndicatorArrowsOAM_GoldFieldBottom
 	ld b, $8
-asm_17f21_GoldField: ; 0x17f21
+DrawEvolutionIndicatorArrows_GoldField: ; 0x17f21
 	push bc
 	ld a, [hSCX]
 	ld b, a
@@ -360,10 +355,10 @@ asm_17f21_GoldField: ; 0x17f21
 	pop bc
 	inc de
 	dec b
-	jr nz, asm_17f21_GoldField
+	jr nz, DrawEvolutionIndicatorArrows_GoldField
 	ret
 
-OAMData_17f3a_GoldField:
+EvolutionIndicatorArrowsOAM_GoldFieldTop:
 	db $0D, $37 ; x, y offsets
 	db $D1 ; oam id
 
@@ -382,7 +377,7 @@ OAMData_17f3a_GoldField:
 	db $73, $74 ; x, y offsets
 	db $D4 ; oam id
 
-OAMData_17f4c_GoldField:
+EvolutionIndicatorArrowsOAM_GoldFieldBottom:
 	db $2D, $13 ; x, y offsets
 	db $32 ; oam id
 
@@ -407,25 +402,25 @@ OAMData_17f4c_GoldField:
 	db $89, $40 ; x, y offsets
 	db $37 ; oam id
 
-Func_17f64_GoldField: ; 0x17f64
-	ld a, [wd551]
+DrawEvolutionTrinket_GoldFieldTop: ; 0x17f64
+	ld a, [wEvolutionObjectsDisabled]
 	and a
 	ret z
 	ld de, wd566
-	ld hl, OAMOffsets_17fa6_GoldField
+	ld hl, EvolutionTrinketOAMOffsets_GoldFieldTop
 	ld b, $c
 	ld c, $39
-	jr asm_17f84_GoldField
+	jr DrawEvolutionTrinket_GoldField
 
-Func_17f75_GoldField: ; 0x17f75
-	ld a, [wd551]
+DrawEvolutionTrinket_GoldFieldBottom: ; 0x17f75
+	ld a, [wEvolutionObjectsDisabled]
 	and a
 	ret z
 	ld de, wd572
-	ld hl, OAMOffsets_17fbe_GoldField
+	ld hl, EvolutionTrinketOAMOffsets_GoldFieldBottom
 	ld b, $6
 	ld c, $40
-asm_17f84_GoldField: ; 0x17f84
+DrawEvolutionTrinket_GoldField: ; 0x17f84
 	push bc
 	ld a, [de]
 	add c
@@ -451,10 +446,10 @@ asm_17f84_GoldField: ; 0x17f84
 	pop bc
 	inc de
 	dec b
-	jr nz, asm_17f84_GoldField
+	jr nz, DrawEvolutionTrinket_GoldField
 	ret
 
-OAMOffsets_17fa6_GoldField:
+EvolutionTrinketOAMOffsets_GoldFieldTop:
 ; x, y offsets
 	db $4C, $0C
 	db $32, $12
@@ -469,7 +464,7 @@ OAMOffsets_17fa6_GoldField:
 	db $59, $7A
 	db $71, $7A
 
-OAMOffsets_17fbe_GoldField:
+EvolutionTrinketOAMOffsets_GoldFieldBottom:
 ; x, y offsets
 	db $3D, $13
 	db $5B, $13

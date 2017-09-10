@@ -37,7 +37,7 @@ ConcludeEvolutionMode: ; 0x10ac8
 	ld [wWildMonIsHittable], a
 	ld [wNumberOfCatchModeTilesFlipped], a
 	ld [wNumMonHits], a
-	ld [wd551], a
+	ld [wEvolutionObjectsDisabled], a
 	ld [wd554], a
 	call ClearWildMonCollisionMask
 	callba StopTimer
@@ -99,7 +99,7 @@ VideoData_10b2a: ; 0x10b2a
 	dw $8900
 	dw $E0
 
-ShowEvolutionStartText: ; 0x10b3f
+ShowStartEvolutionModeText: ; 0x10b3f
 	call FillBottomMessageBufferWithBlackTile
 	call EnableBottomText
 	ld hl, wScrollingText1
@@ -423,7 +423,7 @@ SelectPokemonToEvolve: ; 0x10cb7
 	ld [wInSpecialMode], a
 	ld [wSpecialMode], a
 	xor a
-	ld [wd54d], a
+	ld [wSpecialModeState], a
 	ld a, [wCurSelectedPartyMon]
 	ld c, a
 	ld b, $0
@@ -511,6 +511,7 @@ InitEvolutionModeForMon: ; 0x10d1d
 	call RandomRange
 	sla a
 	ld c, a
+	ld b, 0
 	pop hl
 	add hl, bc  ; hl points to one of three entries in mon's evolution data
 	ld a, [hli]  ; a = mon id of evolution
@@ -531,8 +532,8 @@ InitEvolutionModeForMon: ; 0x10d1d
 	ld [wCurrentEvolutionType], a
 	xor a
 	ld [wd554], a
-	ld [wd556], a
-	ld [wd557], a
+	ld [wEvolutionTrinketCooldownFrames], a
+	ld [wEvolutionTrinketCooldownFrames + 1], a
 	ld hl, wd55c
 	ld a, $1
 	ld b, $3
@@ -569,11 +570,18 @@ InitEvolutionModeForMon: ; 0x10d1d
 	dec b
 	jr nz, .asm_10dc0
 	callba InitBallSaverForCatchEmMode
-	call ShowEvolutionStartText
+	call ShowStartEvolutionModeText
 	call Func_3579
 	ld a, [wCurrentStage]
 	bit 0, a
 	jr z, .done
+	ld a, [rLYC]
+	inc a
+	ld b, a
+.waitUntilAfterLYC
+	ld a, [rLY]
+	cp b
+	jr c, .waitUntilAfterLYC
 	ld a, BANK(StageRedFieldBottomBaseGameBoyColorGfx)
 	ld hl, StageRedFieldBottomBaseGameBoyColorGfx + $300
 	ld de, vTilesSH tile $2e
@@ -587,10 +595,10 @@ InitEvolutionModeForMon: ; 0x10d1d
 .done
 	ret
 
-Func_10e0a: ; 0x10e0a
+ShowMonEvolvedText: ; 0x10e0a
 	ld a, [wCurrentEvolutionMon]
 	cp $ff
-	jp z, Func_10e8b
+	jp z, EvolutionSpecialBonus
 	ld c, a
 	ld b, $0
 	sla c
@@ -644,16 +652,15 @@ Func_10e0a: ; 0x10e0a
 	pop hl
 	ld de, wBottomMessageText + $20
 	ld b, $0
-.asm_10e67
+.loadMonNameLoop
 	ld a, [hli]
 	and a
-	jr z, .asm_10e70
+	jr z, .continue
 	ld [de], a
 	inc de
 	inc b
-	jr .asm_10e67
-
-.asm_10e70
+	jr .loadMonNameLoop
+.continue
 	ld a, $20
 	ld [de], a
 	inc de
@@ -671,7 +678,7 @@ Func_10e0a: ; 0x10e0a
 	ld [wScrollingText2StopOffset], a
 	ret
 
-Func_10e8b: ; 0x10e8b
+EvolutionSpecialBonus: ; 0x10e8b
 	ld bc, OneMillionPoints
 	callba AddBigBCD6FromQueue
 	ld bc, $0100
@@ -718,16 +725,16 @@ StartEvolutionMode_RedField: ; 0x10ebb
 	call Func_107b0
 	ld a, $2
 	ld [wd7ad], a
-	ld de, $0002
+	ld de, MUSIC_CATCH_EM_BLUE ; Either MUSIC_CATCH_EM_BLUE or MUSIC_CATCH_EM_RED. They have the same id in their respective audio Banks.
 	call PlaySong
 	call SetPokemonSeenFlag
 	ld a, [wCurrentStage]
 	bit 0, a
-	jr nz, .asm_10f0b
+	jr nz, .bottom
 	ld de, vTilesSH tile $10
 	jp LoadEvolutionTrinketGfx
 
-.asm_10f0b
+.bottom
 	ld de, vTilesOB tile $20
 	call LoadEvolutionTrinketGfx
 	callba ClearAllRedIndicators
@@ -790,7 +797,7 @@ IndicatorStates_10fd0:  ; 0x10fd0
 
 ConcludeEvolutionMode_RedField: ; 0x10fe3
 	call ResetIndicatorStates
-	call Func_107c2
+	call OpenSlotCave
 	call SetLeftAndRightAlleyArrowIndicatorStates_RedField
 	call Func_107e9
 	ld a, [wCurrentStage]
@@ -853,16 +860,16 @@ StartEvolutionMode_BlueField: ; 0x11061
 	callba CloseSlotCave
 	ld a, $2
 	ld [wd7ad], a
-	ld de, $0002
+	ld de, MUSIC_CATCH_EM_BLUE ; Either MUSIC_CATCH_EM_BLUE or MUSIC_CATCH_EM_RED. They have the same id in their respective audio Banks.
 	call PlaySong
 	call SetPokemonSeenFlag
 	ld a, [wCurrentStage]
 	bit 0, a
-	jr nz, .asm_110bd
+	jr nz, .bottom
 	ld de, vTilesOB tile $60
 	jp LoadEvolutionTrinketGfx
 
-.asm_110bd
+.bottom
 	ld de, vTilesOB tile $20
 	call LoadEvolutionTrinketGfx
 	callba Func_1c2cb
@@ -910,7 +917,7 @@ ConcludeEvolutionMode_BlueField: ; 0x11195
 	xor a
 	ld [wd643], a
 	call ResetIndicatorStates
-	call Func_107c2
+	call OpenSlotCave
 	callba SetLeftAndRightAlleyArrowIndicatorStates_BlueField
 	ld a, [wCurrentStage]
 	bit 0, a
@@ -1025,7 +1032,7 @@ IndicatorStates_10fd0_GoldField:  ; 0x10fd0
 
 ConcludeEvolutionMode_GoldField: ; 0x10fe3
 	call ResetIndicatorStates
-	call Func_107c2
+	call OpenSlotCave
 	call SetLeftAndRightAlleyArrowIndicatorStates_GoldField
 	call Func_107e9_GoldField
 	ld a, [wCurrentStage]
@@ -1145,7 +1152,7 @@ ConcludeEvolutionMode_SilverField: ; 0x11195
 	xor a
 	ld [wd643], a
 	call ResetIndicatorStates
-	call Func_107c2
+	call OpenSlotCave
 	callba SetLeftAndRightAlleyArrowIndicatorStates_SilverField
 	ld a, [wCurrentStage]
 	bit 0, a

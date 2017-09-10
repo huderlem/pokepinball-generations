@@ -111,8 +111,8 @@ CheckBlueStageWildPokemonCollision: ; 0x1c5de
 
 CheckBlueStageEvolutionTrinketCollision: ; 0x1c5eb
 	xor a
-	ld [wd578], a
-	ld a, [wd551]
+	ld [wCollidedPointIndex], a
+	ld a, [wEvolutionObjectsDisabled]
 	and a
 	ret z
 	ld a, [wCurrentStage]

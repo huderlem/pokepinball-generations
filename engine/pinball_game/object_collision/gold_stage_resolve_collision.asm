@@ -89,7 +89,7 @@ ResolveDiglettCollision_GoldField: ; 0x147aa
 	ld a, $6b
 	ld [wStageCollisionMap + $110], a
 	ld a, $5
-	call LoadDiglettGraphics_GoldField
+	call _LoadDiglettGraphics_GoldField
 	ld a, [wRightMapMoveCounter]
 	add $4
 	call LoadDiglettNumberGraphics_GoldField
@@ -106,7 +106,7 @@ ResolveDiglettCollision_GoldField: ; 0x147aa
 	ld a, $67
 	ld [wStageCollisionMap + $103], a
 	ld a, $2
-	call LoadDiglettGraphics_GoldField
+	call _LoadDiglettGraphics_GoldField
 	ld a, [wLeftMapMoveCounter]
 	call LoadDiglettNumberGraphics_GoldField
 	ld a, $7
@@ -324,7 +324,7 @@ UpdateDiglettAnimations_GoldField: ; 0x14990
 	ld a, [wLeftMapMoveDiglettFrame]
 	xor $1
 	ld [wLeftMapMoveDiglettFrame], a
-	call LoadDiglettGraphics_GoldField
+	call _LoadDiglettGraphics_GoldField
 .asm_149b6
 	ld a, [wRightDiglettAnimationController]
 	and a
@@ -347,7 +347,7 @@ UpdateDiglettAnimations_GoldField: ; 0x14990
 	add $3
 	; fall through
 
-LoadDiglettGraphics_GoldField: ; 0x149d9
+_LoadDiglettGraphics_GoldField: ; 0x149d9
 	sla a
 	ld c, a
 	ld b, $0
@@ -445,21 +445,21 @@ ResolveGoldStageSpinnerCollision: ; 0x14dea
 	ld a, [wBallYVelocity + 1]
 	ld b, a
 	ld a, c
-	ld [wd50b], a
+	ld [wSpinnerVelocity], a
 	ld a, b
-	ld [wd50c], a
+	ld [wSpinnerVelocity + 1], a
 	ld a, $c
 	callba CheckSpecialModeColision
 	; fall through
 
 UpdateGoldStageSpinner: ; 0x14e10
-	ld hl, wd50b
+	ld hl, wSpinnerVelocity
 	ld a, [hli]
 	or [hl]
 	ret z
-	ld a, [wd50b]
+	ld a, [wSpinnerVelocity]
 	ld c, a
-	ld a, [wd50c]
+	ld a, [wSpinnerVelocity + 1]
 	ld b, a
 	bit 7, b
 	jr nz, .asm_14e2e
@@ -484,10 +484,10 @@ UpdateGoldStageSpinner: ; 0x14e10
 	ld bc, $0000
 .asm_14e3b
 	ld a, c
-	ld [wd50b], a
+	ld [wSpinnerVelocity], a
 	ld a, b
-	ld [wd50c], a
-	ld hl, wd50b
+	ld [wSpinnerVelocity + 1], a
+	ld hl, wSpinnerVelocity
 	ld a, [wd509]
 	add [hl]
 	ld [wd509], a
@@ -1434,13 +1434,13 @@ LightUpBumper_GoldField: ; 0x15fa6
 	ld [wBumperLightUpDuration], a
 	ld a, [wWhichBumperId]
 	sub $6
-	ld [wd4db], a
+	ld [wWhichBumperGfx], a
 	sla a
 	inc a
 	jr LoadBumperGraphics_GoldField
 
 LoadBumpersGraphics_GoldField: ; 0x15fb8
-	ld a, [wd4db]
+	ld a, [wWhichBumperGfx]
 	cp $ff
 	ret z
 	sla a
@@ -1904,7 +1904,7 @@ ShowScrollingGoToBonusText_GoldField: ; 0x163f2
 	ld de, GoToMewtwoStageText
 .asm_1640f
 	call LoadScrollingText
-	ld de, $0000
+	ld de, MUSIC_NOTHING
 	call PlaySong
 	rst AdvanceFrame
 	lb de, $3c, $23
@@ -2084,13 +2084,13 @@ ChooseInitialMap_GoldField: ; 0x1658f
 	ret
 
 GoldStageInitialMaps: ; 0x16605
-	db PALLET_TOWN
-	db VIRIDIAN_FOREST
-	db PEWTER_CITY
-	db CERULEAN_CITY
-	db VERMILION_SEASIDE
-	db ROCK_MOUNTAIN
-	db LAVENDER_TOWN
+	db NEW_BARK_TOWN
+	db VIOLET_CITY
+	db RUINS_OF_ALPH
+	db LAKE_OF_RAGE
+	db ECRUTEAK_CITY
+	db ILEX_FOREST
+	db GOLDENROD_CITY
 
 ResolveGoldStagePikachuCollision: ; 0x1660c
 	ld a, [wWhichPikachu]
@@ -2522,15 +2522,15 @@ ResolveGoldStageBonusMultiplierCollision: ; 016d9d
 	ld a, [wBonusMultiplierOnesDigit]
 	ld [wd615], a
 	ld a, $1
-	ld [wd613], a
+	ld [wShowBonusMultiplierBottomMessage], a
 .asm_16e35
 	ld bc, TenPoints
 	callba AddBigBCD6FromQueueWithBallMultiplier
 	ld a, [wBonusMultiplierTensDigit]
-	call LoadBonusMultiplierRailingGraphics_GoldField
+	call _LoadBonusMultiplierRailingGraphics_GoldField
 	ld a, [wBonusMultiplierOnesDigit]
 	add $14
-	call LoadBonusMultiplierRailingGraphics_GoldField
+	call _LoadBonusMultiplierRailingGraphics_GoldField
 	ret
 
 UpdateBonusMultiplierRailing_GoldField: ; 0x16e51
@@ -2558,10 +2558,10 @@ UpdateBonusMultiplierRailing_GoldField: ; 0x16e51
 	ld a, [wCurBonusMultiplier]
 	callba GetBCDForNextBonusMultiplier
 	ld a, [wBonusMultiplierTensDigit]
-	call LoadBonusMultiplierRailingGraphics_GoldField
+	call _LoadBonusMultiplierRailingGraphics_GoldField
 	ld a, [wBonusMultiplierOnesDigit]
 	add $14
-	call LoadBonusMultiplierRailingGraphics_GoldField
+	call _LoadBonusMultiplierRailingGraphics_GoldField
 	ret
 
 .asm_16e8f
@@ -2582,14 +2582,14 @@ UpdateBonusMultiplierRailing_GoldField: ; 0x16e51
 	ld a, [wBonusMultiplierTensDigit]
 	res 7, a
 	ld [wBonusMultiplierTensDigit], a
-	call LoadBonusMultiplierRailingGraphics_GoldField
+	call _LoadBonusMultiplierRailingGraphics_GoldField
 	jr .asm_16ec1
 
 .asm_16eb6
 	ld a, [wBonusMultiplierTensDigit]
 	set 7, a
 	ld [wBonusMultiplierTensDigit], a
-	call LoadBonusMultiplierRailingGraphics_GoldField
+	call _LoadBonusMultiplierRailingGraphics_GoldField
 .asm_16ec1
 	ld a, [wd611]
 	cp $2
@@ -2609,7 +2609,7 @@ UpdateBonusMultiplierRailing_GoldField: ; 0x16e51
 	res 7, a
 	ld [wBonusMultiplierOnesDigit], a
 	add $14
-	call LoadBonusMultiplierRailingGraphics_GoldField
+	call _LoadBonusMultiplierRailingGraphics_GoldField
 	ret
 
 .asm_16ee7
@@ -2617,18 +2617,18 @@ UpdateBonusMultiplierRailing_GoldField: ; 0x16e51
 	set 7, a
 	ld [wBonusMultiplierOnesDigit], a
 	add $14
-	call LoadBonusMultiplierRailingGraphics_GoldField
+	call _LoadBonusMultiplierRailingGraphics_GoldField
 	ret
 
 ShowBonusMultiplierMessage_GoldField: ; 0x16ef5
 	ld a, [wBottomTextEnabled]
 	and a
 	ret nz
-	ld a, [wd613]
+	ld a, [wShowBonusMultiplierBottomMessage]
 	and a
 	ret z
 	xor a
-	ld [wd613], a
+	ld [wShowBonusMultiplierBottomMessage], a
 	call FillBottomMessageBufferWithBlackTile
 	call EnableBottomText
 	ld hl, wScrollingText1
@@ -2647,21 +2647,21 @@ ShowBonusMultiplierMessage_GoldField: ; 0x16ef5
 	ld [hl], a
 	ret
 
-LoadBonusMultiplierRailingGraphics_GoldField: ; 0x16f28
+_LoadBonusMultiplierRailingGraphics_GoldField: ; 0x16f28
 	push af
 	ld a, [hGameBoyColorFlag]
 	and a
 	jr nz, .gameboyColor
 	pop af
-	call LoadBonusMultiplierRailingGraphics_GoldField_Gameboy
+	call _LoadBonusMultiplierRailingGraphics_GoldField_Gameboy
 	ret
 
 .gameboyColor
 	pop af
-	call LoadBonusMultiplierRailingGraphics_GoldField_GameboyColor
+	call _LoadBonusMultiplierRailingGraphics_GoldField_GameboyColor
 	ret
 
-LoadBonusMultiplierRailingGraphics_GoldField_Gameboy: ; 0x16f38
+_LoadBonusMultiplierRailingGraphics_GoldField_Gameboy: ; 0x16f38
 	push af
 	res 7, a
 	ld hl, wd60e
@@ -2704,7 +2704,7 @@ LoadBonusMultiplierRailingGraphics_GoldField_Gameboy: ; 0x16f38
 	call QueueGraphicsToLoad
 	ret
 
-LoadBonusMultiplierRailingGraphics_GoldField_GameboyColor: ; 0x16f7b
+_LoadBonusMultiplierRailingGraphics_GoldField_GameboyColor: ; 0x16f7b
 	bit 7, a
 	jr z, .asm_16f83
 	res 7, a

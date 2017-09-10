@@ -22,7 +22,7 @@ HandleBallLossBlueField: ; 0xde4f
 	ret
 
 .youLose
-	ld de, $0000
+	ld de, MUSIC_NOTHING
 	call PlaySong
 	ld bc, $001e
 	call AdvanceFrames
@@ -30,11 +30,11 @@ HandleBallLossBlueField: ; 0xde4f
 	call PlaySoundEffect
 	call Start20SecondSaverTimer
 	ld a, $1
-	ld [wd4c9], a
+	ld [wLostBall], a
 	xor a
 	ld [wPinballLaunched], a
 	ld [wd4df], a
-	call Func_ded6
+	call ConcludeSpecialMode_BlueField
 	ld a, [wCurBonusMultiplierFromFieldEvents]
 	and a
 	jr z, .noExtraBall
@@ -64,19 +64,19 @@ HandleBallLossBlueField: ; 0xde4f
 	ld [wGameOver], a
 	ret
 
-Func_ded6: ; 0xded6
+ConcludeSpecialMode_BlueField: ; 0xded6
 	ld a, [wInSpecialMode]
 	and a
 	ret z
 	ld a, [wSpecialMode]
 	and a
-	jr nz, .asm_deec
+	jr nz, .notCatchEmMode
 	callba ConcludeCatchEmMode
 	ret
 
-.asm_deec
+.notCatchEmMode
 	cp SPECIAL_MODE_EVOLUTION
-	jr nz, .asm_df05
+	jr nz, .notEvolutionMode
 	ld a, $0
 	ld [wSlotIsOpen], a
 	ld a, $1e
@@ -84,10 +84,10 @@ Func_ded6: ; 0xded6
 	callba ConcludeEvolutionMode
 	ret
 
-.asm_df05
+.notEvolutionMode
 	ld a, $0
 	ld [wSlotIsOpen], a
 	ld a, $1e
 	ld [wFramesUntilSlotCaveOpens], a
-	callba Func_3022b
+	callba ConcludeMapMoveMode
 	ret

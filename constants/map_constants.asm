@@ -19,6 +19,22 @@ const_value = 0
 	const CINNABAR_ISLAND    ; $10
 	const INDIGO_PLATEAU     ; $11
 
-	const GOLDENROD_CITY     ; $12
-	const OLIVINE_CITY       ; $13
-	const TIN_TOWER          ; $14
+	const NEW_BARK_TOWN      ; $12
+	const VIOLET_CITY        ; $13
+	const RUINS_OF_ALPH      ; $14
+	const DARK_CAVE          ; $15
+	const LAKE_OF_RAGE       ; $16
+	const MAHOGANY_TOWN      ; $17
+	const ECRUTEAK_CITY      ; $18
+	const AZALEA_TOWN        ; $19
+	const ILEX_FOREST        ; $1A
+	const GOLDENROD_CITY     ; $1B
+	const NATIONAL_PARK      ; $1C
+	const OLIVINE_CITY       ; $1D
+	const ICE_PATH           ; $1E
+	const MT_MORTAR          ; $1F
+	const BURNED_TOWER       ; $20
+	const TIN_TOWER          ; $21
+	const WHIRL_ISLANDS      ; $22
+	const BLACKTHORN_CITY    ; $23
+	const MT_SILVER          ; $24

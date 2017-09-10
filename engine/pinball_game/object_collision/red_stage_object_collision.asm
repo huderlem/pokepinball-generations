@@ -27,8 +27,8 @@ CheckRedStageBottomGameObjectCollisions: ; 0x143f9
 
 CheckRedStageEvolutionTrinketCollision: ; 0x1441e
 	xor a
-	ld [wd578], a
-	ld a, [wd551]
+	ld [wCollidedPointIndex], a
+	ld a, [wEvolutionObjectsDisabled]
 	and a
 	ret z
 	ld a, [wCurrentStage]

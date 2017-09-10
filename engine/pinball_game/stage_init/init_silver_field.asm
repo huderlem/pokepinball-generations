@@ -1,5 +1,5 @@
 InitSilverField:
-	ld a, [wd7c1]
+	ld a, [wLoadingSavedGame]
 	and a
 	ret nz
 	xor a
@@ -12,7 +12,7 @@ InitSilverField:
 	ld [hl], a
 	ld [wNumPartyMons], a
 	ld [wCurBonusMultiplierFromFieldEvents], a
-	ld [wd4c9], a
+	ld [wLostBall], a
 	ld [wBallType], a
 	ld [wd4c8], a
 	ld hl, wPreviousNumPokeballs
@@ -20,7 +20,7 @@ InitSilverField:
 	ld [hli], a ; wNumPokeballs
 	ld [hli], a ; wPokeballBlinkingCounter
 	ld [wDisableHorizontalScrollForBallStart], a
-	ld [wd7be], a
+	ld [wFlippersDisabled], a
 	ld [wCurrentMap], a  ; PALLET_TOWN
 	ld a, $1
 	ld [wd49d], a
@@ -48,8 +48,8 @@ InitSilverField:
 	ld [wPoliwagState], a
 	callba Start20SecondSaverTimer
 	callba GetBCDForNextBonusMultiplier_BlueField
-	ld a, $10
+	ld a, Bank(Music_BlueField)
 	call SetSongBank
-	ld de, $0001
+	ld de, MUSIC_BLUE_FIELD
 	call PlaySong
 	ret

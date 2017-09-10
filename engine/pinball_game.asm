@@ -46,7 +46,7 @@ GameScreenFunction_StartBall: ; 0xd87f
 	ld hl, rIE
 	set 1, [hl]
 	ld a, $1
-	ld [hHBlankRoutine], a
+	ld [hStatIntrRoutine], a
 	callba InitBallForStage
 	callba LoadStageCollisionAttributes
 	callba LoadStageData
@@ -59,7 +59,7 @@ GameScreenFunction_StartBall: ; 0xd87f
 	ld a, $1
 	ld [wDrawBottomMessageBox], a
 	xor a
-	ld [wd7c1], a
+	ld [wLoadingSavedGame], a
 	call SetAllPalettesWhite
 	call EnableLCD
 	call FadeIn
@@ -192,7 +192,7 @@ GameScreenFunction_HandleBallLoss: ; 0xda36
 	ld a, [wBottomTextEnabled]
 	and a
 	ret nz
-	ld a, [wd4c9]
+	ld a, [wLostBall]
 	and a
 	jr z, .asm_daa9
 	ld a, [wd49c]
@@ -245,7 +245,7 @@ GameScreenFunction_EndBall: ; 0xdab2
 	ret
 
 .goingToBonusStage
-	ld de, $0000
+	ld de, MUSIC_NOTHING
 	call PlaySong
 	ld bc, $0004
 	call AdvanceFrames
@@ -259,9 +259,9 @@ GameScreenFunction_EndBall: ; 0xdab2
 	ld hl, rIE
 	res 1, [hl]
 	ld a, [wCurrentStage]
-	ld [wd4ad], a
+	ld [wCurrentStageBackup], a
 	ld a, [wStageCollisionState]
-	ld [wd4b0], a
+	ld [wStageCollisionStateBackup], a
 	ld a, [wNextStage]
 	ld [wCurrentStage], a
 	xor a
@@ -272,7 +272,7 @@ GameScreenFunction_EndBall: ; 0xdab2
 	ret
 
 .returningFromBonusStage
-	ld de, $0000
+	ld de, MUSIC_NOTHING
 	call PlaySong
 	ld bc, $0004
 	call AdvanceFrames
@@ -285,9 +285,9 @@ GameScreenFunction_EndBall: ; 0xdab2
 	res 6, [hl]
 	ld hl, rIE
 	res 1, [hl]
-	ld a, [wd4ad]
+	ld a, [wCurrentStageBackup]
 	ld [wCurrentStage], a
-	ld a, [wd4b0]
+	ld a, [wStageCollisionStateBackup]
 	ld [wStageCollisionState], a
 	ld a, $1
 	ld [wScreenState], a
@@ -296,7 +296,7 @@ GameScreenFunction_EndBall: ; 0xdab2
 TransitionToHighScoresScreen: ; 0xdb5d
 	xor a
 	ld [wGameOver], a
-	ld de, $0000
+	ld de, MUSIC_NOTHING
 	call PlaySong
 	ld bc, $0004
 	call AdvanceFrames

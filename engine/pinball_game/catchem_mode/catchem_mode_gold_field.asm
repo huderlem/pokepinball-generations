@@ -1,29 +1,29 @@
 HandleGoldCatchEmCollision: ; 0x20000
 	ld a, [wSpecialModeCollisionID]
 	cp SPECIAL_COLLISION_VOLTORB
-	jp z, Func_20230_GoldField
+	jp z, HandleVoltorbCollision_CatchemMode_GoldField
 	cp SPECIAL_COLLISION_SPINNER
-	jp z, Func_202a8_GoldField
+	jp z, HandleSpinnerCollision_CatchemMode_GoldField
 	cp SPECIAL_COLLISION_BELLSPROUT
-	jp z, Func_202b2_GoldField
+	jp z, HandleBellsproutCollision_CatchemMode_GoldField
 	cp SPECIAL_COLLISION_NOTHING
-	jr z, .asm_20018
+	jr z, .noCollision
 	scf
 	ret
 
-.asm_20018
-	call Func_201f2_GoldField
-	ld a, [wd54d]
+.noCollision
+	call CheckIfCatchemModeTimerExpired_GoldField
+	ld a, [wSpecialModeState]
 	call CallInFollowingTable
-PointerTable_20021_GoldField: ; 0x20021
+CatchemModeCallTable_GoldField: ; 0x20021
 	padded_dab Func_20041_GoldField
 	padded_dab Func_2005f_GoldField
 	padded_dab Func_2006b_GoldField
-	padded_dab Func_200a3_GoldField
-	padded_dab Func_200d3_GoldField
-	padded_dab Func_20193_GoldField
-	padded_dab CapturePokemonGoldStage
-	padded_dab Func_201ce_GoldField
+	padded_dab ShowAnimatedCatchemPokemon_GoldField
+	padded_dab UpdateMonState_CatchemMode_GoldField
+	padded_dab CatchPokemon_GoldField
+	padded_dab CapturePokemonAnimation_GoldField
+	padded_dab ConcludeCatchemMode_GoldField
 
 Func_20041_GoldField: ; 0x20041
 	ld a, [wNumberOfCatchModeTilesFlipped]
@@ -32,7 +32,7 @@ Func_20041_GoldField: ; 0x20041
 	ld a, [wCurrentStage]
 	bit 0, a
 	jr z, .asm_2005d
-	ld hl, wd54d
+	ld hl, wSpecialModeState
 	inc [hl]
 	ld a, $14
 	ld [wd54e], a
@@ -61,13 +61,13 @@ Func_2006b_GoldField: ; 0x2006b
 .asm_20098
 	ld a, $1
 	ld [wd5c6], a
-	ld hl, wd54d
+	ld hl, wSpecialModeState
 	inc [hl]
 .asm_200a1
 	scf
 	ret
 
-Func_200a3_GoldField: ; 0x200a3
+ShowAnimatedCatchemPokemon_GoldField: ; 0x200a3
 	ld a, [wCurrentStage]
 	bit 0, a
 	jr z, .asm_200af
@@ -75,15 +75,15 @@ Func_200a3_GoldField: ; 0x200a3
 	jr nz, .asm_200d1
 .asm_200af
 	callba ShowAnimatedWildMon
-	callba Func_10732
+	callba PlayCatchemPokemonCry
 	callba LoadWildMonCollisionMask
-	ld hl, wd54d
+	ld hl, wSpecialModeState
 	inc [hl]
 .asm_200d1
 	scf
 	ret
 
-Func_200d3_GoldField: ; 0x200d3
+UpdateMonState_CatchemMode_GoldField: ; 0x200d3
 	ld a, [wLoopsUntilNextCatchSpriteAnimationChange]
 	dec a
 	ld [wLoopsUntilNextCatchSpriteAnimationChange], a
@@ -143,7 +143,7 @@ Func_200d3_GoldField: ; 0x200d3
 	ld [wTimeRanOut], a
 	ld a, $1
 	ld [wPauseTimer], a
-	ld hl, wd54d
+	ld hl, wSpecialModeState
 	inc [hl]
 	ld c, $2
 	jr .asm_2018a
@@ -175,7 +175,7 @@ Func_200d3_GoldField: ; 0x200d3
 	scf
 	ret
 
-Func_20193_GoldField: ; 0x20193
+CatchPokemon_GoldField: ; 0x20193
 	ld a, [wd580]
 	and a
 	jr z, .asm_2019e
@@ -185,31 +185,31 @@ Func_20193_GoldField: ; 0x20193
 
 .asm_2019e
 	callba BallCaptureInit
-	ld hl, wd54d
+	ld hl, wSpecialModeState
 	inc [hl]
-	callba Func_106b6
+	callba ShowCapturedPokemonText
 	callba AddCaughtPokemonToParty
 	scf
 	ret
 
-CapturePokemonGoldStage: ; 0x201c2
-	callba CapturePokemon
+CapturePokemonAnimation_GoldField: ; 0x201c2
+	callba CapturePokemonAnimation
 	scf
 	ret
 
-Func_201ce_GoldField: ; 0x201ce
+ConcludeCatchemMode_GoldField: ; 0x201ce
 	ld a, [wBottomTextEnabled]
 	and a
 	ret nz
 	call FillBottomMessageBufferWithBlackTile
 	callba RestoreBallSaverAfterCatchEmMode
 	callba ConcludeCatchEmMode
-	ld de, $0001
+	ld de, MUSIC_RED_FIELD
 	call PlaySong
 	scf
 	ret
 
-Func_201f2_GoldField: ; 0x201f2
+CheckIfCatchemModeTimerExpired_GoldField: ; 0x201f2
 	callba PlayLowTimeSfx
 	ld a, [wTimeRanOut]
 	and a
@@ -217,7 +217,7 @@ Func_201f2_GoldField: ; 0x201f2
 	xor a
 	ld [wTimeRanOut], a
 	ld a, $7
-	ld [wd54d], a
+	ld [wSpecialModeState], a
 	; Automatically set Mew as caught, since you can't possibly catch it
 	ld a, [wCurrentCatchEmMon]
 	cp MEW - 1
@@ -228,7 +228,7 @@ Func_201f2_GoldField: ; 0x201f2
 	callba Func_106a6
 	ret
 
-Func_20230_GoldField: ; 0x20230
+HandleVoltorbCollision_CatchemMode_GoldField: ; 0x20230
 	ld a, [wNumberOfCatchModeTilesFlipped]
 	cp $18
 	jr z, .asm_2029d
@@ -284,13 +284,13 @@ Func_20230_GoldField: ; 0x20230
 	scf
 	ret
 
-Func_202a8_GoldField: ; 0x202a8
+HandleSpinnerCollision_CatchemMode_GoldField: ; 0x202a8
 	ld bc, $0000
 	ld de, $1000
 	call AddBCDEToJackpot
 	ret
 
-Func_202b2_GoldField: ; 0x202b2
+HandleBellsproutCollision_CatchemMode_GoldField: ; 0x202b2
 	ld bc, $0005
 	ld de, $0000
 	call AddBCDEToJackpot

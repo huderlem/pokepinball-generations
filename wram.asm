@@ -2,6 +2,7 @@ INCLUDE "macros.asm"
 INCLUDE "constants/pokemon_constants.asm"
 INCLUDE "constants/pinball_game_constants.asm"
 
+
 ; OAM Animations use this 3-byte struct.
 animation: MACRO
 \1FrameCounter:: ds 1
@@ -14,8 +15,10 @@ SECTION "WRAM Bank 0", WRAM0
 wc000:: ; 0xc000
 	ds $10
 
-wc010:: ; 0xc010
-	ds $140
+wPokedexFontBuffer:: ; 0xc010
+; Buffer to build up the variable-width font used for various displayed text in the pokedex screen.
+; This buffer is copied directly to VRAM tile data. There is room for 10 characters worth of the widest text character.
+	ds 10 * $20
 
 wc150:: ; 0xc150
 	ds $68
@@ -23,19 +26,14 @@ wc150:: ; 0xc150
 wc1b8:: ; 0xc1b8
 	ds $c8
 
-wc280:: ; 0xc280
-	ds $9
-
-wc289:: ; 0xc289
-	ds $37
-
-wc2c0:: ; 0xc2c0
-	ds $140
+wSendHighScoresTopBarTilemap:: ; 0xc280
+; This is the tilemap data that is sent via infrared in the High Scores screen.
+; It actually takes up $400 bytes of spaces, but there are other labels that use this space, too.
+	ds $180
 
 wMonAnimatedCollisionMask:: ; 0xc400
 	ds $80
 
-wc480:: ; 0xc480
 	ds $40
 
 wc4c0:: ; 0xc4c0
@@ -154,13 +152,19 @@ wCurBonusMultiplier:: ; 0xd482
 ; railings. (left one first, then right one). See MAX_BONUS_MULTIPLIER
 	ds $1
 
-wd483:: ; 0xd483
+wEndOfBallBonusCategoryScore:: ; 0xd483
+; The "Bonus" score for the currently-displayed category of bonus score. (e.g. bonus score for "Pokemon Caught" category)
+; It is a 6-digit BCD value.
 	ds $6
 
-wd489:: ; 0xd489
+wEndOfBallBonusSubTotal:: ; 0xd489
+; The running subtotal for the end-of-ball-bonus display.
+; It is a 6-digit BCD value.
 	ds $6
 
-wd48f:: ; 0xd48f
+wEndOfBallBonusTotalScore:: ; 0xd48f
+; The final score after the end-of-ball-bonus score is added to the player's previous score.
+; It is a 6-digit BCD value.
 	ds $6
 
 wGoingToBonusStage:: ; 0xd495
@@ -243,10 +247,12 @@ wDrawBottomMessageBox:: ; 0xd4aa
 wd4ab:: ; 0xd4ab
 	ds $1
 
-wCurrentStage:: ; 0xd4ac see constants/stage_constants.asm for list. bit 0 is 1 if the stage has flippers
+wCurrentStage:: ; 0xd4ac
+; see constants/stage_constants.asm for list. bit 0 is 1 if the stage has flippers
 	ds $1
 
-wd4ad:: ; 0xd4ad
+wCurrentStageBackup:: ; 0xd4ad
+; Holds backup of current stage id when going to a Bonus Stage. See wCurrentStage.
 	ds $1
 
 wMoveToNextScreenState:: ; 0xd4ae
@@ -256,8 +262,11 @@ wMoveToNextScreenState:: ; 0xd4ae
 wStageCollisionState:: ; 0xd4af
 	ds $1
 
-wd4b0:: ; 0xd4b0
-	ds $3
+wStageCollisionStateBackup:: ; 0xd4b0
+; Holds backup of stage collision state when going to a Bonus Stage. See wStageCollisionState.
+	ds $1
+
+	ds $2
 
 wBallXPos:: ; 0xd4b3
 	ds $2
@@ -295,7 +304,8 @@ wd4c7:: ; 0xd4c7
 wd4c8:: ; 0xd4c8
 	ds $1
 
-wd4c9:: ; 0xd4c9
+wLostBall:: ; 0xd4c9
+; Set to 1 when a ball was lost. (Lost a "life"). 0 otherwise.
 	ds $1
 
 wShowExtraBallText:: ; 0xd4ca
@@ -347,7 +357,11 @@ wBumperLightUpDuration:: ; 0xd4da
 ; This is shared by both bumpers, so only one can be lit up at a time.
 	ds $1
 
-wd4db:: ; 0xd4db
+wWhichBumperGfx:: ; 0xd4db
+; Determines which bumper graphics will be loaded by LoadBumperGraphics_RedField and LoadBumperGraphics_BlueField
+; $0 = left bumper
+; $1 = right bumper
+; $FF = neither bumper
 	ds $1
 
 wPinballLaunchCollision:: ; 0xd4dc
@@ -478,11 +492,10 @@ wd509:: ; 0xd509
 wd50a:: ; 0xd50a
 	ds $1
 
-wd50b:: ; 0xd50b
-	ds $1
-
-wd50c:: ; 0xd50c
-	ds $1
+wSpinnerVelocity:: ; 0xd50b
+; When the ball intially passes through the spinner, the ball's y velocity is saved to this location.
+; Then, the velocity saved here is decreased a little bit each frame, while it's adding to the current "spinner charge".
+	ds $2
 
 wWhichCAVELight:: ; 0xd50d
 	ds $1
@@ -587,7 +600,8 @@ wInSpecialMode:: ; 0xd54b
 wSpecialModeCollisionID:: ; 0xd54c 10000 sets it to a input, records what the ball has collided with see constants/special_collision_constants.asm for more info
 	ds $1
 
-wd54d:: ; 0xd54d catch mode current step? used for all 3 special modes.
+wSpecialModeState:: ; 0xd54d
+; Tracks the current state of special modes (catchem, evolution, map move)
 	ds $1
 
 wd54e:: ; 0xd54e set to 20 by catch mode when all tiles are flipped and on lower stage
@@ -601,7 +615,9 @@ wSpecialMode:: ; 0xd550
 ; See SPECIAL_MODE constants.
 	ds $1
 
-wd551:: ; 0xd551 if non zero, voltobs skip applying experiance gain in evo mode. set to 0 onm collect experiance. set to 1 is pokemon is tired, 0 on recovered. 7 when exp is active for collecting. set to 0 on conclude evo mode. Tracks evo mode state?
+wEvolutionObjectsDisabled:: ; 0xd551
+; 0 = Hitting an evolution game object will either create an evolution trinket or show the "item not found" message.
+; non-0 = The volution game objects are disabled, meaning the player needs to wait a few seconds before they can be hit again.
 	ds $1
 
 wCurrentEvolutionMon:: ; 0xd552
@@ -616,11 +632,11 @@ wd554:: ; 0xd554
 wd555:: ; 0xd555
 	ds $1
 
-wd556:: ; 0xd556
-	ds $1
-
-wd557:: ; 0xd557
-	ds $1
+wEvolutionTrinketCooldownFrames:: ; 0xd556
+; Holds the number of remaining frames until the player can hit more objects to discover evolution trinkets in evolution mode.
+; When the pinball hits an object in evolution mode, sometimes that object doesn't contain a trinket. When this happens, this
+; cooldown is created so the player has to wait a few seconds until the objects becomes activated again.
+	ds $2
 
 wd558:: ; 0xd558
 	ds $1
@@ -672,7 +688,9 @@ wd566:: ; 0xd566
 wd572:: ; 0xd572
 	ds $6
 
-wd578:: ; 0xd578
+wCollidedPointIndex:: ; 0xd578
+; Stores the result of the PinballCollidesWithPoints function.
+; This index is 1-based, meaning 1 corresponds to the first item in the points array
 	ds $1
 
 wCurrentCatchEmMon:: ; 0xd579
@@ -913,7 +931,8 @@ wd611:: ; 0xd611
 wd612:: ; 0xd612
 	ds $1
 
-wd613:: ; 0xd613
+wShowBonusMultiplierBottomMessage:: ; 0xd613
+; Set to 1 when the bonus multiplier message should appear on the bottom of the screen. 0 otherwise.
 	ds $1
 
 wd614:: ; 0xd614
@@ -1765,10 +1784,7 @@ wd7b3:: ; 0xd7b3
 	ds $1
 
 wd7b4:: ; 0xd7b4
-	ds $1
-
-wd7b5:: ; 0xd7b5
-	ds $1
+	ds $2
 
 wLeftFlipperAnimationState:: ; 0xd7b6
 	ds $1
@@ -1788,7 +1804,9 @@ wFlipperXForce:: ; 0xd7ba
 wFlipperYForce:: ; 0xd7bc
 	dw
 
-wd7be:: ; 0xd7be
+wFlippersDisabled:: ; 0xd7be
+; 0 = enabled
+; 1 = disabled
 	ds $1
 
 wStageSong:: ; 0xd7bf
@@ -1797,11 +1815,26 @@ wStageSong:: ; 0xd7bf
 wStageSongBank:: ; 0xd7c0
 	ds $1
 
-wd7c1:: ; 0xd7c1
+wLoadingSavedGame:: ; 0xd7c1
+; Set to 1 when the pinball game is being initialized from a saved game via the Titlescreen.
+; 0 otherwise.
 	ds $1
 
-wd7c2:: ; 0xd7c2
+wSavedGame:: ; 0xd7c2
+; Set to 1 when there is a pinball game saved, ready to resume via the Titlescreen.
+; 0 otherwise.
 	ds $1
+
+wRoamingDogsStatus::
+; bit 0:  1 if the roaming dogs have been released
+; bit 1:  1 if Raikou was caught
+; bit 2:  1 if Entei was caught
+; bit 3:  1 if Suicune was caught
+	ds $1
+
+;
+; End sSaveGame
+;
 
 wSubTileBallXPos:: ; 0xd7c3
 	ds $1
@@ -2246,10 +2279,14 @@ wScreenState:: ; 0xd8f2
 
 	ds $3
 
-wd8f6:: ; 0xd8f6
-	ds $12
+wFieldSelectPressedButton:: ; 0xd8f6
+; Holds which button was pressed on the field select screen. (A or B)
+	ds $1
+
+	ds $11
 
 wd908:: ; 0xd908
+; unused
 	ds $1
 
 wTitleScreenCursorSelection:: ; 0xd909
@@ -2398,7 +2435,7 @@ wd961:: ; 0xd961
 	ds $1
 
 wPokedexFlags:: ; 0xd962
-	ds NUM_POKEMON
+	ds 251 ; NUM_POKEMON
 
 wNumPokemonSeen:: ; 0xd9f9
 	ds $2

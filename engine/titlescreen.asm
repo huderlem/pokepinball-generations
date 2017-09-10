@@ -30,9 +30,9 @@ FadeInTitlescreen: ; 0xc00e
 	ld [wTitleScreenPokeballAnimationCounter], a
 	call HandleTitlescreenAnimations
 	call SetAllPalettesWhite
-	ld a, $11
+	ld a, Bank(Music_Title)
 	call SetSongBank
-	ld de, $0004
+	ld de, MUSIC_TITLE_SCREEN
 	call PlaySong
 	call EnableLCD
 	call FadeIn
@@ -66,7 +66,7 @@ TitlescreenLoop: ; 0xc089
 	and a
 	jr nz, .asm_c0d3
 	; player chose "Game Start"
-	ld a, [wd7c2]  ; if this is non-zero, the main menu will prompt for "continue or new game?".
+	ld a, [wSavedGame]  ; if this is non-zero, the main menu will prompt for "continue or new game?".
 	and a
 	jr z, .noPreviouslySavedGame
 	lb de, $00, $01
@@ -82,7 +82,7 @@ TitlescreenLoop: ; 0xc089
 	ret
 
 .noPreviouslySavedGame
-	ld de, $0000
+	ld de, MUSIC_NOTHING
 	call PlaySong
 	rst AdvanceFrame
 	lb de, $00, $27
@@ -137,7 +137,7 @@ Func_c10e: ; 0xc10e
 	ld a, [hNewlyPressedButtons]
 	bit 0, a
 	jr z, .asm_c17c
-	ld de, $0000
+	ld de, MUSIC_NOTHING
 	call PlaySong
 	rst AdvanceFrame
 	lb de, $00, $27
@@ -149,31 +149,31 @@ Func_c10e: ; 0xc10e
 	jr z, .asm_c177
 	call FadeOut
 	call DisableLCD
-	ld a, [wd7c2]
+	ld a, [wSavedGame]
 	and a
-	jr z, .asm_c173
+	jr z, .notLoadingSavedGame
 	ld hl, sSaveGame
 	ld de, wPartyMons
-	ld bc, $04c3
+	ld bc, $04c4
 	call LoadSavedData
-	jr nc, .asm_c173
+	jr nc, .notLoadingSavedGame
 	xor a
-	ld [wd7c2], a
+	ld [wSavedGame], a
 	ld hl, wPartyMons
 	ld de, sSaveGame
-	ld bc, $04c3
+	ld bc, $04c4
 	call SaveData
 	ld a, $1
-	ld [wd7c1], a
+	ld [wLoadingSavedGame], a
 	ld a, SCREEN_PINBALL_GAME
 	ld [wCurrentScreen], a
 	ld a, $0
 	ld [wScreenState], a
 	ret
 
-.asm_c173
+.notLoadingSavedGame
 	xor a
-	ld [wd7c1], a
+	ld [wLoadingSavedGame], a
 .asm_c177
 	ld hl, wScreenState
 	inc [hl]

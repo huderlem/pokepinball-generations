@@ -135,7 +135,7 @@ Func_cb14: ; 0xcb14
 	ld hl, rIE
 	set 1, [hl]
 	ld a, $3
-	ld [hHBlankRoutine], a
+	ld [hStatIntrRoutine], a
 	ld a, [wHighScoresStage]
 	push af
 	ld hl, HighScoresVideoDataPointers
@@ -176,16 +176,16 @@ Func_cb14: ; 0xcb14
 	ld a, [wda81]
 	and a
 	jr nz, .asm_cb9b
-	ld a, $13
+	ld a, Bank(Music_EndCredits)
 	call SetSongBank
-	ld de, $0001
+	ld de, MUSIC_END_CREDITS
 	call PlaySong
 	jr .asm_cba6
 
 .asm_cb9b
-	ld a, $13
+	ld a, Bank(Music_NameEntry)
 	call SetSongBank
-	ld de, $0002
+	ld de, MUSIC_NAME_ENTRY
 	call PlaySong
 .asm_cba6
 	call EnableLCD
@@ -199,9 +199,9 @@ Func_cb14: ; 0xcb14
 	ret
 
 .asm_cbbd
-	ld a, $10
+	ld a, Bank(Music_HiScore)
 	call SetSongBank
-	ld de, $0004
+	ld de, MUSIC_HI_SCORE
 	call PlaySong
 	call EnableLCD
 	ld bc, $0009
@@ -454,12 +454,12 @@ Func_cd6c: ; 0xcd6c
 	ld a, [wd8f0]
 	and a
 	jr z, .asm_cdbb
-	ld de, $0000
+	ld de, MUSIC_NOTHING
 	call PlaySong
 	rst AdvanceFrame
 	call Func_cdce
 	push af
-	ld de, $0004
+	ld de, MUSIC_HI_SCORE
 	call PlaySong
 	pop af
 	jr nc, .asm_cdc6
@@ -875,17 +875,17 @@ Func_d042: ; 0xd042
 	ld [wd8aa], a
 	ld a, BANK(HighScoresTilemap)
 	ld hl, HighScoresTilemap + $3c0
-	ld de, wc280
+	ld de, wSendHighScoresTopBarTilemap
 	ld bc, $0040
 	call FarCopyData
 	ld a, $0
 	hlCoord 0, 2, vBGMap
-	ld de, wc2c0
+	ld de, wSendHighScoresTopBarTilemap + $40
 	ld bc, $01c0
 	call LoadVRAMData
 	ld a, BANK(HighScoresTilemap)
 	ld hl, HighScoresTilemap + $280
-	ld de, wc480
+	ld de, wSendHighScoresTopBarTilemap + $200
 	ld bc, $0040
 	call FarCopyData
 	call Func_d6b6
@@ -901,17 +901,17 @@ Func_d042: ; 0xd042
 .asm_d0a2
 	ld a, BANK(HighScoresTilemap2)
 	ld hl, HighScoresTilemap2 + $3c0
-	ld de, wc280
+	ld de, wSendHighScoresTopBarTilemap
 	ld bc, $0040
 	call FarCopyData
 	ld a, $0
 	hlCoord 0, 2, vBGWin
-	ld de, wc2c0
+	ld de, wSendHighScoresTopBarTilemap + $40
 	ld bc, $01c0
 	call LoadVRAMData
 	ld a, BANK(HighScoresTilemap2)
 	ld hl, HighScoresTilemap2 + $280
-	ld de, wc480
+	ld de, wSendHighScoresTopBarTilemap + $200
 	ld bc, $0040
 	call FarCopyData
 	call Func_d6b6
@@ -948,7 +948,7 @@ Func_d0f5: ; 0xd0f5
 	ret
 
 Func_d107: ; 0xd107
-	ld hl, wc280
+	ld hl, wSendHighScoresTopBarTilemap
 	ld a, $c0
 	ld b, $20
 .clear
@@ -957,7 +957,7 @@ rept 32
 endr
 	dec b
 	jr nz, .clear
-	ld hl, wc280
+	ld hl, wSendHighScoresTopBarTilemap
 	ld b, $5
 .loop
 	ld c, $4
@@ -1860,11 +1860,11 @@ Func_d68a: ; 0xd68a
 	ret nz
 	ld hl, vBGMap
 	add hl, bc
-	call Func_d6aa
+	call ShowDexCompletionCrown
 	ld hl, vBGWin
 	add hl, bc
 	; fall through
-Func_d6aa: ; 0xd6aa
+ShowDexCompletionCrown: ; 0xd6aa
 	ld a, $56
 	call PutTileInVRAM
 	inc hl
@@ -1886,8 +1886,8 @@ Func_d6b6: ; 0xd6b6
 	ld a, c
 	cp NUM_POKEMON
 	ret nz
-	ld hl, wc289
-	ld a, $56
+	ld hl, wSendHighScoresTopBarTilemap + $9
+	ld a, $56   ; a crown is shown when Dex is completed
 	ld [hli], a
 	ld a, $57
 	ld [hli], a

@@ -1,3 +1,32 @@
+CheckSpecialModeColision: ; 0x10000
+	ld c, a
+	ld a, [wInSpecialMode] ;special mode in c
+	and a
+	ret z ;if mot in special mode, ret
+	ld a, c
+	ld [wSpecialModeCollisionID], a
+	ld a, [wSpecialMode]
+	cp SPECIAL_MODE_EVOLUTION ;branch based on mode
+	jp z, HandleEvoModeCollision ;call evo mode logic
+	cp SPECIAL_MODE_MAP_MOVE
+	jr nz, .CatchMode  ;call catch mode logic
+	callba HandleMapModeCollision ;call map move logic
+	ret
+
+.CatchMode
+	ld a, [wCurrentStage]
+	call CallInFollowingTable
+
+HandleCatchEmCollisionCallTable: ; 0x10027
+	padded_dab HandleRedCatchEmCollision    ; STAGE_RED_FIELD_TOP
+	padded_dab HandleRedCatchEmCollision    ; STAGE_RED_FIELD_BOTTOM
+	padded_dab HandleBlueCatchEmCollision   ; STAGE_BLUE_FIELD_TOP
+	padded_dab HandleBlueCatchEmCollision   ; STAGE_BLUE_FIELD_BOTTOM
+	padded_dab HandleGoldCatchEmCollision   ; STAGE_GOLD_FIELD_TOP
+	padded_dab HandleGoldCatchEmCollision   ; STAGE_GOLD_FIELD_BOTTOM
+	padded_dab HandleSilverCatchEmCollision ; STAGE_SILVER_FIELD_TOP
+	padded_dab HandleSilverCatchEmCollision ; STAGE_SILVER_FIELD_BOTTOM
+
 StartCatchEmMode: ; 0x1003f
 	ld a, [wInSpecialMode]  ; current game mode?
 	and a
@@ -759,7 +788,7 @@ BallShakeGfxPointers:
 	dwb PinballMasterballShakeGfx, Bank(PinballMasterballShakeGfx)
 	dwb PinballGSBallShakeGfx, Bank(PinballGSBallShakeGfx)
 
-CapturePokemon: ; 0x1052d
+CapturePokemonAnimation: ; 0x1052d
 	ld a, [wBallCaptureAnimationFrame]
 	cp $c
 	jr nz, .asm_10541
@@ -790,7 +819,7 @@ CapturePokemon: ; 0x1052d
 	cp $1
 	ret nz
 	call MainLoopUntilTextIsClear
-	ld de, $0000
+	ld de, MUSIC_NOTHING
 	call PlaySong
 	rst AdvanceFrame
 	lb de, $23, $29
@@ -815,7 +844,7 @@ CapturePokemon: ; 0x1052d
 	ld [wEnableBallGravityAndTilt], a
 	callba RestoreBallSaverAfterCatchEmMode
 	call ConcludeCatchEmMode
-	ld de, $0001
+	ld de, MUSIC_BLUE_FIELD ; This is either MUSIC_BLUE_FIELD or MUSIC_RED_FIELD, they just happen to be the same song id in their respective audio Banks.
 	call PlaySong
 	ld hl, wNumPokemonCaughtInBallBonus
 	call Increment_Max100
@@ -929,7 +958,7 @@ Func_10648: ; 0x10648
 	dec a
 	ld [wd54f], a
 	jr nz, .asm_10677
-	ld hl, wd54d
+	ld hl, wSpecialModeState
 	inc [hl]
 .asm_10677
 	ret
@@ -966,7 +995,7 @@ Func_106a6: ; 0x106a6
 	call LoadScrollingText
 	ret
 
-Func_106b6: ; 0x106b6
+ShowCapturedPokemonText: ; 0x106b6
 	ld a, [wCurrentCatchEmMon]
 	ld c, a
 	ld b, $0
@@ -1038,7 +1067,7 @@ Func_106b6: ; 0x106b6
 	ld [wScrollingText2StopOffset], a
 	ret
 
-Func_10732: ; 0x10732
+PlayCatchemPokemonCry: ; 0x10732
 	ld a, [wCurrentCatchEmMon]
 	inc a
 	ld e, a
@@ -1137,7 +1166,7 @@ Func_107b0_GoldField: ; 0x107b0
 	callba LoadSlotCaveCoverGraphics_GoldField
 	ret
 
-Func_107c2: ; 0x107c2
+OpenSlotCave: ; 0x107c2
 	ld a, $1e
 	ld [wFramesUntilSlotCaveOpens], a
 	ret
@@ -1272,7 +1301,7 @@ Func_10871: ; 0x10871
 	call Func_107b0
 	ld a, $4
 	ld [wd7ad], a
-	ld de, $0002
+	ld de, MUSIC_CATCH_EM_BLUE ; This is either MUSIC_CATCH_EM_BLUE or MUSIC_CATCH_EM_RED. They happen to have the same id in their respective audio Banks.
 	call PlaySong
 	ld a, [wCurrentStage]
 	bit 0, a
@@ -1291,7 +1320,7 @@ Func_10871: ; 0x10871
 
 Func_108f5: ; 0x108f5
 	call ResetIndicatorStates
-	call Func_107c2
+	call OpenSlotCave
 	call SetLeftAndRightAlleyArrowIndicatorStates_RedField
 	call Func_107e9
 	ld a, [wCurrentStage]
@@ -1354,7 +1383,7 @@ Func_10871_GoldField:
 
 Func_108f5_GoldField: ; 0x108f5
 	call ResetIndicatorStates
-	call Func_107c2
+	call OpenSlotCave
 	call SetLeftAndRightAlleyArrowIndicatorStates_GoldField
 	call Func_107e9
 	ld a, [wCurrentStage]
@@ -1438,7 +1467,7 @@ Func_1098c: ; 0x1098c
 	xor a
 	ld [wRightAlleyCount], a
 	callba CloseSlotCave
-	ld de, $0002
+	ld de, MUSIC_CATCH_EM_BLUE ; This is either MUSIC_CATCH_EM_BLUE or MUSIC_CATCH_EM_RED. They happen to have the same id in their respective audio
 	call PlaySong
 	ld a, [wCurrentStage]
 	bit 0, a
@@ -1455,7 +1484,7 @@ Func_1098c: ; 0x1098c
 
 Func_109fc: ; 0x109fc
 	call ResetIndicatorStates
-	call Func_107c2
+	call OpenSlotCave
 	callba SetLeftAndRightAlleyArrowIndicatorStates_BlueField
 	ld a, [wCurrentStage]
 	bit 0, a
@@ -1513,7 +1542,7 @@ Func_1098c_SilverField:
 
 Func_109fc_SilverField:
 	call ResetIndicatorStates
-	call Func_107c2
+	call OpenSlotCave
 	callba SetLeftAndRightAlleyArrowIndicatorStates_SilverField
 	ld a, [wCurrentStage]
 	bit 0, a

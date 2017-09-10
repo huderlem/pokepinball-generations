@@ -23,53 +23,9 @@ INCLUDE "engine/pinball_game/menu.asm"
 INCLUDE "data/collision/collision_deltas.asm"
 INCLUDE "engine/pokedex/variable_width_font_character.asm"
 
-Func_8ee0: ; 0x8ee0
-	ld a, [$ff8d]
-	ld [$ff90], a
-	ld a, [$ff8e]
-	ld [$ff91], a
-	ld a, [$ff8d]
-	ld c, a
-	ld a, [$ff8e]
-	ld b, a
-	ld a, [$ff8c]
-	ld l, a
-	ld h, $0
-	add hl, bc
-	ld a, l
-	ld [$ff8d], a
-	ld a, h
-	ld [$ff8e], a
-	srl h
-	rr l
-	srl h
-	rr l
-	ld a, [$ff8f]
-	cp l
-	ret
-
-Data_8f06:
-
 SECTION "bank2.2", ROMX
-Data_9800:
 
-macro_9800: MACRO
-x = 0
-rept \1
-y = 0
-rept $100 / \1
-	db (x + y) & $ff
-y = y + \1
-endr
-x = x + 1
-endr
-endm
-
-w = $100
-rept 8
-	macro_9800 w
-w = w >> 1
-endr
+INCLUDE "data/unused/unused_9800.asm"
 
 PokedexCharactersGfx: ; 0xa000
 	INCBIN "gfx/pokedex/characters.interleave.2bpp"
@@ -104,431 +60,17 @@ INCLUDE "engine/pinball_game/end_of_ball_bonus.asm"
 
 SECTION "bank4", ROMX
 
-CheckSpecialModeColision: ; 0x10000
-	ld c, a
-	ld a, [wInSpecialMode] ;special mode in c
-	and a
-	ret z ;if mot in special mode, ret
-	ld a, c
-	ld [wSpecialModeCollisionID], a
-	ld a, [wSpecialMode]
-	cp SPECIAL_MODE_EVOLUTION ;branch based on mode
-	jp z, HandleEvoModeCollision ;call evo mode logic
-	cp SPECIAL_MODE_MAP_MOVE
-	jr nz, .CatchMode  ;call catch mode logic
-	callba HandleMapModeCollision ;call map move logic
-	ret
-
-.CatchMode
-	ld a, [wCurrentStage]
-	call CallInFollowingTable
-
-HandleCatchEmCollisionCallTable: ; 0x10027
-	padded_dab HandleRedCatchEmCollision    ; STAGE_RED_FIELD_TOP
-	padded_dab HandleRedCatchEmCollision    ; STAGE_RED_FIELD_BOTTOM
-	padded_dab HandleBlueCatchEmCollision   ; STAGE_BLUE_FIELD_TOP
-	padded_dab HandleBlueCatchEmCollision   ; STAGE_BLUE_FIELD_BOTTOM
-	padded_dab HandleGoldCatchEmCollision   ; STAGE_GOLD_FIELD_TOP
-	padded_dab HandleGoldCatchEmCollision   ; STAGE_GOLD_FIELD_BOTTOM
-	padded_dab HandleSilverCatchEmCollision ; STAGE_SILVER_FIELD_TOP
-	padded_dab HandleSilverCatchEmCollision ; STAGE_SILVER_FIELD_BOTTOM
-
 INCLUDE "engine/pinball_game/catchem_mode.asm"
 INCLUDE "engine/pinball_game/evolution_mode.asm"
 INCLUDE "data/evolution_lines.asm"
 INCLUDE "data/evolution_methods.asm"
 INCLUDE "data/mon_names.asm"
 INCLUDE "data/mon_initial_indicator_states.asm"
-
-EvolutionModeIndicatorSets: ; 0x1298b
-; This has to do with which indicators will need to be hit to evolve the pokemon.
-	db $01  ; BULBASAUR
-	db $02  ; IVYSAUR
-	db $03  ; VENUSAUR
-	db $01  ; CHARMANDER
-	db $02  ; CHARMELEON
-	db $03  ; CHARIZARD
-	db $01  ; SQUIRTLE
-	db $02  ; WARTORTLE
-	db $03  ; BLASTOISE
-	db $01  ; CATERPIE
-	db $02  ; METAPOD
-	db $03  ; BUTTERFREE
-	db $01  ; WEEDLE
-	db $02  ; KAKUNA
-	db $03  ; BEEDRILL
-	db $01  ; PIDGEY
-	db $02  ; PIDGEOTTO
-	db $03  ; PIDGEOT
-	db $01  ; RATTATA
-	db $03  ; RATICATE
-	db $01  ; SPEAROW
-	db $03  ; FEAROW
-	db $01  ; EKANS
-	db $03  ; ARBOK
-	db $01  ; PIKACHU
-	db $03  ; RAICHU
-	db $01  ; SANDSHREW
-	db $03  ; SANDSLASH
-	db $01  ; NIDORAN_F
-	db $02  ; NIDORINA
-	db $04  ; NIDOQUEEN
-	db $01  ; NIDORAN_M
-	db $02  ; NIDORINO
-	db $04  ; NIDOKING
-	db $02  ; CLEFAIRY
-	db $03  ; CLEFABLE
-	db $02  ; VULPIX
-	db $03  ; NINETALES
-	db $02  ; JIGGLYPUFF
-	db $03  ; WIGGLYTUFF
-	db $02  ; ZUBAT
-	db $03  ; GOLBAT
-	db $01  ; ODDISH
-	db $02  ; GLOOM
-	db $04  ; VILEPLUME
-	db $02  ; PARAS
-	db $03  ; PARASECT
-	db $02  ; VENONAT
-	db $03  ; VENOMOTH
-	db $02  ; DIGLETT
-	db $03  ; DUGTRIO
-	db $02  ; MEOWTH
-	db $03  ; PERSIAN
-	db $02  ; PSYDUCK
-	db $03  ; GOLDUCK
-	db $02  ; MANKEY
-	db $03  ; PRIMEAPE
-	db $02  ; GROWLITHE
-	db $03  ; ARCANINE
-	db $01  ; POLIWAG
-	db $02  ; POLIWHIRL
-	db $04  ; POLIWRATH
-	db $01  ; ABRA
-	db $02  ; KADABRA
-	db $04  ; ALAKAZAM
-	db $01  ; MACHOP
-	db $02  ; MACHOKE
-	db $04  ; MACHAMP
-	db $01  ; BELLSPROUT
-	db $02  ; WEEPINBELL
-	db $04  ; VICTREEBEL
-	db $02  ; TENTACOOL
-	db $03  ; TENTACRUEL
-	db $01  ; GEODUDE
-	db $02  ; GRAVELER
-	db $04  ; GOLEM
-	db $02  ; PONYTA
-	db $03  ; RAPIDASH
-	db $02  ; SLOWPOKE
-	db $03  ; SLOWBRO
-	db $02  ; MAGNEMITE
-	db $03  ; MAGNETON
-	db $04  ; FARFETCH_D
-	db $02  ; DODUO
-	db $03  ; DODRIO
-	db $02  ; SEEL
-	db $03  ; DEWGONG
-	db $02  ; GRIMER
-	db $03  ; MUK
-	db $02  ; SHELLDER
-	db $03  ; CLOYSTER
-	db $01  ; GASTLY
-	db $02  ; HAUNTER
-	db $04  ; GENGAR
-	db $04  ; ONIX
-	db $02  ; DROWZEE
-	db $03  ; HYPNO
-	db $02  ; KRABBY
-	db $03  ; KINGLER
-	db $02  ; VOLTORB
-	db $03  ; ELECTRODE
-	db $02  ; EXEGGCUTE
-	db $03  ; EXEGGUTOR
-	db $02  ; CUBONE
-	db $03  ; MAROWAK
-	db $04  ; HITMONLEE
-	db $04  ; HITMONCHAN
-	db $04  ; LICKITUNG
-	db $02  ; KOFFING
-	db $03  ; WEEZING
-	db $02  ; RHYHORN
-	db $03  ; RHYDON
-	db $04  ; CHANSEY
-	db $04  ; TANGELA
-	db $04  ; KANGASKHAN
-	db $04  ; HORSEA
-	db $04  ; SEADRA
-	db $02  ; GOLDEEN
-	db $03  ; SEAKING
-	db $02  ; STARYU
-	db $03  ; STARMIE
-	db $04  ; MR_MIME
-	db $04  ; SCYTHER
-	db $04  ; JYNX
-	db $04  ; ELECTABUZZ
-	db $04  ; MAGMAR
-	db $04  ; PINSIR
-	db $04  ; TAUROS
-	db $02  ; MAGIKARP
-	db $03  ; GYARADOS
-	db $04  ; LAPRAS
-	db $04  ; DITTO
-	db $02  ; EEVEE
-	db $03  ; VAPOREON
-	db $03  ; JOLTEON
-	db $03  ; FLAREON
-	db $04  ; PORYGON
-	db $02  ; OMANYTE
-	db $03  ; OMASTAR
-	db $02  ; KABUTO
-	db $03  ; KABUTOPS
-	db $04  ; AERODACTYL
-	db $04  ; SNORLAX
-	db $04  ; ARTICUNO
-	db $04  ; ZAPDOS
-	db $04  ; MOLTRES
-	db $01  ; DRATINI
-	db $02  ; DRAGONAIR
-	db $04  ; DRAGONITE
-	db $04  ; MEWTWO
-	db $06  ; MEW
-	db $01  ; CHIKORITA
-	db $02  ; BAYLEEF
-	db $03  ; MEGANIUM
-	db $01  ; CYNDAQUIL
-	db $02  ; QUILAVA
-	db $03  ; TYPHLOSION
-	db $01  ; TOTODILE
-	db $02  ; CROCONAW
-	db $03  ; FERALIGATR
-	db $01  ; SENTRET
-	db $03  ; FURRET
-	db $01  ; HOOTHOOT
-	db $03  ; NOCTOWL
-	db $01  ; LEDYBA
-	db $03  ; LEDIAN
-	db $01  ; SPINARAK
-	db $03  ; ARIADOS
-	db $04  ; CROBAT
-	db $01  ; CHINCHOU
-	db $03  ; LANTURN
-	db $01  ; PICHU
-	db $01  ; CLEFFA
-	db $01  ; IGGLYBUFF
-	db $01  ; TOGEPI
-	db $03  ; TOGETIC
-	db $01  ; NATU
-	db $03  ; XATU
-	db $01  ; MAREEP
-	db $02  ; FLAAFFY
-	db $03  ; AMPHAROS
-	db $04  ; BELLOSSOM
-	db $01  ; MARILL
-	db $03  ; AZUMARILL
-	db $04  ; SUDOWOODO
-	db $04  ; POLITOED
-	db $01  ; HOPPIP
-	db $02  ; SKIPLOOM
-	db $03  ; JUMPLUFF
-	db $04  ; AIPOM
-	db $01  ; SUNKERN
-	db $03  ; SUNFLORA
-	db $04  ; YANMA
-	db $01  ; WOOPER
-	db $03  ; QUAGSIRE
-	db $04  ; ESPEON
-	db $04  ; UMBREON
-	db $03  ; MURKROW
-	db $04  ; SLOWKING
-	db $03  ; MISDREAVUS
-	db $01  ; UNOWN
-	db $04  ; WOBBUFFET
-	db $04  ; GIRAFARIG
-	db $01  ; PINECO
-	db $03  ; FORRETRESS
-	db $04  ; DUNSPARCE
-	db $04  ; GLIGAR
-	db $04  ; STEELIX
-	db $01  ; SNUBBULL
-	db $03  ; GRANBULL
-	db $04  ; QWILFISH
-	db $04  ; SCIZOR
-	db $04  ; SHUCKLE
-	db $04  ; HERACROSS
-	db $01  ; SNEASEL
-	db $01  ; TEDDIURSA
-	db $03  ; URSARING
-	db $01  ; SLUGMA
-	db $03  ; MAGCARGO
-	db $01  ; SWINUB
-	db $03  ; PILOSWINE
-	db $04  ; CORSOLA
-	db $01  ; REMORAID
-	db $03  ; OCTILLERY
-	db $04  ; DELIBIRD
-	db $04  ; MANTINE
-	db $04  ; SKARMORY
-	db $01  ; HOUNDOUR
-	db $03  ; HOUNDOOM
-	db $04  ; KINGDRA
-	db $01  ; PHANPY
-	db $03  ; DONPHAN
-	db $04  ; PORYGON2
-	db $03  ; STANTLER
-	db $03  ; SMEARGLE
-	db $01  ; TYROGUE
-	db $04  ; HITMONTOP
-	db $01  ; SMOOCHUM
-	db $01  ; ELEKID
-	db $01  ; MAGBY
-	db $04  ; MILTANK
-	db $04  ; BLISSEY
-	db $04  ; RAIKOU
-	db $04  ; ENTEI
-	db $04  ; SUICUNE
-	db $01  ; LARVITAR
-	db $02  ; PUPITAR
-	db $03  ; TYRANITAR
-	db $04  ; LUGIA
-	db $04  ; HO_OH
-	db $06  ; CELEBI
-
+INCLUDE "data/evolution_mode_indicator_sets.asm"
 INCLUDE "data/catchem_timer_values.asm"
 INCLUDE "data/mon_animated_sprite_types.asm"
 INCLUDE "data/collision/mon_collision_mask_pointers.asm"
-
-CatchSpriteFrameDurations: ; 0x13685
-; Each 3-byte entry is related to an evolution line. Don't know what this is for, yet.
-	db $12, $12, $10 ; EVOLINE_BULBASAUR
-	db $10, $10, $10 ; EVOLINE_CHARMANDER
-	db $12, $12, $0E ; EVOLINE_SQUIRTLE
-	db $14, $14, $12 ; EVOLINE_CATERPIE
-	db $14, $14, $10 ; EVOLINE_WEEDLE
-	db $0A, $0A, $0E ; EVOLINE_PIDGEY
-	db $11, $13, $10 ; EVOLINE_RATTATA
-	db $0B, $0B, $10 ; EVOLINE_SPEAROW
-	db $12, $12, $0E ; EVOLINE_EKANS
-	db $12, $14, $0E ; EVOLINE_PIKACHU
-	db $10, $12, $10 ; EVOLINE_SANDSHREW
-	db $11, $12, $0E ; EVOLINE_NIDORAN_F
-	db $11, $12, $0E ; EVOLINE_NIDORAN_M
-	db $12, $13, $10 ; EVOLINE_CLEFAIRY
-	db $11, $11, $10 ; EVOLINE_VULPIX
-	db $12, $12, $10 ; EVOLINE_JIGGLYPUFF
-	db $08, $08, $10 ; EVOLINE_ZUBAT
-	db $10, $10, $10 ; EVOLINE_ODDISH
-	db $10, $10, $10 ; EVOLINE_PARAS
-	db $11, $11, $0E ; EVOLINE_VENONAT
-	db $10, $10, $0E ; EVOLINE_DIGLETT
-	db $14, $14, $0E ; EVOLINE_MEOWTH
-	db $30, $30, $10 ; EVOLINE_PSYDUCK
-	db $12, $12, $10 ; EVOLINE_MANKEY
-	db $12, $12, $10 ; EVOLINE_GROWLITHE
-	db $10, $10, $10 ; EVOLINE_POLIWAG
-	db $10, $10, $10 ; EVOLINE_ABRA
-	db $12, $14, $10 ; EVOLINE_MACHOP
-	db $10, $12, $10 ; EVOLINE_BELLSPROUT
-	db $0C, $0C, $12 ; EVOLINE_TENTACOOL
-	db $12, $14, $0C ; EVOLINE_GEODUDE
-	db $12, $14, $0E ; EVOLINE_PONYTA
-	db $30, $30, $10 ; EVOLINE_SLOWPOKE
-	db $14, $14, $10 ; EVOLINE_MAGNEMITE
-	db $12, $12, $0E ; EVOLINE_FARFETCH_D
-	db $12, $12, $0E ; EVOLINE_DODUO
-	db $14, $14, $0E ; EVOLINE_SEEL
-	db $12, $12, $10 ; EVOLINE_GRIMER
-	db $14, $14, $0E ; EVOLINE_SHELLDER
-	db $10, $10, $0E ; EVOLINE_GASTLY
-	db $12, $12, $10 ; EVOLINE_ONIX
-	db $14, $14, $10 ; EVOLINE_DROWZEE
-	db $14, $12, $10 ; EVOLINE_KRABBY
-	db $02, $02, $10 ; EVOLINE_VOLTORB
-	db $12, $12, $10 ; EVOLINE_EXEGGCUTE
-	db $12, $12, $10 ; EVOLINE_CUBONE
-	db $14, $10, $10 ; EVOLINE_TYROGUE
-	db $14, $12, $10 ; EVOLINE_LICKITUNG
-	db $11, $11, $10 ; EVOLINE_KOFFING
-	db $14, $14, $10 ; EVOLINE_RHYHORN
-	db $12, $12, $10 ; EVOLINE_CHANSEY
-	db $10, $10, $10 ; EVOLINE_TANGELA
-	db $12, $12, $10 ; EVOLINE_KANGASKHAN
-	db $0F, $0F, $0E ; EVOLINE_HORSEA
-	db $12, $12, $0E ; EVOLINE_GOLDEEN
-	db $23, $23, $10 ; EVOLINE_STARYU
-	db $13, $13, $10 ; EVOLINE_MR_MIME
-	db $13, $13, $10 ; EVOLINE_SCYTHER
-	db $12, $12, $10 ; EVOLINE_JYNX
-	db $12, $14, $10 ; EVOLINE_ELECTABUZZ
-	db $14, $14, $0E ; EVOLINE_MAGMAR
-	db $12, $12, $0E ; EVOLINE_PINSIR
-	db $12, $14, $10 ; EVOLINE_TAUROS
-	db $18, $18, $0C ; EVOLINE_MAGIKARP
-	db $16, $16, $0C ; EVOLINE_LAPRAS
-	db $14, $14, $10 ; EVOLINE_DITTO
-	db $12, $12, $10 ; EVOLINE_EEVEE
-	db $10, $10, $0E ; EVOLINE_PORYGON
-	db $12, $12, $0E ; EVOLINE_OMANYTE
-	db $12, $12, $0E ; EVOLINE_KABUTO
-	db $0C, $0C, $12 ; EVOLINE_AERODACTYL
-	db $26, $36, $12 ; EVOLINE_SNORLAX
-	db $13, $13, $10 ; EVOLINE_ARTICUNO
-	db $13, $13, $10 ; EVOLINE_ZAPDOS
-	db $13, $13, $10 ; EVOLINE_MOLTRES
-	db $12, $12, $0E ; EVOLINE_DRATINI
-	db $14, $14, $0E ; EVOLINE_MEWTWO
-	db $14, $14, $0E ; EVOLINE_MEW
-	db $12, $12, $10 ; EVOLINE_CHIKORITA
-	db $12, $12, $10 ; EVOLINE_CYNDAQUIL
-	db $12, $12, $10 ; EVOLINE_TOTODILE
-	db $12, $12, $10 ; EVOLINE_SENTRET
-	db $12, $12, $10 ; EVOLINE_HOOTHOOT
-	db $12, $12, $10 ; EVOLINE_LEDYBA
-	db $12, $12, $10 ; EVOLINE_SPINARAK
-	db $12, $12, $10 ; EVOLINE_CHINCHOU
-	db $12, $12, $10 ; EVOLINE_TOGEPI
-	db $12, $12, $10 ; EVOLINE_NATU
-	db $12, $12, $10 ; EVOLINE_MAREEP
-	db $12, $12, $10 ; EVOLINE_MARILL
-	db $12, $12, $10 ; EVOLINE_SUDOWOODO
-	db $12, $12, $10 ; EVOLINE_HOPPIP
-	db $12, $12, $10 ; EVOLINE_AIPOM
-	db $12, $12, $10 ; EVOLINE_SUNKERN
-	db $12, $12, $10 ; EVOLINE_YANMA
-	db $12, $12, $10 ; EVOLINE_WOOPER
-	db $12, $12, $10 ; EVOLINE_MURKROW
-	db $12, $12, $10 ; EVOLINE_MISDREAVUS
-	db $12, $12, $10 ; EVOLINE_UNOWN
-	db $12, $12, $10 ; EVOLINE_WOBBUFFET
-	db $12, $12, $10 ; EVOLINE_GIRAFARIG
-	db $12, $12, $10 ; EVOLINE_PINECO
-	db $12, $12, $10 ; EVOLINE_DUNSPARCE
-	db $12, $12, $10 ; EVOLINE_GLIGAR
-	db $12, $12, $10 ; EVOLINE_SNUBBULL
-	db $12, $12, $10 ; EVOLINE_QWILFISH
-	db $12, $12, $10 ; EVOLINE_SHUCKLE
-	db $12, $12, $10 ; EVOLINE_HERACROSS
-	db $12, $12, $10 ; EVOLINE_SNEASEL
-	db $12, $12, $10 ; EVOLINE_TEDDIURSA
-	db $12, $12, $10 ; EVOLINE_SLUGMA
-	db $12, $12, $10 ; EVOLINE_SWINUB
-	db $12, $12, $10 ; EVOLINE_CORSOLA
-	db $12, $12, $10 ; EVOLINE_REMORAID
-	db $12, $12, $10 ; EVOLINE_DELIBIRD
-	db $12, $12, $10 ; EVOLINE_MANTINE
-	db $12, $12, $10 ; EVOLINE_SKARMORY
-	db $12, $12, $10 ; EVOLINE_HOUNDOUR
-	db $12, $12, $10 ; EVOLINE_PHANPY
-	db $12, $12, $10 ; EVOLINE_STANTLER
-	db $12, $12, $10 ; EVOLINE_SMEARGLE
-	db $12, $12, $10 ; EVOLINE_MILTANK
-	db $12, $12, $10 ; EVOLINE_RAIKOU
-	db $12, $12, $10 ; EVOLINE_ENTEI
-	db $12, $12, $10 ; EVOLINE_SUICUNE
-	db $12, $12, $10 ; EVOLINE_LARVITAR
-	db $12, $12, $10 ; EVOLINE_LUGIA
-	db $12, $12, $10 ; EVOLINE_HO_OH
-	db $12, $12, $10 ; EVOLINE_CELEBI
+INCLUDE "data/mon_animation_durations.asm"
 
 SECTION "bank5", ROMX
 
@@ -644,7 +186,7 @@ SECTION "bank12", ROMX
 INCLUDE "audio/engine_12.asm"
 
 ; This is a blob of unused junk data
-INCBIN "data/unknown/unused_4b6a8.bin"
+INCBIN "data/unused/unused_4b6a8.bin"
 
 SECTION "bank13", ROMX
 
@@ -1315,22 +857,32 @@ SeelBonusTilemap2_GameBoyColor: ; 0xd5c00
 Alphabet1Gfx: ; 0xd6000
 	INCBIN "gfx/stage/alphabet_1.2bpp"
 
-Exclamation_Point_CharacterGfx: INCBIN "gfx/stage/exclamation_point_mono.2bpp" ;DMG excalamation point
-Period_CharacterGfx: INCBIN "gfx/stage/period_mono.2bpp" ;DMG period
-E_Acute_CharacterGfx: INCBIN "gfx/stage/e_acute_mono.2bpp"
-Apostrophe_CharacterGfx: INCBIN "gfx/stage/apostrophe_mono.2bpp" ;DMG apostrophe
-Colon_CharacterGfx: INCBIN "gfx/stage/colon_mono.2bpp" ;DMG colon
+Exclamation_Point_CharacterGfx:
+	INCBIN "gfx/stage/exclamation_point_mono.2bpp" ;DMG excalamation point
+Period_CharacterGfx:
+	INCBIN "gfx/stage/period_mono.2bpp" ;DMG period
+E_Acute_CharacterGfx:
+	INCBIN "gfx/stage/e_acute_mono.2bpp"
+Apostrophe_CharacterGfx:
+	INCBIN "gfx/stage/apostrophe_mono.2bpp" ;DMG apostrophe
+Colon_CharacterGfx:
+	INCBIN "gfx/stage/colon_mono.2bpp" ;DMG colon
 
 SECTION "bank35.5", ROMX
 
 Alphabet2Gfx: ; 0xd6200
 	INCBIN "gfx/stage/alphabet_2.2bpp"
 
-Exclamation_Point_CharacterGfx_GameboyColor: INCBIN "gfx/stage/exclamation_point_color.2bpp";gbc excalamation point
-Period_CharacterGfx_GameboyColor: INCBIN "gfx/stage/period_color.2bpp" ;gbc period
-E_Acute_CharacterGfx_GameboyColor: INCBIN "gfx/stage/e_acute_color.2bpp"
-Apostrophe_CharacterGfx_GameboyColor: INCBIN "gfx/stage/apostrophe_color.2bpp" ;GBC apostrophe
-Colon_CharacterGfx_GameboyColor: INCBIN "gfx/stage/colon_color.2bpp" ;gbc colon
+Exclamation_Point_CharacterGfx_GameboyColor:
+	INCBIN "gfx/stage/exclamation_point_color.2bpp" ; gbc excalamation point
+Period_CharacterGfx_GameboyColor:
+	INCBIN "gfx/stage/period_color.2bpp" ; gbc period
+E_Acute_CharacterGfx_GameboyColor:
+	INCBIN "gfx/stage/e_acute_color.2bpp"
+Apostrophe_CharacterGfx_GameboyColor:
+	INCBIN "gfx/stage/apostrophe_color.2bpp" ; GBC apostrophe
+Colon_CharacterGfx_GameboyColor:
+	INCBIN "gfx/stage/colon_color.2bpp" ; gbc colon
 
 SECTION "bank35.6", ROMX
 
@@ -1640,6 +1192,7 @@ StageGoldFieldTopCollisionMasks1:
 StageGoldFieldTopCollisionMasks2:
 	INCBIN "data/collision/masks/gold_stage_top_2.masks"
 
+
 SECTION "bank45", ROMX
 
 StageGoldFieldTopCollisionMasks3:
@@ -1705,6 +1258,7 @@ PinballGSBallGfx:
 PinballGSBallMiniGfx:
 	INCBIN "gfx/stage/ball_gsball_mini.w32.interleave.2bpp"
 
+
 INCLUDE "audio/cries.asm"
 
 
@@ -1712,14 +1266,21 @@ SECTION "bank49", ROMX
 
 INCLUDE "engine/pinball_game/transition_ball_upgrade.asm"
 INCLUDE "data/mon_gfx/mon_animated_palettes_4.asm"
+INCLUDE "data/billboard/billboard_map_pic_pointers.asm"
 
 SECTION "bank4a", ROMX
 
 INCLUDE "text/pokedex_descriptions_2.asm"
+INCLUDE "text/scrolling_text_map_names.asm"
 
 SECTION "bank4b", ROMX
 
 INCLUDE "data/mon_gfx/mon_animated_pics_6.asm"
+
+RoamingDogsMiniGfx:
+	INCBIN "gfx/stage/roaming_dogs_mini.interleave.2bpp"
+	INCBIN "gfx/stage/roaming_dogs_portal.interleave.2bpp"
+RoamingDogsMiniGfx_End:
 
 SECTION "bank4c", ROMX
 
@@ -1768,6 +1329,8 @@ INCLUDE "data/mon_gfx/mon_gfx_pointers.asm"
 SECTION "bank57", ROMX
 
 INCLUDE "text/pokedex_species_names.asm"
+
+INCLUDE "data/collision/mon_collision_masks_2.asm"
 
 SECTION "bank58", ROMX
 

@@ -1,4 +1,4 @@
-MonSpeciesNamesPointers: ; 0x29fa6
+MonSpeciesNamesPointers:
 	dwb SpeciesNameSeed, Bank(SpeciesNameSeed)
 	dwb SpeciesNameLizard, Bank(SpeciesNameLizard)
 	dwb SpeciesNameFlame, Bank(SpeciesNameFlame)
@@ -149,9 +149,9 @@ MonSpeciesNamesPointers: ; 0x29fa6
 	dwb SpeciesNameKite, Bank(SpeciesNameKite)
 	dwb SpeciesNameArmorBird, Bank(SpeciesNameArmorBird)
 	dwb SpeciesNameDark, Bank(SpeciesNameDark)
-	dwb SpeciesNameLong_nose, Bank(SpeciesNameLong_nose)
+	dwb SpeciesNameLongNose, Bank(SpeciesNameLongNose)
 	dwb SpeciesNameArmor, Bank(SpeciesNameArmor)
-	dwb SpeciesNameBig_horn, Bank(SpeciesNameBig_horn)
+	dwb SpeciesNameBigHorn, Bank(SpeciesNameBigHorn)
 	dwb SpeciesNamePainter, Bank(SpeciesNamePainter)
 	dwb SpeciesNameScuffle, Bank(SpeciesNameScuffle)
 	dwb SpeciesNameHandstand, Bank(SpeciesNameHandstand)

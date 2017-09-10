@@ -1,7 +1,11 @@
 ChooseWildMon:
 	xor a
 	ld [wSpecialMode], a
-	ld [wd54d], a ;set ??? to 0
+	ld [wSpecialModeState], a ;set ??? to 0
+	call CheckRoamingDog
+	jr c, .saveMonId
+	call CheckForCelebi
+	jr c, .saveMonId
 	ld a, [wCurrentStage]
 	sla a
 	ld c, a ;store twice current stage to use a pointer offset
@@ -41,6 +45,7 @@ ChooseWildMon:
 	ld c, a
 	add hl, bc
 	ld a, [hl]  ; a contains mon id. overshoots by 1 if mew, causing mew to be loaded
+.saveMonId
 	dec a
 	ld [wCurrentCatchEmMon], a ;stores 1 less than ID
 	ld a, [wCurrentStage]
@@ -91,5 +96,75 @@ CheckForMew:
 .NotMew
 	pop af
 	ret
+
+CheckForCelebi:
+; If Celebi should be encountered, set carry flag, and return mon id in register a.
+; Celebi should be encountered in the following scenario:
+;  1. Map is ILEX_FOREST
+;  2. Ball upgrade is GS_BALL
+;  3. Rare mons is activated
+;  4. 25% chance
+	ld a, [wCurrentMap]
+	cp ILEX_FOREST
+	jr nz, .notCelebi
+	ld a, [wBallType]
+	cp GS_BALL
+	jr nz, .notCelebi
+	ld a, [wRareMonsFlag]
+	cp $8
+	jr nz, .notCelebi
+	call GenRandom
+	cp $40 ; 25% chance
+	jr nc, .notCelebi
+	ld a, CELEBI
+	scf
+	ret
+.notCelebi
+	xor a
+	ret
+
+CheckRoamingDog:
+; If a roaming dog is encountered, set carry flag, and return mon id in register a.
+	ld a, [wRoamingDogsStatus]
+	bit 0, a
+	jr z, .noDog
+	call GenRandom
+	cp $20 ; chance/256 of rolling a wild dog encounter
+	jr nc, .noDog
+	; Pick one of the three dogs.
+.getValidNumberLoop
+	call GenRandom
+	and $3
+	cp 3
+	jr z, .getValidNumberLoop
+	ld d, a
+	inc a
+	ld b, a
+	; Register b now has either 1, 2, or 3
+	ld a, [wRoamingDogsStatus]
+	ld c, a
+	; Check if the dog specified by register b has already been caught
+.shiftLoop
+	srl c
+	dec b
+	jr nz, .shiftLoop
+	bit 0, c
+	jr nz, .noDog ; roaming dog has already been caught
+	; Get the mon id for the roaming dog encounter.
+	ld hl, RoamingDogs
+	ld b, 0
+	ld c, d
+	add hl, bc
+	ld a, [hl]
+	scf
+	ret
+.noDog
+	xor a
+	ret
+
+RoamingDogs:
+	db RAIKOU
+	db ENTEI
+	db SUICUNE
 
 INCLUDE "data/wild_mons.asm"

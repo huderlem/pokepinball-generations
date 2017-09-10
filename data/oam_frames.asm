@@ -2347,6 +2347,10 @@ OAMDataPointers2: ; 0x55d7
 	dw OAMData2_82
 	dw OAMData2_83
 	dw OAMData2_84
+	dw MiniSuicuneOAM ; $85
+	dw MiniRaikouOAM  ; $86
+	dw MiniEnteiOAM   ; $87
+	dw MiniDogsPortalOAM ; $88
 
 OAMData2_0: ; 0x56e1
 	db $20, $20, $9E, $04
@@ -3448,4 +3452,28 @@ OAMData2_83: ; 0x6258
 
 OAMData2_84: ; 0x625d
 	db $10, $08, $F2, $00
+	db $80  ; terminator
+
+MiniSuicuneOAM:
+	db $38, $50, $40, $01
+	db $38, $58, $42, $01
+	db $80  ; terminator
+
+MiniRaikouOAM:
+	db $38, $50, $44, $01
+	db $38, $58, $46, $01
+	db $80  ; terminator
+
+MiniEnteiOAM:
+	db $38, $50, $48, $01
+	db $38, $58, $4A, $01
+	db $80  ; terminator
+
+MiniDogsPortalOAM:
+	db $50, $4C, $4C, $00
+	db $50, $54, $4E, $00
+	db $50, $5C, $50, $00
+	db $60, $4C, $52, $00
+	db $60, $54, $54, $00
+	db $60, $5C, $56, $00
 	db $80  ; terminator

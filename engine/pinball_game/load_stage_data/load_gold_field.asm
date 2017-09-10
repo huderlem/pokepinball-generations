@@ -4,34 +4,34 @@ _LoadStageDataGoldFieldTop: ; 0x14000
 	call LoadPinballUpgradeTriggersGraphics_GoldField
 	call LoadStaryuGraphics_Top_GoldField
 	call UpdateSpinnerChargeGraphics_GoldField
-	call Func_14234_GoldField
+	call LoadEvolutionTrinketGraphics_GoldField
 	call LoadSlotCaveCoverGraphics_GoldField
-	callba Func_142fc
+	callba LoadBallGraphics
 	callba LoadTimerGraphics
 	ret
 
 _LoadStageDataGoldFieldBottom: ; 0x1401c
 	call Func_14091_GoldField
-	call Func_14377_GoldField
+	call LoadBillboardGraphics_GoldField
 	call ClearAllGoldIndicators
 	call LoadCAVELightsGraphics_GoldField
-	call Func_14282_GoldField
+	call LoadBillboardStatusBarGraphics_GoldField
 	call Func_1414b_GoldField
-	call Func_14234_GoldField
+	call LoadEvolutionTrinketGraphics_GoldField
 	callba LoadAgainTextGraphics
 	callba DrawBallSaverIcon
-	call Func_140f9_GoldField
+	call LoadDiglettGraphics_GoldField
 	call LoadStaryuGraphics_Bottom_GoldField
-	call Func_140e2_GoldField
+	call LoadBonusMultiplierRailingGraphics_GoldField
 	call LoadSlotCaveCoverGraphics_GoldField
-	callba Func_142fc
+	callba LoadBallGraphics
 	callba LoadTimerGraphics
 	ret
 
 Func_14091_GoldField: ; 0x14091
 	ld a, $ff
 	ld [wWhichAnimatedVoltorb], a
-	ld [wd4db], a
+	ld [wWhichBumperGfx], a
 	ld a, [wBallXPos + 1]
 	ld [wd4c5], a
 	ld a, [wBallYPos + 1]
@@ -61,18 +61,18 @@ Func_14091_GoldField: ; 0x14091
 	call LoadFieldStructureGraphics_GoldField
 	ret
 
-Func_140e2_GoldField: ; 0x140e2
+LoadBonusMultiplierRailingGraphics_GoldField: ; 0x140e2
 	ld a, $ff
 	ld [wd60e], a
 	ld [wd60f], a
 	ld a, [wBonusMultiplierTensDigit]
-	call LoadBonusMultiplierRailingGraphics_GoldField
+	call _LoadBonusMultiplierRailingGraphics_GoldField
 	ld a, [wBonusMultiplierOnesDigit]
 	add $14
-	call LoadBonusMultiplierRailingGraphics_GoldField
+	call _LoadBonusMultiplierRailingGraphics_GoldField
 	ret
 
-Func_140f9_GoldField: ; 0x140f9
+LoadDiglettGraphics_GoldField: ; 0x140f9
 	ld a, [wLeftDiglettAnimationController]
 	and a
 	jr z, .asm_1410c ;skip ??? if wLeftDiglettAnimationController = 0
@@ -83,7 +83,7 @@ Func_140f9_GoldField: ; 0x140f9
 	ld [wStageCollisionMap + $103], a ;load into the collision map?
 	ld a, $2
 .asm_1410c
-	call LoadDiglettGraphics_GoldField
+	call _LoadDiglettGraphics_GoldField
 	ld a, [wLeftMapMoveCounter]
 	call LoadDiglettNumberGraphics_GoldField
 	ld a, [wRightDiglettAnimationController]
@@ -96,7 +96,7 @@ Func_140f9_GoldField: ; 0x140f9
 	ld a, $2
 .asm_14127
 	add $3
-	call LoadDiglettGraphics_GoldField
+	call _LoadDiglettGraphics_GoldField
 	ld a, [wRightMapMoveCounter]
 	add $4
 	call LoadDiglettNumberGraphics_GoldField
@@ -190,7 +190,7 @@ Func_14210_GoldField: ; 0x14210
 	callba nz, Func_102bc
 	ret
 
-Func_14234_GoldField: ; 0x14234
+LoadEvolutionTrinketGraphics_GoldField: ; 0x14234
 	ld a, [wInSpecialMode]
 	and a
 	ret z
@@ -211,7 +211,7 @@ Func_14234_GoldField: ; 0x14234
 	ld de, vTilesOB tile $20
 	call LoadEvolutionTrinketGfx_GoldField
 .asm_1426a
-	ld a, [wd551]
+	ld a, [wEvolutionObjectsDisabled]
 	and a
 	ret z
 	ld a, [hGameBoyColorFlag]
@@ -241,7 +241,7 @@ LoadEvolutionTrinketGfx_GoldField:
 	call FarCopyData
 	ret
 
-Func_14282_GoldField: ; 0x14282
+LoadBillboardStatusBarGraphics_GoldField: ; 0x14282
 	ld a, [wInSpecialMode]
 	and a
 	jr z, .asm_1429e
@@ -316,7 +316,7 @@ Func_142d7_GoldField: ; 0x142d7
 	pop bc
 	ret
 
-Func_14377_GoldField: ; 0x14377
+LoadBillboardGraphics_GoldField: ; 0x14377
 	ld a, [wInSpecialMode]
 	and a
 	jr nz, .asm_143b1
@@ -344,7 +344,7 @@ Func_14377_GoldField: ; 0x14377
 	ld a, [wSpecialMode]
 	cp SPECIAL_MODE_MAP_MOVE
 	ret nz
-	ld a, [wd54d]
+	ld a, [wSpecialModeState]
 	cp $3
 	jr nz, .asm_143c9
 	callba LoadMapBillboardTileData

@@ -157,7 +157,7 @@ ExitFieldSelectScreen: ; 0xd774
 	ld [wd7c2], a
 	ld hl, wPartyMons
 	ld de, sSaveGame
-	ld bc, $04c3
+	ld bc, $04c4
 	call SaveData
 	xor a
 	ld [wd7c1], a

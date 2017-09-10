@@ -154,14 +154,14 @@ Func_c10e: ; 0xc10e
 	jr z, .asm_c173
 	ld hl, sSaveGame
 	ld de, wPartyMons
-	ld bc, $04c3
+	ld bc, $04c4
 	call LoadSavedData
 	jr nc, .asm_c173
 	xor a
 	ld [wd7c2], a
 	ld hl, wPartyMons
 	ld de, sSaveGame
-	ld bc, $04c3
+	ld bc, $04c4
 	call SaveData
 	ld a, $1
 	ld [wd7c1], a

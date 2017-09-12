@@ -2,12 +2,12 @@ DrawSpritesSilverFieldTop: ; 0x1f330
 	ld bc, $7f00
 	callba DrawTimer
 	call DrawShellderSprites_SilverField
-	call Func_1f3e1_SilverField
-	call Func_1f408_SilverField
-	call Func_1f428_SilverField
+	call DrawSpinner_SilverField
+	call DrawSlowpoke_SilverField
+	call DrawCloyster_SilverField
 	callba DrawPinball
-	call Func_1f48f_SilverField
-	call Func_1f4f8_SilverField
+	call DrawEvolutionIndicatorArrows_SilverFieldTop
+	call DrawEvolutionTrinket_SilverFieldTop
 	ret
 
 DrawSpritesSilverFieldBottom: ; 0x1f35a
@@ -18,8 +18,8 @@ DrawSpritesSilverFieldBottom: ; 0x1f35a
 	call DrawPikachuSavers_SilverStage
 	callba DrawFlippers
 	callba DrawPinball
-	call Func_1f4a3_SilverField
-	call Func_1f509_SilverField
+	call DrawEvolutionIndicatorArrows_SilverFieldBottom
+	call DrawEvolutionTrinket_SilverFieldBottom
 	call DrawSlotGlow_SilverField
 	ret
 
@@ -77,7 +77,7 @@ Data_1f3db_SilverField:
 	db $02
 	db $E0, $E1, $E0 ; OAM ids
 
-Func_1f3e1_SilverField: ; 0x1f3e1
+DrawSpinner_SilverField: ; 0x1f3e1
 	ld a, $8a
 	ld hl, hSCX
 	sub [hl]
@@ -91,16 +91,16 @@ Func_1f3e1_SilverField: ; 0x1f3e1
 	srl a
 	ld e, a
 	ld d, $0
-	ld hl, OAMIds_1f402_SilverField
+	ld hl, SpinnerOAMIds_SilverField
 	add hl, de
 	ld a, [hl]
 	call LoadOAMData
 	ret
 
-OAMIds_1f402_SilverField:
+SpinnerOAMIds_SilverField:
 	db $E8, $E9, $EA, $EB, $EC, $ED
 
-Func_1f408_SilverField: ; 0x1f408
+DrawSlowpoke_SilverField: ; 0x1f408
 	ld a, $18
 	ld hl, hSCX
 	sub [hl]
@@ -112,16 +112,16 @@ Func_1f408_SilverField: ; 0x1f408
 	ld a, [wSlowpokeAnimationFrame]
 	ld e, a
 	ld d, $0
-	ld hl, OAMIds_1f425_SilverField
+	ld hl, SlowpokeOAMIds_SilverField
 	add hl, de
 	ld a, [hl]
 	call LoadOAMData
 	ret
 
-OAMIds_1f425_SilverField:
+SlowpokeOAMIds_SilverField:
 	db $E2, $E3, $E4
 
-Func_1f428_SilverField: ; 0x1f428
+DrawCloyster_SilverField: ; 0x1f428
 	ld a, $70
 	ld hl, hSCX
 	sub [hl]
@@ -133,13 +133,13 @@ Func_1f428_SilverField: ; 0x1f428
 	ld a, [wCloysterAnimationFrame]
 	ld e, a
 	ld d, $0
-	ld hl, OAMIds_1f445_SilverField
+	ld hl, CloysterOAMIds_SilverField
 	add hl, de
 	ld a, [hl]
 	call LoadOAMData
 	ret
 
-OAMIds_1f445_SilverField:
+CloysterOAMIds_SilverField:
 	db $E5, $E6, $E7
 
 DrawPikachuSavers_SilverStage: ; 0x1f448
@@ -188,29 +188,29 @@ PikachuSaverOAMOffsets_SilverStage:
 	dw $7E0F
 	dw $7E92
 
-Func_1f48f_SilverField: ; 0x1f48f
-	ld a, [wd551]
+DrawEvolutionIndicatorArrows_SilverFieldTop: ; 0x1f48f
+	ld a, [wEvolutionObjectsDisabled]
 	and a
 	ret nz
 	ld a, [hNumFramesDropped]
 	bit 4, a
 	ret z
 	ld de, wIndicatorStates + 5
-	ld hl, OAMDataTable_1f4ce_SilverField
+	ld hl, EvolutionIndicatorArrowsOAM_SilverFieldTop
 	ld b, $6
-	jr asm_1f4b5_SilverField
+	jr DrawEvolutionIndicatorArrows_SilverField
 
-Func_1f4a3_SilverField: ; 0x1f4a3
-	ld a, [wd551]
+DrawEvolutionIndicatorArrows_SilverFieldBottom: ; 0x1f4a3
+	ld a, [wEvolutionObjectsDisabled]
 	and a
 	ret nz
 	ld a, [hNumFramesDropped]
 	bit 4, a
 	ret z
 	ld de, wIndicatorStates + 11
-	ld hl, OAMDataTable_1f4e0_SilverField
+	ld hl, EvolutionIndicatorArrowsOAM_SilverFieldBottom
 	ld b, $8
-asm_1f4b5_SilverField:
+DrawEvolutionIndicatorArrows_SilverField:
 	push bc
 	ld a, [hSCX]
 	ld b, a
@@ -229,10 +229,10 @@ asm_1f4b5_SilverField:
 	pop bc
 	inc de
 	dec b
-	jr nz, asm_1f4b5_SilverField
+	jr nz, DrawEvolutionIndicatorArrows_SilverField
 	ret
 
-OAMDataTable_1f4ce_SilverField: ; 0x1f4ce
+EvolutionIndicatorArrowsOAM_SilverFieldTop: ; 0x1f4ce
  ; Each entry is:
  ; [OAM x/y Offsets],[OAM Id]
 	db $0D, $37
@@ -253,7 +253,7 @@ OAMDataTable_1f4ce_SilverField: ; 0x1f4ce
 	db $61, $64
 	db $F0
 
-OAMDataTable_1f4e0_SilverField: ; 0x1f4e0
+EvolutionIndicatorArrowsOAM_SilverFieldBottom: ; 0x1f4e0
  ; Each entry is 3 bytes:
  ; [OAM x/y Offsets],[OAM Id]
 	db $2D, $13
@@ -280,25 +280,25 @@ OAMDataTable_1f4e0_SilverField: ; 0x1f4e0
 	db $89, $40
 	db $37
 
-Func_1f4f8_SilverField: ; 0x1f4f8
-	ld a, [wd551]
+DrawEvolutionTrinket_SilverFieldTop: ; 0x1f4f8
+	ld a, [wEvolutionObjectsDisabled]
 	and a
 	ret z
 	ld de, wd566
-	ld hl, OAMOffsetsTable_1f53a_SilverField
+	ld hl, EvolutionTrinketOAMOffsets_SilverFieldTop
 	ld b, $c
 	ld c, $47
-	jr asm_1f518_SilverField
+	jr DrawEvolutionTrinket_SilverField
 
-Func_1f509_SilverField: ; 0x1f509
-	ld a, [wd551]
+DrawEvolutionTrinket_SilverFieldBottom: ; 0x1f509
+	ld a, [wEvolutionObjectsDisabled]
 	and a
 	ret z
 	ld de, wd572
-	ld hl, OAMOffsetsTable_1f552_SilverField
+	ld hl, EvolutionTrinketOAMOffsets_SilverFieldBottom
 	ld b, $6
 	ld c, $40
-asm_1f518_SilverField: ; 0x1f518
+DrawEvolutionTrinket_SilverField: ; 0x1f518
 	push bc
 	ld a, [de]
 	add c
@@ -324,10 +324,10 @@ asm_1f518_SilverField: ; 0x1f518
 	pop bc
 	inc de
 	dec b
-	jr nz, asm_1f518_SilverField
+	jr nz, DrawEvolutionTrinket_SilverField
 	ret
 
-OAMOffsetsTable_1f53a_SilverField: ; 0x1f53a
+EvolutionTrinketOAMOffsets_SilverFieldTop: ; 0x1f53a
 ; OAM data x, y offsets
 	db $4C, $08
 	db $2B, $12
@@ -342,7 +342,7 @@ OAMOffsetsTable_1f53a_SilverField: ; 0x1f53a
 	db $61, $7F
 	db $8D, $65
 
-OAMOffsetsTable_1f552_SilverField: ; 0x1f552
+EvolutionTrinketOAMOffsets_SilverFieldBottom: ; 0x1f552
 ; OAM data x, y offsets
 	db $3B, $12
 	db $5D, $12

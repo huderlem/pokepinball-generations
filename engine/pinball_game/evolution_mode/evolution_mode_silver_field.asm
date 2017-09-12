@@ -1,47 +1,47 @@
 HandleSilverEvoModeCollision: ; 0x20bae
 	ld a, [wSpecialModeCollisionID]
 	cp SPECIAL_COLLISION_SHELLDER
-	jp z, Func_20e34_SilverField
+	jp z, HandleShellderCollision_EvolutionMode_SilverField
 	cp SPECIAL_COLLISION_LEFT_TRIGGER
-	jp z, Func_21089_SilverField
+	jp z, HandleLeftTriggerCollision_EvolutionMode_SilverField
 	cp SPECIAL_COLLISION_CLOYSTER
-	jp z, Func_20e5e_SilverField
+	jp z, HandleCloysterCollision_EvolutionMode_SilverField
 	cp SPECIAL_COLLISION_SLOWPOKE
-	jp z, Func_20e82_SilverField
+	jp z, HandleSlowpokeCollision_EvolutionMode_SilverField
 	cp SPECIAL_COLLISION_POLIWAG
-	jp z, Func_20ea6_SilverField
+	jp z, HandlePoliwagCollision_EvolutionMode_SilverField
 	cp SPECIAL_COLLISION_PSYDUCK
-	jp z, Func_20ec7_SilverField
+	jp z, HandlePsyduckCollision_EvolutionMode_SilverField
 	cp SPECIAL_COLLISION_LEFT_BONUS_MULTIPLIER
-	jp z, Func_20ee8_SilverField
+	jp z, HandleLeftBonusMultiplierCollision_EvolutionMode_SilverField
 	cp SPECIAL_COLLISION_RIGHT_BONUS_MULTIPLIER
-	jp z, Func_20f09_SilverField
+	jp z, HandleRightBonusMultiplierCollision_EvolutionMode_SilverField
 	cp SPECIAL_COLLISION_BALL_UPGRADE
-	jp z, Func_20f2a_SilverField
+	jp z, HandleBallUpgradeCollision_EvolutionMode_SilverField
 	cp SPECIAL_COLLISION_SPINNER
-	jp z, Func_20f4b_SilverField
+	jp z, HandleSpinnerCollision_EvolutionMode_SilverField
 	cp SPECIAL_COLLISION_SLOT_HOLE
-	jp z, Func_2112a_SilverField
+	jp z, HandleSlotCaveCollision_EvolutionMode_SilverField
 	cp SPECIAL_COLLISION_RIGHT_TRIGGER
-	jp z, Func_2105c_SilverField
+	jp z, HandleRightTriggerCollision_EvolutionMode_SilverField
 	cp SPECIAL_COLLISION_NOTHING
-	jr z, .asm_20bf3
+	jr z, .noCollision
 	scf
 	ret
 
-.asm_20bf3
-	call Func_20da0_SilverField
-	ld a, [wd54d]
+.noCollision
+	call CheckIfEvolutionModeTimerExpired_SilverField
+	ld a, [wSpecialModeState]
 	call CallInFollowingTable
-PointerTable_20bfc_SilverField: ; 0x20bfc
-	padded_dab Func_20c08_SilverField
-	padded_dab Func_20d30_SilverField
-	padded_dab Func_20d7c_SilverField
+EvolutionModeCallTable_SilverField: ; 0x20bfc
+	padded_dab HandleEvolutionMode_SilverField
+	padded_dab CompleteEvolutionMode_SilverField
+	padded_dab FailEvolutionMode_SilverField
 
-Func_20c08_SilverField: ; 0x20c08
+HandleEvolutionMode_SilverField: ; 0x20c08
 	ld a, [wCurrentStage]
 	ld b, a
-	ld a, [wd578]
+	ld a, [wCollidedPointIndex]
 	and a
 	ret z
 	dec a
@@ -58,8 +58,8 @@ Func_20c08_SilverField: ; 0x20c08
 	ret z
 	xor a
 	ld [hl], a
-	ld [wd551], a
-	call Func_20c76_SilverField
+	ld [wEvolutionObjectsDisabled], a
+	call ProgressEvolution_SilverField
 	ld a, [wd558]
 	ld [wIndicatorStates], a
 	ld a, [wd559]
@@ -86,10 +86,10 @@ Func_20c08_SilverField: ; 0x20c08
 	scf
 	ret
 
-Func_20c76_SilverField: ; 0x20c76
+ProgressEvolution_SilverField: ; 0x20c76
 	ld a, [wCurrentStage]
 	bit 0, a
-	jr z, .asm_20ca6
+	jr z, .top
 	ld a, [wCurrentEvolutionType]
 	dec a
 	ld c, a
@@ -112,7 +112,7 @@ Func_20c76_SilverField: ; 0x20c76
 	ld bc, $0020
 	ld a, BANK(EvolutionProgressIconsGfx)
 	call LoadVRAMData
-.asm_20ca6
+.top
 	ld a, [wd554]
 	inc a
 	ld [wd554], a
@@ -172,11 +172,11 @@ Func_20c76_SilverField: ; 0x20c76
 	callba LoadSlotCaveCoverGraphics_SilverField
 	ret
 
-Func_20d30_SilverField: ; 0x20d30
+CompleteEvolutionMode_SilverField: ; 0x20d30
 	callba RestoreBallSaverAfterCatchEmMode
 	callba PlaceEvolutionInParty
 	callba ConcludeEvolutionMode
-	ld de, $0001
+	ld de, MUSIC_BLUE_FIELD
 	call PlaySong
 	ld hl, wNumPokemonEvolvedInBallBonus
 	call Increment_Max100
@@ -195,20 +195,20 @@ Func_20d30_SilverField: ; 0x20d30
 	scf
 	ret
 
-Func_20d7c_SilverField: ; 0x20d7c
+FailEvolutionMode_SilverField: ; 0x20d7c
 	ld a, [wBottomTextEnabled]
 	and a
 	ret nz
 	call FillBottomMessageBufferWithBlackTile
 	callba RestoreBallSaverAfterCatchEmMode
 	callba ConcludeEvolutionMode
-	ld de, $0001
+	ld de, MUSIC_BLUE_FIELD
 	call PlaySong
 	scf
 	ret
 
-Func_20da0_SilverField: ; 0x20da0
-	ld hl, wd556
+CheckIfEvolutionModeTimerExpired_SilverField: ; 0x20da0
+	ld hl, wEvolutionTrinketCooldownFrames
 	ld a, [hli]
 	ld c, a
 	ld b, [hl]
@@ -220,7 +220,7 @@ Func_20da0_SilverField: ; 0x20da0
 	ld [hl], c
 	or c
 	jr nz, .asm_20db3
-	call Func_21079_SilverField
+	call EndEvolutionTrinketCooldown_SilverField
 .asm_20db3
 	callba PlayLowTimeSfx
 	ld a, [wTimeRanOut]
@@ -229,7 +229,7 @@ Func_20da0_SilverField: ; 0x20da0
 	xor a
 	ld [wTimeRanOut], a
 	ld a, $2
-	ld [wd54d], a
+	ld [wSpecialModeState], a
 	xor a
 	ld [wSlotIsOpen], a
 	ld hl, wIndicatorStates
@@ -247,7 +247,7 @@ Func_20da0_SilverField: ; 0x20da0
 	ld [wIndicatorStates + 7], a
 	ld [wd558], a
 	ld [wd559], a
-	ld [wd551], a
+	ld [wEvolutionObjectsDisabled], a
 	ld a, [wCurrentStage]
 	bit 0, a
 	jr z, .asm_20e1a
@@ -267,11 +267,11 @@ Func_20da0_SilverField: ; 0x20da0
 	call LoadScrollingText
 	ret
 
-Func_20e34_SilverField: ; 0x20e34
+HandleShellderCollision_EvolutionMode_SilverField: ; 0x20e34
 	ld bc, $0001
 	ld de, $5000
 	call AddBCDEToJackpot
-	ld a, [wd551]
+	ld a, [wEvolutionObjectsDisabled]
 	and a
 	jr nz, .asm_20e5c
 	ld a, [wIndicatorStates + 9]
@@ -283,15 +283,15 @@ Func_20e34_SilverField: ; 0x20e34
 	and a
 	ld a, $0
 	ld [wd55c], a
-	jp nz, Func_20f75_SilverField
-	jp Func_20fef_SilverField
+	jp nz, CreateEvolutionTrinket_SilverField
+	jp EvolutionTrinketNotFound_SilverField
 
 .asm_20e5c
 	scf
 	ret
 
-Func_20e5e_SilverField: ; 0x20e5e
-	ld a, [wd551]
+HandleCloysterCollision_EvolutionMode_SilverField: ; 0x20e5e
+	ld a, [wEvolutionObjectsDisabled]
 	and a
 	jr nz, .asm_20e80
 	ld a, [wIndicatorStates + 3]
@@ -304,15 +304,15 @@ Func_20e5e_SilverField: ; 0x20e5e
 	and a
 	ld a, $0
 	ld [wd562], a
-	jp nz, Func_20f75_SilverField
-	jp Func_20fef_SilverField
+	jp nz, CreateEvolutionTrinket_SilverField
+	jp EvolutionTrinketNotFound_SilverField
 
 .asm_20e80
 	scf
 	ret
 
-Func_20e82_SilverField: ; 0x20e82
-	ld a, [wd551]
+HandleSlowpokeCollision_EvolutionMode_SilverField: ; 0x20e82
+	ld a, [wEvolutionObjectsDisabled]
 	and a
 	jr nz, .asm_20ea4
 	ld a, [wIndicatorStates + 8]
@@ -325,15 +325,15 @@ Func_20e82_SilverField: ; 0x20e82
 	and a
 	ld a, $0
 	ld [wd561], a
-	jp nz, Func_20f75_SilverField
-	jp Func_20fef_SilverField
+	jp nz, CreateEvolutionTrinket_SilverField
+	jp EvolutionTrinketNotFound_SilverField
 
 .asm_20ea4
 	scf
 	ret
 
-Func_20ea6_SilverField: ; 0x20ea6
-	ld a, [wd551]
+HandlePoliwagCollision_EvolutionMode_SilverField: ; 0x20ea6
+	ld a, [wEvolutionObjectsDisabled]
 	and a
 	jr nz, .asm_20ec5
 	ld a, [wIndicatorStates + 13]
@@ -345,15 +345,15 @@ Func_20ea6_SilverField: ; 0x20ea6
 	and a
 	ld a, $0
 	ld [wd55d], a
-	jp nz, Func_20f75_SilverField
-	jp Func_20fef_SilverField
+	jp nz, CreateEvolutionTrinket_SilverField
+	jp EvolutionTrinketNotFound_SilverField
 
 .asm_20ec5
 	scf
 	ret
 
-Func_20ec7_SilverField: ; 0x20ec7
-	ld a, [wd551]
+HandlePsyduckCollision_EvolutionMode_SilverField: ; 0x20ec7
+	ld a, [wEvolutionObjectsDisabled]
 	and a
 	jr nz, .asm_20ee6
 	ld a, [wIndicatorStates + 14]
@@ -365,15 +365,15 @@ Func_20ec7_SilverField: ; 0x20ec7
 	and a
 	ld a, $0
 	ld [wd55e], a
-	jp nz, Func_20f75_SilverField
-	jp Func_20fef_SilverField
+	jp nz, CreateEvolutionTrinket_SilverField
+	jp EvolutionTrinketNotFound_SilverField
 
 .asm_20ee6
 	scf
 	ret
 
-Func_20ee8_SilverField: ; 0x20ee8
-	ld a, [wd551]
+HandleLeftBonusMultiplierCollision_EvolutionMode_SilverField: ; 0x20ee8
+	ld a, [wEvolutionObjectsDisabled]
 	and a
 	jr nz, .asm_20f07
 	ld a, [wIndicatorStates + 11]
@@ -385,15 +385,15 @@ Func_20ee8_SilverField: ; 0x20ee8
 	and a
 	ld a, $0
 	ld [wd55f], a
-	jp nz, Func_20f75_SilverField
-	jp Func_20fef_SilverField
+	jp nz, CreateEvolutionTrinket_SilverField
+	jp EvolutionTrinketNotFound_SilverField
 
 .asm_20f07
 	scf
 	ret
 
-Func_20f09_SilverField: ; 0x20f09
-	ld a, [wd551]
+HandleRightBonusMultiplierCollision_EvolutionMode_SilverField: ; 0x20f09
+	ld a, [wEvolutionObjectsDisabled]
 	and a
 	jr nz, .asm_20f28
 	ld a, [wIndicatorStates + 12]
@@ -405,15 +405,15 @@ Func_20f09_SilverField: ; 0x20f09
 	and a
 	ld a, $0
 	ld [wd560], a
-	jp nz, Func_20f75_SilverField
-	jp Func_20fef_SilverField
+	jp nz, CreateEvolutionTrinket_SilverField
+	jp EvolutionTrinketNotFound_SilverField
 
 .asm_20f28
 	scf
 	ret
 
-Func_20f2a_SilverField: ; 0x20f2a
-	ld a, [wd551]
+HandleBallUpgradeCollision_EvolutionMode_SilverField: ; 0x20f2a
+	ld a, [wEvolutionObjectsDisabled]
 	and a
 	jr nz, .asm_20f49
 	ld a, [wIndicatorStates + 6]
@@ -425,18 +425,18 @@ Func_20f2a_SilverField: ; 0x20f2a
 	and a
 	ld a, $0
 	ld [wd565], a
-	jp nz, Func_20f75_SilverField
-	jp Func_20fef_SilverField
+	jp nz, CreateEvolutionTrinket_SilverField
+	jp EvolutionTrinketNotFound_SilverField
 
 .asm_20f49
 	scf
 	ret
 
-Func_20f4b_SilverField: ; 0x20f4b
+HandleSpinnerCollision_EvolutionMode_SilverField: ; 0x20f4b
 	ld bc, $0000
 	ld de, $1500
 	call AddBCDEToJackpot
-	ld a, [wd551]
+	ld a, [wEvolutionObjectsDisabled]
 	and a
 	jr nz, .asm_20f73
 	ld a, [wIndicatorStates + 7]
@@ -448,8 +448,8 @@ Func_20f4b_SilverField: ; 0x20f4b
 	and a
 	ld a, $0
 	ld [wd564], a
-	jp nz, Func_20f75_SilverField
-	jp Func_20fef_SilverField
+	jp nz, CreateEvolutionTrinket_SilverField
+	jp EvolutionTrinketNotFound_SilverField
 
 .asm_20f73
 	scf
@@ -466,10 +466,10 @@ EvolutionIconIds_SilverField:
 	db $07 ; EVO_EXPERIENCE
 	db $01 ; EVO_BREEDING
 
-Func_20f75_SilverField: ; 0x20f75
+CreateEvolutionTrinket_SilverField: ; 0x20f75
 	lb de, $07, $46
 	call PlaySoundEffect
-	call Func_2111d_SilverField
+	call ChooseNextEvolutionTrinketLocation_SilverField
 	push hl
 	ld a, [wCurrentEvolutionType]
 	ld hl, EvolutionIconIds_SilverField
@@ -479,7 +479,7 @@ Func_20f75_SilverField: ; 0x20f75
 	ld a, [hl]
 	pop hl
 	ld [hl], a
-	ld [wd551], a
+	ld [wEvolutionObjectsDisabled], a
 	ld a, [wIndicatorStates]
 	ld [wd558], a
 	ld a, [wIndicatorStates + 3]
@@ -522,11 +522,11 @@ Func_20f75_SilverField: ; 0x20f75
 	scf
 	ret
 
-Func_20fef_SilverField: ; 0x20fef
+EvolutionTrinketNotFound_SilverField: ; 0x20fef
 	lb de, $07, $47
 	call PlaySoundEffect
 	ld a, $1
-	ld [wd551], a
+	ld [wEvolutionObjectsDisabled], a
 	ld a, [wIndicatorStates]
 	ld [wd558], a
 	ld a, $80
@@ -543,9 +543,9 @@ Func_20fef_SilverField: ; 0x20fef
 	bit 0, a
 	callba nz, Func_1c2cb_SilverField
 	ld a, $58
-	ld [wd556], a
+	ld [wEvolutionTrinketCooldownFrames], a
 	ld a, $2
-	ld [wd557], a
+	ld [wEvolutionTrinketCooldownFrames + 1], a
 	ld bc, ThreeHundredThousandPoints
 	callba AddBigBCD6FromQueue
 	call FillBottomMessageBufferWithBlackTile
@@ -564,8 +564,8 @@ Func_20fef_SilverField: ; 0x20fef
 	scf
 	ret
 
-Func_2105c_SilverField: ; 0x2105c
-	ld a, [wd551]
+HandleRightTriggerCollision_EvolutionMode_SilverField: ; 0x2105c
+	ld a, [wEvolutionObjectsDisabled]
 	and a
 	jr z, .asm_21077
 	ld a, [wIndicatorStates + 1]
@@ -573,27 +573,27 @@ Func_2105c_SilverField: ; 0x2105c
 	jr z, .asm_21077
 	ld bc, TenThousandPoints
 	callba AddBigBCD6FromQueue
-	jr asm_210c7_SilverField
+	jr RecoverPokemon_SilverField
 
 .asm_21077
 	scf
 	ret
 
-Func_21079_SilverField: ; 0x21079
-	ld a, [wd551]
+EndEvolutionTrinketCooldown_SilverField: ; 0x21079
+	ld a, [wEvolutionObjectsDisabled]
 	and a
 	jr z, .asm_21087
 	ld a, [wIndicatorStates + 1]
 	and a
 	jr z, .asm_21087
-	jr asm_210c7_SilverField
+	jr RecoverPokemon_SilverField
 
 .asm_21087
 	scf
 	ret
 
-Func_21089_SilverField: ; 0x21089
-	ld a, [wd551]
+HandleLeftTriggerCollision_EvolutionMode_SilverField: ; 0x21089
+	ld a, [wEvolutionObjectsDisabled]
 	and a
 	jr nz, .asm_210aa
 	ld a, [wIndicatorStates]
@@ -605,15 +605,15 @@ Func_21089_SilverField: ; 0x21089
 	and a
 	ld a, $0
 	ld [wd563], a
-	jp nz, Func_20f75_SilverField
-	jp Func_20fef_SilverField
+	jp nz, CreateEvolutionTrinket_SilverField
+	jp EvolutionTrinketNotFound_SilverField
 
 .asm_210a8
 	scf
 	ret
 
 .asm_210aa
-	ld a, [wd551]
+	ld a, [wEvolutionObjectsDisabled]
 	and a
 	jr z, .asm_210c5
 	ld a, [wIndicatorStates]
@@ -621,16 +621,16 @@ Func_21089_SilverField: ; 0x21089
 	jr z, .asm_210c5
 	ld bc, TenThousandPoints
 	callba AddBigBCD6FromQueue
-	jr asm_210c7_SilverField
+	jr RecoverPokemon_SilverField
 
 .asm_210c5
 	scf
 	ret
 
-asm_210c7_SilverField:
+RecoverPokemon_SilverField:
 	xor a
 	ld [wIndicatorStates + 1], a
-	ld [wd551], a
+	ld [wEvolutionObjectsDisabled], a
 	ld a, [wd558]
 	ld [wIndicatorStates], a
 	ld a, [wd559]
@@ -662,7 +662,7 @@ asm_210c7_SilverField:
 	scf
 	ret
 
-Func_2111d_SilverField: ; 0x2111d
+ChooseNextEvolutionTrinketLocation_SilverField: ; 0x2111d
 	ld a, $11
 	call RandomRange
 	ld c, a
@@ -671,6 +671,6 @@ Func_2111d_SilverField: ; 0x2111d
 	add hl, bc
 	ret
 
-Func_2112a_SilverField: ; 0x2112a
+HandleSlotCaveCollision_EvolutionMode_SilverField: ; 0x2112a
 	callba LoadFinalEvolutionMonBillboardPic
 	ret

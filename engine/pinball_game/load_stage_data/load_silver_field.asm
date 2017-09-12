@@ -1,9 +1,9 @@
 _LoadStageDataSilverFieldTop: ; 0x1c165
 	call LoadPinballUpgradeTriggersGraphics_SilverField
 	call UpdateSpinnerChargeGraphics_SilverField
-	call Func_1c3ee_SilverField
+	call LoadEvolutionTrinketGraphics_SilverField
 	call LoadSlotCaveCoverGraphics_SilverField
-	callba Func_142fc
+	callba LoadBallGraphics
 	ld a, $1
 	ld [wBlueStageForceFieldGfxNeedsLoading], a
 	call UpdateForceFieldGraphics_SilverField
@@ -13,18 +13,18 @@ _LoadStageDataSilverFieldTop: ; 0x1c165
 
 _LoadStageDataSilverFieldBottom: ; 0x1c191
 	call Func_1c1db_SilverField
-	call Func_1c4b6_SilverField
+	call LoadBillboardGraphics_SilverField
 	call Func_1c2cb_SilverField
 	call LoadCAVELightsGraphics_SilverField
-	call Func_1c43c_SilverField
+	call LoadBillboardStatusBarGraphics_SilverField
 	call Func_1c305_SilverField
-	call Func_1c3ee_SilverField
+	call LoadEvolutionTrinketGraphics_SilverField
 	callba LoadAgainTextGraphics
 	callba DrawBallSaverIcon
-	call Func_1c235_SilverField
-	call Func_1c21e_SilverField
+	call LoadPsyduckOrPoliwagGraphics_SilverField
+	call LoadBonusMultiplierRailingGraphics_SilverField
 	call LoadSlotCaveCoverGraphics_SilverField
-	callba Func_142fc
+	callba LoadBallGraphics
 	callba LoadTimerGraphics
 	call Func_1c203_SilverField
 	ret
@@ -52,7 +52,7 @@ Func_1c1db_SilverField: ; 0x1c1db
 Func_1c203_SilverField: ; 0x1c203
 	ld a, $ff
 	ld [wWhichAnimatedShellder], a
-	ld [wd4db], a
+	ld [wWhichBumperGfx], a
 	ld a, [wBallXPos + 1]
 	ld [wd4c5], a
 	ld a, [wBallYPos + 1]
@@ -61,18 +61,18 @@ Func_1c203_SilverField: ; 0x1c203
 	ld [wd4c7], a
 	ret
 
-Func_1c21e_SilverField: ; 0x1c21e
+LoadBonusMultiplierRailingGraphics_SilverField: ; 0x1c21e
 	ld a, $ff
 	ld [wd60e], a
 	ld [wd60f], a
 	ld a, [wBonusMultiplierTensDigit]
-	call LoadBonusMultiplierRailingGraphics_SilverField
+	call _LoadBonusMultiplierRailingGraphics_SilverField
 	ld a, [wBonusMultiplierOnesDigit]
 	add $14
-	call LoadBonusMultiplierRailingGraphics_SilverField
+	call _LoadBonusMultiplierRailingGraphics_SilverField
 	ret
 
-Func_1c235_SilverField: ; 0x1c235
+LoadPsyduckOrPoliwagGraphics_SilverField: ; 0x1c235
 	ld a, [wLeftMapMoveDiglettAnimationCounter]
 	and a
 	jr z, .asm_1c249
@@ -86,7 +86,7 @@ Func_1c235_SilverField: ; 0x1c235
 .asm_1c249
 	xor a
 .asm_1c24a
-	call LoadPsyduckOrPoliwagGraphics_SilverField
+	call _LoadPsyduckOrPoliwagGraphics_SilverField
 	ld a, [wLeftMapMoveCounter]
 	call LoadPsyduckOrPoliwagNumberGraphics_SilverField
 	ld a, [hGameBoyColorFlag]
@@ -134,7 +134,7 @@ Func_1c235_SilverField: ; 0x1c235
 .asm_1c295
 	ld a, $2
 .asm_1c297
-	call LoadPsyduckOrPoliwagGraphics_SilverField
+	call _LoadPsyduckOrPoliwagGraphics_SilverField
 	ld a, [wRightMapMoveCounter]
 	add $4
 	call LoadPsyduckOrPoliwagNumberGraphics_SilverField
@@ -160,7 +160,7 @@ Func_1c235_SilverField: ; 0x1c235
 
 .asm_1c2bd
 	ld a, $6
-	call LoadPsyduckOrPoliwagGraphics_SilverField
+	call _LoadPsyduckOrPoliwagGraphics_SilverField
 	ld a, [wRightMapMoveCounter]
 	add $4
 	call LoadPsyduckOrPoliwagNumberGraphics_SilverField
@@ -278,7 +278,7 @@ Func_1c3ca_SilverField: ; 0x1c3ca
 	callba nz, Func_102bc
 	ret
 
-Func_1c3ee_SilverField: ; 0x1c3ee
+LoadEvolutionTrinketGraphics_SilverField: ; 0x1c3ee
 	ld a, [wInSpecialMode]
 	and a
 	ret z
@@ -299,7 +299,7 @@ Func_1c3ee_SilverField: ; 0x1c3ee
 	ld de, vTilesOB tile $20
 	call LoadEvolutionTrinketGfx_SilverField
 .asm_1c424
-	ld a, [wd551]
+	ld a, [wEvolutionObjectsDisabled]
 	and a
 	ret z
 	ld a, [hGameBoyColorFlag]
@@ -329,7 +329,7 @@ LoadEvolutionTrinketGfx_SilverField:
 	call FarCopyData
 	ret
 
-Func_1c43c_SilverField: ; 0x1c43c
+LoadBillboardStatusBarGraphics_SilverField: ; 0x1c43c
 	ld a, [wInSpecialMode]
 	and a
 	jr z, .asm_1c458
@@ -404,7 +404,7 @@ Func_1c491_SilverField: ; 0x1c491
 	pop bc
 	ret
 
-Func_1c4b6_SilverField: ; 0x1c4b6
+LoadBillboardGraphics_SilverField: ; 0x1c4b6
 	ld a, [wInSpecialMode]
 	and a
 	jr nz, .asm_1c4f0
@@ -432,7 +432,7 @@ Func_1c4b6_SilverField: ; 0x1c4b6
 	ld a, [wSpecialMode]
 	cp SPECIAL_MODE_MAP_MOVE
 	ret nz
-	ld a, [wd54d]
+	ld a, [wSpecialModeState]
 	cp $3
 	jr nz, .asm_1c508
 	callba LoadMapBillboardTileData

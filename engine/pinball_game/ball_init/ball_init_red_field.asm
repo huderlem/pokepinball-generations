@@ -23,14 +23,14 @@ InitBallRedField: ; 0x3007d
 	ld a, [wStageCollisionState]
 	and $1
 	ld [wStageCollisionState], a
-	ld a, [wd4c9]
+	ld a, [wLostBall]
 	and a
 	ret z
 	xor a
-	ld [wd4c9], a
+	ld [wLostBall], a
 	xor a
-	ld [wd50b], a
-	ld [wd50c], a
+	ld [wSpinnerVelocity], a
+	ld [wSpinnerVelocity + 1], a
 	ld [wPikachuSaverSlotRewardActive], a
 	ld [wPikachuSaverCharge], a
 	ld [wd51e], a
@@ -55,7 +55,7 @@ InitBallRedField: ; 0x3007d
 	ld [wNumCAVECompletions], a
 	ld [wNumSpinnerTurns], a
 	ld [wNumPikachuSaves], a
-	ld [wd613], a
+	ld [wShowBonusMultiplierBottomMessage], a
 	inc a
 	ld [wCurBonusMultiplier], a
 	ld [wLeftDiglettAnimationController], a
@@ -63,9 +63,9 @@ InitBallRedField: ; 0x3007d
 	ld a, $3
 	ld [wd610], a
 	callba GetBCDForNextBonusMultiplier_RedField
-	ld a, $f
+	ld a, Bank(Music_RedField)
 	call SetSongBank
-	ld de, $0001
+	ld de, MUSIC_RED_FIELD
 	call PlaySong
 	ret
 
@@ -85,11 +85,11 @@ StartBallAfterBonusStageRedField: ; 0x30128
 	ld [wBallXVelocity + 1], a
 	ld [wReturningFromBonusStage], a
 	ld [wSCX], a
-	ld [wd7be], a
+	ld [wFlippersDisabled], a
 	ld a, [wBallTypeBackup]
 	ld [wBallType], a
-	ld a, $f
+	ld a, Bank(Music_RedField)
 	call SetSongBank
-	ld de, $0001
+	ld de, MUSIC_RED_FIELD
 	call PlaySong
 	ret

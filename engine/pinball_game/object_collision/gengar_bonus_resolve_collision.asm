@@ -11,8 +11,8 @@ ResolveGengarBonusGameObjectCollisions: ; 0x18377
 	xor a
 	ld [wTimeRanOut], a
 	ld a, $1
-	ld [wd7be], a
-	call Func_2862
+	ld [wFlippersDisabled], a
+	call LoadFlippersPalette
 	callba StopTimer
 	ld a, [wd6a2]
 	cp $5
@@ -176,7 +176,7 @@ Func_18464: ; 0x18464
 	jr z, .asm_184d5
 	xor a
 	ld [wd657], a
-	ld a, [wd7be]
+	ld a, [wFlippersDisabled]
 	and a
 	jr nz, .asm_184d5
 	ld a, [wd658]
@@ -346,7 +346,7 @@ Func_18562: ; 0x18562
 	ld [wd659], a
 	ld [wd662], a
 	ld [wd66b], a
-	ld de, $0006
+	ld de, MUSIC_HAUNTER_GRAVEYARD
 	call PlaySong
 	ret
 
@@ -424,7 +424,7 @@ Func_1860b: ; 0x1860b
 	jr z, .asm_1867c
 	xor a
 	ld [wd67c], a
-	ld a, [wd7be]
+	ld a, [wFlippersDisabled]
 	and a
 	jr nz, .asm_1867c
 	ld a, [wd67d]
@@ -585,7 +585,7 @@ Func_186f7: ; 0x186f7
 	ld [wd656], a
 	call Func_18d72
 	call Func_18d91
-	ld de, $0000
+	ld de, MUSIC_NOTHING
 	call PlaySong
 	ret
 
@@ -674,7 +674,7 @@ Func_187b1: ; 0x187b1
 	jp z, .asm_1885d
 	xor a
 	ld [wd696], a
-	ld a, [wd7be]
+	ld a, [wFlippersDisabled]
 	and a
 	jp nz, .asm_1885d
 	ld a, [wd697]
@@ -718,10 +718,10 @@ Func_187b1: ; 0x187b1
 	ld a, $3
 	ld [de], a
 	ld a, $1
-	ld [wd7be], a
-	call Func_2862
+	ld [wFlippersDisabled], a
+	call LoadFlippersPalette
 	callba StopTimer
-	ld de, $0000
+	ld de, MUSIC_NOTHING
 	call PlaySong
 .asm_18826
 	ld bc, FiveMillionPoints
@@ -1027,7 +1027,7 @@ Func_189af: ; 0x189af
 	inc de
 	xor a
 	ld [de], a
-	ld de, $0007
+	ld de, MUSIC_GENGAR_GRAVEYARD
 	call PlaySong
 	ret
 
@@ -1423,7 +1423,7 @@ Func_18d34: ; 0x18d34
 	jr z, .asm_18d71
 	xor a
 	ld [wWhichGravestone], a
-	ld a, [wd7be]
+	ld a, [wFlippersDisabled]
 	and a
 	jr nz, .asm_18d71
 	ld bc, OneHundredPoints

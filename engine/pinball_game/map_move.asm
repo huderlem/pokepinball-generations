@@ -21,7 +21,7 @@ StartMapMoveMode: ; 0x301ec
 	ld a, SPECIAL_MODE_MAP_MOVE
 	ld [wSpecialMode], a
 	xor a
-	ld [wd54d], a
+	ld [wSpecialModeState], a
 	ld bc, $0030  ; 30 seconds
 	callba StartTimer
 	ld a, [wCurrentStage]
@@ -42,7 +42,7 @@ CallTable_3021f: ; 0x3021f
 	dw Func_31326_SilverField ; STAGE_SILVER_FIELD_TOP
 	dw Func_31326_SilverField ; STAGE_SILVER_FIELD_BOTTOM
 
-Func_3022b: ; 0x3022b
+ConcludeMapMoveMode: ; 0x3022b
 	xor a
 	ld [wBottomTextEnabled], a ;turn text off
 	call FillBottomMessageBufferWithBlackTile ;clear text
@@ -112,9 +112,9 @@ Func_311b4: ; 0x311b4
 
 .asm_311e2
 	ld a, $2
-	callba LoadDiglettGraphics
+	callba _LoadDiglettGraphics
 	ld a, $5
-	callba LoadDiglettGraphics
+	callba _LoadDiglettGraphics
 	ld a, $6a
 	ld [wStageCollisionMap + $f0], a
 	ld a, $6b
@@ -126,7 +126,7 @@ Func_311b4: ; 0x311b4
 	callba Func_107b0
 	ld a, $4
 	ld [wd7ad], a
-	ld de, $0003
+	ld de, MUSIC_HURRY_UP_BLUE ; Either MUSIC_HURRY_UP_BLUE or MUSIC_HURRY_UP_RED. They have the same id in their respective audio Banks.
 	call PlaySong
 	ld a, [wCurrentStage]
 	bit 0, a
@@ -136,7 +136,7 @@ Func_311b4: ; 0x311b4
 
 Func_31234: ; 0x31234
 	callba ResetIndicatorStates
-	callba Func_107c2
+	callba OpenSlotCave
 	callba SetLeftAndRightAlleyArrowIndicatorStates_RedField
 	callba Func_107e9
 	ld a, [wCurrentStage]
@@ -264,7 +264,7 @@ Func_31326: ; 0x31326
 	ld [wIndicatorStates + 3], a
 	ld [wIndicatorStates + 4], a
 	ld a, $3
-	callba LoadPsyduckOrPoliwagGraphics
+	callba _LoadPsyduckOrPoliwagGraphics
 	jr .asm_31382
 
 .asm_3134c
@@ -276,9 +276,9 @@ Func_31326: ; 0x31326
 	ld [wIndicatorStates + 2], a
 	ld [wIndicatorStates + 4], a
 	ld a, $1
-	callba LoadPsyduckOrPoliwagGraphics
+	callba _LoadPsyduckOrPoliwagGraphics
 	ld a, $6
-	callba LoadPsyduckOrPoliwagGraphics
+	callba _LoadPsyduckOrPoliwagGraphics
 	ld a, $7
 	callba LoadPsyduckOrPoliwagNumberGraphics
 .asm_31382
@@ -297,7 +297,7 @@ Func_31326: ; 0x31326
 	ld a, $1
 	ld [wd644], a
 	callba CloseSlotCave
-	ld de, $0003
+	ld de, MUSIC_HURRY_UP_BLUE ; Either MUSIC_HURRY_UP_BLUE or MUSIC_HURRY_UP_RED. They have the same id in their respective audio Banks.
 	call PlaySong
 	ld a, [wCurrentStage]
 	bit 0, a
@@ -307,7 +307,7 @@ Func_31326: ; 0x31326
 
 Func_313c3: ; 0x313c3
 	callba ResetIndicatorStates
-	callba Func_107c2
+	callba OpenSlotCave
 	callba SetLeftAndRightAlleyArrowIndicatorStates_BlueField
 	ld a, $0
 	ld [wd644], a
@@ -447,7 +447,7 @@ HandleRedMapModeCollision: ; 0x314ae
 
 .asm_314d6
 	call UpdateMapMove_RedField
-	ld a, [wd54d]
+	ld a, [wSpecialModeState]
 	call CallInFollowingTable
 PointerTable_314df: ; 0xd13df
 	padded_dab Func_314ef
@@ -464,8 +464,8 @@ Func_314f1: ; 0x314f1
 	ret
 
 Func_314f3: ; 0x314f3
-	callba Func_3022b
-	ld de, $0001
+	callba ConcludeMapMoveMode
+	ld de, MUSIC_BLUE_FIELD ; Either MUSIC_BLUE_FIELD or MUSIC_RED_FIELD. They have the same id in their respective audio Banks.
 	call PlaySong
 	scf
 	ret
@@ -475,8 +475,8 @@ Func_31505: ; 0x31505
 	and a
 	ret nz
 	call FillBottomMessageBufferWithBlackTile
-	callba Func_3022b
-	ld de, $0001
+	callba ConcludeMapMoveMode
+	ld de, MUSIC_BLUE_FIELD ; Either MUSIC_BLUE_FIELD or MUSIC_RED_FIELD. They have the same id in their respective audio Banks.
 	call PlaySong
 	scf
 	ret
@@ -492,7 +492,7 @@ UpdateMapMove_RedField: ; 0x3151f handle map move timer and fail when it expires
 	xor a
 	ld [wTimeRanOut], a
 	ld a, $3
-	ld [wd54d], a
+	ld [wSpecialModeState], a
 	xor a
 	ld [wSlotIsOpen], a ;close slot and indicators
 	ld [wIndicatorStates], a
@@ -529,7 +529,7 @@ OpenRedMapMoveSlotFromLeft: ; 0x31591
 	ld [wIndicatorStates + 4], a
 	ld a, $1
 	ld [wSlotIsOpen], a
-	ld [wd54d], a
+	ld [wSpecialModeState], a
 .NotApplicibleOrCompleted
 	scf
 	ret
@@ -548,13 +548,13 @@ OpenRedMapMoveSlotFromRight: ; 0x315b3
 	ld [wIndicatorStates + 4], a
 	ld a, $1
 	ld [wSlotIsOpen], a
-	ld [wd54d], a
+	ld [wSpecialModeState], a
 .NotApplicibleOrCompleted
 	scf
 	ret
 
 ResolveSucsessfulRedMapMove: ; 0x315d5
-	ld de, $0000
+	ld de, MUSIC_NOTHING
 	call PlaySong
 	rst AdvanceFrame
 	callba ChooseNextMap_RedField
@@ -570,7 +570,7 @@ ResolveSucsessfulRedMapMove: ; 0x315d5
 	and a
 	jr nz, .asm_31603
 	ld a, $2
-	ld [wd54d], a
+	ld [wSpecialModeState], a
 	scf
 	ret
 
@@ -597,7 +597,7 @@ HandleBlueMapModeCollision: ; 0x3161b
 
 .asm_31643
 	call UpdateMapMove_BlueField
-	ld a, [wd54d]
+	ld a, [wSpecialModeState]
 	call CallInFollowingTable
 PointerTable_3164c: ; 0x3164c
 	padded_dab Func_3165c
@@ -614,8 +614,8 @@ Func_3165e: ; 0x3165e
 	ret
 
 Func_31660: ; 0x31660
-	callba Func_3022b
-	ld de, $0001
+	callba ConcludeMapMoveMode
+	ld de, MUSIC_BLUE_FIELD ; Either MUSIC_BLUE_FIELD or MUSIC_RED_FIELD. They have the same id in their respective audio Banks.
 	call PlaySong
 	scf
 	ret
@@ -625,8 +625,8 @@ Func_31672: ; 0x31672
 	and a
 	ret nz
 	call FillBottomMessageBufferWithBlackTile
-	callba Func_3022b
-	ld de, $0001
+	callba ConcludeMapMoveMode
+	ld de, MUSIC_BLUE_FIELD ; Either MUSIC_BLUE_FIELD or MUSIC_RED_FIELD. They have the same id in their respective audio Banks.
 	call PlaySong
 	scf
 	ret
@@ -646,7 +646,7 @@ UpdateMapMove_BlueField: ; 0x3168c
 	xor a
 	ld [wTimeRanOut], a
 	ld a, $3
-	ld [wd54d], a
+	ld [wSpecialModeState], a
 	xor a
 	ld [wSlotIsOpen], a
 	ld [wIndicatorStates], a
@@ -683,7 +683,7 @@ Func_31708: ; 0x31708
 	ld [wIndicatorStates + 4], a
 	ld a, $1
 	ld [wSlotIsOpen], a
-	ld [wd54d], a
+	ld [wSpecialModeState], a
 .asm_31728
 	scf
 	ret
@@ -702,13 +702,13 @@ Func_3172a: ; 0x3172a
 	ld [wIndicatorStates + 4], a
 	ld a, $1
 	ld [wSlotIsOpen], a
-	ld [wd54d], a
+	ld [wSpecialModeState], a
 .asm_3174a
 	scf
 	ret
 
 Func_3174c: ; 0x3174c
-	ld de, $0000
+	ld de, MUSIC_NOTHING
 	call PlaySong
 	rst AdvanceFrame
 	callba ChooseNextMap_BlueField
@@ -724,7 +724,7 @@ Func_3174c: ; 0x3174c
 	and a
 	jr nz, .asm_3177a
 	ld a, $2
-	ld [wd54d], a
+	ld [wSpecialModeState], a
 	scf
 	ret
 
@@ -752,7 +752,7 @@ HandleGoldMapModeCollision: ; 0x314ae
 
 .asm_314d6
 	call UpdateMapMove_GoldField
-	ld a, [wd54d]
+	ld a, [wSpecialModeState]
 	call CallInFollowingTable
 PointerTable_314df_GoldField: ; 0xd13df
 	padded_dab Func_314ef_GoldField
@@ -769,7 +769,7 @@ Func_314f1_GoldField: ; 0x314f1
 	ret
 
 Func_314f3_GoldField: ; 0x314f3
-	callba Func_3022b
+	callba ConcludeMapMoveMode
 	ld de, $0001
 	call PlaySong
 	scf
@@ -780,7 +780,7 @@ Func_31505_GoldField: ; 0x31505
 	and a
 	ret nz
 	call FillBottomMessageBufferWithBlackTile
-	callba Func_3022b
+	callba ConcludeMapMoveMode
 	ld de, $0001
 	call PlaySong
 	scf
@@ -797,7 +797,7 @@ UpdateMapMove_GoldField:
 	xor a
 	ld [wTimeRanOut], a
 	ld a, $3
-	ld [wd54d], a
+	ld [wSpecialModeState], a
 	xor a
 	ld [wSlotIsOpen], a ;close slot and indicators
 	ld [wIndicatorStates], a
@@ -834,7 +834,7 @@ OpenGoldMapMoveSlotFromLeft: ; 0x31591
 	ld [wIndicatorStates + 4], a
 	ld a, $1
 	ld [wSlotIsOpen], a
-	ld [wd54d], a
+	ld [wSpecialModeState], a
 .asm_315b1
 	scf
 	ret
@@ -853,7 +853,7 @@ OpenGoldMapMoveSlotFromRight: ; 0x315b3
 	ld [wIndicatorStates + 4], a
 	ld a, $1
 	ld [wSlotIsOpen], a
-	ld [wd54d], a
+	ld [wSpecialModeState], a
 .asm_315d3
 	scf
 	ret
@@ -876,7 +876,7 @@ ResolveSucsessfulGoldMapMove: ; 0x315d5
 	jr nz, .asm_31603
 	callba TryReleaseRoamingDogs
 	ld a, $2
-	ld [wd54d], a
+	ld [wSpecialModeState], a
 	scf
 	ret
 
@@ -905,9 +905,9 @@ Func_311b4_GoldField: ; 0x311b4
 
 .asm_311e2
 	ld a, $2
-	callba LoadDiglettGraphics
+	callba _LoadDiglettGraphics
 	ld a, $5
-	callba LoadDiglettGraphics
+	callba _LoadDiglettGraphics
 	ld a, $6a
 	ld [wStageCollisionMap + $f0], a
 	ld a, $6b
@@ -929,7 +929,7 @@ Func_311b4_GoldField: ; 0x311b4
 
 Func_31234_GoldField: ; 0x31234
 	callba ResetIndicatorStates
-	callba Func_107c2
+	callba OpenSlotCave
 	callba SetLeftAndRightAlleyArrowIndicatorStates_GoldField
 	callba Func_107e9
 	ld a, [wCurrentStage]
@@ -1070,7 +1070,7 @@ HandleSilverMapModeCollision: ; 0x3161b
 
 .asm_31643
 	call UpdateMapMove_SilverField
-	ld a, [wd54d]
+	ld a, [wSpecialModeState]
 	call CallInFollowingTable
 PointerTable_3164c_SilverField: ; 0x3164c
 	padded_dab Func_3165c_SilverField
@@ -1087,7 +1087,7 @@ Func_3165e_SilverField: ; 0x3165e
 	ret
 
 Func_31660_SilverField: ; 0x31660
-	callba Func_3022b
+	callba ConcludeMapMoveMode
 	ld de, $0001
 	call PlaySong
 	scf
@@ -1098,7 +1098,7 @@ Func_31672_SilverField: ; 0x31672
 	and a
 	ret nz
 	call FillBottomMessageBufferWithBlackTile
-	callba Func_3022b
+	callba ConcludeMapMoveMode
 	ld de, $0001
 	call PlaySong
 	scf
@@ -1119,7 +1119,7 @@ UpdateMapMove_SilverField: ; 0x3168c
 	xor a
 	ld [wTimeRanOut], a
 	ld a, $3
-	ld [wd54d], a
+	ld [wSpecialModeState], a
 	xor a
 	ld [wSlotIsOpen], a
 	ld [wIndicatorStates], a
@@ -1156,7 +1156,7 @@ Func_31708_SilverField: ; 0x31708
 	ld [wIndicatorStates + 4], a
 	ld a, $1
 	ld [wSlotIsOpen], a
-	ld [wd54d], a
+	ld [wSpecialModeState], a
 .asm_31728
 	scf
 	ret
@@ -1175,7 +1175,7 @@ Func_3172a_SilverField: ; 0x3172a
 	ld [wIndicatorStates + 4], a
 	ld a, $1
 	ld [wSlotIsOpen], a
-	ld [wd54d], a
+	ld [wSpecialModeState], a
 .asm_3174a
 	scf
 	ret
@@ -1198,7 +1198,7 @@ Func_3174c_SilverField: ; 0x3174c
 	jr nz, .asm_3177a
 	callba TryReleaseRoamingDogs
 	ld a, $2
-	ld [wd54d], a
+	ld [wSpecialModeState], a
 	scf
 	ret
 
@@ -1214,7 +1214,7 @@ Func_31326_SilverField: ; 0x31326
 	ld [wIndicatorStates + 3], a
 	ld [wIndicatorStates + 4], a
 	ld a, $3
-	callba LoadPsyduckOrPoliwagGraphics
+	callba _LoadPsyduckOrPoliwagGraphics
 	jr .asm_31382
 
 .asm_3134c
@@ -1226,9 +1226,9 @@ Func_31326_SilverField: ; 0x31326
 	ld [wIndicatorStates + 2], a
 	ld [wIndicatorStates + 4], a
 	ld a, $1
-	callba LoadPsyduckOrPoliwagGraphics
+	callba _LoadPsyduckOrPoliwagGraphics
 	ld a, $6
-	callba LoadPsyduckOrPoliwagGraphics
+	callba _LoadPsyduckOrPoliwagGraphics
 	ld a, $7
 	callba LoadPsyduckOrPoliwagNumberGraphics
 .asm_31382
@@ -1257,7 +1257,7 @@ Func_31326_SilverField: ; 0x31326
 
 Func_313c3_SilverField: ; 0x313c3
 	callba ResetIndicatorStates
-	callba Func_107c2
+	callba OpenSlotCave
 	callba SetLeftAndRightAlleyArrowIndicatorStates_SilverField
 	ld a, $0
 	ld [wd644], a

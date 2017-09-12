@@ -1,49 +1,49 @@
 HandleGoldEvoModeCollision: ; 0x20581
 	ld a, [wSpecialModeCollisionID]
 	cp SPECIAL_COLLISION_VOLTORB
-	jp z, Func_2080f_GoldField ;voltorb
+	jp z, HandleVoltorbCollision_EvolutionMode_GoldField ;voltorb
 	cp SPECIAL_COLLISION_STARYU_ALLEY_TRIGGER
-	jp z, Func_20839_GoldField
+	jp z, HandleStaryuAlleyTriggerCollision_EvolutionMode_GoldField
 	cp SPECIAL_COLLISION_BELLSPROUT
-	jp z, Func_2085a_GoldField ;bellsprout
+	jp z, HandleBellsproutCollision_EvolutionMode_GoldField ;bellsprout
 	cp SPECIAL_COLLISION_STARYU
-	jp z, Func_20887_GoldField ;staryu
+	jp z, HandleStaryuCollision_EvolutionMode_GoldField ;staryu
 	cp SPECIAL_COLLISION_LEFT_DIGLETT
-	jp z, Func_208a8_GoldField ;diglett
+	jp z, HandleLeftDiglettCollision_EvolutionMode_GoldField ;diglett
 	cp SPECIAL_COLLISION_RIGHT_DIGLETT
-	jp z, Func_208c9_GoldField ;diglett
+	jp z, HandleRightDiglettCollision_EvolutionMode_GoldField ;diglett
 	cp SPECIAL_COLLISION_LEFT_BONUS_MULTIPLIER
-	jp z, Func_208ea_GoldField ;right rail?
+	jp z, HandleLeftBonusMultiplierCollision_EvolutionMode_GoldField ;right rail?
 	cp SPECIAL_COLLISION_RIGHT_BONUS_MULTIPLIER
-	jp z, Func_2090b_GoldField ;right rail?
+	jp z, HandleRightBonusMultiplierCollision_EvolutionMode_GoldField ;right rail?
 	cp SPECIAL_COLLISION_BALL_UPGRADE
-	jp z, Func_2092c_GoldField
+	jp z, HandleBallUpgradeCollision_EvolutionMode_GoldField
 	cp SPECIAL_COLLISION_SPINNER
-	jp z, Func_2094d_GoldField
+	jp z, HandleSpinnerCollision_EvolutionMode_GoldField
 	cp SPECIAL_COLLISION_SLOT_HOLE
-	jp z, Func_20b02_GoldField
+	jp z, HandleSlotCaveCollision_EvolutionMode_GoldField
 	cp SPECIAL_COLLISION_RIGHT_TRIGGER
-	jp z, Func_20a65_GoldField
+	jp z, HandleRightTriggerCollision_EvolutionMode_GoldField
 	cp SPECIAL_COLLISION_LEFT_TRIGGER
-	jp z, Func_20a82_GoldField
+	jp z, HandleLeftTriggerCollision_EvolutionMode_GoldField
 	cp SPECIAL_COLLISION_NOTHING
-	jr z, .asm_205cb
+	jr z, .noCollision
 	scf
 	ret
 
-.asm_205cb
-	call Func_2077b_GoldField
-	ld a, [wd54d]
+.noCollision
+	call CheckIfEvolutionModeTimerExpired_GoldField
+	ld a, [wSpecialModeState]
 	call CallInFollowingTable
-PointerTable_205d4_GoldField: ; 0x205d4
-	padded_dab Func_205e0_GoldField
-	padded_dab Func_2070b_GoldField
-	padded_dab Func_20757_GoldField
+EvolutionModeCallTable_GoldField: ; 0x205d4
+	padded_dab HandleEvolutionMode_GoldField
+	padded_dab CompleteEvolutionMode_GoldField
+	padded_dab FailEvolutionMode_GoldField
 
-Func_205e0_GoldField: ; 0x205e0
+HandleEvolutionMode_GoldField: ; 0x205e0
 	ld a, [wCurrentStage]
 	ld b, a
-	ld a, [wd578]
+	ld a, [wCollidedPointIndex]
 	and a
 	ret z
 	dec a
@@ -60,7 +60,7 @@ Func_205e0_GoldField: ; 0x205e0
 	ret z
 	xor a
 	ld [hl], a
-	ld [wd551], a
+	ld [wEvolutionObjectsDisabled], a
 	call Func_20651_GoldField
 	ld a, [wd558]
 	ld [wIndicatorStates + 2], a
@@ -175,11 +175,11 @@ Func_20651_GoldField: ; 0x20651
 	callba LoadSlotCaveCoverGraphics_GoldField
 	ret
 
-Func_2070b_GoldField: ; 0x2070b
+CompleteEvolutionMode_GoldField: ; 0x2070b
 	callba RestoreBallSaverAfterCatchEmMode
 	callba PlaceEvolutionInParty
 	callba ConcludeEvolutionMode
-	ld de, $0001
+	ld de, MUSIC_RED_FIELD
 	call PlaySong
 	ld hl, wNumPokemonEvolvedInBallBonus
 	call Increment_Max100
@@ -198,20 +198,20 @@ Func_2070b_GoldField: ; 0x2070b
 	scf
 	ret
 
-Func_20757_GoldField: ; 0x20757
+FailEvolutionMode_GoldField: ; 0x20757
 	ld a, [wBottomTextEnabled]
 	and a
 	ret nz
 	call FillBottomMessageBufferWithBlackTile
 	callba RestoreBallSaverAfterCatchEmMode
 	callba ConcludeEvolutionMode
-	ld de, $0001
+	ld de, MUSIC_RED_FIELD
 	call PlaySong
 	scf
 	ret
 
-Func_2077b_GoldField: ; 0x2077b
-	ld hl, wd556
+CheckIfEvolutionModeTimerExpired_GoldField: ; 0x2077b
+	ld hl, wEvolutionTrinketCooldownFrames
 	ld a, [hli]
 	ld c, a
 	ld b, [hl]
@@ -223,7 +223,7 @@ Func_2077b_GoldField: ; 0x2077b
 	ld [hl], c
 	or c
 	jr nz, .asm_2078e
-	call Func_20a55_GoldField
+	call EndEvolutionTrinketCooldown_GoldField
 .asm_2078e
 	callba PlayLowTimeSfx
 	ld a, [wTimeRanOut]
@@ -232,7 +232,7 @@ Func_2077b_GoldField: ; 0x2077b
 	xor a
 	ld [wTimeRanOut], a
 	ld a, $2
-	ld [wd54d], a
+	ld [wSpecialModeState], a
 	xor a
 	ld [wSlotIsOpen], a
 	ld hl, wIndicatorStates
@@ -250,7 +250,7 @@ Func_2077b_GoldField: ; 0x2077b
 	ld [wIndicatorStates + 7], a
 	ld [wd558], a
 	ld [wd559], a
-	ld [wd551], a
+	ld [wEvolutionObjectsDisabled], a
 	ld a, [wCurrentStage]
 	bit 0, a
 	jr z, .asm_207f5
@@ -270,11 +270,11 @@ Func_2077b_GoldField: ; 0x2077b
 	call LoadScrollingText
 	ret
 
-Func_2080f_GoldField: ; 0x2080f
+HandleVoltorbCollision_EvolutionMode_GoldField: ; 0x2080f
 	ld bc, $0001
 	ld de, $5000
 	call AddBCDEToJackpot
-	ld a, [wd551]
+	ld a, [wEvolutionObjectsDisabled]
 	and a
 	jr nz, .asm_20837
 	ld a, [wIndicatorStates + 9]
@@ -286,15 +286,15 @@ Func_2080f_GoldField: ; 0x2080f
 	and a
 	ld a, $0
 	ld [wd55c], a
-	jp nz, Func_20977_GoldField
-	jp Func_209eb_GoldField
+	jp nz, CreateEvolutionTrinket_GoldField
+	jp EvolutionTrinketNotFound_GoldField
 
 .asm_20837
 	scf
 	ret
 
-Func_20839_GoldField: ; 0x20839
-	ld a, [wd551]
+HandleStaryuAlleyTriggerCollision_EvolutionMode_GoldField: ; 0x20839
+	ld a, [wEvolutionObjectsDisabled]
 	and a
 	jr nz, .asm_20858
 	ld a, [wIndicatorStates + 2]
@@ -306,18 +306,18 @@ Func_20839_GoldField: ; 0x20839
 	and a
 	ld a, $0
 	ld [wd563], a
-	jp nz, Func_20977_GoldField
-	jp Func_209eb_GoldField
+	jp nz, CreateEvolutionTrinket_GoldField
+	jp EvolutionTrinketNotFound_GoldField
 
 .asm_20858
 	scf
 	ret
 
-Func_2085a_GoldField: ; 0x2085a
+HandleBellsproutCollision_EvolutionMode_GoldField: ; 0x2085a
 	ld bc, $0007
 	ld de, $5000
 	call AddBCDEToJackpot
-	ld a, [wd551]
+	ld a, [wEvolutionObjectsDisabled]
 	and a
 	jr nz, .asm_20885
 	ld a, [wIndicatorStates + 3]
@@ -330,15 +330,15 @@ Func_2085a_GoldField: ; 0x2085a
 	and a
 	ld a, $0
 	ld [wd562], a
-	jp nz, Func_20977_GoldField
-	jp Func_209eb_GoldField
+	jp nz, CreateEvolutionTrinket_GoldField
+	jp EvolutionTrinketNotFound_GoldField
 
 .asm_20885
 	scf
 	ret
 
-Func_20887_GoldField: ; 0x20887
-	ld a, [wd551]
+HandleStaryuCollision_EvolutionMode_GoldField: ; 0x20887
+	ld a, [wEvolutionObjectsDisabled]
 	and a
 	jr nz, .asm_208a6
 	ld a, [wIndicatorStates + 8]
@@ -350,15 +350,15 @@ Func_20887_GoldField: ; 0x20887
 	and a
 	ld a, $0
 	ld [wd561], a
-	jp nz, Func_20977_GoldField
-	jp Func_209eb_GoldField
+	jp nz, CreateEvolutionTrinket_GoldField
+	jp EvolutionTrinketNotFound_GoldField
 
 .asm_208a6
 	scf
 	ret
 
-Func_208a8_GoldField: ; 0x208a8
-	ld a, [wd551]
+HandleLeftDiglettCollision_EvolutionMode_GoldField: ; 0x208a8
+	ld a, [wEvolutionObjectsDisabled]
 	and a
 	jr nz, .asm_208c7
 	ld a, [wIndicatorStates + 13]
@@ -370,15 +370,15 @@ Func_208a8_GoldField: ; 0x208a8
 	and a
 	ld a, $0
 	ld [wd55d], a
-	jp nz, Func_20977_GoldField
-	jp Func_209eb_GoldField
+	jp nz, CreateEvolutionTrinket_GoldField
+	jp EvolutionTrinketNotFound_GoldField
 
 .asm_208c7
 	scf
 	ret
 
-Func_208c9_GoldField: ; 0x208c9
-	ld a, [wd551]
+HandleRightDiglettCollision_EvolutionMode_GoldField: ; 0x208c9
+	ld a, [wEvolutionObjectsDisabled]
 	and a
 	jr nz, .asm_208e8
 	ld a, [wIndicatorStates + 14]
@@ -390,15 +390,15 @@ Func_208c9_GoldField: ; 0x208c9
 	and a
 	ld a, $0
 	ld [wd55e], a
-	jp nz, Func_20977_GoldField
-	jp Func_209eb_GoldField
+	jp nz, CreateEvolutionTrinket_GoldField
+	jp EvolutionTrinketNotFound_GoldField
 
 .asm_208e8
 	scf
 	ret
 
-Func_208ea_GoldField: ; 0x208ea
-	ld a, [wd551]
+HandleLeftBonusMultiplierCollision_EvolutionMode_GoldField: ; 0x208ea
+	ld a, [wEvolutionObjectsDisabled]
 	and a
 	jr nz, .asm_20909
 	ld a, [wIndicatorStates + 11]
@@ -410,15 +410,15 @@ Func_208ea_GoldField: ; 0x208ea
 	and a
 	ld a, $0
 	ld [wd55f], a
-	jp nz, Func_20977_GoldField
-	jp Func_209eb_GoldField
+	jp nz, CreateEvolutionTrinket_GoldField
+	jp EvolutionTrinketNotFound_GoldField
 
 .asm_20909
 	scf
 	ret
 
-Func_2090b_GoldField: ; 0x2090b
-	ld a, [wd551]
+HandleRightBonusMultiplierCollision_EvolutionMode_GoldField: ; 0x2090b
+	ld a, [wEvolutionObjectsDisabled]
 	and a
 	jr nz, .asm_2092a
 	ld a, [wIndicatorStates + 12]
@@ -430,15 +430,15 @@ Func_2090b_GoldField: ; 0x2090b
 	and a
 	ld a, $0
 	ld [wd560], a
-	jp nz, Func_20977_GoldField
-	jp Func_209eb_GoldField
+	jp nz, CreateEvolutionTrinket_GoldField
+	jp EvolutionTrinketNotFound_GoldField
 
 .asm_2092a
 	scf
 	ret
 
-Func_2092c_GoldField: ; 0x2092c
-	ld a, [wd551]
+HandleBallUpgradeCollision_EvolutionMode_GoldField: ; 0x2092c
+	ld a, [wEvolutionObjectsDisabled]
 	and a
 	jr nz, .asm_2094b
 	ld a, [wIndicatorStates + 6]
@@ -450,18 +450,18 @@ Func_2092c_GoldField: ; 0x2092c
 	and a
 	ld a, $0
 	ld [wd565], a
-	jp nz, Func_20977_GoldField
-	jp Func_209eb_GoldField
+	jp nz, CreateEvolutionTrinket_GoldField
+	jp EvolutionTrinketNotFound_GoldField
 
 .asm_2094b
 	scf
 	ret
 
-Func_2094d_GoldField: ; 0x2094d
+HandleSpinnerCollision_EvolutionMode_GoldField: ; 0x2094d
 	ld bc, $0000
 	ld de, $1500
 	call AddBCDEToJackpot
-	ld a, [wd551]
+	ld a, [wEvolutionObjectsDisabled]
 	and a
 	jr nz, .asm_20975
 	ld a, [wIndicatorStates + 7]
@@ -473,8 +473,8 @@ Func_2094d_GoldField: ; 0x2094d
 	and a
 	ld a, $0
 	ld [wd564], a
-	jp nz, Func_20977_GoldField
-	jp Func_209eb_GoldField
+	jp nz, CreateEvolutionTrinket_GoldField
+	jp EvolutionTrinketNotFound_GoldField
 
 .asm_20975
 	scf
@@ -491,10 +491,10 @@ EvolutionIconIds_GoldField:
 	db $07 ; EVO_EXPERIENCE
 	db $01 ; EVO_BREEDING
 
-Func_20977_GoldField: ; 0x20977
+CreateEvolutionTrinket_GoldField: ; 0x20977
 	lb de, $07, $46
 	call PlaySoundEffect
-	call Func_20af5_GoldField
+	call ChooseNextEvolutionTrinketLocation_GoldField
 	ld a, [wCurrentEvolutionType]
 	push hl
 	ld hl, EvolutionIconIds_GoldField
@@ -504,7 +504,7 @@ Func_20977_GoldField: ; 0x20977
 	ld a, [hl]
 	pop hl
 	ld [hl], a
-	ld [wd551], a
+	ld [wEvolutionObjectsDisabled], a
 	ld a, [wIndicatorStates + 2]
 	ld [wd558], a
 	ld a, [wIndicatorStates + 3]
@@ -545,11 +545,11 @@ Func_20977_GoldField: ; 0x20977
 	scf
 	ret
 
-Func_209eb_GoldField: ; 0x209eb
+EvolutionTrinketNotFound_GoldField: ; 0x209eb
 	lb de, $07, $47
 	call PlaySoundEffect
 	ld a, $1
-	ld [wd551], a
+	ld [wEvolutionObjectsDisabled], a
 	ld a, $80
 	ld [wIndicatorStates], a
 	ld [wIndicatorStates + 1], a
@@ -565,9 +565,9 @@ Func_209eb_GoldField: ; 0x209eb
 	bit 0, a
 	callba nz, ClearAllGoldIndicators
 	ld a, $58
-	ld [wd556], a
+	ld [wEvolutionTrinketCooldownFrames], a
 	ld a, $2
-	ld [wd557], a
+	ld [wEvolutionTrinketCooldownFrames + 1], a
 	ld bc, ThreeHundredThousandPoints
 	callba AddBigBCD6FromQueue
 	call FillBottomMessageBufferWithBlackTile
@@ -586,21 +586,21 @@ Func_209eb_GoldField: ; 0x209eb
 	scf
 	ret
 
-Func_20a55_GoldField: ; 0x20a55
-	ld a, [wd551]
+EndEvolutionTrinketCooldown_GoldField: ; 0x20a55
+	ld a, [wEvolutionObjectsDisabled]
 	and a
 	jr z, .asm_20a63
 	ld a, [wIndicatorStates + 1]
 	and a
 	jr z, .asm_20a63
-	jr asm_20a9f_GoldField
+	jr RecoverPokemon_GoldField
 
 .asm_20a63
 	scf
 	ret
 
-Func_20a65_GoldField: ; 0x20a65
-	ld a, [wd551]
+HandleRightTriggerCollision_EvolutionMode_GoldField: ; 0x20a65
+	ld a, [wEvolutionObjectsDisabled]
 	and a
 	jr z, .asm_20a80
 	ld a, [wIndicatorStates + 1]
@@ -608,14 +608,14 @@ Func_20a65_GoldField: ; 0x20a65
 	jr z, .asm_20a80
 	ld bc, TenThousandPoints
 	callba AddBigBCD6FromQueue
-	jr asm_20a9f_GoldField
+	jr RecoverPokemon_GoldField
 
 .asm_20a80
 	scf
 	ret
 
-Func_20a82_GoldField: ; 0x20a82
-	ld a, [wd551]
+HandleLeftTriggerCollision_EvolutionMode_GoldField: ; 0x20a82
+	ld a, [wEvolutionObjectsDisabled]
 	and a
 	jr z, .asm_20a9d
 	ld a, [wIndicatorStates]
@@ -623,17 +623,17 @@ Func_20a82_GoldField: ; 0x20a82
 	jr z, .asm_20a9d
 	ld bc, TenThousandPoints
 	callba AddBigBCD6FromQueue
-	jr asm_20a9f_GoldField
+	jr RecoverPokemon_GoldField
 
 .asm_20a9d
 	scf
 	ret
 
-asm_20a9f_GoldField:
+RecoverPokemon_GoldField:
 	xor a
 	ld [wIndicatorStates], a
 	ld [wIndicatorStates + 1], a
-	ld [wd551], a
+	ld [wEvolutionObjectsDisabled], a
 	ld a, [wd558]
 	ld [wIndicatorStates + 2], a
 	ld a, [wd559]
@@ -664,7 +664,7 @@ asm_20a9f_GoldField:
 	scf
 	ret
 
-Func_20af5_GoldField: ; 0x20af5
+ChooseNextEvolutionTrinketLocation_GoldField: ; 0x20af5
 	ld a, $11
 	call RandomRange
 	ld c, a
@@ -673,8 +673,7 @@ Func_20af5_GoldField: ; 0x20af5
 	add hl, bc
 	ret
 
-
-Func_20b02_GoldField:
+HandleSlotCaveCollision_EvolutionMode_GoldField:
 	callba LoadFinalEvolutionMonBillboardPic
 	ret
 
@@ -743,9 +742,9 @@ LoadFinalEvolutionMonBillboardPic:
 	ld bc, $10b0
 	ld hl, rBGPI
 	call Func_8e1
-	callba Func_10e0a
+	callba ShowMonEvolvedText
 	call MainLoopUntilTextIsClear
-	ld de, $0000
+	ld de, MUSIC_NOTHING
 	call PlaySong
 	rst AdvanceFrame
 	lb de, $2d, $26
@@ -753,6 +752,6 @@ LoadFinalEvolutionMonBillboardPic:
 	callba ShowJackpotText
 	call MainLoopUntilTextIsClear
 	ld a, $1
-	ld [wd54d], a
+	ld [wSpecialModeState], a
 	scf
 	ret

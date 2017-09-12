@@ -60,9 +60,9 @@ LoadPokedexScreen: ; 0x2800e
 	call Func_28add
 	call CountNumSeenOwnedMons
 	call SetAllPalettesWhite
-	ld a, $f
+	ld a, Bank(Music_Pokedex)
 	call SetSongBank
-	ld de, $0004
+	ld de, MUSIC_POKEDEX
 	call PlaySong
 	call EnableLCD
 	call FadeIn
@@ -988,7 +988,7 @@ Func_286dd: ; 0x286dd
 	ld e, a
 	ld a, [wd864]
 	ld d, a
-	ld hl, wc010
+	ld hl, wPokedexFontBuffer
 	xor a
 	ld bc, $00a0
 	call LoadOrCopyVRAMData
@@ -2119,7 +2119,7 @@ Func_28d97: ; 0x28d97
 	jr z, .asm_28de9
 	dec b
 .asm_28de9
-	ld hl, wc010
+	ld hl, wPokedexFontBuffer
 	add hl, bc
 	ld a, [$ff8f]
 	ld c, a
@@ -2187,7 +2187,7 @@ Func_28e09: ; 0x28e09
 	jr z, .asm_28e53
 	dec b
 .asm_28e53
-	ld hl, wc010
+	ld hl, wPokedexFontBuffer
 	add hl, bc
 	ld a, [$ff8f]
 	ld c, a

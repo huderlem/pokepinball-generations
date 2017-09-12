@@ -393,24 +393,24 @@ ResolveBlueStageSpinnerCollision: ; 0x1ca5f
 	ld a, [wBallYVelocity + 1]
 	ld b, a
 	ld a, c
-	ld [wd50b], a
+	ld [wSpinnerVelocity], a
 	ld a, b
-	ld [wd50c], a
+	ld [wSpinnerVelocity + 1], a
 	ld a, $c
 	callba CheckSpecialModeColision
 	; fall through
 
 UpdateBlueStageSpinner: ; 0x1ca85
-	ld hl, wd50b
+	ld hl, wSpinnerVelocity
 	ld a, [hli]
 	or [hl]
 	ret z
-	ld a, [wd50b]
+	ld a, [wSpinnerVelocity]
 	ld c, a
-	ld a, [wd50c]
+	ld a, [wSpinnerVelocity + 1]
 	ld b, a
 	bit 7, b
-	jr nz, .asm_1caa3
+	jr nz, .upwardVelocity
 	ld a, c
 	sub $7
 	ld c, a
@@ -420,7 +420,7 @@ UpdateBlueStageSpinner: ; 0x1ca85
 	jr nc, .asm_1cab0
 	jr .asm_1caad
 
-.asm_1caa3
+.upwardVelocity
 	ld a, c
 	add $7
 	ld c, a
@@ -432,10 +432,10 @@ UpdateBlueStageSpinner: ; 0x1ca85
 	ld bc, $0000
 .asm_1cab0
 	ld a, c
-	ld [wd50b], a
+	ld [wSpinnerVelocity], a
 	ld a, b
-	ld [wd50c], a
-	ld hl, wd50b
+	ld [wSpinnerVelocity + 1], a
+	ld hl, wSpinnerVelocity
 	ld a, [wd509]
 	add [hl]
 	ld [wd509], a
@@ -549,13 +549,13 @@ LightUpBumper_BlueField: ; 0x1ce60
 	ld [wBumperLightUpDuration], a
 	ld a, [wWhichBumperId]
 	sub $1
-	ld [wd4db], a
+	ld [wWhichBumperGfx], a
 	sla a
 	inc a
 	jr LoadBumperGraphics_BlueField
 
 LoadBumpersGraphics_BlueField: ; 1ce72
-	ld a, [wd4db]
+	ld a, [wWhichBumperGfx]
 	cp $ff
 	ret z
 	sla a
@@ -1171,7 +1171,7 @@ ResolveBonusMultiplierCollision_BlueField: ; 0x1d438
 .asm_1d45c
 	ld a, $29
 .asm_1d45e
-	call LoadBonusMultiplierRailingGraphics_BlueField
+	call _LoadBonusMultiplierRailingGraphics_BlueField
 	ld a, $3c
 	ld [wBonusMultiplierRailingEndLightDuration], a
 	ld a, $9
@@ -1198,7 +1198,7 @@ ResolveBonusMultiplierCollision_BlueField: ; 0x1d438
 .asm_1d497
 	ld a, $2b
 .asm_1d499
-	call LoadBonusMultiplierRailingGraphics_BlueField
+	call _LoadBonusMultiplierRailingGraphics_BlueField
 	ld a, $1e
 	ld [wBonusMultiplierRailingEndLightDuration], a
 	ld a, $a
@@ -1232,15 +1232,15 @@ ResolveBonusMultiplierCollision_BlueField: ; 0x1d438
 	ld a, [wBonusMultiplierOnesDigit]
 	ld [wd615], a
 	ld a, $1
-	ld [wd613], a
+	ld [wShowBonusMultiplierBottomMessage], a
 asm_1d4fa: ; 0x1d4fa
 	ld bc, TenPoints
 	callba AddBigBCD6FromQueueWithBallMultiplier
 	ld a, [wBonusMultiplierTensDigit]
-	call LoadBonusMultiplierRailingGraphics_BlueField
+	call _LoadBonusMultiplierRailingGraphics_BlueField
 	ld a, [wBonusMultiplierOnesDigit]
 	add $14
-	call LoadBonusMultiplierRailingGraphics_BlueField
+	call _LoadBonusMultiplierRailingGraphics_BlueField
 	ld a, 60
 	ld [wBonusMultiplierRailingEndLightDuration], a
 	ret
@@ -1270,10 +1270,10 @@ UpdateBonusMultiplierRailing_BlueField: ; 0x1d51b
 	ld a, [wCurBonusMultiplier]
 	call GetBCDForNextBonusMultiplier_BlueField
 	ld a, [wBonusMultiplierTensDigit]
-	call LoadBonusMultiplierRailingGraphics_BlueField
+	call _LoadBonusMultiplierRailingGraphics_BlueField
 	ld a, [wBonusMultiplierOnesDigit]
 	add $14
-	call LoadBonusMultiplierRailingGraphics_BlueField
+	call _LoadBonusMultiplierRailingGraphics_BlueField
 	ret
 
 .asm_1d559
@@ -1294,14 +1294,14 @@ UpdateBonusMultiplierRailing_BlueField: ; 0x1d51b
 	ld a, [wBonusMultiplierTensDigit]
 	res 7, a
 	ld [wBonusMultiplierTensDigit], a
-	call LoadBonusMultiplierRailingGraphics_BlueField
+	call _LoadBonusMultiplierRailingGraphics_BlueField
 	jr .asm_1d58b
 
 .asm_1d580
 	ld a, [wBonusMultiplierTensDigit]
 	set 7, a
 	ld [wBonusMultiplierTensDigit], a
-	call LoadBonusMultiplierRailingGraphics_BlueField
+	call _LoadBonusMultiplierRailingGraphics_BlueField
 .asm_1d58b
 	ld a, [wd611]
 	cp $2
@@ -1321,7 +1321,7 @@ UpdateBonusMultiplierRailing_BlueField: ; 0x1d51b
 	res 7, a
 	ld [wBonusMultiplierOnesDigit], a
 	add $14
-	call LoadBonusMultiplierRailingGraphics_BlueField
+	call _LoadBonusMultiplierRailingGraphics_BlueField
 	ret
 
 .asm_1d5b1
@@ -1329,18 +1329,18 @@ UpdateBonusMultiplierRailing_BlueField: ; 0x1d51b
 	set 7, a
 	ld [wBonusMultiplierOnesDigit], a
 	add $14
-	call LoadBonusMultiplierRailingGraphics_BlueField
+	call _LoadBonusMultiplierRailingGraphics_BlueField
 	ret
 
 ShowBonusMultiplierMessage_BlueField: ; 0x1d5bf
 	ld a, [wBottomTextEnabled]
 	and a
 	ret nz
-	ld a, [wd613]
+	ld a, [wShowBonusMultiplierBottomMessage]
 	and a
 	ret z
 	xor a
-	ld [wd613], a
+	ld [wShowBonusMultiplierBottomMessage], a
 	call FillBottomMessageBufferWithBlackTile
 	call EnableBottomText
 	ld hl, wScrollingText1
@@ -1359,7 +1359,7 @@ ShowBonusMultiplierMessage_BlueField: ; 0x1d5bf
 	ld [hl], a
 	ret
 
-LoadBonusMultiplierRailingGraphics_BlueField: ; 0x1d5f2
+_LoadBonusMultiplierRailingGraphics_BlueField: ; 0x1d5f2
 	push af
 	ld a, [hGameBoyColorFlag]
 	and a
@@ -1488,16 +1488,16 @@ UpdateBonusMultiplierRailingLight: ; 0x1d692
 	and a
 	jr nz, .gameboy
 	ld a, $1e
-	call LoadBonusMultiplierRailingGraphics_BlueField
+	call _LoadBonusMultiplierRailingGraphics_BlueField
 	ld a, $20
-	call LoadBonusMultiplierRailingGraphics_BlueField
+	call _LoadBonusMultiplierRailingGraphics_BlueField
 	ret
 
 .gameboy
 	ld a, $2a
-	call LoadBonusMultiplierRailingGraphics_BlueField
+	call _LoadBonusMultiplierRailingGraphics_BlueField
 	ld a, $28
-	call LoadBonusMultiplierRailingGraphics_BlueField
+	call _LoadBonusMultiplierRailingGraphics_BlueField
 	ret
 
 INCLUDE "data/queued_tiledata/blue_field/bonus_multiplier_railings.asm"
@@ -1532,7 +1532,7 @@ ResolvePsyduckPoliwagCollision: ; 0x1dbd2
 	ld [wStageCollisionMap + $103], a
 .skipCollisionMapChange
 	ld a, $1
-	call LoadPsyduckOrPoliwagGraphics
+	call _LoadPsyduckOrPoliwagGraphics
 	ld a, [wLeftMapMoveCounter]
 	call LoadPsyduckOrPoliwagNumberGraphics
 	ld a, [wLeftMapMoveCounter]
@@ -1571,7 +1571,7 @@ ResolvePsyduckPoliwagCollision: ; 0x1dbd2
 	ld [wStageCollisionMap + $110], a
 .asm_1dc5c
 	ld a, $3
-	call LoadPsyduckOrPoliwagGraphics
+	call _LoadPsyduckOrPoliwagGraphics
 	ld a, [wRightMapMoveCounter]
 	cp $3
 	ld a, $8
@@ -1656,7 +1656,7 @@ UpdatePoliwag: ; 0x1dc95
 	and a
 	ret nz
 	ld a, $0
-	call LoadPsyduckOrPoliwagGraphics
+	call _LoadPsyduckOrPoliwagGraphics
 	ld a, [wCurrentStage]
 	bit 0, a
 	jr z, .asm_1dd0c
@@ -1675,7 +1675,7 @@ UpdatePoliwag: ; 0x1dc95
 	ld [wLeftMapMoveCounter], a
 	call LoadPsyduckOrPoliwagNumberGraphics
 	ld a, $0
-	call LoadPsyduckOrPoliwagGraphics
+	call _LoadPsyduckOrPoliwagGraphics
 	ld a, $0
 	ld [wPoliwagState], a
 	ret
@@ -1700,7 +1700,7 @@ UpdatePsyduck: ; 0x1dd2e
 
 .asm_1dd48
 	ld a, $2
-	call LoadPsyduckOrPoliwagGraphics
+	call _LoadPsyduckOrPoliwagGraphics
 	ld a, $1
 	ld [wPsyduckState], a
 	ret
@@ -1711,7 +1711,7 @@ UpdatePsyduck: ; 0x1dd2e
 	call LoadPsyduckOrPoliwagNumberGraphics
 	ld a, [wRightMapMoveCounter]
 	add $3
-	call LoadPsyduckOrPoliwagGraphics
+	call _LoadPsyduckOrPoliwagGraphics
 	ld a, $3
 	ld [wPsyduckState], a
 	ret
@@ -1744,7 +1744,7 @@ UpdatePsyduck: ; 0x1dd2e
 .asm_1dd8b
 	call LoadPsyduckOrPoliwagNumberGraphics
 	ld a, $2
-	call LoadPsyduckOrPoliwagGraphics
+	call _LoadPsyduckOrPoliwagGraphics
 	ld a, [wCurrentStage]
 	bit 0, a
 	jr z, .asm_1dda9
@@ -1764,7 +1764,7 @@ UpdatePsyduck: ; 0x1dd2e
 	ld a, $4
 	call LoadPsyduckOrPoliwagNumberGraphics
 	ld a, $2
-	call LoadPsyduckOrPoliwagGraphics
+	call _LoadPsyduckOrPoliwagGraphics
 	ld a, $0
 	ld [wPsyduckState], a
 	ret
@@ -1817,7 +1817,7 @@ AddScorePsyduckOrPoliwag: ; 0x1de22
 	call PlaySoundEffect
 	ret
 
-LoadPsyduckOrPoliwagGraphics: ; 0x1de4b
+_LoadPsyduckOrPoliwagGraphics: ; 0x1de4b
 	ld b, a
 	ld a, [wCurrentStage]
 	bit 0, a
@@ -2649,7 +2649,7 @@ ShowScrollingGoToBonusText_BlueField: ; 0x1e8c3
 	ld de, GoToMewtwoStageText
 .loadText
 	call LoadScrollingText
-	ld de, $0000
+	ld de, MUSIC_NOTHING
 	call PlaySong
 	rst AdvanceFrame
 	lb de, $3c, $23

@@ -1,7 +1,7 @@
 ChooseWildMon:
 	xor a
 	ld [wSpecialMode], a
-	ld [wd54d], a ;set ??? to 0
+	ld [wSpecialModeState], a ;set ??? to 0
 	call CheckRoamingDog
 	jr c, .saveMonId
 	ld a, [wCurrentStage]

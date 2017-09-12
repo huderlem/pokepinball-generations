@@ -393,21 +393,21 @@ ResolveSilverStageSpinnerCollision: ; 0x1ca5f
 	ld a, [wBallYVelocity + 1]
 	ld b, a
 	ld a, c
-	ld [wd50b], a
+	ld [wSpinnerVelocity], a
 	ld a, b
-	ld [wd50c], a
+	ld [wSpinnerVelocity + 1], a
 	ld a, $c
 	callba CheckSpecialModeColision
 	; fall through
 
 UpdateSilverStageSpinner: ; 0x1ca85
-	ld hl, wd50b
+	ld hl, wSpinnerVelocity
 	ld a, [hli]
 	or [hl]
 	ret z
-	ld a, [wd50b]
+	ld a, [wSpinnerVelocity]
 	ld c, a
-	ld a, [wd50c]
+	ld a, [wSpinnerVelocity + 1]
 	ld b, a
 	bit 7, b
 	jr nz, .asm_1caa3
@@ -432,10 +432,10 @@ UpdateSilverStageSpinner: ; 0x1ca85
 	ld bc, $0000
 .asm_1cab0
 	ld a, c
-	ld [wd50b], a
+	ld [wSpinnerVelocity], a
 	ld a, b
-	ld [wd50c], a
-	ld hl, wd50b
+	ld [wSpinnerVelocity + 1], a
+	ld hl, wSpinnerVelocity
 	ld a, [wd509]
 	add [hl]
 	ld [wd509], a
@@ -549,13 +549,13 @@ LightUpBumper_SilverField: ; 0x1ce60
 	ld [wBumperLightUpDuration], a
 	ld a, [wWhichBumperId]
 	sub $1
-	ld [wd4db], a
+	ld [wWhichBumperGfx], a
 	sla a
 	inc a
 	jr LoadBumperGraphics_SilverField
 
 LoadBumpersGraphics_SilverField: ; 1ce72
-	ld a, [wd4db]
+	ld a, [wWhichBumperGfx]
 	cp $ff
 	ret z
 	sla a
@@ -1171,7 +1171,7 @@ ResolveBonusMultiplierCollision_SilverField: ; 0x1d438
 .asm_1d45c
 	ld a, $29
 .asm_1d45e
-	call LoadBonusMultiplierRailingGraphics_SilverField
+	call _LoadBonusMultiplierRailingGraphics_SilverField
 	ld a, $3c
 	ld [wBonusMultiplierRailingEndLightDuration], a
 	ld a, $9
@@ -1198,7 +1198,7 @@ ResolveBonusMultiplierCollision_SilverField: ; 0x1d438
 .asm_1d497
 	ld a, $2b
 .asm_1d499
-	call LoadBonusMultiplierRailingGraphics_SilverField
+	call _LoadBonusMultiplierRailingGraphics_SilverField
 	ld a, $1e
 	ld [wBonusMultiplierRailingEndLightDuration], a
 	ld a, $a
@@ -1232,15 +1232,15 @@ ResolveBonusMultiplierCollision_SilverField: ; 0x1d438
 	ld a, [wBonusMultiplierOnesDigit]
 	ld [wd615], a
 	ld a, $1
-	ld [wd613], a
+	ld [wShowBonusMultiplierBottomMessage], a
 asm_1d4fa_SilverField: ; 0x1d4fa
 	ld bc, TenPoints
 	callba AddBigBCD6FromQueueWithBallMultiplier
 	ld a, [wBonusMultiplierTensDigit]
-	call LoadBonusMultiplierRailingGraphics_SilverField
+	call _LoadBonusMultiplierRailingGraphics_SilverField
 	ld a, [wBonusMultiplierOnesDigit]
 	add $14
-	call LoadBonusMultiplierRailingGraphics_SilverField
+	call _LoadBonusMultiplierRailingGraphics_SilverField
 	ld a, 60
 	ld [wBonusMultiplierRailingEndLightDuration], a
 	ret
@@ -1270,10 +1270,10 @@ UpdateBonusMultiplierRailing_SilverField: ; 0x1d51b
 	ld a, [wCurBonusMultiplier]
 	callba GetBCDForNextBonusMultiplier
 	ld a, [wBonusMultiplierTensDigit]
-	call LoadBonusMultiplierRailingGraphics_SilverField
+	call _LoadBonusMultiplierRailingGraphics_SilverField
 	ld a, [wBonusMultiplierOnesDigit]
 	add $14
-	call LoadBonusMultiplierRailingGraphics_SilverField
+	call _LoadBonusMultiplierRailingGraphics_SilverField
 	ret
 
 .asm_1d559
@@ -1294,14 +1294,14 @@ UpdateBonusMultiplierRailing_SilverField: ; 0x1d51b
 	ld a, [wBonusMultiplierTensDigit]
 	res 7, a
 	ld [wBonusMultiplierTensDigit], a
-	call LoadBonusMultiplierRailingGraphics_SilverField
+	call _LoadBonusMultiplierRailingGraphics_SilverField
 	jr .asm_1d58b
 
 .asm_1d580
 	ld a, [wBonusMultiplierTensDigit]
 	set 7, a
 	ld [wBonusMultiplierTensDigit], a
-	call LoadBonusMultiplierRailingGraphics_SilverField
+	call _LoadBonusMultiplierRailingGraphics_SilverField
 .asm_1d58b
 	ld a, [wd611]
 	cp $2
@@ -1321,7 +1321,7 @@ UpdateBonusMultiplierRailing_SilverField: ; 0x1d51b
 	res 7, a
 	ld [wBonusMultiplierOnesDigit], a
 	add $14
-	call LoadBonusMultiplierRailingGraphics_SilverField
+	call _LoadBonusMultiplierRailingGraphics_SilverField
 	ret
 
 .asm_1d5b1
@@ -1329,18 +1329,18 @@ UpdateBonusMultiplierRailing_SilverField: ; 0x1d51b
 	set 7, a
 	ld [wBonusMultiplierOnesDigit], a
 	add $14
-	call LoadBonusMultiplierRailingGraphics_SilverField
+	call _LoadBonusMultiplierRailingGraphics_SilverField
 	ret
 
 ShowBonusMultiplierMessage_SilverField: ; 0x1d5bf
 	ld a, [wBottomTextEnabled]
 	and a
 	ret nz
-	ld a, [wd613]
+	ld a, [wShowBonusMultiplierBottomMessage]
 	and a
 	ret z
 	xor a
-	ld [wd613], a
+	ld [wShowBonusMultiplierBottomMessage], a
 	call FillBottomMessageBufferWithBlackTile
 	call EnableBottomText
 	ld hl, wScrollingText1
@@ -1359,21 +1359,21 @@ ShowBonusMultiplierMessage_SilverField: ; 0x1d5bf
 	ld [hl], a
 	ret
 
-LoadBonusMultiplierRailingGraphics_SilverField: ; 0x1d5f2
+_LoadBonusMultiplierRailingGraphics_SilverField: ; 0x1d5f2
 	push af
 	ld a, [hGameBoyColorFlag]
 	and a
 	jr nz, .gameboyColor
 	pop af
-	call LoadBonusMultiplierRailingGraphics_SilverField_Gameboy
+	call _LoadBonusMultiplierRailingGraphics_SilverField_Gameboy
 	ret
 
 .gameboyColor
 	pop af
-	call LoadBonusMultiplierRailingGraphics_SilverField_GameboyColor
+	call _LoadBonusMultiplierRailingGraphics_SilverField_GameboyColor
 	ret
 
-LoadBonusMultiplierRailingGraphics_SilverField_Gameboy: ; 0x1d602
+_LoadBonusMultiplierRailingGraphics_SilverField_Gameboy: ; 0x1d602
 	push af
 	res 7, a
 	ld hl, wd60e
@@ -1416,7 +1416,7 @@ LoadBonusMultiplierRailingGraphics_SilverField_Gameboy: ; 0x1d602
 	call QueueGraphicsToLoad
 	ret
 
-LoadBonusMultiplierRailingGraphics_SilverField_GameboyColor: ; 0x1d645
+_LoadBonusMultiplierRailingGraphics_SilverField_GameboyColor: ; 0x1d645
 	bit 7, a
 	jr z, .asm_1d64d
 	res 7, a
@@ -1451,16 +1451,16 @@ UpdateBonusMultiplierRailingLight_SilverField: ; 0x1d692
 	and a
 	jr nz, .gameboy
 	ld a, $1e
-	call LoadBonusMultiplierRailingGraphics_SilverField
+	call _LoadBonusMultiplierRailingGraphics_SilverField
 	ld a, $20
-	call LoadBonusMultiplierRailingGraphics_SilverField
+	call _LoadBonusMultiplierRailingGraphics_SilverField
 	ret
 
 .gameboy
 	ld a, $2a
-	call LoadBonusMultiplierRailingGraphics_SilverField
+	call _LoadBonusMultiplierRailingGraphics_SilverField
 	ld a, $28
-	call LoadBonusMultiplierRailingGraphics_SilverField
+	call _LoadBonusMultiplierRailingGraphics_SilverField
 	ret
 
 INCLUDE "data/queued_tiledata/silver_field/bonus_multiplier_railings.asm"
@@ -1495,7 +1495,7 @@ ResolvePsyduckPoliwagCollision_SilverField: ; 0x1dbd2
 	ld [wStageCollisionMap + $103], a
 .skipCollisionMapChange
 	ld a, $1
-	call LoadPsyduckOrPoliwagGraphics_SilverField
+	call _LoadPsyduckOrPoliwagGraphics_SilverField
 	ld a, [wLeftMapMoveCounter]
 	call LoadPsyduckOrPoliwagNumberGraphics_SilverField
 	ld a, [wLeftMapMoveCounter]
@@ -1534,7 +1534,7 @@ ResolvePsyduckPoliwagCollision_SilverField: ; 0x1dbd2
 	ld [wStageCollisionMap + $110], a
 .asm_1dc5c
 	ld a, $3
-	call LoadPsyduckOrPoliwagGraphics_SilverField
+	call _LoadPsyduckOrPoliwagGraphics_SilverField
 	ld a, [wRightMapMoveCounter]
 	cp $3
 	ld a, $8
@@ -1619,7 +1619,7 @@ UpdatePoliwag_SilverField: ; 0x1dc95
 	and a
 	ret nz
 	ld a, $0
-	call LoadPsyduckOrPoliwagGraphics_SilverField
+	call _LoadPsyduckOrPoliwagGraphics_SilverField
 	ld a, [wCurrentStage]
 	bit 0, a
 	jr z, .asm_1dd0c
@@ -1638,7 +1638,7 @@ UpdatePoliwag_SilverField: ; 0x1dc95
 	ld [wLeftMapMoveCounter], a
 	call LoadPsyduckOrPoliwagNumberGraphics_SilverField
 	ld a, $0
-	call LoadPsyduckOrPoliwagGraphics_SilverField
+	call _LoadPsyduckOrPoliwagGraphics_SilverField
 	ld a, $0
 	ld [wPoliwagState], a
 	ret
@@ -1660,7 +1660,7 @@ UpdatePsyduck_SilverField: ; 0x1dd2e
 
 .asm_1dd48
 	ld a, $2
-	call LoadPsyduckOrPoliwagGraphics_SilverField
+	call _LoadPsyduckOrPoliwagGraphics_SilverField
 	ld a, $1
 	ld [wPsyduckState], a
 	ret
@@ -1671,7 +1671,7 @@ UpdatePsyduck_SilverField: ; 0x1dd2e
 	call LoadPsyduckOrPoliwagNumberGraphics_SilverField
 	ld a, [wRightMapMoveCounter]
 	add $3
-	call LoadPsyduckOrPoliwagGraphics_SilverField
+	call _LoadPsyduckOrPoliwagGraphics_SilverField
 	ld a, $3
 	ld [wPsyduckState], a
 	ret
@@ -1704,7 +1704,7 @@ UpdatePsyduck_SilverField: ; 0x1dd2e
 .asm_1dd8b
 	call LoadPsyduckOrPoliwagNumberGraphics_SilverField
 	ld a, $2
-	call LoadPsyduckOrPoliwagGraphics_SilverField
+	call _LoadPsyduckOrPoliwagGraphics_SilverField
 	ld a, [wCurrentStage]
 	bit 0, a
 	jr z, .asm_1dda9
@@ -1724,7 +1724,7 @@ UpdatePsyduck_SilverField: ; 0x1dd2e
 	ld a, $4
 	call LoadPsyduckOrPoliwagNumberGraphics_SilverField
 	ld a, $2
-	call LoadPsyduckOrPoliwagGraphics_SilverField
+	call _LoadPsyduckOrPoliwagGraphics_SilverField
 	ld a, $0
 	ld [wPsyduckState], a
 	ret
@@ -1777,7 +1777,7 @@ AddScorePsyduckOrPoliwag_SilverField: ; 0x1de22
 	call PlaySoundEffect
 	ret
 
-LoadPsyduckOrPoliwagGraphics_SilverField: ; 0x1de4b
+_LoadPsyduckOrPoliwagGraphics_SilverField: ; 0x1de4b
 	ld b, a
 	ld a, [wCurrentStage]
 	bit 0, a
@@ -2610,7 +2610,7 @@ ShowScrollingGoToBonusText_SilverField: ; 0x1e8c3
 	ld de, GoToMewtwoStageText
 .loadText
 	call LoadScrollingText
-	ld de, $0000
+	ld de, MUSIC_NOTHING
 	call PlaySong
 	rst AdvanceFrame
 	lb de, $3c, $23

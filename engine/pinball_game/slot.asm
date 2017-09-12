@@ -487,14 +487,14 @@ Func_f154: ; 0xf154
 	ld a, [wCurrentStage]
 	call CallInFollowingTable
 CallTable_f15a: ; 0xf15a
-	padded_dab LoadBonusMultiplierRailingGraphics_RedField
-	padded_dab LoadBonusMultiplierRailingGraphics_RedField
-	padded_dab LoadBonusMultiplierRailingGraphics_BlueField
-	padded_dab LoadBonusMultiplierRailingGraphics_BlueField
-	padded_dab LoadBonusMultiplierRailingGraphics_GoldField
-	padded_dab LoadBonusMultiplierRailingGraphics_GoldField
-	padded_dab LoadBonusMultiplierRailingGraphics_SilverField
-	padded_dab LoadBonusMultiplierRailingGraphics_SilverField
+	padded_dab _LoadBonusMultiplierRailingGraphics_RedField
+	padded_dab _LoadBonusMultiplierRailingGraphics_RedField
+	padded_dab _LoadBonusMultiplierRailingGraphics_BlueField
+	padded_dab _LoadBonusMultiplierRailingGraphics_BlueField
+	padded_dab _LoadBonusMultiplierRailingGraphics_GoldField
+	padded_dab _LoadBonusMultiplierRailingGraphics_GoldField
+	padded_dab _LoadBonusMultiplierRailingGraphics_SilverField
+	padded_dab _LoadBonusMultiplierRailingGraphics_SilverField
 
 SlotRewardGoToBonusStage: ; 0xf172
 	ld a, $1

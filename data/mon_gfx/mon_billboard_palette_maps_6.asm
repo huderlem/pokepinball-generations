@@ -121,8 +121,8 @@ LanturnBillboardBGPaletteMap:
 PichuBillboardBGPaletteMap:
 	db $7, $7, $7, $7, $7, $7
 	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $6, $6, $6, $6
+	db $7, $7, $7, $7, $7, $6
 
 CleffaBillboardBGPaletteMap:
 	db $7, $7, $7, $7, $7, $7
@@ -138,15 +138,15 @@ IgglybuffBillboardBGPaletteMap:
 
 TogepiBillboardBGPaletteMap:
 	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $6, $7, $7, $7
+	db $7, $6, $6, $7, $7, $7
+	db $7, $6, $7, $6, $7, $7
 
 TogeticBillboardBGPaletteMap:
 	db $7, $7, $7, $7, $7, $7
 	db $7, $7, $7, $7, $7, $7
 	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $6
 
 NatuBillboardBGPaletteMap:
 	db $7, $7, $7, $7, $7, $7
@@ -155,10 +155,10 @@ NatuBillboardBGPaletteMap:
 	db $7, $7, $6, $6, $7, $7
 
 XatuBillboardBGPaletteMap:
-	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $6, $6, $7, $7
+	db $7, $7, $6, $6, $7, $7
+	db $7, $7, $6, $6, $7, $7
+	db $7, $6, $6, $6, $7, $7
 
 MareepBillboardBGPaletteMap:
 	db $6, $6, $7, $7, $7, $7
@@ -168,13 +168,13 @@ MareepBillboardBGPaletteMap:
 
 FlaaffyBillboardBGPaletteMap:
 	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $6, $7, $7, $7
 	db $7, $7, $7, $7, $7, $7
 	db $7, $7, $7, $7, $7, $7
 
 AmpharosBillboardBGPaletteMap:
 	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
+	db $7, $6, $7, $7, $7, $7
 	db $7, $7, $7, $7, $7, $7
 	db $7, $7, $7, $7, $7, $7
 
@@ -323,22 +323,22 @@ ForretressBillboardBGPaletteMap:
 	db $7, $7, $7, $7, $7, $7
 
 DunsparceBillboardBGPaletteMap:
-	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
+	db $7, $6, $6, $6, $7, $6
+	db $7, $7, $7, $7, $7, $6
+	db $7, $7, $7, $7, $6, $6
 	db $7, $7, $7, $7, $7, $7
 
 GligarBillboardBGPaletteMap:
 	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $6
+	db $7, $7, $7, $7, $7, $6
+	db $7, $7, $7, $7, $7, $6
 
 SteelixBillboardBGPaletteMap:
-	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $6, $6, $7, $7
+	db $6, $7, $7, $6, $6, $6
+	db $6, $7, $7, $6, $6, $6
+	db $6, $7, $7, $6, $6, $6
 
 SnubbullBillboardBGPaletteMap:
 	db $7, $7, $7, $7, $7, $7
@@ -368,7 +368,7 @@ ShuckleBillboardBGPaletteMap:
 	db $7, $7, $7, $7, $7, $7
 	db $7, $7, $7, $7, $7, $7
 	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
+	db $7, $6, $6, $6, $6, $7
 
 HeracrossBillboardBGPaletteMap:
 	db $7, $7, $7, $7, $7, $7
@@ -415,7 +415,7 @@ SwinubBillboardBGPaletteMap:
 PiloswineBillboardBGPaletteMap:
 	db $7, $7, $7, $7, $7, $7
 	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
+	db $7, $6, $6, $7, $7, $7
 	db $7, $7, $7, $7, $7, $7
 
 CorsolaBillboardBGPaletteMap:
@@ -456,8 +456,8 @@ SkarmoryBillboardBGPaletteMap:
 
 HoundourBillboardBGPaletteMap:
 	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
+	db $6, $6, $6, $7, $7, $7
+	db $6, $6, $6, $7, $7, $7
 	db $7, $7, $7, $7, $7, $7
 
 HoundoomBillboardBGPaletteMap:
@@ -557,9 +557,9 @@ EnteiBillboardBGPaletteMap:
 	db $7, $7, $7, $7, $7, $7
 
 SuicuneBillboardBGPaletteMap:
-	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
+	db $7, $6, $6, $6, $6, $6
+	db $7, $6, $6, $6, $6, $7
+	db $7, $6, $7, $7, $7, $7
 	db $7, $7, $7, $7, $7, $7
 
 LarvitarBillboardBGPaletteMap:

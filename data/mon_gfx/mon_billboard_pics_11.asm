@@ -79,6 +79,6 @@ LanturnPic:
 LanturnSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/lanturn.2bpp"
 PichuPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/pichu.2bpp"
 PichuSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/pichu.2bpp"

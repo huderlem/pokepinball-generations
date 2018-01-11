@@ -23,9 +23,9 @@ SwinubPic:
 SwinubSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
 PiloswinePic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/piloswine.2bpp"
 PiloswineSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/piloswine.2bpp"
 CorsolaPic:
 	INCBIN "gfx/billboard/mon_pics/corsola.2bpp"
 CorsolaSilhouettePic:
@@ -51,9 +51,9 @@ SkarmoryPic:
 SkarmorySilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/skarmory.2bpp"
 HoundourPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/houndour.2bpp"
 HoundourSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/houndour.2bpp"
 HoundoomPic:
 	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
 HoundoomSilhouettePic:

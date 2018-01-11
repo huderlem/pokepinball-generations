@@ -35,9 +35,9 @@ EnteiPic:
 EnteiSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
 SuicunePic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/suicune.2bpp"
 SuicuneSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/suicune.2bpp"
 LarvitarPic:
 	INCBIN "gfx/billboard/mon_pics/larvitar.2bpp"
 LarvitarSilhouettePic:

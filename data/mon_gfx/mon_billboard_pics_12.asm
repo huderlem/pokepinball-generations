@@ -7,33 +7,33 @@ IgglybuffPic:
 IgglybuffSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/igglybuff.2bpp"
 TogepiPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/togepi.2bpp"
 TogepiSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/togepi.2bpp"
 TogeticPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/togetic.2bpp"
 TogeticSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/togetic.2bpp"
 NatuPic:
 	INCBIN "gfx/billboard/mon_pics/natu.2bpp"
 NatuSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/natu.2bpp"
 XatuPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/xatu.2bpp"
 XatuSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/xatu.2bpp"
 MareepPic:
 	INCBIN "gfx/billboard/mon_pics/mareep.2bpp"
 MareepSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/mareep.2bpp"
 FlaaffyPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/flaaffy.2bpp"
 FlaaffySilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/flaaffy.2bpp"
 AmpharosPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/ampharos.2bpp"
 AmpharosSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/ampharos.2bpp"
 BellossomPic:
 	INCBIN "gfx/billboard/mon_pics/bellossom.2bpp"
 BellossomSilhouettePic:

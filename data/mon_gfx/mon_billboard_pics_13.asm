@@ -47,17 +47,17 @@ ForretressPic:
 ForretressSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
 DunsparcePic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/dunsparce.2bpp"
 DunsparceSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/dunsparce.2bpp"
 GligarPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/gligar.2bpp"
 GligarSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/gligar.2bpp"
 SteelixPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/steelix.2bpp"
 SteelixSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/steelix.2bpp"
 SnubbullPic:
 	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
 SnubbullSilhouettePic:
@@ -75,9 +75,9 @@ ScizorPic:
 ScizorSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
 ShucklePic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/shuckle.2bpp"
 ShuckleSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/shuckle.2bpp"
 HeracrossPic:
 	INCBIN "gfx/billboard/mon_pics/heracross.2bpp"
 HeracrossSilhouettePic:

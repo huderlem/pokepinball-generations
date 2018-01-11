@@ -1,6 +1,3 @@
-INCLUDE "macros.asm"
-INCLUDE "constants/pokemon_constants.asm"
-
 ; OAM Animations use this 3-byte struct.
 animation: MACRO
 \1FrameCounter:: ds 1
@@ -2433,7 +2430,7 @@ wd961:: ; 0xd961
 	ds $1
 
 wPokedexFlags:: ; 0xd962
-	ds NUM_POKEMON
+	ds 251 ; NUM_POKEMON
 
 wNumPokemonSeen:: ; 0xd9f9
 	ds $2

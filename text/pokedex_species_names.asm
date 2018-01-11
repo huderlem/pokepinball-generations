@@ -1,663 +1,497 @@
 SpeciesNameSeed: ; SEED
-	dw $7282, $6482, $6482, $6382
-	db $00
+	dex_species "S","E","E","D"
 
 SpeciesNameLizard: ; LIZARD
-	dw $6B82, $6882, $7982, $6082, $7182, $6382
-	db $00
+	dex_species "L","I","Z","A","R","D"
 
 SpeciesNameFlame: ; FLAME
-	dw $6582, $6B82, $6082, $6C82, $6482
-	db $00
+	dex_species "F","L","A","M","E"
 
 SpeciesNameTinyturtle: ; TINYTURTLE
-	dw $7382, $6882, $6D82, $7882, $7382, $7482, $7182, $7382, $6B82, $6482
-	db $00
+	dex_species "T","I","N","Y","T","U","R","T","L","E"
 
 SpeciesNameTurtle: ; TURTLE
-	dw $7382, $7482, $7182, $7382, $6B82, $6482
-	db $00
+	dex_species "T","U","R","T","L","E"
 
 SpeciesNameShellfish: ; SHELLFISH
-	dw $7282, $6782, $6482, $6B82, $6B82, $6582, $6882, $7282, $6782
-	db $00
+	dex_species "S","H","E","L","L","F","I","S","H"
 
 SpeciesNameWorm: ; WORM
-	dw $7682, $6E82, $7182, $6C82
-	db $00
+	dex_species "W","O","R","M"
 
 SpeciesNameCocoon: ; COCOON
-	dw $6282, $6E82, $6282, $6E82, $6E82, $6D82
-	db $00
+	dex_species "C","O","C","O","O","N"
 
 SpeciesNameButterfly: ; BUTTERFLY
-	dw $6182, $7482, $7382, $7382, $6482, $7182, $6582, $6B82, $7882
-	db $00
+	dex_species "B","U","T","T","E","R","F","L","Y"
 
 SpeciesNameHairyBug: ; HAIRY_BUG
-	dw $6782, $6082, $6882, $7182, $7882, $4081, $6182, $7482, $6682
-	db $00
+	dex_species "H","A","I","R","Y"," ","B","U","G"
 
 SpeciesNamePoisonBee: ; POISON_BEE
-	dw $6F82, $6E82, $6882, $7282, $6E82, $6D82, $4081, $6182, $6482, $6482
-	db $00
+	dex_species "P","O","I","S","O","N"," ","B","E","E"
 
 SpeciesNameTinyBird: ; TINY_BIRD
-	dw $7382, $6882, $6D82, $7882, $4081, $6182, $6882, $7182, $6382
-	db $00
+	dex_species "T","I","N","Y"," ","B","I","R","D"
 
 SpeciesNameBird: ; BIRD
-	dw $6182, $6882, $7182, $6382
-	db $00
+	dex_species "B","I","R","D"
 
 SpeciesNameMouse: ; MOUSE
-	dw $6C82, $6E82, $7482, $7282, $6482
-	db $00
+	dex_species "M","O","U","S","E"
 
 SpeciesNameBeak: ; BEAK
-	dw $6182, $6482, $6082, $6A82
-	db $00
+	dex_species "B","E","A","K"
 
 SpeciesNameSnake: ; SNAKE
-	dw $7282, $6D82, $6082, $6A82, $6482
-	db $00
+	dex_species "S","N","A","K","E"
 
 SpeciesNameCobra: ; COBRA
-	dw $6282, $6E82, $6182, $7182, $6082
-	db $00
+	dex_species "C","O","B","R","A"
 
 SpeciesNamePoisonPin: ; POISON_PIN
-	dw $6F82, $6E82, $6882, $7282, $6E82, $6D82, $4081, $6F82, $6882, $6D82
-	db $00
+	dex_species "P","O","I","S","O","N"," ","P","I","N"
 
 SpeciesNameDrill: ; DRILL
-	dw $6382, $7182, $6882, $6B82, $6B82
-	db $00
+	dex_species "D","R","I","L","L"
 
 SpeciesNameFairy: ; FAIRY
-	dw $6582, $6082, $6882, $7182, $7882
-	db $00
+	dex_species "F","A","I","R","Y"
 
 SpeciesNameFox: ; FOX
-	dw $6582, $6E82, $7782, $4081
-	db $00
+	dex_species "F","O","X"
 
 SpeciesNameBalloon: ; BALLOON
-	dw $6182, $6082, $6B82, $6B82, $6E82, $6E82, $6D82
-	db $00
+	dex_species "B","A","L","L","O","O","N"
 
 SpeciesNameBat: ; BAT
-	dw $6182, $6082, $7382
-	db $00
+	dex_species "B","A","T"
 
 SpeciesNameWeed: ; WEED
-	dw $7682, $6482, $6482, $6382
-	db $00
+	dex_species "W","E","E","D"
 
 SpeciesNameFlower: ; FLOWER
-	dw $6582, $6B82, $6E82, $7682, $6482, $7182
-	db $00
+	dex_species "F","L","O","W","E","R"
 
 SpeciesNameMushroom: ; MUSHROOM
-	dw $6C82, $7482, $7282, $6782, $7182, $6E82, $6E82, $6C82
-	db $00
+	dex_species "M","U","S","H","R","O","O","M"
 
 SpeciesNameInsect: ; INSECT
-	dw $6882, $6D82, $7282, $6482, $6282, $7382
-	db $00
+	dex_species "I","N","S","E","C","T"
 
 SpeciesNamePoisonmoth: ; POISONMOTH
-	dw $6F82, $6E82, $6882, $7282, $6E82, $6D82, $6C82, $6E82, $7382, $6782
-	db $00
+	dex_species "P","O","I","S","O","N","M","O","T","H"
 
 SpeciesNameMole: ; MOLE
-	dw $6C82, $6E82, $6B82, $6482
-	db $00
+	dex_species "M","O","L","E"
 
 SpeciesNameScratchcat: ; SCRATCHCAT
-	dw $7282, $6282, $7182, $6082, $7382, $6282, $6782, $6282, $6082, $7382
-	db $00
+	dex_species "S","C","R","A","T","C","H","C","A","T"
 
 SpeciesNameClassyCat: ; CLASSY_CAT
-	dw $6282, $6B82, $6082, $7282, $7282, $7882, $4081, $6282, $6082, $7382
-	db $00
+	dex_species "C","L","A","S","S","Y"," ","C","A","T"
 
 SpeciesNameDuck: ; DUCK
-	dw $6382, $7482, $6282, $6A82
-	db $00
+	dex_species "D","U","C","K"
 
 SpeciesNamePigMonkey: ; PIG_MONKEY
-	dw $6F82, $6882, $6682, $4081, $6C82, $6E82, $6D82, $6A82, $6482, $7882
-	db $00
+	dex_species "P","I","G"," ","M","O","N","K","E","Y"
 
 SpeciesNamePuppy: ; PUPPY
-	dw $6F82, $7482, $6F82, $6F82, $7882
-	db $00
+	dex_species "P","U","P","P","Y"
 
 SpeciesNameLegendary: ; LEGENDARY
-	dw $6B82, $6482, $6682, $6482, $6D82, $6382, $6082, $7182, $7882
-	db $00
+	dex_species "L","E","G","E","N","D","A","R","Y"
 
 SpeciesNameTadpole: ; TADPOLE
-	dw $7382, $6082, $6382, $6F82, $6E82, $6B82, $6482
-	db $00
+	dex_species "T","A","D","P","O","L","E"
 
 SpeciesNamePsi: ; PSI
-	dw $6F82, $7282, $6882
-	db $00
+	dex_species "P","S","I"
 
 SpeciesNameSuperpower: ; SUPERPOWER
-	dw $7282, $7482, $6F82, $6482, $7182, $6F82, $6E82, $7682, $6482, $7182
-	db $00
+	dex_species "S","U","P","E","R","P","O","W","E","R"
 
 SpeciesNameFlycatcher: ; FLYCATCHER
-	dw $6582, $6B82, $7882, $6282, $6082, $7382, $6282, $6782, $6482, $7182
-	db $00
+	dex_species "F","L","Y","C","A","T","C","H","E","R"
 
 SpeciesNameJellyfish: ; JELLYFISH
-	dw $6982, $6482, $6B82, $6B82, $7882, $6582, $6882, $7282, $6782
-	db $00
+	dex_species "J","E","L","L","Y","F","I","S","H"
 
 SpeciesNameRock: ; ROCK
-	dw $7182, $6E82, $6282, $6A82
-	db $00
+	dex_species "R","O","C","K"
 
 SpeciesNameMegaton: ; MEGATON
-	dw $6C82, $6482, $6682, $6082, $7382, $6E82, $6D82
-	db $00
+	dex_species "M","E","G","A","T","O","N"
 
 SpeciesNameFireHorse: ; FIRE_HORSE
-	dw $6582, $6882, $7182, $6482, $4081, $6782, $6E82, $7182, $7282, $6482
-	db $00
+	dex_species "F","I","R","E"," ","H","O","R","S","E"
 
 SpeciesNameDopey: ; DOPEY
-	dw $6382, $6E82, $6F82, $6482, $7882
-	db $00
+	dex_species "D","O","P","E","Y"
 
 SpeciesNameHermitcrab: ; HERMITCRAB
-	dw $6782, $6482, $7182, $6C82, $6882, $7382, $6282, $7182, $6082, $6182
-	db $00
+	dex_species "H","E","R","M","I","T","C","R","A","B"
 
 SpeciesNameMagnet: ; MAGNET
-	dw $6C82, $6082, $6682, $6D82, $6482, $7382
-	db $00
+	dex_species "M","A","G","N","E","T"
 
 SpeciesNameWildDuck: ; WILD_DUCK
-	dw $7682, $6882, $6B82, $6382, $4081, $6382, $7482, $6282, $6A82
-	db $00
+	dex_species "W","I","L","D"," ","D","U","C","K"
 
 SpeciesNameTwinBird: ; TWIN_BIRD
-	dw $7382, $7682, $6882, $6D82, $4081, $6182, $6882, $7182, $6382
-	db $00
+	dex_species "T","W","I","N"," ","B","I","R","D"
 
 SpeciesNameTriplebird: ; TRIPLEBIRD
-	dw $7382, $7182, $6882, $6F82, $6B82, $6482, $6182, $6882, $7182, $6382
-	db $00
+	dex_species "T","R","I","P","L","E","B","I","R","D"
 
 SpeciesNameSeaLion: ; SEA_LION
-	dw $7282, $6482, $6082, $4081, $6B82, $6882, $6E82, $6D82
-	db $00
+	dex_species "S","E","A"," ","L","I","O","N"
 
 SpeciesNameSludge: ; SLUDGE
-	dw $7282, $6B82, $7482, $6382, $6682, $6482
-	db $00
+	dex_species "S","L","U","D","G","E"
 
 SpeciesNameBivalve: ; BIVALVE
-	dw $6182, $6882, $7582, $6082, $6B82, $7582, $6482
-	db $00
+	dex_species "B","I","V","A","L","V","E"
 
 SpeciesNameGas: ; GAS
-	dw $6682, $6082, $7282
-	db $00
+	dex_species "G","A","S"
 
 SpeciesNameShadow: ; SHADOW
-	dw $7282, $6782, $6082, $6382, $6E82, $7682
-	db $00
+	dex_species "S","H","A","D","O","W"
 
 SpeciesNameRockSnake: ; ROCK_SNAKE
-	dw $7182, $6E82, $6282, $6A82, $4081, $7282, $6D82, $6082, $6A82, $6482
-	db $00
+	dex_species "R","O","C","K"," ","S","N","A","K","E"
 
 SpeciesNameHypnosis: ; HYPNOSIS
-	dw $6782, $7882, $6F82, $6D82, $6E82, $7282, $6882, $7282
-	db $00
+	dex_species "H","Y","P","N","O","S","I","S"
 
 SpeciesNameRiverCrab: ; RIVER_CRAB
-	dw $7182, $6882, $7582, $6482, $7182, $4081, $6282, $7182, $6082, $6182
-	db $00
+	dex_species "R","I","V","E","R"," ","C","R","A","B"
 
 SpeciesNamePincer: ; PINCER
-	dw $6F82, $6882, $6D82, $6282, $6482, $7182
-	db $00
+	dex_species "P","I","N","C","E","R"
 
 SpeciesNameBall: ; BALL
-	dw $6182, $6082, $6B82, $6B82
-	db $00
+	dex_species "B","A","L","L"
 
 SpeciesNameEgg: ; EGG
-	dw $6482, $6682, $6682
-	db $00
+	dex_species "E","G","G"
 
 SpeciesNameCoconut: ; COCONUT
-	dw $6282, $6E82, $6282, $6E82, $6D82, $7482, $7382
-	db $00
+	dex_species "C","O","C","O","N","U","T"
 
 SpeciesNameLonely: ; LONELY
-	dw $6B82, $6E82, $6D82, $6482, $6B82, $7882
-	db $00
+	dex_species "L","O","N","E","L","Y"
 
 SpeciesNameBonekeeper: ; BONEKEEPER
-	dw $6182, $6E82, $6D82, $6482, $6A82, $6482, $6482, $6F82, $6482, $7182
-	db $00
+	dex_species "B","O","N","E","K","E","E","P","E","R"
 
 SpeciesNameKicking: ; KICKING
-	dw $6A82, $6882, $6282, $6A82, $6882, $6D82, $6682
-	db $00
+	dex_species "K","I","C","K","I","N","G"
 
 SpeciesNamePunching: ; PUNCHING
-	dw $6F82, $7482, $6D82, $6282, $6782, $6882, $6D82, $6682
-	db $00
+	dex_species "P","U","N","C","H","I","N","G"
 
 SpeciesNameLicking: ; LICKING
-	dw $6B82, $6882, $6282, $6A82, $6882, $6D82, $6682
-	db $00
+	dex_species "L","I","C","K","I","N","G"
 
 SpeciesNamePoisonGas: ; POISON_GAS
-	dw $6F82, $6E82, $6882, $7282, $6E82, $6D82, $4081, $6682, $6082, $7282
-	db $00
+	dex_species "P","O","I","S","O","N"," ","G","A","S"
 
 SpeciesNameSpikes: ; SPIKES
-	dw $7282, $6F82, $6882, $6A82, $6482, $7282
-	db $00
+	dex_species "S","P","I","K","E","S"
 
 SpeciesNameVine: ; VINE
-	dw $7582, $6882, $6D82, $6482
-	db $00
+	dex_species "V","I","N","E"
 
 SpeciesNameParent: ; PARENT
-	dw $6F82, $6082, $7182, $6482, $6D82, $7382
-	db $00
+	dex_species "P","A","R","E","N","T"
 
 SpeciesNameDragon: ; DRAGON
-	dw $6382, $7182, $6082, $6682, $6E82, $6D82
-	db $00
+	dex_species "D","R","A","G","O","N"
 
 SpeciesNameGoldfish: ; GOLDFISH
-	dw $6682, $6E82, $6B82, $6382, $6582, $6882, $7282, $6782
-	db $00
+	dex_species "G","O","L","D","F","I","S","H"
 
 SpeciesNameStarshape: ; STARSHAPE
-	dw $7282, $7382, $6082, $7182, $7282, $6782, $6082, $6F82, $6482
-	db $00
+	dex_species "S","T","A","R","S","H","A","P","E"
 
 SpeciesNameMysterious: ; MYSTERIOUS
-	dw $6C82, $7882, $7282, $7382, $6482, $7182, $6882, $6E82, $7482, $7282
-	db $00
+	dex_species "M","Y","S","T","E","R","I","O","U","S"
 
 SpeciesNameBarrier: ; BARRIER
-	dw $6182, $6082, $7182, $7182, $6882, $6482, $7182
-	db $00
+	dex_species "B","A","R","R","I","E","R"
 
 SpeciesNameMantis: ; MANTIS
-	dw $6C82, $6082, $6D82, $7382, $6882, $7282
-	db $00
+	dex_species "M","A","N","T","I","S"
 
 SpeciesNameHumanshape: ; HUMANSHAPE
-	dw $6782, $7482, $6C82, $6082, $6D82, $7282, $6782, $6082, $6F82, $6482
-	db $00
+	dex_species "H","U","M","A","N","S","H","A","P","E"
 
 SpeciesNameElectric: ; ELECTRIC
-	dw $6482, $6B82, $6482, $6282, $7382, $7182, $6882, $6282
-	db $00
+	dex_species "E","L","E","C","T","R","I","C"
 
 SpeciesNameSpitfire: ; SPITFIRE
-	dw $7282, $6F82, $6882, $7382, $6582, $6882, $7182, $6482
-	db $00
+	dex_species "S","P","I","T","F","I","R","E"
 
 SpeciesNameStagbeetle: ; STAGBEETLE
-	dw $7282, $7382, $6082, $6682, $6182, $6482, $6482, $7382, $6B82, $6482
-	db $00
+	dex_species "S","T","A","G","B","E","E","T","L","E"
 
 SpeciesNameWildBull: ; WILD_BULL
-	dw $7682, $6882, $6B82, $6382, $4081, $6182, $7482, $6B82, $6B82
-	db $00
+	dex_species "W","I","L","D"," ","B","U","L","L"
 
 SpeciesNameFish: ; FISH
-	dw $6582, $6882, $7282, $6782
-	db $00
+	dex_species "F","I","S","H"
 
 SpeciesNameAtrocious: ; ATROCIOUS
-	dw $6082, $7382, $7182, $6E82, $6282, $6882, $6E82, $7482, $7282
-	db $00
+	dex_species "A","T","R","O","C","I","O","U","S"
 
 SpeciesNameTransport: ; TRANSPORT
-	dw $7382, $7182, $6082, $6D82, $7282, $6F82, $6E82, $7182, $7382
-	db $00
+	dex_species "T","R","A","N","S","P","O","R","T"
 
 SpeciesNameTransform: ; TRANSFORM
-	dw $7382, $7182, $6082, $6D82, $7282, $6582, $6E82, $7182, $6C82
-	db $00
+	dex_species "T","R","A","N","S","F","O","R","M"
 
 SpeciesNameEvolution: ; EVOLUTION
-	dw $6482, $7582, $6E82, $6B82, $7482, $7382, $6882, $6E82, $6D82
-	db $00
+	dex_species "E","V","O","L","U","T","I","O","N"
 
 SpeciesNameBubbleJet: ; BUBBLE_JET
-	dw $6182, $7482, $6182, $6182, $6B82, $6482, $4081, $6982, $6482, $7382
-	db $00
+	dex_species "B","U","B","B","L","E"," ","J","E","T"
 
 SpeciesNameLightning: ; LIGHTNING
-	dw $6B82, $6882, $6682, $6782, $7382, $6D82, $6882, $6D82, $6682
-	db $00
+	dex_species "L","I","G","H","T","N","I","N","G"
 
 SpeciesNameFlame2: ; FLAME_2
-	dw $6582, $6B82, $6082, $6C82, $6482
-	db $00
+	dex_species "F","L","A","M","E"
 
 SpeciesNameVirtual: ; VIRTUAL
-	dw $7582, $6882, $7182, $7382, $7482, $6082, $6B82
-	db $00
+	dex_species "V","I","R","T","U","A","L"
 
 SpeciesNameSpiral: ; SPIRAL
-	dw $7282, $6F82, $6882, $7182, $6082, $6B82
-	db $00
+	dex_species "S","P","I","R","A","L"
 
 SpeciesNameFossil: ; FOSSIL
-	dw $6582, $6E82, $7282, $7282, $6882, $6B82
-	db $00
+	dex_species "F","O","S","S","I","L"
 
 SpeciesNameSleeping: ; SLEEPING
-	dw $7282, $6B82, $6482, $6482, $6F82, $6882, $6D82, $6682
-	db $00
+	dex_species "S","L","E","E","P","I","N","G"
 
 SpeciesNameFreeze: ; FREEZE
-	dw $6582, $7182, $6482, $6482, $7982, $6482
-	db $00
+	dex_species "F","R","E","E","Z","E"
 
 SpeciesNameGenetic: ; GENETIC
-	dw $6682, $6482, $6D82, $6482, $7382, $6882, $6282
-	db $00
+	dex_species "G","E","N","E","T","I","C"
 
 SpeciesNameNewSpecie: ; NEW_SPECIE
-	dw $6D82, $6482, $7682, $4081, $7282, $6F82, $6482, $6282, $6882, $6482
-	db $00
+	dex_species "N","E","W"," ","S","P","E","C","I","E"
 
 SpeciesNameRat: ; RAT
-	dw $7182, $6082, $7382
-	db $00
+	dex_species "R","A","T"
 
 SpeciesNameLeaf: ; LEAF
-	dw $6B82, $6482, $6082, $6582
-	db $00
+	dex_species "L","E","A","F"
 
 SpeciesNameHerb: ; HERB
-	dw $6782, $6482, $7182, $6182
-	db $00
+	dex_species "H","E","R","B"
 
 SpeciesNameFireMouse: ; FIRE_MOUSE
-	dw $6582, $6882, $7182, $6482, $4081, $6C82, $6E82, $7482, $7282, $6482
-	db $00
+	dex_species "F","I","R","E","M","O","U","S","E"
 
 SpeciesNameVolcano: ; VOLCANO
-	dw $7582, $6E82, $6B82, $6282, $6082, $6D82, $6E82
-	db $00
+	dex_species "V","O","L","C","A","N","O"
 
 SpeciesNameBigJaw: ; BIG_JAW
-	dw $6182, $6882, $6682, $4081, $6982, $6082, $7682
-	db $00
+	dex_species "B","I","G","J","A","W"
 
 SpeciesNameScout: ; SCOUT
-	dw $7282, $6282, $6E82, $7482, $7382
-	db $00
+	dex_species "S","C","O","U","T"
 
 SpeciesNameLongBody: ; LONG_BODY
-	dw $6B82, $6E82, $6D82, $6682, $4081, $6182, $6E82, $6382, $7882
-	db $00
+	dex_species "L","O","N","G","B","O","D","Y"
 
 SpeciesNameOwl: ; OWL
-	dw $6E82, $7682, $6B82
-	db $00
+	dex_species "O","W","L"
 
 SpeciesNameFiveStar: ; FIVE_STAR
-	dw $6582, $6882, $7582, $6482, $4081, $7282, $7382, $6082, $7182
-	db $00
+	dex_species "F","I","V","E","S","T","A","R"
 
 SpeciesNameStringSpit: ; STRING_SPIT
-	dw $7282, $7382, $7182, $6882, $6D82, $6682, $4081, $7282, $6F82, $6882, $7382
-	db $00
+	dex_species "S","T","R","I","N","G","S","P","I","T"
 
 SpeciesNameLongLeg: ; LONG_LEG
-	dw $6B82, $6E82, $6D82, $6682, $4081, $6B82, $6482, $6682
-	db $00
+	dex_species "L","O","N","G","L","E","G"
 
 SpeciesNameAngler: ; ANGLER
-	dw $6082, $6D82, $6682, $6B82, $6482, $7182
-	db $00
+	dex_species "A","N","G","L","E","R"
 
 SpeciesNameLight: ; LIGHT
-	dw $6B82, $6882, $6682, $6782, $7382
-	db $00
+	dex_species "L","I","G","H","T"
 
 SpeciesNameTinyMouse: ; TINY_MOUSE
-	dw $7382, $6882, $6D82, $7882, $4081, $6C82, $6E82, $7482, $7282, $6482
-	db $00
+	dex_species "T","I","N","Y","M","O","U","S","E"
 
 SpeciesNameStarShape: ; STAR_SHAPE
-	dw $7282, $7382, $6082, $7182, $4081, $7282, $6782, $6082, $6F82, $6482
-	db $00
+	dex_species "S","T","A","R","S","H","A","P","E"
 
 SpeciesNameSpikeBall: ; SPIKE_BALL
-	dw $7282, $6F82, $6882, $6A82, $6482, $4081, $6182, $6082, $6B82, $6B82
-	db $00
+	dex_species "S","P","I","K","E","B","A","L","L"
 
 SpeciesNameHappiness: ; HAPPINESS
-	dw $6782, $6082, $6F82, $6F82, $6882, $6D82, $6482, $7282, $7282
-	db $00
+	dex_species "H","A","P","P","I","N","E","S","S"
 
 SpeciesNameMystic: ; MYSTIC
-	dw $6C82, $7882, $7282, $7382, $6882, $6282
-	db $00
+	dex_species "M","Y","S","T","I","C"
 
 SpeciesNameWool: ; WOOL
-	dw $7682, $6E82, $6E82, $6B82
-	db $00
+	dex_species "W","O","O","L"
 
 SpeciesNameAquaMouse: ; AQUA_MOUSE
-	dw $6082, $7082, $7482, $6082, $4081, $6C82, $6E82, $7482, $7282, $6482
-	db $00
+	dex_species "A","Q","U","A","M","O","U","S","E"
 
 SpeciesNameAquaRabbit: ; AQUA_RABBIT
-	dw $6082, $7082, $7482, $6082, $4081, $7182, $6082, $6182, $6182, $6882, $7382
-	db $00
+	dex_species "A","Q","U","A","R","A","B","B","I","T"
 
 SpeciesNameImitation: ; IMITATION
-	dw $6882, $6C82, $6882, $7382, $6082, $7382, $6882, $6E82, $6D82
-	db $00
+	dex_species "I","M","I","T","A","T","I","O","N"
 
 SpeciesNameFrog: ; FROG
-	dw $6582, $7182, $6E82, $6682
-	db $00
+	dex_species "F","R","O","G"
 
 SpeciesNameCottonweed: ; COTTONWEED
-	dw $6282, $6E82, $7382, $7382, $6E82, $6D82, $7682, $6482, $6482, $6382
-	db $00
+	dex_species "C","O","T","T","O","N","W","E","E","D"
 
 SpeciesNameLongTail: ; LONG_TAIL
-	dw $6B82, $6E82, $6D82, $6682, $4081, $7382, $6082, $6882, $6B82
-	db $00
+	dex_species "L","O","N","G","T","A","I","L"
 
 SpeciesNameSun: ; SUN
-	dw $7282, $7482, $6D82
-	db $00
+	dex_species "S","U","N"
 
 SpeciesNameClearWing: ; CLEAR_WING
-	dw $6282, $6B82, $6482, $6082, $7182, $4081, $7682, $6882, $6D82, $6682
-	db $00
+	dex_species "C","L","E","A","R","W","I","N","G"
 
 SpeciesNameWaterFish: ; WATER_FISH
-	dw $7682, $6082, $7382, $6482, $7182, $4081, $6582, $6882, $7282, $6782
-	db $00
+	dex_species "W","A","T","E","R","F","I","S","H"
 
 SpeciesNameMoonlight: ; MOONLIGHT
-	dw $6C82, $6E82, $6E82, $6D82, $6B82, $6882, $6682, $6782, $7382
-	db $00
+	dex_species "M","O","O","N","L","I","G","H","T"
 
 SpeciesNameDarkness: ; DARKNESS
-	dw $6382, $6082, $7182, $6A82, $6D82, $6482, $7282, $7282
-	db $00
+	dex_species "D","A","R","K","N","E","S","S"
 
 SpeciesNameRoyal: ; ROYAL
-	dw $7182, $6E82, $7882, $6082, $6B82
-	db $00
+	dex_species "R","O","Y","A","L"
 
 SpeciesNameScreech: ; SCREECH
-	dw $7282, $6282, $7182, $6482, $6482, $6282, $6782
-	db $00
+	dex_species "S","C","R","E","E","C","H"
 
 SpeciesNameSymbol: ; SYMBOL
-	dw $7282, $7882, $6C82, $6182, $6E82, $6B82
-	db $00
+	dex_species "S","Y","M","B","O","L"
 
 SpeciesNamePatient: ; PATIENT
-	dw $6F82, $6082, $7382, $6882, $6482, $6D82, $7382
-	db $00
+	dex_species "P","A","T","I","E","N","T"
 
 SpeciesNameLongNeck: ; LONG_NECK
-	dw $6B82, $6E82, $6D82, $6682, $4081, $6D82, $6482, $6282, $6A82
-	db $00
+	dex_species "L","O","N","G","N","E","C","K"
 
 SpeciesNameBagworm: ; BAGWORM
-	dw $6182, $6082, $6682, $7682, $6E82, $7182, $6C82
-	db $00
+	dex_species "B","A","G","W","O","R","M"
 
 SpeciesNameLandSnake: ; LAND_SNAKE
-	dw $6B82, $6082, $6D82, $6382, $4081, $7282, $6D82, $6082, $6A82, $6482
-	db $00
+	dex_species "L","A","N","D","S","N","A","K","E"
 
 SpeciesNameFlyScorpion: ; FLY_SCORPION
-	dw $6582, $6B82, $7882, $4081, $7282, $6282, $6E82, $7182, $6F82, $6882, $6E82, $6D82
-	db $00
+	dex_species "F","L","Y","S","C","O","R","P","I","O","N"
 
 SpeciesNameIronSnake: ; IRON_SNAKE
-	dw $6882, $7182, $6E82, $6D82, $4081, $7282, $6D82, $6082, $6A82, $6482
-	db $00
+	dex_species "I","R","O","N","S","N","A","K","E"
 
 SpeciesNameMold: ; MOLD
-	dw $6C82, $6E82, $6B82, $6382
-	db $00
+	dex_species "M","O","L","D"
 
 SpeciesNameSingleHorn: ; SINGLE_HORN
-	dw $7282, $6882, $6D82, $6682, $6B82, $6482, $4081, $6782, $6E82, $7182, $6D82
-	db $00
+	dex_species "S","I","N","G","L","E","H","O","R","N"
 
 SpeciesNameSharpClaw: ; SHARP_CLAW
-	dw $7282, $6782, $6082, $7182, $6F82, $4081, $6282, $6B82, $6082, $7682
-	db $00
+	dex_species "S","H","A","R","P","C","L","A","W"
 
 SpeciesNameLittleBear: ; LITTLE_BEAR
-	dw $6B82, $6882, $7382, $7382, $6B82, $6482, $4081, $6182, $6482, $6082, $7182
-	db $00
+	dex_species "L","I","T","T","L","E","B","E","A","R"
 
 SpeciesNameHibernator: ; HIBERNATOR
-	dw $6782, $6882, $6182, $6482, $7182, $6D82, $6082, $7382, $6E82, $7182
-	db $00
+	dex_species "H","I","B","E","R","N","A","T","O","R"
 
 SpeciesNameLava: ; LAVA
-	dw $6B82, $6082, $7582, $6082
-	db $00
+	dex_species "L","A","V","A"
 
 SpeciesNamePig: ; PIG
-	dw $6F82, $6882, $6682
-	db $00
+	dex_species "P","I","G"
 
 SpeciesNameSwine: ; SWINE
-	dw $7282, $7682, $6882, $6D82, $6482
-	db $00
+	dex_species "S","W","I","N","E"
 
 SpeciesNameCoral: ; CORAL
-	dw $6282, $6E82, $7182, $6082, $6B82
-	db $00
+	dex_species "C","O","R","A","L"
 
 SpeciesNameJet: ; JET
-	dw $6982, $6482, $7382
-	db $00
+	dex_species "J","E","T"
 
 SpeciesNameDelivery: ; DELIVERY
-	dw $6382, $6482, $6B82, $6882, $7582, $6482, $7182, $7882
-	db $00
+	dex_species "D","E","L","I","V","E","R","Y"
 
 SpeciesNameKite: ; KITE
-	dw $6A82, $6882, $7382, $6482
-	db $00
+	dex_species "K","I","T","E"
 
 SpeciesNameArmorBird: ; ARMOR_BIRD
-	dw $6082, $7182, $6C82, $6E82, $7182, $4081, $6182, $6882, $7182, $6382
-	db $00
+	dex_species "A","R","M","O","R","B","I","R","D"
 
 SpeciesNameDark: ; DARK
-	dw $6382, $6082, $7182, $6A82
-	db $00
+	dex_species "D","A","R","K"
 
 SpeciesNameLong_nose: ; LONG_NOSE
-	dw $6B82, $6E82, $6D82, $6682, $4081, $6D82, $6E82, $7282, $6482
-	db $00
+	dex_species "L","O","N","G","_","N","O","S","E"
 
 SpeciesNameArmor: ; ARMOR
-	dw $6082, $7182, $6C82, $6E82, $7182
-	db $00
+	dex_species "A","R","M","O","R"
 
 SpeciesNameBig_horn: ; BIG_HORN
-	dw $6182, $6882, $6682, $4081, $6782, $6E82, $7182, $6D82
-	db $00
+	dex_species "B","I","G","_","H","O","R","N"
 
 SpeciesNamePainter: ; PAINTER
-	dw $6F82, $6082, $6882, $6D82, $7382, $6482, $7182
-	db $00
+	dex_species "P","A","I","N","T","E","R"
 
 SpeciesNameScuffle: ; SCUFFLE
-	dw $7282, $6282, $7482, $6582, $6582, $6B82, $6482
-	db $00
+	dex_species "S","C","U","F","F","L","E"
 
 SpeciesNameHandstand: ; HANDSTAND
-	dw $6782, $6082, $6D82, $6382, $7282, $7382, $6082, $6D82, $6382
-	db $00
+	dex_species "H","A","N","D","S","T","A","N","D"
 
 SpeciesNameKiss: ; KISS
-	dw $6A82, $6882, $7282, $7282
-	db $00
+	dex_species "K","I","S","S"
 
 SpeciesNameLiveCoal: ; LIVE_COAL
-	dw $6B82, $6882, $7582, $6482, $4081, $6282, $6E82, $6082, $6B82
-	db $00
+	dex_species "L","I","V","E","C","O","A","L"
 
 SpeciesNameMilkCow: ; MILK_COW
-	dw $6C82, $6882, $6B82, $6A82, $4081, $6282, $6E82, $7682
-	db $00
+	dex_species "M","I","L","K","C","O","W"
 
 SpeciesNameThunder: ; THUNDER
-	dw $7382, $6782, $7482, $6D82, $6382, $6482, $7182
-	db $00
+	dex_species "T","H","U","N","D","E","R"
 
 SpeciesNameAurora: ; AURORA
-	dw $6082, $7482, $7182, $6E82, $7182, $6082
-	db $00
+	dex_species "A","U","R","O","R","A"
 
 SpeciesNameRockSkin: ; ROCK_SKIN
-	dw $7182, $6E82, $6282, $6A82, $4081, $7282, $6A82, $6882, $6D82
-	db $00
+	dex_species "R","O","C","K","S","K","I","N"
 
 SpeciesNameHardShell: ; HARD_SHELL
-	dw $6782, $6082, $7182, $6382, $4081, $7282, $6782, $6482, $6B82, $6B82
-	db $00
+	dex_species "H","A","R","D","S","H","E","L","L"
 
 SpeciesNameDiving: ; DIVING
-	dw $6382, $6882, $7582, $6882, $6D82, $6682
-	db $00
+	dex_species "D","I","V","I","N","G"
 
 SpeciesNameRainbow: ; RAINBOW
-	dw $7182, $6082, $6882, $6D82, $6182, $6E82, $7682
-	db $00
+	dex_species "R","A","I","N","B","O","W"
 
 SpeciesNameTimeTravel: ; TIME_TRAVEL
-	dw $7382, $6882, $6C82, $6482, $4081, $7382, $7182, $6082, $7582, $6482, $6B82
-	db $00
+	dex_species "T","I","M","E","T","R","A","V","E","L"

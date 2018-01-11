@@ -1,4 +1,4 @@
-MonSpeciesNamesPointers: ; 0x29fa6
+MonSpeciesNamesPointers:
 	dwb SpeciesNameSeed, Bank(SpeciesNameSeed)
 	dwb SpeciesNameLizard, Bank(SpeciesNameLizard)
 	dwb SpeciesNameFlame, Bank(SpeciesNameFlame)

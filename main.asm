@@ -25,7 +25,7 @@ INCLUDE "engine/pokedex/variable_width_font_character.asm"
 
 SECTION "bank2.2", ROMX
 
-INCLUDE "data/unknown/unused_9800.asm"
+INCLUDE "data/unused/unused_9800.asm"
 
 PokedexCharactersGfx: ; 0xa000
 	INCBIN "gfx/pokedex/characters.interleave.2bpp"
@@ -186,7 +186,7 @@ SECTION "bank12", ROMX
 INCLUDE "audio/engine_12.asm"
 
 ; This is a blob of unused junk data
-INCBIN "data/unknown/unused_4b6a8.bin"
+INCBIN "data/unused/unused_4b6a8.bin"
 
 SECTION "bank13", ROMX
 

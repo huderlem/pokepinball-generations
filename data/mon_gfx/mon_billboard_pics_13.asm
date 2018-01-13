@@ -1,11 +1,11 @@
 WooperPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/wooper.2bpp"
 WooperSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/wooper.2bpp"
 QuagsirePic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/quagsire.2bpp"
 QuagsireSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/quagsire.2bpp"
 EspeonPic:
 	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
 EspeonSilhouettePic:
@@ -23,9 +23,9 @@ SlowkingPic:
 SlowkingSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
 MisdreavusPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/misdreavus.2bpp"
 MisdreavusSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/misdreavus.2bpp"
 UnownPic:
 	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
 UnownSilhouettePic:
@@ -43,9 +43,9 @@ PinecoPic:
 PinecoSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/pineco.2bpp"
 ForretressPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/forretress.2bpp"
 ForretressSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/forretress.2bpp"
 DunsparcePic:
 	INCBIN "gfx/billboard/mon_pics/dunsparce.2bpp"
 DunsparceSilhouettePic:
@@ -59,13 +59,13 @@ SteelixPic:
 SteelixSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/steelix.2bpp"
 SnubbullPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/snubbull.2bpp"
 SnubbullSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/snubbull.2bpp"
 GranbullPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/granbull.2bpp"
 GranbullSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/granbull.2bpp"
 QwilfishPic:
 	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
 QwilfishSilhouettePic:

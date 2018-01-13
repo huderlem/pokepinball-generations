@@ -88,13 +88,13 @@ CroconawBillboardBGPalette2:
 
 FeraligatrBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 21, 21, 21
-	RGB 11, 11, 11
+	RGB 10, 18, 29
+	RGB 31, 29, 13
 	RGB 0, 0, 0
 FeraligatrBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 21, 21, 21
-	RGB 11, 11, 11
+	RGB 10, 18, 29
+	RGB 28, 6, 4
 	RGB 0, 0, 0
 
 SentretBillboardBGPalette1:
@@ -143,13 +143,13 @@ NoctowlBillboardBGPalette2:
 
 LedybaBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 21, 21, 21
-	RGB 11, 11, 11
+	RGB 26, 19, 8
+	RGB 27, 6, 5
 	RGB 0, 0, 0
 LedybaBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 21, 21, 21
-	RGB 11, 11, 11
+	RGB 26, 19, 8
+	RGB 27, 6, 5
 	RGB 0, 0, 0
 
 LedianBillboardBGPalette1:
@@ -341,13 +341,13 @@ BellossomBillboardBGPalette2:
 
 MarillBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 21, 21, 21
-	RGB 11, 11, 11
+	RGB 9, 13, 29
+	RGB 21, 4, 4
 	RGB 0, 0, 0
 MarillBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 21, 21, 21
-	RGB 11, 11, 11
+	RGB 9, 13, 29
+	RGB 4, 7, 22
 	RGB 0, 0, 0
 
 AzumarillBillboardBGPalette1:
@@ -385,13 +385,13 @@ PolitoedBillboardBGPalette2:
 
 HoppipBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 21, 21, 21
-	RGB 11, 11, 11
+	RGB 30, 15, 22
+	RGB 20, 6, 13
 	RGB 0, 0, 0
 HoppipBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 21, 21, 21
-	RGB 11, 11, 11
+	RGB 30, 15, 22
+	RGB 11, 23, 6
 	RGB 0, 0, 0
 
 SkiploomBillboardBGPalette1:
@@ -407,13 +407,13 @@ SkiploomBillboardBGPalette2:
 
 JumpluffBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 21, 21, 21
-	RGB 11, 11, 11
+	RGB 9, 13, 21
+	RGB 25, 5, 5
 	RGB 0, 0, 0
 JumpluffBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 21, 21, 21
-	RGB 11, 11, 11
+	RGB 24, 20, 11
+	RGB 14, 17, 4
 	RGB 0, 0, 0
 
 AipomBillboardBGPalette1:
@@ -440,46 +440,46 @@ SunkernBillboardBGPalette2:
 
 SunfloraBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 21, 21, 21
-	RGB 11, 11, 11
+	RGB 26, 22, 3
+	RGB 29, 18, 20
 	RGB 0, 0, 0
 SunfloraBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 21, 21, 21
-	RGB 11, 11, 11
+	RGB 26, 22, 3
+	RGB 10, 21, 0
 	RGB 0, 0, 0
 
 YanmaBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 21, 21, 21
-	RGB 11, 11, 11
+	RGB 9, 26, 10
+	RGB 20, 7, 7
 	RGB 0, 0, 0
 YanmaBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 21, 21, 21
-	RGB 11, 11, 11
+	RGB 7, 16, 24
+	RGB 20, 7, 7
 	RGB 0, 0, 0
 
 WooperBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 21, 21, 21
-	RGB 11, 11, 11
+	RGB 16, 20, 25
+	RGB 18, 14, 20
 	RGB 0, 0, 0
 WooperBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 21, 21, 21
-	RGB 11, 11, 11
+	RGB 16, 20, 25
+	RGB 6, 4, 10
 	RGB 0, 0, 0
 
 QuagsireBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 21, 21, 21
-	RGB 11, 11, 11
+	RGB 15, 21, 26
+	RGB 27, 12, 10
 	RGB 0, 0, 0
 QuagsireBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 21, 21, 21
-	RGB 11, 11, 11
+	RGB 15, 21, 26
+	RGB 8, 11, 14
 	RGB 0, 0, 0
 
 EspeonBillboardBGPalette1:
@@ -528,13 +528,13 @@ SlowkingBillboardBGPalette2:
 
 MisdreavusBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 21, 21, 21
-	RGB 11, 11, 11
+	RGB 9, 9, 17
+	RGB 30, 6, 19
 	RGB 0, 0, 0
 MisdreavusBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 21, 21, 21
-	RGB 11, 11, 11
+	RGB 9, 9, 17
+	RGB 7, 7, 11
 	RGB 0, 0, 0
 
 UnownBillboardBGPalette1:
@@ -583,13 +583,13 @@ PinecoBillboardBGPalette2:
 
 ForretressBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 21, 21, 21
-	RGB 11, 11, 11
+	RGB 26, 25, 27
+	RGB 20, 17, 18
 	RGB 0, 0, 0
 ForretressBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 21, 21, 21
-	RGB 11, 11, 11
+	RGB 26, 25, 27
+	RGB 25, 8, 8
 	RGB 0, 0, 0
 
 DunsparceBillboardBGPalette1:
@@ -627,24 +627,24 @@ SteelixBillboardBGPalette2:
 
 SnubbullBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 21, 21, 21
-	RGB 11, 11, 11
+	RGB 31, 18, 20
+	RGB 26, 12, 12
 	RGB 0, 0, 0
 SnubbullBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 21, 21, 21
-	RGB 11, 11, 11
+	RGB 31, 18, 20
+	RGB 26, 12, 12
 	RGB 0, 0, 0
 
 GranbullBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 21, 21, 21
-	RGB 11, 11, 11
+	RGB 24, 20, 25
+	RGB 16, 9, 13
 	RGB 0, 0, 0
 GranbullBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 21, 21, 21
-	RGB 11, 11, 11
+	RGB 24, 20, 25
+	RGB 16, 9, 13
 	RGB 0, 0, 0
 
 QwilfishBillboardBGPalette1:
@@ -715,13 +715,13 @@ TeddiursaBillboardBGPalette2:
 
 UrsaringBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 21, 21, 21
-	RGB 11, 11, 11
+	RGB 24, 14, 0
+	RGB 14, 8, 0
 	RGB 0, 0, 0
 UrsaringBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 21, 21, 21
-	RGB 11, 11, 11
+	RGB 24, 14, 0
+	RGB 31, 31, 6
 	RGB 0, 0, 0
 
 SlugmaBillboardBGPalette1:
@@ -737,24 +737,24 @@ SlugmaBillboardBGPalette2:
 
 MagcargoBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 21, 21, 21
-	RGB 11, 11, 11
+	RGB 14, 16, 20
+	RGB 23, 8, 7
 	RGB 0, 0, 0
 MagcargoBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 21, 21, 21
-	RGB 11, 11, 11
+	RGB 31, 31, 12
+	RGB 23, 8, 7
 	RGB 0, 0, 0
 
 SwinubBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 21, 21, 21
-	RGB 11, 11, 11
+	RGB 19, 12, 0
+	RGB 31, 21, 21
 	RGB 0, 0, 0
 SwinubBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 21, 21, 21
-	RGB 11, 11, 11
+	RGB 19, 12, 0
+	RGB 14, 6, 0
 	RGB 0, 0, 0
 
 PiloswineBillboardBGPalette1:
@@ -781,13 +781,13 @@ CorsolaBillboardBGPalette2:
 
 RemoraidBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 21, 21, 21
-	RGB 11, 11, 11
+	RGB 20, 20, 26
+	RGB 19, 3, 6
 	RGB 0, 0, 0
 RemoraidBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 21, 21, 21
-	RGB 11, 11, 11
+	RGB 20, 20, 26
+	RGB 11, 11, 20
 	RGB 0, 0, 0
 
 OctilleryBillboardBGPalette1:
@@ -847,13 +847,13 @@ HoundourBillboardBGPalette2:
 
 HoundoomBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 21, 21, 21
-	RGB 11, 11, 11
+	RGB 25, 25, 24
+	RGB 19, 18, 18
 	RGB 0, 0, 0
 HoundoomBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 21, 21, 21
-	RGB 11, 11, 11
+	RGB 31, 16, 11
+	RGB 29, 10, 0
 	RGB 0, 0, 0
 
 KingdraBillboardBGPalette1:
@@ -935,13 +935,13 @@ TyrogueBillboardBGPalette2:
 
 HitmontopBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 21, 21, 21
-	RGB 11, 11, 11
+	RGB 26, 15, 18
+	RGB 10, 10, 21
 	RGB 0, 0, 0
 HitmontopBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 21, 21, 21
-	RGB 11, 11, 11
+	RGB 26, 15, 18
+	RGB 19, 2, 9
 	RGB 0, 0, 0
 
 SmoochumBillboardBGPalette1:
@@ -979,13 +979,13 @@ MagbyBillboardBGPalette2:
 
 MiltankBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 21, 21, 21
-	RGB 11, 11, 11
+	RGB 31, 23, 27
+	RGB 10, 14, 19
 	RGB 0, 0, 0
 MiltankBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 21, 21, 21
-	RGB 11, 11, 11
+	RGB 31, 23, 27
+	RGB 21, 14, 18
 	RGB 0, 0, 0
 
 BlisseyBillboardBGPalette1:
@@ -1078,13 +1078,13 @@ LugiaBillboardBGPalette2:
 
 HoOhBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 21, 21, 21
-	RGB 11, 11, 11
+	RGB 7, 15, 3
+	RGB 31, 7, 3
 	RGB 0, 0, 0
 HoOhBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 21, 21, 21
-	RGB 11, 11, 11
+	RGB 31, 31, 6
+	RGB 31, 7, 3
 	RGB 0, 0, 0
 
 CelebiBillboardBGPalette1:

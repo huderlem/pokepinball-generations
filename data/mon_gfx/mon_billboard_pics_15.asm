@@ -3,9 +3,9 @@ TyroguePic:
 TyrogueSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
 HitmontopPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/hitmontop.2bpp"
 HitmontopSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/hitmontop.2bpp"
 SmoochumPic:
 	INCBIN "gfx/billboard/mon_pics/smoochum.2bpp"
 SmoochumSilhouettePic:
@@ -19,9 +19,9 @@ MagbyPic:
 MagbySilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
 MiltankPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/miltank.2bpp"
 MiltankSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/miltank.2bpp"
 BlisseyPic:
 	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
 BlisseySilhouettePic:
@@ -55,9 +55,9 @@ LugiaPic:
 LugiaSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/lugia.2bpp"
 HoOhPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/ho_oh.2bpp"
 HoOhSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/ho_oh.2bpp"
 CelebiPic:
 	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
 CelebiSilhouettePic:

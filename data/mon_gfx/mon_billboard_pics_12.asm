@@ -39,9 +39,9 @@ BellossomPic:
 BellossomSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/bellossom.2bpp"
 MarillPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/marill.2bpp"
 MarillSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/marill.2bpp"
 AzumarillPic:
 	INCBIN "gfx/billboard/mon_pics/azumarill.2bpp"
 AzumarillSilhouettePic:
@@ -55,17 +55,17 @@ PolitoedPic:
 PolitoedSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/politoed.2bpp"
 HoppipPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/hoppip.2bpp"
 HoppipSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/hoppip.2bpp"
 SkiploomPic:
 	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
 SkiploomSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
 JumpluffPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/jumpluff.2bpp"
 JumpluffSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/jumpluff.2bpp"
 AipomPic:
 	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
 AipomSilhouettePic:
@@ -75,10 +75,10 @@ SunkernPic:
 SunkernSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/sunkern.2bpp"
 SunfloraPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/sunflora.2bpp"
 SunfloraSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/sunflora.2bpp"
 YanmaPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/yanma.2bpp"
 YanmaSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/yanma.2bpp"

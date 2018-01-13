@@ -7,21 +7,21 @@ TeddiursaPic:
 TeddiursaSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/teddiursa.2bpp"
 UrsaringPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/ursaring.2bpp"
 UrsaringSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/ursaring.2bpp"
 SlugmaPic:
 	INCBIN "gfx/billboard/mon_pics/slugma.2bpp"
 SlugmaSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/slugma.2bpp"
 MagcargoPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/magcargo.2bpp"
 MagcargoSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/magcargo.2bpp"
 SwinubPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/swinub.2bpp"
 SwinubSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/swinub.2bpp"
 PiloswinePic:
 	INCBIN "gfx/billboard/mon_pics/piloswine.2bpp"
 PiloswineSilhouettePic:
@@ -31,9 +31,9 @@ CorsolaPic:
 CorsolaSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/corsola.2bpp"
 RemoraidPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/remoraid.2bpp"
 RemoraidSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/remoraid.2bpp"
 OctilleryPic:
 	INCBIN "gfx/billboard/mon_pics/octillery.2bpp"
 OctillerySilhouettePic:
@@ -55,9 +55,9 @@ HoundourPic:
 HoundourSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/houndour.2bpp"
 HoundoomPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/houndoom.2bpp"
 HoundoomSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/houndoom.2bpp"
 KingdraPic:
 	INCBIN "gfx/billboard/mon_pics/kingdra.2bpp"
 KingdraSilhouettePic:

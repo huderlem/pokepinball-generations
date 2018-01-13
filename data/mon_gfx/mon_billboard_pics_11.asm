@@ -31,9 +31,9 @@ CroconawPic:
 CroconawSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/croconaw.2bpp"
 FeraligatrPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/feraligatr.2bpp"
 FeraligatrSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/feraligatr.2bpp"
 SentretPic:
 	INCBIN "gfx/billboard/mon_pics/sentret.2bpp"
 SentretSilhouettePic:
@@ -51,9 +51,9 @@ NoctowlPic:
 NoctowlSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/noctowl.2bpp"
 LedybaPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/ledyba.2bpp"
 LedybaSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/ledyba.2bpp"
 LedianPic:
 	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
 LedianSilhouettePic:

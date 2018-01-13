@@ -19,14 +19,14 @@ DunsparceAnimatedPic:
 GligarAnimatedPic:
 	INCBIN "gfx/billboard/mon_animated/gligar.w32.interleave.2bpp"
 SnubbullAnimatedPic:
-	INCBIN "gfx/billboard/mon_animated/jigglypuff.w32.interleave.2bpp"
+	INCBIN "gfx/billboard/mon_animated/snubbull.w32.interleave.2bpp"
 QwilfishAnimatedPic:
-	INCBIN "gfx/billboard/mon_animated/jigglypuff.w32.interleave.2bpp"
+	INCBIN "gfx/billboard/mon_animated/qwilfish.w32.interleave.2bpp"
 ShuckleAnimatedPic:
-	INCBIN "gfx/billboard/mon_animated/jigglypuff.w32.interleave.2bpp"
+	INCBIN "gfx/billboard/mon_animated/shuckle.w32.interleave.2bpp"
 HeracrossAnimatedPic:
 	INCBIN "gfx/billboard/mon_animated/jigglypuff.w32.interleave.2bpp"
 SneaselAnimatedPic:
 	INCBIN "gfx/billboard/mon_animated/jigglypuff.w32.interleave.2bpp"
 TeddiursaAnimatedPic:
-	INCBIN "gfx/billboard/mon_animated/jigglypuff.w32.interleave.2bpp"
+	INCBIN "gfx/billboard/mon_animated/teddiursa.w32.interleave.2bpp"

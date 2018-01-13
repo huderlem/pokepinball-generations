@@ -1,5 +1,5 @@
 SlugmaAnimatedPic:
-	INCBIN "gfx/billboard/mon_animated/jigglypuff.w32.interleave.2bpp"
+	INCBIN "gfx/billboard/mon_animated/slugma.w32.interleave.2bpp"
 SwinubAnimatedPic:
 	INCBIN "gfx/billboard/mon_animated/jigglypuff.w32.interleave.2bpp"
 CorsolaAnimatedPic:
@@ -11,13 +11,13 @@ DelibirdAnimatedPic:
 MantineAnimatedPic:
 	INCBIN "gfx/billboard/mon_animated/jigglypuff.w32.interleave.2bpp"
 SkarmoryAnimatedPic:
-	INCBIN "gfx/billboard/mon_animated/jigglypuff.w32.interleave.2bpp"
+	INCBIN "gfx/billboard/mon_animated/skarmory.w32.interleave.2bpp"
 HoundourAnimatedPic:
 	INCBIN "gfx/billboard/mon_animated/jigglypuff.w32.interleave.2bpp"
 PhanpyAnimatedPic:
-	INCBIN "gfx/billboard/mon_animated/jigglypuff.w32.interleave.2bpp"
+	INCBIN "gfx/billboard/mon_animated/phanpy.w32.interleave.2bpp"
 StantlerAnimatedPic:
-	INCBIN "gfx/billboard/mon_animated/jigglypuff.w32.interleave.2bpp"
+	INCBIN "gfx/billboard/mon_animated/stantler.w32.interleave.2bpp"
 SmeargleAnimatedPic:
 	INCBIN "gfx/billboard/mon_animated/jigglypuff.w32.interleave.2bpp"
 TyrogueAnimatedPic:

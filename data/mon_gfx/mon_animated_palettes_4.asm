@@ -286,35 +286,35 @@ GligarAnimatedObjPalette2:
 
 SnubbullAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 28, 14, 16
+	RGB 8, 12, 16
 	RGB 0, 0, 0
 SnubbullAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 28, 14, 16
+	RGB 8, 12, 16
 	RGB 0, 0, 0
 
 QwilfishAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 26, 26, 18
+	RGB 8, 14, 12
 	RGB 0, 0, 0
 QwilfishAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 26, 26, 18
+	RGB 8, 14, 12
 	RGB 0, 0, 0
 
 ShuckleAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 31, 22, 5
+	RGB 21, 4, 3
 	RGB 0, 0, 0
 ShuckleAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 31, 22, 5
+	RGB 21, 4, 3
 	RGB 0, 0, 0
 
 HeracrossAnimatedObjPalette1:
@@ -341,24 +341,24 @@ SneaselAnimatedObjPalette2:
 
 TeddiursaAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 22, 14, 6
+	RGB 14, 7, 4
 	RGB 0, 0, 0
 TeddiursaAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 22, 14, 6
+	RGB 14, 7, 4
 	RGB 0, 0, 0
 
 SlugmaAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 30, 25, 12
+	RGB 26, 9, 3
 	RGB 0, 0, 0
 SlugmaAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 30, 25, 12
+	RGB 26, 9, 3
 	RGB 0, 0, 0
 
 SwinubAnimatedObjPalette1:
@@ -418,13 +418,13 @@ MantineAnimatedObjPalette2:
 
 SkarmoryAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 21, 21, 22
+	RGB 31, 0, 3
 	RGB 0, 0, 0
 SkarmoryAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 21, 21, 22
+	RGB 31, 0, 3
 	RGB 0, 0, 0
 
 HoundourAnimatedObjPalette1:
@@ -440,24 +440,24 @@ HoundourAnimatedObjPalette2:
 
 PhanpyAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 19, 27, 30
+	RGB 25, 6, 2
 	RGB 0, 0, 0
 PhanpyAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 19, 27, 30
+	RGB 25, 6, 2
 	RGB 0, 0, 0
 
 StantlerAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 26, 23, 10
+	RGB 24, 20, 14
 	RGB 0, 0, 0
 StantlerAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 26, 23, 10
+	RGB 24, 20, 14
 	RGB 0, 0, 0
 
 SmeargleAnimatedObjPalette1:

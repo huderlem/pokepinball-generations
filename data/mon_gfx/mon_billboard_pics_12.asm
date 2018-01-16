@@ -1,7 +1,7 @@
 CleffaPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/cleffa.2bpp"
 CleffaSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/cleffa.2bpp"
 IgglybuffPic:
 	INCBIN "gfx/billboard/mon_pics/igglybuff.2bpp"
 IgglybuffSilhouettePic:

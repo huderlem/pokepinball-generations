@@ -110,13 +110,13 @@ SentretBillboardBGPalette2:
 
 FurretBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 21, 21, 21
-	RGB 11, 11, 11
+	RGB 30, 27, 23
+	RGB 23, 19, 16
 	RGB 0, 0, 0
 FurretBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 21, 21, 21
-	RGB 11, 11, 11
+	RGB 30, 27, 23
+	RGB 19, 14, 12
 	RGB 0, 0, 0
 
 HoothootBillboardBGPalette1:
@@ -176,13 +176,13 @@ SpinarakBillboardBGPalette2:
 
 AriadosBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 21, 21, 21
-	RGB 11, 11, 11
+	RGB 25, 8, 12
+	RGB 15, 6, 19
 	RGB 0, 0, 0
 AriadosBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 21, 21, 21
-	RGB 11, 11, 11
+	RGB 25, 8, 12
+	RGB 29, 29, 12
 	RGB 0, 0, 0
 
 CrobatBillboardBGPalette1:
@@ -231,13 +231,13 @@ PichuBillboardBGPalette2:
 
 CleffaBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 21, 21, 21
-	RGB 11, 11, 11
+	RGB 30, 25, 24
+	RGB 12, 8, 7
 	RGB 0, 0, 0
 CleffaBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 21, 21, 21
-	RGB 11, 11, 11
+	RGB 30, 25, 24
+	RGB 22, 14, 12
 	RGB 0, 0, 0
 
 IgglybuffBillboardBGPalette1:
@@ -484,13 +484,13 @@ QuagsireBillboardBGPalette2:
 
 EspeonBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 21, 21, 21
-	RGB 11, 11, 11
+	RGB 6, 8, 11
+	RGB 21, 14, 19
 	RGB 0, 0, 0
 EspeonBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 21, 21, 21
-	RGB 11, 11, 11
+	RGB 27, 19, 26
+	RGB 21, 14, 19
 	RGB 0, 0, 0
 
 UmbreonBillboardBGPalette1:
@@ -660,13 +660,13 @@ QwilfishBillboardBGPalette2:
 
 ScizorBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 21, 21, 21
-	RGB 11, 11, 11
+	RGB 23, 4, 4
+	RGB 31, 25, 0
 	RGB 0, 0, 0
 ScizorBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 21, 21, 21
-	RGB 11, 11, 11
+	RGB 23, 4, 4
+	RGB 16, 3, 3
 	RGB 0, 0, 0
 
 ShuckleBillboardBGPalette1:
@@ -913,13 +913,13 @@ StantlerBillboardBGPalette2:
 
 SmeargleBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 21, 21, 21
-	RGB 11, 11, 11
+	RGB 2, 21, 0
+	RGB 1, 16, 0
 	RGB 0, 0, 0
 SmeargleBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 21, 21, 21
-	RGB 11, 11, 11
+	RGB 28, 27, 23
+	RGB 14, 5, 3
 	RGB 0, 0, 0
 
 TyrogueBillboardBGPalette1:
@@ -990,13 +990,13 @@ MiltankBillboardBGPalette2:
 
 BlisseyBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 21, 21, 21
-	RGB 11, 11, 11
+	RGB 31, 22, 23
+	RGB 23, 10, 12
 	RGB 0, 0, 0
 BlisseyBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 21, 21, 21
-	RGB 11, 11, 11
+	RGB 31, 22, 23
+	RGB 23, 10, 12
 	RGB 0, 0, 0
 
 RaikouBillboardBGPalette1:

@@ -7,9 +7,9 @@ QuagsirePic:
 QuagsireSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/quagsire.2bpp"
 EspeonPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/espeon.2bpp"
 EspeonSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/espeon.2bpp"
 UmbreonPic:
 	INCBIN "gfx/billboard/mon_pics/umbreon.2bpp"
 UmbreonSilhouettePic:
@@ -71,9 +71,9 @@ QwilfishPic:
 QwilfishSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
 ScizorPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/scizor.2bpp"
 ScizorSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/scizor.2bpp"
 ShucklePic:
 	INCBIN "gfx/billboard/mon_pics/shuckle.2bpp"
 ShuckleSilhouettePic:

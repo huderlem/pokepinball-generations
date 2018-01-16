@@ -39,9 +39,9 @@ SentretPic:
 SentretSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/sentret.2bpp"
 FurretPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/furret.2bpp"
 FurretSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/furret.2bpp"
 HoothootPic:
 	INCBIN "gfx/billboard/mon_pics/hoothoot.2bpp"
 HoothootSilhouettePic:
@@ -63,9 +63,9 @@ SpinarakPic:
 SpinarakSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
 AriadosPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/ariados.2bpp"
 AriadosSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/ariados.2bpp"
 CrobatPic:
 	INCBIN "gfx/billboard/mon_pics/crobat.2bpp"
 CrobatSilhouettePic:

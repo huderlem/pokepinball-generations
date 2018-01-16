@@ -23,9 +23,9 @@ MiltankPic:
 MiltankSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/miltank.2bpp"
 BlisseyPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/blissey.2bpp"
 BlisseySilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/blissey.2bpp"
 RaikouPic:
 	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
 RaikouSilhouettePic:

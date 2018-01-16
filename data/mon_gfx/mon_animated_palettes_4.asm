@@ -176,13 +176,13 @@ SunkernAnimatedObjPalette2:
 
 YanmaAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 21, 30, 11
+	RGB 31, 14, 9
 	RGB 0, 0, 0
 YanmaAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 21, 30, 11
+	RGB 31, 14, 9
 	RGB 0, 0, 0
 
 WooperAnimatedObjPalette1:
@@ -330,13 +330,13 @@ HeracrossAnimatedObjPalette2:
 
 SneaselAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 31, 0, 12
+	RGB 1, 8, 12
 	RGB 0, 0, 0
 SneaselAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 31, 0, 12
+	RGB 1, 8, 12
 	RGB 0, 0, 0
 
 TeddiursaAnimatedObjPalette1:
@@ -374,13 +374,13 @@ SwinubAnimatedObjPalette2:
 
 CorsolaAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 29, 14, 17
+	RGB 23, 11, 13
 	RGB 0, 0, 0
 CorsolaAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 29, 14, 17
+	RGB 23, 11, 13
 	RGB 0, 0, 0
 
 RemoraidAnimatedObjPalette1:
@@ -396,13 +396,13 @@ RemoraidAnimatedObjPalette2:
 
 DelibirdAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 31, 28, 0
+	RGB 27, 6, 9
 	RGB 0, 0, 0
 DelibirdAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 31, 28, 0
+	RGB 27, 6, 9
 	RGB 0, 0, 0
 
 MantineAnimatedObjPalette1:
@@ -462,13 +462,13 @@ StantlerAnimatedObjPalette2:
 
 SmeargleAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 27, 25, 22
+	RGB 19, 10, 6
 	RGB 0, 0, 0
 SmeargleAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 27, 25, 22
+	RGB 19, 10, 6
 	RGB 0, 0, 0
 
 TyrogueAnimatedObjPalette1:
@@ -506,13 +506,13 @@ RaikouAnimatedObjPalette2:
 
 EnteiAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 25, 24, 16
+	RGB 21, 11, 4
 	RGB 0, 0, 0
 EnteiAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 25, 24, 16
+	RGB 21, 11, 4
 	RGB 0, 0, 0
 
 SuicuneAnimatedObjPalette1:

@@ -1,5 +1,5 @@
 YanmaAnimatedPic:
-	INCBIN "gfx/billboard/mon_animated/jigglypuff.w32.interleave.2bpp"
+	INCBIN "gfx/billboard/mon_animated/yanma.w32.interleave.2bpp"
 WooperAnimatedPic:
 	INCBIN "gfx/billboard/mon_animated/wooper.w32.interleave.2bpp"
 MurkrowAnimatedPic:
@@ -27,6 +27,6 @@ ShuckleAnimatedPic:
 HeracrossAnimatedPic:
 	INCBIN "gfx/billboard/mon_animated/jigglypuff.w32.interleave.2bpp"
 SneaselAnimatedPic:
-	INCBIN "gfx/billboard/mon_animated/jigglypuff.w32.interleave.2bpp"
+	INCBIN "gfx/billboard/mon_animated/sneasel.w32.interleave.2bpp"
 TeddiursaAnimatedPic:
 	INCBIN "gfx/billboard/mon_animated/teddiursa.w32.interleave.2bpp"

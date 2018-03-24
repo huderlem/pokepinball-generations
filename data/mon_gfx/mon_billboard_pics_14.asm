@@ -75,9 +75,9 @@ Porygon2Pic:
 Porygon2SilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/porygon2.2bpp"
 StantlerPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/stantler.2bpp"
 StantlerSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/stantler.2bpp"
 SmearglePic:
 	INCBIN "gfx/billboard/mon_pics/smeargle.2bpp"
 SmeargleSilhouettePic:

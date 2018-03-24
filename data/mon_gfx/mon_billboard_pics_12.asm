@@ -59,17 +59,17 @@ HoppipPic:
 HoppipSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/hoppip.2bpp"
 SkiploomPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/skiploom.2bpp"
 SkiploomSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/skiploom.2bpp"
 JumpluffPic:
 	INCBIN "gfx/billboard/mon_pics/jumpluff.2bpp"
 JumpluffSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/jumpluff.2bpp"
 AipomPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/aipom.2bpp"
 AipomSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/aipom.2bpp"
 SunkernPic:
 	INCBIN "gfx/billboard/mon_pics/sunkern.2bpp"
 SunkernSilhouettePic:

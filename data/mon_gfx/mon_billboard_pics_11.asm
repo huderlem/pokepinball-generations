@@ -3,9 +3,9 @@ ChikoritaPic:
 ChikoritaSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/chikorita.2bpp"
 BayleefPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/bayleef.2bpp"
 BayleefSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/bayleef.2bpp"
 MeganiumPic:
 	INCBIN "gfx/billboard/mon_pics/meganium.2bpp"
 MeganiumSilhouettePic:
@@ -19,9 +19,9 @@ QuilavaPic:
 QuilavaSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/quilava.2bpp"
 TyphlosionPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/typhlosion.2bpp"
 TyphlosionSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/typhlosion.2bpp"
 TotodilePic:
 	INCBIN "gfx/billboard/mon_pics/totodile.2bpp"
 TotodileSilhouettePic:
@@ -55,13 +55,13 @@ LedybaPic:
 LedybaSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/ledyba.2bpp"
 LedianPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/ledian.2bpp"
 LedianSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/ledian.2bpp"
 SpinarakPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/spinarak.2bpp"
 SpinarakSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/spinarak.2bpp"
 AriadosPic:
 	INCBIN "gfx/billboard/mon_pics/ariados.2bpp"
 AriadosSilhouettePic:

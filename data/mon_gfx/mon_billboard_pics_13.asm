@@ -15,29 +15,29 @@ UmbreonPic:
 UmbreonSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/umbreon.2bpp"
 MurkrowPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/murkrow.2bpp"
 MurkrowSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/murkrow.2bpp"
 SlowkingPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/slowking.2bpp"
 SlowkingSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/slowking.2bpp"
 MisdreavusPic:
 	INCBIN "gfx/billboard/mon_pics/misdreavus.2bpp"
 MisdreavusSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/misdreavus.2bpp"
 UnownPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/unown.2bpp"
 UnownSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/unown.2bpp"
 WobbuffetPic:
 	INCBIN "gfx/billboard/mon_pics/wobbuffet.2bpp"
 WobbuffetSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/wobbuffet.2bpp"
 GirafarigPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/girafarig.2bpp"
 GirafarigSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/girafarig.2bpp"
 PinecoPic:
 	INCBIN "gfx/billboard/mon_pics/pineco.2bpp"
 PinecoSilhouettePic:
@@ -67,9 +67,9 @@ GranbullPic:
 GranbullSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/granbull.2bpp"
 QwilfishPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/qwilfish.2bpp"
 QwilfishSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/qwilfish.2bpp"
 ScizorPic:
 	INCBIN "gfx/billboard/mon_pics/scizor.2bpp"
 ScizorSilhouettePic:

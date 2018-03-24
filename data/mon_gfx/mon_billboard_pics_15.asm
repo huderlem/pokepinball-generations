@@ -1,7 +1,7 @@
 TyroguePic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/tyrogue.2bpp"
 TyrogueSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/tyrogue.2bpp"
 HitmontopPic:
 	INCBIN "gfx/billboard/mon_pics/hitmontop.2bpp"
 HitmontopSilhouettePic:
@@ -15,9 +15,9 @@ ElekidPic:
 ElekidSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/elekid.2bpp"
 MagbyPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/magby.2bpp"
 MagbySilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/magby.2bpp"
 MiltankPic:
 	INCBIN "gfx/billboard/mon_pics/miltank.2bpp"
 MiltankSilhouettePic:
@@ -27,13 +27,13 @@ BlisseyPic:
 BlisseySilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/blissey.2bpp"
 RaikouPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/raikou.2bpp"
 RaikouSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/raikou.2bpp"
 EnteiPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/entei.2bpp"
 EnteiSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/entei.2bpp"
 SuicunePic:
 	INCBIN "gfx/billboard/mon_pics/suicune.2bpp"
 SuicuneSilhouettePic:
@@ -59,6 +59,6 @@ HoOhPic:
 HoOhSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/ho_oh.2bpp"
 CelebiPic:
-	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_pics/celebi.2bpp"
 CelebiSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/celebi.2bpp"

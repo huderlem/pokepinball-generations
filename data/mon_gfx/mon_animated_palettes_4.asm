@@ -363,13 +363,13 @@ SlugmaAnimatedObjPalette2:
 
 SwinubAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 23, 15, 11
+	RGB 11, 6, 4
 	RGB 0, 0, 0
 SwinubAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 23, 15, 11
+	RGB 11, 6, 4
 	RGB 0, 0, 0
 
 CorsolaAnimatedObjPalette1:
@@ -385,13 +385,13 @@ CorsolaAnimatedObjPalette2:
 
 RemoraidAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 11, 22, 31
+	RGB 0, 10, 30
 	RGB 0, 0, 0
 RemoraidAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 11, 22, 31
+	RGB 0, 10, 30
 	RGB 0, 0, 0
 
 DelibirdAnimatedObjPalette1:
@@ -407,13 +407,13 @@ DelibirdAnimatedObjPalette2:
 
 MantineAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 24, 24, 24
+	RGB 5, 5, 13
 	RGB 0, 0, 0
 MantineAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 24, 24, 24
+	RGB 5, 5, 13
 	RGB 0, 0, 0
 
 SkarmoryAnimatedObjPalette1:
@@ -429,13 +429,13 @@ SkarmoryAnimatedObjPalette2:
 
 HoundourAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 27, 17, 10
+	RGB 11, 10, 10
 	RGB 0, 0, 0
 HoundourAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 27, 17, 10
+	RGB 11, 10, 10
 	RGB 0, 0, 0
 
 PhanpyAnimatedObjPalette1:
@@ -473,35 +473,35 @@ SmeargleAnimatedObjPalette2:
 
 TyrogueAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 26, 22, 26
+	RGB 19, 11, 6
 	RGB 0, 0, 0
 TyrogueAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 26, 22, 26
+	RGB 19, 11, 6
 	RGB 0, 0, 0
 
 MiltankAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 30, 26, 16
+	RGB 27, 17, 16
 	RGB 0, 0, 0
 MiltankAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 30, 26, 16
+	RGB 27, 17, 16
 	RGB 0, 0, 0
 
 RaikouAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 14, 24, 24
+	RGB 28, 25, 2
 	RGB 0, 0, 0
 RaikouAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 14, 24, 24
+	RGB 28, 25, 2
 	RGB 0, 0, 0
 
 EnteiAnimatedObjPalette1:
@@ -517,55 +517,55 @@ EnteiAnimatedObjPalette2:
 
 SuicuneAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 6, 18, 23
+	RGB 16, 13, 18
 	RGB 0, 0, 0
 SuicuneAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 6, 18, 23
+	RGB 16, 13, 18
 	RGB 0, 0, 0
 
 LarvitarAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 15, 18, 9
+	RGB 24, 0, 0
 	RGB 0, 0, 0
 LarvitarAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 15, 18, 9
+	RGB 24, 0, 0
 	RGB 0, 0, 0
 
 LugiaAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 22, 22, 22
+	RGB 12, 16, 27
 	RGB 0, 0, 0
 LugiaAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 22, 22, 22
+	RGB 12, 16, 27
 	RGB 0, 0, 0
 
 HoOhAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 27, 29, 11
+	RGB 31, 7, 3
 	RGB 0, 0, 0
 HoOhAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 27, 29, 11
+	RGB 31, 7, 3
 	RGB 0, 0, 0
 
 CelebiAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 25, 28, 14
+	RGB 14, 22, 7
 	RGB 0, 0, 0
 CelebiAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 25, 28, 14
+	RGB 14, 22, 7
 	RGB 0, 0, 0

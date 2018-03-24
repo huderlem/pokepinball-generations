@@ -7,7 +7,7 @@ TotodileAnimatedPic:
 SentretAnimatedPic:
 	INCBIN "gfx/billboard/mon_animated/sentret.w32.interleave.2bpp"
 HoothootAnimatedPic:
-	INCBIN "gfx/billboard/mon_animated/jigglypuff.w32.interleave.2bpp"
+	INCBIN "gfx/billboard/mon_animated/hoothoot.w32.interleave.2bpp"
 LedybaAnimatedPic:
 	INCBIN "gfx/billboard/mon_animated/ledyba.w32.interleave.2bpp"
 SpinarakAnimatedPic:
@@ -15,7 +15,7 @@ SpinarakAnimatedPic:
 ChinchouAnimatedPic:
 	INCBIN "gfx/billboard/mon_animated/chinchou.w32.interleave.2bpp"
 TogepiAnimatedPic:
-	INCBIN "gfx/billboard/mon_animated/jigglypuff.w32.interleave.2bpp"
+	INCBIN "gfx/billboard/mon_animated/togepi.w32.interleave.2bpp"
 NatuAnimatedPic:
 	INCBIN "gfx/billboard/mon_animated/natu.w32.interleave.2bpp"
 MareepAnimatedPic:

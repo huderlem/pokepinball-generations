@@ -44,13 +44,13 @@ SentretAnimatedObjPalette2:
 
 HoothootAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 25, 20, 16
+	RGB 19, 11, 5
 	RGB 0, 0, 0
 HoothootAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 25, 20, 16
+	RGB 19, 11, 5
 	RGB 0, 0, 0
 
 LedybaAnimatedObjPalette1:
@@ -88,13 +88,13 @@ ChinchouAnimatedObjPalette2:
 
 TogepiAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 31, 29, 22
+	RGB 28, 7, 3
 	RGB 0, 0, 0
 TogepiAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 31, 29, 22
+	RGB 28, 7, 3
 	RGB 0, 0, 0
 
 NatuAnimatedObjPalette1:
@@ -209,13 +209,13 @@ MurkrowAnimatedObjPalette2:
 
 MisdreavusAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 11, 17, 20
+	RGB 24, 7, 9
 	RGB 0, 0, 0
 MisdreavusAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 11, 17, 20
+	RGB 24, 7, 9
 	RGB 0, 0, 0
 
 UnownAnimatedObjPalette1:
@@ -231,24 +231,24 @@ UnownAnimatedObjPalette2:
 
 WobbuffetAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 14, 23, 29
+	RGB 9, 15, 18
 	RGB 0, 0, 0
 WobbuffetAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 14, 23, 29
+	RGB 9, 15, 18
 	RGB 0, 0, 0
 
 GirafarigAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 28, 24, 5
+	RGB 30, 14, 15
 	RGB 0, 0, 0
 GirafarigAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 28, 24, 5
+	RGB 30, 14, 15
 	RGB 0, 0, 0
 
 PinecoAnimatedObjPalette1:
@@ -319,13 +319,13 @@ ShuckleAnimatedObjPalette2:
 
 HeracrossAnimatedObjPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 25, 21, 5
+	RGB 4, 11, 17
 	RGB 0, 0, 0
 HeracrossAnimatedObjPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 25, 21, 5
+	RGB 4, 11, 17
 	RGB 0, 0, 0
 
 SneaselAnimatedObjPalette1:

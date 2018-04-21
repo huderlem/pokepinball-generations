@@ -43,26 +43,3 @@ ENDM
 	BillboardPicturePointer BonusMultiplierX3OnPic
 	BillboardPicturePointer BonusMultiplierX4OnPic
 	BillboardPicturePointer BonusMultiplierX5OnPic
-
-MapBillboardPicturePointers:
-	BillboardPicturePointer PalletTownPic
-	BillboardPicturePointer ViridianCityPic
-	BillboardPicturePointer ViridianForestPic
-	BillboardPicturePointer PewterCityPic
-	BillboardPicturePointer MtMoonPic
-	BillboardPicturePointer CeruleanCityPic
-	BillboardPicturePointer VermilionCitySeasidePic
-	BillboardPicturePointer VermilionCityStreetsPic
-	BillboardPicturePointer RockMountainPic
-	BillboardPicturePointer LavenderTownPic
-	BillboardPicturePointer CeladonCityPic
-	BillboardPicturePointer CyclingRoadPic
-	BillboardPicturePointer FuchsiaCityPic
-	BillboardPicturePointer SafariZonePic
-	BillboardPicturePointer SaffronCityPic
-	BillboardPicturePointer SeafoamIslandsPic
-	BillboardPicturePointer CinnabarIslandPic
-	BillboardPicturePointer IndigoPlateauPic
-	BillboardPicturePointer GoldenrodCityPic
-	BillboardPicturePointer OlivineCityPic
-	BillboardPicturePointer TinTowerPic

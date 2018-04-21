@@ -326,6 +326,31 @@ UnusedPlaceString: ; 0x3268 seems to place text based on different, confusing lo
 	inc e
 	jr UnusedPlaceString
 
+LoadScrollingTextFromBank:
+; Bank specified in register a
+	ld b, a
+	ld a, [hLoadedROMBank]  ; currently-loaded Bank
+	cp b
+	jp z, LoadScrollingText
+	push af
+	ld a, b
+	call .loadNewBank
+	call LoadScrollingText
+	pop de
+	ld a, d
+.loadNewBank
+	push hl
+	push de
+	ld hl, rIE
+	ld d, [hl]
+	ld [hl], $0
+	ld [MBC5RomBank], a
+	ld [hLoadedROMBank], a
+	ld [hl], d
+	pop de
+	pop hl
+	ret
+
 LoadScrollingText: ; 0x32aa
 ; Loads scrolling text into the specified buffer.
 ; Scrolling text appears in a black bar at the bottom of the screen during pinball gameplay.

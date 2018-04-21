@@ -1264,10 +1264,12 @@ SECTION "bank49", ROMX
 
 INCLUDE "engine/pinball_game/transition_ball_upgrade.asm"
 INCLUDE "data/mon_gfx/mon_animated_palettes_4.asm"
+INCLUDE "data/billboard/billboard_map_pic_pointers.asm"
 
 SECTION "bank4a", ROMX
 
 INCLUDE "text/pokedex_descriptions_2.asm"
+INCLUDE "text/scrolling_text_map_names.asm"
 
 SECTION "bank4b", ROMX
 

@@ -71,21 +71,67 @@ LoadScrollingMapNameText: ; 0x3118f
 	call FillBottomMessageBufferWithBlackTile
 	call EnableBottomText
 	ld a, [wCurrentMap]
+	ld b, a
 	sla a
+	add b
 	ld c, a
 	ld b, $0
 	ld hl, MapNames
 	add hl, bc
 	ld a, [hli]
+	push af
+	ld a, [hli]
 	ld e, a
 	ld a, [hli]
 	ld d, a
+	pop af
+	push af
 	ld hl, wScrollingText2
-	call LoadScrollingText
+	call LoadScrollingTextFromBank
+	pop af
 	pop de
 	ld hl, wScrollingText1
-	call LoadScrollingText
+	call LoadScrollingTextFromBank
 	ret
+
+MapNames:
+	dba PalletTownText
+	dba ViridianCityText
+	dba ViridianForestText
+	dba PewterCityText
+	dba MtMoonText
+	dba CeruleanCityText
+	dba VermilionSeasideText
+	dba VermilionStreetsText
+	dba RockMountainText
+	dba LavenderTownText
+	dba CeladonCityText
+	dba CyclingRoadText
+	dba FuchiaCityText
+	dba SafariZoneText
+	dba SaffronCityText
+	dba SeafoamIslandsText
+	dba CinnabarIslandText
+	dba IndigoPlateauText
+	dba NewBarkTownText
+	dba VioletCityText
+	dba RuinsOfAlphText
+	dba DarkCaveText
+	dba LakeOfRageText
+	dba MahoganyTownText
+	dba EcruteakCityText
+	dba AzaleaTownText
+	dba IlexForestText
+	dba GoldenrodCityText
+	dba NationalParkText
+	dba OlivineCityText
+	dba IcePathText
+	dba MtMortarText
+	dba BurnedTowerText
+	dba TinTowerText
+	dba WhirlIslandsText
+	dba BlackthornCityText
+	dba MtSilverText
 
 Func_311b4: ; 0x311b4
 	ld a, [wMapMoveDirection]

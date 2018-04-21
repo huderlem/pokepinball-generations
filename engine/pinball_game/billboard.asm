@@ -33,11 +33,16 @@ LoadMapBillboardPicture:
 	ld c, a
 	ld hl, MapBillboardPicturePointers
 	add hl, bc
-	ld a, [hli]
+	ld a, Bank(MapBillboardPicturePointers)
+	call ReadByteFromBank
+	inc hl
 	ld c, a
-	ld a, [hli]
+	ld a, Bank(MapBillboardPicturePointers)
+	call ReadByteFromBank
+	inc hl
 	ld b, a
-	ld a, [hl]
+	ld a, Bank(MapBillboardPicturePointers)
+	call ReadByteFromBank
 	ld h, b
 	ld l, c
 	ld de, vTilesSH tile $10   ; destination address to copy the tiles

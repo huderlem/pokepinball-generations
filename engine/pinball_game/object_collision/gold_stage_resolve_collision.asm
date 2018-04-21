@@ -2084,13 +2084,13 @@ ChooseInitialMap_GoldField: ; 0x1658f
 	ret
 
 GoldStageInitialMaps: ; 0x16605
-	db PALLET_TOWN
-	db VIRIDIAN_FOREST
-	db PEWTER_CITY
-	db CERULEAN_CITY
-	db VERMILION_SEASIDE
-	db ROCK_MOUNTAIN
-	db LAVENDER_TOWN
+	db NEW_BARK_TOWN
+	db VIOLET_CITY
+	db RUINS_OF_ALPH
+	db LAKE_OF_RAGE
+	db ECRUTEAK_CITY
+	db ILEX_FOREST
+	db GOLDENROD_CITY
 
 ResolveGoldStagePikachuCollision: ; 0x1660c
 	ld a, [wWhichPikachu]

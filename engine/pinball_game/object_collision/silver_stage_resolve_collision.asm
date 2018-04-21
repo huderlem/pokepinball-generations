@@ -151,13 +151,13 @@ ChooseInitialMap_SilverField: ; 0x1c839
 	ret
 
 SilverStageInitialMaps: ; 0x1c8af
-	db VIRIDIAN_CITY
-	db VIRIDIAN_FOREST
-	db MT_MOON
-	db CERULEAN_CITY
-	db VERMILION_STREETS
-	db ROCK_MOUNTAIN
-	db CELADON_CITY
+	db NEW_BARK_TOWN
+	db VIOLET_CITY
+	db DARK_CAVE
+	db MAHOGANY_TOWN
+	db AZALEA_TOWN
+	db ILEX_FOREST
+	db NATIONAL_PARK
 
 UpdateForceFieldDirection_SilverField: ; 0x1c8b6
 ; Every 5 seconds, decide which way the force field (in between slowpoke and cloyster) should point.

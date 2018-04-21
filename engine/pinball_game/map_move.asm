@@ -1007,16 +1007,14 @@ ChooseNextMap_GoldField: ; 0x31282
 	jr c, .chooseMapFromArea1
 	cp $5
 	jr c, .chooseMapFromArea2
-	ld a, INDIGO_PLATEAU
+	ld a, MT_SILVER
 	ld [wCurrentMap], a
 	ld [wVisitedMaps + 5], a
 	ret
 
 .chooseMapFromArea1
 	call GenRandom
-	and $7
-	cp $7
-	jr nc, .chooseMapFromArea1
+	and $7 ; there are 8 maps in the Gold field initial map list.
 	ld c, a
 	ld b, $0
 	ld hl, FirstMapMoveSet_GoldField
@@ -1047,7 +1045,9 @@ ChooseNextMap_GoldField: ; 0x31282
 
 .chooseMapFromArea2
 	call GenRandom
-	and $3
+	and $7
+	cp 5
+	jr nc, .chooseMapFromArea2
 	ld c, a
 	ld b, $0
 	ld hl, SecondMapMoveSet_GoldField
@@ -1077,21 +1077,21 @@ ChooseNextMap_GoldField: ; 0x31282
 	ret
 
 FirstMapMoveSet_GoldField:
-	db PALLET_TOWN
-	db VIRIDIAN_FOREST
-	db PEWTER_CITY
-	db CERULEAN_CITY
-	db VERMILION_SEASIDE
-	db ROCK_MOUNTAIN
-	db LAVENDER_TOWN
+	db NEW_BARK_TOWN
+	db VIOLET_CITY
+	db RUINS_OF_ALPH
+	db LAKE_OF_RAGE
+	db ECRUTEAK_CITY
+	db ILEX_FOREST
+	db GOLDENROD_CITY
+	db OLIVINE_CITY
 
 SecondMapMoveSet_GoldField:
-	db CYCLING_ROAD
-	db SAFARI_ZONE
-	db SEAFOAM_ISLANDS
-	db CINNABAR_ISLAND
-
-
+	db ICE_PATH
+	db DARK_CAVE
+	db BURNED_TOWER
+	db TIN_TOWER
+	db BLACKTHORN_CITY
 
 HandleSilverMapModeCollision: ; 0x3161b
 	ld a, [wTimerActive]
@@ -1336,16 +1336,14 @@ ChooseNextMap_SilverField: ; 0x3140b
 	jr c, .chooseMapFromArea1
 	cp $5
 	jr c, .chooseMapFromArea2
-	ld a, INDIGO_PLATEAU
+	ld a, MT_SILVER
 	ld [wCurrentMap], a
 	ld [wVisitedMaps + 5], a
 	ret
 
 .chooseMapFromArea1
 	call GenRandom
-	and $7
-	cp $7
-	jr nc, .chooseMapFromArea1
+	and $7 ; there are 8 maps in the first map list for silver field
 	ld c, a
 	ld b, $0
 	ld hl, FirstMapMoveSet_SilverField
@@ -1376,7 +1374,9 @@ ChooseNextMap_SilverField: ; 0x3140b
 
 .chooseMapFromArea2
 	call GenRandom
-	and $3
+	and $7
+	cp 5
+	jr nc, .chooseMapFromArea2
 	ld c, a
 	ld b, $0
 	ld hl, SecondMapMoveSet_SilverField
@@ -1406,18 +1406,20 @@ ChooseNextMap_SilverField: ; 0x3140b
 	ret
 
 FirstMapMoveSet_SilverField:
-	db VIRIDIAN_CITY
-	db VIRIDIAN_FOREST
-	db MT_MOON
-	db CERULEAN_CITY
-	db VERMILION_STREETS
-	db ROCK_MOUNTAIN
-	db CELADON_CITY
+	db NEW_BARK_TOWN
+	db VIOLET_CITY
+	db DARK_CAVE
+	db MAHOGANY_TOWN
+	db AZALEA_TOWN
+	db ILEX_FOREST
+	db NATIONAL_PARK
+	db OLIVINE_CITY
 
 SecondMapMoveSet_SilverField:
-	db FUCHSIA_CITY
-	db SAFARI_ZONE
-	db SAFFRON_CITY
-	db CINNABAR_ISLAND
+	db ICE_PATH
+	db MT_MORTAR
+	db BURNED_TOWER
+	db WHIRL_ISLANDS
+	db BLACKTHORN_CITY
 
 INCLUDE "engine/pinball_game/roaming_dogs.asm"

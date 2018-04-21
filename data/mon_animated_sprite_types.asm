@@ -119,7 +119,7 @@ MonAnimatedSpriteTypes: ; 0x13429
 	db $06  ; TANGELA
 	db $06  ; KANGASKHAN
 	db $06  ; HORSEA
-	db $FF  ; SEADRA
+	db $06  ; SEADRA
 	db $06  ; GOLDEEN
 	db $FF  ; SEAKING
 	db $06  ; STARYU

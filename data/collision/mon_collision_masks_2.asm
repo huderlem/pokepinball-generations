@@ -1,3 +1,5 @@
+SeadraAnimatedCollisionMask:
+	INCBIN "data/collision/mon_masks/seadra_collision.1bpp"
 ChikoritaAnimatedCollisionMask:
 	INCBIN "data/collision/mon_masks/chikorita_collision.1bpp"
 CyndaquilAnimatedCollisionMask:

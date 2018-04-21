@@ -569,3 +569,14 @@ CelebiAnimatedObjPalette2:
 	RGB 25, 28, 14
 	RGB 14, 22, 7
 	RGB 0, 0, 0
+
+SeadraAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 18
+	RGB 13, 22, 28
+	RGB 0, 0, 0
+SeadraAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 18
+	RGB 13, 22, 28
+	RGB 0, 0, 0

@@ -54,6 +54,7 @@ CatchSpriteFrameDurations: ; 0x13685
 	db $10, $10, $10 ; EVOLINE_TANGELA
 	db $12, $12, $10 ; EVOLINE_KANGASKHAN
 	db $0F, $0F, $0E ; EVOLINE_HORSEA
+	db $0F, $0F, $0E ; EVOLINE_SEADRA
 	db $12, $12, $0E ; EVOLINE_GOLDEEN
 	db $23, $23, $10 ; EVOLINE_STARYU
 	db $13, $13, $10 ; EVOLINE_MR_MIME

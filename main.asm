@@ -1192,6 +1192,7 @@ StageGoldFieldTopCollisionMasks1:
 StageGoldFieldTopCollisionMasks2:
 	INCBIN "data/collision/masks/gold_stage_top_2.masks"
 
+
 SECTION "bank45", ROMX
 
 StageGoldFieldTopCollisionMasks3:
@@ -1256,6 +1257,7 @@ PinballGSBallGfx:
 	INCBIN "gfx/stage/ball_gsball.w32.interleave.2bpp"
 PinballGSBallMiniGfx:
 	INCBIN "gfx/stage/ball_gsball_mini.w32.interleave.2bpp"
+
 
 INCLUDE "audio/cries.asm"
 
@@ -1327,6 +1329,8 @@ INCLUDE "data/mon_gfx/mon_gfx_pointers.asm"
 SECTION "bank57", ROMX
 
 INCLUDE "text/pokedex_species_names.asm"
+
+INCLUDE "data/collision/mon_collision_masks_2.asm"
 
 SECTION "bank58", ROMX
 

@@ -535,6 +535,13 @@ InitEvolutionModeForMon: ; 0x10d1d
 	ld a, [wCurrentStage]
 	bit 0, a
 	jr z, .done
+	ld a, [rLYC]
+	inc a
+	ld b, a
+.waitUntilAfterLYC
+	ld a, [rLY]
+	cp b
+	jr c, .waitUntilAfterLYC
 	ld a, BANK(StageRedFieldBottomBaseGameBoyColorGfx)
 	ld hl, StageRedFieldBottomBaseGameBoyColorGfx + $300
 	ld de, vTilesSH tile $2e

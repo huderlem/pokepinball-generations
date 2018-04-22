@@ -471,6 +471,7 @@ InitEvolutionModeForMon: ; 0x10d1d
 	call RandomRange
 	sla a
 	ld c, a
+	ld b, 0
 	pop hl
 	add hl, bc  ; hl points to one of three entries in mon's evolution data
 	ld a, [hli]  ; a = mon id of evolution

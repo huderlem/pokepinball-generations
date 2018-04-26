@@ -34,6 +34,7 @@ HandleGameObjectCollision: ; 0x2775
 ; Input: hl = pointer to collision attribute list for game objects
 ;        de = pointer to object collision struct
 ;        carry flag = unset to skip the collision attribute list check
+;        bc = which of related features?
 	ld a, [wTriggeredGameObject]
 	inc a
 	jr nz, .noTrigger
@@ -42,19 +43,19 @@ HandleGameObjectCollision: ; 0x2775
 	jr nz, .noTrigger
 	push bc
 	push de
-	call nc, IsCollisionInList
+	call nc, IsCollisionInList ;checks collision if wCurCollisionAttribute matches something in the collision list
 	pop hl
 	call c, CheckGameObjectCollision
 	ld a, [wTriggeredGameObject]
 	ld b, a
-	pop hl
-	ld [hl], $0
-	jr nc, .noTrigger
-	ld a, [wPreviousTriggeredGameObject]
+	pop hl ;pop bc
+	ld [hl], $0 ;load in 0
+	jr nc, .noTrigger ;quit out if collision returns not carry
+	ld a, [wPreviousTriggeredGameObject] ;if last triggered object is the same as last one(?), quit out
 	cp b
 	jr z, .noTrigger
 	ld a, [wTriggeredGameObjectIndex]
-	ld [hli], a
+	ld [hli], a ;load index and game object into BC
 	ld a, [wTriggeredGameObject]
 	ld [hl], a
 	scf
@@ -81,14 +82,14 @@ CheckGameObjectCollision: ; 0x27a4
 	ld b, a
 	ld a, [wBallYPos + 1]
 	ld c, a
-.loop
+.loop ;de = distance, bc = ball pos
 	ld a, [wTriggeredGameObjectIndex]
 	inc a
-	ld [wTriggeredGameObjectIndex], a
+	ld [wTriggeredGameObjectIndex], a ;inc object index each loop
 	ld a, [hli]
-	ld [wTriggeredGameObject], a
+	ld [wTriggeredGameObject], a ;save current object
 	cp $ff
-	ret z
+	ret z ;exit if end of data
 	ld a, [hli]
 	sub b
 	bit 7, a

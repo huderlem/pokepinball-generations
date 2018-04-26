@@ -69,36 +69,36 @@ DrawVoltorbSprite_GoldField: ; 0x17cdc
 	ld a, [hl]
 	and a
 	jr nz, .asm_17cf6
-	call GenRandom
+	call GenRandom ;if voltorb anim is 0
 	and $7
-	add $1e
-	ld [hli], a
+	add $1e ;generate number from 30 to 37
+	ld [hli], a ;place in voltorb anim
 	ld a, $1
-	ld [hli], a
+	ld [hli], a ;set frame to 1
 	xor a
-	ld [hl], a
+	ld [hl], a ;set index to 0
 .asm_17cf6
-	pop hl
-	inc de
+	pop hl ;pop OAMdata
+	inc de ;set DE to the frame
 	ld a, [hSCX]
 	ld b, a
 	ld a, [hli]
 	sub b
-	ld b, a
+	ld b, a ;b = first byte of OAM - horizontal scroll
 	ld a, [hSCY]
 	ld c, a
 	ld a, [hli]
 	sub c
-	ld c, a
+	ld c, a ;c = first byte of OAM - horizontal scroll
 	ld a, [wWhichAnimatedVoltorb]
-	sub [hl]
+	sub [hl] ;a = next OAMdata - which voltorb unless result is 0, then a = frame
 	inc hl
 	jr z, .asm_17d0c
 	ld a, [de]
 .asm_17d0c
 	ld e, a
 	ld d, $0
-	add hl, de
+	add hl, de ;add next OAM data to hl, load it into A then run OAM data
 	ld a, [hl]
 	call LoadOAMData
 	ret

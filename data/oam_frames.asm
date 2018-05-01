@@ -1883,13 +1883,11 @@ TimerColonOAM: ; 0x5349
 	db $80 ; terminator
 
 OAMData_bc: ; 0x534e
-;voltorb 1
 	db $10, $10, $30, $11
 	db $10, $08, $2e, $11
 	db $80 ; terminator
 
 OAMData_bd: ; 0x5357
-;voltorb 2
 	db $10, $10, $34, $11
 	db $10, $08, $32, $11
 	db $80 ; terminator
@@ -1996,19 +1994,16 @@ OAMData_cc: ; 0x543a
 	db $80 ; terminator
 
 OAMData_cd: ; 0x544b
-;voltorb 1-3
 	db $0f, $11, $30, $11
 	db $0f, $09, $2e, $11
 	db $80 ; terminator
 
 OAMData_ce: ; 0x5454
-;voltorb 2-3
 	db $10, $0f, $30, $11
 	db $10, $07, $2e, $11
 	db $80 ; terminator
 
 OAMData_cf: ; 0x545d
-;voltorb 3-3
 	db $11, $11, $30, $11
 	db $11, $09, $2e, $11
 	db $80 ; terminator

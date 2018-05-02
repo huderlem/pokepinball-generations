@@ -369,6 +369,9 @@ PlaceEvolutionInParty: ; 0x10ca5
 	cp $ff
 	ret z
 	ld [hl], a
+	ld [wBadgeToCollect], a
+	ld a, 1
+	ld [wCollectBadge], a
 	ret
 .breedingMode
 	ld a, [wNumPartyMons]
@@ -379,6 +382,7 @@ PlaceEvolutionInParty: ; 0x10ca5
 	cp LOGGING_SPACE
 	ld a, [wCurrentEvolutionMon]
 	ld [hl], a
+    ld [wBadgeToCollect], a
 	jr nc, .TooBig
     ld hl, wLogEvoDataStorage
 	add hl, bc
@@ -390,6 +394,8 @@ PlaceEvolutionInParty: ; 0x10ca5
 	set 2, a
 	ld [wLogCleared], a
 .TooBig
+    ld a, 1
+	ld [wCollectBadge], a
 	ld a, [wNumPartyMons]
 	inc a
 	ld [wNumPartyMons], a

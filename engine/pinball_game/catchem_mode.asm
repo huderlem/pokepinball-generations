@@ -1084,6 +1084,7 @@ AddCaughtPokemonToParty: ; 0x1073d
 	cp LOGGING_SPACE
 	ld a, [wCurrentCatchEmMon]
 	ld [hl], a
+	ld [wBadgeToCollect], a
 	jr nc, .SkipLoggingIfFull
 	ld hl, wLogEvoDataStorage
 	add hl, bc
@@ -1095,6 +1096,8 @@ AddCaughtPokemonToParty: ; 0x1073d
 	set 2, a
 	ld [wLogCleared], a
 .SkipLoggingIfFull
+    ld a, 1
+    ld [wCollectBadge], a
 	ld a, [wNumPartyMons]
 	inc a
 	ld [wNumPartyMons], a

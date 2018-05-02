@@ -2542,6 +2542,12 @@ wWhichFieldSelectRegion:: ; 0xdaa4
 ; 1 = JOHTO
 	ds $1
 
+wCollectBadge::
+    ds 1
+
+wBadgeToCollect::
+    ds 1
+
 wCollectLogFlag::
     ds 1
 

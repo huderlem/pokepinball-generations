@@ -95,8 +95,8 @@ ProgressEvolution: ; 0x20c76
 	ld c, a
 	ld b, $0
 	swap c
-	sla c
 	ld hl, EvolutionProgressIconsGfx
+	add hl, bc
 	add hl, bc
 	ld a, [wd554]
 	ld c, a
@@ -458,12 +458,13 @@ HandleSpinnerCollision_EvolutionMode_BlueField: ; 0x20f4b
 EvolutionIconIds_BlueField:
 	db $00
 	db $01 ; EVO_THUNDER_STONE
-	db $02 ; EVO_MOON_STONE
-	db $03 ; EVO_FIRE_STONE
-	db $04 ; EVO_LEAF_STONE
-	db $05 ; EVO_WATER_STONE
-	db $06 ; EVO_LINK_CABLE
-	db $07 ; EVO_EXPERIENCE
+	db $01 ; EVO_MOON_STONE
+	db $01 ; EVO_FIRE_STONE
+	db $02 ; EVO_LEAF_STONE
+	db $02 ; EVO_WATER_STONE
+	db $01 ; EVO_LINK_CABLE
+	db $01 ; EVO_EXPERIENCE
+	db $01 ; EVO_SUN_STONE
 	db $01 ; EVO_BREEDING
 
 CreateEvolutionTrinket_BlueField: ; 0x20f75

@@ -693,7 +693,7 @@ OAMData_41: ; 0x4603
 	db $80 ; terminator
 
 OAMData_42: ; 0x4608
-	db $10, $08, $22, $06
+	db $10, $08, $20, $07
 	db $80 ; terminator
 
 OAMData_43: ; 0x460d
@@ -721,7 +721,7 @@ OAMData_48: ; 0x4626
 	db $80 ; terminator
 
 OAMData_49: ; 0x462b
-	db $10, $08, $62, $06
+	db $10, $08, $60, $07
 	db $80 ; terminator
 
 OAMData_4a: ; 0x4630

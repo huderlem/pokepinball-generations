@@ -177,7 +177,6 @@ LoadVideoData: ; 0x6a4
 	srl b
 	rr c
 	jp c, FarCopyCGBPals  ; if lowest bit of bc is set
-	jp @ + 2
 	ld [hROMBankBuffer], a  ; save bank of data to be loaded
 	ld a, [hLoadedROMBank]
 	push af

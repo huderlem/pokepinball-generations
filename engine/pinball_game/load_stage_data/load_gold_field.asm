@@ -229,9 +229,15 @@ LoadEvolutionTrinketGfx_GoldField:
 	ld a, [wCurrentEvolutionType]
 	cp EVO_BREEDING
 	jr z, .breeding
-	ld a, BANK(EvolutionTrinketsGfx)
+	dec a
+	ld c, a
+	ld b, $0
+	swap c
+	sla c
 	ld hl, EvolutionTrinketsGfx
-	ld bc, $00e0
+	add hl, bc
+	ld bc, $0020
+	ld a, BANK(EvolutionTrinketsGfx)
 	jr .load
 .breeding
 	ld a, BANK(BreedingTrinketGfx)
@@ -298,8 +304,8 @@ Func_142d7_GoldField: ; 0x142d7
 	ld c, a
 	ld b, $0
 	swap c
-	sla c
 	ld hl, EvolutionProgressIconsGfx
+	add hl, bc
 	add hl, bc
 	swap e
 	sla e

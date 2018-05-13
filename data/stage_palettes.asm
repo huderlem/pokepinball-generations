@@ -360,12 +360,12 @@ StageRedFieldBottomBGPalette5: ; 0xdcaa8
 	RGB 8, 8, 8
 	RGB 0, 0, 0
 StageRedFieldBottomBGPalette6: ; 0xdcab0
-	RGB 29, 30, 31
+	RGB 31, 31, 31
 	RGB 27, 20, 10
 	RGB 2, 16, 1
 	RGB 0, 0, 0
 StageRedFieldBottomBGPalette7: ; 0xdcab8
-	RGB 29, 30, 31
+	RGB 31, 31, 31
 	RGB 5, 17, 31
 	RGB 26, 3, 1
 	RGB 0, 0, 0
@@ -1785,12 +1785,12 @@ StageGoldFieldBottomBGPalette5: ; 0xdcaa8
 	RGB 8, 8, 8
 	RGB 0, 0, 0
 StageGoldFieldBottomBGPalette6: ; 0xdcab0
-	RGB 29, 30, 31
+	RGB 31, 31, 31
 	RGB 27, 20, 10
 	RGB 2, 16, 1
 	RGB 0, 0, 0
 StageGoldFieldBottomBGPalette7: ; 0xdcab8
-	RGB 29, 30, 31
+	RGB 31, 31, 31
 	RGB 5, 17, 31
 	RGB 26, 3, 1
 	RGB 0, 0, 0

@@ -159,13 +159,12 @@ Func_10184: ; 0x10184 called by what looks like the "hit voltorb and shellder" h
 	ld b, a
 	ld a, [wCurrentCatchEmMon + 1]
 	ld c, a
-	sla c
-	rl b
-	add c
-	ld c, a
-	jr nc, .NoOverflow
-	inc b
-.NoOverflow ;double current catch em mon
+	ld h, b
+	ld l, c
+	add hl, bc
+	add hl, bc
+	ld b, h
+	ld c, l
 	ld hl, MonBillboardPicPointers
 	add hl, bc
 	ld a, Bank(MonBillboardPicPointers)
@@ -406,13 +405,12 @@ Func_102bc: ; 0x102bc
 	ld b, a
 	ld a, [wCurrentCatchEmMon + 1]
 	ld c, a
-	sla c
-	rl b
-	add c
-	ld c, a
-	jr nc, .asm_102cb
-	inc b
-.asm_102cb
+	ld h, b
+	ld l, c
+	add hl, bc
+	add hl, bc
+	ld b, h
+	ld c, l
 	ld hl, MonBillboardPalettePointers
 .gotPointer
 	add hl, bc
@@ -459,13 +457,12 @@ Func_10301: ; 0x10301
 	ld b, a
 	ld a, [wCurrentCatchEmMon + 1]
 	ld c, a
-	sla c
-	rl b
-	add c
-	ld c, a
-	jr nc, .asm_10310
-	inc b
-.asm_10310
+	ld h, b
+	ld l, c
+	add hl, bc
+	add hl, bc
+	ld b, h
+	ld c, l
 	ld hl, MonAnimatedPalettePointers
 	add hl, bc
 	ld a, Bank(MonAnimatedPalettePointers)
@@ -532,13 +529,12 @@ Func_10362: ; 0x10362
 	ld b, a
 	ld a, [wCurrentCatchEmMon + 1]
 	ld c, a
-	sla c
-	rl b
-	add c
-	ld c, a
-	jr nc, .asm_10371
-	inc b
-.asm_10371
+	ld h, b
+	ld l, c
+	add hl, bc
+	add hl, bc
+	ld b, h
+	ld c, l
 	ld hl, MonAnimatedPicPointers
 	add hl, bc
 	ld a, Bank(MonAnimatedPicPointers)

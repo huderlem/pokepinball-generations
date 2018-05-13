@@ -251,5 +251,29 @@ const_value = 1
 	const LUGIA       ; $f9
 	const HO_OH       ; $fa
 	const CELEBI      ; $fb
+	const TREECKO     ; $fc
+	const GROVYLE     ; $fd
+	const SCEPTILE    ; $fe
+	const TORCHIC     ; $ff
+	const COMBUSKEN   ; $100
+	const BLAZIKEN    ; $101
+	const MUDKIP      ; $102
+	const MARSHTOMP   ; $103
+	const SWAMPERT    ; $104
+	const POOCHYENA   ; $105
+	const MIGHTYENA   ; $106
+	const ZIGZAGOON   ; $107
+	const LINOONE     ; $108
+	const WURMPLE     ; $109
+	const SILCOON     ; $10A
+	const BEAUTIFLY   ; $10B
+	const CASCOON     ; $10C
+	const DUSTOX      ; $10D
+	const LOTAD       ; $10E
+	const LOMBRE      ; $10F
+	const LUDICOLO    ; $110
+	const SEEDOT      ; $111
+	const NUZLEAF     ; $112
+	const SHIFTRY     ; $113
 
-NUM_POKEMON EQU 251
+NUM_POKEMON EQU 275

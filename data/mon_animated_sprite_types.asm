@@ -254,3 +254,27 @@ MonAnimatedSpriteTypes: ; 0x13429
 	db $06  ; LUGIA
 	db $06  ; HO_OH
 	db $06  ; CELEBI
+	db $06  ; TREECKO
+	db $ff  ; GROVYLE
+	db $ff  ; SCEPTILE
+	db $06  ; TORCHIC
+	db $ff  ; COMBUSKEN
+	db $ff  ; BLAZIKEN
+	db $06  ; MUDKIP
+	db $ff  ; MARSHTOMP
+	db $ff  ; SWAMPERT
+	db $06  ; POOCHYENA
+	db $ff  ; MIGHTYENA
+	db $06  ; ZIGZAGOON
+	db $ff  ; LINOONE
+	db $06  ; WURMPLE
+	db $ff  ; SILCOON
+	db $ff  ; BEAUTIFLY
+	db $ff  ; CASCOON
+	db $ff  ; DUSTOX
+	db $06  ; LOTAD
+	db $ff  ; LOMBRE
+	db $ff  ; LUDICOLO
+	db $06  ; SEEDOT
+	db $ff  ; NUZLEAF
+	db $ff  ; SHIFTRY

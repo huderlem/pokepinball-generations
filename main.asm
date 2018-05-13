@@ -67,7 +67,6 @@ INCLUDE "data/evolution_methods.asm"
 INCLUDE "data/mon_names.asm"
 INCLUDE "data/mon_initial_indicator_states.asm"
 INCLUDE "data/evolution_mode_indicator_sets.asm"
-INCLUDE "data/catchem_timer_values.asm"
 INCLUDE "data/mon_animated_sprite_types.asm"
 INCLUDE "data/collision/mon_collision_mask_pointers.asm"
 INCLUDE "data/mon_animation_durations.asm"
@@ -1259,9 +1258,6 @@ PinballGSBallMiniGfx:
 	INCBIN "gfx/stage/ball_gsball_mini.w32.interleave.2bpp"
 
 
-INCLUDE "audio/cries.asm"
-
-
 SECTION "bank49", ROMX
 
 INCLUDE "engine/pinball_game/transition_ball_upgrade.asm"
@@ -1335,3 +1331,7 @@ INCLUDE "data/collision/mon_collision_masks_2.asm"
 SECTION "bank58", ROMX
 
 INCLUDE "data/billboard/map_pics_2.asm"
+
+SECTION "bank59", ROMX
+
+INCLUDE "audio/cries.asm"

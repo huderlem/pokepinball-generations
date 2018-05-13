@@ -35,11 +35,16 @@ StartCatchEmMode: ; 0x1003f
 	ld [wInSpecialMode], a  ; set special mode flag
 	callba ChooseWildMon	
 	ld a, [wCurrentCatchEmMon]
+	ld b, a
+	ld a, [wCurrentCatchEmMon + 1]
 	ld c, a
-	ld b, $0
+	sla c
+	rl b
 	ld hl, EvolutionLineIds ;fetch the mon's evolution line
 	add hl, bc
 	ld c, [hl]
+	inc hl
+	ld b, [hl]
 	ld h, b
 	ld l, c
 	add hl, bc
@@ -78,17 +83,8 @@ StartCatchEmMode: ; 0x1003f
 	dec b
 	jr nz, .asm_100c7
 .asm_100ce
-	ld a, [wCurrentCatchEmMon]
-	ld c, a
-	ld b, $0
-	sla c
-	rl b
-	ld hl, CatchEmTimerData ;contains how long each mon stays on screen, all are 2 minutes by default
-	add hl, bc
-	ld a, [hli]
-	ld c, a
-	ld a, [hl]
-	ld b, a ;bc = timer legnth. b = secons c = minutes
+	ld b, 2
+	ld c, 0
 	callba StartTimer
 	callba InitBallSaverForCatchEmMode
 	call Func_10696
@@ -147,7 +143,11 @@ Func_10184: ; 0x10184 called by what looks like the "hit voltorb and shellder" h
 	ret z  ;skip if stage has no flippers
 	ld a, [wCurrentEvolutionMon]
 	cp $ff
+	jr nz, .checkSpecial
+	ld a, [wCurrentEvolutionMon + 1]
+	cp $ff
 	jr z, .loadRegularPic
+.checkSpecial
 	ld a, [wSpecialMode]
 	cp SPECIAL_MODE_EVOLUTION
 	jr nz, .loadRegularPic
@@ -156,8 +156,9 @@ Func_10184: ; 0x10184 called by what looks like the "hit voltorb and shellder" h
 	jr z, .loadBreedingPic
 .loadRegularPic
 	ld a, [wCurrentCatchEmMon]
+	ld b, a
+	ld a, [wCurrentCatchEmMon + 1]
 	ld c, a
-	ld b, $0
 	sla c
 	rl b
 	add c
@@ -402,8 +403,9 @@ Func_102bc: ; 0x102bc
 	jr .gotPointer
 .loadNormalPalette
 	ld a, [wCurrentCatchEmMon]
+	ld b, a
+	ld a, [wCurrentCatchEmMon + 1]
 	ld c, a
-	ld b, $0
 	sla c
 	rl b
 	add c
@@ -454,8 +456,9 @@ Func_102bc: ; 0x102bc
 
 Func_10301: ; 0x10301
 	ld a, [wCurrentCatchEmMon]
+	ld b, a
+	ld a, [wCurrentCatchEmMon + 1]
 	ld c, a
-	ld b, $0
 	sla c
 	rl b
 	add c
@@ -526,8 +529,9 @@ Func_10301: ; 0x10301
 
 Func_10362: ; 0x10362
 	ld a, [wCurrentCatchEmMon]
+	ld b, a
+	ld a, [wCurrentCatchEmMon + 1]
 	ld c, a
-	ld b, $0
 	sla c
 	rl b
 	add c
@@ -668,8 +672,9 @@ Data_1043e:
 
 LoadWildMonCollisionMask: ; 0x10464
 	ld a, [wCurrentCatchEmMon]
+	ld b, a
+	ld a, [wCurrentCatchEmMon + 1]
 	ld c, a
-	ld b, $0
 	sla c
 	rl b
 	add c
@@ -963,8 +968,9 @@ Func_10648: ; 0x10648
 
 ShowAnimatedWildMon: ; 0x10678
 	ld a, [wCurrentCatchEmMon]
+	ld b, a
+	ld a, [wCurrentCatchEmMon + 1]
 	ld c, a
-	ld b, $0
 	ld hl, MonAnimatedSpriteTypes
 	add hl, bc
 	ld a, [hl]
@@ -995,8 +1001,9 @@ Func_106a6: ; 0x106a6
 
 ShowCapturedPokemonText: ; 0x106b6
 	ld a, [wCurrentCatchEmMon]
+	ld b, a
+	ld a, [wCurrentCatchEmMon + 1]
 	ld c, a
-	ld b, $0
 	sla c
 	rl b
 	sla c
@@ -1067,9 +1074,10 @@ ShowCapturedPokemonText: ; 0x106b6
 
 PlayCatchemPokemonCry: ; 0x10732
 	ld a, [wCurrentCatchEmMon]
-	inc a
+	ld d, a
+	ld a, [wCurrentCatchEmMon + 1]
 	ld e, a
-	ld d, $0
+	inc de
 	call PlayCry
 	ret
 
@@ -1079,7 +1087,10 @@ AddCaughtPokemonToParty: ; 0x1073d
 	ld b, $0
 	ld hl, wPartyMons
 	add hl, bc
+	add hl, bc
 	ld a, [wCurrentCatchEmMon]
+	ld [hli], a
+	ld a, [wCurrentCatchEmMon + 1]
 	ld [hl], a
 	ld a, [wNumPartyMons]
 	inc a
@@ -1090,14 +1101,25 @@ SetPokemonSeenFlag: ; 0x10753
 	ld a, [wSpecialMode]
 	and a
 	ld a, [wCurrentCatchEmMon]
+	ld b, a
+	ld a, [wCurrentCatchEmMon + 1]
+	ld c, a
 	jr z, .asm_10766
 	ld a, [wCurrentEvolutionMon]
+	ld b, a
+	ld a, [wCurrentEvolutionMon + 1]
+	ld c, a
+	ld a, b
+	cp $ff
+	jr nz, .asm_10766
+	ld a, c
 	cp $ff
 	jr nz, .asm_10766
 	ld a, [wCurrentCatchEmMon]
-.asm_10766
+	ld b, a
+	ld a, [wCurrentCatchEmMon + 1]
 	ld c, a
-	ld b, $0
+.asm_10766
 	ld hl, wPokedexFlags
 	add hl, bc
 	set 0, [hl]
@@ -1111,14 +1133,25 @@ SetPokemonOwnedFlag: ; 0x1077c
 	ld a, [wSpecialMode]
 	and a
 	ld a, [wCurrentCatchEmMon]
+	ld b, a
+	ld a, [wCurrentCatchEmMon + 1]
+	ld c, a
 	jr z, .asm_1078f
 	ld a, [wCurrentEvolutionMon]
+	ld b, a
+	ld a, [wCurrentEvolutionMon + 1]
+	ld c, a
+	ld a, b
+	cp $ff
+	jr nz, .asm_1078f
+	ld a, c
 	cp $ff
 	jr nz, .asm_1078f
 	ld a, [wCurrentCatchEmMon]
-.asm_1078f
+	ld b, a
+	ld a, [wCurrentCatchEmMon + 1]
 	ld c, a
-	ld b, $0
+.asm_1078f
 	ld hl, wPokedexFlags
 	add hl, bc
 	set 1, [hl]

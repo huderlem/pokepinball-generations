@@ -679,19 +679,26 @@ HandleSlotCaveCollision_EvolutionMode_GoldField:
 
 LoadFinalEvolutionMonBillboardPic:
 	ld a, [wCurrentEvolutionMon]
+	ld b, a
+	ld a, [wCurrentEvolutionMon + 1]
+	ld c, a
+	ld a, b
+	cp $ff
+	jr nz, .asm_20b0c
+	ld a, c
 	cp $ff
 	jr nz, .asm_20b0c
 	ld a, [wCurrentCatchEmMon]
+	ld b, a
+	ld a, [wCurrentCatchEmMon + 1]
+	ld c, a
 .asm_20b0c
-	ld c, a
-	ld b, $0
-	sla c
-	rl b
-	add c
-	ld c, a
-	jr nc, .asm_20b18
-	inc b
-.asm_20b18
+	ld h, b
+	ld l, c
+	add hl, bc
+	add hl, bc
+	ld b, h
+	ld c, l
 	push bc
 	ld hl, MonBillboardPicPointers
 	add hl, bc

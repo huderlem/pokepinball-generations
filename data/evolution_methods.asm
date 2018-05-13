@@ -252,461 +252,485 @@ MonEvolutions: ; 0x116b3
 	dw LugiaEvolutions
 	dw HoOhEvolutions
 	dw CelebiEvolutions
+	dw TreeckoEvolutions
+	dw GrovyleEvolutions
+	dw SceptileEvolutions
+	dw TorchicEvolutions
+	dw CombuskenEvolutions
+	dw BlazikenEvolutions
+	dw MudkipEvolutions
+	dw MarshtompEvolutions
+	dw SwampertEvolutions
+	dw PoochyenaEvolutions
+	dw MightyenaEvolutions
+	dw ZigzagoonEvolutions
+	dw LinooneEvolutions
+	dw WurmpleEvolutions
+	dw SilcoonEvolutions
+	dw BeautiflyEvolutions
+	dw CascoonEvolutions
+	dw DustoxEvolutions
+	dw LotadEvolutions
+	dw LombreEvolutions
+	dw LudicoloEvolutions
+	dw SeedotEvolutions
+	dw NuzleafEvolutions
+	dw ShiftryEvolutions
 
 BulbasaurEvolutions:
 	db 1
-	db IVYSAUR, EVO_EXPERIENCE
+	dwb IVYSAUR, EVO_EXPERIENCE
 
 IvysaurEvolutions:
 	db 1
-	db VENUSAUR, EVO_EXPERIENCE
+	dwb VENUSAUR, EVO_EXPERIENCE
 
 VenusaurEvolutions:
 	db 1
-	db BULBASAUR, EVO_BREEDING
+	dwb BULBASAUR, EVO_BREEDING
 
 CharmanderEvolutions:
 	db 1
-	db CHARMELEON, EVO_EXPERIENCE
+	dwb CHARMELEON, EVO_EXPERIENCE
 
 CharmeleonEvolutions:
 	db 1
-	db CHARIZARD, EVO_EXPERIENCE
+	dwb CHARIZARD, EVO_EXPERIENCE
 
 CharizardEvolutions:
 	db 1
-	db CHARMANDER, EVO_BREEDING
+	dwb CHARMANDER, EVO_BREEDING
 
 SquirtleEvolutions:
 	db 1
-	db WARTORTLE, EVO_EXPERIENCE
+	dwb WARTORTLE, EVO_EXPERIENCE
 
 WartortleEvolutions:
 	db 1
-	db BLASTOISE, EVO_EXPERIENCE
+	dwb BLASTOISE, EVO_EXPERIENCE
 
 BlastoiseEvolutions:
 	db 1
-	db SQUIRTLE, EVO_BREEDING
+	dwb SQUIRTLE, EVO_BREEDING
 
 CaterpieEvolutions:
 	db 1
-	db METAPOD, EVO_EXPERIENCE
+	dwb METAPOD, EVO_EXPERIENCE
 
 MetapodEvolutions:
 	db 1
-	db BUTTERFREE, EVO_EXPERIENCE
+	dwb BUTTERFREE, EVO_EXPERIENCE
 
 ButterfreeEvolutions:
 	db 1
-	db CATERPIE, EVO_BREEDING
+	dwb CATERPIE, EVO_BREEDING
 
 WeedleEvolutions:
 	db 1
-	db KAKUNA, EVO_EXPERIENCE
+	dwb KAKUNA, EVO_EXPERIENCE
 
 KakunaEvolutions:
 	db 1
-	db BEEDRILL, EVO_EXPERIENCE
+	dwb BEEDRILL, EVO_EXPERIENCE
 
 BeedrillEvolutions:
 	db 1
-	db WEEDLE, EVO_BREEDING
+	dwb WEEDLE, EVO_BREEDING
 
 PidgeyEvolutions:
 	db 1
-	db PIDGEOTTO, EVO_EXPERIENCE
+	dwb PIDGEOTTO, EVO_EXPERIENCE
 
 PidgeottoEvolutions:
 	db 1
-	db PIDGEOT, EVO_EXPERIENCE
+	dwb PIDGEOT, EVO_EXPERIENCE
 
 PidgeotEvolutions:
 	db 1
-	db PIDGEY, EVO_BREEDING
+	dwb PIDGEY, EVO_BREEDING
 
 RattataEvolutions:
 	db 1
-	db RATICATE, EVO_EXPERIENCE
+	dwb RATICATE, EVO_EXPERIENCE
 
 RaticateEvolutions:
 	db 1
-	db RATTATA, EVO_BREEDING
+	dwb RATTATA, EVO_BREEDING
 
 SpearowEvolutions:
 	db 1
-	db FEAROW, EVO_EXPERIENCE
+	dwb FEAROW, EVO_EXPERIENCE
 
 FearowEvolutions:
 	db 1
-	db SPEAROW, EVO_BREEDING
+	dwb SPEAROW, EVO_BREEDING
 
 EkansEvolutions:
 	db 1
-	db ARBOK, EVO_EXPERIENCE
+	dwb ARBOK, EVO_EXPERIENCE
 
 ArbokEvolutions:
 	db 1
-	db EKANS, EVO_BREEDING
+	dwb EKANS, EVO_BREEDING
 
 PikachuEvolutions:
 	db 1
-	db RAICHU, EVO_THUNDER_STONE
+	dwb RAICHU, EVO_THUNDER_STONE
 
 RaichuEvolutions:
 	db 1
-	db PICHU, EVO_BREEDING
+	dwb PICHU, EVO_BREEDING
 
 SandshrewEvolutions:
 	db 1
-	db SANDSLASH, EVO_EXPERIENCE
+	dwb SANDSLASH, EVO_EXPERIENCE
 
 SandslashEvolutions:
 	db 1
-	db SANDSHREW, EVO_BREEDING
+	dwb SANDSHREW, EVO_BREEDING
 
 Nidoran_fEvolutions:
 	db 1
-	db NIDORINA, EVO_EXPERIENCE
+	dwb NIDORINA, EVO_EXPERIENCE
 
 NidorinaEvolutions:
 	db 1
-	db NIDOQUEEN, EVO_MOON_STONE
+	dwb NIDOQUEEN, EVO_MOON_STONE
 
 NidoqueenEvolutions:
 	db 2
-	db NIDORAN_F, EVO_BREEDING
-	db NIDORAN_M, EVO_BREEDING
+	dwb NIDORAN_F, EVO_BREEDING
+	dwb NIDORAN_M, EVO_BREEDING
 
 Nidoran_mEvolutions:
 	db 1
-	db NIDORINO, EVO_EXPERIENCE
+	dwb NIDORINO, EVO_EXPERIENCE
 
 NidorinoEvolutions:
 	db 1
-	db NIDOKING, EVO_MOON_STONE
+	dwb NIDOKING, EVO_MOON_STONE
 
 NidokingEvolutions:
 	db 2
-	db NIDORAN_M, EVO_BREEDING
-	db NIDORAN_F, EVO_BREEDING
+	dwb NIDORAN_M, EVO_BREEDING
+	dwb NIDORAN_F, EVO_BREEDING
 
 ClefairyEvolutions:
 	db 1
-	db CLEFABLE, EVO_MOON_STONE
+	dwb CLEFABLE, EVO_MOON_STONE
 
 ClefableEvolutions:
 	db 1
-	db CLEFFA, EVO_BREEDING
+	dwb CLEFFA, EVO_BREEDING
 
 VulpixEvolutions:
 	db 1
-	db NINETALES, EVO_FIRE_STONE
+	dwb NINETALES, EVO_FIRE_STONE
 
 NinetalesEvolutions:
 	db 1
-	db VULPIX, EVO_BREEDING
+	dwb VULPIX, EVO_BREEDING
 
 JigglypuffEvolutions:
 	db 1
-	db WIGGLYTUFF, EVO_MOON_STONE
+	dwb WIGGLYTUFF, EVO_MOON_STONE
 
 WigglytuffEvolutions:
 	db 1
-	db IGGLYBUFF, EVO_BREEDING
+	dwb IGGLYBUFF, EVO_BREEDING
 
 ZubatEvolutions:
 	db 1
-	db GOLBAT, EVO_EXPERIENCE
+	dwb GOLBAT, EVO_EXPERIENCE
 
 GolbatEvolutions:
 	db 1
-	db CROBAT, EVO_EXPERIENCE
+	dwb CROBAT, EVO_EXPERIENCE
 
 OddishEvolutions:
 	db 1
-	db GLOOM, EVO_EXPERIENCE
+	dwb GLOOM, EVO_EXPERIENCE
 
 GloomEvolutions:
 	db 2
-	db VILEPLUME, EVO_LEAF_STONE
-	db BELLOSSOM, EVO_LEAF_STONE ; TODO: sun stone
+	dwb VILEPLUME, EVO_LEAF_STONE
+	dwb BELLOSSOM, EVO_LEAF_STONE ; TODO: sun stone
 
 VileplumeEvolutions:
 	db 1
-	db ODDISH, EVO_BREEDING
+	dwb ODDISH, EVO_BREEDING
 
 ParasEvolutions:
 	db 1
-	db PARASECT, EVO_EXPERIENCE
+	dwb PARASECT, EVO_EXPERIENCE
 
 ParasectEvolutions:
 	db 1
-	db PARAS, EVO_BREEDING
+	dwb PARAS, EVO_BREEDING
 
 VenonatEvolutions:
 	db 1
-	db VENOMOTH, EVO_EXPERIENCE
+	dwb VENOMOTH, EVO_EXPERIENCE
 
 VenomothEvolutions:
 	db 1
-	db VENONAT, EVO_BREEDING
+	dwb VENONAT, EVO_BREEDING
 
 DiglettEvolutions:
 	db 1
-	db DUGTRIO, EVO_EXPERIENCE
+	dwb DUGTRIO, EVO_EXPERIENCE
 
 DugtrioEvolutions:
 	db 1
-	db DIGLETT, EVO_BREEDING
+	dwb DIGLETT, EVO_BREEDING
 
 MeowthEvolutions:
 	db 1
-	db PERSIAN, EVO_EXPERIENCE
+	dwb PERSIAN, EVO_EXPERIENCE
 
 PersianEvolutions:
 	db 1
-	db MEOWTH, EVO_BREEDING
+	dwb MEOWTH, EVO_BREEDING
 
 PsyduckEvolutions:
 	db 1
-	db GOLDUCK, EVO_EXPERIENCE
+	dwb GOLDUCK, EVO_EXPERIENCE
 
 GolduckEvolutions:
 	db 1
-	db PSYDUCK, EVO_BREEDING
+	dwb PSYDUCK, EVO_BREEDING
 
 MankeyEvolutions:
 	db 1
-	db PRIMEAPE, EVO_EXPERIENCE
+	dwb PRIMEAPE, EVO_EXPERIENCE
 
 PrimeapeEvolutions:
 	db 1
-	db MANKEY, EVO_BREEDING
+	dwb MANKEY, EVO_BREEDING
 
 GrowlitheEvolutions:
 	db 1
-	db ARCANINE, EVO_FIRE_STONE
+	dwb ARCANINE, EVO_FIRE_STONE
 
 ArcanineEvolutions:
 	db 1
-	db GROWLITHE, EVO_BREEDING
+	dwb GROWLITHE, EVO_BREEDING
 
 PoliwagEvolutions:
 	db 1
-	db POLIWHIRL, EVO_EXPERIENCE
+	dwb POLIWHIRL, EVO_EXPERIENCE
 
 PoliwhirlEvolutions:
 	db 2
-	db POLIWRATH, EVO_WATER_STONE
-	db POLITOED, EVO_LINK_CABLE
+	dwb POLIWRATH, EVO_WATER_STONE
+	dwb POLITOED, EVO_LINK_CABLE
 
 PoliwrathEvolutions:
 	db 1
-	db POLIWAG, EVO_BREEDING
+	dwb POLIWAG, EVO_BREEDING
 
 AbraEvolutions:
 	db 1
-	db KADABRA, EVO_EXPERIENCE
+	dwb KADABRA, EVO_EXPERIENCE
 
 KadabraEvolutions:
 	db 1
-	db ALAKAZAM, EVO_LINK_CABLE
+	dwb ALAKAZAM, EVO_LINK_CABLE
 
 AlakazamEvolutions:
 	db 1
-	db ABRA, EVO_BREEDING
+	dwb ABRA, EVO_BREEDING
 
 MachopEvolutions:
 	db 1
-	db MACHOKE, EVO_EXPERIENCE
+	dwb MACHOKE, EVO_EXPERIENCE
 
 MachokeEvolutions:
 	db 1
-	db MACHAMP, EVO_LINK_CABLE
+	dwb MACHAMP, EVO_LINK_CABLE
 
 MachampEvolutions:
 	db 1
-	db MACHOP, EVO_BREEDING
+	dwb MACHOP, EVO_BREEDING
 
 BellsproutEvolutions:
 	db 1
-	db WEEPINBELL, EVO_EXPERIENCE
+	dwb WEEPINBELL, EVO_EXPERIENCE
 
 WeepinbellEvolutions:
 	db 1
-	db VICTREEBEL, EVO_LEAF_STONE
+	dwb VICTREEBEL, EVO_LEAF_STONE
 
 VictreebelEvolutions:
 	db 1
-	db BELLSPROUT, EVO_BREEDING
+	dwb BELLSPROUT, EVO_BREEDING
 
 TentacoolEvolutions:
 	db 1
-	db TENTACRUEL, EVO_EXPERIENCE
+	dwb TENTACRUEL, EVO_EXPERIENCE
 
 TentacruelEvolutions:
 	db 1
-	db TENTACOOL, EVO_BREEDING
+	dwb TENTACOOL, EVO_BREEDING
 
 GeodudeEvolutions:
 	db 1
-	db GRAVELER, EVO_EXPERIENCE
+	dwb GRAVELER, EVO_EXPERIENCE
 
 GravelerEvolutions:
 	db 1
-	db GOLEM, EVO_LINK_CABLE
+	dwb GOLEM, EVO_LINK_CABLE
 
 GolemEvolutions:
 	db 1
-	db GEODUDE, EVO_BREEDING
+	dwb GEODUDE, EVO_BREEDING
 
 PonytaEvolutions:
 	db 1
-	db RAPIDASH, EVO_EXPERIENCE
+	dwb RAPIDASH, EVO_EXPERIENCE
 
 RapidashEvolutions:
 	db 1
-	db PONYTA, EVO_BREEDING
+	dwb PONYTA, EVO_BREEDING
 
 SlowpokeEvolutions:
 	db 2
-	db SLOWBRO, EVO_EXPERIENCE
-	db SLOWKING, EVO_LINK_CABLE
+	dwb SLOWBRO, EVO_EXPERIENCE
+	dwb SLOWKING, EVO_LINK_CABLE
 
 SlowbroEvolutions:
 	db 1
-	db SLOWPOKE, EVO_BREEDING
+	dwb SLOWPOKE, EVO_BREEDING
 
 MagnemiteEvolutions:
 	db 1
-	db MAGNETON, EVO_EXPERIENCE
+	dwb MAGNETON, EVO_EXPERIENCE
 
 MagnetonEvolutions:
 	db 1
-	db MAGNEMITE, EVO_BREEDING
+	dwb MAGNEMITE, EVO_BREEDING
 
 FarfetchdEvolutions:
 	db 0
 
 DoduoEvolutions:
 	db 1
-	db DODRIO, EVO_EXPERIENCE
+	dwb DODRIO, EVO_EXPERIENCE
 
 DodrioEvolutions:
 	db 1
-	db DODUO, EVO_BREEDING
+	dwb DODUO, EVO_BREEDING
 
 SeelEvolutions:
 	db 1
-	db DEWGONG, EVO_EXPERIENCE
+	dwb DEWGONG, EVO_EXPERIENCE
 
 DewgongEvolutions:
 	db 1
-	db SEEL, EVO_BREEDING
+	dwb SEEL, EVO_BREEDING
 
 GrimerEvolutions:
 	db 1
-	db MUK, EVO_EXPERIENCE
+	dwb MUK, EVO_EXPERIENCE
 
 MukEvolutions:
 	db 1
-	db GRIMER, EVO_BREEDING
+	dwb GRIMER, EVO_BREEDING
 
 ShellderEvolutions:
 	db 1
-	db CLOYSTER, EVO_WATER_STONE
+	dwb CLOYSTER, EVO_WATER_STONE
 
 CloysterEvolutions:
 	db 1
-	db SHELLDER, EVO_BREEDING
+	dwb SHELLDER, EVO_BREEDING
 
 GastlyEvolutions:
 	db 1
-	db HAUNTER, EVO_EXPERIENCE
+	dwb HAUNTER, EVO_EXPERIENCE
 
 HaunterEvolutions:
 	db 1
-	db GENGAR, EVO_LINK_CABLE
+	dwb GENGAR, EVO_LINK_CABLE
 
 GengarEvolutions:
 	db 1
-	db GASTLY, EVO_BREEDING
+	dwb GASTLY, EVO_BREEDING
 
 OnixEvolutions:
 	db 1
-	db STEELIX, EVO_LINK_CABLE
+	dwb STEELIX, EVO_LINK_CABLE
 
 DrowzeeEvolutions:
 	db 1
-	db HYPNO, EVO_EXPERIENCE
+	dwb HYPNO, EVO_EXPERIENCE
 
 HypnoEvolutions:
 	db 1
-	db DROWZEE, EVO_BREEDING
+	dwb DROWZEE, EVO_BREEDING
 
 KrabbyEvolutions:
 	db 1
-	db KINGLER, EVO_EXPERIENCE
+	dwb KINGLER, EVO_EXPERIENCE
 
 KinglerEvolutions:
 	db 1
-	db KRABBY, EVO_BREEDING
+	dwb KRABBY, EVO_BREEDING
 
 VoltorbEvolutions:
 	db 1
-	db ELECTRODE, EVO_EXPERIENCE
+	dwb ELECTRODE, EVO_EXPERIENCE
 
 ElectrodeEvolutions:
 	db 1
-	db VOLTORB, EVO_BREEDING
+	dwb VOLTORB, EVO_BREEDING
 
 ExeggcuteEvolutions:
 	db 1
-	db EXEGGUTOR, EVO_LEAF_STONE
+	dwb EXEGGUTOR, EVO_LEAF_STONE
 
 ExeggutorEvolutions:
 	db 1
-	db EXEGGCUTE, EVO_BREEDING
+	dwb EXEGGCUTE, EVO_BREEDING
 
 CuboneEvolutions:
 	db 1
-	db MAROWAK, EVO_EXPERIENCE
+	dwb MAROWAK, EVO_EXPERIENCE
 
 MarowakEvolutions:
 	db 1
-	db CUBONE, EVO_BREEDING
+	dwb CUBONE, EVO_BREEDING
 
 HitmonleeEvolutions:
 	db 1
-	db TYROGUE, EVO_BREEDING
+	dwb TYROGUE, EVO_BREEDING
 
 HitmonchanEvolutions:
 	db 1
-	db TYROGUE, EVO_BREEDING
+	dwb TYROGUE, EVO_BREEDING
 
 LickitungEvolutions:
 	db 0
 
 KoffingEvolutions:
 	db 1
-	db WEEZING, EVO_EXPERIENCE
+	dwb WEEZING, EVO_EXPERIENCE
 
 WeezingEvolutions:
 	db 1
-	db KOFFING, EVO_BREEDING
+	dwb KOFFING, EVO_BREEDING
 
 RhyhornEvolutions:
 	db 1
-	db RHYDON, EVO_EXPERIENCE
+	dwb RHYDON, EVO_EXPERIENCE
 
 RhydonEvolutions:
 	db 1
-	db RHYHORN, EVO_BREEDING
+	dwb RHYHORN, EVO_BREEDING
 
 ChanseyEvolutions:
 	db 1
-	db BLISSEY, EVO_EXPERIENCE
+	dwb BLISSEY, EVO_EXPERIENCE
 
 TangelaEvolutions:
 	db 0
@@ -716,46 +740,46 @@ KangaskhanEvolutions:
 
 HorseaEvolutions:
 	db 1
-	db SEADRA, EVO_EXPERIENCE
+	dwb SEADRA, EVO_EXPERIENCE
 
 SeadraEvolutions:
 	db 1
-	db HORSEA, EVO_BREEDING
+	dwb HORSEA, EVO_BREEDING
 
 GoldeenEvolutions:
 	db 1
-	db SEAKING, EVO_EXPERIENCE
+	dwb SEAKING, EVO_EXPERIENCE
 
 SeakingEvolutions:
 	db 1
-	db GOLDEEN, EVO_BREEDING
+	dwb GOLDEEN, EVO_BREEDING
 
 StaryuEvolutions:
 	db 1
-	db STARMIE, EVO_WATER_STONE
+	dwb STARMIE, EVO_WATER_STONE
 
 StarmieEvolutions:
 	db 1
-	db STARYU, EVO_BREEDING
+	dwb STARYU, EVO_BREEDING
 
 MrMimeEvolutions:
 	db 0
 
 ScytherEvolutions:
 	db 1
-	db SCIZOR, EVO_BREEDING
+	dwb SCIZOR, EVO_BREEDING
 
 JynxEvolutions:
 	db 1
-	db SMOOCHUM, EVO_BREEDING
+	dwb SMOOCHUM, EVO_BREEDING
 
 ElectabuzzEvolutions:
 	db 1
-	db ELEKID, EVO_BREEDING
+	dwb ELEKID, EVO_BREEDING
 
 MagmarEvolutions:
 	db 1
-	db MAGBY, EVO_BREEDING
+	dwb MAGBY, EVO_BREEDING
 
 PinsirEvolutions:
 	db 0
@@ -765,11 +789,11 @@ TaurosEvolutions:
 
 MagikarpEvolutions:
 	db 1
-	db GYARADOS, EVO_EXPERIENCE
+	dwb GYARADOS, EVO_EXPERIENCE
 
 GyaradosEvolutions:
 	db 1
-	db MAGIKARP, EVO_BREEDING
+	dwb MAGIKARP, EVO_BREEDING
 
 LaprasEvolutions:
 	db 0
@@ -779,43 +803,43 @@ DittoEvolutions:
 
 EeveeEvolutions:
 	db 5
-	db VAPOREON, EVO_WATER_STONE
-	db JOLTEON,  EVO_THUNDER_STONE
-	db FLAREON,  EVO_FIRE_STONE
-	db UMBREON, EVO_EXPERIENCE
-	db ESPEON, EVO_EXPERIENCE
+	dwb VAPOREON, EVO_WATER_STONE
+	dwb JOLTEON,  EVO_THUNDER_STONE
+	dwb FLAREON,  EVO_FIRE_STONE
+	dwb UMBREON, EVO_EXPERIENCE
+	dwb ESPEON, EVO_EXPERIENCE
 
 VaporeonEvolutions:
 	db 1
-	db EEVEE, EVO_BREEDING
+	dwb EEVEE, EVO_BREEDING
 
 JolteonEvolutions:
 	db 1
-	db EEVEE, EVO_BREEDING
+	dwb EEVEE, EVO_BREEDING
 
 FlareonEvolutions:
 	db 1
-	db EEVEE, EVO_BREEDING
+	dwb EEVEE, EVO_BREEDING
 
 PorygonEvolutions:
 	db 1
-	db PORYGON2, EVO_LINK_CABLE
+	dwb PORYGON2, EVO_LINK_CABLE
 
 OmanyteEvolutions:
 	db 1
-	db OMASTAR, EVO_EXPERIENCE
+	dwb OMASTAR, EVO_EXPERIENCE
 
 OmastarEvolutions:
 	db 1
-	db OMANYTE, EVO_BREEDING
+	dwb OMANYTE, EVO_BREEDING
 
 KabutoEvolutions:
 	db 1
-	db KABUTOPS, EVO_EXPERIENCE
+	dwb KABUTOPS, EVO_EXPERIENCE
 
 KabutopsEvolutions:
 	db 1
-	db KABUTO, EVO_BREEDING
+	dwb KABUTO, EVO_BREEDING
 
 AerodactylEvolutions:
 	db 0
@@ -834,15 +858,15 @@ MoltresEvolutions:
 
 DratiniEvolutions:
 	db 1
-	db DRAGONAIR, EVO_EXPERIENCE
+	dwb DRAGONAIR, EVO_EXPERIENCE
 
 DragonairEvolutions:
 	db 1
-	db DRAGONITE, EVO_EXPERIENCE
+	dwb DRAGONITE, EVO_EXPERIENCE
 
 DragoniteEvolutions:
 	db 1
-	db DRATINI, EVO_BREEDING
+	dwb DRATINI, EVO_BREEDING
 
 MewtwoEvolutions:
 	db 0
@@ -852,191 +876,191 @@ MewEvolutions:
 
 ChikoritaEvolutions:
 	db 1
-	db BAYLEEF, EVO_EXPERIENCE
+	dwb BAYLEEF, EVO_EXPERIENCE
 
 BayleefEvolutions:
 	db 1
-	db MEGANIUM, EVO_EXPERIENCE
+	dwb MEGANIUM, EVO_EXPERIENCE
 
 MeganiumEvolutions:
 	db 1
-	db CHIKORITA, EVO_BREEDING
+	dwb CHIKORITA, EVO_BREEDING
 
 CyndaquilEvolutions:
 	db 1
-	db QUILAVA, EVO_EXPERIENCE
+	dwb QUILAVA, EVO_EXPERIENCE
 
 QuilavaEvolutions:
 	db 1
-	db TYPHLOSION, EVO_EXPERIENCE
+	dwb TYPHLOSION, EVO_EXPERIENCE
 
 TyphlosionEvolutions:
 	db 1
-	db CYNDAQUIL, EVO_BREEDING
+	dwb CYNDAQUIL, EVO_BREEDING
 
 TotodileEvolutions:
 	db 1
-	db CROCONAW, EVO_EXPERIENCE
+	dwb CROCONAW, EVO_EXPERIENCE
 
 CroconawEvolutions:
 	db 1
-	db FERALIGATR, EVO_EXPERIENCE
+	dwb FERALIGATR, EVO_EXPERIENCE
 
 FeraligatrEvolutions:
 	db 1
-	db TOTODILE, EVO_BREEDING
+	dwb TOTODILE, EVO_BREEDING
 
 SentretEvolutions:
 	db 1
-	db FURRET, EVO_EXPERIENCE
+	dwb FURRET, EVO_EXPERIENCE
 
 FurretEvolutions:
 	db 1
-	db SENTRET, EVO_BREEDING
+	dwb SENTRET, EVO_BREEDING
 
 HoothootEvolutions:
 	db 1
-	db NOCTOWL, EVO_EXPERIENCE
+	dwb NOCTOWL, EVO_EXPERIENCE
 
 NoctowlEvolutions:
 	db 1
-	db HOOTHOOT, EVO_BREEDING
+	dwb HOOTHOOT, EVO_BREEDING
 
 LedybaEvolutions:
 	db 1
-	db LEDIAN, EVO_EXPERIENCE
+	dwb LEDIAN, EVO_EXPERIENCE
 
 LedianEvolutions:
 	db 1
-	db LEDYBA, EVO_BREEDING
+	dwb LEDYBA, EVO_BREEDING
 
 SpinarakEvolutions:
 	db 1
-	db ARIADOS, EVO_EXPERIENCE
+	dwb ARIADOS, EVO_EXPERIENCE
 
 AriadosEvolutions:
 	db 1
-	db SPINARAK, EVO_BREEDING
+	dwb SPINARAK, EVO_BREEDING
 
 CrobatEvolutions:
 	db 1
-	db ZUBAT, EVO_BREEDING
+	dwb ZUBAT, EVO_BREEDING
 
 ChinchouEvolutions:
 	db 1
-	db LANTURN, EVO_EXPERIENCE
+	dwb LANTURN, EVO_EXPERIENCE
 
 LanturnEvolutions:
 	db 1
-	db CHINCHOU, EVO_BREEDING
+	dwb CHINCHOU, EVO_BREEDING
 
 PichuEvolutions:
 	db 1
-	db PIKACHU, EVO_EXPERIENCE
+	dwb PIKACHU, EVO_EXPERIENCE
 
 CleffaEvolutions:
 	db 1
-	db CLEFAIRY, EVO_EXPERIENCE
+	dwb CLEFAIRY, EVO_EXPERIENCE
 
 IgglybuffEvolutions:
 	db 1
-	db JIGGLYPUFF, EVO_EXPERIENCE
+	dwb JIGGLYPUFF, EVO_EXPERIENCE
 
 TogepiEvolutions:
 	db 1
-	db TOGETIC, EVO_EXPERIENCE
+	dwb TOGETIC, EVO_EXPERIENCE
 
 TogeticEvolutions:
 	db 1
-	db TOGEPI, EVO_BREEDING
+	dwb TOGEPI, EVO_BREEDING
 
 NatuEvolutions:
 	db 1
-	db XATU, EVO_EXPERIENCE
+	dwb XATU, EVO_EXPERIENCE
 
 XatuEvolutions:
 	db 1
-	db NATU, EVO_BREEDING
+	dwb NATU, EVO_BREEDING
 
 MareepEvolutions:
 	db 1
-	db FLAAFFY, EVO_EXPERIENCE
+	dwb FLAAFFY, EVO_EXPERIENCE
 
 FlaaffyEvolutions:
 	db 1
-	db AMPHAROS, EVO_EXPERIENCE
+	dwb AMPHAROS, EVO_EXPERIENCE
 
 AmpharosEvolutions:
 	db 1
-	db MAREEP, EVO_BREEDING
+	dwb MAREEP, EVO_BREEDING
 
 BellossomEvolutions:
 	db 1
-	db ODDISH, EVO_BREEDING
+	dwb ODDISH, EVO_BREEDING
 
 MarillEvolutions:
 	db 1
-	db AZUMARILL, EVO_EXPERIENCE
+	dwb AZUMARILL, EVO_EXPERIENCE
 
 AzumarillEvolutions:
 	db 1
-	db MARILL, EVO_BREEDING
+	dwb MARILL, EVO_BREEDING
 
 SudowoodoEvolutions:
 	db 0
 
 PolitoedEvolutions:
 	db 1
-	db POLIWAG, EVO_BREEDING
+	dwb POLIWAG, EVO_BREEDING
 
 HoppipEvolutions:
 	db 1
-	db SKIPLOOM, EVO_EXPERIENCE
+	dwb SKIPLOOM, EVO_EXPERIENCE
 
 SkiploomEvolutions:
 	db 1
-	db JUMPLUFF, EVO_EXPERIENCE
+	dwb JUMPLUFF, EVO_EXPERIENCE
 
 JumpluffEvolutions:
 	db 1
-	db HOPPIP, EVO_BREEDING
+	dwb HOPPIP, EVO_BREEDING
 
 AipomEvolutions:
 	db 0
 
 SunkernEvolutions:
 	db 1
-	db SUNFLORA, EVO_LEAF_STONE ; TODO: sun stone
+	dwb SUNFLORA, EVO_LEAF_STONE ; TODO: sun stone
 
 SunfloraEvolutions:
 	db 1
-	db SUNKERN, EVO_BREEDING
+	dwb SUNKERN, EVO_BREEDING
 
 YanmaEvolutions:
 	db 0
 
 WooperEvolutions:
 	db 1
-	db QUAGSIRE, EVO_EXPERIENCE
+	dwb QUAGSIRE, EVO_EXPERIENCE
 
 QuagsireEvolutions:
 	db 1
-	db WOOPER, EVO_BREEDING
+	dwb WOOPER, EVO_BREEDING
 
 EspeonEvolutions:
 	db 1
-	db EEVEE, EVO_BREEDING
+	dwb EEVEE, EVO_BREEDING
 
 UmbreonEvolutions:
 	db 1
-	db EEVEE, EVO_BREEDING
+	dwb EEVEE, EVO_BREEDING
 
 MurkrowEvolutions:
 	db 0
 
 SlowkingEvolutions:
 	db 1
-	db SLOWPOKE, EVO_BREEDING
+	dwb SLOWPOKE, EVO_BREEDING
 
 MisdreavusEvolutions:
 	db 0
@@ -1052,11 +1076,11 @@ GirafarigEvolutions:
 
 PinecoEvolutions:
 	db 1
-	db FORRETRESS, EVO_EXPERIENCE
+	dwb FORRETRESS, EVO_EXPERIENCE
 
 ForretressEvolutions:
 	db 1
-	db PINECO, EVO_BREEDING
+	dwb PINECO, EVO_BREEDING
 
 DunsparceEvolutions:
 	db 0
@@ -1066,22 +1090,22 @@ GligarEvolutions:
 
 SteelixEvolutions:
 	db 1
-	db ONIX, EVO_BREEDING
+	dwb ONIX, EVO_BREEDING
 
 SnubbullEvolutions:
 	db 1
-	db GRANBULL, EVO_EXPERIENCE
+	dwb GRANBULL, EVO_EXPERIENCE
 
 GranbullEvolutions:
 	db 1
-	db SNUBBULL, EVO_BREEDING
+	dwb SNUBBULL, EVO_BREEDING
 
 QwilfishEvolutions:
 	db 0
 
 ScizorEvolutions:
 	db 1
-	db SCYTHER, EVO_BREEDING
+	dwb SCYTHER, EVO_BREEDING
 
 ShuckleEvolutions:
 	db 0
@@ -1094,38 +1118,38 @@ SneaselEvolutions:
 
 TeddiursaEvolutions:
 	db 1
-	db URSARING, EVO_EXPERIENCE
+	dwb URSARING, EVO_EXPERIENCE
 
 UrsaringEvolutions:
 	db 1
-	db TEDDIURSA, EVO_BREEDING
+	dwb TEDDIURSA, EVO_BREEDING
 
 SlugmaEvolutions:
 	db 1
-	db MAGCARGO, EVO_EXPERIENCE
+	dwb MAGCARGO, EVO_EXPERIENCE
 
 MagcargoEvolutions:
 	db 1
-	db SLUGMA, EVO_BREEDING
+	dwb SLUGMA, EVO_BREEDING
 
 SwinubEvolutions:
 	db 1
-	db PILOSWINE, EVO_EXPERIENCE
+	dwb PILOSWINE, EVO_EXPERIENCE
 
 PiloswineEvolutions:
 	db 1
-	db SWINUB, EVO_BREEDING
+	dwb SWINUB, EVO_BREEDING
 
 CorsolaEvolutions:
 	db 0
 
 RemoraidEvolutions:
 	db 1
-	db OCTILLERY, EVO_EXPERIENCE
+	dwb OCTILLERY, EVO_EXPERIENCE
 
 OctilleryEvolutions:
 	db 1
-	db REMORAID, EVO_BREEDING
+	dwb REMORAID, EVO_BREEDING
 
 DelibirdEvolutions:
 	db 0
@@ -1138,27 +1162,27 @@ SkarmoryEvolutions:
 
 HoundourEvolutions:
 	db 1
-	db HOUNDOOM, EVO_EXPERIENCE
+	dwb HOUNDOOM, EVO_EXPERIENCE
 
 HoundoomEvolutions:
 	db 1
-	db HOUNDOUR, EVO_BREEDING
+	dwb HOUNDOUR, EVO_BREEDING
 
 KingdraEvolutions:
 	db 1
-	db HORSEA, EVO_BREEDING
+	dwb HORSEA, EVO_BREEDING
 
 PhanpyEvolutions:
 	db 1
-	db DONPHAN, EVO_EXPERIENCE
+	dwb DONPHAN, EVO_EXPERIENCE
 
 DonphanEvolutions:
 	db 1
-	db PHANPY, EVO_BREEDING
+	dwb PHANPY, EVO_BREEDING
 
 Porygon2Evolutions:
 	db 1
-	db PORYGON, EVO_BREEDING
+	dwb PORYGON, EVO_BREEDING
 
 StantlerEvolutions:
 	db 0
@@ -1168,32 +1192,32 @@ SmeargleEvolutions:
 
 TyrogueEvolutions:
 	db 3
-	db HITMONCHAN, EVO_EXPERIENCE
-	db HITMONLEE, EVO_EXPERIENCE
-	db HITMONTOP, EVO_EXPERIENCE
+	dwb HITMONCHAN, EVO_EXPERIENCE
+	dwb HITMONLEE, EVO_EXPERIENCE
+	dwb HITMONTOP, EVO_EXPERIENCE
 
 HitmontopEvolutions:
 	db 1
-	db TYROGUE, EVO_BREEDING
+	dwb TYROGUE, EVO_BREEDING
 
 SmoochumEvolutions:
 	db 1
-	db JYNX, EVO_EXPERIENCE
+	dwb JYNX, EVO_EXPERIENCE
 
 ElekidEvolutions:
 	db 1
-	db ELECTABUZZ, EVO_EXPERIENCE
+	dwb ELECTABUZZ, EVO_EXPERIENCE
 
 MagbyEvolutions:
 	db 1
-	db MAGMAR, EVO_EXPERIENCE
+	dwb MAGMAR, EVO_EXPERIENCE
 
 MiltankEvolutions:
 	db 0
 
 BlisseyEvolutions:
 	db 1
-	db CHANSEY, EVO_BREEDING
+	dwb CHANSEY, EVO_BREEDING
 
 RaikouEvolutions:
 	db 0
@@ -1206,15 +1230,15 @@ SuicuneEvolutions:
 
 LarvitarEvolutions:
 	db 1
-	db PUPITAR, EVO_EXPERIENCE
+	dwb PUPITAR, EVO_EXPERIENCE
 
 PupitarEvolutions:
 	db 1
-	db TYRANITAR, EVO_EXPERIENCE
+	dwb TYRANITAR, EVO_EXPERIENCE
 
 TyranitarEvolutions:
 	db 1
-	db LARVITAR, EVO_BREEDING
+	dwb LARVITAR, EVO_BREEDING
 
 LugiaEvolutions:
 	db 0
@@ -1224,3 +1248,100 @@ HoOhEvolutions:
 
 CelebiEvolutions:
 	db 0
+
+TreeckoEvolutions:
+	db 1
+	dwb GROVYLE, EVO_EXPERIENCE
+
+GrovyleEvolutions:
+	db 1
+	dwb SCEPTILE, EVO_EXPERIENCE
+
+SceptileEvolutions:
+	db 1
+	dwb TREECKO, EVO_BREEDING
+
+TorchicEvolutions:
+	db 1
+	dwb COMBUSKEN, EVO_EXPERIENCE
+
+CombuskenEvolutions:
+	db 1
+	dwb BLAZIKEN, EVO_EXPERIENCE
+
+BlazikenEvolutions:
+	db 1
+	dwb TORCHIC, EVO_BREEDING
+
+MudkipEvolutions:
+	db 1
+	dwb MARSHTOMP, EVO_EXPERIENCE
+
+MarshtompEvolutions:
+	db 1
+	dwb SWAMPERT, EVO_EXPERIENCE
+
+SwampertEvolutions:
+	db 1
+	dwb MUDKIP, EVO_BREEDING
+
+PoochyenaEvolutions:
+	db 1
+	dwb MIGHTYENA, EVO_EXPERIENCE
+
+MightyenaEvolutions:
+	db 1
+	dwb POOCHYENA, EVO_BREEDING
+
+ZigzagoonEvolutions:
+	db 1
+	dwb LINOONE, EVO_EXPERIENCE
+
+LinooneEvolutions:
+	db 1
+	dwb ZIGZAGOON, EVO_BREEDING
+
+WurmpleEvolutions:
+	db 2
+	dwb SILCOON, EVO_EXPERIENCE
+	dwb CASCOON, EVO_EXPERIENCE
+
+SilcoonEvolutions:
+	db 1
+	dwb BEAUTIFLY, EVO_EXPERIENCE
+
+BeautiflyEvolutions:
+	db 1
+	dwb WURMPLE, EVO_BREEDING
+
+CascoonEvolutions:
+	db 1
+	dwb DUSTOX, EVO_EXPERIENCE
+
+DustoxEvolutions:
+	db 1
+	dwb WURMPLE, EVO_BREEDING
+
+LotadEvolutions:
+	db 1
+	dwb LOMBRE, EVO_EXPERIENCE
+
+LombreEvolutions:
+	db 1
+	dwb LUDICOLO, EVO_WATER_STONE
+
+LudicoloEvolutions:
+	db 1
+	dwb LOTAD, EVO_BREEDING
+
+SeedotEvolutions:
+	db 1
+	dwb NUZLEAF, EVO_EXPERIENCE
+
+NuzleafEvolutions:
+	db 1
+	dwb BEAUTIFLY, EVO_LEAF_STONE
+
+ShiftryEvolutions:
+	db 1
+	dwb SEEDOT, EVO_BREEDING

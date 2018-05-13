@@ -130,3 +130,11 @@ const_value = 0
 	const EVOLINE_LUGIA         ; $7f
 	const EVOLINE_HO_OH         ; $80
 	const EVOLINE_CELEBI        ; $81
+	const EVOLINE_TREECKO       ; $82
+	const EVOLINE_TORCHIC       ; $83
+	const EVOLINE_MUDKIP        ; $84
+	const EVOLINE_POOCHYENA     ; $85
+	const EVOLINE_ZIGZAGOON     ; $86
+	const EVOLINE_WURMPLE       ; $87
+	const EVOLINE_LOTAD         ; $88
+	const EVOLINE_SEEDOT        ; $89

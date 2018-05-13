@@ -74,7 +74,7 @@ wFadeOBJPaletteData:: ; 0xd2c0
 	ds $40
 
 wPartyMons:: ; 0xd300
-	ds $100
+	ds 128 * 2
 
 wAddScoreQueue:: ; 0xd400
 	ds $60
@@ -616,7 +616,8 @@ wEvolutionObjectsDisabled:: ; 0xd551
 	ds $1
 
 wCurrentEvolutionMon:: ; 0xd552
-	ds $1
+; stored in big endian
+	ds $2
 
 wCurrentEvolutionType:: ; 0xd553
 	ds $1
@@ -689,7 +690,8 @@ wCollidedPointIndex:: ; 0xd578
 	ds $1
 
 wCurrentCatchEmMon:: ; 0xd579
-	ds $1
+; stored in big endian
+	ds $2
 
 wTimerSeconds:: ; 0xd57a
 	ds $1
@@ -2403,10 +2405,12 @@ wd958:: ; 0xd958
 	ds $1
 
 wCurPokedexIndex:: ; 0xd959
-	ds $1
+; stored in big endian
+	ds $2
 
 wPokedexOffset:: ; 0xd95a
-	ds $1
+; stored in big endian
+	ds $2
 
 wd95b:: ; 0xd95b
 	ds $1
@@ -2430,7 +2434,7 @@ wd961:: ; 0xd961
 	ds $1
 
 wPokedexFlags:: ; 0xd962
-	ds 251 ; NUM_POKEMON
+	ds 275 ; NUM_POKEMON
 
 wNumPokemonSeen:: ; 0xd9f9
 	ds $2

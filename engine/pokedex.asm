@@ -732,7 +732,7 @@ Func_28513: ; 0x28513
 	ret nz
 	ld a, [wd95e]
 	ld b, a
-	ld a, NUM_POKEMON
+	ld a, (NUM_POKEMON & $FF) ; TODO
 .asm_2852d
 	ld d, a
 	ld a, [wCurPokedexIndex]
@@ -1992,7 +1992,7 @@ asm_28d1d
 CountNumSeenOwnedMons: ; 0x28d35
 	ld hl, wPokedexFlags
 	ld de, $0000  ; keep a running count: d = owned, e = seen
-	ld b, NUM_POKEMON
+	ld b, (NUM_POKEMON & $ff) ; TODO
 .checkSeen
 	bit 0, [hl]  ; is mon seen?
 	jr z, .checkOwned
@@ -2024,7 +2024,7 @@ CountNumSeenOwnedMons: ; 0x28d35
 ClearPokedexData: ; 0x28d66
 	ld hl, wPokedexFlags
 	xor a
-	ld b, NUM_POKEMON
+	ld b, (NUM_POKEMON & $FF) ; TODO
 .asm_28d6c
 	ld [hli], a
 	dec b

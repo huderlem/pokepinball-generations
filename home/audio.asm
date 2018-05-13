@@ -60,7 +60,7 @@ PlaySFXIfNoneActive: ; 0x4d8
 
 PlayCry: ; 0x4ef
 ; Plays a Pokemon cry.
-; Input:  e = mon id
+; Input:  de = mon id (big endian)
 	ld a, [hLoadedROMBank]
 	push af
 	ld a, [wCurrentSongBank]

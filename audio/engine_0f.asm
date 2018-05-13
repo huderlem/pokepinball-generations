@@ -172,12 +172,15 @@ Unused_3c0ec: ; 0x3c0ec
 
 PlayCry_BankF: ; 0x3c0f0
 ; Plays a Pokemon cry.
-; Input: e = mon id
+; Input: de = mon id (big endian)
 	call Func_3cb1b
 	ld a, e
-	and a
+	or d
 	ret z
+	ld a, d
 	ld [wScratchBuffer], a
+	ld a, e
+	ld [wScratchBuffer + 1], a
 	callba LoadCryData
 	ld hl, wScratchBuffer
 	ld e, [hl]

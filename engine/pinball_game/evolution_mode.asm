@@ -167,6 +167,9 @@ LoadMonNamesIntoEvolutionSelectionList: ; 0x10b8e
 	ld b, a
 .loop
 	ld a, [hli]
+	ld d, a
+	ld a, [hli]
+	ld e, a
 	call LoadMonNameIntoEvolutionSelectionList
 	inc c
 	ld a, c
@@ -180,7 +183,7 @@ LoadMonNamesIntoEvolutionSelectionList: ; 0x10b8e
 LoadMonNameIntoEvolutionSelectionList: ; 0x10ba2
 ; Loads a single pokemon name into the list of pokemon to evolve.
 ; Input: c = index of the list
-;        a = pokemon id
+;        de = pokemon id (big endian)
 	push bc
 	push hl
 	swap c ;c* 32, does wird things if c starts >15
@@ -188,10 +191,10 @@ LoadMonNameIntoEvolutionSelectionList: ; 0x10ba2
 	ld b, $0
 	ld hl, wBottomMessageText
 	add hl, bc ;goes down text as many times as new c
+	ld c, e
+	ld b, d
 	ld d, h
 	ld e, l
-	ld c, a ;c now equals paerty mon, HL stored in de
-	ld b, $0
 	sla c
 	rl b
 	sla c
@@ -299,6 +302,7 @@ UpdateEvolutionSelectionList: ; 0x10c38
 	ld b, $0
 	ld hl, wPartyMons
 	add hl, bc
+	add hl, bc
 	call LoadMonNamesIntoEvolutionSelectionList
 	ld a, [hJoypadState]
 	and a
@@ -351,9 +355,17 @@ PlaceEvolutionInParty: ; 0x10ca5
 	ld b, $0
 	ld hl, wPartyMons
 	add hl, bc
+	add hl, bc
 	ld a, [wCurrentEvolutionMon]
 	cp $ff
+	jr nz, .continue
+	ld a, [wCurrentEvolutionMon + 1]
+	cp $ff
 	ret z
+.continue
+	ld a, [wCurrentEvolutionMon]
+	ld [hli], a
+	ld a, [wCurrentEvolutionMon + 1]
 	ld [hl], a
 	ret
 .breedingMode
@@ -362,7 +374,10 @@ PlaceEvolutionInParty: ; 0x10ca5
 	ld b, $0
 	ld hl, wPartyMons
 	add hl, bc
+	add hl, bc
 	ld a, [wCurrentEvolutionMon]
+	ld [hli], a
+	ld a, [wCurrentEvolutionMon + 1]
 	ld [hl], a
 	ld a, [wNumPartyMons]
 	inc a
@@ -403,8 +418,11 @@ SelectPokemonToEvolve: ; 0x10cb7
 	ld b, $0
 	ld hl, wPartyMons
 	add hl, bc
-	ld a, [hl]
+	add hl, bc
+	ld a, [hli]
 	ld [wCurrentCatchEmMon], a
+	ld a, [hl]
+	ld [wCurrentCatchEmMon + 1], a
 	ret
 
 InitEvolutionModeForMon: ; 0x10d1d
@@ -418,8 +436,9 @@ InitEvolutionModeForMon: ; 0x10d1d
 	dec b
 	jr nz, .asm_10d22
 	ld a, [wCurrentCatchEmMon]
+	ld b, a
+	ld a, [wCurrentCatchEmMon + 1]
 	ld c, a
-	ld b, $0
 	ld hl, EvolutionModeIndicatorSets
 	add hl, bc
 	ld a, [hl]
@@ -432,21 +451,13 @@ InitEvolutionModeForMon: ; 0x10d1d
 	ld [hli], a
 	dec b
 	jr nz, .asm_10d40
-	ld a, [wCurrentCatchEmMon]
-	ld c, a
-	ld b, $0
-	sla c
-	rl b
-	ld hl, CatchEmTimerData
-	add hl, bc
-	ld a, [hli]
-	ld c, a
-	ld a, [hl]
-	ld b, a
+	ld b, 2
+	ld c, 0
 	callba StartTimer
 	ld a, [wCurrentCatchEmMon]
+	ld b, a
+	ld a, [wCurrentCatchEmMon + 1]
 	ld c, a
-	ld b, $0
 	sla c
 	rl b  ; multiply mon id by 2
 	ld hl, MonEvolutions
@@ -464,19 +475,29 @@ InitEvolutionModeForMon: ; 0x10d1d
 	pop hl
 	ld a, $ff
 	ld [wCurrentEvolutionMon], a
+	ld a, $ff
+	ld [wCurrentEvolutionMon + 1], a
 	ld a, EVO_EXPERIENCE
 	jr .setEvolutionType
 .chooseEvolution
 	dec a
 	call RandomRange
+	ld b, a
 	sla a
+	add b
 	ld c, a
 	ld b, 0
 	pop hl
 	add hl, bc  ; hl points to one of three entries in mon's evolution data
-	ld a, [hli]  ; a = mon id of evolution
-	dec a
+	ld a, [hli]
+	ld c, a
+	ld a, [hli]
+	ld b, a
+	dec bc
+	ld a, b
 	ld [wCurrentEvolutionMon], a
+	ld a, c
+	ld [wCurrentEvolutionMon + 1], a
 	ld a, [hl]  ; a = evolution type id
 	cp EVO_BREEDING
 	jr nz, .setEvolutionType
@@ -487,6 +508,8 @@ InitEvolutionModeForMon: ; 0x10d1d
 .breedingNotAllowed
 	ld a, $FF
 	ld [wCurrentEvolutionMon], a
+	ld a, $FF
+	ld [wCurrentEvolutionMon + 1], a
 	ld a, EVO_EXPERIENCE
 .setEvolutionType
 	ld [wCurrentEvolutionType], a
@@ -558,9 +581,15 @@ InitEvolutionModeForMon: ; 0x10d1d
 ShowMonEvolvedText: ; 0x10e0a
 	ld a, [wCurrentEvolutionMon]
 	cp $ff
+	jr nz, .evoMon
+	ld a, [wCurrentEvolutionMon + 1]
+	cp $ff
 	jp z, EvolutionSpecialBonus
+.evoMon
+	ld a, [wCurrentEvolutionMon]
+	ld b, a
+	ld a, [wCurrentEvolutionMon + 1]
 	ld c, a
-	ld b, $0
 	sla c
 	rl b
 	sla c

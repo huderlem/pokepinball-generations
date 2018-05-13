@@ -170,9 +170,12 @@ PlayCry_Bank12:
 ; Input: e = mon id
 	call Func_48b1b
 	ld a, e
-	and a
+	or d
 	ret z
+	ld a, d
 	ld [wScratchBuffer], a
+	ld a, e
+	ld [wScratchBuffer + 1], a
 	callba LoadCryData
 	ld hl, wScratchBuffer
 	ld e, [hl]

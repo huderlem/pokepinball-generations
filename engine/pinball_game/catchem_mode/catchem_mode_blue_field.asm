@@ -106,7 +106,10 @@ UpdateMonState_CatchemMode_BlueField: ; 0x20394
 	xor a
 	ld [wCatchModeMonUpdateTimer], a
 	ld a, [wCurrentCatchEmMon]
-	cp MEW - 1
+	cp (MEW - 1) >> 8
+	jr nz, .notMew
+	ld a, [wCurrentCatchEmMon + 1]
+	cp (MEW - 1) & $FF
 	jr nz, .notMew
 	ld a, [wNumMewHitsLow]
 	inc a
@@ -222,7 +225,10 @@ CheckIfCatchemModeTimerExpired_BlueField: ; 0x204b3
 	ld [wSpecialModeState], a
 	; Automatically set Mew as caught, since you can't possibly catch it
 	ld a, [wCurrentCatchEmMon]
-	cp MEW - 1
+	cp (MEW - 1) >> 8
+	jr nz, .notMew
+	ld a, [wCurrentCatchEmMon + 1]
+	cp (MEW - 1) & $FF
 	jr nz, .notMew
 	callba SetPokemonOwnedFlag
 .notMew

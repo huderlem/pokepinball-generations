@@ -1,8 +1,9 @@
 LoadCryData:
 	ld a, [wScratchBuffer]
-	dec a
+	ld d, a
+	ld a, [wScratchBuffer + 1]
 	ld e, a
-	ld d, 0
+	dec de
 	ld hl, CryData
 	add hl, de
 	add hl, de
@@ -284,3 +285,27 @@ CryData:
 	dw $001E, $00EE, $017F  ; LUGIA
 	dw $001E, $00EE, $017F  ; HO_OH
 	dw $001E, $00EE, $017F  ; CELEBI
+	dw $001E, $00EE, $017F  ; TREECKO
+	dw $001E, $00EE, $017F  ; GROVYLE
+	dw $001E, $00EE, $017F  ; SCEPTILE
+	dw $001E, $00EE, $017F  ; TORCHIC
+	dw $001E, $00EE, $017F  ; COMBUSKEN
+	dw $001E, $00EE, $017F  ; BLAZIKEN
+	dw $001E, $00EE, $017F  ; MUDKIP
+	dw $001E, $00EE, $017F  ; MARSHTOMP
+	dw $001E, $00EE, $017F  ; SWAMPERT
+	dw $001E, $00EE, $017F  ; POOCHYENA
+	dw $001E, $00EE, $017F  ; MIGHTYENA
+	dw $001E, $00EE, $017F  ; ZIGZAGOON
+	dw $001E, $00EE, $017F  ; LINOONE
+	dw $001E, $00EE, $017F  ; WURMPLE
+	dw $001E, $00EE, $017F  ; SILCOON
+	dw $001E, $00EE, $017F  ; BEAUTIFLY
+	dw $001E, $00EE, $017F  ; CASCOON
+	dw $001E, $00EE, $017F  ; DUSTOX
+	dw $001E, $00EE, $017F  ; LOTAD
+	dw $001E, $00EE, $017F  ; LOMBRE
+	dw $001E, $00EE, $017F  ; LUDICOLO
+	dw $001E, $00EE, $017F  ; SEEDOT
+	dw $001E, $00EE, $017F  ; NUZLEAF
+	dw $001E, $00EE, $017F  ; SHIFTRY

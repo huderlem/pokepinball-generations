@@ -1845,18 +1845,25 @@ HighScoresPalettesTransition_Johto: ; 0xd65a
 Func_d68a: ; 0xd68a
 	push bc
 	ld hl, wPokedexFlags
-	ld bc, (NUM_POKEMON << 8)
+	ld bc, NUM_POKEMON
+	ld de, 0
 .asm_d691
 	bit 1, [hl]
 	jr z, .asm_d696
-	inc c
+	inc de
 .asm_d696
 	inc hl
-	dec b
+	dec bc
+	ld a, b
+	or c
+	and a
 	jr nz, .asm_d691
-	ld a, c
 	pop bc
-	cp NUM_POKEMON
+	ld a, d
+	cp (NUM_POKEMON >> 8)
+	ret nz
+	ld a, e
+	cp (NUM_POKEMON & $FF)
 	ret nz
 	ld hl, vBGMap
 	add hl, bc
@@ -1874,17 +1881,23 @@ ShowDexCompletionCrown: ; 0xd6aa
 
 Func_d6b6: ; 0xd6b6
 	ld hl, wPokedexFlags
-	ld bc, (NUM_POKEMON << 8)
+	ld bc, NUM_POKEMON
+	ld de, 0
 .asm_d6bc
 	bit 1, [hl]
 	jr z, .asm_d6c1
-	inc c
+	inc de
 .asm_d6c1
 	inc hl
-	dec b
+	dec bc
+	ld a, b
+	or c
 	jr nz, .asm_d6bc
-	ld a, c
-	cp NUM_POKEMON
+	ld a, d
+	cp (NUM_POKEMON >> 8)
+	ret nz
+	ld a, e
+	cp (NUM_POKEMON & $FF)
 	ret nz
 	ld hl, wSendHighScoresTopBarTilemap + $9
 	ld a, $56   ; a crown is shown when Dex is completed

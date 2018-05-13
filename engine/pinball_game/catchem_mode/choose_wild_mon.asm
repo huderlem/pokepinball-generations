@@ -40,14 +40,21 @@ ChooseWildMon:
 	ld c, a
 	ld b, $0
 	add hl, bc
+	add hl, bc
 	ld a, [wRareMonsFlag]  ; this gets set to $08 when the rare mons should be used.
 	sla a
 	ld c, a
 	add hl, bc
-	ld a, [hl]  ; a contains mon id. overshoots by 1 if mew, causing mew to be loaded
+	ld a, [hli]  ; a contains mon id. overshoots by 1 if mew, causing mew to be loaded
+	ld c, a
+	ld a, [hl]
+	ld b, a
 .saveMonId
-	dec a
-	ld [wCurrentCatchEmMon], a ;stores 1 less than ID
+	dec bc ;stores 1 less than ID
+	ld a, b
+	ld [wCurrentCatchEmMon], a
+	ld a, c
+	ld [wCurrentCatchEmMon + 1], a
 	ret
 
 CheckForMew:
@@ -79,7 +86,7 @@ CheckForMew:
 	ret
 
 CheckForCelebi:
-; If Celebi should be encountered, set carry flag, and return mon id in register a.
+; If Celebi should be encountered, set carry flag, and return mon id in register bc (big endian).
 ; Celebi should be encountered in the following scenario:
 ;  1. Map is ILEX_FOREST
 ;  2. Ball upgrade is GS_BALL
@@ -97,7 +104,8 @@ CheckForCelebi:
 	call GenRandom
 	cp $40 ; 25% chance
 	jr nc, .notCelebi
-	ld a, CELEBI
+	ld b, (CELEBI >> 8)
+	ld c, (CELEBI & $FF)
 	scf
 	ret
 .notCelebi
@@ -105,7 +113,7 @@ CheckForCelebi:
 	ret
 
 CheckRoamingDog:
-; If a roaming dog is encountered, set carry flag, and return mon id in register a.
+; If a roaming dog is encountered, set carry flag, and return mon id in register bc (big endian).
 	ld a, [wRoamingDogsStatus]
 	bit 0, a
 	jr z, .noDog
@@ -136,7 +144,11 @@ CheckRoamingDog:
 	ld b, 0
 	ld c, d
 	add hl, bc
+	add hl, bc
+	ld a, [hli]
+	ld c, a
 	ld a, [hl]
+	ld b, a
 	scf
 	ret
 .noDog
@@ -144,8 +156,8 @@ CheckRoamingDog:
 	ret
 
 RoamingDogs:
-	db RAIKOU
-	db ENTEI
-	db SUICUNE
+	dw RAIKOU
+	dw ENTEI
+	dw SUICUNE
 
 INCLUDE "data/wild_mons.asm"

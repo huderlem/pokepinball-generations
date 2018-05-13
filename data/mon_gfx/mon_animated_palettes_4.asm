@@ -580,3 +580,92 @@ SeadraAnimatedObjPalette2:
 	RGB 31, 31, 18
 	RGB 13, 22, 28
 	RGB 0, 0, 0
+
+TreeckoAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+TreeckoAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+TorchicAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+TorchicAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+MudkipAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+MudkipAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+PoochyenaAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+PoochyenaAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+ZigzagoonAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+ZigzagoonAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+WurmpleAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+WurmpleAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+LotadAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+LotadAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+SeedotAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+SeedotAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+

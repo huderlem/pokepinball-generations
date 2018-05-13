@@ -251,3 +251,27 @@ EvolutionModeIndicatorSets: ; 0x1298b
 	db $04  ; LUGIA
 	db $04  ; HO_OH
 	db $06  ; CELEBI
+	db $01  ; TREECKO
+	db $01  ; GROVYLE
+	db $01  ; SCEPTILE
+	db $01  ; TORCHIC
+	db $01  ; COMBUSKEN
+	db $01  ; BLAZIKEN
+	db $01  ; MUDKIP
+	db $01  ; MARSHTOMP
+	db $01  ; SWAMPERT
+	db $01  ; POOCHYENA
+	db $01  ; MIGHTYENA
+	db $01  ; ZIGZAGOON
+	db $01  ; LINOONE
+	db $01  ; WURMPLE
+	db $01  ; SILCOON
+	db $01  ; BEAUTIFLY
+	db $01  ; CASCOON
+	db $01  ; DUSTOX
+	db $01  ; LOTAD
+	db $01  ; LOMBRE
+	db $01  ; LUDICOLO
+	db $01  ; SEEDOT
+	db $01  ; NUZLEAF
+	db $01  ; SHIFTRY

@@ -1097,3 +1097,268 @@ CelebiBillboardBGPalette2:
 	RGB 28, 30, 25
 	RGB 19, 25, 13
 	RGB 0, 0, 0
+
+TreeckoBillboardBGPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+TreeckoBillboardBGPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+GrovyleBillboardBGPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+GrovyleBillboardBGPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+SceptileBillboardBGPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+SceptileBillboardBGPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+TorchicBillboardBGPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+TorchicBillboardBGPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+CombuskenBillboardBGPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+CombuskenBillboardBGPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+BlazikenBillboardBGPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+BlazikenBillboardBGPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+MudkipBillboardBGPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+MudkipBillboardBGPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+MarshtompBillboardBGPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+MarshtompBillboardBGPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+SwampertBillboardBGPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+SwampertBillboardBGPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+PoochyenaBillboardBGPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+PoochyenaBillboardBGPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+MightyenaBillboardBGPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+MightyenaBillboardBGPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+ZigzagoonBillboardBGPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+ZigzagoonBillboardBGPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+LinooneBillboardBGPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+LinooneBillboardBGPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+WurmpleBillboardBGPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+WurmpleBillboardBGPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+SilcoonBillboardBGPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+SilcoonBillboardBGPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+BeautiflyBillboardBGPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+BeautiflyBillboardBGPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+CascoonBillboardBGPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+CascoonBillboardBGPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+DustoxBillboardBGPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+DustoxBillboardBGPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+LotadBillboardBGPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+LotadBillboardBGPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+LombreBillboardBGPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+LombreBillboardBGPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+LudicoloBillboardBGPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+LudicoloBillboardBGPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+SeedotBillboardBGPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+SeedotBillboardBGPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+NuzleafBillboardBGPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+NuzleafBillboardBGPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+ShiftryBillboardBGPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+ShiftryBillboardBGPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+

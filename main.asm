@@ -1335,3 +1335,7 @@ INCLUDE "data/billboard/map_pics_2.asm"
 SECTION "bank59", ROMX
 
 INCLUDE "audio/cries.asm"
+
+SECTION "bank5A", ROMX
+
+INCLUDE "data/mon_gfx/mon_billboard_pics_16.asm"

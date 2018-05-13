@@ -62,3 +62,23 @@ CelebiPic:
 	INCBIN "gfx/billboard/mon_pics/celebi.2bpp"
 CelebiSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/celebi.2bpp"
+TreeckoPic:
+	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+TreeckoSilhouettePic:
+	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+GrovylePic:
+	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+GrovyleSilhouettePic:
+	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+SceptilePic:
+	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+SceptileSilhouettePic:
+	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+TorchicPic:
+	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+TorchicSilhouettePic:
+	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+CombuskenPic:
+	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+CombuskenSilhouettePic:
+	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"

@@ -597,3 +597,148 @@ CelebiBillboardBGPaletteMap:
 	db $6, $6, $7, $7, $7, $7
 	db $7, $7, $7, $6, $7, $7
 	db $7, $7, $7, $6, $7, $7
+
+TreeckoBillboardBGPaletteMap:
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+
+GrovyleBillboardBGPaletteMap:
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+
+SceptileBillboardBGPaletteMap:
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+
+TorchicBillboardBGPaletteMap:
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+
+CombuskenBillboardBGPaletteMap:
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+
+BlazikenBillboardBGPaletteMap:
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+
+MudkipBillboardBGPaletteMap:
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+
+MarshtompBillboardBGPaletteMap:
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+
+SwampertBillboardBGPaletteMap:
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+
+PoochyenaBillboardBGPaletteMap:
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+
+MightyenaBillboardBGPaletteMap:
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+
+ZigzagoonBillboardBGPaletteMap:
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+
+LinooneBillboardBGPaletteMap:
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+
+WurmpleBillboardBGPaletteMap:
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+
+SilcoonBillboardBGPaletteMap:
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+
+BeautiflyBillboardBGPaletteMap:
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+
+CascoonBillboardBGPaletteMap:
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+
+DustoxBillboardBGPaletteMap:
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+
+LotadBillboardBGPaletteMap:
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+
+LombreBillboardBGPaletteMap:
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+
+LudicoloBillboardBGPaletteMap:
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+
+SeedotBillboardBGPaletteMap:
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+
+NuzleafBillboardBGPaletteMap:
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+
+ShiftryBillboardBGPaletteMap:
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+

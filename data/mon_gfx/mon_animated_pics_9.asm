@@ -8,3 +8,20 @@ CelebiAnimatedPic:
 	INCBIN "gfx/billboard/mon_animated/celebi.w32.interleave.2bpp"
 SeadraAnimatedPic:
 	INCBIN "gfx/billboard/mon_animated/seadra.w32.interleave.2bpp"
+
+TreeckoAnimatedPic:
+	INCBIN "gfx/billboard/mon_animated/jigglypuff.w32.interleave.2bpp"
+TorchicAnimatedPic:
+	INCBIN "gfx/billboard/mon_animated/jigglypuff.w32.interleave.2bpp"
+MudkipAnimatedPic:
+	INCBIN "gfx/billboard/mon_animated/jigglypuff.w32.interleave.2bpp"
+PoochyenaAnimatedPic:
+	INCBIN "gfx/billboard/mon_animated/jigglypuff.w32.interleave.2bpp"
+ZigzagoonAnimatedPic:
+	INCBIN "gfx/billboard/mon_animated/jigglypuff.w32.interleave.2bpp"
+WurmpleAnimatedPic:
+	INCBIN "gfx/billboard/mon_animated/jigglypuff.w32.interleave.2bpp"
+LotadAnimatedPic:
+	INCBIN "gfx/billboard/mon_animated/jigglypuff.w32.interleave.2bpp"
+SeedotAnimatedPic:
+	INCBIN "gfx/billboard/mon_animated/jigglypuff.w32.interleave.2bpp"

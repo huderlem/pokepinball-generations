@@ -4,7 +4,7 @@ BlueStageViridianCityWildMons: ; 0x1144d
 	db SQUIRTLE
 	db SQUIRTLE
 	db SQUIRTLE
-	db SQUIRTLE
+	db NIDORAN_F
 	db SPEAROW
 	db NIDORAN_F
 	db NIDORAN_F
@@ -19,8 +19,8 @@ BlueStageViridianCityWildMons: ; 0x1144d
 BlueStageViridianCityonsRare: ; 0x1145d
 	db BULBASAUR
 	db BULBASAUR
-	db BULBASAUR
-	db SQUIRTLE
+	db NIDORAN_F
+	db NIDORAN_F
 	db SPEAROW
 	db SPEAROW
 	db NIDORAN_F
@@ -62,8 +62,8 @@ BlueStageViridianForestWildMonsRare: ; 0x1147d
 	db PIDGEY
 	db RATTATA
 	db RATTATA
-	db PIKACHU
-	db PIKACHU
+	db PIDGEY
+	db RATTATA
 	db PIKACHU
 	db PIKACHU
 	db PIKACHU
@@ -153,7 +153,7 @@ BlueStageVermilionStreetsWildMons: ; 0x114cd
 	db BELLSPROUT
 	db SHELLDER
 	db SHELLDER
-	db SHELLDER
+	db TENTACOOL
 	db DROWZEE
 	db DROWZEE
 	db KRABBY

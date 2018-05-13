@@ -24,8 +24,8 @@ RedStagePalletTownWildMonsRare: ; 0x112dc
 	db CHARMANDER
 	db PIDGEY
 	db RATTATA
-	db NIDORAN_M
-	db NIDORAN_M
+	db CHARMANDER
+	db CHARMANDER
 	db NIDORAN_M
 	db POLIWAG
 	db POLIWAG
@@ -63,8 +63,8 @@ RedStageViridianForestWildMonsRare: ; 0x112fc
 	db PIDGEY
 	db RATTATA
 	db RATTATA
-	db PIKACHU
-	db PIKACHU
+	db WEEDLE
+	db WEEDLE
 	db PIKACHU
 	db PIKACHU
 	db PIKACHU
@@ -154,7 +154,7 @@ RedStageVermilionSeasideWildMons: ; 0x1134c
 	db MANKEY
 	db SHELLDER
 	db SHELLDER
-	db SHELLDER
+	db TENTACOOL
 	db DROWZEE
 	db DROWZEE
 	db KRABBY
@@ -247,8 +247,8 @@ RedStageLavenderTownWildMonsRare: ; 0x1139c
 	db ELECTABUZZ
 	db ELECTABUZZ
 	db ELECTABUZZ
-	db ZAPDOS
-	db ZAPDOS
+	db PIKACHU
+	db PIKACHU
 	db ZAPDOS
 
 RedStageCyclingRoadWildMons: ; 0x113ac

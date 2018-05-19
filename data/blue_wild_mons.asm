@@ -4,7 +4,7 @@ BlueStageViridianCityWildMons: ; 0x1144d
 	db SQUIRTLE
 	db SQUIRTLE
 	db SQUIRTLE
-IF_DEF(_TPP)
+IF DEF(_TPP)
 	db NIDORAN_F
 ELSE
 	db SQUIRTLE
@@ -23,7 +23,7 @@ ENDC
 BlueStageViridianCityonsRare: ; 0x1145d
 	db BULBASAUR
 	db BULBASAUR
-IF_DEF(_TPP)
+IF DEF(_TPP)
 	db NIDORAN_F
 	db NIDORAN_F
 ELSE
@@ -71,7 +71,7 @@ BlueStageViridianForestWildMonsRare: ; 0x1147d
 	db PIDGEY
 	db RATTATA
 	db RATTATA
-IF_DEF(_TPP)
+IF DEF(_TPP)
 	db PIDGEY
 	db RATTATA
 ELSE

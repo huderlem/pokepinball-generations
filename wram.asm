@@ -2547,6 +2547,12 @@ wCollectBadge::
 
 wBadgeToCollect::
     ds 1
+    
+wScriptMode::
+    ds 1
+    
+wFieldToStart::
+    ds 1
 
 wCollectLogFlag::
     ds 1

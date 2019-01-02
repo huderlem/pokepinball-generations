@@ -56,18 +56,7 @@ ConcludeEvolutionMode_CallTable: ; 0x10af3
 	dw ConcludeEvolutionMode_SilverField ; STAGE_SILVER_FIELD_TOP
 
 LoadRedFieldTopGraphics: ; 0x10aff
-	ld a, [wCurrentStage]
-	res 0, a
-	ld c, a
-	ld b, $0
-	srl c
-	sla a
-	sla a
-	sla a
-	sub c
-	ld c, a
 	ld hl, VideoData_10b2a
-	add hl, bc
 	ld a, [hli]
 	ld c, a
 	ld a, [hli]
@@ -89,12 +78,6 @@ LoadRedFieldTopGraphics: ; 0x10aff
 	ret
 
 VideoData_10b2a: ; 0x10b2a
-	dab StageRedFieldTopGfx3
-	dw $8900
-	dw $E0
-	dab StageRedFieldTopGfx3
-	dw $8900
-	dw $E0
 	dab StageRedFieldTopGfx3
 	dw $8900
 	dw $E0
@@ -1197,19 +1180,7 @@ ConcludeEvolutionMode_SilverField: ; 0x11195
 	ret
 
 LoadBlueFieldTopGraphics: ; 0x1120e
-	ld a, [wCurrentStage]
-	sub STAGE_BLUE_FIELD_TOP
-	res 0, a
-	ld c, a
-	ld b, $0
-	srl c
-	sla a
-	sla a
-	sla a
-	sub c
-	ld c, a
 	ld hl, VRAMData_1123b
-	add hl, bc
 	ld a, [hli]
 	ld c, a
 	ld a, [hli]
@@ -1234,39 +1205,16 @@ VRAMData_1123b: ; 0x1123b
 ; This doesn't seem very useful...
 	dab StageBlueFieldTopGfx3
 	dw $8600, $E0
-	dab StageBlueFieldTopGfx3
-	dw $8600, $E0
-	dab StageBlueFieldTopGfx3
-	dw $8600, $E0
-	dab StageBlueFieldTopGfx3
-	dw $8600, $E0
-	dab StageBlueFieldTopGfx3
-	dw $8600, $E0
-	dab StageBlueFieldTopGfx3
-	dw $8600, $E0
-	dab StageBlueFieldTopGfx3
-	dw $8600, $E0
 
 LoadGoldFieldTopGraphics: ; 0x10aff
-	ld a, [wCurrentStage]
-	res 0, a
-	ld c, a
-	ld b, $0
-	srl c
-	sla a
-	sla a
-	sla a
-	sub c
-	ld c, a
 	ld hl, VideoData_10b2a_GoldField
-	add hl, bc
 	ld a, [hli]
 	ld c, a
 	ld a, [hli]
 	ld b, a
 	ld a, [hli]
 	push af
-	push bc
+	push bc ;load 3 byte pointer onto the stack
 	ld a, [hli]
 	ld e, a
 	ld a, [hli]
@@ -1281,30 +1229,12 @@ LoadGoldFieldTopGraphics: ; 0x10aff
 	ret
 
 VideoData_10b2a_GoldField: ; 0x10b2a
-	dab StageGoldFieldTopGfx3
-	dw $8900
-	dw $E0
-	dab StageGoldFieldTopGfx3
-	dw $8900
-	dw $E0
-	dab StageGoldFieldTopGfx3
-	dw $8900
-	dw $E0
+	dab StageGoldFieldTopGfx3 ;dab = 3 byte pointer
+	dw $8900 ;location
+	dw $E0 ;amount of bytes
 
 LoadSilverFieldTopGraphics: ; 0x1120e
-	ld a, [wCurrentStage]
-	sub STAGE_SILVER_FIELD_TOP
-	res 0, a
-	ld c, a
-	ld b, $0
-	srl c
-	sla a
-	sla a
-	sla a
-	sub c
-	ld c, a
 	ld hl, VRAMData_1123b_SilverField
-	add hl, bc
 	ld a, [hli]
 	ld c, a
 	ld a, [hli]
@@ -1327,17 +1257,5 @@ LoadSilverFieldTopGraphics: ; 0x1120e
 
 VRAMData_1123b_SilverField: ; 0x1123b
 ; This doesn't seem very useful...
-	dab StageSilverFieldTopGfx3
-	dw $8600, $E0
-	dab StageSilverFieldTopGfx3
-	dw $8600, $E0
-	dab StageSilverFieldTopGfx3
-	dw $8600, $E0
-	dab StageSilverFieldTopGfx3
-	dw $8600, $E0
-	dab StageSilverFieldTopGfx3
-	dw $8600, $E0
-	dab StageSilverFieldTopGfx3
-	dw $8600, $E0
 	dab StageSilverFieldTopGfx3
 	dw $8600, $E0

@@ -16,4 +16,3 @@ MAX_BONUS_MULTIPLIER_FIELD_EVENTS EQU 11
 MAP_MOVE_FRAMES_COUNTER        EQU  480 ; 8 seconds until the map move counter decrease by 1
 PINBALL_UPGRADE_FRAMES_COUNTER EQU 3600 ; ~1 minute until the pinball type degrades one stage. (e.g. Great Ball -> Pokeball)
 
-LOGGING_SPACE EQU 182

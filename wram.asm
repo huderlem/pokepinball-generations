@@ -2542,34 +2542,6 @@ wWhichFieldSelectRegion:: ; 0xdaa4
 ; 1 = JOHTO
 	ds $1
 
-wCollectBadge::
-    ds 1
-
-wBadgeToCollect::
-    ds 1
-    
-wScriptMode::
-    ds 1
-    
-wFieldToStart::
-    ds 1
-
-wCollectLogFlag::
-    ds 1
-
-wLogTableNumber::
-wLogBalllevel::
-    ds 1
-
-wLogRarity::
-wLogMapMoves::
-wLogCleared::
-wLogEvoStages::
-    ds 1
-
-wLogEvoDataStorage::
-    ds 2 * LOGGING_SPACE
-
 
 SECTION "Audio RAM", WRAMX
 wdd00:: ; 0xdd00

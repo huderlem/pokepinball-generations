@@ -129,8 +129,6 @@ ConcludeCatchEmMode: ; 0x10157
 	ld [wNumMonHits], a
 	call ClearWildMonCollisionMask
 	callba StopTimer
-	ld a, 1
-	ld [wCollectLogFlag], a
 	ld a, [wCurrentStage]
 	rst JumpTable  ; calls JumpToFuncInTable
 CallTable_10178: ; 0x10178
@@ -1081,23 +1079,8 @@ AddCaughtPokemonToParty: ; 0x1073d
 	ld b, $0
 	ld hl, wPartyMons
 	add hl, bc
-	cp LOGGING_SPACE
 	ld a, [wCurrentCatchEmMon]
 	ld [hl], a
-	ld [wBadgeToCollect], a
-	jr nc, .SkipLoggingIfFull
-	ld hl, wLogEvoDataStorage
-	add hl, bc
-	add hl, bc
-	ld a, [wLogTableNumber]
-	ld [hli], a
-	ld a, [wLogCleared]
-	ld [hl], a
-	set 2, a
-	ld [wLogCleared], a
-.SkipLoggingIfFull
-    ld a, 1
-    ld [wCollectBadge], a
 	ld a, [wNumPartyMons]
 	inc a
 	ld [wNumPartyMons], a

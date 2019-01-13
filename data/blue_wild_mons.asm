@@ -4,11 +4,7 @@ BlueStageViridianCityWildMons: ; 0x1144d
 	db SQUIRTLE
 	db SQUIRTLE
 	db SQUIRTLE
-IF DEF(_TPP)
-	db NIDORAN_F
-ELSE
 	db SQUIRTLE
-ENDC
 	db SPEAROW
 	db NIDORAN_F
 	db NIDORAN_F
@@ -23,13 +19,8 @@ ENDC
 BlueStageViridianCityonsRare: ; 0x1145d
 	db BULBASAUR
 	db BULBASAUR
-IF DEF(_TPP)
-	db NIDORAN_F
-	db NIDORAN_F
-ELSE
     db BULBASAUR
     db SQUIRTLE
-ENDC
 	db SPEAROW
 	db SPEAROW
 	db NIDORAN_F
@@ -71,13 +62,8 @@ BlueStageViridianForestWildMonsRare: ; 0x1147d
 	db PIDGEY
 	db RATTATA
 	db RATTATA
-IF DEF(_TPP)
-	db PIDGEY
-	db RATTATA
-ELSE
 	db PIKACHU
 	db PIKACHU
-ENDC
 	db PIKACHU
 	db PIKACHU
 	db PIKACHU
@@ -167,11 +153,7 @@ BlueStageVermilionStreetsWildMons: ; 0x114cd
 	db BELLSPROUT
 	db SHELLDER
 	db SHELLDER
-IF DEF (_TPP)
-	db TENTACOOL
-ELSE
 	db SHELLDER
-ENDC
 	db DROWZEE
 	db DROWZEE
 	db KRABBY

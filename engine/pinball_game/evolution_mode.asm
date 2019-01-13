@@ -41,8 +41,6 @@ ConcludeEvolutionMode: ; 0x10ac8
 	ld [wd554], a
 	call ClearWildMonCollisionMask
 	callba StopTimer
-	ld a, 1
-	ld [wCollectLogFlag], a
 	ld a, [wCurrentStage]
 	rst JumpTable  ; calls JumpToFuncInTable
 ConcludeEvolutionMode_CallTable: ; 0x10af3
@@ -105,16 +103,10 @@ ShowStartEvolutionModeText: ; 0x10b3f
 
 IsBreedingAllowed:
 ; Sets carry flag if not allowed.
-IF DEF(_TPP)
-; Allow breeding on every stage.
-	and a
-	ret
-ELSE
 ; Don't breed on Red/Blue stages
 	ld a, [wCurrentStage]
 	cp STAGE_BLUE_FIELD_BOTTOM + 1
 	ret
-ENDC
 
 InitEvolutionSelectionMenu: ; 0x10b59
 ; Initializes the list menu, which the player uses to select which pokemon to evolve.
@@ -334,27 +326,12 @@ PlaceEvolutionInParty: ; 0x10ca5
 	ld a, [wCurSelectedPartyMon]
 	ld c, a
 	ld b, $0
-	cp LOGGING_SPACE
-	jr nc, .NoLog
-	ld hl, wLogEvoDataStorage
-	add hl, bc
-	add hl, bc
-	ld a, [wLogTableNumber]
-	ld [hli], a
-	ld a, [wLogCleared]
-	ld [hl], a
-	set 2, a
-	ld [wLogCleared], a
-.NoLog
     ld hl, wPartyMons
 	add hl, bc
 	ld a, [wCurrentEvolutionMon]
 	cp $ff
 	ret z
 	ld [hl], a
-	ld [wBadgeToCollect], a
-	ld a, 1
-	ld [wCollectBadge], a
 	ret
 .breedingMode
 	ld a, [wNumPartyMons]
@@ -362,23 +339,8 @@ PlaceEvolutionInParty: ; 0x10ca5
 	ld b, $0
 	ld hl, wPartyMons
 	add hl, bc
-	cp LOGGING_SPACE
 	ld a, [wCurrentEvolutionMon]
 	ld [hl], a
-    ld [wBadgeToCollect], a
-	jr nc, .TooBig
-    ld hl, wLogEvoDataStorage
-	add hl, bc
-	add hl, bc
-	ld a, [wLogTableNumber]
-	ld [hli], a
-	ld a, [wLogCleared]
-	ld [hl], a
-	set 2, a
-	ld [wLogCleared], a
-.TooBig
-    ld a, 1
-	ld [wCollectBadge], a
 	ld a, [wNumPartyMons]
 	inc a
 	ld [wNumPartyMons], a
@@ -420,20 +382,6 @@ SelectPokemonToEvolve: ; 0x10cb7
 	add hl, bc
 	ld a, [hl]
 	ld [wCurrentCatchEmMon], a
-	ld hl, wLogEvoDataStorage
-	add hl, bc
-	add hl, bc
-	ld a, [hli]
-	ld [wLogTableNumber], a
-	ld a, [hl]
-	bit 0, a
-	jr nz, .NotFull
-	bit 1, a
-	jr nz, .Full
-.NotFull
-    inc a
-.Full
-	ld [wLogRarity], a
 	ret
 
 InitEvolutionModeForMon: ; 0x10d1d

@@ -74,7 +74,7 @@ RetrieveJackpot: ; 0x3556
 	ld b, a
 	ret
 
-Func_3567:
+BCD_AddBCHL:
 ; BCD add bc to hl
 	ld a, l
 	add c
@@ -86,7 +86,7 @@ Func_3567:
 	ld h, a
 	ret
 
-Func_3570:
+BCD_AddDEHL:
 ; BCD add de to hl
 	ld a, l
 	add e

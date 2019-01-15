@@ -41,7 +41,9 @@ LoadPokedexScreen: ; 0x2800e
 	call LoadVideoData
 	xor a
 	ld [wCurPokedexIndex], a
+	ld [wCurPokedexIndex + 1], a
 	ld [wPokedexOffset], a
+	ld [wPokedexOffset + 1], a
 	ld [wd95b], a
 	ld [wd95c], a
 	ld [wd960], a
@@ -58,7 +60,8 @@ LoadPokedexScreen: ; 0x2800e
 	call Func_28a8a
 	call Func_28ad1
 	call Func_28add
-	call CountNumSeenOwnedMons
+	call CountNumSeenMons
+	call CountNumOwnedMons
 	call SetAllPalettesWhite
 	ld a, Bank(Music_Pokedex)
 	call SetSongBank
@@ -125,8 +128,9 @@ MainPokedexScreen: ; 0x280fe
 	and a
 	jp nz, .asm_28174
 	ld a, [wCurPokedexIndex]
+	ld b, a
+	ld a, [wCurPokedexIndex + 1]
 	ld c, a
-	ld b, $0
 	ld hl, wPokedexFlags
 	add hl, bc
 	ld a, [hl]
@@ -134,9 +138,12 @@ MainPokedexScreen: ; 0x280fe
 	jp z, .asm_28174
 	push hl
 	ld a, [wCurPokedexIndex]
-	inc a
-	ld e, a
-	ld d, $0
+	ld b, a
+	ld a, [wCurPokedexIndex + 1]
+	ld c, a
+	inc bc
+	ld e, c
+	ld d, b
 	call PlayCry
 	pop hl
 	bit 1, [hl]
@@ -234,8 +241,9 @@ MonInfoPokedexScreen: ; 0x28178
 
 Func_281cb:
 	ld a, [wCurPokedexIndex]
+	ld b, a
+	ld a, [wCurPokedexIndex + 1]
 	ld c, a
-	ld b, $0
 	sla c
 	rl b
 	add c
@@ -408,8 +416,9 @@ Func_282e9: ; 0x282e9
 	and a
 	jr z, .asm_28318
 	ld a, [wCurPokedexIndex]
+	ld b, a
+	ld a, [wCurPokedexIndex + 1]
 	ld c, a
-	ld b, $0
 	ld hl, MonAnimatedSpriteTypes
 	add hl, bc
 	ld a, Bank(MonAnimatedSpriteTypes)
@@ -730,76 +739,141 @@ Func_28513: ; 0x28513
 	ld a, [wd95c]
 	and a
 	ret nz
-	ld a, [wd95e]
-	ld b, a
-	ld a, (NUM_POKEMON & $FF) ; TODO
-.asm_2852d
-	ld d, a
+	ld de, NUM_POKEMON
 	ld a, [wCurPokedexIndex]
-	bit 6, b
+	ld b, a
+	ld a, [wCurPokedexIndex + 1]
+	ld c, a
+	ld a, [wd95e]
+	bit BIT_D_UP, a
 	jr z, .asm_28548
-	and a
-	jr z, .asm_285a9
-	dec a
+	ld a, b
+	or c
+	jp z, .asm_285a9
+	dec bc
+	ld a, b
 	ld [wCurPokedexIndex], a
+	ld a, c
+	ld [wCurPokedexIndex + 1], a
 	ld a, $4
 	ld [wd95c], a
 	ld a, $1
 	ld [wd95f], a
-	jr .asm_285a9
+	jp .asm_285a9
 
 .asm_28548
-	bit 7, b
+	bit BIT_D_DOWN, a
 	jr z, .asm_2855f
-	inc a
+	inc bc
+	ld a, b
 	cp d
-	jr z, .asm_285a9
+	jr nz, .continue
+	ld a, c
+	cp e
+	jp z, .asm_285a9
+.continue
+	ld a, b
 	ld [wCurPokedexIndex], a
+	ld a, c
+	ld [wCurPokedexIndex + 1], a
 	ld a, $4
 	ld [wd95c], a
 	ld a, $1
 	ld [wd95f], a
-	jr .asm_285a9
+	jp .asm_285a9
 
 .asm_2855f
-	ld a, d
-	sub $9
-	ld d, a
 	ld a, [wPokedexOffset]
-	ld c, $5
-	bit 5, b
-	jr z, .asm_28586
+	ld b, a
+	ld a, [wPokedexOffset + 1]
+	ld c, a
+	ld de, 5
+	ld a, [wd95e]
+	; Disable left scrolling in Dex.
+	; bit BIT_D_LEFT, a
+	; jr z, .asm_28586
+	jr .asm_28586
+
+	ld a, b
+	and a
+	jr nz, .asm_28571
+	ld a, c
 	cp $5
 	jr nc, .asm_28571
-	ld c, a
+	ld d, b
+	ld e, c
 .asm_28571
-	sub c
+	ld a, c
+	sub e
+	ld c, a
+	jr nc, .noCarry
+	dec b
+.noCarry
+	ld a, b
+	sub d
 	ld [wPokedexOffset], a
+	ld a, c
+	ld [wPokedexOffset + 1], a
 	ld a, [wCurPokedexIndex]
-	sub c
+	ld b, a
+	ld a, [wCurPokedexIndex + 1]
+	sub e
+	ld c, a
+	jr nc, .noCarry2
+	dec b
+.noCarry2
+	ld a, b
+	sub d
 	ld [wCurPokedexIndex], a
+	ld a, c
+	ld [wCurPokedexIndex + 1], a
 	ld a, $1
 	ld [wd95f], a
 	call Func_285ca
 	jr .asm_285aa
 
 .asm_28586
-	bit 4, b
-	jr z, .asm_285ae
-	cp d
+	; Disable right scrolling in Dex.
+	;bit BIT_D_RIGHT, a
+	;jr z, .asm_285ae
+	jr .asm_285ae
+
+	ld hl, 5
+	ld a, [wPokedexOffset]
+	ld d, a
+	ld a, [wPokedexOffset + 1]
+	ld e, a
+	ld a, d
+	cp (((NUM_POKEMON - 9) >> 8) & $FF)
 	jr c, .asm_28594
-	push af
+	ld a, e
+	cp ((NUM_POKEMON - 9) & $FF)
+	jr c, .asm_28594
+	ld a, h
 	cpl
-	add d
-	add $5
-	ld c, a
-	pop af
+	ld h, a
+	ld a, l
+	cpl
+	ld l, a
+	ld bc, 5
+	add hl, bc
 .asm_28594
-	add c
+	push hl
+	add hl, de
+	ld a, h
 	ld [wPokedexOffset], a
+	ld a, l
+	ld [wPokedexOffset + 1], a
+	pop hl
 	ld a, [wCurPokedexIndex]
-	add c
+	ld d, a
+	ld a, [wCurPokedexIndex + 1]
+	ld e, a
+	add hl, de
+	ld a, h
 	ld [wCurPokedexIndex], a
+	ld a, l
+	ld [wCurPokedexIndex + 1], a
 	ld a, $1
 	ld [wd95f], a
 	call Func_285ca
@@ -836,8 +910,9 @@ Func_285ca: ; 0x285ca
 
 Func_285db: ; 0x285db
 	ld a, [wCurPokedexIndex]
+	ld b, a
+	ld a, [wCurPokedexIndex + 1]
 	ld c, a
-	ld b, $0
 	ld hl, wPokedexFlags
 	add hl, bc
 	bit 1, [hl]  ; has pokemon been seen or captured?
@@ -853,8 +928,9 @@ Func_285db: ; 0x285db
 	call LoadOAMData
 	call DrawCornerInfoPokedexScreen
 	ld a, [wCurPokedexIndex]
+	ld b, a
+	ld a, [wCurPokedexIndex + 1]
 	ld c, a
-	ld b, $0
 	ld hl, DexScrollBarOffsets
 	add hl, bc
 	ld a, [hl]
@@ -872,24 +948,68 @@ Func_285db: ; 0x285db
 	ld a, [hl]
 	call LoadOAMData
 	ld a, [wCurPokedexIndex]
-	ld hl, wPokedexOffset
-	sub [hl]
+	ld h, a
+	ld b, a
+	ld a, [wCurPokedexIndex + 1]
+	ld l, a
+	ld c, a
+	ld a, [wPokedexOffset]
+	cpl
+	ld d, a
+	ld a, [wPokedexOffset + 1]
+	cpl
+	ld e, a
+	inc de ; negative de
+	add hl, de ; hl = [wCurPokedexIndex] - [wPokedexOffset]
+	ld a, [wPokedexOffset]
+	ld d, a
+	ld a, [wPokedexOffset + 1]
+	ld e, a
+	ld a, b
+	cp d
+	jr c, .lessThan
+	jr nz, .asm_2863b
+	ld a, c
+	cp e
 	jr nc, .asm_2863b
-	dec [hl]
+.lessThan
+	ld a, [wPokedexOffset]
+	ld d, a
+	ld a, [wPokedexOffset + 1]
+	ld e, a
+	dec de
+	ld a, d
+	ld [wPokedexOffset], a
+	ld a, e
+	ld [wPokedexOffset + 1], a
 	ld a, $1
 	ld [wd95d], a
-	xor a
+	ld bc, 0
 	jr .asm_28647
 
 .asm_2863b
-	cp $5
+	ld b, h
+	ld c, l
+	ld a, b
+	and a
+	jr nz, .greaterThan5
+	ld a, c
+	cp 5
 	jr c, .asm_28647
+.greaterThan5
 	ld a, $1
 	ld [wd95d], a
-	inc [hl]
-	ld a, $4
+	ld a, [wPokedexOffset]
+	ld d, a
+	ld a, [wPokedexOffset + 1]
+	ld e, a
+	inc de
+	ld a, d
+	ld [wPokedexOffset], a
+	ld a, e
+	ld [wPokedexOffset + 1], a
+	ld bc, 4
 .asm_28647
-	ld c, a
 	push bc
 	ld a, [hJoypadState]
 	and a
@@ -918,6 +1038,7 @@ Func_285db: ; 0x285db
 	sla a
 	ld e, a
 	ld d, $0
+	ld hl, wPokedexOffset
 	push hl
 	ld hl, PointerTable_2867f
 	add hl, de
@@ -1031,8 +1152,12 @@ Func_28721: ; 0x28721
 	ld a, c
 	and a
 	jr nz, .asm_28747
+	ld a, [hli]
+	ld b, a
 	ld a, [hl]
-	push af
+	ld c, a
+	push bc
+	ld a, c
 	sla a
 	and $1e
 	ld c, a
@@ -1042,7 +1167,7 @@ Func_28721: ; 0x28721
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	pop af
+	pop bc
 	call Func_28aaa
 	ld hl, hNextFrameHBlankSCX
 	dec [hl]
@@ -1052,9 +1177,17 @@ Func_28721: ; 0x28721
 	ret
 
 .asm_28747
+	ld a, [hli]
+	ld b, a
 	ld a, [hl]
-	add $5
-	push af
+	ld c, a
+	inc bc
+	inc bc
+	inc bc
+	inc bc
+	inc bc
+	push bc
+	ld a, c
 	sla a
 	and $1e
 	ld c, a
@@ -1064,7 +1197,7 @@ Func_28721: ; 0x28721
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	pop af
+	pop bc
 	call Func_28aaa
 	ld hl, hNextFrameHBlankSCX
 	inc [hl]
@@ -1082,6 +1215,7 @@ Func_28765: ; 0x28765
 	and a
 	jr nz, .asm_28791
 	push hl
+	inc hl
 	ld a, [hl]
 	sla a
 	and $e
@@ -1101,12 +1235,16 @@ Func_28765: ; 0x28765
 	pop hl
 	xor a
 	ld [wd862], a
+	ld a, [hli]
+	ld b, a
 	ld a, [hl]
+	ld c, a
 	call Func_28993
 	ret
 
 .asm_28791
 	push hl
+	inc hl
 	ld a, [hl]
 	add $5
 	sla a
@@ -1127,8 +1265,15 @@ Func_28765: ; 0x28765
 	pop hl
 	xor a
 	ld [wd862], a
+	ld a, [hli]
+	ld b, a
 	ld a, [hl]
-	add $5
+	ld c, a
+	inc bc
+	inc bc
+	inc bc
+	inc bc
+	inc bc
 	call Func_28993
 	ret
 
@@ -1168,8 +1313,9 @@ Func_287e7: ; 0x287e7
 	and a
 	ret nz
 	ld a, [wCurPokedexIndex]
+	ld b, a
+	ld a, [wCurPokedexIndex + 1]
 	ld c, a
-	ld b, $0
 	ld hl, MonAnimatedSpriteTypes
 	add hl, bc
 	ld a, Bank(MonAnimatedSpriteTypes)
@@ -1226,8 +1372,9 @@ Func_28815: ; 0x28815
 
 Func_2885c: ; 0x2885c
 	ld a, [wCurPokedexIndex]
+	ld b, a
+	ld a, [wCurPokedexIndex + 1]
 	ld c, a
-	ld b, $0
 	ld hl, wPokedexFlags
 	add hl, bc
 	bit 1, [hl]
@@ -1289,18 +1436,20 @@ Func_288a2: ; 0x288a2
 
 Func_288c6: ; 0x288c6
 	ld a, [wCurPokedexIndex]
+	ld b, a
+	ld a, [wCurPokedexIndex + 1]
 	ld c, a
-	ld b, $0
 	ld hl, wPokedexFlags
 	add hl, bc
 	bit 1, [hl]
 	ld hl, Unknown_2c000
 	jr z, .asm_288f4
 	ld a, [wCurPokedexIndex]
-	ld h, $0
+	ld h, a
+	ld a, [wCurPokedexIndex + 1]
 	ld l, a
-	ld b, $0
-	ld c, a
+	ld b, h
+	ld c, l
 	sla c
 	rl b
 	add hl, bc
@@ -1354,8 +1503,9 @@ Func_28912: ; 0x28912
 
 Func_28931: ; 0x28931
 	ld a, [wCurPokedexIndex]
+	ld b, a
+	ld a, [wCurPokedexIndex + 1]
 	ld c, a
-	ld b, $0
 	ld hl, wPokedexFlags
 	add hl, bc
 	ld a, [hl]
@@ -1363,8 +1513,9 @@ Func_28931: ; 0x28931
 	ld hl, BlankDexName
 	jr z, .asm_2895d
 	ld a, [wCurPokedexIndex]
+	ld b, a
+	ld a, [wCurPokedexIndex + 1]
 	ld c, a
-	ld b, $0
 	ld h, b
 	ld l, c
 	sla l
@@ -1394,10 +1545,14 @@ BlankDexName:
 
 Func_28972: ; 0x28972
 	ld a, [wPokedexOffset]
+	ld b, a
+	ld a, [wPokedexOffset + 1]
 	ld c, a
-	ld b, $6
+	ld h, $6
 .asm_28978
 	push bc
+	push de
+	push hl
 	ld a, c
 	sla a
 	and $e
@@ -1409,18 +1564,17 @@ Func_28972: ; 0x28972
 	ld e, a
 	ld a, [hl]
 	ld d, a
-	ld a, c
 	call Func_28993
+	pop hl
+	pop de
 	pop bc
-	inc c
-	dec b
+	inc bc
+	dec h
 	jr nz, .asm_28978
 	ret
 
 Func_28993: ; 0x28993
 	push hl
-	ld c, a
-	ld b, $0
 	ld hl, wPokedexFlags
 	add hl, bc
 	ld a, [hl]
@@ -1455,8 +1609,9 @@ BlankDexName2:
 
 Func_289c8: ; 0x289c8
 	ld a, [wCurPokedexIndex]
+	ld b, a
+	ld a, [wCurPokedexIndex + 1]
 	ld c, a
-	ld b, $0
 	ld hl, wPokedexFlags
 	add hl, bc
 	bit 1, [hl]
@@ -1465,8 +1620,9 @@ Func_289c8: ; 0x289c8
 	ld [wScratchBuffer], a
 	jr z, .pokemonNotOwned
 	ld a, [wCurPokedexIndex]
+	ld b, a
+	ld a, [wCurPokedexIndex + 1]
 	ld c, a
-	ld b, $0
 	ld hl, MonSpecies
 	add hl, bc
 	ld c, [hl]
@@ -1503,8 +1659,9 @@ BlankSpeciesName:
 
 Func_28a15: ; 0x28a15
 	ld a, [wCurPokedexIndex]
+	ld b, a
+	ld a, [wCurPokedexIndex + 1]
 	ld c, a
-	ld b, $0
 	ld h, b
 	ld l, c
 	sla l
@@ -1531,8 +1688,9 @@ Func_28a15: ; 0x28a15
 	inc de
 	inc de
 	ld a, [wCurPokedexIndex]
+	ld b, a
+	ld a, [wCurPokedexIndex + 1]
 	ld c, a
-	ld b, $0
 	ld hl, wPokedexFlags
 	add hl, bc
 	bit 1, [hl]
@@ -1580,11 +1738,14 @@ BlankPokemonTileData_28a7f:
 	db $83 ; tile id
 
 Func_28a8a: ; 0x28a8a
-	ld a, [wPokedexOffset]
+	ld a, [wPokedexOffset ]
+	ld b, a
+	ld a, [wPokedexOffset + 1]
 	ld c, a
-	ld b, $6
+	ld h, $6
 .asm_28a90
 	push bc
+	push hl
 	ld a, c
 	sla a
 	and $1e
@@ -1595,18 +1756,16 @@ Func_28a8a: ; 0x28a8a
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	ld a, c
 	call Func_28aaa
+	pop hl
 	pop bc
 	inc c
-	dec b
+	dec h
 	jr nz, .asm_28a90
 	ret
 
 Func_28aaa: ; 0x28aaa
 	push hl
-	ld c, a
-	ld b, $0
 	ld h, b
 	ld l, c
 	sla l
@@ -1631,7 +1790,7 @@ Func_28aaa: ; 0x28aaa
 	ret
 
 Func_28ad1: ; 0x28ad1
-	ld a, [wPokedexOffset]
+	ld a, [wPokedexOffset + 1]
 	swap a
 	and $f0
 	sub $3c
@@ -1640,8 +1799,9 @@ Func_28ad1: ; 0x28ad1
 
 Func_28add: ; 0x28add
 	ld a, [wCurPokedexIndex]
+	ld b, a
+	ld a, [wCurPokedexIndex + 1]
 	ld c, a
-	ld b, $0
 	ld hl, wPokedexFlags
 	add hl, bc
 	ld a, [hl]
@@ -1656,14 +1816,15 @@ Func_28add: ; 0x28add
 	jp z, Func_28bf5
 .asm_28afc
 	ld a, [wCurPokedexIndex]
+	ld b, a
+	ld a, [wCurPokedexIndex + 1]
 	ld c, a
-	ld b, $0
-	sla c
-	rl b
-	add c
-	ld c, a
-	jr nc, .asm_28b0b
-	inc b
+	ld h, b
+	ld l, c
+	add hl, bc
+	add hl, bc
+	ld b, h
+	ld c, l
 .asm_28b0b
 	push bc
 	ld hl, MonBillboardPicPointers
@@ -1745,14 +1906,15 @@ UncaughtPokemonPaletteMap:
 
 LoadSeenPokemonGfx: ; 0x28baf
 	ld a, [wCurPokedexIndex]
+	ld b, a
+	ld a, [wCurPokedexIndex + 1]
 	ld c, a
-	ld b, $0
-	sla c
-	rl b
-	add c
-	ld c, a
-	jr nc, .asm_28bbe
-	inc b
+	ld h, b
+	ld l, c
+	add hl, bc
+	add hl, bc
+	ld b, h
+	ld c, l
 .asm_28bbe
 	ld hl, MonBillboardPicPointers
 	add hl, bc
@@ -1783,14 +1945,15 @@ LoadSeenPokemonGfx: ; 0x28baf
 
 Func_28bf5: ; 0x28bf5
 	ld a, [wCurPokedexIndex]
+	ld b, a
+	ld a, [wCurPokedexIndex + 1]
 	ld c, a
-	ld b, $0
-	sla c
-	rl b
-	add c
-	ld c, a
-	jr nc, .asm_28c04
-	inc b
+	ld h, b
+	ld l, c
+	add hl, bc
+	add hl, bc
+	ld b, h
+	ld c, l
 .asm_28c04
 	push bc
 	ld a, $1
@@ -1817,8 +1980,9 @@ Func_28bf5: ; 0x28bf5
 	pop bc
 	push bc
 	ld a, [wCurPokedexIndex]
+	ld b, a
+	ld a, [wCurPokedexIndex + 1]
 	ld c, a
-	ld b, $0
 	ld hl, EvolutionLineIds
 	add hl, bc
 	ld a, BANK(EvolutionLineIds)
@@ -1847,8 +2011,9 @@ Func_28bf5: ; 0x28bf5
 	call ReadByteFromBank
 	ld [wCurrentCatchMonHitFrameDuration], a
 	ld a, [wCurPokedexIndex]
+	ld b, a
+	ld a, [wCurPokedexIndex + 1]
 	ld c, a
-	ld b, $0
 	ld hl, MonAnimatedSpriteTypes
 	add hl, bc
 	ld a, Bank(MonAnimatedSpriteTypes)
@@ -1891,8 +2056,9 @@ Func_28bf5: ; 0x28bf5
 
 Func_28cc2: ; 0x28cc2
 	ld a, [wCurPokedexIndex]
+	ld b, a
+	ld a, [wCurPokedexIndex + 1]
 	ld c, a
-	ld b, $0
 	ld hl, MonAnimatedSpriteTypes
 	add hl, bc
 	ld a, Bank(MonAnimatedSpriteTypes)
@@ -1989,37 +2155,86 @@ asm_28d1d
 	jr nz, .asm_28d22
 	ret
 
-CountNumSeenOwnedMons: ; 0x28d35
+CountNumSeenMons:
 	ld hl, wPokedexFlags
-	ld de, $0000  ; keep a running count: d = owned, e = seen
-	ld b, (NUM_POKEMON & $ff) ; TODO
+	ld bc, $0000  ; keep a running count
+	ld de, NUM_POKEMON
 .checkSeen
 	bit 0, [hl]  ; is mon seen?
-	jr z, .checkOwned
-	inc e
-.checkOwned
-	bit 1, [hl]  ; is mon owned?
 	jr z, .nextMon
-	inc d
+	inc bc
 .nextMon
 	inc hl
-	dec b
-	jr nz, .checkSeen
-	push de
+	dec de
 	ld a, d
-	call ConvertHexByteToDecWord
+	or e
+	jr nz, .checkSeen
+	call ConvertHexWordToBCD
 	ld a, e
 	ld [wNumPokemonSeen], a
 	ld a, d
 	ld [wNumPokemonSeen + 1], a
-	pop de
-	ld a, e
-	call ConvertHexByteToDecWord
+	ret
+
+CountNumOwnedMons:
+	ld hl, wPokedexFlags
+	ld bc, $0000  ; keep a running count
+	ld de, NUM_POKEMON
+.checkOwned
+	bit 1, [hl]  ; is mon owned?
+	jr z, .nextMon
+	inc bc
+.nextMon
+	inc hl
+	dec de
+	ld a, d
+	or e
+	jr nz, .checkOwned
+	call ConvertHexWordToBCD
 	ld a, e
 	ld [wNumPokemonOwned], a
 	ld a, d
 	ld [wNumPokemonOwned + 1], a
 	ret
+
+ConvertHexWordToBCD: ; 0xe21
+; Convert the base-16 value in register bc into a Binary Coded Decimal (base-10) word.
+; Example:  If bc = $0101, de = $0257.
+; The maximum value of bc that is supported is bc = $3FF
+	ld hl, PowersOfTwo_Word
+	ld de, $0000
+.loop
+	bit 0, c
+	ld a, [hli]
+	jr z, .continue
+	add e
+	daa
+	ld e, a
+	ld a, [hl]
+	adc d
+	daa
+	ld d, a
+.continue
+	srl b
+	rr c
+	inc hl
+	ld a, b
+	or c
+	and a
+	jr nz, .loop
+	ret
+
+PowersOfTwo_Word:
+	dw $0001
+	dw $0002
+	dw $0004
+	dw $0008
+	dw $0016
+	dw $0032
+	dw $0064
+	dw $0128
+	dw $0256
+	dw $0512
 
 ClearPokedexData: ; 0x28d66
 	ld hl, wPokedexFlags

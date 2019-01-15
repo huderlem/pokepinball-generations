@@ -1003,3 +1003,99 @@ PokedexMonAttributesTexts: ; 0x2a85d
 	dex_number 251
 	dex_height 2, 0
 	dex_weight 11
+; TREECKO
+	dex_number 252
+	dex_height 2, 0
+	dex_weight 11
+; GROVYLE
+	dex_number 253
+	dex_height 2, 0
+	dex_weight 11
+; SCEPTILE
+	dex_number 254
+	dex_height 2, 0
+	dex_weight 11
+; TORCHIC
+	dex_number 255
+	dex_height 2, 0
+	dex_weight 11
+; COMBUSKEN
+	dex_number 256
+	dex_height 2, 0
+	dex_weight 11
+; BLAZIKEN
+	dex_number 257
+	dex_height 2, 0
+	dex_weight 11
+; MUDKIP
+	dex_number 258
+	dex_height 2, 0
+	dex_weight 11
+; MARSHTOMP
+	dex_number 259
+	dex_height 2, 0
+	dex_weight 11
+; SWAMPERT
+	dex_number 260
+	dex_height 2, 0
+	dex_weight 11
+; POOCHYENA
+	dex_number 261
+	dex_height 2, 0
+	dex_weight 11
+; MIGHTYENA
+	dex_number 262
+	dex_height 2, 0
+	dex_weight 11
+; ZIGZAGOON
+	dex_number 263
+	dex_height 2, 0
+	dex_weight 11
+; LINOONE
+	dex_number 264
+	dex_height 2, 0
+	dex_weight 11
+; WURMPLE
+	dex_number 265
+	dex_height 2, 0
+	dex_weight 11
+; SILCOON
+	dex_number 266
+	dex_height 2, 0
+	dex_weight 11
+; BEAUTIFLY
+	dex_number 267
+	dex_height 2, 0
+	dex_weight 11
+; CASCOON
+	dex_number 268
+	dex_height 2, 0
+	dex_weight 11
+; DUSTOX
+	dex_number 269
+	dex_height 2, 0
+	dex_weight 11
+; LOTAD
+	dex_number 270
+	dex_height 2, 0
+	dex_weight 11
+; LOMBRE
+	dex_number 271
+	dex_height 2, 0
+	dex_weight 11
+; LUDICOLO
+	dex_number 272
+	dex_height 2, 0
+	dex_weight 11
+; SEEDOT
+	dex_number 273
+	dex_height 2, 0
+	dex_weight 11
+; NUZLEAF
+	dex_number 274
+	dex_height 2, 0
+	dex_weight 11
+; SHIFTRY
+	dex_number 275
+	dex_height 2, 0
+	dex_weight 11

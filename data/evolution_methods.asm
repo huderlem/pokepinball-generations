@@ -454,7 +454,7 @@ OddishEvolutions:
 GloomEvolutions:
 	db 2
 	dwb VILEPLUME, EVO_LEAF_STONE
-	dwb BELLOSSOM, EVO_LEAF_STONE ; TODO: sun stone
+	dwb BELLOSSOM, EVO_SUN_STONE
 
 VileplumeEvolutions:
 	db 1
@@ -1030,7 +1030,7 @@ AipomEvolutions:
 
 SunkernEvolutions:
 	db 1
-	dwb SUNFLORA, EVO_LEAF_STONE ; TODO: sun stone
+	dwb SUNFLORA, EVO_SUN_STONE
 
 SunfloraEvolutions:
 	db 1

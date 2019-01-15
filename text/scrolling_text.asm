@@ -181,6 +181,7 @@ EvolutionTypeGetTextPointers:
 	dw GetWaterStoneText
 	dw GetLinkCableText
 	dw GetExperienceText
+	dw GetSunStoneText
 	dw TakeStepsText
 
 GetExperienceText:
@@ -214,6 +215,10 @@ GetLinkCableText:
 TakeStepsText:
 	db $05, $54, $42, $14, $00, $38
 	db "TAKE MANY STEPS @"
+
+GetSunStoneText:
+	db $05, $54, $42, $14, $00, $38
+	db "GET A SUN STONE @"
 
 MapMoveFailedText:
 	scrolling_text_normal 2, 20, 0, 18

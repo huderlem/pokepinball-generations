@@ -3,9 +3,9 @@ BlazikenPic:
 BlazikenSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
 MudkipPic:
-	INCBIN "gfx/billboard/mon_pics/cascoon.2bpp"
+	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
 MudkipSilhouettePic:
-	INCBIN "gfx/billboard/mon_silhouettes/cascoon.2bpp"
+	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
 MarshtompPic:
 	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
 MarshtompSilhouettePic:

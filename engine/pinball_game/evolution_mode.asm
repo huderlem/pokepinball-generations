@@ -738,8 +738,14 @@ LoadEvolutionTrinketGfx:
 	ld a, [wCurrentEvolutionType]
 	cp EVO_BREEDING
 	jr z, .breeding
+	dec a
+	ld c, a
+	ld b, $0
+	swap c
+	sla c
 	ld hl, EvolutionTrinketsGfx
-	ld bc, $00e0
+	add hl, bc
+	ld bc, $0020
 	ld a, BANK(EvolutionTrinketsGfx)
 	jr .load
 .breeding

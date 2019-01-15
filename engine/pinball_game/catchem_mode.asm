@@ -1090,6 +1090,10 @@ AddCaughtPokemonToParty: ; 0x1073d
 	ld [hl], a
 	ld a, [wNumPartyMons]
 	inc a
+	cp 128
+	jr c, .update
+	xor a
+.update
 	ld [wNumPartyMons], a
 	ret
 

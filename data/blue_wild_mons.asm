@@ -19,8 +19,8 @@ BlueStageViridianCityWildMons: ; 0x1144d
 BlueStageViridianCityonsRare: ; 0x1145d
 	db BULBASAUR
 	db BULBASAUR
-    db BULBASAUR
-    db SQUIRTLE
+	db BULBASAUR
+	db SQUIRTLE
 	db SPEAROW
 	db SPEAROW
 	db NIDORAN_F

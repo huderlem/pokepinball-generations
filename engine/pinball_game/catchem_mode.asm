@@ -33,7 +33,7 @@ StartCatchEmMode: ; 0x1003f
 	ret nz  ; don't start catch 'em mode if we're already doing something like Map Move mode
 	ld a, $1
 	ld [wInSpecialMode], a  ; set special mode flag
-	callba ChooseWildMon	
+	callba ChooseWildMon
 	ld a, [wCurrentCatchEmMon]
 	ld c, a
 	ld b, $0

@@ -3,7 +3,7 @@ Func_61b: ; 0x61b
 	cp $40
 	jr c, .asm_625
 	cp $80
-	jr c, .asm_63d
+	jr c, .asm_63d ;if timing is between 64 and 128, ret, else loop until it is
 .asm_625
 	ld a, [rLY]  ; LY register (LCDC Y-Coordinate)
 	cp $40
@@ -12,12 +12,12 @@ Func_61b: ; 0x61b
 	jr nc, .asm_625
 .asm_62f
 	ld a, [rSTAT]
-	and $3
+	and $3 ;loop until hblank
 	jr nz, .asm_62f  ; wait for lcd controller to finish transferring data
 	ld a, $15
 .wait
 	dec a
-	jr nz, .wait
+	jr nz, .wait ;wait 15 loops + 3 nops
 	nop
 	nop
 	nop
@@ -381,7 +381,7 @@ FarCopyPalettes: ; 0x790
 
 Func_7dc: ; 0x7dc
 	bit 7, h
-	jr nz, .asm_7ef
+	jr nz, .asm_7ef ; if bit 7 of h bank change to a, else only change ram bank
 	ld [hROMBankBuffer], a
 	ld a, [hLoadedROMBank]
 	push af
@@ -397,27 +397,27 @@ Func_7dc: ; 0x7dc
 .asm_7f3
 	push af
 	ld a, e
-	bit 6, e
+	bit 6, e ;if bit 6 of e use rBGPI otherwise use rOBPI
 	ld de, rBGPI
 	jr z, .asm_801
 	res 6, a
 	ld de, rOBPI
 .asm_801
 	push hl
-	ld h, d
+	ld h, d ;copy thing in use to hl
 	ld l, e
-	set 7, a
+	set 7, a ;set bit 7 of a, place tile in VRAM
 	call PutTileInVRAM
-	inc de
+	inc de ;inc the de version, overwrite HL
 	pop hl
 	call WaitForLCD
 .asm_80e
 	call Func_61b
-.asm_811
-	ld a, [rSTAT]
+.waitforHblank
+	ld a, [rSTAT] ;when in hblank
 	and $3
-	jr nz, .asm_811
-	ld a, [hli]
+	jr nz, .waitforHblank
+	ld a, [hli] ;move 4 bytes from HL to DE
 	ld [de], a
 	ld a, [hli]
 	ld [de], a
@@ -448,14 +448,14 @@ Func_7dc: ; 0x7dc
 	dec bc
 	dec bc
 	dec bc
-	dec bc
+	dec bc ;dec bc by 4
 	nop
 	nop
 	nop
 	nop
 	ld a, b
 	or c
-	jr nz, .asm_80e
+	jr nz, .asm_80e ;loop for bc moves
 	pop af
 	ret nc
 	pop af

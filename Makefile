@@ -5,7 +5,7 @@
 .PRECIOUS:
 .SECONDARY:
 
-ROM := pokepinball.gbc
+ROM := PinballGenerations.gbc
 OBJS := main.o wram.o sram.o
 
 MD5 := md5sum -c

@@ -24,8 +24,8 @@ RedStagePalletTownWildMonsRare: ; 0x112dc
 	db CHARMANDER
 	db PIDGEY
 	db RATTATA
-	db NIDORAN_M
-	db NIDORAN_M
+    db NIDORAN_M
+    db NIDORAN_M
 	db NIDORAN_M
 	db POLIWAG
 	db POLIWAG
@@ -248,7 +248,7 @@ RedStageLavenderTownWildMonsRare: ; 0x1139c
 	db ELECTABUZZ
 	db ELECTABUZZ
 	db ZAPDOS
-	db ZAPDOS
+    db ZAPDOS
 	db ZAPDOS
 
 RedStageCyclingRoadWildMons: ; 0x113ac

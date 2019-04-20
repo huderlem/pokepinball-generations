@@ -248,6 +248,12 @@ OAMDataPointers: ; 0x4000
 	dw OAMData_f6
 	dw OAMData_f7
 	dw OAMData_f8
+	dw OAMData_f9
+	dw OAMData_Octillery_tentacles
+	dw OAMData_OctilleryHead1
+	dw OAMData_OctilleryHead2
+	dw OAMData_OctilleryHead3
+	dw OAMData_OctilleryHead4
 
 BallSpin0OAM: ; 0x41f2
 	db $08, $08, $42, $00
@@ -2211,6 +2217,43 @@ OAMData_f7: ; 0x55cd
 
 OAMData_f8: ; 0x55d2
 	db $10, $08, $78, $00
+	db $80 ; terminator
+
+OAMData_f9: ; for mareeps
+	db $0f, $10, $30, $11
+	db $0f, $08, $2e, $11
+	db $80 ; terminator
+
+OAMData_Octillery_tentacles: ;FA
+	db $1C, $22, $0e, $0c
+	db $0C, $22, $0c, $0c
+	db $1C, $0E, $0a, $0c
+	db $0C, $0E, $08, $0c
+	db $80 ; terminator
+
+OAMData_OctilleryHead1: ; FB
+; bellsprout?
+	db $12, $0E, $66, $15
+	db $02, $0E, $64, $15
+	db $12, $06, $62, $15
+	db $02, $06, $60, $15
+	db $80 ; terminator
+
+OAMData_OctilleryHead2: ; FC
+	db $00, $08, $68, $15
+	db $10, $0E, $6c, $15
+	db $10, $06, $6a, $15
+	db $80 ; terminator
+
+OAMData_OctilleryHead3: ; FD
+	db $0F, $0E, $70, $15
+	db $0F, $06, $6e, $15
+	db $80 ; terminator
+
+OAMData_OctilleryHead4: ; FE
+	db $00, $09, $72, $15
+	db $10, $0E, $76, $15
+	db $10, $06, $74, $15
 	db $80 ; terminator
 
 OAMDataPointers2: ; 0x55d7

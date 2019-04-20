@@ -66,20 +66,20 @@ DrawVoltorbSprite_GoldField: ; 0x17cdc
 	call UpdateAnimation
 	ld h, d
 	ld l, e
-	ld a, [hl]
+	ld a, [hl] ;if counter is 0
 	and a
 	jr nz, .asm_17cf6
 	call GenRandom
-	and $7
-	add $1e
-	ld [hli], a
+	and $f ;rand 37-30
+	add $12
+	ld [hli], a ;replace animation counter with new number
 	ld a, $1
 	ld [hli], a
 	xor a
 	ld [hl], a
 .asm_17cf6
 	pop hl
-	inc de
+	inc de ;animation byte 2
 	ld a, [hSCX]
 	ld b, a
 	ld a, [hli]
@@ -93,39 +93,35 @@ DrawVoltorbSprite_GoldField: ; 0x17cdc
 	ld a, [wWhichAnimatedVoltorb]
 	sub [hl]
 	inc hl
-	jr z, .asm_17d0c
+	jr z, .asm_17d0c ;if voltorb is animated, load frame into a, otherwise a is 0
 	ld a, [de]
 .asm_17d0c
 	ld e, a
 	ld d, $0
-	add hl, de
+	add hl, de ;load in appropriate OAM ID
 	ld a, [hl]
 	call LoadOAMData
 	ret
 
 OAMData_17d15_GoldField:
 	db $3A, $4E ; x, y offsets
-	db $00 ; ???
-	db $BD, $BC, $CE ; oam ids
+	db $00 ; attached voltorb
+	db $BD, $BC, $F9 ; oam ids
 
 OAMData_17d1b_GoldField:
 	db $53, $44 ; x, y offsets
-	db $01 ; ???
-	db $BD, $BC, $CD ; oam ids
+	db $01 ; attached voltorb
+	db $BD, $BC, $F9 ; oam ids
 
 OAMData_17d21_GoldField:
 	db $4D, $60 ; x, y offsets
-	db $02 ; ???
-	db $BD, $BC, $CF ; oam ids
+	db $02 ; attached voltorb
+	db $BD, $BC, $F9 ; oam ids
 
 AnimationData_17d27_GoldField:
 ; Each entry is [duration][OAM id]
 	db $1E, $01
-	db $02, $02
-	db $03, $01
-	db $02, $02
-	db $03, $01
-	db $02, $02
+	db $1E, $02
 	db $00 ; terminator
 
 DrawDitto_GoldField: ; 0x17d34
@@ -175,10 +171,10 @@ DrawBellsproutHead_GoldField: ; 0x17d59
 	ret
 
 BellsproutHeadAnimationOAMIds_GoldField: ; 0x17d76
-	db $BE
-	db $BF
-	db $C0
-	db $C1
+	db $FB
+	db $FC
+	db $FD
+	db $FE
 
 DrawBellsproutBody_GoldField: ; 0x17d7a
 	ld a, [hGameBoyColorFlag]
@@ -192,7 +188,7 @@ DrawBellsproutBody_GoldField: ; 0x17d7a
 	ld hl, hSCY
 	sub [hl]
 	ld c, a
-	ld a, $cc
+	ld a, $FA
 	call LoadOAMData
 	ret
 

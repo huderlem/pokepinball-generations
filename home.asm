@@ -702,7 +702,7 @@ DMARoutine:
 ; This routine is initially loaded into hPushOAM - hFarCallTempA by WriteDMACodeToHRAM.
 	ld a, (wOAMBuffer >> 8)
 	ld [rDMA], a   ; start DMA
-	ld a, $28
+	ld a, $28 ;reducing this to account for doublespeed is a free optimisation
 .waitLoop               ; wait for DMA to finish
 	dec a
 	jr nz, .waitLoop

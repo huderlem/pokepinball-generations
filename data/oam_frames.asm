@@ -2394,6 +2394,12 @@ OAMDataPointers2: ; 0x55d7
 	dw MiniRaikouOAM  ; $86
 	dw MiniEnteiOAM   ; $87
 	dw MiniDogsPortalOAM ; $88
+	dw GoldSpinner1
+	dw GoldSpinner2
+	dw GoldSpinner3
+	dw GoldSpinner4
+	dw GoldSpinner5
+	dw GoldSpinner6
 
 OAMData2_0: ; 0x56e1
 	db $20, $20, $9E, $04
@@ -3520,3 +3526,33 @@ MiniDogsPortalOAM:
 	db $60, $54, $54, $00
 	db $60, $5C, $56, $00
 	db $80  ; terminator
+
+GoldSpinner1: ;89
+	db $09, $0f, $78, $22
+	db $09, $07, $78, $02
+	db $80 ; terminator
+
+GoldSpinner2: ; 8A
+	db $0A, $0f, $7b, $62
+	db $0A, $07, $7b, $42
+	db $80 ; terminator
+
+GoldSpinner3: ; 8B
+	db $0A, $0f, $7d, $62
+	db $0A, $07, $7d, $42
+	db $80 ; terminator
+
+GoldSpinner4: ; 8C
+	db $0A, $0f, $7e, $22
+	db $0A, $07, $7e, $02
+	db $80 ; terminator
+
+GoldSpinner5: ; 8D
+	db $0A, $0f, $7c, $22
+	db $0A, $07, $7c, $02
+	db $80 ; terminator
+
+GoldSpinner6: ; 8E
+	db $0A, $0f, $7a, $22
+	db $0A, $07, $7a, $02
+	db $80 ; terminator

@@ -258,11 +258,11 @@ DrawSpinner_GoldField: ; 0x17de1
 	ld hl, SpinnerOAMIds_GoldField
 	add hl, de
 	ld a, [hl]
-	call LoadOAMData
+	call LoadOAMData2
 	ret
 
 SpinnerOAMIds_GoldField: ; 0x17e02
-	db $C2, $C3, $C4, $C5, $C6, $C7
+	db $89, $8A, $8B, $8C, $8D, $8E
 
 DrawPikachuSavers_GoldField: ; 0x17e08
 	ld a, [hSCX]

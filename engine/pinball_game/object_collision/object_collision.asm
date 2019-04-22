@@ -88,7 +88,7 @@ CheckGameObjectCollision: ; 0x27a4
 	ld a, [hli]
 	ld [wTriggeredGameObject], a
 	cp $ff
-	ret z
+	ret z ;return failure if you hit the terminator
 	ld a, [hli]
 	sub b
 	bit 7, a

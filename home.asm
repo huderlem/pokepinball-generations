@@ -1262,23 +1262,23 @@ QueueGraphicsToLoadWithFunc: ; 0x10c5
 	ld [MBC5RomBank], a ;swap bank back
 	ld hl, wd7fb
 	ld l, [hl]
-	ld h, wca00 / $100
+	ld h, wca00 / $100 ;load queue position in ???
 	inc l
-	ld [hl], $0
+	ld [hl], $0 ;insert 0 (a terminator?) after it 
 	dec l
-	ld [hl], e
-	ld hl, wd7fb
+	ld [hl], e ;load FF if less than $30, 0 if more
+	ld hl, wd7fb ;inc queue position
 	inc [hl]
 	ld a, [rLCDC]
 	bit 7, a
-	ret nz
-	ld a, [rIE]
+	ret nz ;return if LCD on
+	ld a, [rIE] ;disable vblank interupt
 	push af
 	res 0, a
 	ld [rIE], a
 	call Func_113a
 	pop af
-	ld [rIE], a
+	ld [rIE], a ;renable vblank interupt
 	ret
 
 Func_1129: ; 0x1129
@@ -1297,34 +1297,34 @@ Func_1130: ; 0x1130
 Func_113a: ; 0x113a
 	ld hl, wd7fc
 	ld a, [wd7fb]
-	cp [hl]
+	cp [hl] ;if ??? = queue length, ret
 	ret z
-	ld l, [hl]
+	ld l, [hl] 
 	ld h, $ca
-	ld [hl], $ff
+	ld [hl], $ff ;place FF into ca??
 .loop
 	ld a, [hl]
 	and a
-	jr z, .done
+	jr z, .done ;when ???? = 0, done
 	push hl
-	inc h
-	ld e, [hl]
+	inc h ;move to cb??
+	ld e, [hl] ;load pointer to data into de
 	inc h
 	ld d, [hl]
 	inc h
 	ld a, [hLoadedROMBank]
-	push af
-	ld a, [hl]
+	push af ;put current bank on the stack
+	ld a, [hl] ;changed to the stored bank
 	ld [hLoadedROMBank], a
 	ld [MBC5RomBank], a
 	inc h
 	ld a, [hl]
 	inc h
-	ld h, [hl]
+	ld h, [hl] ;load function to run into HL
 	ld l, a
-	call JumpToHL
+	call JumpToHL ;run the function
 	pop af
-	ld [hLoadedROMBank], a
+	ld [hLoadedROMBank], a ;return to old bank
 	ld [MBC5RomBank], a
 	pop hl
 	inc l

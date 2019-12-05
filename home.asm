@@ -1229,7 +1229,7 @@ QueueGraphicsToLoadWithFunc: ; 0x10c5
 	ld hl, wd7fb
 	ld l, [hl]
 	ld h, wcb00 / $100
-	inc bc
+	inc bc ;load bc+1 then a then de into the queue
 	ld [hl], c
 	inc h
 	ld [hl], b
@@ -1242,24 +1242,24 @@ QueueGraphicsToLoadWithFunc: ; 0x10c5
 	ld e, $ff
 	ld [hROMBankBuffer], a
 	ld a, [hLoadedROMBank]
-	push af
+	push af ;put current bank on the stack, then switch to that bank
 	ld a, [hROMBankBuffer]
 	ld [hLoadedROMBank], a
 	ld [MBC5RomBank], a
 	dec bc
-	ld a, [bc]
+	ld a, [bc] ;load [bc] and add wd7fa
 	ld hl, wd7fa
 	add [hl]
 	cp $30
-	jr c, .size_okay
+	jr c, .size_okay ;if more than $30, load [bc] again and set e to 0 instead of $ff
 	ld a, [bc]
 	ld e, $0
 .size_okay
-	add $4
+	add $4 ;add 4 more, then load back into wd7fa
 	ld [hl], a
 	pop af
 	ld [hLoadedROMBank], a
-	ld [MBC5RomBank], a
+	ld [MBC5RomBank], a ;swap bank back
 	ld hl, wd7fb
 	ld l, [hl]
 	ld h, wca00 / $100
@@ -1565,7 +1565,7 @@ LoadPalettes:
 ; Loads either BG or OAM palette data
 ; de = pointer to palette data
 ;      first byte is number of colors to load
-;      second byte determines BG or OAM palette data
+;      second byte bit 6 determines BG or OAM palette data. set = OAM, unset = BG. other bits are the PAL number
 ;      third and fourth byte are a pointer to actual color data
 ;      fifth byte is Bank of actual color data
 ;      $00 marks the end of the list

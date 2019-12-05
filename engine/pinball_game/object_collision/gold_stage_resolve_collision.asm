@@ -2371,20 +2371,16 @@ LoadStaryuGraphics_Top_GoldField: ; 0x16859
 	sla a
 	ld c, a
 	ld b, $0
-	ld hl, TileDataPointers_16899_GoldField
-	ld a, [hGameBoyColorFlag]
-	and a
-	jr z, .asm_1686c
-	ld hl, TileDataPointers_16910_GoldField
-.asm_1686c
+	ld hl, ChinchouLitTransitionPalettes
 	add hl, bc
-	ld a, [hli]
-	ld h, [hl]
-	ld l, a
-	or h
-	ret z
-	ld a, Bank(TileDataPointers_16899_GoldField)
-	call QueueGraphicsToLoad
+	ld c, [hl]
+	inc hl
+	ld b, [hl]
+	ld a, Bank(ChinchouLitTransitionPalettes)
+	push de
+	ld de, LoadPalettes
+	call QueueGraphicsToLoadWithFunc
+	pop de
 	ret
 
 LoadStaryuGraphics_Bottom_GoldField: ; 0x16878
@@ -2393,12 +2389,7 @@ LoadStaryuGraphics_Bottom_GoldField: ; 0x16878
 	sla a
 	ld c, a
 	ld b, $0
-	ld hl, TileDataPointers_1695a_GoldField
-	ld a, [hGameBoyColorFlag]
-	and a
-	jr z, .asm_1688d
 	ld hl, TileDataPointers_16980_GoldField
-.asm_1688d
 	add hl, bc
 	ld a, [hli]
 	ld h, [hl]

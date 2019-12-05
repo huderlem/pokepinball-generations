@@ -57,7 +57,7 @@ wStageCollisionMap:: ; 0xc700
 wca00::
 	ds $100
 
-wcb00:: ; 0xcb00
+wcb00:: ; 0xcb00 seems to be the grahics queue
 	ds $500
 
 SECTION "WRAM Bank 1", WRAMX
@@ -1906,7 +1906,7 @@ wInGameMenuIndex:: ; 0xd7f9
 wd7fa:: ; 0xd7fa
 	ds $1
 
-wd7fb:: ; 0xd7fb
+wd7fb:: ; 0xd7fb seems to have something to do with the loading graphics queue
 	ds $1
 
 wd7fc:: ; 0xd7fc

@@ -245,3 +245,23 @@ TileData_16998_GoldField: ; 0x16998
 	db $C2, $C3
 
 	db $00
+	
+ChinchouLitTransitionPalettes:
+	dw TransitionToUnlitChinchou
+	dw TransitionToLitChinchou
+
+TransitionToLitChinchou:
+	db $08
+	db $04 ; number of colors
+	db $03
+	dw StageGoldFieldTopBGPalette3Lit
+	db Bank(StageGoldFieldTopBGPalette3Lit)
+	db $00 ; terminator
+	
+TransitionToUnlitChinchou:
+	db $08
+	db $04 ; number of colors
+	db $03
+	dw StageGoldFieldTopBGPalette3Unlit
+	db Bank(StageGoldFieldTopBGPalette3Unlit)
+	db $00 ; terminator

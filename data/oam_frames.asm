@@ -2225,35 +2225,34 @@ OAMData_f9: ; for mareeps
 	db $80 ; terminator
 
 OAMData_Octillery_tentacles: ;FA
-	db $1C, $22, $0e, $0c
-	db $0C, $22, $0c, $0c
-	db $1C, $0E, $0a, $0c
-	db $0C, $0E, $08, $0c
+	db $1C, $21, $0e, $0d
+	db $0C, $21, $0c, $0d
+	db $1C, $0F, $0a, $0d
+	db $0C, $0F, $08, $0d
 	db $80 ; terminator
 
 OAMData_OctilleryHead1: ; FB
-; bellsprout?
-	db $12, $0E, $66, $15
-	db $02, $0E, $64, $15
-	db $12, $06, $62, $15
-	db $02, $06, $60, $15
+	db $12, $0F, $66, $15
+	db $02, $0F, $64, $15
+	db $12, $07, $62, $15
+	db $02, $07, $60, $15
 	db $80 ; terminator
 
 OAMData_OctilleryHead2: ; FC
-	db $00, $08, $68, $15
-	db $10, $0E, $6c, $15
-	db $10, $06, $6a, $15
+	db $00, $09, $68, $15
+	db $10, $0F, $6c, $15
+	db $10, $07, $6a, $15
 	db $80 ; terminator
 
 OAMData_OctilleryHead3: ; FD
-	db $0F, $0E, $70, $15
-	db $0F, $06, $6e, $15
+	db $0F, $0F, $70, $15
+	db $0F, $07, $6e, $15
 	db $80 ; terminator
 
 OAMData_OctilleryHead4: ; FE
-	db $00, $09, $72, $15
-	db $10, $0E, $76, $15
-	db $10, $06, $74, $15
+	db $01, $0B, $72, $15
+	db $11, $0F, $76, $15
+	db $11, $07, $74, $15
 	db $80 ; terminator
 
 OAMDataPointers2: ; 0x55d7
@@ -2400,6 +2399,8 @@ OAMDataPointers2: ; 0x55d7
 	dw GoldSpinner4
 	dw GoldSpinner5
 	dw GoldSpinner6
+	dw Chinchou1
+	dw Chinchou2
 
 OAMData2_0: ; 0x56e1
 	db $20, $20, $9E, $04
@@ -3555,4 +3556,18 @@ GoldSpinner5: ; 8D
 GoldSpinner6: ; 8E
 	db $0A, $0f, $7a, $22
 	db $0A, $07, $7a, $02
+	db $80 ; terminator
+	
+Chinchou1: ;8F
+	db $10, $18, $06, $1b
+	db $20, $10, $04, $1b
+	db $10, $10, $02, $1b
+	db $10, $08, $00, $1b
+	db $80 ; terminator
+
+Chinchou2: ;90
+	db $10, $18, $16, $1b
+	db $20, $10, $14, $1b
+	db $10, $10, $12, $1b
+	db $10, $08, $10, $1b
 	db $80 ; terminator

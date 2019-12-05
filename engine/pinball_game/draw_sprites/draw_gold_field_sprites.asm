@@ -222,12 +222,12 @@ DrawStaryu_GoldField: ; 0x17d92
 	ld hl, OAMIds_17dce_GoldField
 	add hl, de
 	ld a, [hl]
-	call LoadOAMData
+	call LoadOAMData2
 	ret
 
 OAMIds_17dce_GoldField: ; 0x17dce
-	db $CB
-	db $D0
+	db $8F
+	db $90
 
 AnimationData_17dd0_GoldField:
 ; Each entry is [duration][OAM id]

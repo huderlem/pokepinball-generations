@@ -253,7 +253,7 @@ ChinchouLitTransitionPalettes:
 TransitionToLitChinchou:
 	db $08
 	db $04 ; number of colors
-	db $03
+	db $18
 	dw StageGoldFieldTopBGPalette3Lit
 	db Bank(StageGoldFieldTopBGPalette3Lit)
 	db $00 ; terminator
@@ -261,7 +261,7 @@ TransitionToLitChinchou:
 TransitionToUnlitChinchou:
 	db $08
 	db $04 ; number of colors
-	db $03
+	db $18
 	dw StageGoldFieldTopBGPalette3Unlit
 	db Bank(StageGoldFieldTopBGPalette3Unlit)
 	db $00 ; terminator

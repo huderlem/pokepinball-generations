@@ -1663,7 +1663,6 @@ FieldSelectScreenBGPalette7_Johto: ; 0xdd128
 	RGB 31,31,0
 	RGB 31,31,0
 	RGB 31,31,0
-
 FieldSelectScreenOBJPalette0_Johto: ; 0xdd140
 	RGB 10, 10, 10
 	RGB 31, 31, 31
@@ -1752,12 +1751,6 @@ StageGoldFieldTopOBJPalette7: ; 0xdc9f8
 	RGB 31, 15, 13
 	RGB 21, 0, 0
 	RGB 4, 0, 0
-
-StageGoldFieldTopBGPalette3Lit: ; 0xdc998
-	RGB 31, 31, 31
-	RGB 31, 30, 28
-	RGB 31, 30, 28
-	RGB 0, 0, 0
 	
 StageGoldFieldBottomPalettes: ; 0xdca80
 StageGoldFieldBottomBGPalette0: ; 0xdca80
@@ -2007,3 +2000,9 @@ StageSilverFieldBottomOBJPalette7: ; 0xdcbf8
 	RGB 31, 30, 16
 	RGB 27, 24, 8
 	RGB 23, 19, 3
+	
+StageGoldFieldTopBGPalette3Lit: ; 0xdc998
+	RGB 31, 31, 31
+	RGB 31, 30, 28
+	RGB 31, 30, 28
+	RGB 0, 0, 0

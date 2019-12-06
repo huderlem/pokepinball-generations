@@ -2289,7 +2289,7 @@ ResolveStaryuCollision_Top_GoldField: ; 0x16781
 	callba AddBigBCD6FromQueueWithBallMultiplier
 	ld a, [wd502]
 	xor $1
-	set 1, a
+	set 1, a ;inverts the current number, then setas bit 1
 	ld [wd502], a
 	ld a, $14
 	ld [wd503], a
@@ -2306,7 +2306,7 @@ ResolveStaryuCollision_Top_GoldField: ; 0x16781
 	dec a
 	ld [wd503], a
 	ret nz
-	ld a, [wd502]
+	ld a, [wd502] ;reset 1
 	res 1, a
 	ld [wd502], a
 	call LoadStaryuGraphics_Top_GoldField
@@ -2339,7 +2339,7 @@ ResolveStaryuCollision_Bottom_GoldField: ; 0x167ff
 	callba AddBigBCD6FromQueueWithBallMultiplier
 	ld a, [wd502]
 	xor $1
-	ld [wd502], a
+	ld [wd502], a ;flip bit 0
 	ld a, $14
 	ld [wd503], a
 	call LoadStaryuGraphics_Bottom_GoldField
@@ -2355,7 +2355,7 @@ ResolveStaryuCollision_Bottom_GoldField: ; 0x167ff
 	dec a
 	ld [wd503], a
 	ret nz
-	ld a, [wd502]
+	ld a, [wd502] 
 	and $1
 	ld c, a
 	ld a, [wStageCollisionState]
@@ -2368,6 +2368,7 @@ ResolveStaryuCollision_Bottom_GoldField: ; 0x167ff
 
 LoadStaryuGraphics_Top_GoldField: ; 0x16859
 	ld a, [wd502]
+	and $1
 	sla a
 	ld c, a
 	ld b, $0

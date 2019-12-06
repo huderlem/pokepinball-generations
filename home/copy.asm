@@ -155,7 +155,6 @@ LoadVideoData: ; 0x6a4
 	ld c, [hl]
 	inc hl
 	ld b, [hl]  ; bc contains size and flags
-	inc hl      ; this is a wasted instruction
 	pop hl
 	call .autoCopyVideoData
 	pop hl

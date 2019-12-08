@@ -2397,7 +2397,7 @@ LoadStaryuGraphics_Bottom_GoldField: ; 0x16878
 	ld l, a
 	or h
 	ret z
-	ld a, Bank(TileDataPointers_1695a_GoldField)
+	ld a, Bank(TileDataPointers_16980_GoldField)
 	call QueueGraphicsToLoad
 	ret
 

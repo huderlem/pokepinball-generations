@@ -1305,9 +1305,9 @@ Func_113a: ; 0x113a
 .loop
 	ld a, [hl]
 	and a
-	jr z, .done ;when ???? = 0, done
+	jr z, .done ;loop 255 times
 	push hl
-	inc h ;move to cb??
+	inc h ;move to cb
 	ld e, [hl] ;load pointer to data into de
 	inc h
 	ld d, [hl]
@@ -1434,18 +1434,20 @@ Func_11c7:
 	ret
 
 Func_11d2:
-	ld h, d
+;de = pointer to data
+;data structure: byte1 * 16 = bytes to load, destination start, source start, bank
+	ld h, d ;load pointer into hl
 	ld l, e
 	ld a, [hLoadedROMBank]
-	ld [$ff94], a
+	ld [$ff94], a ;store current bank in ff94
 .asm_11d8
-	ld a, [hli]
+	ld a, [hli] ;if first byte is 0, exit
 	and a
 	ret z
-	ld [$ff95], a
+	ld [$ff95], a ;otherwise, store in FF95
 	ld a, [hli]
 	ld e, a
-	ld a, [hli]
+	ld a, [hli] ;load data into e,d,c,b and then the bank 
 	ld d, a
 	ld a, [hli]
 	ld c, a
@@ -1454,13 +1456,13 @@ Func_11d2:
 	ld a, [hli]
 	ld [hLoadedROMBank], a
 	ld [MBC5RomBank], a
-	push hl
-	ld h, b
+	push hl ;store hl on the stack
+	ld h, b ;load bc into hl, then ff95 into b
 	ld l, c
 	ld a, [$ff95]
 	ld b, a
 .asm_11f1
-	ld a, [hli]
+	ld a, [hli] ;load 16 bytes from hl to de b times
 	ld [de], a
 	inc e
 	ld a, [hli]
@@ -1508,13 +1510,13 @@ Func_11d2:
 	ld a, [hli]
 	ld [de], a
 	inc de
-	dec b
+	dec b 
 	jr nz, .asm_11f1
-	pop hl
+	pop hl ;recover hl from the stack and switch back to the original bank
 	ld a, [$ff94]
 	ld [hLoadedROMBank], a
 	ld [MBC5RomBank], a
-	jr .asm_11d8
+	jr .asm_11d8 ;loop
 
 Func_122e:
 	ld a, $1

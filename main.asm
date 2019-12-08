@@ -32,7 +32,6 @@ PokedexCharactersGfx: ; 0xa000
 
 SECTION "bank3", ROMX
 
-INCLUDE "engine/titlescreen.asm"
 INCLUDE "engine/options_screen.asm"
 INCLUDE "engine/high_scores_screen.asm"
 INCLUDE "engine/field_select_screen.asm"
@@ -114,6 +113,7 @@ INCLUDE "engine/pinball_game/catchem_mode/catchem_mode_red_field.asm"
 INCLUDE "engine/pinball_game/catchem_mode/catchem_mode_blue_field.asm"
 INCLUDE "engine/pinball_game/evolution_mode/evolution_mode_red_field.asm"
 INCLUDE "engine/pinball_game/evolution_mode/evolution_mode_blue_field.asm"
+INCLUDE "engine/titlescreen.asm"
 
 SECTION "bank9", ROMX
 
@@ -1339,3 +1339,30 @@ INCLUDE "audio/cries.asm"
 SECTION "bank5A", ROMX
 
 INCLUDE "data/mon_gfx/mon_billboard_pics_16.asm"
+
+SECTION "bank5B", ROMX
+
+INCLUDE "data/billboard/billboard_pics_2.asm"
+
+UnownBonusBaseGameBoyColorGfx:
+	INCBIN "gfx/stage/unown_bonus/unown_bonus_base_gameboycolor.2bpp"
+
+UnownBonusBottomTilemap_GameBoyColor:
+	INCBIN "gfx/tilemaps/stage_unown_bonus_gameboycolor.map"
+UnownBonusBottomTilemap2_GameBoyColor:
+	INCBIN "gfx/tilemaps/stage_unown_bonus_gameboycolor_2.map"
+
+INCLUDE "engine/pinball_game/ball_loss/ball_loss_unown_bonus.asm"
+INCLUDE "engine/pinball_game/stage_init/init_unown_bonus.asm"
+INCLUDE "engine/pinball_game/ball_init/ball_init_unown_bonus.asm"
+INCLUDE "engine/pinball_game/load_stage_data/load_unown_bonus.asm"
+INCLUDE "engine/pinball_game/object_collision/unown_bonus_object_collision.asm"
+INCLUDE "engine/pinball_game/object_collision/unown_bonus_resolve_collision.asm"
+INCLUDE "engine/pinball_game/draw_sprites/draw_unown_bonus_sprites.asm"
+
+StageUnownBonusCollisionAttributesBallEntrance:
+	INCBIN "data/collision/maps/unown_bonus_ball_entrance.collision"
+StageUnownBonusCollisionAttributes:
+	INCBIN "data/collision/maps/unown_bonus.collision"
+StageUnownBonusCollisionMasks:
+	INCBIN "data/collision/masks/unown_bonus.masks"

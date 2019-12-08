@@ -252,6 +252,10 @@ GoToSeelStageText:
 	scrolling_text_normal 2, 20, 0, 19
 	db "GO TO SEEL STAGE @"
 
+GoToUnownStageText:
+	scrolling_text_normal 1, 20, 0, 20
+	db "GO TO UNOWN STAGE @"
+
 EndGengarStageText:
 	scrolling_text_normal 2, 20, 0, 19
 	db "END GENGAR STAGE @"
@@ -272,6 +276,10 @@ EndSeelStageText:
 	scrolling_text_normal 3, 20, 0, 18
 	db "END SEEL STAGE @"
 
+EndUnownStageText:
+	scrolling_text_normal 2, 20, 0, 19
+	db "END UNOWN STAGE @"
+
 GengarStageClearedText:
 	scrolling_text_normal 0, 20, 0, 21
 	db "GENGAR STAGE CLEARED @"
@@ -291,6 +299,10 @@ MeowthStageClearedText:
 SeelStageClearedText:
 	scrolling_text_normal 1, 20, 0, 20
 	db "SEEL STAGE CLEARED @"
+
+UnownStageClearedText:
+	scrolling_text_normal 0, 20, 0, 21
+	db "UNOWN STAGE CLEARED @"
 
 NumPokemonCaughtText:
 	db "  0 POKeMON CAUGHT@"

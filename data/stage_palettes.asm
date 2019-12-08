@@ -80,87 +80,89 @@ SeelBonusOBJPalette7: ; 0xdc8f8
 	RGB 20, 20, 20
 	RGB 8, 8, 8
 	RGB 0, 0, 0
-	
-UnusedPalettes_dc900: ; 0xdc900
-	RGB 31, 27, 29
+
+UnownBonusPalettes:
+UnownBonusBGPalette0:
 	RGB 31, 31, 31
-	RGB 15, 15, 15
+	RGB 13, 20, 31
+	RGB 31, 4, 4
 	RGB 0, 0, 0
-
-	RGB 26, 31, 26
-	RGB 4, 23, 13
-	RGB 0, 13, 4
+UnownBonusBGPalette1:
+	RGB 28, 31, 4
+	RGB 8, 14, 31
+	RGB 4, 5, 15
 	RGB 0, 0, 0
-
-	RGB 25, 29, 31
+UnownBonusBGPalette2:
+	RGB 31, 31, 31
+	RGB 20, 20, 20
+	RGB 8, 8, 8
+	RGB 0, 0, 0
+UnownBonusBGPalette3:
+	RGB 31, 31, 31
+	RGB 20, 20, 20
+	RGB 8, 8, 8
+	RGB 0, 0, 0
+UnownBonusBGPalette4:
+	RGB 31, 31, 31
+	RGB 20, 20, 20
+	RGB 8, 8, 8
+	RGB 0, 0, 0
+UnownBonusBGPalette5:
+	RGB 31, 31, 31
+	RGB 20, 20, 20
+	RGB 8, 8, 8
+	RGB 0, 0, 0
+UnownBonusBGPalette6:
+	RGB 31, 31, 31
+	RGB 13, 13, 31
 	RGB 31, 0, 0
-	RGB 16, 0, 0
 	RGB 0, 0, 0
-
-	RGB 31, 29, 25
-	RGB 31, 29, 0
-	RGB 15, 8, 0
-	RGB 0, 0, 0
-
-	RGB 31, 27, 29
-	RGB 20, 20, 20
-	RGB 8, 8, 8
-	RGB 0, 0, 0
-
-	RGB 31, 27, 29
-	RGB 20, 20, 20
-	RGB 8, 8, 8
-	RGB 0, 0, 0
-
+UnownBonusBGPalette7:
 	RGB 31, 31, 31
 	RGB 20, 20, 20
 	RGB 8, 8, 8
 	RGB 0, 0, 0
 
+UnownBonusOBJPalette0:
+	RGB 20, 20, 20
+	RGB 31, 31, 31
+	RGB 31, 5, 4
+	RGB 0, 0, 0
+UnownBonusOBJPalette1:
 	RGB 31, 31, 31
 	RGB 20, 20, 20
 	RGB 8, 8, 8
 	RGB 0, 0, 0
-
+UnownBonusOBJPalette2:
+	RGB 20, 20, 20
+	RGB 31, 31, 31
+	RGB 21, 21, 27
+	RGB 0, 0, 0
+UnownBonusOBJPalette3:
+	RGB 31, 31, 31
+	RGB 20, 20, 20
+	RGB 8, 8, 8
+	RGB 0, 0, 0
+UnownBonusOBJPalette4:
+	RGB 20, 20, 20
+	RGB 31, 31, 31
+	RGB 29, 0, 31
+	RGB 0, 0, 0
+UnownBonusOBJPalette5:
+	RGB 31, 31, 31
+	RGB 20, 20, 20
+	RGB 8, 8, 8
+	RGB 0, 0, 0
+UnownBonusOBJPalette6:
 	RGB 20, 20, 20
 	RGB 31, 31, 31
 	RGB 8, 8, 8
 	RGB 0, 0, 0
-
+UnownBonusOBJPalette7:
 	RGB 31, 31, 31
-	RGB 16, 12, 31
-	RGB 8, 4, 16
-	RGB 4, 0, 8
-
 	RGB 20, 20, 20
-	RGB 31, 31, 31
 	RGB 8, 8, 8
 	RGB 0, 0, 0
-
-	RGB 31, 31, 31
-	RGB 31, 21, 25
-	RGB 23, 7, 11
-	RGB 13, 0, 2
-
-	RGB 20, 20, 20
-	RGB 31, 31, 31
-	RGB 8, 8, 8
-	RGB 0, 0, 0
-
-	RGB 31, 31, 31
-	RGB 31, 10, 9
-	RGB 13, 2, 4
-	RGB 4, 0, 2
-
-	RGB 20, 20, 20
-	RGB 31, 31, 31
-	RGB 8, 8, 8
-	RGB 0, 0, 0
-
-	RGB 31, 31, 31
-	RGB 19, 26, 2
-	RGB 3, 13, 0
-	RGB 2, 4, 0
 
 StageRedFieldTopPalettes: ; 0xdc980
 StageRedFieldTopBGPalette0: ; 0xdc980
@@ -642,6 +644,11 @@ GoToSeelBonusOnBillboardBGPalette:  ; 0xdcc60
 	RGB 31, 31, 31
 	RGB 20, 20, 26
 	RGB 31, 11, 10
+	RGB 0, 0, 0
+GoToUnownBonusOnBillboardBGPalette:
+	RGB 31, 31, 31
+	RGB 15, 15, 19
+	RGB 31, 0, 31
 	RGB 0, 0, 0
 
 HurryUp2OnBillboardBGPalette: ; 0xdcc68

@@ -2675,7 +2675,7 @@ OpenSlotCave_SilverField: ; 0x1e9c0
 	ld a, [wOpenedSlotByGetting4CAVELights]
 	and a
 	ret z
-	ld a, $8 ; "Slot On" billboard picture id
+	ld a, $9 ; "Slot On" billboard picture id
 .asm_1e9e3
 	ld hl, wCurrentStage
 	bit 0, [hl]

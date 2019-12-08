@@ -17,6 +17,8 @@ StageGfxPointers_GameBoyColor: ; 0xe717
 	dw StageDiglettBonusGfx_GameBoyColor
 	dw StageSeelBonusGfx_GameBoyColor
 	dw StageSeelBonusGfx_GameBoyColor
+	dw StageUnownBonusGfx_GameBoyColor
+	dw StageUnownBonusGfx_GameBoyColor
 
 StageRedFieldTopGfx_GameBoyColor: ; 0xe771
 	VIDEO_DATA_TILES         Alphabet2Gfx, vTilesOB, $1a0
@@ -232,4 +234,14 @@ StageSeelBonusGfx_GameBoyColor: ; 0xec9a
 	VIDEO_DATA_TILEMAP       SeelBonusTilemap_GameBoyColor, vBGMap, $400
 	VIDEO_DATA_TILEMAP_BANK2 SeelBonusTilemap2_GameBoyColor, vBGMap, $400
 	VIDEO_DATA_PALETTES      SeelBonusPalettes, $80
+	db $FF, $FF  ; terminators
+
+StageUnownBonusGfx_GameBoyColor:
+	VIDEO_DATA_TILES         Alphabet2Gfx, vTilesOB, $1a0
+	VIDEO_DATA_TILES         StageSharedPikaBoltGfx, vTilesOB + $3c0, $440
+	VIDEO_DATA_TILES         UnownBonusBaseGameBoyColorGfx, vTilesSH, $1000
+	VIDEO_DATA_TILES_BANK2   TimerDigitsGfx, vTilesOB + $600, $160
+	VIDEO_DATA_TILEMAP       UnownBonusBottomTilemap_GameBoyColor, vBGMap, $400
+	VIDEO_DATA_TILEMAP_BANK2 UnownBonusBottomTilemap2_GameBoyColor, vBGMap, $400
+	VIDEO_DATA_PALETTES      GengarBonusPalettes, $80
 	db $FF, $FF  ; terminators

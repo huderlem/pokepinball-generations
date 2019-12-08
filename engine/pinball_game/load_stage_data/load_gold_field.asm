@@ -338,7 +338,7 @@ LoadBillboardGraphics_GoldField: ; 0x14377
 	ld a, [wOpenedSlotByGetting4CAVELights]
 	and a
 	jr z, .asm_143a6
-	ld a, $8
+	ld a, $9
 	callba LoadBillboardTileData
 	ret
 

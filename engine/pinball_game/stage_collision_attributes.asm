@@ -32,24 +32,26 @@ LoadStageCollisionAttributes: ; 0xe578
 	ret
 
 StageCollisionAttributesPointers: ; 0xe5a7
-	dw StageRedFieldTopCollisionAttributesPointers
-	dw StageRedFieldBottomCollisionAttributesPointers
-	dw StageBlueFieldTopCollisionAttributesPointers
-	dw StageBlueFieldBottomCollisionAttributesPointers
-	dw StageGoldFieldTopCollisionAttributesPointers
-	dw StageGoldFieldBottomCollisionAttributesPointers
-	dw StageSilverFieldTopCollisionAttributesPointers
-	dw StageSilverFieldBottomCollisionAttributesPointers
+	dw StageRedFieldTopCollisionAttributesPointers       ; STAGE_RED_FIELD_TOP
+	dw StageRedFieldBottomCollisionAttributesPointers    ; STAGE_RED_FIELD_BOTTOM
+	dw StageBlueFieldTopCollisionAttributesPointers      ; STAGE_BLUE_FIELD_TOP
+	dw StageBlueFieldBottomCollisionAttributesPointers   ; STAGE_BLUE_FIELD_BOTTOM
+	dw StageGoldFieldTopCollisionAttributesPointers      ; STAGE_GOLD_FIELD_TOP
+	dw StageGoldFieldBottomCollisionAttributesPointers   ; STAGE_GOLD_FIELD_BOTTOM
+	dw StageSilverFieldTopCollisionAttributesPointers    ; STAGE_SILVER_FIELD_TOP
+	dw StageSilverFieldBottomCollisionAttributesPointers ; STAGE_SILVER_FIELD_BOTTOM
 	dw StageGengarBonusCollisionAttributesPointers
-	dw StageGengarBonusCollisionAttributesPointers
+	dw StageGengarBonusCollisionAttributesPointers       ; STAGE_GENGAR_BONUS
 	dw StageMewtwoBonusCollisionAttributesPointers
-	dw StageMewtwoBonusCollisionAttributesPointers
+	dw StageMewtwoBonusCollisionAttributesPointers       ; STAGE_MEWTWO_BONUS
 	dw StageMeowthBonusCollisionAttributesPointers
-	dw StageMeowthBonusCollisionAttributesPointers
+	dw StageMeowthBonusCollisionAttributesPointers       ; STAGE_MEOWTH_BONUS
 	dw StageDiglettBonusCollisionAttributesPointers
-	dw StageDiglettBonusCollisionAttributesPointers
+	dw StageDiglettBonusCollisionAttributesPointers      ; STAGE_DIGLETT_BONUS
 	dw StageSeelBonusCollisionAttributesPointers
-	dw StageSeelBonusCollisionAttributesPointers
+	dw StageSeelBonusCollisionAttributesPointers         ; STAGE_SEEL_BONUS
+	dw StageUnownBonusCollisionAttributesPointers
+	dw StageUnownBonusCollisionAttributesPointers        ; STAGE_UNOWN_BONUS
 
 StageRedFieldTopCollisionAttributesPointers: ; 0xe5c7
 	db $01  ; multiple pair entries
@@ -157,6 +159,13 @@ StageSeelBonusCollisionAttributesPointers: ; 0xe649
 	dwb StageSeelBonusCollisionMasks, Bank(StageSeelBonusCollisionMasks)
 	dwb StageSeelBonusCollisionAttributes, Bank(StageSeelBonusCollisionAttributes)
 	dwb StageSeelBonusCollisionMasks, Bank(StageSeelBonusCollisionMasks)
+
+StageUnownBonusCollisionAttributesPointers:
+	db $01  ; multiple pair entries
+	dwb StageUnownBonusCollisionAttributesBallEntrance, Bank(StageUnownBonusCollisionAttributesBallEntrance)
+	dwb StageUnownBonusCollisionMasks, Bank(StageUnownBonusCollisionMasks)
+	dwb StageUnownBonusCollisionAttributes, Bank(StageUnownBonusCollisionAttributes)
+	dwb StageUnownBonusCollisionMasks, Bank(StageUnownBonusCollisionMasks)
 
 LoadCollisionAttributes: ; 0xe656
 ; Loads the stage's collision attributes into RAM

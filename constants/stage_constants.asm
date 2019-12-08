@@ -8,13 +8,15 @@ STAGE_SILVER_FIELD_TOP    EQU $6
 STAGE_SILVER_FIELD_BOTTOM EQU $7
 
 FIRST_BONUS_STAGE         EQU $8
-; STAGE_GENGAR_BONUS      EQU $8  ; buggy
+; STAGE_GENGAR_BONUS      EQU $8  ; unused top
 STAGE_GENGAR_BONUS        EQU $9
-; STAGE_MEWTWO_BONUS      EQU $a  ; buggy
+; STAGE_MEWTWO_BONUS      EQU $a  ; unused top
 STAGE_MEWTWO_BONUS        EQU $b
-; STAGE_MEOWTH_BONUS      EQU $c  ; buggy
+; STAGE_MEOWTH_BONUS      EQU $c  ; unused top
 STAGE_MEOWTH_BONUS        EQU $d
-; STAGE_DIGLETT_BONUS     EQU $e  ; buggy
+; STAGE_DIGLETT_BONUS     EQU $e  ; unused top
 STAGE_DIGLETT_BONUS       EQU $f
-; STAGE_SEEL_BONUS        EQU $10  ; buggy
+; STAGE_SEEL_BONUS        EQU $10 ; unused top
 STAGE_SEEL_BONUS          EQU $11
+; STAGE_UNOWN_BONUS       EQU $12 ; unused top
+STAGE_UNOWN_BONUS         EQU $13

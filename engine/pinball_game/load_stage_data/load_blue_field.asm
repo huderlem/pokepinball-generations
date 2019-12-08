@@ -426,7 +426,7 @@ LoadBillboardGraphics_BlueField: ; 0x1c4b6
 	ld a, [wOpenedSlotByGetting4CAVELights]
 	and a
 	jr z, .asm_1c4e5
-	ld a, $8
+	ld a, $9
 	callba LoadBillboardTileData
 	ret
 

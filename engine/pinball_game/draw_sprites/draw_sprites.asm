@@ -11,16 +11,18 @@ CallTable_84bd: ; 0x84bd
 	padded_dab DrawSpritesGoldFieldBottom   ; STAGE_GOLD_FIELD_BOTTOM
 	padded_dab DrawSpritesSilverFieldTop    ; STAGE_SILVER_FIELD_TOP
 	padded_dab DrawSpritesSilverFieldBottom ; STAGE_SILVER_FIELD_BOTTOM
+	padded_dab DrawSpritesGengarBonus
 	padded_dab DrawSpritesGengarBonus       ; STAGE_GENGAR_BONUS
-	padded_dab DrawSpritesGengarBonus       ; STAGE_GENGAR_BONUS
+	padded_dab DrawSpritesMewtwoBonus
 	padded_dab DrawSpritesMewtwoBonus       ; STAGE_MEWTWO_BONUS
-	padded_dab DrawSpritesMewtwoBonus       ; STAGE_MEWTWO_BONUS
+	padded_dab DrawSpritesMeowthBonus
 	padded_dab DrawSpritesMeowthBonus       ; STAGE_MEOWTH_BONUS
-	padded_dab DrawSpritesMeowthBonus       ; STAGE_MEOWTH_BONUS
+	padded_dab DrawSpritesDiglettBonus
 	padded_dab DrawSpritesDiglettBonus      ; STAGE_DIGLETT_BONUS
-	padded_dab DrawSpritesDiglettBonus      ; STAGE_DIGLETT_BONUS
+	padded_dab DrawSpritesSeelBonus
 	padded_dab DrawSpritesSeelBonus         ; STAGE_SEEL_BONUS
-	padded_dab DrawSpritesSeelBonus         ; STAGE_SEEL_BONUS
+	padded_dab DrawSpritesUnownBonus
+	padded_dab DrawSpritesUnownBonus        ; STAGE_UNOWN_BONUS
 
 UnusedFunc_84fd:
 ; unused

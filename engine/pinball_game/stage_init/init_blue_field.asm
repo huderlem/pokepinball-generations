@@ -30,7 +30,7 @@ InitBlueField: ; 0x1c000
 	ld a, $3
 	ld [wd49e], a
 	ld [wd610], a
-	ld a, BONUS_STAGE_ORDER_MEOWTH
+	ld a, BONUS_STAGE_ORDER_UNOWN
 	ld [wNextBonusStage], a
 	ld [wInitialNextBonusStage], a
 	ld a, $80

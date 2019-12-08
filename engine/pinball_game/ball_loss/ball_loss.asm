@@ -10,16 +10,18 @@ CallTable_dc4d: ; 0xdc4d
 	dw HandleBallLossGoldField    ; STAGE_GOLD_FIELD_BOTTOM
 	dw HandleBallLossSilverField  ; STAGE_SILVER_FIELD_TOP
 	dw HandleBallLossSilverField  ; STAGE_SILVER_FIELD_TOP
+	dw HandleBallLossGengarBonus
 	dw HandleBallLossGengarBonus  ; STAGE_GENGAR_BONUS
-	dw HandleBallLossGengarBonus  ; STAGE_GENGAR_BONUS
+	dw HandleBallLossMewtwoBonus
 	dw HandleBallLossMewtwoBonus  ; STAGE_MEWTWO_BONUS
-	dw HandleBallLossMewtwoBonus  ; STAGE_MEWTWO_BONUS
+	dw HandleBallLossMeowthBonus
 	dw HandleBallLossMeowthBonus  ; STAGE_MEOWTH_BONUS
-	dw HandleBallLossMeowthBonus  ; STAGE_MEOWTH_BONUS
+	dw HandleBallLossDiglettBonus
 	dw HandleBallLossDiglettBonus ; STAGE_DIGLETT_BONUS
-	dw HandleBallLossDiglettBonus ; STAGE_DIGLETT_BONUS
+	dw HandleBallLossSeelBonus
 	dw HandleBallLossSeelBonus    ; STAGE_SEEL_BONUS
-	dw HandleBallLossSeelBonus    ; STAGE_SEEL_BONUS
+	dw HandleBallLossUnownBonus
+	dw HandleBallLossUnownBonus   ; STAGE_UNOWN_BONUS
 
 ShowBallLossText: ; 0xdc6d
 ; Input: de = pointer to scrolling text header

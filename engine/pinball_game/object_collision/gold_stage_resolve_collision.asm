@@ -1969,7 +1969,7 @@ OpenSlotCave_GoldField: ; 0x164e3
 	ld a, [wOpenedSlotByGetting4CAVELights]
 	and a
 	ret z
-	ld a, $8 ; "Slot On" billboard picture id
+	ld a, $9 ; "Slot On" billboard picture id
 .asm_16506
 	ld hl, wCurrentStage
 	bit 0, [hl]

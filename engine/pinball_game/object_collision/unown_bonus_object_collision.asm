@@ -1,0 +1,2 @@
+CheckUnownBonusStageGameObjectCollisions:
+	ret

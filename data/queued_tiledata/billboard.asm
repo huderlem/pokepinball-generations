@@ -46,6 +46,7 @@ BillboardTileDataPointers:
 	dw GoToMeowthBonusOnBillboardTileDataList
 	dw GoToDiglettBonusOnBillboardTileDataList
 	dw GoToSeelBonusOnBillboardTileDataList
+	dw GoToUnownBonusOnBillboardTileDataList
 	dw SlotOnBillboardTileDataList
 
 PalletTownBillboardTileDataList:
@@ -542,6 +543,17 @@ GoToSeelBonusOnBillboardTileDataList:
 	dw GoToSeelBonusOnBillboardTileData6
 	dw GoToSeelBonusOnBillboardTileData7
 	dw GoToSeelBonusOnBillboardTileData8
+
+GoToUnownBonusOnBillboardTileDataList:
+	db 8
+	dw GoToUnownBonusOnBillboardTileData1
+	dw GoToUnownBonusOnBillboardTileData2
+	dw GoToUnownBonusOnBillboardTileData3
+	dw GoToUnownBonusOnBillboardTileData4
+	dw GoToUnownBonusOnBillboardTileData5
+	dw GoToUnownBonusOnBillboardTileData6
+	dw GoToUnownBonusOnBillboardTileData7
+	dw GoToUnownBonusOnBillboardTileData8
 
 SlotOnBillboardTileDataList:
 	db 8
@@ -3434,6 +3446,70 @@ GoToSeelBonusOnBillboardTileData8:
 	db Bank(GoToSeelBonusOnPic)
 	db $00
 
+GoToUnownBonusOnBillboardTileData1:
+	dw Func_11d2
+	db $30, $03
+	dw vTilesSH tile $10
+	dw GoToUnownBonusOnPic
+	db Bank(GoToUnownBonusOnPic)
+	db $00
+
+GoToUnownBonusOnBillboardTileData2:
+	dw Func_11d2
+	db $30, $03
+	dw vTilesSH tile $13
+	dw GoToUnownBonusOnPic + $30
+	db Bank(GoToUnownBonusOnPic)
+	db $00
+
+GoToUnownBonusOnBillboardTileData3:
+	dw Func_11d2
+	db $30, $03
+	dw vTilesSH tile $16
+	dw GoToUnownBonusOnPic + $60
+	db Bank(GoToUnownBonusOnPic)
+	db $00
+
+GoToUnownBonusOnBillboardTileData4:
+	dw Func_11d2
+	db $30, $03
+	dw vTilesSH tile $19
+	dw GoToUnownBonusOnPic + $90
+	db Bank(GoToUnownBonusOnPic)
+	db $00
+
+GoToUnownBonusOnBillboardTileData5:
+	dw Func_11d2
+	db $30, $03
+	dw vTilesSH tile $1C
+	dw GoToUnownBonusOnPic + $C0
+	db Bank(GoToUnownBonusOnPic)
+	db $00
+
+GoToUnownBonusOnBillboardTileData6:
+	dw Func_11d2
+	db $30, $03
+	dw vTilesSH tile $1F
+	dw GoToUnownBonusOnPic + $F0
+	db Bank(GoToUnownBonusOnPic)
+	db $00
+
+GoToUnownBonusOnBillboardTileData7:
+	dw Func_11d2
+	db $30, $03
+	dw vTilesSH tile $22
+	dw GoToUnownBonusOnPic + $120
+	db Bank(GoToUnownBonusOnPic)
+	db $00
+
+GoToUnownBonusOnBillboardTileData8:
+	dw Func_11d2
+	db $30, $03
+	dw vTilesSH tile $25
+	dw GoToUnownBonusOnPic + $150
+	db Bank(GoToUnownBonusOnPic)
+	db $00
+
 SlotOnBillboardTileData1:
 	dw Func_11d2
 	db $30, $03
@@ -3546,6 +3622,7 @@ BillboardPaletteDataPointers:
 	dw GoToMeowthBonusOnBillboardPaletteData
 	dw GoToDiglettBonusOnBillboardPaletteData
 	dw GoToSeelBonusOnBillboardPaletteData
+	dw GoToUnownBonusOnBillboardPaletteData
 	dw SlotOnBillboardPaletteData
 
 PalletTownBillboardPaletteData:
@@ -3773,6 +3850,11 @@ GoToSeelBonusOnBillboardPaletteData:
 	db $02
 	dw GoToSeelBonusOnBillboardBGPaletteData
 	dw GoToSeelBonusOnBillboardBGPaletteMapData
+
+GoToUnownBonusOnBillboardPaletteData:
+	db $02
+	dw GoToUnownBonusOnBillboardBGPaletteData
+	dw GoToUnownBonusOnBillboardBGPaletteMapData
 
 SlotOnBillboardPaletteData:
 	db $02
@@ -5329,6 +5411,41 @@ GoToSeelBonusOnBillboardBGPaletteData:
 	db $00 ; terminator
 
 GoToSeelBonusOnBillboardBGPaletteMapData:
+	dw Func_122e
+	db $18 ; total number of bytes
+
+	db $06 ; number of bytes
+	dw vBGMap + $87
+	dw SlotRewardBillboardBGPaletteMap
+	db Bank(SlotRewardBillboardBGPaletteMap)
+
+	db $06 ; number of bytes
+	dw vBGMap + $a7
+	dw SlotRewardBillboardBGPaletteMap + $6
+	db Bank(SlotRewardBillboardBGPaletteMap)
+
+	db $06 ; number of bytes
+	dw vBGMap + $c7
+	dw SlotRewardBillboardBGPaletteMap + $C
+	db Bank(SlotRewardBillboardBGPaletteMap)
+
+	db $06 ; number of bytes
+	dw vBGMap + $e7
+	dw SlotRewardBillboardBGPaletteMap + $12
+	db Bank(SlotRewardBillboardBGPaletteMap)
+
+	db $00 ; terminator
+
+GoToUnownBonusOnBillboardBGPaletteData:
+	dw LoadPalettes
+	db $10
+	db $08 ; number of colors
+	db $30 ; OAM palettes
+	dw GoToUnownBonusOnBillboardBGPalette
+	db Bank(GoToUnownBonusOnBillboardBGPalette)
+	db $00 ; terminator
+
+GoToUnownBonusOnBillboardBGPaletteMapData:
 	dw Func_122e
 	db $18 ; total number of bytes
 

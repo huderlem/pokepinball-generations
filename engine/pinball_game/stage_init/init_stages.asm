@@ -33,16 +33,18 @@ CallTable_8348: ; 0x8348
 	padded_dab InitGoldField         ; STAGE_GOLD_FIELD_BOTTOM
 	padded_dab InitSilverField       ; STAGE_SILVER_FIELD_TOP
 	padded_dab InitSilverField       ; STAGE_SILVER_FIELD_BOTTOM
+	padded_dab InitGengarBonusStage
 	padded_dab InitGengarBonusStage  ; STAGE_GENGAR_BONUS
-	padded_dab InitGengarBonusStage  ; STAGE_GENGAR_BONUS
+	padded_dab InitMewtwoBonusStage
 	padded_dab InitMewtwoBonusStage  ; STAGE_MEWTWO_BONUS
-	padded_dab InitMewtwoBonusStage  ; STAGE_MEWTWO_BONUS
+	padded_dab InitMeowthBonusStage
 	padded_dab InitMeowthBonusStage  ; STAGE_MEOWTH_BONUS
-	padded_dab InitMeowthBonusStage  ; STAGE_MEOWTH_BONUS
+	padded_dab InitDiglettBonusStage
 	padded_dab InitDiglettBonusStage ; STAGE_DIGLETT_BONUS
-	padded_dab InitDiglettBonusStage ; STAGE_DIGLETT_BONUS
+	padded_dab InitSeelBonusStage
 	padded_dab InitSeelBonusStage    ; STAGE_SEEL_BONUS
-	padded_dab InitSeelBonusStage    ; STAGE_SEEL_BONUS
+	padded_dab InitUnownBonusStage
+	padded_dab InitUnownBonusStage   ; STAGE_UNOWN_BONUS
 
 ResetDataForStageInitialization: ; 0x8388
 ; Resets some game data, depending on which stage is being initialized.

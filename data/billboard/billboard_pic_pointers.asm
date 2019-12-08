@@ -20,6 +20,7 @@ ENDM
 	BillboardPicturePointer GoToMeowthBonusOnPic
 	BillboardPicturePointer GoToDiglettBonusOnPic
 	BillboardPicturePointer GoToSeelBonusOnPic
+	BillboardPicturePointer GoToUnownBonusOnPic
 	BillboardPicturePointer SmallReward100PointsOnPic
 	BillboardPicturePointer SmallReward200PointsOnPic
 	BillboardPicturePointer SmallReward300PointsOnPic

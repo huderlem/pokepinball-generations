@@ -30,24 +30,26 @@ InitBallForStage: ; 0x83ba
 	ld a, [wCurrentStage]
 	call CallInFollowingTable
 InitBall_CallTable: ; 0x8404
-	padded_dab InitBallRedField ; STAGE_RED_FIELD_TOP
-	padded_dab InitBallRedField ; STAGE_RED_FIELD_BOTTOM
-	padded_dab InitBallBlueField ; STAGE_BLUE_FIELD_TOP
-	padded_dab InitBallBlueField ; STAGE_BLUE_FIELD_BOTTOM
-	padded_dab InitBallGoldField ; STAGE_GOLD_FIELD_TOP
-	padded_dab InitBallGoldField ; STAGE_GOLD_FIELD_BOTTOM
-	padded_dab InitBallSilverField ; STAGE_SILVER_FIELD_TOP
-	padded_dab InitBallSilverField ; STAGE_SILVER_FIELD_BOTTOM
+	padded_dab InitBallRedField          ; STAGE_RED_FIELD_TOP
+	padded_dab InitBallRedField          ; STAGE_RED_FIELD_BOTTOM
+	padded_dab InitBallBlueField         ; STAGE_BLUE_FIELD_TOP
+	padded_dab InitBallBlueField         ; STAGE_BLUE_FIELD_BOTTOM
+	padded_dab InitBallGoldField         ; STAGE_GOLD_FIELD_TOP
+	padded_dab InitBallGoldField         ; STAGE_GOLD_FIELD_BOTTOM
+	padded_dab InitBallSilverField       ; STAGE_SILVER_FIELD_TOP
+	padded_dab InitBallSilverField       ; STAGE_SILVER_FIELD_BOTTOM
+	padded_dab InitBallGengarBonusStage
 	padded_dab InitBallGengarBonusStage  ; STAGE_GENGAR_BONUS
-	padded_dab InitBallGengarBonusStage  ; STAGE_GENGAR_BONUS
+	padded_dab InitBallMewtwoBonusStage
 	padded_dab InitBallMewtwoBonusStage  ; STAGE_MEWTWO_BONUS
-	padded_dab InitBallMewtwoBonusStage  ; STAGE_MEWTWO_BONUS
+	padded_dab InitBallMeowthBonusStage
 	padded_dab InitBallMeowthBonusStage  ; STAGE_MEOWTH_BONUS
-	padded_dab InitBallMeowthBonusStage  ; STAGE_MEOWTH_BONUS
+	padded_dab InitBallDiglettBonusStage
 	padded_dab InitBallDiglettBonusStage ; STAGE_DIGLETT_BONUS
-	padded_dab InitBallDiglettBonusStage ; STAGE_DIGLETT_BONUS
+	padded_dab InitBallSeelBonusStage
 	padded_dab InitBallSeelBonusStage    ; STAGE_SEEL_BONUS
-	padded_dab InitBallSeelBonusStage    ; STAGE_SEEL_BONUS
+	padded_dab InitBallUnownBonusStage
+	padded_dab InitBallUnownBonusStage   ; STAGE_UNOWN_BONUS
 
 TryLoadWildMonCollisionMask: ; 0x8444
 	ld a, [wInSpecialMode]

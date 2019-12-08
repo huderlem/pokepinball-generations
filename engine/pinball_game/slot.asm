@@ -180,6 +180,7 @@ SlotRewards_CallTable: ; 0xeeca
 	dw SlotRewardGoToBonusStage
 	dw SlotRewardGoToBonusStage
 	dw SlotRewardGoToBonusStage
+	dw SlotRewardGoToBonusStage
 
 Delay1Frame: ; 0xeeee
 ; Simply does nothing for approximately 1 frame of real time

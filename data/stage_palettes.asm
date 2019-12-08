@@ -647,8 +647,8 @@ GoToSeelBonusOnBillboardBGPalette:  ; 0xdcc60
 	RGB 0, 0, 0
 GoToUnownBonusOnBillboardBGPalette:
 	RGB 31, 31, 31
-	RGB 15, 15, 19
-	RGB 31, 0, 31
+	RGB 27, 14, 2
+	RGB 14, 7, 1
 	RGB 0, 0, 0
 
 HurryUp2OnBillboardBGPalette: ; 0xdcc68

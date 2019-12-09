@@ -1,100 +1,72 @@
-TileDataPointers_16899_GoldField:
-	dw TileData_168a1_GoldField
-	dw TileData_168a8_GoldField
-	dw TileData_168af_GoldField
-	dw TileData_168af_GoldField
+LoadChinchouStateTable:
+	dw LoadChinchouState0
+	dw LoadChinchouState1
+	dw LoadChinchouState2
+	dw LoadChinchouState3
 
-TileData_168a1_GoldField: ; 0x168a1
+LoadChinchouState0: ;0x16918
+	db $02
+	dw TileData_16921_GoldField
+	dw TransitionToUnlitChinchou
+
+LoadChinchouState1: ;0x1691b
+	db $02
+	dw TileData_16934_GoldField
+    dw TransitionToLitChinchou
+
+LoadChinchouState2: ;0x1691e
+	db $02
+	dw TileData_16947_GoldField
+	dw TransitionToUnlitChinchou
+	
+LoadChinchouState3: ;0x1691e
+	db $02
+	dw TileData_16947_GoldField
+	dw TransitionToLitChinchou
+
+TileData_16921_GoldField: ; 0x16921
+	dw LoadTileLists
 	db $03
-	dw TileData_168b6_GoldField
-	dw TileData_168c0_GoldField
-	dw TileData_168ca_GoldField
 
-TileData_168a8_GoldField: ; 0x168a8
+	db $02
+	dw vBGMap + $1E7
+	db $C6, $C7
+
+	db $01
+	dw vBGMap + $207
+	db $C8
+
+	db $00
+
+TileData_16934_GoldField: ; 0x16934
+	dw LoadTileLists
 	db $03
-	dw TileData_168d4_GoldField
-	dw TileData_168de_GoldField
-	dw TileData_168e8_GoldField
 
-TileData_168af_GoldField: ; 0x168af
+	db $02
+	dw vBGMap + $1E7
+	db $C6, $C7
+
+	db $01
+	dw vBGMap + $207
+	db $C8
+
+	db $00
+
+TileData_16947_GoldField: ; 0x16947
+	dw LoadTileLists
 	db $03
-	dw TileData_168f2_GoldField
-	dw TileData_168fc_GoldField
-	dw TileData_16906_GoldField
 
-TileData_168b6_GoldField: ; 0x168b6
-	dw Func_11d2
-	db $30, $03
-	dw vTilesSH tile $50
-	dw StageGoldFieldTopBaseGameBoyGfx + $260
-	db Bank(StageGoldFieldTopBaseGameBoyGfx)
+	db $02
+	dw vBGMap + $1E7
+	db $CA, $CB
+
+	db $01
+	dw vBGMap + $207
+	db $CC
+
 	db $00
 
-TileData_168c0_GoldField: ; 0x168c0
-	dw Func_11d2
-	db $30, $03
-	dw vTilesSH tile $53
-	dw StageGoldFieldTopBaseGameBoyGfx + $290
-	db Bank(StageGoldFieldTopBaseGameBoyGfx)
-	db $00
-
-TileData_168ca_GoldField: ; 0x168ca
-	dw Func_11d2
-	db $10, $01
-	dw vTilesSH tile $56
-	dw StageGoldFieldTopBaseGameBoyGfx + $2c0
-	db Bank(StageGoldFieldTopBaseGameBoyGfx)
-	db $00
-
-TileData_168d4_GoldField: ; 0x168d4
-	dw Func_11d2
-	db $30, $03
-	dw vTilesSH tile $52
-	dw StageGoldFieldTopBaseGameBoyGfx + $280
-	db Bank(StageGoldFieldTopBaseGameBoyGfx)
-	db $00
-
-TileData_168de_GoldField: ; 0x168de
-	dw Func_11d2
-	db $20, $02
-	dw vTilesSH tile $55
-	dw StageGoldFieldTopBaseGameBoyGfx + $2b0
-	db Bank(StageGoldFieldTopBaseGameBoyGfx)
-	db $00
-
-TileData_168e8_GoldField: ; 0x168e8
-	dw Func_11d2
-	db $20, $02
-	dw vTilesSH tile $50
-	dw StageRedFieldBottomIndicatorsGfx_Gameboy + $EA0
-	db Bank(StageRedFieldBottomIndicatorsGfx_Gameboy)
-	db $00
-
-TileData_168f2_GoldField: ; 0x168f2
-	dw Func_11d2
-	db $30, $03
-	dw vTilesSH tile $51
-	dw StageRedFieldBottomIndicatorsGfx_Gameboy + $10E0
-	db Bank(StageRedFieldBottomIndicatorsGfx_Gameboy)
-	db $00
-
-TileData_168fc_GoldField: ; 0x168fc
-	dw Func_11d2
-	db $30, $03
-	dw vTilesSH tile $54
-	dw StageRedFieldBottomIndicatorsGfx_Gameboy + $1110
-	db Bank(StageRedFieldBottomIndicatorsGfx_Gameboy)
-	db $00
-
-TileData_16906_GoldField: ; 0x16906
-	dw Func_11d2
-	db $10, $01
-	dw vTilesSH tile $50
-	dw StageGoldFieldTopBaseGameBoyGfx + $260
-	db Bank(StageGoldFieldTopBaseGameBoyGfx)
-	db $00
-
-TileDataPointers_16980_GoldField:
+TileDataPointers_16980_GoldField: ;for lower field indicator
 	dw TileData_16984_GoldField
 	dw TileData_16987_GoldField
 
@@ -133,12 +105,9 @@ TileData_16998_GoldField: ; 0x16998
 	db $C2, $C3
 
 	db $00
-	
-ChinchouLitTransitionPalettes:
-	dw TransitionToUnlitChinchou
-	dw TransitionToLitChinchou
 
 TransitionToLitChinchou:
+    dw LoadPalettes
 	db $08
 	db $04 ; number of colors
 	db $18
@@ -147,6 +116,7 @@ TransitionToLitChinchou:
 	db $00 ; terminator
 	
 TransitionToUnlitChinchou:
+    dw LoadPalettes
 	db $08
 	db $04 ; number of colors
 	db $18

@@ -1188,24 +1188,24 @@ QueueGraphicsToLoad: ; 0x10aa
 	ld a, [hli]
 	ld b, a
 .loop
-	push bc
-	ld a, c
-	ld c, [hl]
+	push bc ;bank on c, chunks to load on b
+	ld a, c ;bank moves to a
+	ld c, [hl] 
 	inc hl
 	ld b, [hl] ;pull pointer from HL, load into BC
 	inc hl
-	push af
-	ld a, [bc]
+	push af ;bank on a
+	ld a, [bc] 
 	ld e, a
 	inc bc
 	ld a, [bc]
-	ld d, a ;pull de from bc
+	ld d, a ;pull each pointer from [bc], place in de, then run graphics loading
 	inc bc
-	pop af
+	pop af ;bank on a
 	push hl
 	call QueueGraphicsToLoadWithFunc
 	pop hl
-	pop bc
+	pop bc ;bank on c, chunks to load on b
 	dec b
 	jr nz, .loop
 	ret
@@ -1229,7 +1229,7 @@ QueueGraphicsToLoadWithFunc: ; 0x10c5
 	ld hl, wd7fb
 	ld l, [hl]
 	ld h, wcb00 / $100
-	inc bc ;load bc+1 then a then de into the queue
+	inc bc ;load bc+1 then a then de into the queue at position wd7fb
 	ld [hl], c
 	inc h
 	ld [hl], b
@@ -1435,7 +1435,7 @@ Func_11c7:
 
 Func_11d2:
 ;de = pointer to data
-;data structure: byte1 * 16 = bytes to load, destination start, source start, bank
+;data structure: byte1 * 16 = bytes to load, destination start, source start, source bank
 	ld h, d ;load pointer into hl
 	ld l, e
 	ld a, [hLoadedROMBank]

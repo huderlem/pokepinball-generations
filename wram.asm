@@ -54,7 +54,7 @@ wBottomMessageBuffer:: ; 0xc600
 wStageCollisionMap:: ; 0xc700
 	ds $300
 
-wca00::
+wca00:: ;somehow related to the graphics queue
 	ds $100
 
 wcb00:: ; 0xcb00 seems to be the grahics queue

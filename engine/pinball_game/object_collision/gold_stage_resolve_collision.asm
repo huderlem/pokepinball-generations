@@ -2368,20 +2368,18 @@ ResolveStaryuCollision_Bottom_GoldField: ; 0x167ff
 
 LoadStaryuGraphics_Top_GoldField: ; 0x16859
 	ld a, [wd502]
-	and $1
 	sla a
 	ld c, a
 	ld b, $0
-	ld hl, ChinchouLitTransitionPalettes
+	ld hl, LoadChinchouStateTable
 	add hl, bc
-	ld c, [hl]
-	inc hl
-	ld b, [hl]
-	ld a, Bank(ChinchouLitTransitionPalettes)
-	push de
-	ld de, LoadPalettes
-	call QueueGraphicsToLoadWithFunc
-	pop de
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	or h
+	ret z
+	ld a, Bank(LoadChinchouStateTable)
+	call QueueGraphicsToLoad
 	ret
 
 LoadStaryuGraphics_Bottom_GoldField: ; 0x16878

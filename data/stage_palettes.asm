@@ -1718,8 +1718,8 @@ StageGoldFieldTopOBJPalette0: ; 0xdc9c0
 	RGB 0, 0, 0
 StageGoldFieldTopOBJPalette1: ; 0xdc9c8
 	RGB 31, 31, 31
-	RGB 17,16,24
-	RGB 20, 21, 5
+	RGB 15,14,24
+	RGB 29, 23, 03
 	RGB 0, 0, 0
 StageGoldFieldTopOBJPalette2: ; 0xdc9d0
 	RGB 20, 20, 20
@@ -1775,8 +1775,8 @@ StageGoldFieldBottomBGPalette3: ; 0xdca98
 	RGB 0, 0, 0
 StageGoldFieldBottomBGPalette4: ; 0xdcaa0
 	RGB 31, 31, 31
-	RGB 31, 0, 31
-	RGB 31, 0, 0
+	RGB 0, 20, 0
+	RGB 0, 20, 0
 	RGB 0, 0, 0
 StageGoldFieldBottomBGPalette5: ; 0xdcaa8
 	RGB 31, 31, 31

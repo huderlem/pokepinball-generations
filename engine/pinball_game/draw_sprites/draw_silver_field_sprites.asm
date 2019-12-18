@@ -115,11 +115,11 @@ DrawSlowpoke_SilverField: ; 0x1f408
 	ld hl, SlowpokeOAMIds_SilverField
 	add hl, de
 	ld a, [hl]
-	call LoadOAMData
+	call LoadOAMData2
 	ret
 
 SlowpokeOAMIds_SilverField:
-	db $E2, $E3, $E4
+	db $94, $95, $96
 
 DrawCloyster_SilverField: ; 0x1f428
 	ld a, $70
@@ -136,11 +136,11 @@ DrawCloyster_SilverField: ; 0x1f428
 	ld hl, CloysterOAMIds_SilverField
 	add hl, de
 	ld a, [hl]
-	call LoadOAMData
+	call LoadOAMData2
 	ret
 
 CloysterOAMIds_SilverField:
-	db $E5, $E6, $E7
+	db $91, $92, $93
 
 DrawPikachuSavers_SilverStage: ; 0x1f448
 	ld a, [hSCX]

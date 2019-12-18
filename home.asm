@@ -702,7 +702,7 @@ DMARoutine:
 ; This routine is initially loaded into hPushOAM - hFarCallTempA by WriteDMACodeToHRAM.
 	ld a, (wOAMBuffer >> 8)
 	ld [rDMA], a   ; start DMA
-	ld a, $28
+	ld a, $28 ;reducing this to account for doublespeed is a free optimisation
 .waitLoop               ; wait for DMA to finish
 	dec a
 	jr nz, .waitLoop
@@ -1188,24 +1188,24 @@ QueueGraphicsToLoad: ; 0x10aa
 	ld a, [hli]
 	ld b, a
 .loop
-	push bc
-	ld a, c
-	ld c, [hl]
+	push bc ;bank on c, chunks to load on b
+	ld a, c ;bank moves to a
+	ld c, [hl] 
 	inc hl
 	ld b, [hl] ;pull pointer from HL, load into BC
 	inc hl
-	push af
-	ld a, [bc]
+	push af ;bank on a
+	ld a, [bc] 
 	ld e, a
 	inc bc
 	ld a, [bc]
-	ld d, a ;pull de from bc
+	ld d, a ;pull each pointer from [bc], place in de, then run graphics loading
 	inc bc
-	pop af
+	pop af ;bank on a
 	push hl
 	call QueueGraphicsToLoadWithFunc
 	pop hl
-	pop bc
+	pop bc ;bank on c, chunks to load on b
 	dec b
 	jr nz, .loop
 	ret
@@ -1229,7 +1229,7 @@ QueueGraphicsToLoadWithFunc: ; 0x10c5
 	ld hl, wd7fb
 	ld l, [hl]
 	ld h, wcb00 / $100
-	inc bc
+	inc bc ;load bc+1 then a then de into the queue at position wd7fb
 	ld [hl], c
 	inc h
 	ld [hl], b
@@ -1242,43 +1242,43 @@ QueueGraphicsToLoadWithFunc: ; 0x10c5
 	ld e, $ff
 	ld [hROMBankBuffer], a
 	ld a, [hLoadedROMBank]
-	push af
+	push af ;put current bank on the stack, then switch to that bank
 	ld a, [hROMBankBuffer]
 	ld [hLoadedROMBank], a
 	ld [MBC5RomBank], a
 	dec bc
-	ld a, [bc]
+	ld a, [bc] ;load [bc] and add wd7fa
 	ld hl, wd7fa
 	add [hl]
 	cp $30
-	jr c, .size_okay
+	jr c, .size_okay ;if more than $30, load [bc] again and set e to 0 instead of $ff
 	ld a, [bc]
 	ld e, $0
 .size_okay
-	add $4
+	add $4 ;add 4 more, then load back into wd7fa
 	ld [hl], a
 	pop af
 	ld [hLoadedROMBank], a
-	ld [MBC5RomBank], a
+	ld [MBC5RomBank], a ;swap bank back
 	ld hl, wd7fb
 	ld l, [hl]
-	ld h, wca00 / $100
+	ld h, wca00 / $100 ;load queue position in ???
 	inc l
-	ld [hl], $0
+	ld [hl], $0 ;insert 0 (a terminator?) after it 
 	dec l
-	ld [hl], e
-	ld hl, wd7fb
+	ld [hl], e ;load FF if less than $30, 0 if more
+	ld hl, wd7fb ;inc queue position
 	inc [hl]
 	ld a, [rLCDC]
 	bit 7, a
-	ret nz
-	ld a, [rIE]
+	ret nz ;return if LCD on
+	ld a, [rIE] ;disable vblank interupt
 	push af
 	res 0, a
 	ld [rIE], a
 	call Func_113a
 	pop af
-	ld [rIE], a
+	ld [rIE], a ;renable vblank interupt
 	ret
 
 Func_1129: ; 0x1129
@@ -1297,34 +1297,34 @@ Func_1130: ; 0x1130
 Func_113a: ; 0x113a
 	ld hl, wd7fc
 	ld a, [wd7fb]
-	cp [hl]
+	cp [hl] ;if ??? = queue length, ret
 	ret z
-	ld l, [hl]
+	ld l, [hl] 
 	ld h, $ca
-	ld [hl], $ff
+	ld [hl], $ff ;place FF into ca??
 .loop
 	ld a, [hl]
 	and a
-	jr z, .done
+	jr z, .done ;loop 255 times
 	push hl
-	inc h
-	ld e, [hl]
+	inc h ;move to cb
+	ld e, [hl] ;load pointer to data into de
 	inc h
 	ld d, [hl]
 	inc h
 	ld a, [hLoadedROMBank]
-	push af
-	ld a, [hl]
+	push af ;put current bank on the stack
+	ld a, [hl] ;changed to the stored bank
 	ld [hLoadedROMBank], a
 	ld [MBC5RomBank], a
 	inc h
 	ld a, [hl]
 	inc h
-	ld h, [hl]
+	ld h, [hl] ;load function to run into HL
 	ld l, a
-	call JumpToHL
+	call JumpToHL ;run the function
 	pop af
-	ld [hLoadedROMBank], a
+	ld [hLoadedROMBank], a ;return to old bank
 	ld [MBC5RomBank], a
 	pop hl
 	inc l
@@ -1434,18 +1434,20 @@ Func_11c7:
 	ret
 
 Func_11d2:
-	ld h, d
+;de = pointer to data
+;data structure: byte1 * 16 = bytes to load, destination start, source start, source bank
+	ld h, d ;load pointer into hl
 	ld l, e
 	ld a, [hLoadedROMBank]
-	ld [$ff94], a
+	ld [$ff94], a ;store current bank in ff94
 .asm_11d8
-	ld a, [hli]
+	ld a, [hli] ;if first byte is 0, exit
 	and a
 	ret z
-	ld [$ff95], a
+	ld [$ff95], a ;otherwise, store in FF95
 	ld a, [hli]
 	ld e, a
-	ld a, [hli]
+	ld a, [hli] ;load data into e,d,c,b and then the bank 
 	ld d, a
 	ld a, [hli]
 	ld c, a
@@ -1454,13 +1456,13 @@ Func_11d2:
 	ld a, [hli]
 	ld [hLoadedROMBank], a
 	ld [MBC5RomBank], a
-	push hl
-	ld h, b
+	push hl ;store hl on the stack
+	ld h, b ;load bc into hl, then ff95 into b
 	ld l, c
 	ld a, [$ff95]
 	ld b, a
 .asm_11f1
-	ld a, [hli]
+	ld a, [hli] ;load 16 bytes from hl to de b times
 	ld [de], a
 	inc e
 	ld a, [hli]
@@ -1508,13 +1510,13 @@ Func_11d2:
 	ld a, [hli]
 	ld [de], a
 	inc de
-	dec b
+	dec b 
 	jr nz, .asm_11f1
-	pop hl
+	pop hl ;recover hl from the stack and switch back to the original bank
 	ld a, [$ff94]
 	ld [hLoadedROMBank], a
 	ld [MBC5RomBank], a
-	jr .asm_11d8
+	jr .asm_11d8 ;loop
 
 Func_122e:
 	ld a, $1
@@ -1565,7 +1567,7 @@ LoadPalettes:
 ; Loads either BG or OAM palette data
 ; de = pointer to palette data
 ;      first byte is number of colors to load
-;      second byte determines BG or OAM palette data
+;      second byte bit 6 determines BG or OAM palette data. set = OAM, unset = BG. other bits are the PAL number
 ;      third and fourth byte are a pointer to actual color data
 ;      fifth byte is Bank of actual color data
 ;      $00 marks the end of the list

@@ -1,5 +1,5 @@
 SetAllPalettesWhite: ; 0xb66
-; Sets all BG and OBJ palettes to white.
+; Sets all BG and OBJ palettes to white and place current data in wPaletteData if CGB
 	ld a, [hGameBoyColorFlag]
 	and a
 	jr nz, .gameboyColor
@@ -16,12 +16,12 @@ SetAllPalettesWhite: ; 0xb66
 	ld c, $20
 .asm_b7d
 	ld a, b
-	ld [rBGPI], a
+	ld [rBGPI], a ;look at PAL B
 	inc b
-	ld a, [rBGPD]
+	ld a, [rBGPD] ;load into paldata
 	ld [hli], a
 	ld a, b
-	ld [rBGPI], a
+	ld [rBGPI], a ;twice per loop
 	inc b
 	ld a, [rBGPD]
 	ld [hli], a
@@ -31,7 +31,7 @@ SetAllPalettesWhite: ; 0xb66
 	ld c, $20
 .asm_b92
 	ld a, b
-	ld [rOBPI], a
+	ld [rOBPI], a ;repeat for OAM PALs
 	inc b
 	ld a, [rOBPD]
 	ld [hli], a
@@ -46,11 +46,11 @@ SetAllPalettesWhite: ; 0xb66
 	ld b, $2
 .asm_ba8
 	ld a, $80
-	ld [de], a
-	inc de
+	ld [de], a ;load $80 into BGPI to activate auto-increment
+	inc de ;move to BGPD
 	ld c, $20
 .asm_bae
-	ld a, $ff
+	ld a, $ff ; fill BGPD, wFadeBGPaletteData and wFadeOBJPaletteData with $FF7F
 	ld [de], a
 	ld [hli], a
 	ld a, $7f
@@ -60,7 +60,7 @@ SetAllPalettesWhite: ; 0xb66
 	jr nz, .asm_bae
 	inc de
 	dec b
-	jr nz, .asm_ba8
+	jr nz, .asm_ba8 ;do OAM too
 	ret
 
 FadeIn: ; 0xbbe
@@ -317,7 +317,7 @@ FadeOutStep: ; 0xd11
 	and $1f
 	add $2
 	ld e, a
-	cp $1f
+	cp $1f 
 	jr c, .asm_d1f
 	ld e, $1f
 .asm_d1f

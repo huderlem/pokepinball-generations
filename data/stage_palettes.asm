@@ -1663,7 +1663,6 @@ FieldSelectScreenBGPalette7_Johto: ; 0xdd128
 	RGB 31,31,0
 	RGB 31,31,0
 	RGB 31,31,0
-
 FieldSelectScreenOBJPalette0_Johto: ; 0xdd140
 	RGB 10, 10, 10
 	RGB 31, 31, 31
@@ -1678,28 +1677,28 @@ StageGoldFieldTopBGPalette0: ; 0xdc980
 	RGB 0, 0, 0
 StageGoldFieldTopBGPalette1: ; 0xdc988
 	RGB 31, 31, 31
-	RGB 31, 24, 0
-	RGB 14, 10, 1
+	RGB 24, 16, 0
+	RGB 14, 7, 0
 	RGB 3, 0, 0
 StageGoldFieldTopBGPalette2: ; 0xdc990
 	RGB 31, 31, 31
-	RGB 29, 26, 13
-	RGB 15, 14, 7
+	RGB 31, 24, 0
+	RGB 21, 10, 0
 	RGB 0, 0, 0
-StageGoldFieldTopBGPalette3: ; 0xdc998
+StageGoldFieldTopBGPalette3Unlit: ; 0xdc998
 	RGB 31, 31, 31
-	RGB 31, 13, 13
-	RGB 31, 0, 0
+	RGB 29, 24, 7
+	RGB 31, 24, 0
 	RGB 0, 0, 0
 StageGoldFieldTopBGPalette4: ; 0xdc9a0
 	RGB 31, 31, 31
-	RGB 31, 0, 31
-	RGB 31, 24, 0
+	RGB 26, 3, 5
+	RGB 14, 7, 0
 	RGB 0, 0, 0
 StageGoldFieldTopBGPalette5: ; 0xdc9a8
-	RGB 14, 10, 1
-	RGB 31, 0, 31
-	RGB 31, 24, 0
+	RGB 14, 7, 0
+	RGB 26, 3, 5
+	RGB 24, 16, 0
 	RGB 0, 0, 0
 StageGoldFieldTopBGPalette6: ; 0xdc9b0
 	RGB 31, 31, 31
@@ -1719,19 +1718,19 @@ StageGoldFieldTopOBJPalette0: ; 0xdc9c0
 	RGB 0, 0, 0
 StageGoldFieldTopOBJPalette1: ; 0xdc9c8
 	RGB 31, 31, 31
-	RGB 31, 19, 22
-	RGB 21, 0, 0
-	RGB 4, 0, 0
+	RGB 15,14,24
+	RGB 29, 23, 03
+	RGB 0, 0, 0
 StageGoldFieldTopOBJPalette2: ; 0xdc9d0
 	RGB 20, 20, 20
 	RGB 31, 31, 31
-	RGB 31, 0, 31
+	RGB 26, 3, 5
 	RGB 0, 0, 0
 StageGoldFieldTopOBJPalette3: ; 0xdc9d8
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 31, 22, 0
-	RGB 10, 4, 0
+	RGB 31, 28, 17
+	RGB 11, 20, 28
+	RGB 2, 7, 15
 StageGoldFieldTopOBJPalette4: ; 0xdc9e0
 	RGB 20, 20, 20
 	RGB 18, 31, 18
@@ -1739,9 +1738,9 @@ StageGoldFieldTopOBJPalette4: ; 0xdc9e0
 	RGB 0, 7, 0
 StageGoldFieldTopOBJPalette5: ; 0xdc9e8
 	RGB 31, 31, 31
-	RGB 31, 20, 0
-	RGB 31, 15, 16
-	RGB 5, 2, 0
+	RGB 31, 29, 0
+	RGB 27, 7, 7
+	RGB 0, 0, 0
 StageGoldFieldTopOBJPalette6: ; 0xdc9f0
 	RGB 20, 20, 20
 	RGB 0, 31, 25
@@ -1752,7 +1751,7 @@ StageGoldFieldTopOBJPalette7: ; 0xdc9f8
 	RGB 31, 15, 13
 	RGB 21, 0, 0
 	RGB 4, 0, 0
-
+	
 StageGoldFieldBottomPalettes: ; 0xdca80
 StageGoldFieldBottomBGPalette0: ; 0xdca80
 	RGB 31, 31, 31
@@ -1761,13 +1760,13 @@ StageGoldFieldBottomBGPalette0: ; 0xdca80
 	RGB 0, 0, 0
 StageGoldFieldBottomBGPalette1: ; 0xdca88
 	RGB 31, 31, 31
-	RGB 31, 24, 0
-	RGB 14, 10, 1
+	RGB 24, 16, 0
+	RGB 14, 7, 0
 	RGB 3, 0, 0
 StageGoldFieldBottomBGPalette2: ; 0xdca90
 	RGB 31, 31, 31
-	RGB 29, 26, 13
-	RGB 15, 14, 7
+	RGB 31, 24, 0
+	RGB 21, 10, 0
 	RGB 0, 0, 0
 StageGoldFieldBottomBGPalette3: ; 0xdca98
 	RGB 31, 31, 31
@@ -1776,8 +1775,8 @@ StageGoldFieldBottomBGPalette3: ; 0xdca98
 	RGB 0, 0, 0
 StageGoldFieldBottomBGPalette4: ; 0xdcaa0
 	RGB 31, 31, 31
-	RGB 31, 0, 31
-	RGB 31, 0, 0
+	RGB 0, 20, 0
+	RGB 0, 20, 0
 	RGB 0, 0, 0
 StageGoldFieldBottomBGPalette5: ; 0xdcaa8
 	RGB 31, 31, 31
@@ -1844,18 +1843,18 @@ StageSilverFieldTopBGPalette0: ; 0xdcb00
 	RGB 0, 0, 0
 StageSilverFieldTopBGPalette1: ; 0xdcb08
 	RGB 31, 31, 31
-	RGB 20, 20, 20
-	RGB 11, 11, 11
+	RGB 18, 18, 21
+	RGB 10, 10, 12
 	RGB 0, 0, 0
 StageSilverFieldTopBGPalette2: ; 0xdcb10
 	RGB 31, 31, 31
-	RGB 15, 15, 15
-	RGB 5, 5, 4
+	RGB 15, 16, 25
+	RGB 4, 3, 12
 	RGB 0, 0, 0
 StageSilverFieldTopBGPalette3: ; 0xdcb18
 	RGB 31, 31, 31
-	RGB 31, 29, 0
-	RGB 15, 8, 0
+	RGB 15, 19, 26
+	RGB 10, 15, 22
 	RGB 0, 0, 0
 StageSilverFieldTopBGPalette4: ; 0xdcb20
 	RGB 31, 31, 31
@@ -1885,9 +1884,9 @@ StageSilverFieldTopOBJPalette0: ; 0xdcb40
 	RGB 0, 0, 0
 StageSilverFieldTopOBJPalette1: ; 0xdcb48
 	RGB 31, 31, 31
-	RGB 31, 13, 15
-	RGB 23, 4, 6
-	RGB 0, 0, 0
+	RGB 31, 29, 7
+	RGB 10, 26, 4
+	RGB 0, 10, 0
 StageSilverFieldTopOBJPalette2: ; 0xdcb50
 	RGB 21, 21, 21
 	RGB 31, 31, 31
@@ -1895,9 +1894,9 @@ StageSilverFieldTopOBJPalette2: ; 0xdcb50
 	RGB 10, 6, 0
 StageSilverFieldTopOBJPalette3: ; 0xdcb58
 	RGB 31, 31, 31
-	RGB 24, 22, 26
-	RGB 12, 10, 14
-	RGB 0, 0, 0
+    RGB 29, 25, 28
+	RGB 26, 4, 5
+	RGB 11, 11, 11
 StageSilverFieldTopOBJPalette4: ; 0xdcb60
 	RGB 21, 21, 21
 	RGB 31, 31, 31
@@ -1925,20 +1924,20 @@ StageSilverFieldBottomBGPalette0: ; 0xdcb80
 	RGB 13, 20, 31
 	RGB 31, 4, 4
 	RGB 0, 0, 0
-StageSilverFieldBottomBGPalette1: ; 0xdcb88
+StageSilverFieldBottomBGPalette1: ; 0xdcb08
 	RGB 31, 31, 31
-	RGB 20, 20, 20
-	RGB 11, 11, 11
+	RGB 18, 18, 21
+	RGB 10, 10, 12
 	RGB 0, 0, 0
-StageSilverFieldBottomBGPalette2: ; 0xdcb90
+StageSilverFieldBottomBGPalette2: ; 0xdcb10
 	RGB 31, 31, 31
-	RGB 15, 15, 15
-	RGB 5, 5, 4
+	RGB 15, 16, 25
+	RGB 4, 3, 12
 	RGB 0, 0, 0
 StageSilverFieldBottomBGPalette3: ; 0xdcb98
 	RGB 31, 31, 31
-	RGB 31, 29, 0
-	RGB 15, 8, 0
+	RGB 15, 19, 26
+	RGB 10, 15, 22
 	RGB 0, 0, 0
 StageSilverFieldBottomBGPalette4: ; 0xdcba0
 	RGB 31, 31, 31
@@ -2001,3 +2000,9 @@ StageSilverFieldBottomOBJPalette7: ; 0xdcbf8
 	RGB 31, 30, 16
 	RGB 27, 24, 8
 	RGB 23, 19, 3
+	
+StageGoldFieldTopBGPalette3Lit: ; 0xdc998
+	RGB 31, 31, 31
+	RGB 31, 30, 28
+	RGB 31, 24, 0
+	RGB 0, 0, 0

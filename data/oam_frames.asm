@@ -248,6 +248,12 @@ OAMDataPointers: ; 0x4000
 	dw OAMData_f6
 	dw OAMData_f7
 	dw OAMData_f8
+	dw OAMData_f9
+	dw OAMData_Octillery_tentacles
+	dw OAMData_OctilleryHead1
+	dw OAMData_OctilleryHead2
+	dw OAMData_OctilleryHead3
+	dw OAMData_OctilleryHead4
 
 BallSpin0OAM: ; 0x41f2
 	db $08, $08, $42, $00
@@ -2213,6 +2219,44 @@ OAMData_f8: ; 0x55d2
 	db $10, $08, $78, $00
 	db $80 ; terminator
 
+OAMData_f9: ; for mareeps
+	db $0f, $10, $30, $11
+	db $0f, $08, $2e, $11
+	db $80 ; terminator
+
+OAMData_Octillery_tentacles: ;FA
+	db $1C, $21, $0e, $0d
+	db $0C, $21, $0c, $0d
+	db $1C, $0F, $0a, $0d
+	db $0C, $0F, $08, $0d
+	db $80 ; terminator
+
+OAMData_OctilleryHead1: ; FB
+	db $12, $0F, $66, $15
+	db $02, $0F, $64, $15
+	db $12, $07, $62, $15
+	db $02, $07, $60, $15
+	db $80 ; terminator
+
+OAMData_OctilleryHead2: ; FC
+	db $00, $09, $68, $15
+	db $10, $0F, $6c, $15
+	db $10, $07, $6a, $15
+	db $80 ; terminator
+
+OAMData_OctilleryHead3: ; FD
+	db $0F, $0F, $70, $15
+	db $0F, $07, $6e, $15
+	db $80 ; terminator
+
+OAMData_OctilleryHead4: ; FE
+	db $01, $0B, $72, $15
+	db $11, $0F, $76, $15
+	db $11, $07, $74, $15
+	db $80 ; terminator
+	
+
+
 OAMDataPointers2: ; 0x55d7
 	dw OAMData2_0
 	dw OAMData2_1
@@ -2351,6 +2395,20 @@ OAMDataPointers2: ; 0x55d7
 	dw MiniRaikouOAM  ; $86
 	dw MiniEnteiOAM   ; $87
 	dw MiniDogsPortalOAM ; $88
+	dw GoldSpinner1
+	dw GoldSpinner2
+	dw GoldSpinner3
+	dw GoldSpinner4
+	dw GoldSpinner5
+	dw GoldSpinner6
+	dw Chinchou1
+	dw Chinchou2
+	dw Delibird_1_OAMData
+	dw Delibird_2_OAMData
+	dw Delibird_3_OAMData
+	dw OAMData_Politoad1
+	dw OAMData_Politoad2
+	dw OAMData_Politoad3
 
 OAMData2_0: ; 0x56e1
 	db $20, $20, $9E, $04
@@ -3477,3 +3535,101 @@ MiniDogsPortalOAM:
 	db $60, $54, $54, $00
 	db $60, $5C, $56, $00
 	db $80  ; terminator
+
+GoldSpinner1: ;89
+	db $0A, $0f, $78, $22
+	db $0A, $07, $78, $02
+	db $80 ; terminator
+
+GoldSpinner2: ; 8A
+	db $0B, $0f, $7b, $62
+	db $0B, $07, $7b, $42
+	db $80 ; terminator
+
+GoldSpinner3: ; 8B
+	db $0B, $0f, $7d, $62
+	db $0B, $07, $7d, $42
+	db $80 ; terminator
+
+GoldSpinner4: ; 8C
+	db $0B, $0f, $7e, $22
+	db $0B, $07, $7e, $02
+	db $80 ; terminator
+
+GoldSpinner5: ; 8D
+	db $0B, $0f, $7c, $22
+	db $0B, $07, $7c, $02
+	db $80 ; terminator
+
+GoldSpinner6: ; 8E
+	db $0B, $0f, $7a, $22
+	db $0B, $07, $7a, $02
+	db $80 ; terminator
+	
+Chinchou1: ;8F
+	db $10, $18, $06, $1b
+	db $20, $10, $04, $1b
+	db $10, $10, $02, $1b
+	db $10, $08, $00, $1b
+	db $80 ; terminator
+
+Chinchou2: ;90
+	db $10, $18, $16, $1b
+	db $20, $10, $14, $1b
+	db $10, $10, $12, $1b
+	db $10, $08, $10, $1b
+	db $80 ; terminator
+	
+Delibird_1_OAMData: ; 91
+	db $1C, $19, $2a, $13
+	db $1C, $11, $28, $13
+	db $1C, $09, $26, $13
+	db $1C, $21, $24, $13
+	db $0C, $11, $22, $13
+	db $0C, $09, $20, $13
+	db $80 ; terminator
+
+Delibird_2_OAMData: ; 92
+	db $1C, $19, $36, $13
+	db $1C, $11, $34, $13
+	db $1C, $09, $32, $13
+	db $1C, $21, $30, $13
+	db $0C, $11, $2e, $13
+	db $0C, $09, $2c, $13
+	db $80 ; terminator
+
+Delibird_3_OAMData: ; 93
+	db $0C, $11, $2e, $13
+	db $0C, $09, $2c, $13
+	db $1C, $11, $72, $13
+	db $1C, $21, $76, $13
+	db $1C, $19, $74, $13
+	db $1C, $09, $70, $13
+	db $80 ; terminator
+	
+OAMData_Politoad1: ; 94
+	db $22, $18, $1e, $11
+	db $22, $10, $1c, $11
+	db $22, $08, $1a, $11
+	db $12, $18, $9c, $11
+	db $12, $10, $9a, $11
+	db $12, $08, $98, $11
+	db $80 ; terminator
+
+OAMData_Politoad2: ; 95
+	db $12, $18, $a2, $11
+	db $12, $10, $a0, $11
+	db $12, $08, $9e, $11
+	db $22, $18, $1e, $11
+	db $22, $10, $1c, $11
+	db $22, $08, $1a, $11
+	db $80 ; terminator
+	
+OAMData_Politoad3 : ;96
+	db $12, $18, $a8, $11
+	db $12, $10, $a6, $11
+	db $12, $08, $a4, $11
+	db $22, $18, $1e, $11
+	db $22, $10, $1c, $11
+	db $22, $08, $1a, $11
+	db $80 ; terminator

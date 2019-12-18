@@ -1778,32 +1778,29 @@ AddScorePsyduckOrPoliwag_SilverField: ; 0x1de22
 	ret
 
 _LoadPsyduckOrPoliwagGraphics_SilverField: ; 0x1de4b
+;load tiledata entry a of TileDataPointers_1e00f_SilverField
 	ld b, a
 	ld a, [wCurrentStage]
 	bit 0, a
 	ret z
 	ld a, b
-	sla a
+	sla a 
 	ld c, a
 	ld b, $0
-	ld hl, TileDataPointers_1df66_SilverField
-	ld a, [hGameBoyColorFlag]
-	and a
-	jr z, .gameboyColor
 	ld hl, TileDataPointers_1e00f_SilverField
-.gameboyColor
 	add hl, bc
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
 	or h
 	ret z
-	ld a, Bank(TileDataPointers_1df66_SilverField)
+	ld a, Bank(TileDataPointers_1e00f_SilverField)
 	call QueueGraphicsToLoad
 	ret
 
 LoadPsyduckOrPoliwagNumberGraphics_SilverField: ; 0x1de6f
 ; This is for the map move numbers that appears next to poliwag and psyduck.
+; load tiledata entry a of TileDataPointers_1e1d6_SilverField
 	ld b, a
 	ld a, [wCurrentStage]
 	bit 0, a
@@ -1812,19 +1809,14 @@ LoadPsyduckOrPoliwagNumberGraphics_SilverField: ; 0x1de6f
 	sla a
 	ld c, a
 	ld b, $0
-	ld hl, TileDataPointers_1e0a4_SilverField
-	ld a, [hGameBoyColorFlag]
-	and a
-	jr z, .asm_1de87
 	ld hl, TileDataPointers_1e1d6_SilverField
-.asm_1de87
 	add hl, bc
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
 	or h
 	ret z
-	ld a, Bank(TileDataPointers_1e0a4_SilverField)
+	ld a, Bank(TileDataPointers_1e1d6_SilverField)
 	call QueueGraphicsToLoad
 	ret
 

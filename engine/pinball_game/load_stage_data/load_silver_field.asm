@@ -73,54 +73,40 @@ LoadBonusMultiplierRailingGraphics_SilverField: ; 0x1c21e
 	ret
 
 LoadPsyduckOrPoliwagGraphics_SilverField: ; 0x1c235
-	ld a, [wLeftMapMoveDiglettAnimationCounter]
+	ld a, [wLeftMapMovePoliwagAnimationCounter]
 	and a
-	jr z, .asm_1c249
+	jr z, .asm_1c24a
 	ld a, $54
-	ld [wStageCollisionMap + $e3], a
+	ld [wStageCollisionMap + $e3], a ;load new collision if the button is surrently animated and unpushable
 	ld a, $55
 	ld [wStageCollisionMap + $103], a
 	ld a, $1
-	jr .asm_1c24a
 
-.asm_1c249
-	xor a
 .asm_1c24a
-	call _LoadPsyduckOrPoliwagGraphics_SilverField
+	call _LoadPsyduckOrPoliwagGraphics_SilverField ;load 1 if button is hit, otherwise load 0
 	ld a, [wLeftMapMoveCounter]
-	call LoadPsyduckOrPoliwagNumberGraphics_SilverField
-	ld a, [hGameBoyColorFlag]
-	and a
-	jr z, .asm_1c267
+	call LoadPsyduckOrPoliwagNumberGraphics_SilverField ;load map move counter directly
 	ld a, [wLeftMapMoveCounter]
 	cp $0
-	jr z, .asm_1c264
+	jr z, .asm_1c269 ;if not 0, add 7
 	ld b, $7
 	add b
-	jr .asm_1c269
-
-.asm_1c264
-	xor a
-	jr .asm_1c269
-
-.asm_1c267
-	ld a, $8
 .asm_1c269
 	call LoadPsyduckOrPoliwagNumberGraphics_SilverField
-	ld a, [wRightMapMoveDiglettFrame]
+	ld a, [wRightMapMovePsyduckFrame]
 	and a
-	jr z, .asm_1c295
+	jr z, .asm_1c295 ;if 0, skip collision change and a = 2
 	ld a, $52
-	ld [wStageCollisionMap + $f0], a
+	ld [wStageCollisionMap + $f0], a ;load new collision
 	ld a, $53
 	ld [wStageCollisionMap + $110], a
-	ld a, [wd644]
+	ld a, [wd644] ;if ??? is 0, a = wRightMapMoveCounter + 3
 	and a
 	jr z, .asm_1c28a
-	ld a, [wMapMoveDirection]
+	ld a, [wMapMoveDirection] ;of map move direction is not 0, _LoadPsyduckOrPoliwagGraphics_SilverField = 4 and  LoadPsyduckOrPoliwagNumberGraphics_SilverField = wRightMapMoveCounter + 4
 	and a
 	jr nz, .asm_1c2bd
-	jr .asm_1c291
+	jr .asm_1c291 ;else, a = 3
 
 .asm_1c28a
 	ld a, [wRightMapMoveCounter]
@@ -135,16 +121,13 @@ LoadPsyduckOrPoliwagGraphics_SilverField: ; 0x1c235
 	ld a, $2
 .asm_1c297
 	call _LoadPsyduckOrPoliwagGraphics_SilverField
-	ld a, [wRightMapMoveCounter]
+	ld a, [wRightMapMoveCounter] ;load right map counter + 4
 	add $4
 	call LoadPsyduckOrPoliwagNumberGraphics_SilverField
-	ld a, [hGameBoyColorFlag]
-	and a
-	jr z, .asm_1c2b7
 	ld a, [wRightMapMoveCounter]
 	cp $0
-	jr z, .asm_1c2b3
-	ld b, $a
+	jr z, .asm_1c2b3 ;if 0, a = 4
+	ld b, $a ;else add 10
 	add b
 	jr .asm_1c2b9
 
@@ -152,8 +135,6 @@ LoadPsyduckOrPoliwagGraphics_SilverField: ; 0x1c235
 	ld a, $4
 	jr .asm_1c2b9
 
-.asm_1c2b7
-	ld a, $9
 .asm_1c2b9
 	call LoadPsyduckOrPoliwagNumberGraphics_SilverField
 	ret

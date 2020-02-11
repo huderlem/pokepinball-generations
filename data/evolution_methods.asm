@@ -744,7 +744,7 @@ HorseaEvolutions:
 
 SeadraEvolutions:
 	db 1
-	dwb HORSEA, EVO_BREEDING
+	dwb KINGDRA, EVO_LINK_CABLE
 
 GoldeenEvolutions:
 	db 1

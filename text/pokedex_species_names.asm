@@ -1,497 +1,497 @@
 SpeciesNameSeed: ; SEED
-	dex_species "S","E","E","D"
+	dex_species "SEED"
 
 SpeciesNameLizard: ; LIZARD
-	dex_species "L","I","Z","A","R","D"
+	dex_species "LIZARD"
 
 SpeciesNameFlame: ; FLAME
-	dex_species "F","L","A","M","E"
+	dex_species "FLAME"
 
 SpeciesNameTinyturtle: ; TINYTURTLE
-	dex_species "T","I","N","Y","T","U","R","T","L","E"
+	dex_species "TINYTURTLE"
 
 SpeciesNameTurtle: ; TURTLE
-	dex_species "T","U","R","T","L","E"
+	dex_species "TURTLE"
 
 SpeciesNameShellfish: ; SHELLFISH
-	dex_species "S","H","E","L","L","F","I","S","H"
+	dex_species "SHELLFISH"
 
 SpeciesNameWorm: ; WORM
-	dex_species "W","O","R","M"
+	dex_species "WORM"
 
 SpeciesNameCocoon: ; COCOON
-	dex_species "C","O","C","O","O","N"
+	dex_species "COCOON"
 
 SpeciesNameButterfly: ; BUTTERFLY
-	dex_species "B","U","T","T","E","R","F","L","Y"
+	dex_species "BUTTERFLY"
 
 SpeciesNameHairyBug: ; HAIRY_BUG
-	dex_species "H","A","I","R","Y"," ","B","U","G"
+	dex_species "HAIRY BUG"
 
 SpeciesNamePoisonBee: ; POISON_BEE
-	dex_species "P","O","I","S","O","N"," ","B","E","E"
+	dex_species "POISON BEE"
 
 SpeciesNameTinyBird: ; TINY_BIRD
-	dex_species "T","I","N","Y"," ","B","I","R","D"
+	dex_species "TINY BIRD"
 
 SpeciesNameBird: ; BIRD
-	dex_species "B","I","R","D"
+	dex_species "BIRD"
 
 SpeciesNameMouse: ; MOUSE
-	dex_species "M","O","U","S","E"
+	dex_species "MOUSE"
 
 SpeciesNameBeak: ; BEAK
-	dex_species "B","E","A","K"
+	dex_species "BEAK"
 
 SpeciesNameSnake: ; SNAKE
-	dex_species "S","N","A","K","E"
+	dex_species "SNAKE"
 
 SpeciesNameCobra: ; COBRA
-	dex_species "C","O","B","R","A"
+	dex_species "COBRA"
 
 SpeciesNamePoisonPin: ; POISON_PIN
-	dex_species "P","O","I","S","O","N"," ","P","I","N"
+	dex_species "POISON PIN"
 
 SpeciesNameDrill: ; DRILL
-	dex_species "D","R","I","L","L"
+	dex_species "DRILL"
 
 SpeciesNameFairy: ; FAIRY
-	dex_species "F","A","I","R","Y"
+	dex_species "FAIRY"
 
 SpeciesNameFox: ; FOX
-	dex_species "F","O","X"
+	dex_species "FOX"
 
 SpeciesNameBalloon: ; BALLOON
-	dex_species "B","A","L","L","O","O","N"
+	dex_species "BALLOON"
 
 SpeciesNameBat: ; BAT
-	dex_species "B","A","T"
+	dex_species "BAT"
 
 SpeciesNameWeed: ; WEED
-	dex_species "W","E","E","D"
+	dex_species "WEED"
 
 SpeciesNameFlower: ; FLOWER
-	dex_species "F","L","O","W","E","R"
+	dex_species "FLOWER"
 
 SpeciesNameMushroom: ; MUSHROOM
-	dex_species "M","U","S","H","R","O","O","M"
+	dex_species "MUSHROOM"
 
 SpeciesNameInsect: ; INSECT
-	dex_species "I","N","S","E","C","T"
+	dex_species "INSECT"
 
 SpeciesNamePoisonmoth: ; POISONMOTH
-	dex_species "P","O","I","S","O","N","M","O","T","H"
+	dex_species "POISONMOTH"
 
 SpeciesNameMole: ; MOLE
-	dex_species "M","O","L","E"
+	dex_species "MOLE"
 
 SpeciesNameScratchcat: ; SCRATCHCAT
-	dex_species "S","C","R","A","T","C","H","C","A","T"
+	dex_species "SCRATCHCAT"
 
 SpeciesNameClassyCat: ; CLASSY_CAT
-	dex_species "C","L","A","S","S","Y"," ","C","A","T"
+	dex_species "CLASSY CAT"
 
 SpeciesNameDuck: ; DUCK
-	dex_species "D","U","C","K"
+	dex_species "DUCK"
 
 SpeciesNamePigMonkey: ; PIG_MONKEY
-	dex_species "P","I","G"," ","M","O","N","K","E","Y"
+	dex_species "PIG MONKEY"
 
 SpeciesNamePuppy: ; PUPPY
-	dex_species "P","U","P","P","Y"
+	dex_species "PUPPY"
 
 SpeciesNameLegendary: ; LEGENDARY
-	dex_species "L","E","G","E","N","D","A","R","Y"
+	dex_species "LEGENDARY"
 
 SpeciesNameTadpole: ; TADPOLE
-	dex_species "T","A","D","P","O","L","E"
+	dex_species "TADPOLE"
 
 SpeciesNamePsi: ; PSI
-	dex_species "P","S","I"
+	dex_species "PSI"
 
 SpeciesNameSuperpower: ; SUPERPOWER
-	dex_species "S","U","P","E","R","P","O","W","E","R"
+	dex_species "SUPERPOWER"
 
 SpeciesNameFlycatcher: ; FLYCATCHER
-	dex_species "F","L","Y","C","A","T","C","H","E","R"
+	dex_species "FLYCATCHER"
 
 SpeciesNameJellyfish: ; JELLYFISH
-	dex_species "J","E","L","L","Y","F","I","S","H"
+	dex_species "JELLYFISH"
 
 SpeciesNameRock: ; ROCK
-	dex_species "R","O","C","K"
+	dex_species "ROCK"
 
 SpeciesNameMegaton: ; MEGATON
-	dex_species "M","E","G","A","T","O","N"
+	dex_species "MEGATON"
 
 SpeciesNameFireHorse: ; FIRE_HORSE
-	dex_species "F","I","R","E"," ","H","O","R","S","E"
+	dex_species "FIRE HORSE"
 
 SpeciesNameDopey: ; DOPEY
-	dex_species "D","O","P","E","Y"
+	dex_species "DOPEY"
 
 SpeciesNameHermitcrab: ; HERMITCRAB
-	dex_species "H","E","R","M","I","T","C","R","A","B"
+	dex_species "HERMITCRAB"
 
 SpeciesNameMagnet: ; MAGNET
-	dex_species "M","A","G","N","E","T"
+	dex_species "MAGNET"
 
 SpeciesNameWildDuck: ; WILD_DUCK
-	dex_species "W","I","L","D"," ","D","U","C","K"
+	dex_species "WILD DUCK"
 
 SpeciesNameTwinBird: ; TWIN_BIRD
-	dex_species "T","W","I","N"," ","B","I","R","D"
+	dex_species "TWIN BIRD"
 
 SpeciesNameTriplebird: ; TRIPLEBIRD
-	dex_species "T","R","I","P","L","E","B","I","R","D"
+	dex_species "TRIPLEBIRD"
 
 SpeciesNameSeaLion: ; SEA_LION
-	dex_species "S","E","A"," ","L","I","O","N"
+	dex_species "SEA LION"
 
 SpeciesNameSludge: ; SLUDGE
-	dex_species "S","L","U","D","G","E"
+	dex_species "SLUDGE"
 
 SpeciesNameBivalve: ; BIVALVE
-	dex_species "B","I","V","A","L","V","E"
+	dex_species "BIVALVE"
 
 SpeciesNameGas: ; GAS
-	dex_species "G","A","S"
+	dex_species "GAS"
 
 SpeciesNameShadow: ; SHADOW
-	dex_species "S","H","A","D","O","W"
+	dex_species "SHADOW"
 
 SpeciesNameRockSnake: ; ROCK_SNAKE
-	dex_species "R","O","C","K"," ","S","N","A","K","E"
+	dex_species "ROCK SNAKE"
 
 SpeciesNameHypnosis: ; HYPNOSIS
-	dex_species "H","Y","P","N","O","S","I","S"
+	dex_species "HYPNOSIS"
 
 SpeciesNameRiverCrab: ; RIVER_CRAB
-	dex_species "R","I","V","E","R"," ","C","R","A","B"
+	dex_species "RIVER CRAB"
 
 SpeciesNamePincer: ; PINCER
-	dex_species "P","I","N","C","E","R"
+	dex_species "PINCER"
 
 SpeciesNameBall: ; BALL
-	dex_species "B","A","L","L"
+	dex_species "BALL"
 
 SpeciesNameEgg: ; EGG
-	dex_species "E","G","G"
+	dex_species "EGG"
 
 SpeciesNameCoconut: ; COCONUT
-	dex_species "C","O","C","O","N","U","T"
+	dex_species "COCONUT"
 
 SpeciesNameLonely: ; LONELY
-	dex_species "L","O","N","E","L","Y"
+	dex_species "LONELY"
 
 SpeciesNameBonekeeper: ; BONEKEEPER
-	dex_species "B","O","N","E","K","E","E","P","E","R"
+	dex_species "BONEKEEPER"
 
 SpeciesNameKicking: ; KICKING
-	dex_species "K","I","C","K","I","N","G"
+	dex_species "KICKING"
 
 SpeciesNamePunching: ; PUNCHING
-	dex_species "P","U","N","C","H","I","N","G"
+	dex_species "PUNCHING"
 
 SpeciesNameLicking: ; LICKING
-	dex_species "L","I","C","K","I","N","G"
+	dex_species "LICKING"
 
 SpeciesNamePoisonGas: ; POISON_GAS
-	dex_species "P","O","I","S","O","N"," ","G","A","S"
+	dex_species "POISON GAS"
 
 SpeciesNameSpikes: ; SPIKES
-	dex_species "S","P","I","K","E","S"
+	dex_species "SPIKES"
 
 SpeciesNameVine: ; VINE
-	dex_species "V","I","N","E"
+	dex_species "VINE"
 
 SpeciesNameParent: ; PARENT
-	dex_species "P","A","R","E","N","T"
+	dex_species "PARENT"
 
 SpeciesNameDragon: ; DRAGON
-	dex_species "D","R","A","G","O","N"
+	dex_species "DRAGON"
 
 SpeciesNameGoldfish: ; GOLDFISH
-	dex_species "G","O","L","D","F","I","S","H"
+	dex_species "GOLDFISH"
 
 SpeciesNameStarshape: ; STARSHAPE
-	dex_species "S","T","A","R","S","H","A","P","E"
+	dex_species "STARSHAPE"
 
 SpeciesNameMysterious: ; MYSTERIOUS
-	dex_species "M","Y","S","T","E","R","I","O","U","S"
+	dex_species "MYSTERIOUS"
 
 SpeciesNameBarrier: ; BARRIER
-	dex_species "B","A","R","R","I","E","R"
+	dex_species "BARRIER"
 
 SpeciesNameMantis: ; MANTIS
-	dex_species "M","A","N","T","I","S"
+	dex_species "MANTIS"
 
 SpeciesNameHumanshape: ; HUMANSHAPE
-	dex_species "H","U","M","A","N","S","H","A","P","E"
+	dex_species "HUMANSHAPE"
 
 SpeciesNameElectric: ; ELECTRIC
-	dex_species "E","L","E","C","T","R","I","C"
+	dex_species "ELECTRIC"
 
 SpeciesNameSpitfire: ; SPITFIRE
-	dex_species "S","P","I","T","F","I","R","E"
+	dex_species "SPITFIRE"
 
 SpeciesNameStagbeetle: ; STAGBEETLE
-	dex_species "S","T","A","G","B","E","E","T","L","E"
+	dex_species "STAGBEETLE"
 
 SpeciesNameWildBull: ; WILD_BULL
-	dex_species "W","I","L","D"," ","B","U","L","L"
+	dex_species "WILD BULL"
 
 SpeciesNameFish: ; FISH
-	dex_species "F","I","S","H"
+	dex_species "FISH"
 
 SpeciesNameAtrocious: ; ATROCIOUS
-	dex_species "A","T","R","O","C","I","O","U","S"
+	dex_species "ATROCIOUS"
 
 SpeciesNameTransport: ; TRANSPORT
-	dex_species "T","R","A","N","S","P","O","R","T"
+	dex_species "TRANSPORT"
 
 SpeciesNameTransform: ; TRANSFORM
-	dex_species "T","R","A","N","S","F","O","R","M"
+	dex_species "TRANSFORM"
 
 SpeciesNameEvolution: ; EVOLUTION
-	dex_species "E","V","O","L","U","T","I","O","N"
+	dex_species "EVOLUTION"
 
 SpeciesNameBubbleJet: ; BUBBLE_JET
-	dex_species "B","U","B","B","L","E"," ","J","E","T"
+	dex_species "BUBBLE JET"
 
 SpeciesNameLightning: ; LIGHTNING
-	dex_species "L","I","G","H","T","N","I","N","G"
+	dex_species "LIGHTNING"
 
 SpeciesNameFlame2: ; FLAME_2
-	dex_species "F","L","A","M","E"
+	dex_species "FLAME"
 
 SpeciesNameVirtual: ; VIRTUAL
-	dex_species "V","I","R","T","U","A","L"
+	dex_species "VIRTUAL"
 
 SpeciesNameSpiral: ; SPIRAL
-	dex_species "S","P","I","R","A","L"
+	dex_species "SPIRAL"
 
 SpeciesNameFossil: ; FOSSIL
-	dex_species "F","O","S","S","I","L"
+	dex_species "FOSSIL"
 
 SpeciesNameSleeping: ; SLEEPING
-	dex_species "S","L","E","E","P","I","N","G"
+	dex_species "SLEEPING"
 
 SpeciesNameFreeze: ; FREEZE
-	dex_species "F","R","E","E","Z","E"
+	dex_species "FREEZE"
 
 SpeciesNameGenetic: ; GENETIC
-	dex_species "G","E","N","E","T","I","C"
+	dex_species "GENETIC"
 
 SpeciesNameNewSpecie: ; NEW_SPECIE
-	dex_species "N","E","W"," ","S","P","E","C","I","E"
+	dex_species "NEW SPECIE"
 
 SpeciesNameRat: ; RAT
-	dex_species "R","A","T"
+	dex_species "RAT"
 
 SpeciesNameLeaf: ; LEAF
-	dex_species "L","E","A","F"
+	dex_species "LEAF"
 
 SpeciesNameHerb: ; HERB
-	dex_species "H","E","R","B"
+	dex_species "HERB"
 
 SpeciesNameFireMouse: ; FIRE_MOUSE
-	dex_species "F","I","R","E"," ","M","O","U","S","E"
+	dex_species "FIRE MOUSE"
 
 SpeciesNameVolcano: ; VOLCANO
-	dex_species "V","O","L","C","A","N","O"
+	dex_species "VOLCANO"
 
 SpeciesNameBigJaw: ; BIG_JAW
-	dex_species "B","I","G"," ","J","A","W"
+	dex_species "BIG JAW"
 
 SpeciesNameScout: ; SCOUT
-	dex_species "S","C","O","U","T"
+	dex_species "SCOUT"
 
 SpeciesNameLongBody: ; LONG_BODY
-	dex_species "L","O","N","G"," ","B","O","D","Y"
+	dex_species "LONG BODY"
 
 SpeciesNameOwl: ; OWL
-	dex_species "O","W","L"
+	dex_species "OWL"
 
 SpeciesNameFiveStar: ; FIVE_STAR
-	dex_species "F","I","V","E"," ","S","T","A","R"
+	dex_species "FIVE STAR"
 
 SpeciesNameStringSpit: ; STRING_SPIT
-	dex_species "S","T","R","I","N","G"," ","S","P","I","T"
+	dex_species "STRING SPIT"
 
 SpeciesNameLongLeg: ; LONG_LEG
-	dex_species "L","O","N","G"," ","L","E","G"
+	dex_species "LONG LEG"
 
 SpeciesNameAngler: ; ANGLER
-	dex_species "A","N","G","L","E","R"
+	dex_species "ANGLER"
 
 SpeciesNameLight: ; LIGHT
-	dex_species "L","I","G","H","T"
+	dex_species "LIGHT"
 
 SpeciesNameTinyMouse: ; TINY_MOUSE
-	dex_species "T","I","N","Y"," ","M","O","U","S","E"
+	dex_species "TINY MOUSE"
 
 SpeciesNameStarShape: ; STAR_SHAPE
-	dex_species "S","T","A","R"," ","S","H","A","P","E"
+	dex_species "STAR SHAPE"
 
 SpeciesNameSpikeBall: ; SPIKE_BALL
-	dex_species "S","P","I","K","E"," ","B","A","L","L"
+	dex_species "SPIKE BALL"
 
 SpeciesNameHappiness: ; HAPPINESS
-	dex_species "H","A","P","P","I","N","E","S","S"
+	dex_species "HAPPINESS"
 
 SpeciesNameMystic: ; MYSTIC
-	dex_species "M","Y","S","T","I","C"
+	dex_species "MYSTIC"
 
 SpeciesNameWool: ; WOOL
-	dex_species "W","O","O","L"
+	dex_species "WOOL"
 
 SpeciesNameAquaMouse: ; AQUA_MOUSE
-	dex_species "A","Q","U","A"," ","M","O","U","S","E"
+	dex_species "AQUA MOUSE"
 
 SpeciesNameAquaRabbit: ; AQUA_RABBIT
-	dex_species "A","Q","U","A"," ","R","A","B","B","I","T"
+	dex_species "AQUA RABBIT"
 
 SpeciesNameImitation: ; IMITATION
-	dex_species "I","M","I","T","A","T","I","O","N"
+	dex_species "IMITATION"
 
 SpeciesNameFrog: ; FROG
-	dex_species "F","R","O","G"
+	dex_species "FROG"
 
 SpeciesNameCottonweed: ; COTTONWEED
-	dex_species "C","O","T","T","O","N","W","E","E","D"
+	dex_species "COTTONWEED"
 
 SpeciesNameLongTail: ; LONG_TAIL
-	dex_species "L","O","N","G"," ","T","A","I","L"
+	dex_species "LONG TAIL"
 
 SpeciesNameSun: ; SUN
-	dex_species "S","U","N"
+	dex_species "SUN"
 
 SpeciesNameClearWing: ; CLEAR_WING
-	dex_species "C","L","E","A","R"," ","W","I","N","G"
+	dex_species "CLEAR WING"
 
 SpeciesNameWaterFish: ; WATER_FISH
-	dex_species "W","A","T","E","R"," ","F","I","S","H"
+	dex_species "WATER FISH"
 
 SpeciesNameMoonlight: ; MOONLIGHT
-	dex_species "M","O","O","N","L","I","G","H","T"
+	dex_species "MOONLIGHT"
 
 SpeciesNameDarkness: ; DARKNESS
-	dex_species "D","A","R","K","N","E","S","S"
+	dex_species "DARKNESS"
 
 SpeciesNameRoyal: ; ROYAL
-	dex_species "R","O","Y","A","L"
+	dex_species "ROYAL"
 
 SpeciesNameScreech: ; SCREECH
-	dex_species "S","C","R","E","E","C","H"
+	dex_species "SCREECH"
 
 SpeciesNameSymbol: ; SYMBOL
-	dex_species "S","Y","M","B","O","L"
+	dex_species "SYMBOL"
 
 SpeciesNamePatient: ; PATIENT
-	dex_species "P","A","T","I","E","N","T"
+	dex_species "PATIENT"
 
 SpeciesNameLongNeck: ; LONG_NECK
-	dex_species "L","O","N","G"," ","N","E","C","K"
+	dex_species "LONG NECK"
 
 SpeciesNameBagworm: ; BAGWORM
-	dex_species "B","A","G","W","O","R","M"
+	dex_species "BAGWORM"
 
 SpeciesNameLandSnake: ; LAND_SNAKE
-	dex_species "L","A","N","D"," ","S","N","A","K","E"
+	dex_species "LAND SNAKE"
 
 SpeciesNameFlyScorpion: ; FLY_SCORPION
-	dex_species "F","L","Y"," ","S","C","O","R","P","I","O","N"
+	dex_species "FLY SCORPION"
 
 SpeciesNameIronSnake: ; IRON_SNAKE
-	dex_species "I","R","O","N"," ","S","N","A","K","E"
+	dex_species "IRON SNAKE"
 
 SpeciesNameMold: ; MOLD
-	dex_species "M","O","L","D"
+	dex_species "MOLD"
 
 SpeciesNameSingleHorn: ; SINGLE_HORN
-	dex_species "S","I","N","G","L","E"," ","H","O","R","N"
+	dex_species "SINGLE HORN"
 
 SpeciesNameSharpClaw: ; SHARP_CLAW
-	dex_species "S","H","A","R","P"," ","C","L","A","W"
+	dex_species "SHARP CLAW"
 
 SpeciesNameLittleBear: ; LITTLE_BEAR
-	dex_species "L","I","T","T","L","E"," ","B","E","A","R"
+	dex_species "LITTLE BEAR"
 
 SpeciesNameHibernator: ; HIBERNATOR
-	dex_species "H","I","B","E","R","N","A","T","O","R"
+	dex_species "HIBERNATOR"
 
 SpeciesNameLava: ; LAVA
-	dex_species "L","A","V","A"
+	dex_species "LAVA"
 
 SpeciesNamePig: ; PIG
-	dex_species "P","I","G"
+	dex_species "PIG"
 
 SpeciesNameSwine: ; SWINE
-	dex_species "S","W","I","N","E"
+	dex_species "SWINE"
 
 SpeciesNameCoral: ; CORAL
-	dex_species "C","O","R","A","L"
+	dex_species "CORAL"
 
 SpeciesNameJet: ; JET
-	dex_species "J","E","T"
+	dex_species "JET"
 
 SpeciesNameDelivery: ; DELIVERY
-	dex_species "D","E","L","I","V","E","R","Y"
+	dex_species "DELIVERY"
 
 SpeciesNameKite: ; KITE
-	dex_species "K","I","T","E"
+	dex_species "KITE"
 
 SpeciesNameArmorBird: ; ARMOR_BIRD
-	dex_species "A","R","M","O","R"," ","B","I","R","D"
+	dex_species "ARMOR BIRD"
 
 SpeciesNameDark: ; DARK
-	dex_species "D","A","R","K"
+	dex_species "DARK"
 
 SpeciesNameLongNose: ; LONG_NOSE
-	dex_species "L","O","N","G"," ","N","O","S","E"
+	dex_species "LONG NOSE"
 
 SpeciesNameArmor: ; ARMOR
-	dex_species "A","R","M","O","R"
+	dex_species "ARMOR"
 
 SpeciesNameBigHorn: ; BIG_HORN
-	dex_species "B","I","G"," ","H","O","R","N"
+	dex_species "BIG HORN"
 
 SpeciesNamePainter: ; PAINTER
-	dex_species "P","A","I","N","T","E","R"
+	dex_species "PAINTER"
 
 SpeciesNameScuffle: ; SCUFFLE
-	dex_species "S","C","U","F","F","L","E"
+	dex_species "SCUFFLE"
 
 SpeciesNameHandstand: ; HANDSTAND
-	dex_species "H","A","N","D","S","T","A","N","D"
+	dex_species "HANDSTAND"
 
 SpeciesNameKiss: ; KISS
-	dex_species "K","I","S","S"
+	dex_species "KISS"
 
 SpeciesNameLiveCoal: ; LIVE_COAL
-	dex_species "L","I","V","E"," ","C","O","A","L"
+	dex_species "LIVE COAL"
 
 SpeciesNameMilkCow: ; MILK_COW
-	dex_species "M","I","L","K"," ","C","O","W"
+	dex_species "MILK COW"
 
 SpeciesNameThunder: ; THUNDER
-	dex_species "T","H","U","N","D","E","R"
+	dex_species "THUNDER"
 
 SpeciesNameAurora: ; AURORA
-	dex_species "A","U","R","O","R","A"
+	dex_species "AURORA"
 
 SpeciesNameRockSkin: ; ROCK_SKIN
-	dex_species "R","O","C","K"," ","S","K","I","N"
+	dex_species "ROCK SKIN"
 
 SpeciesNameHardShell: ; HARD_SHELL
-	dex_species "H","A","R","D"," ","S","H","E","L","L"
+	dex_species "HARD SHELL"
 
 SpeciesNameDiving: ; DIVING
-	dex_species "D","I","V","I","N","G"
+	dex_species "DIVING"
 
 SpeciesNameRainbow: ; RAINBOW
-	dex_species "R","A","I","N","B","O","W"
+	dex_species "RAINBOW"
 
 SpeciesNameTimeTravel: ; TIME_TRAVEL
-	dex_species "T","I","M","E"," ","T","R","A","V","E","L"
+	dex_species "TIME TRAVEL"

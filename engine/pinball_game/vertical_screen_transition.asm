@@ -101,46 +101,54 @@ CheckStageTransition: ; 0xece9
 BallMovingUpStageTransitions: ; 0xed3e
 ; Maps the relationship between stages when
 ; the ball moves out of the screen upward.
-	db $FF                    ; STAGE_RED_FIELD_TOP
-	db STAGE_RED_FIELD_TOP    ; STAGE_RED_FIELD_BOTTOM
-	db $FF                    ; STAGE_BLUE_FIELD_TOP
-	db STAGE_BLUE_FIELD_TOP   ; STAGE_BLUE_FIELD_BOTTOM
-	db $FF                    ; STAGE_GOLD_FIELD_TOP
-	db STAGE_GOLD_FIELD_TOP   ; STAGE_GOLD_FIELD_BOTTOM
-	db $FF                    ; STAGE_SILVER_FIELD_TOP
-	db STAGE_SILVER_FIELD_TOP ; STAGE_SILVER_FIELD_BOTTOM
-	db $FF                    ; STAGE_GENGAR_BONUS
-	db $FF                    ; STAGE_GENGAR_BONUS
-	db $FF                    ; STAGE_MEWTWO_BONUS
-	db $FF                    ; STAGE_MEWTWO_BONUS
-	db $FF                    ; STAGE_MEOWTH_BONUS
-	db $FF                    ; STAGE_MEOWTH_BONUS
-	db $FF                    ; STAGE_DIGLETT_BONUS
-	db $FF                    ; STAGE_DIGLETT_BONUS
-	db $FF                    ; STAGE_SEEL_BONUS
-	db $FF                    ; STAGE_SEEL_BONUS
+	db $FF                      ; STAGE_RED_FIELD_TOP
+	db STAGE_RED_FIELD_TOP      ; STAGE_RED_FIELD_BOTTOM
+	db $FF                      ; STAGE_BLUE_FIELD_TOP
+	db STAGE_BLUE_FIELD_TOP     ; STAGE_BLUE_FIELD_BOTTOM
+	db $FF                      ; STAGE_GOLD_FIELD_TOP
+	db STAGE_GOLD_FIELD_TOP     ; STAGE_GOLD_FIELD_BOTTOM
+	db $FF                      ; STAGE_SILVER_FIELD_TOP
+	db STAGE_SILVER_FIELD_TOP   ; STAGE_SILVER_FIELD_BOTTOM
+	db $FF                      ; STAGE_RUBY_FIELD_TOP
+	db STAGE_RUBY_FIELD_TOP     ; STAGE_RUBY_FIELD_BOTTOM
+	db $FF                      ; STAGE_SAPPHIRE_FIELD_TOP
+	db STAGE_SAPPHIRE_FIELD_TOP ; STAGE_SAPPHIRE_FIELD_BOTTOM
+	db $FF                      ; STAGE_GENGAR_BONUS
+	db $FF                      ; STAGE_GENGAR_BONUS
+	db $FF                      ; STAGE_MEWTWO_BONUS
+	db $FF                      ; STAGE_MEWTWO_BONUS
+	db $FF                      ; STAGE_MEOWTH_BONUS
+	db $FF                      ; STAGE_MEOWTH_BONUS
+	db $FF                      ; STAGE_DIGLETT_BONUS
+	db $FF                      ; STAGE_DIGLETT_BONUS
+	db $FF                      ; STAGE_SEEL_BONUS
+	db $FF                      ; STAGE_SEEL_BONUS
 
 BallMovingDownStageTransitions: ; 0xed4e
 ; Maps the relationship between stages when
 ; the ball moves out of the screen downward.
-	db STAGE_RED_FIELD_BOTTOM    ; STAGE_RED_FIELD_TOP
-	db $FF                       ; STAGE_RED_FIELD_BOTTOM
-	db STAGE_BLUE_FIELD_BOTTOM   ; STAGE_BLUE_FIELD_TOP
-	db $FF                       ; STAGE_BLUE_FIELD_BOTTOM
-	db STAGE_GOLD_FIELD_BOTTOM   ; STAGE_GOLD_FIELD_TOP
-	db $FF                       ; STAGE_GOLD_FIELD_BOTTOM
-	db STAGE_SILVER_FIELD_BOTTOM ; STAGE_SILVER_FIELD_TOP
-	db $FF                       ; STAGE_SILVER_FIELD_BOTTOM
-	db $FF                       ; STAGE_GENGAR_BONUS
-	db $FF                       ; STAGE_GENGAR_BONUS
-	db $FF                       ; STAGE_MEWTWO_BONUS
-	db $FF                       ; STAGE_MEWTWO_BONUS
-	db $FF                       ; STAGE_MEOWTH_BONUS
-	db $FF                       ; STAGE_MEOWTH_BONUS
-	db $FF                       ; STAGE_DIGLETT_BONUS
-	db $FF                       ; STAGE_DIGLETT_BONUS
-	db $FF                       ; STAGE_SEEL_BONUS
-	db $FF                       ; STAGE_SEEL_BONUS
+	db STAGE_RED_FIELD_BOTTOM      ; STAGE_RED_FIELD_TOP
+	db $FF                         ; STAGE_RED_FIELD_BOTTOM
+	db STAGE_BLUE_FIELD_BOTTOM     ; STAGE_BLUE_FIELD_TOP
+	db $FF                         ; STAGE_BLUE_FIELD_BOTTOM
+	db STAGE_GOLD_FIELD_BOTTOM     ; STAGE_GOLD_FIELD_TOP
+	db $FF                         ; STAGE_GOLD_FIELD_BOTTOM
+	db STAGE_SILVER_FIELD_BOTTOM   ; STAGE_SILVER_FIELD_TOP
+	db $FF                         ; STAGE_SILVER_FIELD_BOTTOM
+	db STAGE_RUBY_FIELD_BOTTOM     ; STAGE_RUBY_FIELD_TOP
+	db $FF                         ; STAGE_RUBY_FIELD_BOTTOM
+	db STAGE_SAPPHIRE_FIELD_BOTTOM ; STAGE_SAPPHIRE_FIELD_TOP
+	db $FF                         ; STAGE_SAPPHIRE_FIELD_BOTTOM
+	db $FF                         ; STAGE_GENGAR_BONUS
+	db $FF                         ; STAGE_GENGAR_BONUS
+	db $FF                         ; STAGE_MEWTWO_BONUS
+	db $FF                         ; STAGE_MEWTWO_BONUS
+	db $FF                         ; STAGE_MEOWTH_BONUS
+	db $FF                         ; STAGE_MEOWTH_BONUS
+	db $FF                         ; STAGE_DIGLETT_BONUS
+	db $FF                         ; STAGE_DIGLETT_BONUS
+	db $FF                         ; STAGE_SEEL_BONUS
+	db $FF                         ; STAGE_SEEL_BONUS
 
 ScrollScreenToShowPinball: ; 0xed5e
 ; When the ball is launched on the Blue and Red Fields, the screen starts off scrolled to the right.

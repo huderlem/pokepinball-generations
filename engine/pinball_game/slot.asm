@@ -414,6 +414,10 @@ BestBallForStages:
 	db GS_BALL     ; STAGE_GOLD_FIELD_BOTTOM
 	db GS_BALL     ; STAGE_SILVER_FIELD_TOP
 	db GS_BALL     ; STAGE_SILVER_FIELD_BOTTOM
+	db MASTER_BALL ; STAGE_RUBY_FIELD_TOP
+	db MASTER_BALL ; STAGE_RUBY_FIELD_BOTTOM
+	db MASTER_BALL ; STAGE_SAPPHIRE_FIELD_TOP
+	db MASTER_BALL ; STAGE_SAPPHIRE_FIELD_BOTTOM
 
 SlotBonusMultiplier: ; 0xf0c1
 	ld a, $4
@@ -495,6 +499,10 @@ CallTable_f15a: ; 0xf15a
 	padded_dab _LoadBonusMultiplierRailingGraphics_GoldField
 	padded_dab _LoadBonusMultiplierRailingGraphics_SilverField
 	padded_dab _LoadBonusMultiplierRailingGraphics_SilverField
+	padded_dab _LoadBonusMultiplierRailingGraphics_RubyField
+	padded_dab _LoadBonusMultiplierRailingGraphics_RubyField
+	padded_dab _LoadBonusMultiplierRailingGraphics_SapphireField
+	padded_dab _LoadBonusMultiplierRailingGraphics_SapphireField
 
 SlotRewardGoToBonusStage: ; 0xf172
 	ld a, $1

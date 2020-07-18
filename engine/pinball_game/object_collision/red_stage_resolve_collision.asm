@@ -1173,10 +1173,12 @@ UpgradeBall:
 	ret
 
 BallTypeProgressionPointers:
-	dw BallTypeProgressionRedField    ; STAGE_RED_FIELD
-	dw BallTypeProgressionBlueField   ; STAGE_BLUE_FIELD
-	dw BallTypeProgressionGoldField   ; STAGE_GOLD_FIELD
-	dw BallTypeProgressionSilverField ; STAGE_SILVER_FIELD
+	dw BallTypeProgressionRedField      ; STAGE_RED_FIELD
+	dw BallTypeProgressionBlueField     ; STAGE_BLUE_FIELD
+	dw BallTypeProgressionGoldField     ; STAGE_GOLD_FIELD
+	dw BallTypeProgressionSilverField   ; STAGE_SILVER_FIELD
+	dw BallTypeProgressionRubyField     ; STAGE_RUBY_FIELD
+	dw BallTypeProgressionSapphireField ; STAGE_SAPPHIRE_FIELD
 
 BallTypeProgressionRedField:
 	db GREAT_BALL   ; POKE_BALL -> GREAT_BALL
@@ -1203,6 +1205,18 @@ BallTypeProgressionSilverField:
 	db MASTER_BALL  ; ULTRA_BALL -> MASTER_BALL
 	db GS_BALL      ; MASTER_BALL -> GS_BALL
 	db GS_BALL      ; GS_BALL -> GS_BALL
+
+BallTypeProgressionRubyField:
+	db GREAT_BALL   ; POKE_BALL -> GREAT_BALL
+	db ULTRA_BALL   ; GREAT_BALL -> ULTRA_BALL
+	db MASTER_BALL  ; ULTRA_BALL -> MASTER_BALL
+	db MASTER_BALL  ; MASTER_BALL -> MASTER_BALL
+
+BallTypeProgressionSapphireField:
+	db GREAT_BALL   ; POKE_BALL -> GREAT_BALL
+	db ULTRA_BALL   ; GREAT_BALL -> ULTRA_BALL
+	db MASTER_BALL  ; ULTRA_BALL -> MASTER_BALL
+	db MASTER_BALL  ; MASTER_BALL -> MASTER_BALL
 
 BallTypeDegradationRedField: ; 0x1550b
 ; Determines the previous upgrade for the Ball.

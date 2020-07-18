@@ -1,34 +1,42 @@
-HandleEvoModeCollision: ; 0x19a95
+HandleEvoModeCollision:
 	ld a, [wCurrentStage]
 	call CallInFollowingTable
 
-HandleEvoModeCollisionPointerTable: ; 0x10a9b
-	padded_dab HandleRedEvoModeCollision    ; STAGE_RED_FIELD_TOP
-	padded_dab HandleRedEvoModeCollision    ; STAGE_RED_FIELD_BOTTOM
-	padded_dab HandleBlueEvoModeCollision   ; STAGE_BLUE_FIELD_TOP
-	padded_dab HandleBlueEvoModeCollision   ; STAGE_BLUE_FIELD_BOTTOM
-	padded_dab HandleGoldEvoModeCollision   ; STAGE_GOLD_FIELD_TOP
-	padded_dab HandleGoldEvoModeCollision   ; STAGE_GOLD_FIELD_BOTTOM
-	padded_dab HandleSilverEvoModeCollision ; STAGE_SILVER_FIELD_TOP
-	padded_dab HandleSilverEvoModeCollision ; STAGE_SILVER_FIELD_BOTTOM
+HandleEvoModeCollisionPointerTable:
+	padded_dab HandleRedEvoModeCollision      ; STAGE_RED_FIELD_TOP
+	padded_dab HandleRedEvoModeCollision      ; STAGE_RED_FIELD_BOTTOM
+	padded_dab HandleBlueEvoModeCollision     ; STAGE_BLUE_FIELD_TOP
+	padded_dab HandleBlueEvoModeCollision     ; STAGE_BLUE_FIELD_BOTTOM
+	padded_dab HandleGoldEvoModeCollision     ; STAGE_GOLD_FIELD_TOP
+	padded_dab HandleGoldEvoModeCollision     ; STAGE_GOLD_FIELD_BOTTOM
+	padded_dab HandleSilverEvoModeCollision   ; STAGE_SILVER_FIELD_TOP
+	padded_dab HandleSilverEvoModeCollision   ; STAGE_SILVER_FIELD_BOTTOM
+	padded_dab HandleRubyEvoModeCollision     ; STAGE_RUBY_FIELD_TOP
+	padded_dab HandleRubyEvoModeCollision     ; STAGE_RUBY_FIELD_BOTTOM
+	padded_dab HandleSapphireEvoModeCollision ; STAGE_SAPPHIRE_FIELD_TOP
+	padded_dab HandleSapphireEvoModeCollision ; STAGE_SAPPHIRE_FIELD_BOTTOM
 
-StartEvolutionMode: ; 0x10ab3
+StartEvolutionMode:
 	ld a, [wInSpecialMode]
 	and a
 	ret nz
 	ld a, [wCurrentStage]
 	rst JumpTable  ; calls JumpToFuncInTable
-StartEvolutionMode_CallTable: ; 0x10abc
-	dw StartEvolutionMode_RedField    ; STAGE_RED_FIELD_TOP
-	dw StartEvolutionMode_RedField    ; STAGE_RED_FIELD_BOTTOM
-	dw StartEvolutionMode_BlueField   ; STAGE_BLUE_FIELD_TOP
-	dw StartEvolutionMode_BlueField   ; STAGE_BLUE_FIELD_BOTTOM
-	dw StartEvolutionMode_GoldField   ; STAGE_GOLD_FIELD_TOP
-	dw StartEvolutionMode_GoldField   ; STAGE_GOLD_FIELD_BOTTOM
-	dw StartEvolutionMode_SilverField ; STAGE_SILVER_FIELD_TOP
-	dw StartEvolutionMode_SilverField ; STAGE_SILVER_FIELD_BOTTOM
+StartEvolutionMode_CallTable:
+	dw StartEvolutionMode_RedField      ; STAGE_RED_FIELD_TOP
+	dw StartEvolutionMode_RedField      ; STAGE_RED_FIELD_BOTTOM
+	dw StartEvolutionMode_BlueField     ; STAGE_BLUE_FIELD_TOP
+	dw StartEvolutionMode_BlueField     ; STAGE_BLUE_FIELD_BOTTOM
+	dw StartEvolutionMode_GoldField     ; STAGE_GOLD_FIELD_TOP
+	dw StartEvolutionMode_GoldField     ; STAGE_GOLD_FIELD_BOTTOM
+	dw StartEvolutionMode_SilverField   ; STAGE_SILVER_FIELD_TOP
+	dw StartEvolutionMode_SilverField   ; STAGE_SILVER_FIELD_BOTTOM
+	dw StartEvolutionMode_RubyField     ; STAGE_RUBY_FIELD_TOP
+	dw StartEvolutionMode_RubyField     ; STAGE_RUBY_FIELD_BOTTOM
+	dw StartEvolutionMode_SapphireField ; STAGE_SAPPHIRE_FIELD_TOP
+	dw StartEvolutionMode_SapphireField ; STAGE_SAPPHIRE_FIELD_BOTTOM
 
-ConcludeEvolutionMode: ; 0x10ac8
+ConcludeEvolutionMode:
 	xor a
 	ld [wBottomTextEnabled], a
 	call FillBottomMessageBufferWithBlackTile
@@ -43,17 +51,21 @@ ConcludeEvolutionMode: ; 0x10ac8
 	callba StopTimer
 	ld a, [wCurrentStage]
 	rst JumpTable  ; calls JumpToFuncInTable
-ConcludeEvolutionMode_CallTable: ; 0x10af3
-	dw ConcludeEvolutionMode_RedField    ; STAGE_RED_FIELD_TOP
-	dw ConcludeEvolutionMode_RedField    ; STAGE_RED_FIELD_BOTTOM
-	dw ConcludeEvolutionMode_BlueField   ; STAGE_BLUE_FIELD_TOP
-	dw ConcludeEvolutionMode_BlueField   ; STAGE_BLUE_FIELD_TOP
-	dw ConcludeEvolutionMode_GoldField   ; STAGE_GOLD_FIELD_TOP
-	dw ConcludeEvolutionMode_GoldField   ; STAGE_GOLD_FIELD_BOTTOM
-	dw ConcludeEvolutionMode_SilverField ; STAGE_SILVER_FIELD_TOP
-	dw ConcludeEvolutionMode_SilverField ; STAGE_SILVER_FIELD_TOP
+ConcludeEvolutionMode_CallTable:
+	dw ConcludeEvolutionMode_RedField      ; STAGE_RED_FIELD_TOP
+	dw ConcludeEvolutionMode_RedField      ; STAGE_RED_FIELD_BOTTOM
+	dw ConcludeEvolutionMode_BlueField     ; STAGE_BLUE_FIELD_TOP
+	dw ConcludeEvolutionMode_BlueField     ; STAGE_BLUE_FIELD_TOP
+	dw ConcludeEvolutionMode_GoldField     ; STAGE_GOLD_FIELD_TOP
+	dw ConcludeEvolutionMode_GoldField     ; STAGE_GOLD_FIELD_BOTTOM
+	dw ConcludeEvolutionMode_SilverField   ; STAGE_SILVER_FIELD_TOP
+	dw ConcludeEvolutionMode_SilverField   ; STAGE_SILVER_FIELD_TOP
+	dw ConcludeEvolutionMode_RubyField     ; STAGE_RUBY_FIELD_TOP
+	dw ConcludeEvolutionMode_RubyField     ; STAGE_RUBY_FIELD_BOTTOM
+	dw ConcludeEvolutionMode_SapphireField ; STAGE_SAPPHIRE_FIELD_TOP
+	dw ConcludeEvolutionMode_SapphireField ; STAGE_SAPPHIRE_FIELD_TOP
 
-LoadRedFieldTopGraphics: ; 0x10aff
+LoadRedFieldTopGraphics:
 	ld hl, VideoData_10b2a
 	ld a, [hli]
 	ld c, a
@@ -75,12 +87,12 @@ LoadRedFieldTopGraphics: ; 0x10aff
 	call LoadVRAMData
 	ret
 
-VideoData_10b2a: ; 0x10b2a
+VideoData_10b2a:
 	dab StageRedFieldTopGfx3
 	dw $8900
 	dw $E0
 
-ShowStartEvolutionModeText: ; 0x10b3f
+ShowStartEvolutionModeText:
 	call FillBottomMessageBufferWithBlackTile
 	call EnableBottomText
 	ld hl, wScrollingText1
@@ -114,7 +126,7 @@ ELSE
 	ret
 ENDC
 
-InitEvolutionSelectionMenu: ; 0x10b59
+InitEvolutionSelectionMenu:
 ; Initializes the list menu, which the player uses to select which pokemon to evolve.
 	xor a
 	ld [wDrawBottomMessageBox], a
@@ -142,7 +154,7 @@ InitEvolutionSelectionMenu: ; 0x10b59
 	call LoadVRAMData
 	ret
 
-LoadMonNamesIntoEvolutionSelectionList: ; 0x10b8e
+LoadMonNamesIntoEvolutionSelectionList:
 ; Loads 6 pokemon names into the list that allows the player to select which pokemon to evolve.
 ; Input: hl = pointer to a list of pokemon ids. (an offset of wPartyMons)
 	ld a, [wNumPartyMons]
@@ -163,7 +175,7 @@ LoadMonNamesIntoEvolutionSelectionList: ; 0x10b8e
 .done
 	ret
 
-LoadMonNameIntoEvolutionSelectionList: ; 0x10ba2
+LoadMonNameIntoEvolutionSelectionList:
 ; Loads a single pokemon name into the list of pokemon to evolve.
 ; Input: c = index of the list
 ;        de = pokemon id (big endian)
@@ -216,7 +228,7 @@ LoadMonNameIntoEvolutionSelectionList: ; 0x10ba2
 	pop bc
 	ret
 
-SelectPokemonToEvolveMenu: ; 0x10bea
+SelectPokemonToEvolveMenu:
 ; Drivers the menu that allows the player to select a pokemon to evolve.
 	xor a
 	ld [wCurSelectedPartyMon], a
@@ -234,7 +246,7 @@ SelectPokemonToEvolveMenu: ; 0x10bea
 	call PlaySoundEffect
 	ret
 
-MoveEvolutionSelectionCursor: ; 0x10c0c
+MoveEvolutionSelectionCursor:
 	ld a, [wPressedButtonsPersistent]
 	ld b, a
 	ld a, [wNumPartyMons]
@@ -263,7 +275,7 @@ MoveEvolutionSelectionCursor: ; 0x10c0c
 	call PlaySoundEffect
 	ret
 
-UpdateEvolutionSelectionList: ; 0x10c38
+UpdateEvolutionSelectionList:
 	ld a, [wCurSelectedPartyMon]
 	ld hl, wCurSelectedPartyMonScrollOffset
 	sub [hl]
@@ -329,7 +341,7 @@ UpdateEvolutionSelectionList: ; 0x10c38
 	call LoadVRAMData
 	ret
 
-PlaceEvolutionInParty: ; 0x10ca5
+PlaceEvolutionInParty:
 	ld a, [wCurrentEvolutionType]
 	cp EVO_BREEDING
 	jr z, .breedingMode
@@ -367,7 +379,7 @@ PlaceEvolutionInParty: ; 0x10ca5
 	ld [wNumPartyMons], a
 	ret
 
-SelectPokemonToEvolve: ; 0x10cb7
+SelectPokemonToEvolve:
 	call FillBottomMessageBufferWithBlackTile
 	call InitEvolutionSelectionMenu
 	ld a, $60
@@ -408,7 +420,7 @@ SelectPokemonToEvolve: ; 0x10cb7
 	ld [wCurrentCatchEmMon + 1], a
 	ret
 
-InitEvolutionModeForMon: ; 0x10d1d
+InitEvolutionModeForMon:
 	ld hl, wBillboardTilesIlluminationStates
 	ld b, $18
 .asm_10d22
@@ -561,7 +573,7 @@ InitEvolutionModeForMon: ; 0x10d1d
 .done
 	ret
 
-ShowMonEvolvedText: ; 0x10e0a
+ShowMonEvolvedText:
 	ld a, [wCurrentEvolutionMon]
 	cp $ff
 	jr nz, .evoMon
@@ -650,7 +662,7 @@ ShowMonEvolvedText: ; 0x10e0a
 	ld [wScrollingText2StopOffset], a
 	ret
 
-EvolutionSpecialBonus: ; 0x10e8b
+EvolutionSpecialBonus:
 	ld bc, OneMillionPoints
 	callba AddBigBCD6FromQueue
 	ld bc, $0100
@@ -669,7 +681,7 @@ EvolutionSpecialBonus: ; 0x10e8b
 	call LoadScrollingText
 	ret
 
-StartEvolutionMode_RedField: ; 0x10ebb
+StartEvolutionMode_RedField:
 	ld a, [wNumPartyMons]
 	and a
 	ret z
@@ -739,7 +751,7 @@ LoadEvolutionTrinketGfx:
 	call LoadOrCopyVRAMData
 	ret
 
-IndicatorStatesPointerTable_10f3b: ; 0x10f3b
+IndicatorStatesPointerTable_10f3b:
 	dw IndicatorStates_10f4b
 	dw IndicatorStates_10f5e
 	dw IndicatorStates_10f71
@@ -773,7 +785,7 @@ IndicatorStates_10fbd:  ; 0x10fbd
 IndicatorStates_10fd0:  ; 0x10fd0
 	db $00, $00, $80, $80, $00, $00, $01, $01, $01, $01, $01, $01, $01, $01, $01, $00, $00, $00, $00
 
-ConcludeEvolutionMode_RedField: ; 0x10fe3
+ConcludeEvolutionMode_RedField:
 	call ResetIndicatorStates
 	call OpenSlotCave
 	call SetLeftAndRightAlleyArrowIndicatorStates_RedField
@@ -808,7 +820,7 @@ ConcludeEvolutionMode_RedField: ; 0x10fe3
 	call QueueGraphicsToLoad
 	ret
 
-StartEvolutionMode_BlueField: ; 0x11061
+StartEvolutionMode_BlueField:
 	ld a, [wNumPartyMons]
 	and a
 	ret z
@@ -857,7 +869,7 @@ StartEvolutionMode_BlueField: ; 0x11061
 	callba nz, Func_102bc
 	ret
 
-IndicatorStatesPointerTable_110ed: ; 0x110ed
+IndicatorStatesPointerTable_110ed:
 	dw IndicatorStates_110fd
 	dw IndicatorStates_11110
 	dw IndicatorStates_11123
@@ -867,31 +879,31 @@ IndicatorStatesPointerTable_110ed: ; 0x110ed
 	dw IndicatorStates_1116f
 	dw IndicatorStates_11182
 
-IndicatorStates_110fd: ; 0x110fd
+IndicatorStates_110fd:
 	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $01, $00, $00, $00, $01, $01, $00, $00, $00, $00
 
-IndicatorStates_11110: ; 0x11110
+IndicatorStates_11110:
 	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $01, $00, $01, $00, $01, $01, $00, $00, $00, $00
 
-IndicatorStates_11123: ; 0x11123
+IndicatorStates_11123:
 	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $01, $00, $01, $01, $01, $01, $00, $00, $00, $00
 
-IndicatorStates_11136: ; 0x11136
+IndicatorStates_11136:
 	db $00, $00, $80, $00, $00, $00, $00, $00, $01, $01, $00, $01, $01, $01, $01, $00, $00, $00, $00
 
-IndicatorStates_11149: ; 0x11149
+IndicatorStates_11149:
 	db $00, $00, $80, $80, $00, $00, $00, $00, $01, $01, $01, $01, $01, $01, $01, $00, $00, $00, $00
 
-IndicatorStates_1115c: ; 0x1115c
+IndicatorStates_1115c:
 	db $00, $00, $80, $80, $00, $00, $00, $00, $01, $01, $01, $01, $01, $01, $01, $00, $00, $00, $00
 
-IndicatorStates_1116f: ; 0x1116f
+IndicatorStates_1116f:
 	db $80, $00, $80, $80, $00, $00, $00, $01, $01, $01, $01, $01, $01, $01, $01, $00, $00, $00, $00
 
-IndicatorStates_11182: ; 0x11182
+IndicatorStates_11182:
 	db $80, $00, $80, $80, $00, $00, $01, $01, $01, $01, $01, $01, $01, $01, $01, $00, $00, $00, $00
 
-ConcludeEvolutionMode_BlueField: ; 0x11195
+ConcludeEvolutionMode_BlueField:
 	xor a
 	ld [wd643], a
 	call ResetIndicatorStates
@@ -927,7 +939,7 @@ ConcludeEvolutionMode_BlueField: ; 0x11195
 	call QueueGraphicsToLoad
 	ret
 
-StartEvolutionMode_GoldField: ; 0x10ebb
+StartEvolutionMode_GoldField:
 	ld a, [wNumPartyMons]
 	and a
 	ret z
@@ -974,7 +986,7 @@ StartEvolutionMode_GoldField: ; 0x10ebb
 	callba nz, Func_102bc
 	ret
 
-IndicatorStatesPointerTable_10f3b_GoldField: ; 0x10f3b
+IndicatorStatesPointerTable_10f3b_GoldField:
 	dw IndicatorStates_10f4b_GoldField
 	dw IndicatorStates_10f5e_GoldField
 	dw IndicatorStates_10f71_GoldField
@@ -1008,11 +1020,11 @@ IndicatorStates_10fbd_GoldField:  ; 0x10fbd
 IndicatorStates_10fd0_GoldField:  ; 0x10fd0
 	db $00, $00, $80, $80, $00, $00, $01, $01, $01, $01, $01, $01, $01, $01, $01, $00, $00, $00, $00
 
-ConcludeEvolutionMode_GoldField: ; 0x10fe3
+ConcludeEvolutionMode_GoldField:
 	call ResetIndicatorStates
 	call OpenSlotCave
 	call SetLeftAndRightAlleyArrowIndicatorStates_GoldField
-	call Func_107e9_GoldField
+	call Func_107e9
 	ld a, [wCurrentStage]
 	bit 0, a
 	jp z, LoadGoldFieldTopGraphics
@@ -1043,7 +1055,7 @@ ConcludeEvolutionMode_GoldField: ; 0x10fe3
 	call QueueGraphicsToLoad
 	ret
 
-StartEvolutionMode_SilverField: ; 0x11061
+StartEvolutionMode_SilverField:
 	ld a, [wNumPartyMons]
 	and a
 	ret z
@@ -1092,7 +1104,7 @@ StartEvolutionMode_SilverField: ; 0x11061
 	callba nz, Func_102bc
 	ret
 
-IndicatorStatesPointerTable_110ed_SilverField: ; 0x110ed
+IndicatorStatesPointerTable_110ed_SilverField:
 	dw IndicatorStates_110fd_SilverField
 	dw IndicatorStates_11110_SilverField
 	dw IndicatorStates_11123_SilverField
@@ -1102,31 +1114,31 @@ IndicatorStatesPointerTable_110ed_SilverField: ; 0x110ed
 	dw IndicatorStates_1116f_SilverField
 	dw IndicatorStates_11182_SilverField
 
-IndicatorStates_110fd_SilverField: ; 0x110fd
+IndicatorStates_110fd_SilverField:
 	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $01, $00, $00, $00, $01, $01, $00, $00, $00, $00
 
-IndicatorStates_11110_SilverField: ; 0x11110
+IndicatorStates_11110_SilverField:
 	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $01, $00, $01, $00, $01, $01, $00, $00, $00, $00
 
-IndicatorStates_11123_SilverField: ; 0x11123
+IndicatorStates_11123_SilverField:
 	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $01, $00, $01, $01, $01, $01, $00, $00, $00, $00
 
-IndicatorStates_11136_SilverField: ; 0x11136
+IndicatorStates_11136_SilverField:
 	db $00, $00, $80, $00, $00, $00, $00, $00, $01, $01, $00, $01, $01, $01, $01, $00, $00, $00, $00
 
-IndicatorStates_11149_SilverField: ; 0x11149
+IndicatorStates_11149_SilverField:
 	db $00, $00, $80, $80, $00, $00, $00, $00, $01, $01, $01, $01, $01, $01, $01, $00, $00, $00, $00
 
-IndicatorStates_1115c_SilverField: ; 0x1115c
+IndicatorStates_1115c_SilverField:
 	db $00, $00, $80, $80, $00, $00, $00, $00, $01, $01, $01, $01, $01, $01, $01, $00, $00, $00, $00
 
-IndicatorStates_1116f_SilverField: ; 0x1116f
+IndicatorStates_1116f_SilverField:
 	db $80, $00, $80, $80, $00, $00, $00, $01, $01, $01, $01, $01, $01, $01, $01, $00, $00, $00, $00
 
-IndicatorStates_11182_SilverField: ; 0x11182
+IndicatorStates_11182_SilverField:
 	db $80, $00, $80, $80, $00, $00, $01, $01, $01, $01, $01, $01, $01, $01, $01, $00, $00, $00, $00
 
-ConcludeEvolutionMode_SilverField: ; 0x11195
+ConcludeEvolutionMode_SilverField:
 	xor a
 	ld [wd643], a
 	call ResetIndicatorStates
@@ -1162,7 +1174,242 @@ ConcludeEvolutionMode_SilverField: ; 0x11195
 	call QueueGraphicsToLoad
 	ret
 
-LoadBlueFieldTopGraphics: ; 0x1120e
+StartEvolutionMode_RubyField:
+	ld a, [wNumPartyMons]
+	and a
+	ret z
+	call SelectPokemonToEvolve
+	call InitEvolutionModeForMon
+	ld a, [wd555]
+	sub $2
+	ld c, a
+	sla c
+	ld hl, IndicatorStatesPointerTable_10f3b_RubyField
+	add hl, bc
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	ld de, wIndicatorStates
+	ld b, $13
+.loop
+	ld a, [hli]
+	ld [de], a
+	inc de
+	dec b
+	jr nz, .loop
+	xor a
+	ld [wLeftAlleyCount], a
+	call Func_107b0_RubyField
+	ld a, $2
+	ld [wd7ad], a
+	ld de, $0002
+	call PlaySong
+	call SetPokemonSeenFlag
+	ld a, [wCurrentStage]
+	bit 0, a
+	jr nz, .asm_10f0b
+	ld de, vTilesSH tile $10
+	jp LoadEvolutionTrinketGfx
+
+.asm_10f0b
+	ld de, vTilesOB tile $20
+	call LoadEvolutionTrinketGfx
+	callba ClearAllRubyIndicators
+	callba Func_10184
+	ld a, [hGameBoyColorFlag]
+	and a
+	callba nz, Func_102bc
+	ret
+
+IndicatorStatesPointerTable_10f3b_RubyField:
+	dw IndicatorStates_10f4b_RubyField
+	dw IndicatorStates_10f5e_RubyField
+	dw IndicatorStates_10f71_RubyField
+	dw IndicatorStates_10f84_RubyField
+	dw IndicatorStates_10f97_RubyField
+	dw IndicatorStates_10faa_RubyField
+	dw IndicatorStates_10fbd_RubyField
+	dw IndicatorStates_10fd0_RubyField
+
+IndicatorStates_10f4b_RubyField:  ; 0x10f4b
+	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $01, $00, $00, $00, $01, $01, $00, $00, $00, $00
+
+IndicatorStates_10f5e_RubyField:  ; 0x10f5e
+	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $01, $00, $01, $00, $01, $01, $00, $00, $00, $00
+
+IndicatorStates_10f71_RubyField:  ; 0x10f71
+	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $01, $00, $01, $01, $01, $01, $00, $00, $00, $00
+
+IndicatorStates_10f84_RubyField:  ; 0x10f84
+	db $00, $00, $00, $00, $00, $00, $00, $00, $01, $01, $00, $01, $01, $01, $01, $00, $00, $00, $00
+
+IndicatorStates_10f97_RubyField:  ; 0x10f97
+	db $00, $00, $00, $80, $00, $00, $00, $00, $01, $01, $01, $01, $01, $01, $01, $00, $00, $00, $00
+
+IndicatorStates_10faa_RubyField:  ; 0x10faa
+	db $00, $00, $80, $80, $00, $00, $00, $00, $01, $01, $01, $01, $01, $01, $01, $00, $00, $00, $00
+
+IndicatorStates_10fbd_RubyField:  ; 0x10fbd
+	db $00, $00, $80, $80, $00, $00, $00, $01, $01, $01, $01, $01, $01, $01, $01, $00, $00, $00, $00
+
+IndicatorStates_10fd0_RubyField:  ; 0x10fd0
+	db $00, $00, $80, $80, $00, $00, $01, $01, $01, $01, $01, $01, $01, $01, $01, $00, $00, $00, $00
+
+ConcludeEvolutionMode_RubyField:
+	call ResetIndicatorStates
+	call OpenSlotCave
+	call SetLeftAndRightAlleyArrowIndicatorStates_RubyField
+	call Func_107e9
+	ld a, [wCurrentStage]
+	bit 0, a
+	jp z, LoadRubyFieldTopGraphics
+	callba ClearAllRubyIndicators
+	callba LoadSlotCaveCoverGraphics_RubyField
+	callba LoadMapBillboardTileData
+	ld a, BANK(StageSharedBonusSlotGlowGfx)
+	ld hl, StageSharedBonusSlotGlowGfx + $60
+	ld de, vTilesOB tile $20
+	ld bc, $00e0
+	call LoadVRAMData
+	ld a, [hGameBoyColorFlag]
+	and a
+	jr z, .asm_11036
+	ld a, BANK(StageRubyFieldBottomOBJPalette7)
+	ld hl, StageRubyFieldBottomOBJPalette7
+	ld de, $0078
+	ld bc, $0008
+	call Func_7dc
+.asm_11036
+	ld hl, BlankSaverSpaceTileDataRubyField
+	ld a, BANK(BlankSaverSpaceTileDataRubyField)
+	call QueueGraphicsToLoad
+	ld a, [wPreviousNumPokeballs]
+	callba LoadPokeballsGraphics_RedField
+	ld hl, CaughtPokeballTileDataPointers
+	ld a, BANK(CaughtPokeballTileDataPointers)
+	call QueueGraphicsToLoad
+	ret
+
+StartEvolutionMode_SapphireField:
+	ld a, [wNumPartyMons]
+	and a
+	ret z
+	call SelectPokemonToEvolve
+	call InitEvolutionModeForMon
+	ld a, $1
+	ld [wd643], a
+	ld a, [wd555]
+	sub $2
+	ld c, a
+	sla c
+	ld hl, IndicatorStatesPointerTable_110ed_SapphireField
+	add hl, bc
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	ld de, wIndicatorStates
+	ld b, $13
+.asm_11085
+	ld a, [hli]
+	ld [de], a
+	inc de
+	dec b
+	jr nz, .asm_11085
+	xor a
+	ld [wLeftAlleyCount], a
+	callba CloseSlotCave
+	ld a, $2
+	ld [wd7ad], a
+	ld de, $0002
+	call PlaySong
+	call SetPokemonSeenFlag
+	ld a, [wCurrentStage]
+	bit 0, a
+	jr nz, .asm_110bd
+	ld de, vTilesOB tile $60
+	jp LoadEvolutionTrinketGfx
+
+.asm_110bd
+	ld de, vTilesOB tile $20
+	call LoadEvolutionTrinketGfx
+	callba Func_1c2cb
+	callba Func_10184
+	ld a, [hGameBoyColorFlag]
+	and a
+	callba nz, Func_102bc
+	ret
+
+IndicatorStatesPointerTable_110ed_SapphireField:
+	dw IndicatorStates_110fd_SapphireField
+	dw IndicatorStates_11110_SapphireField
+	dw IndicatorStates_11123_SapphireField
+	dw IndicatorStates_11136_SapphireField
+	dw IndicatorStates_11149_SapphireField
+	dw IndicatorStates_1115c_SapphireField
+	dw IndicatorStates_1116f_SapphireField
+	dw IndicatorStates_11182_SapphireField
+
+IndicatorStates_110fd_SapphireField:
+	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $01, $00, $00, $00, $01, $01, $00, $00, $00, $00
+
+IndicatorStates_11110_SapphireField:
+	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $01, $00, $01, $00, $01, $01, $00, $00, $00, $00
+
+IndicatorStates_11123_SapphireField:
+	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $01, $00, $01, $01, $01, $01, $00, $00, $00, $00
+
+IndicatorStates_11136_SapphireField:
+	db $00, $00, $80, $00, $00, $00, $00, $00, $01, $01, $00, $01, $01, $01, $01, $00, $00, $00, $00
+
+IndicatorStates_11149_SapphireField:
+	db $00, $00, $80, $80, $00, $00, $00, $00, $01, $01, $01, $01, $01, $01, $01, $00, $00, $00, $00
+
+IndicatorStates_1115c_SapphireField:
+	db $00, $00, $80, $80, $00, $00, $00, $00, $01, $01, $01, $01, $01, $01, $01, $00, $00, $00, $00
+
+IndicatorStates_1116f_SapphireField:
+	db $80, $00, $80, $80, $00, $00, $00, $01, $01, $01, $01, $01, $01, $01, $01, $00, $00, $00, $00
+
+IndicatorStates_11182_SapphireField:
+	db $80, $00, $80, $80, $00, $00, $01, $01, $01, $01, $01, $01, $01, $01, $01, $00, $00, $00, $00
+
+ConcludeEvolutionMode_SapphireField:
+	xor a
+	ld [wd643], a
+	call ResetIndicatorStates
+	call OpenSlotCave
+	callba SetLeftAndRightAlleyArrowIndicatorStates_SapphireField
+	ld a, [wCurrentStage]
+	bit 0, a
+	jp z, LoadSapphireFieldTopGraphics
+	callba Func_1c2cb_SapphireField
+	callba LoadSlotCaveCoverGraphics_SapphireField
+	callba LoadMapBillboardTileData
+	ld a, Bank(StageSharedBonusSlotGlowGfx)
+	ld hl, StageSharedBonusSlotGlowGfx + $60
+	ld de, vTilesOB tile $20
+	ld bc, $00e0
+	call LoadVRAMData
+	ld a, [hGameBoyColorFlag]
+	and a
+	jr z, .asm_111f0
+	ld a, BANK(StageSapphireFieldBottomOBJPalette7)
+	ld hl, StageSapphireFieldBottomOBJPalette7
+	ld de, $0078
+	ld bc, $0008
+	call Func_7dc
+.asm_111f0
+	ld hl, BlankSaverSpaceTileDataSapphireField
+	ld a, BANK(BlankSaverSpaceTileDataSapphireField)
+	call QueueGraphicsToLoad
+	ld a, [wPreviousNumPokeballs]
+	callba LoadPokeballsGraphics_RedField
+	ld hl, Data_10a88
+	ld a, BANK(Data_10a88)
+	call QueueGraphicsToLoad
+	ret
+
+LoadBlueFieldTopGraphics:
 	ld hl, VRAMData_1123b
 	ld a, [hli]
 	ld c, a
@@ -1184,12 +1431,12 @@ LoadBlueFieldTopGraphics: ; 0x1120e
 	call LoadVRAMData
 	ret
 
-VRAMData_1123b: ; 0x1123b
+VRAMData_1123b:
 ; This doesn't seem very useful...
 	dab StageBlueFieldTopGfx3
 	dw $8600, $E0
 
-LoadGoldFieldTopGraphics: ; 0x10aff
+LoadGoldFieldTopGraphics:
 	ld hl, VideoData_10b2a_GoldField
 	ld a, [hli]
 	ld c, a
@@ -1211,12 +1458,12 @@ LoadGoldFieldTopGraphics: ; 0x10aff
 	call LoadVRAMData
 	ret
 
-VideoData_10b2a_GoldField: ; 0x10b2a
+VideoData_10b2a_GoldField:
 	dab StageGoldFieldTopGfx3 ;dab = 3 byte pointer
 	dw $8900 ;location
 	dw $E0 ;amount of bytes
 
-LoadSilverFieldTopGraphics: ; 0x1120e
+LoadSilverFieldTopGraphics:
 	ld hl, VRAMData_1123b_SilverField
 	ld a, [hli]
 	ld c, a
@@ -1238,7 +1485,61 @@ LoadSilverFieldTopGraphics: ; 0x1120e
 	call LoadVRAMData
 	ret
 
-VRAMData_1123b_SilverField: ; 0x1123b
+VRAMData_1123b_SilverField:
 ; This doesn't seem very useful...
 	dab StageSilverFieldTopGfx3
+	dw $8600, $E0
+
+LoadRubyFieldTopGraphics:
+	ld hl, VideoData_10b2a_RubyField
+	ld a, [hli]
+	ld c, a
+	ld a, [hli]
+	ld b, a
+	ld a, [hli]
+	push af
+	push bc ;load 3 byte pointer onto the stack
+	ld a, [hli]
+	ld e, a
+	ld a, [hli]
+	ld d, a
+	ld a, [hli]
+	ld c, a
+	ld a, [hli]
+	ld b, a
+	pop hl
+	pop af
+	call LoadVRAMData
+	ret
+
+VideoData_10b2a_RubyField:
+	dab StageRubyFieldTopGfx3 ;dab = 3 byte pointer
+	dw $8900 ;location
+	dw $E0 ;amount of bytes
+
+LoadSapphireFieldTopGraphics:
+	ld hl, VRAMData_1123b_SapphireField
+	ld a, [hli]
+	ld c, a
+	ld a, [hli]
+	ld b, a
+	ld a, [hli]
+	push af
+	push bc
+	ld a, [hli]
+	ld e, a
+	ld a, [hli]
+	ld d, a
+	ld a, [hli]
+	ld c, a
+	ld a, [hli]
+	ld b, a
+	pop hl
+	pop af
+	call LoadVRAMData
+	ret
+
+VRAMData_1123b_SapphireField:
+; This doesn't seem very useful...
+	dab StageSapphireFieldTopGfx3
 	dw $8600, $E0

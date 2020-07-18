@@ -39,6 +39,7 @@ FieldSelectGfxPointers: ; 0xd71c
 	dw FieldSelectGfxList_Initial
 	dw FieldSelectGfxList_Kanto
 	dw FieldSelectGfxList_Johto
+	dw FieldSelectGfxList_Hoenn
 
 FieldSelectGfxList_Initial: ; 0xd730
 	VIDEO_DATA_TILES    FieldSelectScreenGfx, vTilesSH - $110, $d10
@@ -54,6 +55,12 @@ FieldSelectGfxList_Kanto:
 	db $FF, $FF ; terminators
 
 FieldSelectGfxList_Johto:
+	VIDEO_DATA_TILES    FieldSelectGfx_Johto, vTilesSH, (FieldSelectGfx_Johto_End - FieldSelectGfx_Johto)
+	VIDEO_DATA_TILEMAP  FieldSelectTilemap_Johto, vBGMap, (FieldSelectTilemap_Johto_End - FieldSelectTilemap_Johto)
+	VIDEO_DATA_PALETTES FieldSelectScreenPalettes_Johto, $48
+	db $FF, $FF ; terminators
+
+FieldSelectGfxList_Hoenn:
 	VIDEO_DATA_TILES    FieldSelectGfx_Johto, vTilesSH, (FieldSelectGfx_Johto_End - FieldSelectGfx_Johto)
 	VIDEO_DATA_TILEMAP  FieldSelectTilemap_Johto, vBGMap, (FieldSelectTilemap_Johto_End - FieldSelectTilemap_Johto)
 	VIDEO_DATA_PALETTES FieldSelectScreenPalettes_Johto, $48
@@ -84,39 +91,29 @@ INCLUDE "data/queued_tiledata/field_select_switch_regions.asm"
 
 ChangeFieldSelectRegion:
 	bit BIT_D_UP, a
-	jr z, .didntPressUp
+	jr z, .checkDown
 	ld a, [wWhichFieldSelectRegion]
 	cp REGION_KANTO
 	ret z
+	dec a
 	jr .move
-.didntPressUp
+.checkDown
 	bit BIT_D_DOWN, a
 	jr z, .done
 	ld a, [wWhichFieldSelectRegion]
-	cp REGION_JOHTO
+	cp REGION_HOENN
 	ret z
+	inc a
 .move
+	push af
 	call ClearOAMBuffer
 	call FadeOut
 	call DisableLCD
-	ld a, [wWhichFieldSelectRegion]
-	cp REGION_JOHTO ; Is it Johto?
-	jr z, .checkKanto
-	; switch to johto
-	ld a, 2
+	pop af
+	ld [wWhichFieldSelectRegion], a
+	inc a
 	ld hl, FieldSelectGfxPointers
 	call LoadVideoData
-	ld a, REGION_JOHTO
-	ld [wWhichFieldSelectRegion], a
-	jr .done
-.checkKanto
-	cp REGION_KANTO
-	jr z, .done
-	ld a, 1
-	ld hl, FieldSelectGfxPointers
-	call LoadVideoData
-	ld a, REGION_KANTO
-	ld [wWhichFieldSelectRegion], a
 .done
 	call SetAllPalettesWhite
 	call EnableLCD
@@ -180,6 +177,7 @@ StartingStages: ; 0xd7d1
 ; wSelectedFieldIndex is used to index this array
 	db STAGE_RED_FIELD_BOTTOM, STAGE_BLUE_FIELD_BOTTOM
 	db STAGE_GOLD_FIELD_BOTTOM, STAGE_SILVER_FIELD_BOTTOM
+	db STAGE_RUBY_FIELD_BOTTOM, STAGE_SAPPHIRE_FIELD_BOTTOM
 
 MoveFieldSelectCursor: ; 0xd7d3
 ; When the player presses Right or Left, the stage is
@@ -297,7 +295,7 @@ UpdateRegionArrows:
 	ld [hli], a
 .skipUpArrow
 	ld a, [wWhichFieldSelectRegion]	
-	cp REGION_JOHTO
+	cp REGION_HOENN
 	jr z, .skipDownArrow
 	call .increaseOAMBufferSize
 	ld a, [wFieldSelectBlinkingBorderFrame]

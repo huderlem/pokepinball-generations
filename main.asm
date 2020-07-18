@@ -32,10 +32,6 @@ PokedexCharactersGfx: ; 0xa000
 
 SECTION "bank3", ROMX
 
-INCLUDE "engine/titlescreen.asm"
-INCLUDE "engine/options_screen.asm"
-INCLUDE "engine/high_scores_screen.asm"
-INCLUDE "engine/field_select_screen.asm"
 INCLUDE "engine/pinball_game.asm"
 INCLUDE "engine/pinball_game/ball_saver/ball_saver_20.asm"
 INCLUDE "engine/pinball_game/ball_saver/ball_saver_catchem_mode.asm"
@@ -45,8 +41,10 @@ INCLUDE "engine/pinball_game/draw_pikachu_saver_icon.asm"
 INCLUDE "engine/pinball_game/ball_gfx.asm"
 INCLUDE "engine/pinball_game/ball_loss/ball_loss_red_field.asm"
 INCLUDE "engine/pinball_game/ball_loss/ball_loss_blue_field.asm"
-INCLUDE "engine/pinball_game/ball_loss/ball_loss_silver_field.asm"
 INCLUDE "engine/pinball_game/ball_loss/ball_loss_gold_field.asm"
+INCLUDE "engine/pinball_game/ball_loss/ball_loss_silver_field.asm"
+INCLUDE "engine/pinball_game/ball_loss/ball_loss_ruby_field.asm"
+INCLUDE "engine/pinball_game/ball_loss/ball_loss_sapphire_field.asm"
 INCLUDE "engine/pinball_game/ball_loss/ball_loss_gengar_bonus.asm"
 INCLUDE "engine/pinball_game/ball_loss/ball_loss_mewtwo_bonus.asm"
 INCLUDE "engine/pinball_game/ball_loss/ball_loss_meowth_bonus.asm"
@@ -149,10 +147,6 @@ INCLUDE "engine/pinball_game/ball_init/ball_init_red_field.asm"
 INCLUDE "engine/pinball_game/bonus_multiplier.asm"
 INCLUDE "engine/pinball_game/extra_ball.asm"
 INCLUDE "engine/pinball_game/map_move.asm"
-INCLUDE "engine/pinball_game/catchem_mode/catchem_mode_gold_field.asm"
-INCLUDE "engine/pinball_game/catchem_mode/catchem_mode_silver_field.asm"
-INCLUDE "engine/pinball_game/evolution_mode/evolution_mode_gold_field.asm"
-INCLUDE "engine/pinball_game/evolution_mode/evolution_mode_silver_field.asm"
 
 SECTION "bankd", ROMX
 
@@ -163,6 +157,16 @@ SlotOffPic:
 
 StageSeelBonusCollisionMasks: ; 0x37f00
 	INCBIN "data/collision/masks/seel_bonus.masks"
+
+INCLUDE "engine/pinball_game/catchem_mode/catchem_mode_gold_field.asm"
+INCLUDE "engine/pinball_game/catchem_mode/catchem_mode_silver_field.asm"
+INCLUDE "engine/pinball_game/evolution_mode/evolution_mode_gold_field.asm"
+INCLUDE "engine/pinball_game/evolution_mode/evolution_mode_silver_field.asm"
+
+INCLUDE "engine/options_screen.asm"
+INCLUDE "engine/field_select_screen.asm"
+INCLUDE "engine/titlescreen.asm"
+INCLUDE "engine/high_scores_screen.asm"
 
 SECTION "banke", ROMX
 
@@ -183,9 +187,6 @@ INCLUDE "audio/engine_11.asm"
 SECTION "bank12", ROMX
 
 INCLUDE "audio/engine_12.asm"
-
-; This is a blob of unused junk data
-INCBIN "data/unused/unused_4b6a8.bin"
 
 SECTION "bank13", ROMX
 
@@ -1185,7 +1186,7 @@ StageGoldFieldBottomCollisionMasks:
 StageGoldFieldBottomCollisionAttributes:
 	INCBIN "data/collision/maps/gold_stage_bottom.collision"
 StageGoldFieldTopCollisionMasks0:
-	INCBIN "data/collision/masks/red_stage_top_0.masks"
+	INCBIN "data/collision/masks/gold_stage_top_0.masks"
 StageGoldFieldTopCollisionMasks1:
 	INCBIN "data/collision/masks/gold_stage_top_1.masks"
 StageGoldFieldTopCollisionMasks2:
@@ -1219,18 +1220,24 @@ SECTION "bank46", ROMX
 INCLUDE "engine/pinball_game/object_collision/silver_stage_resolve_collision.asm"
 INCLUDE "engine/pinball_game/object_collision/silver_stage_object_collision.asm"
 INCLUDE "engine/pinball_game/stage_init/init_silver_field.asm"
+INCLUDE "engine/pinball_game/stage_init/init_sapphire_field.asm"
 INCLUDE "engine/pinball_game/ball_init/ball_init_silver_field.asm"
+INCLUDE "engine/pinball_game/ball_init/ball_init_sapphire_field.asm"
 INCLUDE "engine/pinball_game/load_stage_data/load_silver_field.asm"
 INCLUDE "engine/pinball_game/draw_sprites/draw_silver_field_sprites.asm"
+INCLUDE "engine/pinball_game/draw_sprites/draw_sapphire_field_sprites.asm"
 
 SECTION "bank47", ROMX
 
 INCLUDE "engine/pinball_game/object_collision/gold_stage_resolve_collision.asm"
 INCLUDE "engine/pinball_game/object_collision/gold_stage_object_collision.asm"
 INCLUDE "engine/pinball_game/stage_init/init_gold_field.asm"
+INCLUDE "engine/pinball_game/stage_init/init_ruby_field.asm"
 INCLUDE "engine/pinball_game/ball_init/ball_init_gold_field.asm"
+INCLUDE "engine/pinball_game/ball_init/ball_init_ruby_field.asm"
 INCLUDE "engine/pinball_game/load_stage_data/load_gold_field.asm"
 INCLUDE "engine/pinball_game/draw_sprites/draw_gold_field_sprites.asm"
+INCLUDE "engine/pinball_game/draw_sprites/draw_ruby_field_sprites.asm"
 
 SECTION "bank48", ROMX
 
@@ -1245,24 +1252,17 @@ FieldSelectTilemap_Johto_End:
 FieldSelectBGAttributes_Johto:
 	INCBIN "gfx/bgattr/field_select_johto.bgattr"
 
-INCLUDE "gfx/high_scores/high_scores_transition_palettes_johto.asm"
-
-HighScoresBaseGameBoyGfx_Johto:
-	INCBIN "gfx/high_scores/high_scores_base_gameboy_johto.2bpp"
-
-PinballGSBallShakeGfx:
-	INCBIN "gfx/stage/ball_gsball_shake.w16.interleave.2bpp"
-PinballGSBallGfx:
-	INCBIN "gfx/stage/ball_gsball.w32.interleave.2bpp"
-PinballGSBallMiniGfx:
-	INCBIN "gfx/stage/ball_gsball_mini.w32.interleave.2bpp"
-
-
 SECTION "bank49", ROMX
 
 INCLUDE "engine/pinball_game/transition_ball_upgrade.asm"
 INCLUDE "data/mon_gfx/mon_animated_palettes_4.asm"
 INCLUDE "data/billboard/billboard_map_pic_pointers.asm"
+
+INCLUDE "gfx/high_scores/high_scores_transition_palettes_johto.asm"
+INCLUDE "gfx/high_scores/high_scores_transition_palettes_hoenn.asm"
+
+HighScoresBaseGameBoyGfx_Johto:
+	INCBIN "gfx/high_scores/high_scores_base_gameboy_johto.2bpp"
 
 SECTION "bank4a", ROMX
 
@@ -1339,3 +1339,154 @@ INCLUDE "audio/cries.asm"
 SECTION "bank5A", ROMX
 
 INCLUDE "data/mon_gfx/mon_billboard_pics_16.asm"
+
+SECTION "bank5B", ROMX
+
+INCLUDE "engine/pinball_game/catchem_mode/catchem_mode_ruby_field.asm"
+INCLUDE "engine/pinball_game/catchem_mode/catchem_mode_sapphire_field.asm"
+INCLUDE "engine/pinball_game/evolution_mode/evolution_mode_ruby_field.asm"
+INCLUDE "engine/pinball_game/evolution_mode/evolution_mode_sapphire_field.asm"
+
+StageRubyFieldBottomTilemap_GameBoyColor:
+	INCBIN "gfx/tilemaps/stage_ruby_field_bottom_gameboycolor.map"
+StageRubyFieldBottomTilemap2_GameBoyColor:
+	INCBIN "gfx/tilemaps/stage_ruby_field_bottom_gameboycolor_2.map"
+StageSapphireFieldBottomTilemap_GameBoyColor:
+	INCBIN "gfx/tilemaps/stage_sapphire_field_bottom_gameboycolor.map"
+StageSapphireFieldBottomTilemap2_GameBoyColor:
+	INCBIN "gfx/tilemaps/stage_sapphire_field_bottom_gameboycolor_2.map"
+
+PinballGSBallShakeGfx:
+	INCBIN "gfx/stage/ball_gsball_shake.w16.interleave.2bpp"
+PinballGSBallGfx:
+	INCBIN "gfx/stage/ball_gsball.w32.interleave.2bpp"
+PinballGSBallMiniGfx:
+	INCBIN "gfx/stage/ball_gsball_mini.w32.interleave.2bpp"
+
+StageSapphireFieldTopGfx3:
+	INCBIN "gfx/stage/sapphire_top/sapphire_top_3.2bpp"
+StageSapphireFieldTopGfx1:
+	INCBIN "gfx/stage/sapphire_top/sapphire_top_1.2bpp"
+StageSapphireFieldTopGfx2:
+	INCBIN "gfx/stage/sapphire_top/sapphire_top_2.2bpp"
+StageSapphireFieldTopStatusBarSymbolsGfx_GameBoyColor:
+	INCBIN "gfx/stage/sapphire_top/status_bar_symbols_gameboycolor.2bpp"
+
+StageSapphireFieldTopTilemap_GameBoyColor:
+	INCBIN "gfx/tilemaps/stage_sapphire_field_top_gameboycolor.map"
+StageSapphireFieldTopTilemap2_GameBoyColor:
+	INCBIN "gfx/tilemaps/stage_silver_field_top_gameboycolor_2.map"
+
+SECTION "bank5C", ROMX
+
+StageRubyFieldTopTilemap_GameBoyColor:
+	INCBIN "gfx/tilemaps/stage_ruby_field_top_gameboycolor.map"
+StageRubyFieldTopTilemap2_GameBoyColor:
+	INCBIN "gfx/tilemaps/stage_ruby_field_top_gameboycolor_2.map"
+
+StageRubyFieldBottomBaseGameBoyColorGfx:
+	INCBIN "gfx/stage/ruby_bottom/ruby_bottom_base_gameboycolor.2bpp"
+StageRubyFieldBottomGfx5:
+	INCBIN "gfx/stage/ruby_bottom/ruby_bottom_5.2bpp"
+StageRubyFieldTopStatusBarSymbolsGfx_GameBoyColor:
+	INCBIN "gfx/stage/ruby_top/status_bar_symbols_gameboycolor.2bpp"
+
+SECTION "bank5D", ROMX
+
+StageRubyFieldTopBaseGameBoyColorGfx:
+	INCBIN "gfx/stage/ruby_top/ruby_top_base_gameboycolor.2bpp"
+StageRubyFieldTopGfx3:
+	INCBIN "gfx/stage/ruby_top/ruby_top_3.2bpp"
+StageRubyFieldTopGfx1:
+	INCBIN "gfx/stage/ruby_top/ruby_top_1.2bpp"
+StageRubyFieldTopGfx2:
+	INCBIN "gfx/stage/ruby_top/ruby_top_2.2bpp"
+StageRubyFieldTopGfx4:
+	INCBIN "gfx/stage/ruby_top/ruby_top_4.2bpp"
+StageRubyFieldTopGfx5:
+	INCBIN "gfx/stage/ruby_top/ruby_top_5.2bpp"
+
+SECTION "bank5E", ROMX
+
+INCLUDE "engine/pinball_game/object_collision/ruby_stage_resolve_collision.asm"
+INCLUDE "engine/pinball_game/load_stage_data/load_ruby_field.asm"
+
+SECTION "bank5F", ROMX
+
+INCLUDE "engine/pinball_game/object_collision/sapphire_stage_resolve_collision.asm"
+INCLUDE "engine/pinball_game/load_stage_data/load_sapphire_field.asm"
+
+SECTION "bank60", ROMX
+
+StageSapphireFieldBottomBaseGameBoyColorGfx:
+	INCBIN "gfx/stage/sapphire_bottom/sapphire_bottom_base_gameboycolor.2bpp"
+StageSapphireFieldBottomGfx1:
+	INCBIN "gfx/stage/sapphire_bottom/sapphire_bottom_1.2bpp"
+StageSapphireFieldTopBaseGameBoyColorGfx:
+	INCBIN "gfx/stage/sapphire_top/sapphire_top_base_gameboycolor.2bpp"
+StageSapphireFieldTopGfx4:
+	INCBIN "gfx/stage/sapphire_top/sapphire_top_4.2bpp"
+StageRubyFieldTopGfx6:
+	INCBIN "gfx/stage/ruby_top/ruby_top_6.2bpp"
+
+SECTION "bank61", ROMX
+
+StageSapphireFieldBottomCollisionMasks:
+	INCBIN "data/collision/masks/silver_stage_bottom.masks"
+StageSapphireFieldBottomCollisionAttributes:
+	INCBIN "data/collision/maps/silver_stage_bottom.collision"
+StageSapphireFieldTopCollisionMasks:
+	INCBIN "data/collision/masks/silver_stage_top.masks"
+StageSapphireFieldTopCollisionAttributes:
+	INCBIN "data/collision/maps/silver_stage_top.collision"
+StageSapphireFieldTopCollisionAttributesBallEntrance:
+	INCBIN "data/collision/maps/silver_stage_top_ball_entrance.collision"
+
+SECTION "bank62", ROMX
+
+StageRubyFieldBottomCollisionMasks:
+	INCBIN "data/collision/masks/ruby_stage_bottom.masks"
+StageRubyFieldBottomCollisionAttributes:
+	INCBIN "data/collision/maps/ruby_stage_bottom.collision"
+StageRubyFieldTopCollisionMasks0:
+	INCBIN "data/collision/masks/ruby_stage_top_0.masks"
+StageRubyFieldTopCollisionMasks1:
+	INCBIN "data/collision/masks/ruby_stage_top_1.masks"
+StageRubyFieldTopCollisionMasks2:
+	INCBIN "data/collision/masks/ruby_stage_top_2.masks"
+StageRubyFieldTopCollisionMasks3:
+	INCBIN "data/collision/masks/ruby_stage_top_3.masks"
+
+SECTION "bank63", ROMX
+
+StageRubyFieldTopCollisionAttributes0:
+	INCBIN "data/collision/maps/ruby_stage_top_0.collision"
+StageRubyFieldTopCollisionAttributes1:
+	INCBIN "data/collision/maps/ruby_stage_top_1.collision"
+StageRubyFieldTopCollisionAttributes2:
+	INCBIN "data/collision/maps/ruby_stage_top_2.collision"
+StageRubyFieldTopCollisionAttributes3:
+	INCBIN "data/collision/maps/ruby_stage_top_3.collision"
+StageRubyFieldTopCollisionAttributes4:
+	INCBIN "data/collision/maps/ruby_stage_top_4.collision"
+StageRubyFieldTopCollisionAttributes5:
+	INCBIN "data/collision/maps/ruby_stage_top_5.collision"
+StageRubyFieldTopCollisionAttributes6:
+	INCBIN "data/collision/maps/ruby_stage_top_6.collision"
+StageRubyFieldTopCollisionAttributes7:
+	INCBIN "data/collision/maps/ruby_stage_top_7.collision"
+
+StageRubyFieldBottomBaseGameBoyGfx:
+	INCBIN  "gfx/stage/ruby_bottom/ruby_bottom_base_gameboy.2bpp"
+StageRubyFieldTopBaseGameBoyGfx:
+	INCBIN "gfx/stage/ruby_top/ruby_top_base_gameboy.2bpp"
+
+SECTION "bank64", ROMX
+
+StageSapphireFieldBottomBaseGameBoyGfx:
+	INCBIN "gfx/stage/sapphire_bottom/sapphire_bottom_base_gameboy.2bpp"
+StageSapphireFieldTopBaseGameBoyGfx:
+	INCBIN "gfx/stage/sapphire_top/sapphire_top_base_gameboy.2bpp"
+
+INCLUDE "engine/pinball_game/object_collision/sapphire_stage_object_collision.asm"
+INCLUDE "engine/pinball_game/object_collision/ruby_stage_object_collision.asm"

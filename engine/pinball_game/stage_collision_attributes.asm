@@ -40,6 +40,10 @@ StageCollisionAttributesPointers: ; 0xe5a7
 	dw StageGoldFieldBottomCollisionAttributesPointers
 	dw StageSilverFieldTopCollisionAttributesPointers
 	dw StageSilverFieldBottomCollisionAttributesPointers
+	dw StageRubyFieldTopCollisionAttributesPointers
+	dw StageRubyFieldBottomCollisionAttributesPointers
+	dw StageSapphireFieldTopCollisionAttributesPointers
+	dw StageSapphireFieldBottomCollisionAttributesPointers
 	dw StageGengarBonusCollisionAttributesPointers
 	dw StageGengarBonusCollisionAttributesPointers
 	dw StageMewtwoBonusCollisionAttributesPointers
@@ -122,6 +126,42 @@ StageSilverFieldBottomCollisionAttributesPointers: ; 0xe60e
 	db $00  ; single pair entry
 	dwb StageSilverFieldBottomCollisionAttributes, Bank(StageSilverFieldBottomCollisionAttributes)
 	dwb StageSilverFieldBottomCollisionMasks, Bank(StageSilverFieldBottomCollisionMasks)
+
+StageRubyFieldTopCollisionAttributesPointers: ; 0xe5c7
+	db $01  ; multiple pair entries
+	dwb StageRubyFieldTopCollisionAttributes0, Bank(StageRubyFieldTopCollisionAttributes0)
+	dwb StageRubyFieldTopCollisionMasks0, Bank(StageRubyFieldTopCollisionMasks0)
+	dwb StageRubyFieldTopCollisionAttributes1, Bank(StageRubyFieldTopCollisionAttributes1)
+	dwb StageRubyFieldTopCollisionMasks0, Bank(StageRubyFieldTopCollisionMasks0)
+	dwb StageRubyFieldTopCollisionAttributes2, Bank(StageRubyFieldTopCollisionAttributes2)
+	dwb StageRubyFieldTopCollisionMasks1, Bank(StageRubyFieldTopCollisionMasks1)
+	dwb StageRubyFieldTopCollisionAttributes3, Bank(StageRubyFieldTopCollisionAttributes3)
+	dwb StageRubyFieldTopCollisionMasks1, Bank(StageRubyFieldTopCollisionMasks1)
+	dwb StageRubyFieldTopCollisionAttributes4, Bank(StageRubyFieldTopCollisionAttributes4)
+	dwb StageRubyFieldTopCollisionMasks2, Bank(StageRubyFieldTopCollisionMasks2)
+	dwb StageRubyFieldTopCollisionAttributes5, Bank(StageRubyFieldTopCollisionAttributes5)
+	dwb StageRubyFieldTopCollisionMasks2, Bank(StageRubyFieldTopCollisionMasks2)
+	dwb StageRubyFieldTopCollisionAttributes6, Bank(StageRubyFieldTopCollisionAttributes6)
+	dwb StageRubyFieldTopCollisionMasks3, Bank(StageRubyFieldTopCollisionMasks3)
+	dwb StageRubyFieldTopCollisionAttributes7, Bank(StageRubyFieldTopCollisionAttributes7)
+	dwb StageRubyFieldTopCollisionMasks3, Bank(StageRubyFieldTopCollisionMasks3)
+
+StageRubyFieldBottomCollisionAttributesPointers: ; 0xe5f8
+	db $00  ; single pair entry
+	dwb StageRubyFieldBottomCollisionAttributes, Bank(StageRubyFieldBottomCollisionAttributes)
+	dwb StageRubyFieldBottomCollisionMasks, Bank(StageRubyFieldBottomCollisionMasks)
+
+StageSapphireFieldTopCollisionAttributesPointers: ; 0xe601
+	db $01  ; multiple pair entries
+	dwb StageSapphireFieldTopCollisionAttributesBallEntrance, Bank(StageSapphireFieldTopCollisionAttributesBallEntrance)
+	dwb StageSapphireFieldTopCollisionMasks, Bank(StageSapphireFieldTopCollisionMasks)
+	dwb StageSapphireFieldTopCollisionAttributes, Bank(StageSapphireFieldTopCollisionAttributes)
+	dwb StageSapphireFieldTopCollisionMasks, Bank(StageSapphireFieldTopCollisionMasks)
+
+StageSapphireFieldBottomCollisionAttributesPointers: ; 0xe60e
+	db $00  ; single pair entry
+	dwb StageSapphireFieldBottomCollisionAttributes, Bank(StageSapphireFieldBottomCollisionAttributes)
+	dwb StageSapphireFieldBottomCollisionMasks, Bank(StageSapphireFieldBottomCollisionMasks)
 
 StageGengarBonusCollisionAttributesPointers: ; 0xe615
 	db $01  ; multiple pair entries

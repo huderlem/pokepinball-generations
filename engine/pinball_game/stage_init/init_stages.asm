@@ -33,6 +33,10 @@ CallTable_8348: ; 0x8348
 	padded_dab InitGoldField         ; STAGE_GOLD_FIELD_BOTTOM
 	padded_dab InitSilverField       ; STAGE_SILVER_FIELD_TOP
 	padded_dab InitSilverField       ; STAGE_SILVER_FIELD_BOTTOM
+	padded_dab InitRubyField         ; STAGE_RUBY_FIELD_TOP
+	padded_dab InitRubyField         ; STAGE_RUBY_FIELD_BOTTOM
+	padded_dab InitSapphireField     ; STAGE_SAPPHIRE_FIELD_TOP
+	padded_dab InitSapphireField     ; STAGE_SAPPHIRE_FIELD_BOTTOM
 	padded_dab InitGengarBonusStage  ; STAGE_GENGAR_BONUS
 	padded_dab InitGengarBonusStage  ; STAGE_GENGAR_BONUS
 	padded_dab InitMewtwoBonusStage  ; STAGE_MEWTWO_BONUS

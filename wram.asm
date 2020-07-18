@@ -2480,6 +2480,20 @@ wSilverHighScores::
 	high_scores wSilverHighScore4
 	high_scores wSilverHighScore5
 
+wRubyHighScores::
+	high_scores wRubyHighScore1
+	high_scores wRubyHighScore2
+	high_scores wRubyHighScore3
+	high_scores wRubyHighScore4
+	high_scores wRubyHighScore5
+
+wSapphireHighScores::
+	high_scores wSapphireHighScore1
+	high_scores wSapphireHighScore2
+	high_scores wSapphireHighScore3
+	high_scores wSapphireHighScore4
+	high_scores wSapphireHighScore5
+
 wda7f:: ; 0xda7f
 	ds $1
 

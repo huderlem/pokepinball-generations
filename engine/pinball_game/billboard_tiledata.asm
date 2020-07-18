@@ -1,4 +1,4 @@
-LoadMapBillboardTileData:
+LoadMapBillboardTileData::
 	ld a, [wCurrentMap]
 	sla a
 	ld c, a
@@ -21,7 +21,7 @@ LoadMapBillboardTileData:
 	call QueueGraphicsToLoad
 	ret
 
-LoadBillboardTileData:
+LoadBillboardTileData::
 	sla a
 	ld c, a
 	ld b, $0

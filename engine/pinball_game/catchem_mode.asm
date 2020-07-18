@@ -18,14 +18,18 @@ CheckSpecialModeColision: ; 0x10000
 	call CallInFollowingTable
 
 HandleCatchEmCollisionCallTable: ; 0x10027
-	padded_dab HandleRedCatchEmCollision    ; STAGE_RED_FIELD_TOP
-	padded_dab HandleRedCatchEmCollision    ; STAGE_RED_FIELD_BOTTOM
-	padded_dab HandleBlueCatchEmCollision   ; STAGE_BLUE_FIELD_TOP
-	padded_dab HandleBlueCatchEmCollision   ; STAGE_BLUE_FIELD_BOTTOM
-	padded_dab HandleGoldCatchEmCollision   ; STAGE_GOLD_FIELD_TOP
-	padded_dab HandleGoldCatchEmCollision   ; STAGE_GOLD_FIELD_BOTTOM
-	padded_dab HandleSilverCatchEmCollision ; STAGE_SILVER_FIELD_TOP
-	padded_dab HandleSilverCatchEmCollision ; STAGE_SILVER_FIELD_BOTTOM
+	padded_dab HandleRedCatchEmCollision      ; STAGE_RED_FIELD_TOP
+	padded_dab HandleRedCatchEmCollision      ; STAGE_RED_FIELD_BOTTOM
+	padded_dab HandleBlueCatchEmCollision     ; STAGE_BLUE_FIELD_TOP
+	padded_dab HandleBlueCatchEmCollision     ; STAGE_BLUE_FIELD_BOTTOM
+	padded_dab HandleGoldCatchEmCollision     ; STAGE_GOLD_FIELD_TOP
+	padded_dab HandleGoldCatchEmCollision     ; STAGE_GOLD_FIELD_BOTTOM
+	padded_dab HandleSilverCatchEmCollision   ; STAGE_SILVER_FIELD_TOP
+	padded_dab HandleSilverCatchEmCollision   ; STAGE_SILVER_FIELD_BOTTOM
+	padded_dab HandleRubyCatchEmCollision     ; STAGE_RUBY_FIELD_TOP
+	padded_dab HandleRubyCatchEmCollision     ; STAGE_RUBY_FIELD_BOTTOM
+	padded_dab HandleSapphireCatchEmCollision ; STAGE_SAPPHIRE_FIELD_TOP
+	padded_dab HandleSapphireCatchEmCollision ; STAGE_SAPPHIRE_FIELD_BOTTOM
 
 StartCatchEmMode: ; 0x1003f
 	ld a, [wInSpecialMode]  ; current game mode?
@@ -107,14 +111,18 @@ StartCatchEmMode: ; 0x1003f
 	ld a, [wCurrentStage]
 	rst JumpTable  ; calls JumpToFuncInTable
 CallTable_10124: ; 0x10124
-	dw Func_10871             ; STAGE_RED_FIELD_TOP
-	dw Func_10871             ; STAGE_RED_FIELD_BOTTOM
-	dw Func_1098c             ; STAGE_BLUE_FIELD_TOP
-	dw Func_1098c             ; STAGE_BLUE_FIELD_BOTTOM
-	dw Func_10871_GoldField   ; STAGE_GOLD_FIELD_TOP
-	dw Func_10871_GoldField   ; STAGE_GOLD_FIELD_BOTTOM
-	dw Func_1098c_SilverField ; STAGE_SILVER_FIELD_TOP
-	dw Func_1098c_SilverField ; STAGE_SILVER_FIELD_BOTTOM
+	dw Func_10871               ; STAGE_RED_FIELD_TOP
+	dw Func_10871               ; STAGE_RED_FIELD_BOTTOM
+	dw Func_1098c               ; STAGE_BLUE_FIELD_TOP
+	dw Func_1098c               ; STAGE_BLUE_FIELD_BOTTOM
+	dw Func_10871_GoldField     ; STAGE_GOLD_FIELD_TOP
+	dw Func_10871_GoldField     ; STAGE_GOLD_FIELD_BOTTOM
+	dw Func_1098c_SilverField   ; STAGE_SILVER_FIELD_TOP
+	dw Func_1098c_SilverField   ; STAGE_SILVER_FIELD_BOTTOM
+	dw Func_10871_RubyField     ; STAGE_RUBY_FIELD_TOP
+	dw Func_10871_RubyField     ; STAGE_RUBY_FIELD_BOTTOM
+	dw Func_1098c_SapphireField ; STAGE_SAPPHIRE_FIELD_TOP
+	dw Func_1098c_SapphireField ; STAGE_SAPPHIRE_FIELD_BOTTOM
 
 ConcludeCatchEmMode: ; 0x10157
 	xor a
@@ -128,14 +136,18 @@ ConcludeCatchEmMode: ; 0x10157
 	ld a, [wCurrentStage]
 	rst JumpTable  ; calls JumpToFuncInTable
 CallTable_10178: ; 0x10178
-	dw Func_108f5             ; STAGE_RED_FIELD_TOP
-	dw Func_108f5             ; STAGE_RED_FIELD_BOTTOM
-	dw Func_109fc             ; STAGE_BLUE_FIELD_TOP
-	dw Func_109fc             ; STAGE_BLUE_FIELD_BOTTOM
-	dw Func_108f5_GoldField   ; STAGE_GOLD_FIELD_TOP
-	dw Func_108f5_GoldField   ; STAGE_GOLD_FIELD_BOTTOM
-	dw Func_109fc_SilverField ; STAGE_SILVER_FIELD_TOP
-	dw Func_109fc_SilverField ; STAGE_SILVER_FIELD_BOTTOM
+	dw Func_108f5               ; STAGE_RED_FIELD_TOP
+	dw Func_108f5               ; STAGE_RED_FIELD_BOTTOM
+	dw Func_109fc               ; STAGE_BLUE_FIELD_TOP
+	dw Func_109fc               ; STAGE_BLUE_FIELD_BOTTOM
+	dw Func_108f5_GoldField     ; STAGE_GOLD_FIELD_TOP
+	dw Func_108f5_GoldField     ; STAGE_GOLD_FIELD_BOTTOM
+	dw Func_109fc_SilverField   ; STAGE_SILVER_FIELD_TOP
+	dw Func_109fc_SilverField   ; STAGE_SILVER_FIELD_BOTTOM
+	dw Func_108f5_RubyField     ; STAGE_RUBY_FIELD_TOP
+	dw Func_108f5_RubyField     ; STAGE_RUBY_FIELD_BOTTOM
+	dw Func_109fc_SapphireField ; STAGE_SAPPHIRE_FIELD_TOP
+	dw Func_109fc_SapphireField ; STAGE_SAPPHIRE_FIELD_BOTTOM
 
 Func_10184: ; 0x10184 called by what looks like the "hit voltorb and shellder" handllers and after all tiles are flipped, as well as some evo mode stuff
 	ld a, [wCurrentStage]
@@ -1185,12 +1197,19 @@ Func_107b0_GoldField: ; 0x107b0
 	callba LoadSlotCaveCoverGraphics_GoldField
 	ret
 
+Func_107b0_RubyField: ; 0x107b0
+	xor a
+	ld [wSlotIsOpen], a
+	ld [wIndicatorStates + 4], a
+	callba LoadSlotCaveCoverGraphics_RubyField
+	ret
+
 OpenSlotCave: ; 0x107c2
 	ld a, $1e
 	ld [wFramesUntilSlotCaveOpens], a
 	ret
 
-SetLeftAndRightAlleyArrowIndicatorStates_RedField: ; 0x107c8
+SetLeftAndRightAlleyArrowIndicatorStates_RedField:
 	ld a, [wRightAlleyCount]
 	cp $3
 	jr z, .asm_107d1
@@ -1208,7 +1227,25 @@ SetLeftAndRightAlleyArrowIndicatorStates_RedField: ; 0x107c8
 	ld [wIndicatorStates], a
 	ret
 
-SetLeftAndRightAlleyArrowIndicatorStates_GoldField: ; 0x107c8
+SetLeftAndRightAlleyArrowIndicatorStates_GoldField:
+	ld a, [wRightAlleyCount]
+	cp $3
+	jr z, .asm_107d1
+	set 7, a
+.asm_107d1
+	ld [wIndicatorStates + 1], a
+	ld a, [wRightAlleyCount]
+	cp $2
+	jr c, .asm_107e0
+	ld a, $80
+	ld [wIndicatorStates + 3], a
+.asm_107e0
+	ld a, [wLeftAlleyCount]
+	set 7, a
+	ld [wIndicatorStates], a
+	ret
+
+SetLeftAndRightAlleyArrowIndicatorStates_RubyField:
 	ld a, [wRightAlleyCount]
 	cp $3
 	jr z, .asm_107d1
@@ -1227,16 +1264,6 @@ SetLeftAndRightAlleyArrowIndicatorStates_GoldField: ; 0x107c8
 	ret
 
 Func_107e9: ; 0x107e9
-	ld a, [wLeftAlleyCount]
-	cp $3
-	ld a, $4
-	jr nz, .asm_107f4
-	ld a, $6
-.asm_107f4
-	ld [wd7ad], a
-	ret
-
-Func_107e9_GoldField:
 	ld a, [wLeftAlleyCount]
 	cp $3
 	ld a, $4
@@ -1431,6 +1458,69 @@ Func_108f5_GoldField: ; 0x108f5
 	call QueueGraphicsToLoad
 	ret
 
+Func_10871_RubyField:
+	ld hl, CatchEmModeInitialIndicatorStates
+	ld de, wIndicatorStates
+	ld b, $13  ; number of indicators
+.loop
+	ld a, [hli]
+	ld [de], a
+	inc de
+	dec b
+	jr nz, .loop
+	xor a
+	ld [wRightAlleyCount], a
+	call Func_107b0_RubyField
+	ld a, $4
+	ld [wd7ad], a
+	ld de, $0002
+	call PlaySong
+	ld a, [wCurrentStage]
+	bit 0, a
+	jr nz, .asm_108d3
+	callba LoadStageCollisionAttributes
+	callba LoadFieldStructureGraphics_RubyField
+	ret
+
+.asm_108d3
+	callba ClearAllRedIndicators
+	callba Func_10184
+	ld a, [hGameBoyColorFlag]
+	and a
+	callba nz, Func_102bc
+	ret
+
+Func_108f5_RubyField: ; 0x108f5
+	call ResetIndicatorStates
+	call OpenSlotCave
+	call SetLeftAndRightAlleyArrowIndicatorStates_RubyField
+	call Func_107e9
+	ld a, [wCurrentStage]
+	bit 0, a
+	ret z
+	callba ClearAllRubyIndicators
+	call Func_10432
+	callba LoadMapBillboardTileData
+	ld a, Bank(StageSharedBonusSlotGlowGfx)
+	ld hl, StageSharedBonusSlotGlowGfx
+	ld de, vTilesOB tile $1a
+	ld bc, $0160
+	call LoadVRAMData
+	ld a, BANK(StageSharedBonusSlotGlow2Gfx)
+	ld hl, StageSharedBonusSlotGlow2Gfx
+	ld de, vTilesOB tile $38
+	ld bc, $0020
+	call LoadVRAMData
+	ld hl, BlankSaverSpaceTileDataRubyField
+	ld a, BANK(BlankSaverSpaceTileDataRubyField)
+	call QueueGraphicsToLoad
+	ld a, [wPreviousNumPokeballs]
+	callba LoadPokeballsGraphics_RubyField
+	ld hl, CaughtPokeballTileDataPointers
+	ld a, BANK(CaughtPokeballTileDataPointers)
+	call QueueGraphicsToLoad
+	ret
+
 BlankSaverSpaceTileDataRedField:
 	db 3
 	dw BlankSaverSpaceTileDataRedField1
@@ -1589,6 +1679,64 @@ Func_109fc_SilverField:
 	call QueueGraphicsToLoad
 	ret
 
+Func_1098c_SapphireField:
+	ld hl, CatchEmModeInitialIndicatorStates
+	ld de, wIndicatorStates
+	ld b, $13  ; number of indicators
+.loop
+	ld a, [hli]
+	ld [de], a
+	inc de
+	dec b
+	jr nz, .loop
+	xor a
+	ld [wRightAlleyCount], a
+	callba CloseSlotCave
+	ld de, $0002
+	call PlaySong
+	ld a, [wCurrentStage]
+	bit 0, a
+	ret z
+	callba Func_1c2cb
+	ld [hFarCallTempA], a
+	ld a, $4
+	ld hl, Func_10184
+	call BankSwitch
+	ld a, [hGameBoyColorFlag]
+	and a
+	callba nz, Func_102bc
+	ret
+
+Func_109fc_SapphireField:
+	call ResetIndicatorStates
+	call OpenSlotCave
+	callba SetLeftAndRightAlleyArrowIndicatorStates_SapphireField
+	ld a, [wCurrentStage]
+	bit 0, a
+	ret z
+	callba Func_1c2cb
+	call Func_10432
+	callba LoadMapBillboardTileData
+	ld a, BANK(StageSharedBonusSlotGlowGfx)
+	ld hl, StageSharedBonusSlotGlowGfx
+	ld de, vTilesOB tile $1a
+	ld bc, $0160
+	call LoadVRAMData
+	ld a, BANK(StageSharedBonusSlotGlow2Gfx)
+	ld hl, StageSharedBonusSlotGlow2Gfx
+	ld de, vTilesOB tile $38
+	ld bc, $0020
+	call LoadVRAMData
+	ld hl, BlankSaverSpaceTileDataSapphireField
+	ld a, BANK(BlankSaverSpaceTileDataSapphireField)
+	call QueueGraphicsToLoad
+	ld a, [wPreviousNumPokeballs]
+	callba LoadPokeballsGraphics_RedField
+	ld hl, Data_10a88
+	ld a, BANK(Data_10a88)
+	call QueueGraphicsToLoad
+	ret
+
 BlankSaverSpaceTileDataBlueField:
 	db 3
 	dw BlankSaverSpaceTileDataBlueField1
@@ -1689,4 +1837,64 @@ BlankSaverSpaceTileDataSilverField3:
 	dw vTilesSH tile $32
 	dw StageSilverFieldBottomBaseGameBoyColorGfx + $320
 	db Bank(StageSilverFieldBottomBaseGameBoyColorGfx)
+	db $00
+
+BlankSaverSpaceTileDataRubyField:
+	db 3
+	dw BlankSaverSpaceTileDataRubyField1
+	dw BlankSaverSpaceTileDataRubyField2
+	dw BlankSaverSpaceTileDataRubyField3
+
+BlankSaverSpaceTileDataRubyField1:
+	dw Func_11d2
+	db $20, $02
+	dw vTilesSH tile $2e
+	dw StageRubyFieldBottomBaseGameBoyColorGfx + $2e0
+	db Bank(StageRubyFieldBottomBaseGameBoyColorGfx)
+	db $00
+
+BlankSaverSpaceTileDataRubyField2:
+	dw Func_11d2
+	db $20, $02
+	dw vTilesSH tile $30
+	dw StageRubyFieldBottomBaseGameBoyColorGfx + $300
+	db Bank(StageRubyFieldBottomBaseGameBoyColorGfx)
+	db $00
+
+BlankSaverSpaceTileDataRubyField3:
+	dw Func_11d2
+	db $20, $02
+	dw vTilesSH tile $32
+	dw StageRubyFieldBottomBaseGameBoyColorGfx + $320
+	db Bank(StageRubyFieldBottomBaseGameBoyColorGfx)
+	db $00
+
+BlankSaverSpaceTileDataSapphireField:
+	db 3
+	dw BlankSaverSpaceTileDataSapphireField1
+	dw BlankSaverSpaceTileDataSapphireField2
+	dw BlankSaverSpaceTileDataSapphireField3
+
+BlankSaverSpaceTileDataSapphireField1:
+	dw Func_11d2
+	db $20, $02
+	dw vTilesSH tile $2e
+	dw StageSapphireFieldBottomBaseGameBoyColorGfx + $2e0
+	db Bank(StageSapphireFieldBottomBaseGameBoyColorGfx)
+	db $00
+
+BlankSaverSpaceTileDataSapphireField2:
+	dw Func_11d2
+	db $20, $02
+	dw vTilesSH tile $30
+	dw StageSapphireFieldBottomBaseGameBoyColorGfx + $300
+	db Bank(StageSapphireFieldBottomBaseGameBoyColorGfx)
+	db $00
+
+BlankSaverSpaceTileDataSapphireField3:
+	dw Func_11d2
+	db $20, $02
+	dw vTilesSH tile $32
+	dw StageSapphireFieldBottomBaseGameBoyColorGfx + $320
+	db Bank(StageSapphireFieldBottomBaseGameBoyColorGfx)
 	db $00

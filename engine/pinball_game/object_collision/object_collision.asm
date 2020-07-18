@@ -10,24 +10,28 @@ CheckGameObjectCollisions_: ; 0x272f
 	ld a, [wCurrentStage]
 	call CallInFollowingTable
 GameObjectCollisions_CallTable: ; 0x2735
-	padded_dab CheckRedStageTopGameObjectCollisions       ; STAGE_RED_FIELD_TOP
-	padded_dab CheckRedStageBottomGameObjectCollisions    ; STAGE_RED_FIELD_BOTTOM
-	padded_dab CheckBlueStageTopGameObjectCollisions      ; STAGE_BLUE_FIELD_TOP
-	padded_dab CheckBlueStageBottomGameObjectCollisions   ; STAGE_BLUE_FIELD_BOTTOM
-	padded_dab CheckGoldStageTopGameObjectCollisions      ; STAGE_GOLD_FIELD_TOP
-	padded_dab CheckGoldStageBottomGameObjectCollisions   ; STAGE_GOLD_FIELD_BOTTOM
-	padded_dab CheckSilverStageTopGameObjectCollisions    ; STAGE_SILVER_FIELD_TOP
-	padded_dab CheckSilverStageBottomGameObjectCollisions ; STAGE_SILVER_FIELD_BOTTOM
-	padded_dab CheckGengarBonusStageGameObjectCollisions  ; STAGE_GENGAR_BONUS
-	padded_dab CheckGengarBonusStageGameObjectCollisions  ; STAGE_GENGAR_BONUS
-	padded_dab CheckMewtwoBonusStageGameObjectCollisions  ; STAGE_MEWTWO_BONUS
-	padded_dab CheckMewtwoBonusStageGameObjectCollisions  ; STAGE_MEWTWO_BONUS
-	padded_dab CheckMeowthBonusStageGameObjectCollisions  ; STAGE_MEOWTH_BONUS
-	padded_dab CheckMeowthBonusStageGameObjectCollisions  ; STAGE_MEOWTH_BONUS
-	padded_dab CheckDiglettBonusStageGameObjectCollisions ; STAGE_DIGLETT_BONUS
-	padded_dab CheckDiglettBonusStageGameObjectCollisions ; STAGE_DIGLETT_BONUS
-	padded_dab CheckSeelBonusStageGameObjectCollisions    ; STAGE_SEEL_BONUS
-	padded_dab CheckSeelBonusStageGameObjectCollisions    ; STAGE_SEEL_BONUS
+	padded_dab CheckRedStageTopGameObjectCollisions         ; STAGE_RED_FIELD_TOP
+	padded_dab CheckRedStageBottomGameObjectCollisions      ; STAGE_RED_FIELD_BOTTOM
+	padded_dab CheckBlueStageTopGameObjectCollisions        ; STAGE_BLUE_FIELD_TOP
+	padded_dab CheckBlueStageBottomGameObjectCollisions     ; STAGE_BLUE_FIELD_BOTTOM
+	padded_dab CheckGoldStageTopGameObjectCollisions        ; STAGE_GOLD_FIELD_TOP
+	padded_dab CheckGoldStageBottomGameObjectCollisions     ; STAGE_GOLD_FIELD_BOTTOM
+	padded_dab CheckSilverStageTopGameObjectCollisions      ; STAGE_SILVER_FIELD_TOP
+	padded_dab CheckSilverStageBottomGameObjectCollisions   ; STAGE_SILVER_FIELD_BOTTOM
+	padded_dab CheckRubyStageTopGameObjectCollisions        ; STAGE_RUBY_FIELD_TOP
+	padded_dab CheckRubyStageBottomGameObjectCollisions     ; STAGE_RUBY_FIELD_BOTTOM
+	padded_dab CheckSapphireStageTopGameObjectCollisions    ; STAGE_SAPPHIRE_FIELD_TOP
+	padded_dab CheckSapphireStageBottomGameObjectCollisions ; STAGE_SAPPHIRE_FIELD_BOTTOM
+	padded_dab CheckGengarBonusStageGameObjectCollisions    ; STAGE_GENGAR_BONUS
+	padded_dab CheckGengarBonusStageGameObjectCollisions    ; STAGE_GENGAR_BONUS
+	padded_dab CheckMewtwoBonusStageGameObjectCollisions    ; STAGE_MEWTWO_BONUS
+	padded_dab CheckMewtwoBonusStageGameObjectCollisions    ; STAGE_MEWTWO_BONUS
+	padded_dab CheckMeowthBonusStageGameObjectCollisions    ; STAGE_MEOWTH_BONUS
+	padded_dab CheckMeowthBonusStageGameObjectCollisions    ; STAGE_MEOWTH_BONUS
+	padded_dab CheckDiglettBonusStageGameObjectCollisions   ; STAGE_DIGLETT_BONUS
+	padded_dab CheckDiglettBonusStageGameObjectCollisions   ; STAGE_DIGLETT_BONUS
+	padded_dab CheckSeelBonusStageGameObjectCollisions      ; STAGE_SEEL_BONUS
+	padded_dab CheckSeelBonusStageGameObjectCollisions      ; STAGE_SEEL_BONUS
 
 HandleGameObjectCollision: ; 0x2775
 ; Handle collision checking for one set of game objects, such as the bumpers, Pikachu savers, etc.
@@ -175,21 +179,25 @@ ResolveGameObjectCollisions: ; 0x281c
 	call CallInFollowingTable
 CallTable_2822: ; 0x2822
 ; not collisions
-	padded_dab ResolveRedFieldTopGameObjectCollisions       ; STAGE_RED_FIELD_TOP
-	padded_dab ResolveRedFieldBottomGameObjectCollisions    ; STAGE_RED_FIELD_BOTTOM
-	padded_dab ResolveBlueFieldTopGameObjectCollisions      ; STAGE_BLUE_FIELD_TOP
-	padded_dab ResolveBlueFieldBottomGameObjectCollisions   ; STAGE_BLUE_FIELD_BOTTOM
-	padded_dab ResolveGoldFieldTopGameObjectCollisions      ; STAGE_GOLD_FIELD_TOP
-	padded_dab ResolveGoldFieldBottomGameObjectCollisions   ; STAGE_GOLD_FIELD_BOTTOM
-	padded_dab ResolveSilverFieldTopGameObjectCollisions    ; STAGE_SILVER_FIELD_TOP
-	padded_dab ResolveSilverFieldBottomGameObjectCollisions ; STAGE_SILVER_FIELD_BOTTOM
-	padded_dab ResolveGengarBonusGameObjectCollisions       ; STAGE_GENGAR_BONUS
-	padded_dab ResolveGengarBonusGameObjectCollisions       ; STAGE_GENGAR_BONUS
-	padded_dab ResolveMewtwoBonusGameObjectCollisions       ; STAGE_MEWTWO_BONUS
-	padded_dab ResolveMewtwoBonusGameObjectCollisions       ; STAGE_MEWTWO_BONUS
-	padded_dab ResolveMeowthBonusGameObjectCollisions       ; STAGE_MEOWTH_BONUS
-	padded_dab ResolveMeowthBonusGameObjectCollisions       ; STAGE_MEOWTH_BONUS
-	padded_dab ResolveDiglettBonusGameObjectCollisions      ; STAGE_DIGLETT_BONUS
-	padded_dab ResolveDiglettBonusGameObjectCollisions      ; STAGE_DIGLETT_BONUS
-	padded_dab ResolveSeelBonusGameObjectCollisions         ; STAGE_SEEL_BONUS
-	padded_dab ResolveSeelBonusGameObjectCollisions         ; STAGE_SEEL_BONUS
+	padded_dab ResolveRedFieldTopGameObjectCollisions         ; STAGE_RED_FIELD_TOP
+	padded_dab ResolveRedFieldBottomGameObjectCollisions      ; STAGE_RED_FIELD_BOTTOM
+	padded_dab ResolveBlueFieldTopGameObjectCollisions        ; STAGE_BLUE_FIELD_TOP
+	padded_dab ResolveBlueFieldBottomGameObjectCollisions     ; STAGE_BLUE_FIELD_BOTTOM
+	padded_dab ResolveGoldFieldTopGameObjectCollisions        ; STAGE_GOLD_FIELD_TOP
+	padded_dab ResolveGoldFieldBottomGameObjectCollisions     ; STAGE_GOLD_FIELD_BOTTOM
+	padded_dab ResolveSilverFieldTopGameObjectCollisions      ; STAGE_SILVER_FIELD_TOP
+	padded_dab ResolveSilverFieldBottomGameObjectCollisions   ; STAGE_SILVER_FIELD_BOTTOM
+	padded_dab ResolveRubyFieldTopGameObjectCollisions        ; STAGE_RUBY_FIELD_TOP
+	padded_dab ResolveRubyFieldBottomGameObjectCollisions     ; STAGE_RUBY_FIELD_BOTTOM
+	padded_dab ResolveSapphireFieldTopGameObjectCollisions    ; STAGE_SAPPHIRE_FIELD_TOP
+	padded_dab ResolveSapphireFieldBottomGameObjectCollisions ; STAGE_SAPPHIRE_FIELD_BOTTOM
+	padded_dab ResolveGengarBonusGameObjectCollisions         ; STAGE_GENGAR_BONUS
+	padded_dab ResolveGengarBonusGameObjectCollisions         ; STAGE_GENGAR_BONUS
+	padded_dab ResolveMewtwoBonusGameObjectCollisions         ; STAGE_MEWTWO_BONUS
+	padded_dab ResolveMewtwoBonusGameObjectCollisions         ; STAGE_MEWTWO_BONUS
+	padded_dab ResolveMeowthBonusGameObjectCollisions         ; STAGE_MEOWTH_BONUS
+	padded_dab ResolveMeowthBonusGameObjectCollisions         ; STAGE_MEOWTH_BONUS
+	padded_dab ResolveDiglettBonusGameObjectCollisions        ; STAGE_DIGLETT_BONUS
+	padded_dab ResolveDiglettBonusGameObjectCollisions        ; STAGE_DIGLETT_BONUS
+	padded_dab ResolveSeelBonusGameObjectCollisions           ; STAGE_SEEL_BONUS
+	padded_dab ResolveSeelBonusGameObjectCollisions           ; STAGE_SEEL_BONUS

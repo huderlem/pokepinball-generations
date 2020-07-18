@@ -7,6 +7,10 @@ StageGfxPointers_GameBoyColor: ; 0xe717
 	dw StageGoldFieldBottomGfx_GameBoyColor
 	dw StageSilverFieldTopGfx_GameBoyColor
 	dw StageSilverFieldBottomGfx_GameBoyColor
+	dw StageRubyFieldTopGfx_GameBoyColor
+	dw StageRubyFieldBottomGfx_GameBoyColor
+	dw StageSapphireFieldTopGfx_GameBoyColor
+	dw StageSapphireFieldBottomGfx_GameBoyColor
 	dw StageGengarBonusGfx_GameBoyColor
 	dw StageGengarBonusGfx_GameBoyColor
 	dw StageMewtwoBonusGfx_GameBoyColor
@@ -154,6 +158,75 @@ StageSilverFieldBottomGfx_GameBoyColor: ; 0xe9bc
 	VIDEO_DATA_TILEMAP       StageSilverFieldBottomTilemap_GameBoyColor, vBGMap, $400
 	VIDEO_DATA_TILEMAP_BANK2 StageSilverFieldBottomTilemap2_GameBoyColor, vBGMap, $400
 	VIDEO_DATA_PALETTES      StageSilverFieldBottomPalettes, $80
+	db $FF, $FF  ; terminators
+
+StageRubyFieldTopGfx_GameBoyColor: ; 0xe771
+	VIDEO_DATA_TILES         Alphabet2Gfx, vTilesOB, $1a0
+	VIDEO_DATA_TILES         StageRubyFieldTopGfx1, vTilesOB + $1a0, $260
+	VIDEO_DATA_TILES         PinballPokeballGfx, vTilesOB + $400, $200
+	VIDEO_DATA_TILES         StageRubyFieldTopGfx2, vTilesOB + $600, $200
+	VIDEO_DATA_TILES         StageRubyFieldTopStatusBarSymbolsGfx_GameBoyColor, vTilesSH, $100
+	VIDEO_DATA_TILES         StageRubyFieldTopGfx3, vTilesSH + $100, $1a0
+	VIDEO_DATA_TILES         StageRubyFieldTopBaseGameBoyColorGfx, vTilesSH + $2a0, $d60
+	VIDEO_DATA_TILES_BANK2   StageRubyFieldTopGfx4, vTilesSH, $1000
+	VIDEO_DATA_TILES_BANK2   StageRubyFieldTopGfx5, vTilesOB, $200
+	VIDEO_DATA_TILES_BANK2   TimerDigitsGfx, vTilesOB + $600, $160
+	VIDEO_DATA_TILES_BANK2   StageRedJapaneseCharactersGfx, vTilesOB + $200, $400
+	VIDEO_DATA_TILES_BANK2   StageRedJapaneseCharactersGfx2, vTilesSH + $100, $200
+	VIDEO_DATA_TILES_BANK2   StageRubyFieldTopStatusBarSymbolsGfx_GameBoyColor, vTilesSH, $100
+	VIDEO_DATA_TILEMAP       StageRubyFieldTopTilemap_GameBoyColor, vBGMap, $400
+	VIDEO_DATA_TILEMAP_BANK2 StageRubyFieldTopTilemap2_GameBoyColor, vBGMap, $400
+	VIDEO_DATA_PALETTES      StageRubyFieldTopPalettes, $80
+	VIDEO_DATA_TILES_BANK2   StageRubyFieldTopGfx6, vTilesOB + $7c0, $40
+	db $FF, $FF  ; terminators
+
+StageRubyFieldBottomGfx_GameBoyColor: ; 0xe824
+	VIDEO_DATA_TILES         Alphabet2Gfx, vTilesOB, $1a0
+	VIDEO_DATA_TILES         StageSharedBonusSlotGlowGfx, vTilesOB + $1a0, $160
+	VIDEO_DATA_TILES         StageSharedArrowsGfx, vTilesOB + $300, $80
+	VIDEO_DATA_TILES         StageSharedBonusSlotGlow2Gfx, vTilesOB + $380, $20
+	VIDEO_DATA_TILES         StageSharedPikaBoltGfx, vTilesOB + $3c0, $440
+	VIDEO_DATA_TILES         StageRubyFieldBottomBaseGameBoyColorGfx, vTilesSH, $1000
+	VIDEO_DATA_TILES_BANK2   StageRubyFieldBottomGfx5, vTilesSH, $1000
+	VIDEO_DATA_TILES_BANK2   TimerDigitsGfx, vTilesOB + $600, $160
+	VIDEO_DATA_TILES         SaverTextOffGfx, vTilesSH + $2a0, $40
+	VIDEO_DATA_TILES_BANK2   StageRedJapaneseCharactersGfx, vTilesOB + $200, $400
+	VIDEO_DATA_TILES_BANK2   StageRedJapaneseCharactersGfx2, vTilesSH + $100, $200
+	VIDEO_DATA_TILES_BANK2   StageRubyFieldBottomBaseGameBoyColorGfx, vTilesSH, $100
+	VIDEO_DATA_TILEMAP       StageRubyFieldBottomTilemap_GameBoyColor, vBGMap, $400
+	VIDEO_DATA_TILEMAP_BANK2 StageRubyFieldBottomTilemap2_GameBoyColor, vBGMap, $400
+	VIDEO_DATA_PALETTES      StageRubyFieldBottomPalettes, $80
+	VIDEO_DATA_TILES_BANK2   StageRubyFieldTopGfx6, vTilesOB + $7c0, $40
+	db $FF, $FF  ; terminators
+
+StageSapphireFieldTopGfx_GameBoyColor: ; 0xe92c
+	VIDEO_DATA_TILES         Alphabet2Gfx, vTilesOB, $1a0
+	VIDEO_DATA_TILES         StageSapphireFieldTopGfx1, vTilesOB + $1a0, $260
+	VIDEO_DATA_TILES         PinballPokeballGfx, vTilesOB + $400, $200
+	VIDEO_DATA_TILES         StageSapphireFieldTopGfx2, vTilesOB + $600, $200
+	VIDEO_DATA_TILES         StageSapphireFieldTopStatusBarSymbolsGfx_GameBoyColor, vTilesSH, $100
+	VIDEO_DATA_TILES         StageSapphireFieldTopGfx3, vTilesSH + $100, $1a0
+	VIDEO_DATA_TILES         StageSapphireFieldTopBaseGameBoyColorGfx, vTilesSH + $2a0, $d60
+	VIDEO_DATA_TILES_BANK2   StageSapphireFieldTopGfx4, vTilesSH, $1000
+	VIDEO_DATA_TILES_BANK2   TimerDigitsGfx, vTilesOB + $600, $160
+	VIDEO_DATA_TILEMAP       StageSapphireFieldTopTilemap_GameBoyColor, vBGMap, $400
+	VIDEO_DATA_TILEMAP_BANK2 StageSapphireFieldTopTilemap2_GameBoyColor, vBGMap, $400
+	VIDEO_DATA_PALETTES      StageSapphireFieldTopPalettes, $80
+	db $FF, $FF  ; terminators
+
+StageSapphireFieldBottomGfx_GameBoyColor: ; 0xe9bc
+	VIDEO_DATA_TILES         Alphabet2Gfx, vTilesOB, $1a0
+	VIDEO_DATA_TILES         StageSharedBonusSlotGlowGfx, vTilesOB + $1a0, $160
+	VIDEO_DATA_TILES         StageSharedArrowsGfx, vTilesOB + $300, $80
+	VIDEO_DATA_TILES         StageSharedBonusSlotGlow2Gfx, vTilesOB + $380, $20
+	VIDEO_DATA_TILES         StageSharedPikaBoltGfx, vTilesOB + $3c0, $440
+	VIDEO_DATA_TILES         StageSapphireFieldBottomBaseGameBoyColorGfx, vTilesSH, $1000
+	VIDEO_DATA_TILES_BANK2   StageSapphireFieldBottomGfx1, vTilesSH, $1000
+	VIDEO_DATA_TILES_BANK2   TimerDigitsGfx, vTilesOB + $600, $160
+	VIDEO_DATA_TILES         SaverTextOffGfx, vTilesSH + $2a0, $40
+	VIDEO_DATA_TILEMAP       StageSapphireFieldBottomTilemap_GameBoyColor, vBGMap, $400
+	VIDEO_DATA_TILEMAP_BANK2 StageSapphireFieldBottomTilemap2_GameBoyColor, vBGMap, $400
+	VIDEO_DATA_PALETTES      StageSapphireFieldBottomPalettes, $80
 	db $FF, $FF  ; terminators
 
 StageGengarBonusGfx_GameBoyColor: ; 0xea5a

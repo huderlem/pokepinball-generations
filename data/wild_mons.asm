@@ -7,6 +7,10 @@ MapWildMonsPointers:
 	dw GoldStageWildMonsPointers
 	dw SilverStageWildMonsPointers
 	dw SilverStageWildMonsPointers
+	dw RubyStageWildMonsPointers
+	dw RubyStageWildMonsPointers
+	dw SapphireStageWildMonsPointers
+	dw SapphireStageWildMonsPointers
 
 RedStageWildMonsPointers:
 	dbw PALLET_TOWN,       RedStagePalletTownWildMons
@@ -72,7 +76,43 @@ SilverStageWildMonsPointers:
 	dbw MT_SILVER,       SilverStageMtSilverWildMons
 	db $FF ; terminator
 
+RubyStageWildMonsPointers:
+	dbw NEW_BARK_TOWN,   RubyStageNewBarkTownMons
+	dbw VIOLET_CITY,     RubyStageVioletCityWildMons
+	dbw RUINS_OF_ALPH,   RubyStageRuinsOfAlphWildMons
+	dbw LAKE_OF_RAGE,    RubyStageLakeOfRageWildMons
+	dbw ECRUTEAK_CITY,   RubyStageEcruteakCityWildMons
+	dbw ILEX_FOREST,     RubyStageIlexForestWildMons
+	dbw GOLDENROD_CITY,  RubyStageGoldenrodCityWildMons
+	dbw OLIVINE_CITY,    RubyStageOlivineCityWildMons
+	dbw ICE_PATH,        RubyStageIcePathWildMons
+	dbw DARK_CAVE,       RubyStageDarkCaveWildMons
+	dbw BURNED_TOWER,    RubyStageBurnedTowerWildMons
+	dbw TIN_TOWER,       RubyStageTinTowerWildMons
+	dbw BLACKTHORN_CITY, RubyStageBlackthornCityWildMons
+	dbw MT_SILVER,       RubyStageMtSilverWildMons
+	db $FF ; terminator
+
+SapphireStageWildMonsPointers:
+	dbw NEW_BARK_TOWN,   SapphireStageNewBarkTownMons
+	dbw VIOLET_CITY,     SapphireStageVioletCityWildMons
+	dbw DARK_CAVE,       SapphireStageDarkCaveWildMons
+	dbw MAHOGANY_TOWN,   SapphireStageMahoganyTownWildMons
+	dbw AZALEA_TOWN,     SapphireStageAzaleaTownWildMons
+	dbw ILEX_FOREST,     SapphireStageIlexForestWildMons
+	dbw NATIONAL_PARK,   SapphireStageNationalParkWildMons
+	dbw OLIVINE_CITY,    SapphireStageOlivineCityWildMons
+	dbw ICE_PATH,        SapphireStageIcePathWildMons
+	dbw MT_MORTAR,       SapphireStageMtMortarWildMons
+	dbw BURNED_TOWER,    SapphireStageBurnedTowerWildMons
+	dbw WHIRL_ISLANDS,   SapphireStageWhirlIslandsWildMons
+	dbw BLACKTHORN_CITY, SapphireStageBlackthornCityWildMons
+	dbw MT_SILVER,       SapphireStageMtSilverWildMons
+	db $FF ; terminator
+
 INCLUDE "data/red_wild_mons.asm"
 INCLUDE "data/blue_wild_mons.asm"
 INCLUDE "data/gold_wild_mons.asm"
 INCLUDE "data/silver_wild_mons.asm"
+INCLUDE "data/ruby_wild_mons.asm"
+INCLUDE "data/sapphire_wild_mons.asm"

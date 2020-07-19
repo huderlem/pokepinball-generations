@@ -899,12 +899,12 @@ CelebiPokedexDescription:
 	dex_end
 
 TreeckoPokedexDescription:
-	dex_text "It has the power"
-	dex_line "to travel across"
-	dex_line "time, but it is"
-	dex_line "said to appear"
-	dex_line "only in peaceful"
-	dex_line "times."
+	dex_text "The soles of its"
+	dex_line "feet are covered"
+	dex_line "by countless tiny"
+	dex_line "spikes, enabling it to"
+	dex_line "walk on walls and"
+	dex_line "ceilings."
 	dex_end
 
 GrovylePokedexDescription:

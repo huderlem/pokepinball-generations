@@ -1100,46 +1100,46 @@ CelebiBillboardBGPalette2:
 
 TreeckoBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 17, 28, 9
+	RGB 31, 12, 12
 	RGB 0, 0, 0
 TreeckoBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 17, 28, 9
+	RGB 8, 14, 4
 	RGB 0, 0, 0
 
 GrovyleBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 26, 8, 6
+	RGB 10, 22, 13
 	RGB 0, 0, 0
 GrovyleBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 19, 27, 19
+	RGB 10, 22, 13
 	RGB 0, 0, 0
 
 SceptileBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 19, 27, 10
+	RGB 26, 11, 8
 	RGB 0, 0, 0
 SceptileBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 19, 27, 10
+	RGB 14, 20, 7
 	RGB 0, 0, 0
 
 TorchicBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 31, 29, 20
+	RGB 31, 13, 6
 	RGB 0, 0, 0
 TorchicBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 31, 24, 9
+	RGB 31, 13, 6
 	RGB 0, 0, 0
 
 CombuskenBillboardBGPalette1:
@@ -1149,118 +1149,118 @@ CombuskenBillboardBGPalette1:
 	RGB 0, 0, 0
 CombuskenBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 31, 26, 12
+	RGB 31, 13, 7
 	RGB 0, 0, 0
 
 BlazikenBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 29, 11, 6
+	RGB 22, 19, 21
 	RGB 0, 0, 0
 BlazikenBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 29, 11, 6
+	RGB 22, 7, 2
 	RGB 0, 0, 0
 
 MudkipBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 12, 21, 27
+	RGB 30, 20, 8
 	RGB 0, 0, 0
 MudkipBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 12, 21, 27
+	RGB 4, 16, 24
 	RGB 0, 0, 0
 
 MarshtompBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 19, 26, 27
+	RGB 31, 21, 11
 	RGB 0, 0, 0
 MarshtompBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 19, 26, 27
+	RGB 12, 19, 20
 	RGB 0, 0, 0
 
 SwampertBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 13, 22, 29
+	RGB 29, 20, 9
 	RGB 0, 0, 0
 SwampertBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 13, 22, 29
+	RGB 10, 11, 16
 	RGB 0, 0, 0
 
 PoochyenaBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 30, 3, 3
+	RGB 10, 11, 13
 	RGB 0, 0, 0
 PoochyenaBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 22, 23, 25
+	RGB 10, 11, 13
 	RGB 0, 0, 0
 
 MightyenaBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 21, 19, 18
+	RGB 17, 0, 2
 	RGB 0, 0, 0
 MightyenaBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 21, 19, 18
+	RGB 7, 9, 10
 	RGB 0, 0, 0
 
 ZigzagoonBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 23, 18, 15
+	RGB 30, 29, 25
 	RGB 0, 0, 0
 ZigzagoonBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 23, 18, 15
+	RGB 19, 13, 9
 	RGB 0, 0, 0
 
 LinooneBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 27, 22, 11
+	RGB 18, 12, 4
 	RGB 0, 0, 0
 LinooneBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 27, 22, 11
+	RGB 18, 12, 4
 	RGB 0, 0, 0
 
 WurmpleBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 28, 14, 11
+	RGB 27, 27, 10
 	RGB 0, 0, 0
 WurmpleBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 28, 14, 11
+	RGB 21, 8, 10
 	RGB 0, 0, 0
 
 SilcoonBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 23, 20, 30
+	RGB 31, 10, 2
 	RGB 0, 0, 0
 SilcoonBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 23, 20, 30
+	RGB 31, 10, 2
 	RGB 0, 0, 0
 
 BeautiflyBillboardBGPalette1:

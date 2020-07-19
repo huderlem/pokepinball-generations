@@ -165,3 +165,4 @@ MonSpeciesNamesPointers:
 	dwb SpeciesNameDiving, Bank(SpeciesNameDiving)
 	dwb SpeciesNameRainbow, Bank(SpeciesNameRainbow)
 	dwb SpeciesNameTimeTravel, Bank(SpeciesNameTimeTravel)
+	dwb SpeciesNameWoodGecko, Bank(SpeciesNameWoodGecko)

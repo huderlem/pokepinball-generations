@@ -166,3 +166,4 @@ const_value = 0
 	const SPECIES_DIVING       ; $a3
 	const SPECIES_RAINBOW      ; $a4
 	const SPECIES_TIME_TRAVEL  ; $a5
+	const SPECIES_WOOD_GECKO   ; $a6

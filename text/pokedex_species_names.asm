@@ -495,3 +495,6 @@ SpeciesNameRainbow: ; RAINBOW
 
 SpeciesNameTimeTravel: ; TIME_TRAVEL
 	dex_species "TIME TRAVEL"
+
+SpeciesNameWoodGecko: ; WOOD_GECKO
+	dex_species "WOOD GECKO"

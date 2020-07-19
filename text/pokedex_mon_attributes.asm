@@ -1005,7 +1005,7 @@ PokedexMonAttributesTexts: ; 0x2a85d
 	dex_weight 11
 ; TREECKO
 	dex_number 252
-	dex_height 2, 0
+	dex_height 1, 8
 	dex_weight 11
 ; GROVYLE
 	dex_number 253

@@ -1835,6 +1835,53 @@ FieldSelectScreenOBJPalette0_Johto: ; 0xdd140
 	RGB 21, 21, 21
 	RGB 0, 0, 0
 
+FieldSelectScreenPalettes_Hoenn:
+FieldSelectScreenBGPalette0_Hoenn:
+	RGB 31, 31, 31
+	RGB 28, 28, 28
+	RGB 31, 00, 00
+	RGB 00, 00, 00
+FieldSelectScreenBGPalette1_Hoenn:
+	RGB 31, 31, 31
+	RGB 21, 21, 21
+	RGB 10, 10, 10
+	RGB 00, 00, 00
+FieldSelectScreenBGPalette2_Hoenn:
+	RGB 31, 31, 31
+	RGB 25, 17, 15
+	RGB 28, 05, 03
+	RGB 00, 00, 00
+FieldSelectScreenBGPalette3_Hoenn:
+	RGB 31, 31, 31
+	RGB 08, 09, 31
+	RGB 23, 03, 04
+	RGB 00, 00, 00
+FieldSelectScreenBGPalette4_Hoenn:
+	RGB 31, 31, 31
+	RGB 28, 28, 28
+	RGB 28, 02, 06
+	RGB 01, 10, 23
+FieldSelectScreenBGPalette5_Hoenn:
+	RGB 31,31,0
+	RGB 31,31,0
+	RGB 31,31,0
+	RGB 31,31,0
+FieldSelectScreenBGPalette6_Hoenn:
+	RGB 31,31,0
+	RGB 31,31,0
+	RGB 31,31,0
+	RGB 31,31,0
+FieldSelectScreenBGPalette7_Hoenn:
+	RGB 31,31,0
+	RGB 31,31,0
+	RGB 31,31,0
+	RGB 31,31,0
+FieldSelectScreenOBJPalette0_Hoenn:
+	RGB 10, 10, 10
+	RGB 31, 31, 31
+	RGB 21, 21, 21
+	RGB 0, 0, 0
+
 StageGoldFieldTopPalettes: ; 0xdc980
 StageGoldFieldTopBGPalette0: ; 0xdc980
 	RGB 31, 31, 31
@@ -2265,18 +2312,18 @@ StageRubyFieldTopOBJPalette7: ; 0xdc9f8
 StageRubyFieldBottomPalettes: ; 0xdca80
 StageRubyFieldBottomBGPalette0: ; 0xdca80
 	RGB 31, 31, 31
-	RGB 13, 20, 31
+	RGB 31, 20, 31
 	RGB 31, 4, 4
 	RGB 0, 0, 0
 StageRubyFieldBottomBGPalette1: ; 0xdca88
 	RGB 31, 31, 31
-	RGB 24, 16, 0
-	RGB 14, 7, 0
+	RGB 31, 16, 0
+	RGB 31, 7, 0
 	RGB 3, 0, 0
 StageRubyFieldBottomBGPalette2: ; 0xdca90
 	RGB 31, 31, 31
 	RGB 31, 24, 0
-	RGB 21, 10, 0
+	RGB 31, 10, 0
 	RGB 0, 0, 0
 StageRubyFieldBottomBGPalette3: ; 0xdca98
 	RGB 31, 31, 31
@@ -2432,22 +2479,22 @@ StageSapphireFieldBottomPalettes: ; 0xdcb80
 StageSapphireFieldBottomBGPalette0: ; 0xdcb80
 	RGB 31, 31, 31
 	RGB 13, 20, 31
-	RGB 31, 4, 4
+	RGB 31, 4, 31
 	RGB 0, 0, 0
 StageSapphireFieldBottomBGPalette1: ; 0xdcb08
 	RGB 31, 31, 31
 	RGB 18, 18, 21
-	RGB 10, 10, 12
+	RGB 10, 10, 31
 	RGB 0, 0, 0
 StageSapphireFieldBottomBGPalette2: ; 0xdcb10
 	RGB 31, 31, 31
 	RGB 15, 16, 25
-	RGB 4, 3, 12
+	RGB 4, 3, 31
 	RGB 0, 0, 0
 StageSapphireFieldBottomBGPalette3: ; 0xdcb98
 	RGB 31, 31, 31
 	RGB 15, 19, 26
-	RGB 10, 15, 22
+	RGB 10, 15, 31
 	RGB 0, 0, 0
 StageSapphireFieldBottomBGPalette4: ; 0xdcba0
 	RGB 31, 31, 31

@@ -1252,6 +1252,15 @@ FieldSelectTilemap_Johto_End:
 FieldSelectBGAttributes_Johto:
 	INCBIN "gfx/bgattr/field_select_johto.bgattr"
 
+FieldSelectGfx_Hoenn:
+	INCBIN "gfx/field_select/field_select_tiles_hoenn.2bpp"
+FieldSelectGfx_Hoenn_End:
+FieldSelectTilemap_Hoenn:
+	INCBIN "gfx/tilemaps/field_select_hoenn.map"
+FieldSelectTilemap_Hoenn_End:
+FieldSelectBGAttributes_Hoenn:
+	INCBIN "gfx/bgattr/field_select_hoenn.bgattr"
+
 SECTION "bank49", ROMX
 
 INCLUDE "engine/pinball_game/transition_ball_upgrade.asm"

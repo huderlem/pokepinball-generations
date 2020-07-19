@@ -57,13 +57,15 @@ FieldSelectGfxList_Kanto:
 FieldSelectGfxList_Johto:
 	VIDEO_DATA_TILES    FieldSelectGfx_Johto, vTilesSH, (FieldSelectGfx_Johto_End - FieldSelectGfx_Johto)
 	VIDEO_DATA_TILEMAP  FieldSelectTilemap_Johto, vBGMap, (FieldSelectTilemap_Johto_End - FieldSelectTilemap_Johto)
+	VIDEO_DATA_BGATTR   FieldSelectBGAttributes_Johto, vBGMap, $240
 	VIDEO_DATA_PALETTES FieldSelectScreenPalettes_Johto, $48
 	db $FF, $FF ; terminators
 
 FieldSelectGfxList_Hoenn:
-	VIDEO_DATA_TILES    FieldSelectGfx_Johto, vTilesSH, (FieldSelectGfx_Johto_End - FieldSelectGfx_Johto)
-	VIDEO_DATA_TILEMAP  FieldSelectTilemap_Johto, vBGMap, (FieldSelectTilemap_Johto_End - FieldSelectTilemap_Johto)
-	VIDEO_DATA_PALETTES FieldSelectScreenPalettes_Johto, $48
+	VIDEO_DATA_TILES    FieldSelectGfx_Hoenn, vTilesSH, (FieldSelectGfx_Hoenn_End - FieldSelectGfx_Hoenn)
+	VIDEO_DATA_TILEMAP  FieldSelectTilemap_Hoenn, vBGMap, (FieldSelectTilemap_Hoenn_End - FieldSelectTilemap_Hoenn)
+	VIDEO_DATA_BGATTR   FieldSelectBGAttributes_Hoenn, vBGMap, $240
+	VIDEO_DATA_PALETTES FieldSelectScreenPalettes_Hoenn, $48
 	db $FF, $FF ; terminators
 
 ChooseFieldToPlay: ; 0xd74e
@@ -86,8 +88,6 @@ ChooseFieldToPlay: ; 0xd74e
 	ld hl, wScreenState
 	inc [hl]
 	ret
-
-INCLUDE "data/queued_tiledata/field_select_switch_regions.asm"
 
 ChangeFieldSelectRegion:
 	bit BIT_D_UP, a

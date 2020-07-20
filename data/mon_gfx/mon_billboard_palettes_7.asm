@@ -1265,100 +1265,100 @@ SilcoonBillboardBGPalette2:
 
 BeautiflyBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 18, 17, 16
+	RGB 18, 18, 28
 	RGB 0, 0, 0
 BeautiflyBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 18, 17, 16
+	RGB 30, 18, 6
 	RGB 0, 0, 0
 
 CascoonBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 23, 12, 28
+	RGB 27, 8, 6
 	RGB 0, 0, 0
 CascoonBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 23, 12, 28
+	RGB 27, 8, 6
 	RGB 0, 0, 0
 
 DustoxBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 26, 18, 24
+	RGB 22, 13, 18
 	RGB 0, 0, 0
 DustoxBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 24, 31, 18
+	RGB 16, 18, 16
 	RGB 0, 0, 0
 
 LotadBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 16, 20, 28
+	RGB 6, 17, 14
 	RGB 0, 0, 0
 LotadBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 17, 27, 10
+	RGB 6, 17, 14
 	RGB 0, 0, 0
 
 LombreBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 23, 30, 21
+	RGB 24, 8, 5
 	RGB 0, 0, 0
 LombreBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 23, 30, 21
+	RGB 15, 23, 14
 	RGB 0, 0, 0
 
 LudicoloBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 20, 29, 11
+	RGB 19, 24, 12
 	RGB 0, 0, 0
 LudicoloBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 20, 29, 11
+	RGB 30, 20, 12
 	RGB 0, 0, 0
 
 SeedotBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 27, 29, 22
+	RGB 14, 17, 10
 	RGB 0, 0, 0
 SeedotBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 24, 17, 7
+	RGB 19, 11, 4
 	RGB 0, 0, 0
 
 NuzleafBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 25, 19, 12
+	RGB 24, 27, 17
 	RGB 0, 0, 0
 NuzleafBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 25, 19, 12
+	RGB 16, 12, 14
 	RGB 0, 0, 0
 
 ShiftryBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 16, 26, 13
+	RGB 25, 14, 9
 	RGB 0, 0, 0
 ShiftryBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 16, 26, 13
+	RGB 25, 14, 9
 	RGB 0, 0, 0
 

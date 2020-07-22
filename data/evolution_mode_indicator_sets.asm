@@ -275,3 +275,23 @@ EvolutionModeIndicatorSets: ; 0x1298b
 	db $01  ; SEEDOT
 	db $01  ; NUZLEAF
 	db $01  ; SHIFTRY
+	db $01  ; TAILLOW
+	db $01  ; SWELLOW
+	db $01  ; WINGULL
+	db $01  ; PELIPPER
+	db $01  ; RALTS
+	db $01  ; KIRLIA
+	db $01  ; GARDEVOIR
+	db $01  ; SURSKIT
+	db $01  ; MASQUERAIN
+	db $01  ; SHROOMISH
+	db $01  ; BRELOOM
+	db $01  ; SLAKOTH
+	db $01  ; VIGOROTH
+	db $01  ; SLAKING
+	db $01  ; NINCADA
+	db $01  ; NINJASK
+	db $01  ; SHEDINJA
+	db $01  ; WHISMUR
+	db $01  ; LOUDRED
+	db $01  ; EXPLOUD

@@ -669,3 +669,91 @@ SeedotAnimatedObjPalette2:
 	RGB 0, 0, 0
 	RGB 0, 0, 0
 
+TaillowAniamtedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+TaillowAniamtedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+WingullAniamtedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+WingullAniamtedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+RaltsAniamtedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+RaltsAniamtedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+SurskitAniamtedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+SurskitAniamtedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+ShroomishAniamtedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+ShroomishAniamtedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+SlakothAniamtedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+SlakothAniamtedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+NincadaAniamtedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+NincadaAniamtedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+WhismurAniamtedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+WhismurAniamtedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+

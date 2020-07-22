@@ -138,3 +138,11 @@ const_value = 0
 	const EVOLINE_WURMPLE       ; $87
 	const EVOLINE_LOTAD         ; $88
 	const EVOLINE_SEEDOT        ; $89
+	const EVOLINE_TAILLOW       ; $8A
+	const EVOLINE_WINGULL       ; $8B
+	const EVOLINE_RALTS         ; $8C
+	const EVOLINE_SURSKIT       ; $8D
+	const EVOLINE_SHROOMISH     ; $8E
+	const EVOLINE_SLAKOTH       ; $8F
+	const EVOLINE_NINCADA       ; $90
+	const EVOLINE_WHISMUR       ; $91

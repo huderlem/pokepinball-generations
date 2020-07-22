@@ -742,3 +742,122 @@ ShiftryBillboardBGPaletteMap:
 	db $7, $7, $7, $7, $7, $7
 	db $7, $7, $7, $7, $7, $7
 
+TaillowBillboardBGPaletteMap:
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+
+SwellowBillboardBGPaletteMap:
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+
+WingullBillboardBGPaletteMap:
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+
+PelipperBillboardBGPaletteMap:
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+
+RaltsBillboardBGPaletteMap:
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+
+KirliaBillboardBGPaletteMap:
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+
+GardevoirBillboardBGPaletteMap:
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+
+SurskitBillboardBGPaletteMap:
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+
+MasquerainBillboardBGPaletteMap:
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+
+ShroomishBillboardBGPaletteMap:
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+
+BreloomBillboardBGPaletteMap:
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+
+SlakothBillboardBGPaletteMap:
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+
+VigorothBillboardBGPaletteMap:
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+
+SlakingBillboardBGPaletteMap:
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+
+NincadaBillboardBGPaletteMap:
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+
+NinjaskBillboardBGPaletteMap:
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+
+ShedinjaBillboardBGPaletteMap:
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+
+WhismurBillboardBGPaletteMap:
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+
+LoudredBillboardBGPaletteMap:
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+
+ExploudBillboardBGPaletteMap:
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $7, $7

@@ -67,7 +67,6 @@ INCLUDE "data/mon_initial_indicator_states.asm"
 INCLUDE "data/evolution_mode_indicator_sets.asm"
 INCLUDE "data/mon_animated_sprite_types.asm"
 INCLUDE "data/collision/mon_collision_mask_pointers.asm"
-INCLUDE "data/mon_animation_durations.asm"
 
 SECTION "bank5", ROMX
 
@@ -75,6 +74,7 @@ INCLUDE "engine/pinball_game/load_stage_data/load_red_field.asm"
 INCLUDE "engine/pinball_game/object_collision/red_stage_object_collision.asm"
 INCLUDE "engine/pinball_game/object_collision/red_stage_resolve_collision.asm"
 INCLUDE "engine/pinball_game/draw_sprites/draw_red_field_sprites.asm"
+INCLUDE "data/mon_animation_durations.asm"
 
 SECTION "bank6", ROMX
 
@@ -1499,3 +1499,7 @@ StageSapphireFieldTopBaseGameBoyGfx:
 
 INCLUDE "engine/pinball_game/object_collision/sapphire_stage_object_collision.asm"
 INCLUDE "engine/pinball_game/object_collision/ruby_stage_object_collision.asm"
+
+SECTION "bank65", ROMX
+
+INCLUDE "data/mon_gfx/mon_billboard_pics_17.asm"

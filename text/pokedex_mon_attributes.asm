@@ -1099,3 +1099,83 @@ PokedexMonAttributesTexts: ; 0x2a85d
 	dex_number 275
 	dex_height 2, 0
 	dex_weight 11
+; TAILLOW
+	dex_number 276
+	dex_height 2, 0
+	dex_weight 11
+; SWELLOW
+	dex_number 277
+	dex_height 2, 0
+	dex_weight 11
+; WINGULL
+	dex_number 278
+	dex_height 2, 0
+	dex_weight 11
+; PELIPPER
+	dex_number 279
+	dex_height 2, 0
+	dex_weight 11
+; RALTS
+	dex_number 280
+	dex_height 2, 0
+	dex_weight 11
+; KIRLIA
+	dex_number 281
+	dex_height 2, 0
+	dex_weight 11
+; GARDEVOIR
+	dex_number 282
+	dex_height 2, 0
+	dex_weight 11
+; SURSKIT
+	dex_number 283
+	dex_height 2, 0
+	dex_weight 11
+; MASQUERAIN
+	dex_number 284
+	dex_height 2, 0
+	dex_weight 11
+; SHROOMISH
+	dex_number 285
+	dex_height 2, 0
+	dex_weight 11
+; BRELOOM
+	dex_number 286
+	dex_height 2, 0
+	dex_weight 11
+; SLAKOTH
+	dex_number 287
+	dex_height 2, 0
+	dex_weight 11
+; VIGOROTH
+	dex_number 288
+	dex_height 2, 0
+	dex_weight 11
+; SLAKING
+	dex_number 289
+	dex_height 2, 0
+	dex_weight 11
+; NINCADA
+	dex_number 290
+	dex_height 2, 0
+	dex_weight 11
+; NINJASK
+	dex_number 291
+	dex_height 2, 0
+	dex_weight 11
+; SHEDINJA
+	dex_number 292
+	dex_height 2, 0
+	dex_weight 11
+; WHISMUR
+	dex_number 293
+	dex_height 2, 0
+	dex_weight 11
+; LOUDRED
+	dex_number 294
+	dex_height 2, 0
+	dex_weight 11
+; EXPLOUD
+	dex_number 295
+	dex_height 2, 0
+	dex_weight 11

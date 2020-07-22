@@ -74,3 +74,11 @@ ShiftryPic:
 	INCBIN "gfx/billboard/mon_pics/shiftry.2bpp"
 ShiftrySilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/shiftry.2bpp"
+TaillowPic:
+	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+TaillowSilhouettePic:
+	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
+SwellowPic:
+	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
+SwellowSilhouettePic:
+	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"

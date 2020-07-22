@@ -25,3 +25,19 @@ LotadAnimatedPic:
 	INCBIN "gfx/billboard/mon_animated/jigglypuff.w32.interleave.2bpp"
 SeedotAnimatedPic:
 	INCBIN "gfx/billboard/mon_animated/jigglypuff.w32.interleave.2bpp"
+TaillowAnimatedPic:
+	INCBIN "gfx/billboard/mon_animated/jigglypuff.w32.interleave.2bpp"
+WingullAnimatedPic:
+	INCBIN "gfx/billboard/mon_animated/jigglypuff.w32.interleave.2bpp"
+RaltsAnimatedPic:
+	INCBIN "gfx/billboard/mon_animated/jigglypuff.w32.interleave.2bpp"
+SurskitAnimatedPic:
+	INCBIN "gfx/billboard/mon_animated/jigglypuff.w32.interleave.2bpp"
+ShroomishAnimatedPic:
+	INCBIN "gfx/billboard/mon_animated/jigglypuff.w32.interleave.2bpp"
+SlakothAnimatedPic:
+	INCBIN "gfx/billboard/mon_animated/jigglypuff.w32.interleave.2bpp"
+NincadaAnimatedPic:
+	INCBIN "gfx/billboard/mon_animated/jigglypuff.w32.interleave.2bpp"
+WhismurAnimatedPic:
+	INCBIN "gfx/billboard/mon_animated/jigglypuff.w32.interleave.2bpp"

@@ -276,6 +276,26 @@ MonEvolutions: ; 0x116b3
 	dw SeedotEvolutions
 	dw NuzleafEvolutions
 	dw ShiftryEvolutions
+	dw TaillowEvolutions
+	dw SwellowEvolutions
+	dw WingullEvolutions
+	dw PelipperEvolutions
+	dw RaltsEvolutions
+	dw KirliaEvolutions
+	dw GardevoirEvolutions
+	dw SurskitEvolutions
+	dw MasquerainEvolutions
+	dw ShroomishEvolutions
+	dw BreloomEvolutions
+	dw SlakothEvolutions
+	dw VigorothEvolutions
+	dw SlakingEvolutions
+	dw NincadaEvolutions
+	dw NinjaskEvolutions
+	dw ShedinjaEvolutions
+	dw WhismurEvolutions
+	dw LoudredEvolutions
+	dw ExploudEvolutions
 
 BulbasaurEvolutions:
 	db 1
@@ -1345,3 +1365,84 @@ NuzleafEvolutions:
 ShiftryEvolutions:
 	db 1
 	dwb SEEDOT, EVO_BREEDING
+
+TaillowEvolutions:
+	db 1
+	dwb SWELLOW, EVO_EXPERIENCE
+
+SwellowEvolutions:
+	db 1
+	dwb TAILLOW, EVO_BREEDING
+
+WingullEvolutions:
+	db 1
+	dwb PELIPPER, EVO_EXPERIENCE
+
+PelipperEvolutions:
+	db 1
+	dwb WINGULL, EVO_BREEDING
+
+RaltsEvolutions:
+	db 1
+	dwb KIRLIA, EVO_EXPERIENCE
+
+KirliaEvolutions:
+	db 1
+	dwb GARDEVOIR, EVO_EXPERIENCE
+
+GardevoirEvolutions:
+	db 1
+	dwb RALTS, EVO_BREEDING
+
+SurskitEvolutions:
+	db 1
+	dwb MASQUERAIN, EVO_EXPERIENCE
+
+MasquerainEvolutions:
+	db 1
+	dwb SURSKIT, EVO_BREEDING
+
+ShroomishEvolutions:
+	db 1
+	dwb BRELOOM, EVO_EXPERIENCE
+
+BreloomEvolutions:
+	db 1
+	dwb SHROOMISH, EVO_BREEDING
+
+SlakothEvolutions:
+	db 1
+	dwb VIGOROTH, EVO_EXPERIENCE
+
+VigorothEvolutions:
+	db 1
+	dwb SLAKING, EVO_EXPERIENCE
+
+SlakingEvolutions:
+	db 1
+	dwb SLAKOTH, EVO_BREEDING
+
+NincadaEvolutions:
+	db 2
+	dwb NINJASK, EVO_EXPERIENCE
+	dwb SHEDINJA, EVO_EXPERIENCE
+
+NinjaskEvolutions:
+	db 1
+	dwb NINCADA, EVO_BREEDING
+
+ShedinjaEvolutions:
+	db 1
+	dwb NINCADA, EVO_BREEDING
+
+WhismurEvolutions:
+	db 1
+	dwb LOUDRED, EVO_EXPERIENCE
+
+LoudredEvolutions:
+	db 1
+	dwb EXPLOUD, EVO_EXPERIENCE
+
+ExploudEvolutions:
+	db 1
+	dwb WHISMUR, EVO_BREEDING

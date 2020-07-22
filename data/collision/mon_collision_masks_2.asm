@@ -106,50 +106,33 @@ CelebiAnimatedCollisionMask:
 	INCBIN "data/collision/mon_masks/celebi_collision.1bpp"
 TreeckoAnimatedCollisionMask:
 	INCBIN "data/collision/mon_masks/jigglypuff_collision.1bpp"
-GrovyleAnimatedCollisionMask:
-	INCBIN "data/collision/mon_masks/jigglypuff_collision.1bpp"
-SceptileAnimatedCollisionMask:
-	INCBIN "data/collision/mon_masks/jigglypuff_collision.1bpp"
 TorchicAnimatedCollisionMask:
-	INCBIN "data/collision/mon_masks/jigglypuff_collision.1bpp"
-CombuskenAnimatedCollisionMask:
-	INCBIN "data/collision/mon_masks/jigglypuff_collision.1bpp"
-BlazikenAnimatedCollisionMask:
 	INCBIN "data/collision/mon_masks/jigglypuff_collision.1bpp"
 MudkipAnimatedCollisionMask:
 	INCBIN "data/collision/mon_masks/jigglypuff_collision.1bpp"
-MarshtompAnimatedCollisionMask:
-	INCBIN "data/collision/mon_masks/jigglypuff_collision.1bpp"
-SwampertAnimatedCollisionMask:
-	INCBIN "data/collision/mon_masks/jigglypuff_collision.1bpp"
 PoochyenaAnimatedCollisionMask:
-	INCBIN "data/collision/mon_masks/jigglypuff_collision.1bpp"
-MightyenaAnimatedCollisionMask:
 	INCBIN "data/collision/mon_masks/jigglypuff_collision.1bpp"
 ZigzagoonAnimatedCollisionMask:
 	INCBIN "data/collision/mon_masks/jigglypuff_collision.1bpp"
-LinooneAnimatedCollisionMask:
-	INCBIN "data/collision/mon_masks/jigglypuff_collision.1bpp"
 WurmpleAnimatedCollisionMask:
-	INCBIN "data/collision/mon_masks/jigglypuff_collision.1bpp"
-SilcoonAnimatedCollisionMask:
-	INCBIN "data/collision/mon_masks/jigglypuff_collision.1bpp"
-BeautiflyAnimatedCollisionMask:
-	INCBIN "data/collision/mon_masks/jigglypuff_collision.1bpp"
-CascoonAnimatedCollisionMask:
-	INCBIN "data/collision/mon_masks/jigglypuff_collision.1bpp"
-DustoxAnimatedCollisionMask:
 	INCBIN "data/collision/mon_masks/jigglypuff_collision.1bpp"
 LotadAnimatedCollisionMask:
 	INCBIN "data/collision/mon_masks/jigglypuff_collision.1bpp"
-LombreAnimatedCollisionMask:
-	INCBIN "data/collision/mon_masks/jigglypuff_collision.1bpp"
-LudicoloAnimatedCollisionMask:
-	INCBIN "data/collision/mon_masks/jigglypuff_collision.1bpp"
 SeedotAnimatedCollisionMask:
 	INCBIN "data/collision/mon_masks/jigglypuff_collision.1bpp"
-NuzleafAnimatedCollisionMask:
+TaillowAnimatedCollisionMask:
 	INCBIN "data/collision/mon_masks/jigglypuff_collision.1bpp"
-ShiftryAnimatedCollisionMask:
+WingullAnimatedCollisionMask:
 	INCBIN "data/collision/mon_masks/jigglypuff_collision.1bpp"
-
+RaltsAnimatedCollisionMask:
+	INCBIN "data/collision/mon_masks/jigglypuff_collision.1bpp"
+SurskitAnimatedCollisionMask:
+	INCBIN "data/collision/mon_masks/jigglypuff_collision.1bpp"
+ShroomishAnimatedCollisionMask:
+	INCBIN "data/collision/mon_masks/jigglypuff_collision.1bpp"
+SlakothAnimatedCollisionMask:
+	INCBIN "data/collision/mon_masks/jigglypuff_collision.1bpp"
+NincadaAnimatedCollisionMask:
+	INCBIN "data/collision/mon_masks/jigglypuff_collision.1bpp"
+WhismurAnimatedCollisionMask:
+	INCBIN "data/collision/mon_masks/jigglypuff_collision.1bpp"

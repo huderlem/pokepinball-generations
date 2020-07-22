@@ -1362,3 +1362,223 @@ ShiftryBillboardBGPalette2:
 	RGB 25, 14, 9
 	RGB 0, 0, 0
 
+TaillowBillboardBGPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+TaillowBillboardBGPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+SwellowBillboardBGPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+SwellowBillboardBGPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+WingullBillboardBGPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+WingullBillboardBGPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+PelipperBillboardBGPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+PelipperBillboardBGPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+RaltsBillboardBGPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+RaltsBillboardBGPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+KirliaBillboardBGPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+KirliaBillboardBGPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+GardevoirBillboardBGPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+GardevoirBillboardBGPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+SurskitBillboardBGPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+SurskitBillboardBGPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+MasquerainBillboardBGPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+MasquerainBillboardBGPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+ShroomishBillboardBGPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+ShroomishBillboardBGPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+BreloomBillboardBGPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+BreloomBillboardBGPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+SlakothBillboardBGPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+SlakothBillboardBGPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+VigorothBillboardBGPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+VigorothBillboardBGPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+SlakingBillboardBGPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+SlakingBillboardBGPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+NincadaBillboardBGPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+NincadaBillboardBGPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+NinjaskBillboardBGPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+NinjaskBillboardBGPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+ShedinjaBillboardBGPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+ShedinjaBillboardBGPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+WhismurBillboardBGPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+WhismurBillboardBGPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+LoudredBillboardBGPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+LoudredBillboardBGPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+ExploudBillboardBGPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+ExploudBillboardBGPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+

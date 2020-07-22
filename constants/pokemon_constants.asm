@@ -275,5 +275,25 @@ const_value = 1
 	const SEEDOT      ; $111
 	const NUZLEAF     ; $112
 	const SHIFTRY     ; $113
+	const TAILLOW     ; $114
+	const SWELLOW     ; $115
+	const WINGULL     ; $116
+	const PELIPPER    ; $117
+	const RALTS       ; $118
+	const KIRLIA      ; $119
+	const GARDEVOIR   ; $11A
+	const SURSKIT     ; $11B
+	const MASQUERAIN  ; $11C
+	const SHROOMISH   ; $11D
+	const BRELOOM     ; $11E
+	const SLAKOTH     ; $11F
+	const VIGOROTH    ; $120
+	const SLAKING     ; $121
+	const NINCADA     ; $122
+	const NINJASK     ; $123
+	const SHEDINJA    ; $124
+	const WHISMUR     ; $125
+	const LOUDRED     ; $126
+	const EXPLOUD     ; $127
 
-NUM_POKEMON EQU 275
+NUM_POKEMON EQU 295

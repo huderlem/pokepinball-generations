@@ -55,12 +55,17 @@ StartCatchEmMode: ; 0x1003f
 	add hl, bc  ; multiply the evolution line id by 3, add it to pointer to ???
 	ld bc, CatchSpriteFrameDurations ;mystery data, seems pokedex related too
 	add hl, bc
-	ld a, [hli]
+	ld a, Bank(CatchSpriteFrameDurations)
+	call ReadByteFromBank
 	ld [wCurrentCatchMonIdleFrame1Duration], a
 	ld [wLoopsUntilNextCatchSpriteAnimationChange], a
-	ld a, [hli]
+	inc hl
+	ld a, Bank(CatchSpriteFrameDurations)
+	call ReadByteFromBank
 	ld [wCurrentCatchMonIdleFrame2Duration], a
-	ld a, [hli]
+	inc hl
+	ld a, Bank(CatchSpriteFrameDurations)
+	call ReadByteFromBank
 	ld [wCurrentCatchMonHitFrameDuration], a ;load the 3 bytes into ????
 	ld hl, wBillboardTilesIlluminationStates
 	ld a, [wNumberOfCatchModeTilesFlipped]

@@ -278,3 +278,23 @@ MonAnimatedSpriteTypes: ; 0x13429
 	db $06  ; SEEDOT
 	db $ff  ; NUZLEAF
 	db $ff  ; SHIFTRY
+	db $06  ; TAILLOW
+	db $ff  ; SWELLOW
+	db $06  ; WINGULL
+	db $ff  ; PELIPPER
+	db $06  ; RALTS
+	db $ff  ; KIRLIA
+	db $ff  ; GARDEVOIR
+	db $06  ; SURSKIT
+	db $ff  ; MASQUERAIN
+	db $06  ; SHROOMISH
+	db $ff  ; BRELOOM
+	db $06  ; SLAKOTH
+	db $ff  ; VIGOROTH
+	db $ff  ; SLAKING
+	db $06  ; NINCADA
+	db $ff  ; NINJASK
+	db $ff  ; SHEDINJA
+	db $06  ; WHISMUR
+	db $ff  ; LOUDRED
+	db $ff  ; EXPLOUD

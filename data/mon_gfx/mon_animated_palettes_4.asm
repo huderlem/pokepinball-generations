@@ -669,89 +669,727 @@ SeedotAnimatedObjPalette2:
 	RGB 0, 0, 0
 	RGB 0, 0, 0
 
-TaillowAniamtedObjPalette1:
+TaillowAnimatedObjPalette1:
 	RGB 31, 31, 31
 	RGB 31, 31, 31
 	RGB 0, 0, 0
 	RGB 0, 0, 0
-TaillowAniamtedObjPalette2:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-
-WingullAniamtedObjPalette1:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-WingullAniamtedObjPalette2:
+TaillowAnimatedObjPalette2:
 	RGB 31, 31, 31
 	RGB 31, 31, 31
 	RGB 0, 0, 0
 	RGB 0, 0, 0
 
-RaltsAniamtedObjPalette1:
+WingullAnimatedObjPalette1:
 	RGB 31, 31, 31
 	RGB 31, 31, 31
 	RGB 0, 0, 0
 	RGB 0, 0, 0
-RaltsAniamtedObjPalette2:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-
-SurskitAniamtedObjPalette1:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-SurskitAniamtedObjPalette2:
+WingullAnimatedObjPalette2:
 	RGB 31, 31, 31
 	RGB 31, 31, 31
 	RGB 0, 0, 0
 	RGB 0, 0, 0
 
-ShroomishAniamtedObjPalette1:
+RaltsAnimatedObjPalette1:
 	RGB 31, 31, 31
 	RGB 31, 31, 31
 	RGB 0, 0, 0
 	RGB 0, 0, 0
-ShroomishAniamtedObjPalette2:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-
-SlakothAniamtedObjPalette1:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
-	RGB 0, 0, 0
-SlakothAniamtedObjPalette2:
+RaltsAnimatedObjPalette2:
 	RGB 31, 31, 31
 	RGB 31, 31, 31
 	RGB 0, 0, 0
 	RGB 0, 0, 0
 
-NincadaAniamtedObjPalette1:
+SurskitAnimatedObjPalette1:
 	RGB 31, 31, 31
 	RGB 31, 31, 31
 	RGB 0, 0, 0
 	RGB 0, 0, 0
-NincadaAniamtedObjPalette2:
+SurskitAnimatedObjPalette2:
 	RGB 31, 31, 31
 	RGB 31, 31, 31
 	RGB 0, 0, 0
 	RGB 0, 0, 0
 
-WhismurAniamtedObjPalette1:
+ShroomishAnimatedObjPalette1:
 	RGB 31, 31, 31
 	RGB 31, 31, 31
 	RGB 0, 0, 0
 	RGB 0, 0, 0
-WhismurAniamtedObjPalette2:
+ShroomishAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+SlakothAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+SlakothAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+NincadaAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+NincadaAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+WhismurAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+WhismurAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+MakuhitaAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+MakuhitaAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+NosepassAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+NosepassAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+SkittyAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+SkittyAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+SableyeAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+SableyeAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+MawileAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+MawileAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+AronAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+AronAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+MedititeAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+MedititeAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+ElectrikeAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+ElectrikeAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+PlusleAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+PlusleAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+MinunAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+MinunAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+VolbeatAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+VolbeatAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+IllumiseAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+IllumiseAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+RoseliaAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+RoseliaAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+GulpinAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+GulpinAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+CarvanhaAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+CarvanhaAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+WailmerAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+WailmerAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+NumelAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+NumelAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+TorkoalAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+TorkoalAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+SpoinkAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+SpoinkAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+SpindaAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+SpindaAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+TrapinchAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+TrapinchAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+CacneaAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+CacneaAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+SwabluAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+SwabluAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+ZangooseAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+ZangooseAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+SeviperAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+SeviperAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+LunatoneAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+LunatoneAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+SolrockAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+SolrockAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+BarboachAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+BarboachAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+CorphishAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+CorphishAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+BaltoyAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+BaltoyAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+LileepAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+LileepAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+AnorithAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+AnorithAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+FeebasAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+FeebasAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+CastformAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+CastformAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+KecleonAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+KecleonAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+ShuppetAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+ShuppetAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+DuskullAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+DuskullAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+TropiusAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+TropiusAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+ChimechoAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+ChimechoAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+AbsolAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+AbsolAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+WynautAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+WynautAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+SnoruntAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+SnoruntAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+SphealAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+SphealAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+ClamperlAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+ClamperlAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+RelicanthAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+RelicanthAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+LuvdiscAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+LuvdiscAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+BagonAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+BagonAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+BeldumAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+BeldumAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+RegirockAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+RegirockAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+RegiceAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+RegiceAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+RegisteelAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+RegisteelAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+LatiasAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+LatiasAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+LatiosAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+LatiosAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+KyogreAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+KyogreAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+GroudonAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+GroudonAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+RayquazaAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+RayquazaAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+JirachiAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+JirachiAnimatedObjPalette2:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+
+DeoxysAnimatedObjPalette1:
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 0, 0, 0
+	RGB 0, 0, 0
+DeoxysAnimatedObjPalette2:
 	RGB 31, 31, 31
 	RGB 31, 31, 31
 	RGB 0, 0, 0

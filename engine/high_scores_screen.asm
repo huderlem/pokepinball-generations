@@ -506,7 +506,7 @@ Func_ccb6: ; 0xccb6
 .ok
 	ld hl, wRedHighScore1Points
 	ld de, sHighScores
-	ld bc, $0104
+	ld bc, $186
 	call SaveData
 	ret
 
@@ -673,7 +673,7 @@ Func_cdce: ; 0xcdce
 	call Func_d361
 	ld hl, wRedHighScore1Points
 	ld de, sHighScores
-	ld bc, $0104
+	ld bc, $186
 	call SaveData
 	and a
 	ret
@@ -1178,7 +1178,7 @@ Func_d1d2: ; 0xd1d2
 	inc [hl]
 	ld hl, wRedHighScore1Points
 	ld de, sHighScores
-	ld bc, $0104
+	ld bc, $186
 	call SaveData
 	ret
 

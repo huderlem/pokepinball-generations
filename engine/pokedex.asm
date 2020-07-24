@@ -55,9 +55,9 @@ LoadPokedexScreen: ; 0x2800e
 	call Func_285db
 	call Func_28931
 	call Func_289c8
-	call Func_28a15
+	callba Func_28a15
 	call Func_28972
-	call Func_28a8a
+	callba Func_28a8a
 	call Func_28ad1
 	call Func_28add
 	call CountNumSeenMons
@@ -471,7 +471,7 @@ Func_282e9: ; 0x282e9
 	xor a
 	ld [rVBK], a
 	call Func_28972
-	call Func_28a8a
+	callba Func_28a8a
 	call Func_28ad1
 	ld a, $1
 	ld [wScreenState], a
@@ -893,7 +893,7 @@ Func_28513: ; 0x28513
 	call PlaySoundEffect
 	call Func_28931
 	call Func_289c8
-	call Func_28a15
+	callba Func_28a15
 	call Func_28add
 	xor a
 	ld [wd95f], a
@@ -903,7 +903,7 @@ Func_285ca: ; 0x285ca
 	xor a
 	ld [wPressedButtonsPersistent], a
 	call Func_28972
-	call Func_28a8a
+	callba Func_28a8a
 	call Func_28ad1
 	ld a, [wPressedButtonsPersistent]
 	ret
@@ -933,7 +933,8 @@ Func_285db: ; 0x285db
 	ld c, a
 	ld hl, DexScrollBarOffsets
 	add hl, bc
-	ld a, [hl]
+	ld a, Bank(DexScrollBarOffsets)
+	call ReadByteFromBank
 	add $49
 	ld c, a
 	ld b, $90
@@ -1156,19 +1157,7 @@ Func_28721: ; 0x28721
 	ld b, a
 	ld a, [hl]
 	ld c, a
-	push bc
-	ld a, c
-	sla a
-	and $1e
-	ld c, a
-	ld b, $0
-	ld hl, BGMapLocations_287c7
-	add hl, bc
-	ld a, [hli]
-	ld h, [hl]
-	ld l, a
-	pop bc
-	call Func_28aaa
+	callba Func_28aaa_pre
 	ld hl, hNextFrameHBlankSCX
 	dec [hl]
 	dec [hl]
@@ -1186,19 +1175,7 @@ Func_28721: ; 0x28721
 	inc bc
 	inc bc
 	inc bc
-	push bc
-	ld a, c
-	sla a
-	and $1e
-	ld c, a
-	ld b, $0
-	ld hl, BGMapLocations_287c7
-	add hl, bc
-	ld a, [hli]
-	ld h, [hl]
-	ld l, a
-	pop bc
-	call Func_28aaa
+	callba Func_28aaa_pre
 	ld hl, hNextFrameHBlankSCX
 	inc [hl]
 	inc [hl]
@@ -1286,24 +1263,6 @@ TileLocations_287b7:
 	dw vTilesOB tile $32
 	dw vTilesOB tile $3C
 	dw vTilesOB tile $46
-
-BGMapLocations_287c7:
-	dw vBGWin + $7
-	dw vBGWin + $47
-	dw vBGWin + $87
-	dw vBGWin + $C7
-	dw vBGWin + $107
-	dw vBGWin + $147
-	dw vBGWin + $187
-	dw vBGWin + $1C7
-	dw vBGWin + $207
-	dw vBGWin + $247
-	dw vBGWin + $287
-	dw vBGWin + $2C7
-	dw vBGWin + $307
-	dw vBGWin + $347
-	dw vBGWin + $387
-	dw vBGWin + $3C7
 
 Func_287e7: ; 0x287e7
 	ld a, [wd960]
@@ -1625,7 +1584,9 @@ Func_289c8: ; 0x289c8
 	ld c, a
 	ld hl, MonSpecies
 	add hl, bc
-	ld c, [hl]
+	ld a, Bank(MonSpecies)
+	call ReadByteFromBank
+	ld c, a
 	ld h, b
 	ld l, c
 	sla l
@@ -1633,11 +1594,16 @@ Func_289c8: ; 0x289c8
 	add hl, bc
 	ld bc, MonSpeciesNamesPointers
 	add hl, bc
-	ld a, [hli]
+	ld a, Bank(MonSpeciesNamesPointers)
+	call ReadByteFromBank
 	ld c, a
-	ld a, [hli]
+	inc hl
+	ld a, Bank(MonSpeciesNamesPointers)
+	call ReadByteFromBank
 	ld b, a
-	ld a, [hl]
+	inc hl
+	ld a, Bank(MonSpeciesNamesPointers)
+	call ReadByteFromBank
 	ld [wScratchBuffer], a
 	ld h, b
 	ld l, c
@@ -1656,138 +1622,6 @@ Func_289c8: ; 0x289c8
 BlankSpeciesName:
 	dw $4081 ; variable-width font character
 	db $00
-
-Func_28a15: ; 0x28a15
-	ld a, [wCurPokedexIndex]
-	ld b, a
-	ld a, [wCurPokedexIndex + 1]
-	ld c, a
-	ld h, b
-	ld l, c
-	sla l
-	rl h
-	add hl, bc
-	sla l
-	rl h
-	add hl, bc
-	sla l
-	rl h
-	add hl, bc
-	ld bc, PokedexMonAttributesTexts
-	add hl, bc
-	ld d, h
-	ld e, l
-	ld a, $0
-	ld [wd865], a
-	push de
-	hlCoord 4, 2, vBGMap
-	call Func_28d71
-	pop de
-	inc de
-	inc de
-	inc de
-	inc de
-	ld a, [wCurPokedexIndex]
-	ld b, a
-	ld a, [wCurPokedexIndex + 1]
-	ld c, a
-	ld hl, wPokedexFlags
-	add hl, bc
-	bit 1, [hl]
-	jr nz, .asm_28a54
-	ld de, BlankPokemonTileData_28a7f
-.asm_28a54
-	push de
-	hlCoord 8, 6, vBGMap
-	call Func_28d71
-	pop de
-	inc de
-	inc de
-	inc de
-	inc de
-	inc de
-	push de
-	hlCoord 14, 6, vBGMap
-	call Func_28d71
-	pop de
-	inc de
-	inc de
-	inc de
-	inc de
-	inc de
-	hlCoord 16, 7, vBGMap
-	ld a, [rLCDC]
-	bit 7, a
-	jr nz, .asm_28a7a
-	ld a, [de]
-	ld [hl], a
-	ret
-
-.asm_28a7a
-	ld a, [de]
-	call PutTileInVRAM
-	ret
-
-BlankPokemonTileData_28a7f:
-	db $FF, $FF, $72, $FF
-	db $00 ; terminator
-
-	db $FF, $FF, $FF, $FF
-	db $00 ; terminator
-
-	db $83 ; tile id
-
-Func_28a8a: ; 0x28a8a
-	ld a, [wPokedexOffset ]
-	ld b, a
-	ld a, [wPokedexOffset + 1]
-	ld c, a
-	ld h, $6
-.asm_28a90
-	push bc
-	push hl
-	ld a, c
-	sla a
-	and $1e
-	ld e, a
-	ld d, $0
-	ld hl, BGMapLocations_287c7
-	add hl, de
-	ld a, [hli]
-	ld h, [hl]
-	ld l, a
-	call Func_28aaa
-	pop hl
-	pop bc
-	inc c
-	dec h
-	jr nz, .asm_28a90
-	ret
-
-Func_28aaa: ; 0x28aaa
-	push hl
-	ld h, b
-	ld l, c
-	sla l
-	rl h
-	add hl, bc
-	sla l
-	rl h
-	add hl, bc
-	sla l
-	rl h
-	add hl, bc
-	ld bc, PokedexMonAttributesTexts
-	add hl, bc
-	ld d, h
-	ld e, l
-	ld a, $23
-	ld [wd865], a
-	pop hl
-	push hl
-	call Func_28d71
-	pop hl
-	ret
 
 Func_28ad1: ; 0x28ad1
 	ld a, [wPokedexOffset + 1]
@@ -2246,39 +2080,6 @@ ClearPokedexData: ; 0x28d66
 	jr nz, .asm_28d6c
 	ret
 
-Func_28d71: ; 0x28d71
-	ld a, [wd865]
-	ld c, a
-	ld a, [de]
-	inc de
-	and a
-	ret z
-	cp $20
-	jr nz, .asm_28d81
-	ld a, $ff
-	jr .asm_28d82
-
-.asm_28d81
-	add c
-.asm_28d82
-	call Func_28d88
-	inc hl
-	jr Func_28d71
-
-Func_28d88: ; 0x28d88
-	push af
-	ld a, [rLCDC]
-	bit 7, a
-	jr nz, .asm_28d92
-	pop af
-	ld [hl], a
-	ret
-
-.asm_28d92
-	pop af
-	call PutTileInVRAM
-	ret
-
 Func_28d97: ; 0x28d97
 	push de
 	ld a, b
@@ -2625,7 +2426,3 @@ GetCharacterWidthIndex: ; 0x29605
 
 INCLUDE "data/vwf_character_widths.asm"
 INCLUDE "text/pokedex_mon_names.asm"
-INCLUDE "data/mon_species.asm"
-INCLUDE "text/pokedex_species.asm"
-INCLUDE "text/pokedex_mon_attributes.asm"
-INCLUDE "data/dex_scroll_offsets.asm"

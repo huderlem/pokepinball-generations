@@ -60,13 +60,10 @@ SECTION "bank4", ROMX
 
 INCLUDE "engine/pinball_game/catchem_mode.asm"
 INCLUDE "engine/pinball_game/evolution_mode.asm"
-INCLUDE "data/evolution_lines.asm"
 INCLUDE "data/evolution_methods.asm"
 INCLUDE "data/mon_names.asm"
 INCLUDE "data/mon_initial_indicator_states.asm"
 INCLUDE "data/evolution_mode_indicator_sets.asm"
-INCLUDE "data/mon_animated_sprite_types.asm"
-INCLUDE "data/collision/mon_collision_mask_pointers.asm"
 
 SECTION "bank5", ROMX
 
@@ -1503,3 +1500,54 @@ INCLUDE "engine/pinball_game/object_collision/ruby_stage_object_collision.asm"
 SECTION "bank65", ROMX
 
 INCLUDE "data/mon_gfx/mon_billboard_pics_17.asm"
+
+SECTION "bank66", ROMX
+
+INCLUDE "data/collision/mon_collision_masks_3.asm"
+INCLUDE "data/evolution_lines.asm"
+INCLUDE "data/mon_animated_sprite_types.asm"
+INCLUDE "data/collision/mon_collision_mask_pointers.asm"
+INCLUDE "data/mon_species.asm"
+INCLUDE "data/dex_scroll_offsets.asm"
+INCLUDE "text/pokedex_species.asm"
+INCLUDE "engine/pokedex/attributes_helper.asm"
+
+SECTION "bank67", ROMX
+
+INCLUDE "data/mon_gfx/mon_animated_pics_10.asm"
+
+SECTION "bank68", ROMX
+
+INCLUDE "data/mon_gfx/mon_animated_pics_11.asm"
+
+SECTION "bank69", ROMX
+
+INCLUDE "data/mon_gfx/mon_animated_pics_12.asm"
+
+SECTION "bank6A", ROMX
+
+INCLUDE "data/mon_gfx/mon_animated_pics_13.asm"
+
+SECTION "bank6B", ROMX
+
+INCLUDE "data/mon_gfx/mon_billboard_pics_18.asm"
+
+SECTION "bank6C", ROMX
+
+INCLUDE "data/mon_gfx/mon_billboard_pics_19.asm"
+
+SECTION "bank6D", ROMX
+
+INCLUDE "data/mon_gfx/mon_billboard_pics_20.asm"
+
+SECTION "bank6E", ROMX
+
+INCLUDE "data/mon_gfx/mon_billboard_pics_21.asm"
+
+SECTION "bank6F", ROMX
+
+INCLUDE "data/mon_gfx/mon_billboard_pics_22.asm"
+
+SECTION "bank70", ROMX
+
+INCLUDE "text/pokedex_descriptions_3.asm"

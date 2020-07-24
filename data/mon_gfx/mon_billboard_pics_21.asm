@@ -1,84 +1,84 @@
-WingullPic:
+GlaliePic:
 	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
-WingullSilhouettePic:
+GlalieSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
-PelipperPic:
+SphealPic:
 	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
-PelipperSilhouettePic:
+SphealSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
-RaltsPic:
+SealeoPic:
 	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
-RaltsSilhouettePic:
+SealeoSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
-KirliaPic:
+WalreinPic:
 	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
-KirliaSilhouettePic:
+WalreinSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
-GardevoirPic:
+ClamperlPic:
 	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
-GardevoirSilhouettePic:
+ClamperlSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
-SurskitPic:
+HuntailPic:
 	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
-SurskitSilhouettePic:
+HuntailSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
-MasquerainPic:
+GorebyssPic:
 	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
-MasquerainSilhouettePic:
+GorebyssSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
-ShroomishPic:
+RelicanthPic:
 	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
-ShroomishSilhouettePic:
+RelicanthSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
-BreloomPic:
+LuvdiscPic:
 	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
-BreloomSilhouettePic:
+LuvdiscSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
-SlakothPic:
+BagonPic:
 	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
-SlakothSilhouettePic:
+BagonSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
-VigorothPic:
+ShelgonPic:
 	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
-VigorothSilhouettePic:
+ShelgonSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
-SlakingPic:
+SalamencePic:
 	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
-SlakingSilhouettePic:
+SalamenceSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
-NincadaPic:
+BeldumPic:
 	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
-NincadaSilhouettePic:
+BeldumSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
-NinjaskPic:
+MetangPic:
 	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
-NinjaskSilhouettePic:
+MetangSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
-ShedinjaPic:
+MetagrossPic:
 	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
-ShedinjaSilhouettePic:
+MetagrossSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
-WhismurPic:
+RegirockPic:
 	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
-WhismurSilhouettePic:
+RegirockSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
-LoudredPic:
+RegicePic:
 	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
-LoudredSilhouettePic:
+RegiceSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
-ExploudPic:
+RegisteelPic:
 	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
-ExploudSilhouettePic:
+RegisteelSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
-MakuhitaPic:
+LatiasPic:
 	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
-MakuhitaSilhouettePic:
+LatiasSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
-HariyamaPic:
+LatiosPic:
 	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
-HariyamaSilhouettePic:
+LatiosSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"
-AzurillPic:
+KyogrePic:
 	INCBIN "gfx/billboard/mon_pics/jigglypuff.2bpp"
-AzurillSilhouettePic:
+KyogreSilhouettePic:
 	INCBIN "gfx/billboard/mon_silhouettes/jigglypuff.2bpp"

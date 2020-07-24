@@ -8,7 +8,6 @@ CelebiAnimatedPic:
 	INCBIN "gfx/billboard/mon_animated/celebi.w32.interleave.2bpp"
 SeadraAnimatedPic:
 	INCBIN "gfx/billboard/mon_animated/seadra.w32.interleave.2bpp"
-
 TreeckoAnimatedPic:
 	INCBIN "gfx/billboard/mon_animated/jigglypuff.w32.interleave.2bpp"
 TorchicAnimatedPic:

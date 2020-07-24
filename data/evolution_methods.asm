@@ -296,6 +296,97 @@ MonEvolutions: ; 0x116b3
 	dw WhismurEvolutions
 	dw LoudredEvolutions
 	dw ExploudEvolutions
+	dw MakuhitaEvolutions
+	dw HariyamaEvolutions
+	dw AzurillEvolutions
+	dw NosepassEvolutions
+	dw SkittyEvolutions
+	dw DelcattyEvolutions
+	dw SableyeEvolutions
+	dw MawileEvolutions
+	dw AronEvolutions
+	dw LaironEvolutions
+	dw AggronEvolutions
+	dw MedititeEvolutions
+	dw MedichamEvolutions
+	dw ElectrikeEvolutions
+	dw ManectricEvolutions
+	dw PlusleEvolutions
+	dw MinunEvolutions
+	dw VolbeatEvolutions
+	dw IllumiseEvolutions
+	dw RoseliaEvolutions
+	dw GulpinEvolutions
+	dw SwalotEvolutions
+	dw CarvanhaEvolutions
+	dw SharpedoEvolutions
+	dw WailmerEvolutions
+	dw WailordEvolutions
+	dw NumelEvolutions
+	dw CameruptEvolutions
+	dw TorkoalEvolutions
+	dw SpoinkEvolutions
+	dw GrumpigEvolutions
+	dw SpindaEvolutions
+	dw TrapinchEvolutions
+	dw VibravaEvolutions
+	dw FlygonEvolutions
+	dw CacneaEvolutions
+	dw CacturneEvolutions
+	dw SwabluEvolutions
+	dw AltariaEvolutions
+	dw ZangooseEvolutions
+	dw SeviperEvolutions
+	dw LunatoneEvolutions
+	dw SolrockEvolutions
+	dw BarboachEvolutions
+	dw WhiscashEvolutions
+	dw CorphishEvolutions
+	dw CrawdauntEvolutions
+	dw BaltoyEvolutions
+	dw ClaydolEvolutions
+	dw LileepEvolutions
+	dw CradilyEvolutions
+	dw AnorithEvolutions
+	dw ArmaldoEvolutions
+	dw FeebasEvolutions
+	dw MiloticEvolutions
+	dw CastformEvolutions
+	dw KecleonEvolutions
+	dw ShuppetEvolutions
+	dw BanetteEvolutions
+	dw DuskullEvolutions
+	dw DusclopsEvolutions
+	dw TropiusEvolutions
+	dw ChimechoEvolutions
+	dw AbsolEvolutions
+	dw WynautEvolutions
+	dw SnoruntEvolutions
+	dw GlalieEvolutions
+	dw SphealEvolutions
+	dw SealeoEvolutions
+	dw WalreinEvolutions
+	dw ClamperlEvolutions
+	dw HuntailEvolutions
+	dw GorebyssEvolutions
+	dw RelicanthEvolutions
+	dw LuvdiscEvolutions
+	dw BagonEvolutions
+	dw ShelgonEvolutions
+	dw SalamenceEvolutions
+	dw BeldumEvolutions
+	dw MetangEvolutions
+	dw MetagrossEvolutions
+	dw RegirockEvolutions
+	dw RegiceEvolutions
+	dw RegisteelEvolutions
+	dw LatiasEvolutions
+	dw LatiosEvolutions
+	dw KyogreEvolutions
+	dw GroudonEvolutions
+	dw RayquazaEvolutions
+	dw JirachiEvolutions
+	dw DeoxysEvolutions
 
 BulbasaurEvolutions:
 	db 1
@@ -1024,7 +1115,7 @@ MarillEvolutions:
 
 AzumarillEvolutions:
 	db 1
-	dwb MARILL, EVO_BREEDING
+	dwb AZURILL, EVO_BREEDING
 
 SudowoodoEvolutions:
 	db 0
@@ -1089,7 +1180,8 @@ UnownEvolutions:
 	db 0
 
 WobbuffetEvolutions:
-	db 0
+	db 1
+	dwb WYNAUT, EVO_BREEDING
 
 GirafarigEvolutions:
 	db 0
@@ -1446,3 +1538,338 @@ LoudredEvolutions:
 ExploudEvolutions:
 	db 1
 	dwb WHISMUR, EVO_BREEDING
+
+MakuhitaEvolutions:
+	db 1
+	dwb HARIYAMA, EVO_EXPERIENCE
+
+HariyamaEvolutions:
+	db 1
+	dwb MAKUHITA, EVO_BREEDING
+
+AzurillEvolutions:
+	db 1
+	dwb MARILL, EVO_EXPERIENCE
+
+NosepassEvolutions:
+	db 0
+
+SkittyEvolutions:
+	db 1
+	dwb DELCATTY, EVO_MOON_STONE
+
+DelcattyEvolutions:
+	db 1
+	dwb SKITTY, EVO_BREEDING
+
+SableyeEvolutions:
+	db 0
+
+MawileEvolutions:
+	db 0
+
+AronEvolutions:
+	db 1
+	dwb LAIRON, EVO_EXPERIENCE
+
+LaironEvolutions:
+	db 1
+	dwb AGGRON, EVO_EXPERIENCE
+
+AggronEvolutions:
+	db 1
+	dwb ARON, EVO_BREEDING
+
+MedititeEvolutions:
+	db 1
+	dwb MEDICHAM, EVO_EXPERIENCE
+
+MedichamEvolutions:
+	db 1
+	dwb MEDITITE, EVO_BREEDING
+
+ElectrikeEvolutions:
+	db 1
+	dwb MANECTRIC, EVO_EXPERIENCE
+
+ManectricEvolutions:
+	db 1
+	dwb ELECTRIKE, EVO_BREEDING
+
+PlusleEvolutions:
+	db 0
+
+MinunEvolutions:
+	db 0
+
+VolbeatEvolutions:
+	db 0
+
+IllumiseEvolutions:
+	db 0
+
+RoseliaEvolutions:
+	db 0
+
+GulpinEvolutions:
+	db 1
+	dwb SWALOT, EVO_EXPERIENCE
+
+SwalotEvolutions:
+	db 1
+	dwb GULPIN, EVO_BREEDING
+
+CarvanhaEvolutions:
+	db 1
+	dwb SHARPEDO, EVO_EXPERIENCE
+
+SharpedoEvolutions:
+	db 1
+	dwb CARVANHA, EVO_BREEDING
+
+WailmerEvolutions:
+	db 1
+	dwb WAILORD, EVO_EXPERIENCE
+
+WailordEvolutions:
+	db 1
+	dwb WAILMER, EVO_BREEDING
+
+NumelEvolutions:
+	db 1
+	dwb CAMERUPT, EVO_EXPERIENCE
+
+CameruptEvolutions:
+	db 1
+	dwb NUMEL, EVO_BREEDING
+
+TorkoalEvolutions:
+	db 0
+
+SpoinkEvolutions:
+	db 1
+	dwb GRUMPIG, EVO_EXPERIENCE
+
+GrumpigEvolutions:
+	db 1
+	dwb SPOINK, EVO_BREEDING
+
+SpindaEvolutions:
+	db 0
+
+TrapinchEvolutions:
+	db 1
+	dwb VIBRAVA, EVO_EXPERIENCE
+
+VibravaEvolutions:
+	db 1
+	dwb FLYGON, EVO_EXPERIENCE
+
+FlygonEvolutions:
+	db 1
+	dwb TRAPINCH, EVO_BREEDING
+
+CacneaEvolutions:
+	db 1
+	dwb CACTURNE, EVO_EXPERIENCE
+
+CacturneEvolutions:
+	db 1
+	dwb CACNEA, EVO_EXPERIENCE
+
+SwabluEvolutions:
+	db 1
+	dwb ALTARIA, EVO_EXPERIENCE
+
+AltariaEvolutions:
+	db 1
+	dwb SWABLU, EVO_BREEDING
+
+ZangooseEvolutions:
+	db 0
+
+SeviperEvolutions:
+	db 0
+
+LunatoneEvolutions:
+	db 0
+
+SolrockEvolutions:
+	db 0
+
+BarboachEvolutions:
+	db 1
+	dwb WHISCASH, EVO_EXPERIENCE
+
+WhiscashEvolutions:
+	db 1
+	dwb BARBOACH, EVO_BREEDING
+
+CorphishEvolutions:
+	db 1
+	dwb CRAWDAUNT, EVO_EXPERIENCE
+
+CrawdauntEvolutions:
+	db 1
+	dwb CORPHISH, EVO_BREEDING
+
+BaltoyEvolutions:
+	db 1
+	dwb CLAYDOL, EVO_EXPERIENCE
+
+ClaydolEvolutions:
+	db 1
+	dwb BALTOY, EVO_BREEDING
+
+LileepEvolutions:
+	db 1
+	dwb CRADILY, EVO_EXPERIENCE
+
+CradilyEvolutions:
+	db 1
+	dwb LILEEP, EVO_BREEDING
+
+AnorithEvolutions:
+	db 1
+	dwb ARMALDO, EVO_EXPERIENCE
+
+ArmaldoEvolutions:
+	db 1
+	dwb ANORITH, EVO_BREEDING
+
+FeebasEvolutions:
+	db 1
+	dwb MILOTIC, EVO_WATER_STONE ; TODO prism scale or beauty?
+
+MiloticEvolutions:
+	db 1
+	dwb FEEBAS, EVO_BREEDING
+
+CastformEvolutions:
+	db 0
+
+KecleonEvolutions:
+	db 0
+
+ShuppetEvolutions:
+	db 1
+	dwb BANETTE, EVO_EXPERIENCE
+
+BanetteEvolutions:
+	db 1
+	dwb SHUPPET, EVO_BREEDING
+
+DuskullEvolutions:
+	db 1
+	dwb DUSCLOPS, EVO_EXPERIENCE
+
+DusclopsEvolutions:
+	db 1
+	dwb DUSKULL, EVO_BREEDING
+
+TropiusEvolutions:
+	db 0
+
+ChimechoEvolutions:
+	db 0
+
+AbsolEvolutions:
+	db 0
+
+WynautEvolutions:
+	db 1
+	dwb WOBBUFFET, EVO_EXPERIENCE
+
+SnoruntEvolutions:
+	db 1
+	dwb GLALIE, EVO_EXPERIENCE
+
+GlalieEvolutions:
+	db 1
+	dwb SNORUNT, EVO_BREEDING
+
+SphealEvolutions:
+	db 1
+	dwb SEALEO, EVO_EXPERIENCE
+
+SealeoEvolutions:
+	db 1
+	dwb WALREIN, EVO_EXPERIENCE
+
+WalreinEvolutions:
+	db 1
+	dwb SPHEAL, EVO_BREEDING
+
+ClamperlEvolutions:
+	db 2
+	dwb HUNTAIL, EVO_EXPERIENCE ; TODO deep sea tooth?
+	dwb GOREBYSS, EVO_EXPERIENCE ; TODO deep sea scale?
+
+HuntailEvolutions:
+	db 1
+	dwb CLAMPERL, EVO_BREEDING
+
+GorebyssEvolutions:
+	db 1
+	dwb CLAMPERL, EVO_BREEDING
+
+RelicanthEvolutions:
+	db 0
+
+LuvdiscEvolutions:
+	db 0
+
+BagonEvolutions:
+	db 1
+	dwb SHELGON, EVO_EXPERIENCE
+
+ShelgonEvolutions:
+	db 1
+	dwb SALAMENCE, EVO_EXPERIENCE
+
+SalamenceEvolutions:
+	db 1
+	dwb BAGON, EVO_BREEDING
+
+BeldumEvolutions:
+	db 1
+	dwb METANG, EVO_EXPERIENCE
+
+MetangEvolutions:
+	db 1
+	dwb METAGROSS, EVO_EXPERIENCE
+
+MetagrossEvolutions:
+	db 1
+	dwb BELDUM, EVO_BREEDING
+
+RegirockEvolutions:
+	db 0
+
+RegiceEvolutions:
+	db 0
+
+RegisteelEvolutions:
+	db 0
+
+LatiasEvolutions:
+	db 0
+
+LatiosEvolutions:
+	db 0
+
+KyogreEvolutions:
+	db 0
+
+GroudonEvolutions:
+	db 0
+
+RayquazaEvolutions:
+	db 0
+
+JirachiEvolutions:
+	db 0
+
+DeoxysEvolutions:
+	db 0
+

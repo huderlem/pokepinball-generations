@@ -46,9 +46,13 @@ StartCatchEmMode: ; 0x1003f
 	rl b
 	ld hl, EvolutionLineIds ;fetch the mon's evolution line
 	add hl, bc
-	ld c, [hl]
+	ld a, Bank(EvolutionLineIds)
+	call ReadByteFromBank
+	ld c, a
 	inc hl
-	ld b, [hl]
+	ld a, Bank(EvolutionLineIds)
+	call ReadByteFromBank
+	ld b, a
 	ld h, b
 	ld l, c
 	add hl, bc
@@ -697,11 +701,16 @@ LoadWildMonCollisionMask: ; 0x10464
 .noCarry
 	ld hl, MonAnimatedCollisionMaskPointers
 	add hl, bc
-	ld a, [hli]
+	ld a, Bank(MonAnimatedCollisionMaskPointers)
+	call ReadByteFromBank
 	ld c, a
-	ld a, [hli]
+	inc hl
+	ld a, Bank(MonAnimatedCollisionMaskPointers)
+	call ReadByteFromBank
 	ld b, a
-	ld a, [hl]
+	inc hl
+	ld a, Bank(MonAnimatedCollisionMaskPointers)
+	call ReadByteFromBank
 	ld h, b
 	ld l, c
 	ld de, wMonAnimatedCollisionMask
@@ -986,7 +995,8 @@ ShowAnimatedWildMon: ; 0x10678
 	ld c, a
 	ld hl, MonAnimatedSpriteTypes
 	add hl, bc
-	ld a, [hl]
+	ld a, Bank(MonAnimatedSpriteTypes)
+	call ReadByteFromBank
 	ld [wCurrentAnimatedMonSpriteType], a
 	ld [wCurrentAnimatedMonSpriteFrame], a
 	ld a, $1

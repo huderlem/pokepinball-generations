@@ -1114,3 +1114,407 @@ ShiftryPokedexDescription:
 	dex_line "times."
 	dex_end
 
+TaillowPokedexDescription:
+	dex_text "It has the power"
+	dex_line "to travel across"
+	dex_line "time, but it is"
+	dex_line "said to appear"
+	dex_line "only in peaceful"
+	dex_line "times."
+	dex_end
+
+SwellowPokedexDescription:
+	dex_text "It has the power"
+	dex_line "to travel across"
+	dex_line "time, but it is"
+	dex_line "said to appear"
+	dex_line "only in peaceful"
+	dex_line "times."
+	dex_end
+
+WingullPokedexDescription:
+	dex_text "It has the power"
+	dex_line "to travel across"
+	dex_line "time, but it is"
+	dex_line "said to appear"
+	dex_line "only in peaceful"
+	dex_line "times."
+	dex_end
+
+PelipperPokedexDescription:
+	dex_text "It has the power"
+	dex_line "to travel across"
+	dex_line "time, but it is"
+	dex_line "said to appear"
+	dex_line "only in peaceful"
+	dex_line "times."
+	dex_end
+
+RaltsPokedexDescription:
+	dex_text "It has the power"
+	dex_line "to travel across"
+	dex_line "time, but it is"
+	dex_line "said to appear"
+	dex_line "only in peaceful"
+	dex_line "times."
+	dex_end
+
+KirliaPokedexDescription:
+	dex_text "It has the power"
+	dex_line "to travel across"
+	dex_line "time, but it is"
+	dex_line "said to appear"
+	dex_line "only in peaceful"
+	dex_line "times."
+	dex_end
+
+GardevoirPokedexDescription:
+	dex_text "It has the power"
+	dex_line "to travel across"
+	dex_line "time, but it is"
+	dex_line "said to appear"
+	dex_line "only in peaceful"
+	dex_line "times."
+	dex_end
+
+SurskitPokedexDescription:
+	dex_text "It has the power"
+	dex_line "to travel across"
+	dex_line "time, but it is"
+	dex_line "said to appear"
+	dex_line "only in peaceful"
+	dex_line "times."
+	dex_end
+
+MasquerainPokedexDescription:
+	dex_text "It has the power"
+	dex_line "to travel across"
+	dex_line "time, but it is"
+	dex_line "said to appear"
+	dex_line "only in peaceful"
+	dex_line "times."
+	dex_end
+
+ShroomishPokedexDescription:
+	dex_text "It has the power"
+	dex_line "to travel across"
+	dex_line "time, but it is"
+	dex_line "said to appear"
+	dex_line "only in peaceful"
+	dex_line "times."
+	dex_end
+
+BreloomPokedexDescription:
+	dex_text "It has the power"
+	dex_line "to travel across"
+	dex_line "time, but it is"
+	dex_line "said to appear"
+	dex_line "only in peaceful"
+	dex_line "times."
+	dex_end
+
+SlakothPokedexDescription:
+	dex_text "It has the power"
+	dex_line "to travel across"
+	dex_line "time, but it is"
+	dex_line "said to appear"
+	dex_line "only in peaceful"
+	dex_line "times."
+	dex_end
+
+VigorothPokedexDescription:
+	dex_text "It has the power"
+	dex_line "to travel across"
+	dex_line "time, but it is"
+	dex_line "said to appear"
+	dex_line "only in peaceful"
+	dex_line "times."
+	dex_end
+
+SlakingPokedexDescription:
+	dex_text "It has the power"
+	dex_line "to travel across"
+	dex_line "time, but it is"
+	dex_line "said to appear"
+	dex_line "only in peaceful"
+	dex_line "times."
+	dex_end
+
+NincadaPokedexDescription:
+	dex_text "It has the power"
+	dex_line "to travel across"
+	dex_line "time, but it is"
+	dex_line "said to appear"
+	dex_line "only in peaceful"
+	dex_line "times."
+	dex_end
+
+NinjaskPokedexDescription:
+	dex_text "It has the power"
+	dex_line "to travel across"
+	dex_line "time, but it is"
+	dex_line "said to appear"
+	dex_line "only in peaceful"
+	dex_line "times."
+	dex_end
+
+ShedinjaPokedexDescription:
+	dex_text "It has the power"
+	dex_line "to travel across"
+	dex_line "time, but it is"
+	dex_line "said to appear"
+	dex_line "only in peaceful"
+	dex_line "times."
+	dex_end
+
+WhismurPokedexDescription:
+	dex_text "It has the power"
+	dex_line "to travel across"
+	dex_line "time, but it is"
+	dex_line "said to appear"
+	dex_line "only in peaceful"
+	dex_line "times."
+	dex_end
+
+LoudredPokedexDescription:
+	dex_text "It has the power"
+	dex_line "to travel across"
+	dex_line "time, but it is"
+	dex_line "said to appear"
+	dex_line "only in peaceful"
+	dex_line "times."
+	dex_end
+
+ExploudPokedexDescription:
+	dex_text "It has the power"
+	dex_line "to travel across"
+	dex_line "time, but it is"
+	dex_line "said to appear"
+	dex_line "only in peaceful"
+	dex_line "times."
+	dex_end
+
+MakuhitaPokedexDescription:
+	dex_text "It has the power"
+	dex_line "to travel across"
+	dex_line "time, but it is"
+	dex_line "said to appear"
+	dex_line "only in peaceful"
+	dex_line "times."
+	dex_end
+
+HariyamaPokedexDescription:
+	dex_text "It has the power"
+	dex_line "to travel across"
+	dex_line "time, but it is"
+	dex_line "said to appear"
+	dex_line "only in peaceful"
+	dex_line "times."
+	dex_end
+
+AzurillPokedexDescription:
+	dex_text "It has the power"
+	dex_line "to travel across"
+	dex_line "time, but it is"
+	dex_line "said to appear"
+	dex_line "only in peaceful"
+	dex_line "times."
+	dex_end
+
+NosepassPokedexDescription:
+	dex_text "It has the power"
+	dex_line "to travel across"
+	dex_line "time, but it is"
+	dex_line "said to appear"
+	dex_line "only in peaceful"
+	dex_line "times."
+	dex_end
+
+SkittyPokedexDescription:
+	dex_text "It has the power"
+	dex_line "to travel across"
+	dex_line "time, but it is"
+	dex_line "said to appear"
+	dex_line "only in peaceful"
+	dex_line "times."
+	dex_end
+
+DelcattyPokedexDescription:
+	dex_text "It has the power"
+	dex_line "to travel across"
+	dex_line "time, but it is"
+	dex_line "said to appear"
+	dex_line "only in peaceful"
+	dex_line "times."
+	dex_end
+
+SableyePokedexDescription:
+	dex_text "It has the power"
+	dex_line "to travel across"
+	dex_line "time, but it is"
+	dex_line "said to appear"
+	dex_line "only in peaceful"
+	dex_line "times."
+	dex_end
+
+MawilePokedexDescription:
+	dex_text "It has the power"
+	dex_line "to travel across"
+	dex_line "time, but it is"
+	dex_line "said to appear"
+	dex_line "only in peaceful"
+	dex_line "times."
+	dex_end
+
+AronPokedexDescription:
+	dex_text "It has the power"
+	dex_line "to travel across"
+	dex_line "time, but it is"
+	dex_line "said to appear"
+	dex_line "only in peaceful"
+	dex_line "times."
+	dex_end
+
+LaironPokedexDescription:
+	dex_text "It has the power"
+	dex_line "to travel across"
+	dex_line "time, but it is"
+	dex_line "said to appear"
+	dex_line "only in peaceful"
+	dex_line "times."
+	dex_end
+
+AggronPokedexDescription:
+	dex_text "It has the power"
+	dex_line "to travel across"
+	dex_line "time, but it is"
+	dex_line "said to appear"
+	dex_line "only in peaceful"
+	dex_line "times."
+	dex_end
+
+MedititePokedexDescription:
+	dex_text "It has the power"
+	dex_line "to travel across"
+	dex_line "time, but it is"
+	dex_line "said to appear"
+	dex_line "only in peaceful"
+	dex_line "times."
+	dex_end
+
+MedichamPokedexDescription:
+	dex_text "It has the power"
+	dex_line "to travel across"
+	dex_line "time, but it is"
+	dex_line "said to appear"
+	dex_line "only in peaceful"
+	dex_line "times."
+	dex_end
+
+ElectrikePokedexDescription:
+	dex_text "It has the power"
+	dex_line "to travel across"
+	dex_line "time, but it is"
+	dex_line "said to appear"
+	dex_line "only in peaceful"
+	dex_line "times."
+	dex_end
+
+ManectricPokedexDescription:
+	dex_text "It has the power"
+	dex_line "to travel across"
+	dex_line "time, but it is"
+	dex_line "said to appear"
+	dex_line "only in peaceful"
+	dex_line "times."
+	dex_end
+
+PluslePokedexDescription:
+	dex_text "It has the power"
+	dex_line "to travel across"
+	dex_line "time, but it is"
+	dex_line "said to appear"
+	dex_line "only in peaceful"
+	dex_line "times."
+	dex_end
+
+MinunPokedexDescription:
+	dex_text "It has the power"
+	dex_line "to travel across"
+	dex_line "time, but it is"
+	dex_line "said to appear"
+	dex_line "only in peaceful"
+	dex_line "times."
+	dex_end
+
+VolbeatPokedexDescription:
+	dex_text "It has the power"
+	dex_line "to travel across"
+	dex_line "time, but it is"
+	dex_line "said to appear"
+	dex_line "only in peaceful"
+	dex_line "times."
+	dex_end
+
+IllumisePokedexDescription:
+	dex_text "It has the power"
+	dex_line "to travel across"
+	dex_line "time, but it is"
+	dex_line "said to appear"
+	dex_line "only in peaceful"
+	dex_line "times."
+	dex_end
+
+RoseliaPokedexDescription:
+	dex_text "It has the power"
+	dex_line "to travel across"
+	dex_line "time, but it is"
+	dex_line "said to appear"
+	dex_line "only in peaceful"
+	dex_line "times."
+	dex_end
+
+GulpinPokedexDescription:
+	dex_text "It has the power"
+	dex_line "to travel across"
+	dex_line "time, but it is"
+	dex_line "said to appear"
+	dex_line "only in peaceful"
+	dex_line "times."
+	dex_end
+
+SwalotPokedexDescription:
+	dex_text "It has the power"
+	dex_line "to travel across"
+	dex_line "time, but it is"
+	dex_line "said to appear"
+	dex_line "only in peaceful"
+	dex_line "times."
+	dex_end
+
+CarvanhaPokedexDescription:
+	dex_text "It has the power"
+	dex_line "to travel across"
+	dex_line "time, but it is"
+	dex_line "said to appear"
+	dex_line "only in peaceful"
+	dex_line "times."
+	dex_end
+
+SharpedoPokedexDescription:
+	dex_text "It has the power"
+	dex_line "to travel across"
+	dex_line "time, but it is"
+	dex_line "said to appear"
+	dex_line "only in peaceful"
+	dex_line "times."
+	dex_end
+
+WailmerPokedexDescription:
+	dex_text "It has the power"
+	dex_line "to travel across"
+	dex_line "time, but it is"
+	dex_line "said to appear"
+	dex_line "only in peaceful"
+	dex_line "times."
+	dex_end

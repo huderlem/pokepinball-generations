@@ -1179,3 +1179,367 @@ PokedexMonAttributesTexts: ; 0x2a85d
 	dex_number 295
 	dex_height 2, 0
 	dex_weight 11
+; MAKUHITA
+	dex_number 296
+	dex_height 2, 0
+	dex_weight 11
+; HARIYAMA
+	dex_number 297
+	dex_height 2, 0
+	dex_weight 11
+; AZURILL
+	dex_number 298
+	dex_height 2, 0
+	dex_weight 11
+; NOSEPASS
+	dex_number 299
+	dex_height 2, 0
+	dex_weight 11
+; SKITTY
+	dex_number 300
+	dex_height 2, 0
+	dex_weight 11
+; DELCATTY
+	dex_number 301
+	dex_height 2, 0
+	dex_weight 11
+; SABLEYE
+	dex_number 302
+	dex_height 2, 0
+	dex_weight 11
+; MAWILE
+	dex_number 303
+	dex_height 2, 0
+	dex_weight 11
+; ARON
+	dex_number 304
+	dex_height 2, 0
+	dex_weight 11
+; LAIRON
+	dex_number 305
+	dex_height 2, 0
+	dex_weight 11
+; AGGRON
+	dex_number 306
+	dex_height 2, 0
+	dex_weight 11
+; MEDITITE
+	dex_number 307
+	dex_height 2, 0
+	dex_weight 11
+; MEDICHAM
+	dex_number 308
+	dex_height 2, 0
+	dex_weight 11
+; ELECTRIKE
+	dex_number 309
+	dex_height 2, 0
+	dex_weight 11
+; MANECTRIC
+	dex_number 310
+	dex_height 2, 0
+	dex_weight 11
+; PLUSLE
+	dex_number 311
+	dex_height 2, 0
+	dex_weight 11
+; MINUN
+	dex_number 312
+	dex_height 2, 0
+	dex_weight 11
+; VOLBEAT
+	dex_number 313
+	dex_height 2, 0
+	dex_weight 11
+; ILLUMISE
+	dex_number 314
+	dex_height 2, 0
+	dex_weight 11
+; ROSELIA
+	dex_number 315
+	dex_height 2, 0
+	dex_weight 11
+; GULPIN
+	dex_number 316
+	dex_height 2, 0
+	dex_weight 11
+; SWALOT
+	dex_number 317
+	dex_height 2, 0
+	dex_weight 11
+; CARVANHA
+	dex_number 318
+	dex_height 2, 0
+	dex_weight 11
+; SHARPEDO
+	dex_number 319
+	dex_height 2, 0
+	dex_weight 11
+; WAILMER
+	dex_number 320
+	dex_height 2, 0
+	dex_weight 11
+; WAILORD
+	dex_number 321
+	dex_height 2, 0
+	dex_weight 11
+; NUMEL
+	dex_number 322
+	dex_height 2, 0
+	dex_weight 11
+; CAMERUPT
+	dex_number 323
+	dex_height 2, 0
+	dex_weight 11
+; TORKOAL
+	dex_number 324
+	dex_height 2, 0
+	dex_weight 11
+; SPOINK
+	dex_number 325
+	dex_height 2, 0
+	dex_weight 11
+; GRUMPIG
+	dex_number 326
+	dex_height 2, 0
+	dex_weight 11
+; SPINDA
+	dex_number 327
+	dex_height 2, 0
+	dex_weight 11
+; TRAPINCH
+	dex_number 328
+	dex_height 2, 0
+	dex_weight 11
+; VIBRAVA
+	dex_number 329
+	dex_height 2, 0
+	dex_weight 11
+; FLYGON
+	dex_number 330
+	dex_height 2, 0
+	dex_weight 11
+; CACNEA
+	dex_number 331
+	dex_height 2, 0
+	dex_weight 11
+; CACTURNE
+	dex_number 332
+	dex_height 2, 0
+	dex_weight 11
+; SWABLU
+	dex_number 333
+	dex_height 2, 0
+	dex_weight 11
+; ALTARIA
+	dex_number 334
+	dex_height 2, 0
+	dex_weight 11
+; ZANGOOSE
+	dex_number 335
+	dex_height 2, 0
+	dex_weight 11
+; SEVIPER
+	dex_number 336
+	dex_height 2, 0
+	dex_weight 11
+; LUNATONE
+	dex_number 337
+	dex_height 2, 0
+	dex_weight 11
+; SOLROCK
+	dex_number 338
+	dex_height 2, 0
+	dex_weight 11
+; BARBOACH
+	dex_number 339
+	dex_height 2, 0
+	dex_weight 11
+; WHISCASH
+	dex_number 340
+	dex_height 2, 0
+	dex_weight 11
+; CORPHISH
+	dex_number 341
+	dex_height 2, 0
+	dex_weight 11
+; CRAWDAUNT
+	dex_number 342
+	dex_height 2, 0
+	dex_weight 11
+; BALTOY
+	dex_number 343
+	dex_height 2, 0
+	dex_weight 11
+; CLAYDOL
+	dex_number 344
+	dex_height 2, 0
+	dex_weight 11
+; LILEEP
+	dex_number 345
+	dex_height 2, 0
+	dex_weight 11
+; CRADILY
+	dex_number 346
+	dex_height 2, 0
+	dex_weight 11
+; ANORITH
+	dex_number 347
+	dex_height 2, 0
+	dex_weight 11
+; ARMALDO
+	dex_number 348
+	dex_height 2, 0
+	dex_weight 11
+; FEEBAS
+	dex_number 349
+	dex_height 2, 0
+	dex_weight 11
+; MILOTIC
+	dex_number 350
+	dex_height 2, 0
+	dex_weight 11
+; CASTFORM
+	dex_number 351
+	dex_height 2, 0
+	dex_weight 11
+; KECLEON
+	dex_number 352
+	dex_height 2, 0
+	dex_weight 11
+; SHUPPET
+	dex_number 353
+	dex_height 2, 0
+	dex_weight 11
+; BANETTE
+	dex_number 354
+	dex_height 2, 0
+	dex_weight 11
+; DUSKULL
+	dex_number 355
+	dex_height 2, 0
+	dex_weight 11
+; DUSCLOPS
+	dex_number 356
+	dex_height 2, 0
+	dex_weight 11
+; TROPIUS
+	dex_number 357
+	dex_height 2, 0
+	dex_weight 11
+; CHIMECHO
+	dex_number 358
+	dex_height 2, 0
+	dex_weight 11
+; ABSOL
+	dex_number 359
+	dex_height 2, 0
+	dex_weight 11
+; WYNAUT
+	dex_number 360
+	dex_height 2, 0
+	dex_weight 11
+; SNORUNT
+	dex_number 361
+	dex_height 2, 0
+	dex_weight 11
+; GLALIE
+	dex_number 362
+	dex_height 2, 0
+	dex_weight 11
+; SPHEAL
+	dex_number 363
+	dex_height 2, 0
+	dex_weight 11
+; SEALEO
+	dex_number 364
+	dex_height 2, 0
+	dex_weight 11
+; WALREIN
+	dex_number 365
+	dex_height 2, 0
+	dex_weight 11
+; CLAMPERL
+	dex_number 366
+	dex_height 2, 0
+	dex_weight 11
+; HUNTAIL
+	dex_number 367
+	dex_height 2, 0
+	dex_weight 11
+; GOREBYSS
+	dex_number 368
+	dex_height 2, 0
+	dex_weight 11
+; RELICANTH
+	dex_number 369
+	dex_height 2, 0
+	dex_weight 11
+; LUVDISC
+	dex_number 370
+	dex_height 2, 0
+	dex_weight 11
+; BAGON
+	dex_number 371
+	dex_height 2, 0
+	dex_weight 11
+; SHELGON
+	dex_number 372
+	dex_height 2, 0
+	dex_weight 11
+; SALAMENCE
+	dex_number 373
+	dex_height 2, 0
+	dex_weight 11
+; BELDUM
+	dex_number 374
+	dex_height 2, 0
+	dex_weight 11
+; METANG
+	dex_number 375
+	dex_height 2, 0
+	dex_weight 11
+; METAGROSS
+	dex_number 376
+	dex_height 2, 0
+	dex_weight 11
+; REGIROCK
+	dex_number 377
+	dex_height 2, 0
+	dex_weight 11
+; REGICE
+	dex_number 378
+	dex_height 2, 0
+	dex_weight 11
+; REGISTEEL
+	dex_number 379
+	dex_height 2, 0
+	dex_weight 11
+; LATIAS
+	dex_number 380
+	dex_height 2, 0
+	dex_weight 11
+; LATIOS
+	dex_number 381
+	dex_height 2, 0
+	dex_weight 11
+; KYOGRE
+	dex_number 382
+	dex_height 2, 0
+	dex_weight 11
+; GROUDON
+	dex_number 383
+	dex_height 2, 0
+	dex_weight 11
+; RAYQUAZA
+	dex_number 384
+	dex_height 2, 0
+	dex_weight 11
+; JIRACHI
+	dex_number 385
+	dex_height 2, 0
+	dex_weight 11
+; DEOXYS
+	dex_number 386
+	dex_height 2, 0
+	dex_weight 11

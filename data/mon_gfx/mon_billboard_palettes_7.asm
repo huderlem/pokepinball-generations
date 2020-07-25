@@ -1364,255 +1364,255 @@ ShiftryBillboardBGPalette2:
 
 TaillowBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 28, 12, 12
+	RGB 22, 8, 8
 	RGB 0, 0, 0
 TaillowBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 28, 12, 12
+	RGB 10, 13, 19
 	RGB 0, 0, 0
 
 SwellowBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 28, 13, 12
+	RGB 24, 6, 6
 	RGB 0, 0, 0
 SwellowBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 28, 13, 12
+	RGB 11, 13, 21
 	RGB 0, 0, 0
 
 WingullBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 31, 22, 0
+	RGB 25, 16, 8
 	RGB 0, 0, 0
 WingullBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 16, 20, 29
+	RGB 8, 9, 19
 	RGB 0, 0, 0
 
 PelipperBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 31, 28, 11
+	RGB 30, 21, 4
 	RGB 0, 0, 0
 PelipperBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 0, 21, 26
+	RGB 0, 12, 20
 	RGB 0, 0, 0
 
 RaltsBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 11, 23, 3
+	RGB 25, 26, 29
 	RGB 0, 0, 0
 RaltsBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 11, 23, 3
+	RGB 26, 6, 5
 	RGB 0, 0, 0
 
 KirliaBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 11, 23, 3
+	RGB 25, 26, 29
 	RGB 0, 0, 0
 KirliaBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 11, 23, 3
+	RGB 26, 6, 5
 	RGB 0, 0, 0
 
 GardevoirBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 25, 26, 29
+	RGB 26, 6, 5
 	RGB 0, 0, 0
 GardevoirBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 11, 23, 3
+	RGB 26, 6, 5
 	RGB 0, 0, 0
 
 SurskitBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 31, 27, 13
+	RGB 26, 22, 9
 	RGB 0, 0, 0
 SurskitBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 15, 26, 27
+	RGB 11, 17, 22
 	RGB 0, 0, 0
 
 MasquerainBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 21, 24, 28
+	RGB 31, 20, 8
 	RGB 0, 0, 0
 MasquerainBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 21, 24, 28
+	RGB 19, 20, 24
 	RGB 0, 0, 0
 
 ShroomishBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 9, 12, 6
+	RGB 15, 22, 13
 	RGB 0, 0, 0
 ShroomishBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 30, 26, 19
+	RGB 15, 22, 13
 	RGB 0, 0, 0
 
 BreloomBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 28, 9, 4
+	RGB 18, 24, 10
 	RGB 0, 0, 0
 BreloomBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 29, 26, 16
+	RGB 18, 24, 10
 	RGB 0, 0, 0
 
 SlakothBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 27, 23, 18
+	RGB 28, 18, 17
 	RGB 0, 0, 0
 SlakothBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 27, 23, 18
+	RGB 19, 14, 9
 	RGB 0, 0, 0
 
 VigorothBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 30, 13, 12
+	RGB 17, 11, 11
 	RGB 0, 0, 0
 VigorothBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 30, 13, 12
+	RGB 17, 11, 11
 	RGB 0, 0, 0
 
 SlakingBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 27, 18, 19
+	RGB 18, 14, 11
 	RGB 0, 0, 0
 SlakingBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 24, 21, 17
+	RGB 18, 14, 11
 	RGB 0, 0, 0
 
 NincadaBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 24, 20, 12
+	RGB 18, 27, 16
 	RGB 0, 0, 0
 NincadaBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 24, 20, 12
+	RGB 20, 14, 8
 	RGB 0, 0, 0
 
 NinjaskBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 27, 9, 2
+	RGB 27, 21, 10
 	RGB 0, 0, 0
 NinjaskBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 30, 26, 10
+	RGB 27, 21, 10
 	RGB 0, 0, 0
 
 ShedinjaBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 27, 27, 27
+	RGB 23, 23, 23
 	RGB 0, 0, 0
 ShedinjaBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 30, 28, 12
+	RGB 20, 16, 6
 	RGB 0, 0, 0
 
 WhismurBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 31, 22, 8
+	RGB 24, 11, 19
 	RGB 0, 0, 0
 WhismurBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 29, 19, 25
+	RGB 24, 11, 19
 	RGB 0, 0, 0
 
 LoudredBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 20, 19, 27
+	RGB 26, 9, 6
 	RGB 0, 0, 0
 LoudredBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 20, 19, 27
+	RGB 11, 10, 17
 	RGB 0, 0, 0
 
 ExploudBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 20, 21, 29
+	RGB 26, 9, 5
 	RGB 0, 0, 0
 ExploudBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 20, 21, 29
+	RGB 16, 15, 23
 	RGB 0, 0, 0
 
 MakuhitaBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 31, 26, 10
+	RGB 31, 11, 9
 	RGB 0, 0, 0
 MakuhitaBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 31, 26, 10
+	RGB 25, 19, 10
 	RGB 0, 0, 0
 
 HariyamaBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 29, 23, 10
+	RGB 26, 16, 11
 	RGB 0, 0, 0
 HariyamaBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 29, 23, 10
+	RGB 26, 16, 11
 	RGB 0, 0, 0
 
 AzurillBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 19, 21, 30
+	RGB 21, 4, 4
 	RGB 0, 0, 0
 AzurillBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 19, 21, 30
+	RGB 10, 13, 29
 	RGB 0, 0, 0
 
 NosepassBillboardBGPalette1:

@@ -882,9 +882,9 @@ AzurillBillboardBGPaletteMap:
 
 NosepassBillboardBGPaletteMap:
 	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $6, $7, $7, $7
+	db $7, $7, $6, $7, $7, $7
+	db $7, $7, $6, $7, $7, $7
 
 SkittyBillboardBGPaletteMap:
 	db $7, $7, $7, $7, $7, $7
@@ -894,63 +894,63 @@ SkittyBillboardBGPaletteMap:
 
 DelcattyBillboardBGPaletteMap:
 	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
+	db $6, $6, $7, $7, $7, $7
+	db $7, $6, $7, $7, $7, $7
+	db $7, $7, $7, $7, $6, $6
 
 SableyeBillboardBGPaletteMap:
 	db $7, $7, $7, $7, $7, $7
 	db $7, $7, $7, $7, $7, $7
 	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $6, $7, $7, $7
 
 MawileBillboardBGPaletteMap:
 	db $7, $7, $7, $7, $7, $7
 	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $6, $6, $7
+	db $7, $7, $7, $6, $6, $7
 
 AronBillboardBGPaletteMap:
 	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $6, $7, $7
+	db $7, $7, $7, $6, $7, $7
 	db $7, $7, $7, $7, $7, $7
 
 LaironBillboardBGPaletteMap:
 	db $7, $7, $7, $7, $7, $7
 	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $6, $7, $7, $7
 	db $7, $7, $7, $7, $7, $7
 
 AggronBillboardBGPaletteMap:
 	db $7, $7, $7, $7, $7, $7
 	db $7, $7, $7, $7, $7, $7
 	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $6, $7, $7, $7
 
 MedititeBillboardBGPaletteMap:
 	db $7, $7, $7, $7, $7, $7
 	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $6, $6, $7, $7
 	db $7, $7, $7, $7, $7, $7
 
 MedichamBillboardBGPaletteMap:
-	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $6, $6, $6, $7
+	db $7, $7, $7, $6, $6, $7
+	db $7, $6, $7, $6, $6, $7
+	db $6, $6, $6, $6, $6, $7
 
 ElectrikeBillboardBGPaletteMap:
 	db $7, $7, $7, $7, $7, $7
 	db $7, $7, $7, $7, $7, $7
 	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $6, $7
 
 ManectricBillboardBGPaletteMap:
+	db $7, $6, $7, $7, $7, $7
 	db $7, $7, $7, $7, $7, $7
 	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $6, $7, $7, $7
 
 PlusleBillboardBGPaletteMap:
 	db $7, $7, $7, $7, $7, $7
@@ -977,33 +977,33 @@ IllumiseBillboardBGPaletteMap:
 	db $7, $7, $7, $7, $7, $7
 
 RoseliaBillboardBGPaletteMap:
-	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $6, $6, $6, $7
+	db $7, $7, $6, $6, $7, $7
+	db $7, $7, $6, $6, $7, $7
+	db $7, $6, $6, $6, $7, $7
 
 GulpinBillboardBGPaletteMap:
-	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $6, $6, $6, $7
 	db $7, $7, $7, $7, $7, $7
 	db $7, $7, $7, $7, $7, $7
 	db $7, $7, $7, $7, $7, $7
 
 SwalotBillboardBGPaletteMap:
 	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $6, $6, $7
+	db $7, $7, $6, $7, $6, $7
 	db $7, $7, $7, $7, $7, $7
 
 CarvanhaBillboardBGPaletteMap:
-	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $6, $6
+	db $7, $7, $7, $7, $6, $6
+	db $6, $6, $6, $6, $6, $6
+	db $7, $6, $6, $6, $6, $6
 
 SharpedoBillboardBGPaletteMap:
 	db $7, $7, $7, $7, $7, $7
 	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $6, $7, $7, $7
 	db $7, $7, $7, $7, $7, $7
 
 WailmerBillboardBGPaletteMap:

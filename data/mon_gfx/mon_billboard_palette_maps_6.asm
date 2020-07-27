@@ -1007,8 +1007,8 @@ SharpedoBillboardBGPaletteMap:
 	db $7, $7, $7, $7, $7, $7
 
 WailmerBillboardBGPaletteMap:
-	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
+	db $6, $6, $6, $6, $6, $6
+	db $6, $7, $7, $7, $7, $6
 	db $7, $7, $7, $7, $7, $7
 	db $7, $7, $7, $7, $7, $7
 
@@ -1020,26 +1020,26 @@ WailordBillboardBGPaletteMap:
 
 NumelBillboardBGPaletteMap:
 	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
+	db $7, $6, $6, $7, $7, $7
+	db $7, $6, $6, $7, $7, $7
 	db $7, $7, $7, $7, $7, $7
 
 CameruptBillboardBGPaletteMap:
 	db $7, $7, $7, $7, $7, $7
 	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $6, $7, $7, $7
+	db $7, $7, $6, $6, $6, $6
 
 TorkoalBillboardBGPaletteMap:
-	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $6, $6, $6, $6
+	db $6, $7, $7, $6, $6, $6
+	db $6, $7, $7, $6, $6, $6
+	db $6, $7, $7, $6, $6, $6
 
 SpoinkBillboardBGPaletteMap:
-	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $6, $6
+	db $7, $7, $6, $6, $6, $6
+	db $7, $7, $7, $7, $6, $7
 	db $7, $7, $7, $7, $7, $7
 
 GrumpigBillboardBGPaletteMap:
@@ -1057,7 +1057,7 @@ SpindaBillboardBGPaletteMap:
 TrapinchBillboardBGPaletteMap:
 	db $7, $7, $7, $7, $7, $7
 	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
+	db $7, $7, $7, $7, $6, $7
 	db $7, $7, $7, $7, $7, $7
 
 VibravaBillboardBGPaletteMap:
@@ -1067,9 +1067,9 @@ VibravaBillboardBGPaletteMap:
 	db $7, $7, $7, $7, $7, $7
 
 FlygonBillboardBGPaletteMap:
-	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
-	db $7, $7, $7, $7, $7, $7
+	db $6, $6, $6, $6, $6, $6
+	db $6, $6, $6, $6, $6, $6
+	db $7, $7, $7, $7, $6, $6
 	db $7, $7, $7, $7, $7, $7
 
 CacneaBillboardBGPaletteMap:

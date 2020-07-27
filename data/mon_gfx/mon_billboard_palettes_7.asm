@@ -1848,123 +1848,123 @@ SharpedoBillboardBGPalette2:
 
 WailmerBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 13, 20, 25
+	RGB 7, 13, 18
 	RGB 0, 0, 0
 WailmerBillboardBGPalette2:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 31, 28, 23
+	RGB 25, 22, 17
+	RGB 7, 13, 18
 	RGB 0, 0, 0
 
 WailordBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 10, 18, 31
+	RGB 4, 10, 25
 	RGB 0, 0, 0
 WailordBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 10, 18, 31
+	RGB 4, 10, 25
 	RGB 0, 0, 0
 
 NumelBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 30, 27, 0
+	RGB 18, 27, 3
 	RGB 0, 0, 0
 NumelBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 30, 27, 0
+	RGB 25, 22, 7
 	RGB 0, 0, 0
 
 CameruptBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 16, 16, 23
+	RGB 28, 13, 3
 	RGB 0, 0, 0
 CameruptBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 29, 21, 9
+	RGB 28, 13, 3
 	RGB 0, 0, 0
 
 TorkoalBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 28, 15, 9
+	RGB 16, 16, 16
 	RGB 0, 0, 0
 TorkoalBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 28, 15, 9
+	RGB 24, 10, 7
 	RGB 0, 0, 0
 
 SpoinkBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 17, 17, 18
+	RGB 31, 25, 23
 	RGB 0, 0, 0
 SpoinkBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 17, 17, 18
+	RGB 13, 14, 15
 	RGB 0, 0, 0
 
 GrumpigBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 28, 21, 29
+	RGB 22, 14, 23
 	RGB 0, 0, 0
 GrumpigBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 28, 21, 29
+	RGB 22, 14, 23
 	RGB 0, 0, 0
 
 SpindaBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 27, 24, 16
+	RGB 27, 13, 7
 	RGB 0, 0, 0
 SpindaBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 27, 24, 16
+	RGB 27, 13, 7
 	RGB 0, 0, 0
 
 TrapinchBillboardBGPalette1:
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 27, 30, 14
+	RGB 29, 19, 9
+	RGB 24, 13, 11
 	RGB 0, 0, 0
 TrapinchBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 29, 19, 9
+	RGB 24, 13, 11
 	RGB 0, 0, 0
 
 VibravaBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 12, 24, 18
+	RGB 6, 17, 12
 	RGB 0, 0, 0
 VibravaBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 12, 24, 18
+	RGB 6, 17, 12
 	RGB 0, 0, 0
 
 FlygonBillboardBGPalette1:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 25, 6, 6
+	RGB 19, 23, 12
 	RGB 0, 0, 0
 FlygonBillboardBGPalette2:
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 0, 0, 0
+	RGB 26, 31, 16
+	RGB 19, 23, 12
 	RGB 0, 0, 0
 
 CacneaBillboardBGPalette1:

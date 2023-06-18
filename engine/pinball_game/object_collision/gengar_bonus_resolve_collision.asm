@@ -3,7 +3,7 @@ ResolveGengarBonusGameObjectCollisions: ; 0x18377
 	call Func_1860b
 	call Func_187b1
 	call Func_18d34
-	call Func_183b7
+	call TryCloseGate_GengarBonus
 	callba PlayLowTimeSfx
 	ld a, [wTimeRanOut]
 	and a
@@ -14,23 +14,23 @@ ResolveGengarBonusGameObjectCollisions: ; 0x18377
 	ld [wFlippersDisabled], a
 	call LoadFlippersPalette
 	callba StopTimer
-	ld a, [wd6a2]
-	cp $5
+	ld a, [wNumGengarHits]
+	cp 5
 	ret nc
 	ld a, $1
 	ld [wd6a8], a
 	ret
 
-Func_183b7: ; 0x183b7
-	ld a, [wd653]
+TryCloseGate_GengarBonus: ; 0x183b7
+	ld a, [wGengarBonusClosedGate]
 	and a
 	ret nz
 	ld a, [wBallXPos + 1]
-	cp $8a
+	cp 138
 	ret nc
-	ld a, $1
+	ld a, 1
 	ld [wStageCollisionState], a
-	ld [wd653], a
+	ld [wGengarBonusClosedGate], a
 	callba LoadStageCollisionAttributes
 	call Func_183db
 	call Func_18d91
@@ -168,7 +168,7 @@ TileData_1844e: ; 0x1844e
 	db $00 ; terminator
 
 Func_18464: ; 0x18464
-	ld a, [wd659]
+	ld a, [wGastly1Enabled]
 	and a
 	ret z
 	ld a, [wd657]
@@ -188,7 +188,7 @@ Func_18464: ; 0x18464
 	add c
 	ld c, a
 	ld b, $0
-	ld hl, wd65d
+	ld hl, wGastly1InHitAnimation
 	add hl, bc
 	ld d, h
 	ld e, l
@@ -204,9 +204,9 @@ Func_18464: ; 0x18464
 	pop de
 	ld a, $1
 	ld [de], a
-	ld a, [wd67b]
+	ld a, [wNumGastlyHits]
 	inc a
-	ld [wd67b], a
+	ld [wNumGastlyHits], a
 	ld bc, OneHundredThousandPoints
 	callba AddBigBCD6FromQueue
 	ld a, $33
@@ -224,22 +224,22 @@ Func_18464: ; 0x18464
 	call PlaySoundEffect
 .asm_184d5
 	ld bc, $0830
-	ld de, wd65d
+	ld de, wGastly1InHitAnimation
 	ld hl, wd675
 	call Func_1850c
 	ld bc, $5078
-	ld de, wd666
+	ld de, wGastly2InHitAnimation
 	ld hl, wd677
 	call Func_1850c
 	ld bc, $3050
-	ld de, wd66f
+	ld de, wGastly3InHitAnimation
 	ld hl, wd679
 	call Func_1850c
-	ld de, wd65d
+	ld de, wGastly1InHitAnimation
 	call Func_18562
-	ld de, wd666
+	ld de, wGastly2InHitAnimation
 	call Func_18562
-	ld de, wd66f
+	ld de, wGastly3InHitAnimation
 	call Func_18562
 	ret
 
@@ -336,33 +336,33 @@ Func_18562: ; 0x18562
 	ld a, [de]
 	cp $12
 	ret nz
-	ld a, [wd67b]
-	cp $a
+	ld a, [wNumGastlyHits]
+	cp 10
 	jr nz, .asm_185b1
 	ld a, $1
 	ld [wd67e], a
 	ld [wd687], a
 	xor a
-	ld [wd659], a
-	ld [wd662], a
-	ld [wd66b], a
+	ld [wGastly1Enabled], a
+	ld [wGastly2Enabled], a
+	ld [wGastly3Enabled], a
 	ld de, MUSIC_HAUNTER_GRAVEYARD
 	call PlaySong
 	ret
 
 .asm_185b1
 	ld c, a
-	ld a, [wd65d]
+	ld a, [wGastly1InHitAnimation]
 	and a
 	jr nz, .asm_185b9
 	inc c
 .asm_185b9
-	ld a, [wd666]
+	ld a, [wGastly2InHitAnimation]
 	and a
 	jr nz, .asm_185c0
 	inc c
 .asm_185c0
-	ld a, [wd66f]
+	ld a, [wGastly3InHitAnimation]
 	and a
 	jr nz, .asm_185c7
 	inc c
@@ -452,9 +452,9 @@ Func_1860b: ; 0x1860b
 	pop de
 	ld a, $1
 	ld [de], a
-	ld a, [wd695]
+	ld a, [wNumHaunterHits]
 	inc a
-	ld [wd695], a
+	ld [wNumHaunterHits], a
 	ld bc, FiveHundredThousandPoints
 	callba AddBigBCD6FromQueue
 	ld a, $33
@@ -578,8 +578,8 @@ Func_186f7: ; 0x186f7
 	ld a, [de]
 	cp $12
 	jr nz, .asm_18761
-	ld a, [wd695]
-	cp $a
+	ld a, [wNumHaunterHits]
+	cp 10
 	jr nz, .asm_18740
 	ld a, $1
 	ld [wd656], a
@@ -618,8 +618,8 @@ Func_186f7: ; 0x186f7
 .asm_18761
 	cp $13
 	ret nz
-	ld a, [wd695]
-	cp $a
+	ld a, [wNumHaunterHits]
+	cp 10
 	ret nz
 	ld a, $1
 	ld [wd698], a
@@ -697,10 +697,10 @@ Func_187b1: ; 0x187b1
 	dec de
 	dec de
 	dec de
-	ld a, [wd6a2]
+	ld a, [wNumGengarHits]
 	inc a
-	ld [wd6a2], a
-	cp $5
+	ld [wNumGengarHits], a
+	cp 5
 	jr nc, .asm_18804
 	ld hl, AnimationData_18b2b
 	call InitAnimation
@@ -785,8 +785,8 @@ Func_18876: ; 0x18876
 	and a
 	jr nz, .asm_188da
 	ld a, [wGengarYPos + 1]
-	add $80
-	cp $a0
+	add 128
+	cp 160
 	jr nc, .asm_188da
 	ld a, [wGengarAnimationState]
 	and a

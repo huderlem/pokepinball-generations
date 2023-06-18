@@ -86,7 +86,7 @@ DrawSpinner_SilverField: ; 0x1f3e1
 	ld hl, hSCY
 	sub [hl]
 	ld c, a
-	ld a, [wd50a]
+	ld a, [wSpinnerState + 1]
 	srl a
 	srl a
 	ld e, a
@@ -154,7 +154,7 @@ DrawPikachuSavers_SilverStage: ; 0x1f448
 	ld a, [wd51c]
 	and a
 	jr nz, .asm_1f469
-	ld a, [hNumFramesDropped]
+	ld a, [hFrameCounter]
 	srl a
 	srl a
 	srl a
@@ -192,7 +192,7 @@ DrawEvolutionIndicatorArrows_SilverFieldTop: ; 0x1f48f
 	ld a, [wEvolutionObjectsDisabled]
 	and a
 	ret nz
-	ld a, [hNumFramesDropped]
+	ld a, [hFrameCounter]
 	bit 4, a
 	ret z
 	ld de, wIndicatorStates + 5
@@ -204,7 +204,7 @@ DrawEvolutionIndicatorArrows_SilverFieldBottom: ; 0x1f4a3
 	ld a, [wEvolutionObjectsDisabled]
 	and a
 	ret nz
-	ld a, [hNumFramesDropped]
+	ld a, [hFrameCounter]
 	bit 4, a
 	ret z
 	ld de, wIndicatorStates + 11
@@ -284,7 +284,7 @@ DrawEvolutionTrinket_SilverFieldTop: ; 0x1f4f8
 	ld a, [wEvolutionObjectsDisabled]
 	and a
 	ret z
-	ld de, wd566
+	ld de, wActiveEvolutionTrinkets
 	ld hl, EvolutionTrinketOAMOffsets_SilverFieldTop
 	ld b, $c
 	ld c, $47
@@ -294,7 +294,7 @@ DrawEvolutionTrinket_SilverFieldBottom: ; 0x1f509
 	ld a, [wEvolutionObjectsDisabled]
 	and a
 	ret z
-	ld de, wd572
+	ld de, wActiveEvolutionTrinkets + 12
 	ld hl, EvolutionTrinketOAMOffsets_SilverFieldBottom
 	ld b, $6
 	ld c, $40
@@ -314,7 +314,7 @@ DrawEvolutionTrinket_SilverField: ; 0x1f518
 	ld a, [hli]
 	sub c
 	ld c, a
-	ld a, [hNumFramesDropped]
+	ld a, [hFrameCounter]
 	and $e
 	jr nz, .asm_1f530
 	dec c

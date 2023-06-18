@@ -11,7 +11,7 @@ InitRubyField:
 	ld [hld], a
 	ld [hl], a
 	ld [wNumPartyMons], a
-	ld [wCurBonusMultiplierFromFieldEvents], a
+	ld [wExtraBalls], a
 	ld [wLostBall], a
 	ld [wBallType], a
 	ld [wd4c8], a
@@ -23,12 +23,12 @@ InitRubyField:
 	ld [wFlippersDisabled], a
 	ld [wCurrentMap], a  ; PALLET_TOWN
 	ld a, $1
-	ld [wd49d], a
+	ld [wCurBallLife], a
 	ld [wCurBonusMultiplier], a
 	ld a, $2
 	ld [wRightAlleyCount], a
 	ld a, $3
-	ld [wd49e], a
+	ld [wNumBallLives], a
 	ld [wd610], a
 	ld [wNextBonusStage], a
 	ld [wInitialNextBonusStage], a

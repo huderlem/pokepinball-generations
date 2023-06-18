@@ -104,20 +104,18 @@ AddBigBCD6FromQueue: ; 0x8588
 	ld b, $1
 asm_8592:
 	push hl
-x = 0
-rept 6
+FOR X, 6
 	ld a, [de]
-if x == 0
-	add [hl]
-else
-	adc [hl]
-endc
+	if X == 0
+		add [hl]
+	else
+		adc [hl]
+	endc
 	daa
 	ld [de], a
 	inc de
 	inc hl
-x = x + 1
-endr
+ENDR
 	ld a, e
 	cp wAddScoreQueueEnd % $100
 	jr nz, .okay
@@ -131,7 +129,7 @@ endr
 	ret
 
 Func_85c7: ; 0x85c7
-	ld a, [hNumFramesDropped]
+	ld a, [hFrameCounter]
 	and $3
 	ret nz
 	ld a, [wd478]

@@ -436,11 +436,11 @@ UpdateBlueStageSpinner: ; 0x1ca85
 	ld a, b
 	ld [wSpinnerVelocity + 1], a
 	ld hl, wSpinnerVelocity
-	ld a, [wd509]
+	ld a, [wSpinnerState]
 	add [hl]
-	ld [wd509], a
+	ld [wSpinnerState], a
 	inc hl
-	ld a, [wd50a]
+	ld a, [wSpinnerState + 1]
 	adc [hl]
 	bit 7, a
 	ld c, $0
@@ -455,7 +455,7 @@ UpdateBlueStageSpinner: ; 0x1ca85
 	sub $18
 	ld c, $1
 .asm_1cadb
-	ld [wd50a], a
+	ld [wSpinnerState + 1], a
 	ld a, c
 	and a
 	ret z
@@ -597,9 +597,9 @@ ApplyBumperCollision_BlueField: ; 0x1ce94
 	ld b, $0
 	ld hl, BumperCollisionAngleDeltas_BlueField
 	add hl, bc
-	ld a, [wCollisionForceAngle]
+	ld a, [wCollisionNormalAngle]
 	add [hl]
-	ld [wCollisionForceAngle], a
+	ld [wCollisionNormalAngle], a
 	lb de, $00, $0b
 	call PlaySoundEffect
 	ret
@@ -823,9 +823,9 @@ UpdatePikachuSaverAnimation_BlueField: ; 0x1d133
 	ld hl, wNumPikachuSaves
 	call Increment_Max100
 	jr nc, .asm_1d185
-	ld c, $a
+	ld c, 10
 	call Modulo_C
-	callba z, IncrementBonusMultiplierFromFieldEvent
+	callba z, AddExtraBall
 .asm_1d185
 	lb de, $16, $10
 	call PlaySoundEffect
@@ -860,7 +860,7 @@ UpdatePikachuSaverAnimation_BlueField: ; 0x1d133
 	ret
 
 .asm_1d1c7
-	ld a, [hNumFramesDropped]
+	ld a, [hFrameCounter]
 	swap a
 	and $1
 	ld [wPikachuSaverAnimationFrame], a
@@ -970,9 +970,9 @@ ResolveSlowpokeCollision: ; 0x1d216
 	ld hl, wNumBellsproutEntries ; This is an oversight. No need to tally bellsprout.
 	call Increment_Max100
 	ret nc
-	ld c, $19
+	ld c, 25
 	call Modulo_C
-	callba z, IncrementBonusMultiplierFromFieldEvent
+	callba z, AddExtraBall
 	ret
 
 .asm_1d2b6
@@ -1092,9 +1092,9 @@ ResolveCloysterCollision: ; 0x1d32d
 	ld hl, wNumBellsproutEntries
 	call Increment_Max100
 	ret nc
-	ld c, $19
+	ld c, 25
 	call Modulo_C
-	callba z, IncrementBonusMultiplierFromFieldEvent
+	callba z, AddExtraBall
 	ret
 
 .asm_1d3cb
@@ -1223,9 +1223,9 @@ ResolveBonusMultiplierCollision_BlueField: ; 0x1d438
 .setNewBonusMultplier
 	ld [wCurBonusMultiplier], a
 	jr nc, .asm_1d4e9
-	ld c, $19
+	ld c, 25
 	call Modulo_C
-	callba z, IncrementBonusMultiplierFromFieldEvent
+	callba z, AddExtraBall
 .asm_1d4e9
 	ld a, [wBonusMultiplierTensDigit]
 	ld [wd614], a
@@ -1281,7 +1281,7 @@ UpdateBonusMultiplierRailing_BlueField: ; 0x1d51b
 	cp $2
 	jr c, .asm_1d58b
 	cp $3
-	ld a, [hNumFramesDropped]
+	ld a, [hFrameCounter]
 	jr c, .asm_1d56a
 	srl a
 	srl a
@@ -1307,7 +1307,7 @@ UpdateBonusMultiplierRailing_BlueField: ; 0x1d51b
 	cp $2
 	ret c
 	cp $3
-	ld a, [hNumFramesDropped]
+	ld a, [hFrameCounter]
 	jr c, .asm_1d59b
 	srl a
 	srl a
@@ -1775,9 +1775,9 @@ HitPoliwag3Times: ; 0x1ddc7
 	ld hl, wNumDugtrioTriples ; developer oversight
 	call Increment_Max100
 	jr nc, .asm_1dde4
-	ld c, $a
+	ld c, 10
 	call Modulo_C
-	callba z, IncrementBonusMultiplierFromFieldEvent
+	callba z, AddExtraBall
 .asm_1dde4
 	xor a
 	ld [wMapMoveDirection], a
@@ -1791,9 +1791,9 @@ HitPsyduck3Times: ; 0x1ddf4
 	ld hl, wNumDugtrioTriples ; developer oversight
 	call Increment_Max100
 	jr nc, .asm_1de11
-	ld c, $a
+	ld c, 10
 	call Modulo_C
-	callba z, IncrementBonusMultiplierFromFieldEvent
+	callba z, AddExtraBall
 .asm_1de11
 	ld a, $1
 	ld [wMapMoveDirection], a
@@ -1807,10 +1807,10 @@ AddScorePsyduckOrPoliwag: ; 0x1de22
 	ret z
 	ld a, $55
 	ld [wRumblePattern], a
-	ld a, $4
+	ld a, 4
 	ld [wRumbleDuration], a
-	ld a, $2
-	ld [wd7eb], a
+	ld a, 2
+	ld [wCollisionForceAmplification], a
 	ld bc, FiveHundredPoints
 	callba AddBigBCD6FromQueueWithBallMultiplier
 	lb de, $00, $0f
@@ -2588,7 +2588,7 @@ DoSlotLogic_BlueField: ; 0x1e830
 	ld a, [wFramesUntilSlotCaveOpens]
 	and a
 	jr nz, .asm_1e891
-.asm_1e858
+.goToBonusStage
 	ld a, [wBonusStageSlotRewardActive]
 	and a
 	jr nz, .asm_1e867
@@ -2613,17 +2613,17 @@ DoSlotLogic_BlueField: ; 0x1e830
 	xor a
 	ld [wOpenedSlotByGetting3Pokeballs], a
 	ld [wCatchEmOrEvolutionSlotRewardActive], a
-	ld a, $1e
+	ld a, 30
 	ld [wFramesUntilSlotCaveOpens], a
 	ret
 
 .asm_1e891
-	callba Func_ed8e
+	callba DoSlotRewardRoulette
 	xor a
 	ld [wOpenedSlotByGetting4CAVELights], a
-	ld a, [wd61d]
-	cp $d
-	jr nc, .asm_1e858
+	ld a, [wSlotRouletteBillboardPicture]
+	cp BILLBOARD_GENGAR_BONUS
+	jr nc, .goToBonusStage
 	ld a, $1
 	ld [wPinballIsVisible], a
 	ld [wEnableBallGravityAndTilt], a
@@ -2873,7 +2873,7 @@ _ApplySlotForceField_BlueField: ; 0x1ea6a
 
 UpdateArrowIndicators_BlueField: ; 0x1ead4
 ; Updates the 5 blinking arrow indicators in the blue field bottom.
-	ld a, [hNumFramesDropped]
+	ld a, [hFrameCounter]
 	and $f
 	ret nz
 	ld bc, $0000
@@ -2888,7 +2888,7 @@ UpdateArrowIndicators_BlueField: ; 0x1ead4
 	jr z, .asm_1eaf8
 	ld a, [hl]
 	res 7, a
-	ld hl, hNumFramesDropped
+	ld hl, hFrameCounter
 	bit 4, [hl]
 	jr z, .asm_1eaf5
 	inc a
@@ -2900,7 +2900,7 @@ UpdateArrowIndicators_BlueField: ; 0x1ead4
 	ld a, c
 	cp $2
 	jr nz, .asm_1eadc
-	ld a, [hNumFramesDropped]
+	ld a, [hFrameCounter]
 	and $f
 	ret nz
 	ld a, [wCurrentStage]
@@ -2918,7 +2918,7 @@ UpdateArrowIndicators_BlueField: ; 0x1ead4
 	jr z, .asm_1eb29
 	ld a, [hl]
 	res 7, a
-	ld hl, hNumFramesDropped
+	ld hl, hFrameCounter
 	bit 4, [hl]
 	jr z, .asm_1eb2b
 	inc a

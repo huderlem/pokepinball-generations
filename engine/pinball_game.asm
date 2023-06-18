@@ -71,23 +71,23 @@ GameScreenFunction_HandleBallPhysics: ; 0xd909
 ; main loop for stage logic
 	xor a
 	ld [wFlipperCollision], a
-	ld [wd7eb], a
+	ld [wCollisionForceAmplification], a
 	call ApplyGravityToBall
 	call LimitBallVelocity
 	xor a
-	ld [wd7e9], a
+	ld [wIsBallColliding], a
 	call HandleTilts
 	ld a, [wCurrentStage]
 	bit 0, a
-	callba nz, HandleFlippers  ; only perform flipper routines on the lower-half of stages
+	callba nz, HandleFlippers  ; only perform flipper logic on the lower half of stages
 	ld a, [wFlipperCollision]
 	and a
-	ld a, [wCollisionForceAngle]
+	ld a, [wCollisionNormalAngle]
 	push af
-	call CheckObjectCollision  ; collision stuff
+	call CheckStageCollision
 	pop af
 	jr z, .noFlipperCollision
-	ld [wCollisionForceAngle], a
+	ld [wCollisionNormalAngle], a
 .noFlipperCollision
 	call CheckGameObjectCollisions
 	call ResolveGameObjectCollisions
@@ -99,17 +99,20 @@ GameScreenFunction_HandleBallPhysics: ; 0xd909
 	callba HandleInGameMenu
 	jp z, SaveGame
 .didntPressMenuKey
-	ld a, [wd7e9]  ; check for collision flag
+	ld a, [wIsBallColliding]  ; check for collision flag
 	and a
-	jr z, .skip_collision
+	jr z, .moveBallPosition
 	call ApplyTiltForces
 	call LoadBallVelocity ; bc = x velocity, de = y velocity
-	ld a, [wCollisionForceAngle]
-	call ApplyCollisionForce
-	call ApplyTorque
+	; First, rotate the velocity vector into a standardized coordinate
+	; system where the normal angle points upwards.
+	ld a, [wCollisionNormalAngle]
+	call RotateVector
+	; Apply the collision forces to the ball in the rotated coordinate system.
+	call ApplyCollisionForces
 	ld a, [wFlipperCollision]
 	and a
-	jr z, .not_flippers_2
+	jr z, .noFlipperCollision2
 	; de -= *wFlipperYForce
 	ld hl, wFlipperYForce
 	ld a, [hli]
@@ -132,17 +135,19 @@ GameScreenFunction_HandleBallPhysics: ; 0xd909
 	ld a, b
 	adc h
 	ld b, a
-	jr .next
+	jr .updateBallVelocity
 
-.not_flippers_2
-	ld a, [wd7f8]
+.noFlipperCollision2
+	ld a, [wNoCollisionApplied]
 	and a
-	jr nz, .skip_collision
-.next
-	ld a, [wCollisionForceAngle]
-	call NegateAngleAndApplyCollisionForce
+	jr nz, .moveBallPosition
+.updateBallVelocity
+	; Rotate the velocity vector back to the regular coordinate system, and
+	; set the ball's velocity to the resulting vector.
+	ld a, [wCollisionNormalAngle]
+	call NegateAngleAndRotateVector
 	call SetBallVelocity
-.skip_collision
+.moveBallPosition
 	call MoveBallPosition
 	callba CheckStageTransition
 	callba DrawSpritesForStage
@@ -177,9 +182,9 @@ GameScreenFunction_HandleBallLoss: ; 0xda36
 	ld [hNewlyPressedButtons], a
 	ld [hPressedButtons], a
 	ld [wFlipperCollision], a
-	ld [wd7eb], a
+	ld [wCollisionForceAmplification], a
 	xor a
-	ld [wd7e9], a
+	ld [wIsBallColliding], a
 	ld [wPinballIsVisible], a
 	ld [wEnableBallGravityAndTilt], a
 	call HandleTilts
@@ -195,15 +200,15 @@ GameScreenFunction_HandleBallLoss: ; 0xda36
 	ld a, [wLostBall]
 	and a
 	jr z, .asm_daa9
-	ld a, [wd49c]
+	ld a, [wExtraBallState]
 	cp $2
 	jr z, .asm_daa9
 	call EndOfBallBonus
-	ld a, [wd49c]
+	ld a, [wExtraBallState]
 	and a
 	jr z, .asm_daa9
 	ld a, $2
-	ld [wd49c], a
+	ld [wExtraBallState], a
 	ld [wDrawBottomMessageBox], a
 	call FillBottomMessageBufferWithBlackTile
 	call EnableBottomText
@@ -214,7 +219,7 @@ GameScreenFunction_HandleBallLoss: ; 0xda36
 
 .asm_daa9
 	xor a
-	ld [wd49c], a
+	ld [wExtraBallState], a
 	ld hl, wScreenState
 	inc [hl]
 	ret
@@ -352,7 +357,7 @@ HighScoresStageMapping: ; 0xdb99
 Func_dba9: ; 0xdba9
 	ld a, $85
 	ld [wBottomMessageBuffer + $44], a
-	ld a, [wd49d]
+	ld a, [wCurBallLife]
 	xor $3
 	inc a
 	add $86

@@ -109,9 +109,9 @@ UpdateMonState_CatchemMode_RedField: ; 0x200d3
 	ld a, [wCurrentCatchEmMon + 1]
 	cp (MEW - 1) & $FF
 	jr nz, .notMew
-	ld a, [wNumMewHitsLow]
+	ld a, [wNumMewHits]
 	inc a
-	ld [wNumMewHitsLow], a
+	ld [wNumMewHits], a
 	jr nz, .Not256MewHits
 .notMew
 	ld a, [wNumMonHits]

@@ -1,4 +1,4 @@
-const_value = 1
+DEF const_value = 1
 
 	const BULBASAUR   ; $1
 	const IVYSAUR     ; $2
@@ -387,4 +387,4 @@ const_value = 1
 	const JIRACHI     ; $181
 	const DEOXYS      ; $182
 
-NUM_POKEMON EQU 386
+DEF NUM_POKEMON EQU 386

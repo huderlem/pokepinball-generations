@@ -111,9 +111,9 @@ UpdateMonState_CatchemMode_SilverField: ; 0x20394
 	ld a, [wCurrentCatchEmMon + 1]
 	cp (MEW - 1) & $FF
 	jr nz, .notMew
-	ld a, [wNumMewHitsLow]
+	ld a, [wNumMewHits]
 	inc a
-	ld [wNumMewHitsLow], a
+	ld [wNumMewHits], a
 	jr nz, .asm_203d7
 .notMew
 	ld a, [wNumMonHits]

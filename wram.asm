@@ -3,7 +3,7 @@ INCLUDE "constants/pokemon_constants.asm"
 INCLUDE "constants/pinball_game_constants.asm"
 
 ; OAM Animations use this 3-byte struct.
-animation: MACRO
+MACRO animation
 \1FrameCounter:: ds 1
 \1Frame:: ds 1
 \1Index:: ds 1
@@ -147,7 +147,7 @@ wBallTypeBackup:: ; 0xd481
 	ds $1
 
 wCurBonusMultiplier:: ; 0xd482
-; Current value of the bonus multplier. Incremented from achieving various events during the game, or hitting the two bonus multiplier
+; Current value of the bonus multiplier. Incremented from achieving various events during the game, or hitting the two bonus multiplier
 ; railings. (left one first, then right one). See MAX_BONUS_MULTIPLIER
 	ds $1
 
@@ -194,17 +194,19 @@ wCompletedBonusStage:: ; 0xd49a
 ; Set to 1 when a bonus stage is successfully cleared.
 	ds $1
 
-wCurBonusMultiplierFromFieldEvents:: ; 0xd49b
-; Current value of the bonus multiplier received from field events, like catching a pokemon or hitting psyduck 3 times. See MAX_BONUS_MULTIPLIER_FIELD_EVENTS.
+wExtraBalls:: ; 0xd49b
 	ds $1
 
-wd49c:: ; 0xd49c
+wExtraBallState:: ; 0xd49c
+; Helper value to control the animation that occurs when an Extra Ball is exercised upon losing a ball.
 	ds $1
 
-wd49d:: ; 0xd49d
+wCurBallLife:: ; 0xd49d
+; Keeps track of the current "life" of the ball. It starts at 1 and increments whenever the player loses a ball.
 	ds $1
 
-wd49e:: ; 0xd49e
+wNumBallLives:: ; 0xd49e
+; The total number of "lives" the ball has. It is always 3. wCurBallLife is compared to it whenever the player loses a ball.
 	ds $1
 
 wd49f:: ; 0xd49f
@@ -243,7 +245,7 @@ wDrawBottomMessageBox:: ; 0xd4aa
 ; Set to 0 to disable.
 	ds $1
 
-wd4ab:: ; 0xd4ab
+wBallBonusWaitForButtonPress:: ; 0xd4ab
 	ds $1
 
 wCurrentStage:: ; 0xd4ac
@@ -472,24 +474,15 @@ wd502:: ; 0xd502
 wd503:: ; 0xd503
 	ds $1
 
-wd504:: ; 0xd504
-	ds $1
-
-wd505:: ; 0xd505
-	ds $1
-
-wd506:: ; 0xd506
-	ds $1
+wStaryuAnimation:: ; 0xd504
+	animation wStaryuAnimation
 
 wSpinnerCollision:: ; 0xd507
 ; Second byte is set by HandleGameObjectCollision, but is unused
 	ds $2
 
-wd509:: ; 0xd509
-	ds $1
-
-wd50a:: ; 0xd50a
-	ds $1
+wSpinnerState:: ; 0xd509
+	ds $2
 
 wSpinnerVelocity:: ; 0xd50b
 ; When the ball intially passes through the spinner, the ball's y velocity is saved to this location.
@@ -560,7 +553,7 @@ wScratchBuffer::
 ; 3. Hold bank of mon's pokedex species name when loading its text.
 	ds $6
 
-wIndicatorStates:: ; 0xd52f 0 = evo arrows, 1 = catch arrows, 2 = left small alley, 3 = bellsprout, 4 = slot. bit 7 controls if enabled and flashing, bit 1 and 2 control is solid (set = solid), +9 is the arrow pointing to voltorb on red evo mode
+wIndicatorStates:: ; 0xd52f
 	ds $13
 
 wLeftAlleyTrigger:: ; 0xd542
@@ -626,10 +619,14 @@ wCurrentEvolutionMon:: ; 0xd552
 wCurrentEvolutionType:: ; 0xd553
 	ds $1
 
-wd554:: ; 0xd554
+wNumEvolutionTrinkets:: ; 0xd554
 	ds $1
 
-wd555:: ; 0xd555
+wNumPossibleEvolutionObjects:: ; 0xd555
+; Each mon has a different number of possible field objects that can produce trinkets.
+; This number is used to randomly choose objects that fall within that set, which will
+; produce trinkets when hit with the pinball. This also corresponds to the blinking
+; arrows that are displayed when the player is trying to hit one of the objects.
 	ds $1
 
 wEvolutionTrinketCooldownFrames:: ; 0xd556
@@ -652,41 +649,43 @@ wMapMoveDirection:: ; 0xd55a
 wRareMonsFlag:: ; 0xd55b
 	ds $1
 
-wd55c:: ; 0xd55c
-	ds $1
+wEvolutionObjectStates:: ; 0xd55c
+; There are 10 possible objects to hit that can spawn an evolution trinket. However, only three
+; will actually spawn the trinket. The rest are "duds". This list of states keeps track of which
+; ones will spawn the trinket. $1 = spawn trinket, $0 otherwise.
+; The indexes in this list correspond to the following objects:
+; Blue Field:
+;     0: Any of the 3 Shellder bumpers
+;     1: Poliwag
+;     2: Psyduck
+;     3: Left Bonus Multiplier railing
+;     4: Right Bonus Multiplier railing
+;     5: Slowpoke
+;     6: Cloyster
+;     7: Left alley trigger point
+;     8: Spinner
+;     9: Any of the 3 Ball Upgrade lights
+; Red Field:
+;     0: Any of the 3 Voltorb bumpers
+;     1: Left Diglett
+;     2: Right Diglett
+;     3: Left Bonus Multiplier railing
+;     4: Right Bonus Multiplier railing
+;     5: Staryu
+;     6: Bellsprout
+;     7: Staryu alley trigger point
+;     8: Spinner
+;     9: Any of the 3 Ball Upgrade lights
+	ds 10
 
-wd55d:: ; 0xd55d
-	ds $1
-
-wd55e:: ; 0xd55e
-	ds $1
-
-wd55f:: ; 0xd55f
-	ds $1
-
-wd560:: ; 0xd560
-	ds $1
-
-wd561:: ; 0xd561
-	ds $1
-
-wd562:: ; 0xd562
-	ds $1
-
-wd563:: ; 0xd563
-	ds $1
-
-wd564:: ; 0xd564
-	ds $1
-
-wd565:: ; 0xd565
-	ds $1
-
-wd566:: ; 0xd566
-	ds $c
-
-wd572:: ; 0xd572
-	ds $6
+wActiveEvolutionTrinkets:: ; 0xd566
+; There are 18 different positions that an evolution trinket can exist.
+; Each entry in this list corresponds to one of those positions. The values
+; in this list are evolution type constants, and $0 if the trinket is inactive.
+; (See constants/evolution_type_constants.asm)
+; During gameplay, only one of these trinkets is ever active at a given time.
+; However, the game logic perfectly supports multiple being active.
+	ds 18
 
 wCollidedPointIndex:: ; 0xd578
 ; Stores the result of the PinballCollidesWithPoints function.
@@ -775,7 +774,7 @@ wCurrentCatchMonHitFrameDuration:: ; 0xd5c3
 wCatchModeMonUpdateTimer:: ; 0xd5c4 increments while the caught mon is active once per frame(?), ensuring that the code only checks for the mon being hit every 4 frames or when the animation changes....for some reason (performance?)
 	ds $1
 
-wNumMewHitsLow:: ; 0xd5c5
+wNumMewHits:: ; 0xd5c5
 	ds $1
 
 wd5c6:: ; 0xd5c6
@@ -799,7 +798,7 @@ wDisableDrawScoreboardInfo:: ; 0xd5cb
 ; 0 = Draw them.
 	ds $1
 
-scrolling_text_label: MACRO
+MACRO scrolling_text_label
 \1Enabled:: ds 1              ; Toggles if enabled. 0 is off, non-0 is on
 \1ScrollDelayCounter:: ds 1   ; Number of frames remaining until the next scroll step
 \1ScrollDelay:: ds 1          ; Number of frames between each scroll step
@@ -817,7 +816,7 @@ wScrollingText2:: ; 0xd5d4
 wScrollingText3:: ; 0xd5dc
 	scrolling_text_label wScrollingText3
 
-stationary_text_label: MACRO
+MACRO stationary_text_label
 \1Enabled::ds 1              ; Toggles if enabled. 0 is off, non-0 is on
 \1MessageBoxOffset:: ds 1     ; Offset in wBottomMessageBuffer to place first character of text
 \1SourceTextOffset:: ds 1     ; Offset in wBottomMessageText for the text to be displayed
@@ -945,19 +944,22 @@ wd615:: ; 0xd615
 wGameOver:: ; 0xd616
 	ds $3
 
-wd619:: ; 0xd619
+wSlotRewardProgress:: ; 0xd619
+; Increases in increments of 10 each time a slot reward is obtained.
 	ds $1
 
-wd61a:: ; 0xd61a
+wCurSlotRewardRouletteIndex:: ; 0xd61a
 	ds $1
 
-wd61b:: ; 0xd61b
-	ds $2
-
-wd61d:: ; 0xd61d
+wSlotRouletteCounter:: ; 0xd61b
 	ds $1
 
-wd61e:: ; 0xd61e
+	ds $1
+
+wSlotRouletteBillboardPicture:: ; 0xd61d
+	ds $1
+
+wSlotRouletteSlowed:: ; 0xd61e
 	ds $1
 
 wCurSlotBonus:: ; 0xd61f
@@ -967,7 +969,7 @@ wSlotAnyPokemonCaught:: ; 0xd620
 ; Used by the slot logic to store whether or not any pokemon are caught.
 	ds $1
 
-wd621:: ; 0xd621
+wSlotBallIncrease:: ; 0xd621
 	ds $1
 
 wCatchEmOrEvolutionSlotRewardActive:: ; 0xd622
@@ -1128,7 +1130,7 @@ wd651:: ; 0xd651
 wd652:: ; 0xd652
 	ds $1
 
-wd653:: ; 0xd653
+wGengarBonusClosedGate:: ; 0xd653
 	ds $1
 
 wWhichGravestone:: ; 0xd654
@@ -1144,13 +1146,13 @@ wd657:: ; 0xd657
 wd658:: ; 0xd658
 	ds $1
 
-wd659:: ; 0xd659
-	ds $2
+wGastly1Enabled:: ; 0xd659
+	ds $1
 
-wGastly1AnimationState:: ; 0xd65b
-	ds $2
+wGastly1Animation::
+	animation wGastly1Animation
 
-wd65d:: ; 0xd65d
+wGastly1InHitAnimation:: ; 0xd65d
 	ds $1
 
 wGastly1XPos:: ; 0xd65e
@@ -1158,13 +1160,13 @@ wGastly1XPos:: ; 0xd65e
 wGastly1YPos:: ; 0xd660
 	ds $2
 
-wd662:: ; 0xd662
-	ds $2
+wGastly2Enabled:: ; 0xd662
+	ds $1
 
-wGastly2AnimationState:: ; 0xd664
-	ds $2
+wGastly2Animation::
+	animation wGastly2Animation
 
-wd666:: ; 0xd666
+wGastly2InHitAnimation:: ; 0xd666
 	ds $1
 
 wGastly2XPos:: ; 0xd668
@@ -1172,13 +1174,13 @@ wGastly2XPos:: ; 0xd668
 wGastly2YPos:: ; 0xd66a
 	ds $2
 
-wd66b:: ; 0xd66b
-	ds $2
+wGastly3Enabled:: ; 0xd66b
+	ds $1
 
-wGastly3AnimationState:: ; 0xd66d
-	ds $2
+wGastly3Animation::
+	animation wGastly3Animation
 
-wd66f:: ; 0xd66f
+wGastly3InHitAnimation:: ; 0xd66f
 	ds $1
 
 wGastly3XPos:: ; 0xd671
@@ -1198,7 +1200,7 @@ wd677:: ; 0xd677
 wd679:: ; 0xd679
 	ds $2
 
-wd67b:: ; 0xd67b
+wNumGastlyHits:: ; 0xd67b
 	ds $1
 
 wd67c:: ; 0xd67c
@@ -1246,7 +1248,7 @@ wd691:: ; 0xd691
 wd693:: ; 0xd693
 	ds $2
 
-wd695:: ; 0xd695
+wNumHaunterHits:: ; 0xd695
 	ds $1
 
 wd696:: ; 0xd696
@@ -1275,7 +1277,7 @@ wGengarYPos:: ; 0xd69f
 wd6a1:: ; 0xd6a1
 	ds $1
 
-wd6a2:: ; 0xd6a2
+wNumGengarHits:: ; 0xd6a2
 	ds $1
 
 wd6a3:: ; 0xd6a3
@@ -1296,7 +1298,7 @@ wd6a7:: ; 0xd6a7
 wd6a8:: ; 0xd6a8
 	ds $1
 
-wd6a9:: ; 0xd6a9
+wMewtwoBonusClosedGate:: ; 0xd6a9
 	ds $1
 
 wd6aa:: ; 0xd6aa
@@ -1374,7 +1376,7 @@ wd6de:: ; 0xd6de
 wd6e5:: ; 0xd6e5
 	ds $1
 
-wd6e6:: ; 0xd6e6
+wMeowthBonusClosedGate:: ; 0xd6e6
 	ds $1
 
 wd6e7:: ; 0xd6e7
@@ -1383,7 +1385,7 @@ wd6e7:: ; 0xd6e7
 wMeowthAnimation:: ; 0xd6e9
 	animation wMeowthAnimation
 
-wd6ec:: ; 0xd6ec
+wMeowthState:: ; 0xd6ec
 	ds $1
 
 wMeowthXPosition:: ; 0xd6ed
@@ -1458,10 +1460,10 @@ wd706:: ; 0xd706
 wd707:: ; 0xd707
 	ds $4
 
-wd70b:: ; 0xd70b
+wNumActiveJewelsBottom:: ; 0xd70b
 	ds $1
 
-wd70c:: ; 0xd70c
+wNumActiveJewelsTop:: ; 0xd70c
 	ds $3
 
 wMeowthStageBonusCounter:: ; 0xd70f
@@ -1476,7 +1478,7 @@ wMeowthStageScore:: ; 0xd711
 wd712:: ; 0xd712
 	ds $1
 
-wd713:: ; 0xd713
+wDisableMeowthJewelProduction:: ; 0xd713
 	ds $1
 
 wd714:: ; 0xd714
@@ -1572,7 +1574,7 @@ wd736:: ; 0xd736
 wd739:: ; 0xd739
 	ds $1
 
-wd73a:: ; 0xd73a
+wDiglettBonusClosedGate:: ; 0xd73a
 	ds $1
 
 wd73b:: ; 0xd73b
@@ -1605,7 +1607,7 @@ wDugrioState:: ; 0xd764
 wd765:: ; 0xd765
 	ds $1
 
-wd766:: ; 0xd766
+wSeelBonusClosedGate:: ; 0xd766
 	ds $1
 
 wd767:: ; 0xd767
@@ -1680,10 +1682,10 @@ wd786:: ; 0xd786
 wd791:: ; 0xd791
 	ds $1
 
-wd792:: ; 0xd792
+wSeelStageStreak:: ; 0xd792
 	ds $1
 
-wd793:: ; 0xd793
+wSeelStageScore:: ; 0xd793
 	ds $1
 
 wd794:: ; 0xd794
@@ -1766,34 +1768,25 @@ wDisableHorizontalScrollForBallStart:: ; 0xd7ac
 wd7ad:: ; 0xd7ad
 	ds $1
 
-wd7ae:: ; 0xd7ae
-	ds $1
-
-wd7af:: ; 0xd7af
-	ds $1
-
-wd7b0:: ; 0xd7b0
-	ds $1
-
-wd7b1:: ; 0xd7b1
-	ds $1
-
-wd7b2:: ; 0xd7b2
-	ds $1
-
-wd7b3:: ; 0xd7b3
-	ds $1
-
-wd7b4:: ; 0xd7b4
+wLeftFlipperState:: ; 0xd7ae
 	ds $2
 
-wLeftFlipperAnimationState:: ; 0xd7b6
+wLeftFlipperStateChange:: ; 0xd7b0
+	ds $2
+
+wRightFlipperState:: ; 0xd7b2
+	ds $2
+
+wRightFlipperStateChange:: ; 0xd7b4
+	ds $2
+
+wPreviousLeftFlipperState:: ; 0xd7b6
 	ds $1
 
-wRightFlipperAnimationState:: ; 0xd7b7
+wPreviousRightFlipperState:: ; 0xd7b7
 	ds $1
 
-wFlipperXCollisionAttribute:: ; 0xd7b8
+wFlipperCollisionNormalAngle:: ; 0xd7b8
 	ds $1
 
 wFlipperCollision:: ; 0xd7b9
@@ -1845,29 +1838,39 @@ wSubTileBallYPos:: ; 0xd7c4
 
 wUpperLeftCollisionAttribute:: ; 0xd7c5
 	ds $1
-
 wLowerLeftCollisionAttribute:: ; 0xd7c6
 	ds $1
-
 wUpperRightCollisionAttribute:: ; 0xd7c7
 	ds $1
-
 wLowerRightCollisionAttribute:: ; 0xd7c8
 	ds $1
 
-wd7c9:: ; 0xd7c9
-	ds $10
+wCollisionPointTests:: ; 0xd7c9
+; When the ball is tested for stage collision, there are 16
+; individual points around the center of the ball that are
+; tested to see if they are inside a collision mask. This
+; buffer holds the results of each of those tests. The order
+; of the points is clockwise, starting directly 4 pixels right
+; of the ball's center.
+	ds 16
 
 wd7d9:: ; 0xd7d9
 	ds $10
 
-wd7e9:: ; 0xd7e9
+wIsBallColliding:: ; 0xd7e9
+; Set to non-zero when the pinball is colliding with something.
 	ds $1
 
-wCollisionForceAngle:: ; 0xd7ea
+wCollisionNormalAngle:: ; 0xd7ea
+; The normal angle of the ball's collision. The coordinate system
+; is rotate by 90 degrees compared to standard math.
+; $00 = directly up on the Game Boy screen
+; $40 = directly right on the Game Boy screen
+; $80 = directly down on the Game Boy screen
+; $C0 = directly left on the Game Boy screen
 	ds $1
 
-wd7eb:: ; 0xd7eb
+wCollisionForceAmplification:: ; 0xd7eb
 	ds $1
 
 wStageCollisionMapPointer:: ; 0xd7ec
@@ -1885,19 +1888,21 @@ wStageCollisionMasksBank:: ; 0xd7f1
 wd7f2:: ; 0xd7f2
 	ds $1
 
-wBallPositionPointerOffsetFromStageTopLeft:: ; 0xd7f3
+wBallPositionTileOffset:: ; 0xd7f3
 	dw
 
 wCurCollisionAttribute:: ; 0xd7f5
 	ds $1
 
-wd7f6:: ; 0xd7f6
+wCurCollisionTileOffset:: ; 0xd7f6
 	ds $1
 
 wd7f7:: ; 0xd7f7
 	ds $1
 
-wd7f8:: ; 0xd7f8
+wNoCollisionApplied:: ; 0xd7f8
+; Set to $FF when collision forces were NOT applied to the ball.
+; Set to $00 otherwise.
 	ds $1
 
 wInGameMenuIndex:: ; 0xd7f9
@@ -2446,7 +2451,7 @@ wNumPokemonSeen:: ; 0xd9f9
 wNumPokemonOwned:: ; 0xd9fb
 	ds $2
 
-high_scores: MACRO
+MACRO high_scores
 \1Points:: ds 6
 \1Name:: ds 3
 \1Id:: ds 4

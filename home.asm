@@ -321,7 +321,7 @@ VBlank: ; 0x2f2
 	inc [hl]
 	and a
 	jr nz, .asm_365
-	ld hl, hNumFramesDropped
+	ld hl, hFrameCounter
 	inc [hl]
 .asm_365
 	ld hl, hVBlankCount
@@ -880,7 +880,7 @@ Increment_Max100: ; 0xe4a
 ; Increments the value at [hl], but caps it at 100.
 ; Sets carry flag if the increment happens.
 	ld a, [hl]
-	cp $64
+	cp 100
 	jr z, .maxValue
 	inc a
 	ld [hl], a
@@ -905,7 +905,7 @@ Modulo_C: ; 0xe55
 
 ToggleAudioEngineUpdateMethod: ; 0xe5d
 ; The audio engine is normally updated once every V-Blank interrupt. However, during pinball gameplay,
-; the LCD is disabled (no V-Blanks) when the pinball is transitioning between the Top- and Bottom-halfs of 
+; the LCD is disabled (no V-Blanks) when the pinball is transitioning between the Top- and Bottom-halfs of
 ; the Red and Blue Fields. Therefore, the audio engine wouldn't get updated for a fraction of a second, which
 ; would has a noticeable pause in the music. To solve this, the Timer interrupt is enabled while the V-Blank is
 ; disabled, and the audio engine gets updated during the Timer interrupt.
@@ -1020,7 +1020,7 @@ INCLUDE "home/save.asm"
 StatIntrNothing: ; 0xfbc
 	jp StatIntrDone
 
-StatIntrTogglePinballWindow
+StatIntrTogglePinballWindow:
 ; Handles switching the tile data to the black status bar
 ; window anchored to the bottom of the screen during pinball
 ; gameplay.
@@ -1121,7 +1121,7 @@ StatIntrTogglePokedexWindow: ; 0xfea
 	ld [rSCY], a
 	jp StatIntrDone
 
-StatIntrToggleHighScoresWindow
+StatIntrToggleHighScoresWindow:
 	ld hl, hLastLYC
 	ld a, [rLY]
 	cp [hl]
@@ -1971,7 +1971,7 @@ Func_1fb3:
 	ld [hLoadedROMBank], a
 	ld [MBC5RomBank], a
 	ld hl, OAMDataPointers
-asm_1fca
+asm_1fca:
 	add hl, de
 	ld a, [hli]
 	ld e, a
@@ -2113,7 +2113,7 @@ MultiplyBbyCUnsigned: ; 0x20ab
 	push af
 	xor a
 	ld [hSignedMathSignBuffer], a
-	jr asm_20c6
+	jr MultiplyBbyCSigned.asm_20c6
 
 MultiplyBbyCSigned:
 	; s16 bc = (s8)b * (s8)c
@@ -2129,12 +2129,12 @@ MultiplyBbyCSigned:
 	ld b, a
 .asm_20be
 	bit 7, c
-	jr z, asm_20c6
+	jr z, .asm_20c6
 	ld a, c
 	cpl
 	inc a
 	ld c, a
-asm_20c6
+.asm_20c6
 	; b*c == (b**2 + c**2 - (b - c)**2) / 2
 	push de
 	push hl
@@ -2203,48 +2203,55 @@ asm_20c6
 	pop af
 	ret
 
-MultiplyBCByEAndRoundToMostSignificantShort: ; 0x210b
-; bc = round(bc * e / 256)
-; b^d = sign of output
+MultiplyVectorComponentByAngleFactor: ; 0x210b
+; Input: bc = velocity
+;         e = multiplier
+;         d = $0 if multiplier is treated as positive, $ff if multiplier is treated as negative
+; Output: bc = bc * e / 256
 	push af
 	push hl
 	ld a, b
 	xor d
 	ld [hSignedMathSignBuffer2], a
 	bit 7, b
-	jr z, .positive1
+	jr z, .positive
+	; negate bc
 	ld a, c
 	cpl
-	add $1
+	add 1
 	ld c, a
 	ld a, b
 	cpl
-	adc $0
+	adc 0
 	ld b, a
-.positive1
+.positive
 	push bc
+	; first, multiply the lo byte of the vector
 	ld b, e
 	call MultiplyBbyCUnsigned
 	ld l, c
 	ld h, b
+	; round to nearest hi byte
 	ld bc, $0080
 	add hl, bc
 	ld l, h
 	ld h, $0
 	pop bc
+	; then, multiply the hi byte of the vector
 	ld c, e
 	call MultiplyBbyCUnsigned
 	add hl, bc
 	ld a, [hSignedMathSignBuffer2]
 	rlca
 	jr nc, .positive2
+	; negate hl
 	ld a, l
 	cpl
-	add $1
+	add 1
 	ld l, a
 	ld a, h
 	cpl
-	adc $0
+	adc 0
 	ld h, a
 .positive2
 	ld c, l
@@ -2254,14 +2261,18 @@ MultiplyBCByEAndRoundToMostSignificantShort: ; 0x210b
 	ret
 
 Cosine: ; 0x2147
-	; cos(a)
+	; Input:  a = angle
+	; Output: e = cos(a)
+	;         d = 0 if cos(a) is positive, $ff if cos(a) is negative
 	add $40
 	; fall through
 Sine: ; 0x2149
-	; sin(a)
+	; Input:  a = angle
+	; Output: e = sin(a)
+	;         d = 0 if sin(a) is positive, $ff if sin(a) is negative
 	push hl
 	ld [hSignedMathSignBuffer], a
-	and $7f ; subtract 180 degrees
+	and $7f ; ensure angle is between 0 and 180 degrees
 	cp $40
 	jr c, .firstQuadrant
 	; convert angle so it's between 0 and 90 degrees
@@ -2300,7 +2311,7 @@ ApplyGravityToBall: ; 0x2168
 
 LimitBallVelocity: ; 0x2180
 ; Ensures that the ball's x and y velocity are kept under a threshold.
-; The ball can travel at a higher max speed when moving diagonally, since it
+; The ball can travel at a greater max speed when moving diagonally, since it
 ; limits the x and y components independently.
 	ld hl, wBallXVelocity + 1
 	call _LimitBallVelocity
@@ -2310,16 +2321,16 @@ _LimitBallVelocity: ; 0x2189
 	ld a, [hl]
 	bit 7, a  ; is it negative velocity?  (left or up)
 	jr nz, .negativeVelocity
-	cp $8
+	cp 8
 	ret c
-	ld a, $7  ; max positive velocity
+	ld a, 7  ; max positive velocity
 	ld [hl], a
 	ret
 
 .negativeVelocity
-	cp $f9
+	cp -7
 	ret nc
-	ld a, $f9  ; max negative velocity
+	ld a, -7  ; max negative velocity
 	ld [hl], a
 	ret
 
@@ -2343,24 +2354,24 @@ MoveBallPosition: ; 0x219c
 AddVelocityToPosition: ; 0x21c3
 	ld a, [de]
 	bit 7, a
-	jr nz, .asm_21d1
-	cp 1+4
-	jr c, .asm_21da
+	jr nz, .negativeVelocity
+	cp 5
+	jr c, .readLoByte
 	ld bc, $04ff
-	jr .asm_21de
+	jr .updateBallPos
 
-.asm_21d1
+.negativeVelocity
 	cp -4
-	jr nc, .asm_21da
+	jr nc, .readLoByte
 	ld bc, -$04ff
-	jr .asm_21de
+	jr .updateBallPos
 
-.asm_21da
+.readLoByte
 	ld b, a
 	dec de
 	ld a, [de]
 	ld c, a
-.asm_21de
+.updateBallPos
 	ld a, [hl]
 	add c
 	ld [hli], a
@@ -2369,35 +2380,42 @@ AddVelocityToPosition: ; 0x21c3
 	ld [hl], a
 	ret
 
-NegateAngleAndApplyCollisionForce: ; 0x21e5
+NegateAngleAndRotateVector: ; 0x21e5
 	cpl
 	inc a
 	; fall through
-ApplyCollisionForce: ; 0x21e7
+RotateVector: ; 0x21e7
+; Rotates a vector by an angle using the standard rotation matrix calculation. Note, that
+; the matrix is inverted vertically to account for negative y values mean "up" in this world.
+; Input:   bc = vector x component
+;          de = vector y component
+;           a = rotation angle
+; Returns: bc = resulting x component = xComponent * cos(angle) + yComponent * sin(angle)
+;          de = resulting y component = yComponent * cos(angle) - xComponent * sin(angle)
 	push hl
-	; bc_ret = bc * cos(a) + de * sin(x)
-	; de_ret = bc * cos(a) - de * sin(x)
 	push bc
 	push de
-	ld [hSineOrCosineArgumentBuffer], a
+	ld [hRotationAngleBuffer], a
 	call Cosine
 	ld a, e
 	ld [hCosineResultBuffer], a
 	ld a, d
 	ld [hCosineResultBuffer + 1], a
-	call MultiplyBCByEAndRoundToMostSignificantShort
+	; xComponent * cos(angle)
+	call MultiplyVectorComponentByAngleFactor
 	ld l, c
 	ld h, b
 	pop bc
 	push bc
-	ld a, [hSineOrCosineArgumentBuffer]
+	ld a, [hRotationAngleBuffer]
 	call Sine
 	ld a, e
 	ld [hSineResultBuffer], a
 	ld a, d
 	ld [hSineResultBuffer + 1], a
-	call MultiplyBCByEAndRoundToMostSignificantShort
-	add hl, bc
+	; yComponent * sin(angle)
+	call MultiplyVectorComponentByAngleFactor
+	add hl, bc  ; hl = xComponent * cos(angle) + yComponent * sin(angle)
 	pop de
 	pop bc
 	push hl
@@ -2407,7 +2425,8 @@ ApplyCollisionForce: ; 0x21e7
 	ld a, [hSineResultBuffer + 1]
 	cpl
 	ld d, a
-	call MultiplyBCByEAndRoundToMostSignificantShort
+	; xComponent * -sin(angle)
+	call MultiplyVectorComponentByAngleFactor
 	ld l, c
 	ld h, b
 	pop bc
@@ -2415,74 +2434,103 @@ ApplyCollisionForce: ; 0x21e7
 	ld e, a
 	ld a, [hCosineResultBuffer + 1]
 	ld d, a
-	call MultiplyBCByEAndRoundToMostSignificantShort
-	add hl, bc
+	; yComponent * cos(angle)
+	call MultiplyVectorComponentByAngleFactor
+	add hl, bc  ; hl = yComponent * cos(angle) - xComponent * sin(angle)
 	ld d, h
 	ld e, l
 	pop bc
 	pop hl
 	ret
 
-ApplyTorque: ; 0x222b
+ApplyCollisionForces: ; 0x222b
+; Applies the collision force to the ball's velocity and spin.
+; When this function is called, the ball's velocity has already been rotated
+; by the collision's normal angle, so that the velocity components are in a
+; standardized coordinate system, where the normal is pointing directly upward
+; at the colliding ball. If the ball is traveling away from the normal, then this
+; function is a no-op.
+; Input: bc = ball x velocity in rotated coordinate system
+;        de = ball y velocity in rotated coordinate system
+; Output: bc = updated ball x velocity in rotated coordinate system
+;         de = updated ball y velocity in rotated coordinate system
 	push hl
-	ld hl, wd7f8
+	ld hl, wNoCollisionApplied
 	ld [hl], $ff
+	; Early exit if the ball is traveling away from the collision normal.
 	bit 7, d
-	jr nz, .asm_2297
+	jr nz, .exit
 	ld [hl], $0
 	ld a, d
-	cp $3
-	jr c, .asm_2254
+	cp 3
+	jr c, .applyforces
+	; The ball collided hard because its y velocity is a
+	; large value. Shake the rumble pack, and play a little
+	; sound effect to enhance the collision.
 	ld a, $ff
 	ld [wRumblePattern], a
-	ld a, $1
+	ld a, 1
 	ld [wRumbleDuration], a
 	ld a, [wFlipperCollision]
 	and a
-	jr nz, .asm_2254
+	jr nz, .applyforces
 	push de
 	ld de, $0008
 	call PlaySFXIfNoneActive
 	pop de
-.asm_2254
+.applyforces
+	; First, apply some dampening of the vertical
+	; velocity component, so that walls absorb some
+	; of the ball's speed. Colliding with certain objects
+	; dampen the speed less that normal, like the flippers
+	; and Poliwag button.
+	; Divide y velocity by 4.
 	srl d
 	rr e
 	srl d
 	rr e
 	ld h, d
-	ld l, e
+	ld l, e  ; hl = yVelocity / 4
 	srl d
-	rr e
-	ld a, [wd7eb]
+	rr e  ; de = yVelocity / 8
+	ld a, [wCollisionForceAmplification]
 	and a
-	jr z, .asm_226c
-.asm_2268
+	jr z, .updateYVelocity
+.amplify
 	add hl, de
 	dec a
-	jr nz, .asm_2268
-.asm_226c
+	jr nz, .amplify
+.updateYVelocity
+	; Negate the dampened dampened y velocity so that the ball
+	; bounces off.
 	ld d, h
 	ld e, l
 	ld a, e
 	cpl
-	add $1
+	add 1
 	ld e, a
 	ld a, d
 	cpl
-	adc $0
+	adc 0
 	ld d, a
 	ld a, [wBallSpin]
+	; Divide ball spin by 2, signed, and extend to 2 bytes (hl)
 	sra a
 	ld l, a
 	ld h, $0
 	bit 7, l
-	jr z, .asm_2286
+	jr z, .updateXVelocity
 	ld h, $ff
-.asm_2286
+.updateXVelocity
+	; hl = ballSpin / 2
+	; bc = x velocity component in rotated coordinate system
+	; Add the spin to the x velocity component.
 	add hl, bc
 	ld b, h
 	ld c, l
 	push bc
+	; Recalculate ball spin.
+	; new ball spin = (xVelocity * 4) >> 8
 	sla c
 	rl b
 	sla c
@@ -2490,7 +2538,7 @@ ApplyTorque: ; 0x222b
 	ld a, b
 	ld [wBallSpin], a
 	pop bc
-.asm_2297
+.exit
 	pop hl
 	ret
 
@@ -2528,49 +2576,52 @@ SetBallVelocity: ; 0x22a7
 	pop hl
 	ret
 
-CheckObjectCollision: ; 0x22b5
+CheckStageCollision: ; 0x22b5
 	ld a, [wBallXPos + 1]
-	sub $4
+	sub 4
 	push af
 	and $7
 	ld [wSubTileBallXPos], a ; sub-tile position
 	pop af
 	and $f8
-	ld c, a
+	ld c, a ; c = tile x pos
 	ld a, [wBallYPos + 1]
-	sub $4
+	sub 4
 	push af
 	and $7
 	ld [wSubTileBallYPos], a
 	pop af
 	and $f8
-	ld b, a
+	ld b, a ; b = tile y pos
 	ld l, b  ; bc contains tile coords of ball position
+	; Calculate the tile offset for the ball's position, as if the
+	; board was composed of a 1D array starting from the top-left
+	; going left-to-right.
 	ld h, $0
 	sla l
 	rl h
 	sla l
-	rl h  ; b was multiplied by 4 (y tile position)
+	rl h  ; b was multiplied by 4 ((y tile) * 32)
 	srl c
 	srl c
-	srl c  ; c was divided by 8 (x tile position)
+	srl c  ; c was divided by 8 (x tile)
 	ld b, $0
 	add hl, bc
 	ld a, l
-	ld [wBallPositionPointerOffsetFromStageTopLeft], a
+	ld [wBallPositionTileOffset], a
 	ld a, h
-	ld [wBallPositionPointerOffsetFromStageTopLeft + 1], a
+	ld [wBallPositionTileOffset + 1], a
 	ld a, [wStageCollisionMapPointer]
 	ld c, a
 	ld a, [wStageCollisionMapPointer + 1]
 	ld b, a
-	add hl, bc  ; hl = address of upper-left collision byte
+	add hl, bc  ; hl = address of ball tile's collision attribute
 	ld a, [hLoadedROMBank]
 	push af
 	ld a, [wStageCollisionMapBank]
 	ld [hLoadedROMBank], a
 	ld [MBC5RomBank], a
-	ld bc, $001f  ; number of tiles wide - 1
+	ld bc, 32 - 1  ; stage's number of tiles wide - 1
 	ld a, [hli]
 	ld [wUpperLeftCollisionAttribute], a
 	ld a, [hl]
@@ -2591,16 +2642,16 @@ CheckObjectCollision: ; 0x22b5
 	ld a, [wSubTileBallXPos]
 	sla a
 	ld c, a
-	ld b, $0
-	ld hl, SubTileXPos_CollisionDataPointers
+	ld b, 0
+	ld hl, CollisionTests
 	add hl, bc
 	ld e, [hl]
 	inc hl
 	ld d, [hl]
 	ld a, [wSubTileBallYPos]
 	ld c, a
-	ld b, $10  ; number of times to loop over .asm_233d
-.asm_233d
+	ld b, 16  ; length of wCollisionPointTests
+.testCollisionPointLoop
 	push bc
 	ld a, [de]
 	inc de
@@ -2614,18 +2665,23 @@ CheckObjectCollision: ; 0x22b5
 	ld hl, wUpperLeftCollisionAttribute
 	add hl, bc
 	ld a, [hl]
-	call Func_248a
-	jr nc, .asm_235e
+	call TryLoadSpecialCollisionMask
+	jr nc, .staticMask
+	; Load the special mask pointer.
+	; hl = pointer to array of collision masks.
 	pop af
 	and $7
 	ld c, a
 	ld b, $0
 	add hl, bc
-	jr .asm_237b
+	jr .testCollisionPoint
 
-.asm_235e
+.staticMask
 	ld c, a
-	ld b, $0
+	ld b, $0 ; bc = static collision mask id
+	; Multiply bc by 8. Each collision mask is an
+	; 8x8-tile of 1-bit-per-pixel data. Therefore,
+	; each collision mask tile is 8 bytes.
 	sla c
 	rl b
 	sla c
@@ -2636,13 +2692,14 @@ CheckObjectCollision: ; 0x22b5
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	add hl, bc
+	add hl, bc ; hl = pointer to collision mask tile
 	pop af
-	and $7
+	and $7     ; a = y subtile offset
 	ld c, a
 	ld b, $0
 	add hl, bc
-.asm_237b
+.testCollisionPoint
+	; hl = pointer to the collision mask row for the y position
 	ld a, [de]
 	inc de
 	and [hl]
@@ -2650,20 +2707,20 @@ CheckObjectCollision: ; 0x22b5
 	ld a, [de]
 	inc de
 	ld c, a
-	ld hl, wd7c9
+	ld hl, wCollisionPointTests
 	add hl, bc
 	pop af
 	ld [hl], a
 	pop bc
 	dec b
-	jr nz, .asm_233d
+	jr nz, .testCollisionPointLoop
 	pop af
 	ld [hLoadedROMBank], a
 	ld [MBC5RomBank], a
-	ld hl, wd7c9
+	ld hl, wCollisionPointTests
 	ld de, wd7d9
-	ld b, $4
-.asm_239a
+	ld b, 4
+.copyLoop
 	ld a, [hli]
 	ld [de], a
 	inc de
@@ -2677,44 +2734,47 @@ CheckObjectCollision: ; 0x22b5
 	ld [de], a
 	inc de
 	dec b
-	jr nz, .asm_239a
-	ld hl, wd7c9
+	jr nz, .copyLoop
+	ld hl, wCollisionPointTests
 	ld de, $0000
-	ld b, $0
+	ld b, 0
 	ld a, [hl]
 	and a
-	jr z, .asm_23c1
-.asm_23b5
+	jr z, .findNextCollisionPoint
+.findNextCollisionPoint2
+	; This loop is nearly identical to .findNextCollisionPoint
+	; It exists to handle the improbable (impossible?) event that
+	; the ball could be completely inside a collision wall.
 	ld a, [hli]
 	inc b
 	and a
-	jr z, .asm_23c1
+	jr z, .findNextCollisionPoint
 	ld a, b
-	cp $11
-	jr nc, .asm_23ee
-	jr .asm_23b5
+	cp 16 + 1
+	jr nc, .determinedCollisionStatus
+	jr .findNextCollisionPoint2
 
-.asm_23c1
+.findNextCollisionPoint
 	ld a, [hli]
 	inc b
 	and a
-	jr nz, .asm_23cd
+	jr nz, .handleCollisionPoint
 	ld a, b
-	cp $11
-	jr nc, .asm_23ee
-	jr .asm_23c1
+	cp 16 + 1
+	jr nc, .determinedCollisionStatus
+	jr .findNextCollisionPoint
 
-.asm_23cd
+.handleCollisionPoint
 	push de
 	ld d, $1
 	ld c, b
 	dec c
-.asm_23d2
+.findNextFailedCollisionPoint
 	ld a, [hli]
 	inc b
 	inc d
 	and a
-	jr nz, .asm_23d2
+	jr nz, .findNextFailedCollisionPoint
 	dec d
 	ld a, b
 	dec a
@@ -2722,20 +2782,23 @@ CheckObjectCollision: ; 0x22b5
 	and $f
 	swap c
 	or c
-	ld c, a
-	ld a, d
+	ld c, a ; c = (index of first collision point << 8) | (index of last consecutive collision point)
+	ld a, d ; d = number of consecutive successful collision points
 	cp e
 	pop de
-	jr c, .asm_23e9
-	ld e, a
-	ld d, c
-.asm_23e9
+	jr c, .updatedMaxConsecutivePoints
+	ld e, a ; e = max number of consecutive successful collision points
+	ld d, c ; d = (index of first collision point << 8) | (index of last consecutive collision point)
+.updatedMaxConsecutivePoints
 	ld a, b
-	cp $10
-	jr c, .asm_23c1
-.asm_23ee
+	cp 16
+	jr c, .findNextCollisionPoint
+.determinedCollisionStatus
+	; e = maximum number of consecutive successful collision points
+	; d = the start and last index of that consecutive string of collision points (wCollisionPointTests)
+	;     the hi nybble is the start index, lo nybble is the end index
 	ld a, e
-	ld [wd7e9], a
+	ld [wIsBallColliding], a
 	and a
 	ret z
 	ld a, [hLoadedROMBank]
@@ -2744,12 +2807,17 @@ CheckObjectCollision: ; 0x22b5
 	ld [hLoadedROMBank], a
 	ld [MBC5RomBank], a
 	push de
+	; Based on the start and end collision point indices, look
+	; up the corresponding normal angle for them.
 	ld e, d
-	ld d, $0
+	ld d, 0
 	ld hl, CollisionForceAngles
 	add hl, de
 	ld a, [hl]
-	ld [wCollisionForceAngle], a
+	ld [wCollisionNormalAngle], a
+	; Again, based on the start and end collision point indices, apply
+	; position offsets to position the ball safely outside of the wall
+	; it collided with.
 	sla e
 	rl d
 	ld hl, CollisionYDeltas
@@ -2781,73 +2849,84 @@ CheckObjectCollision: ; 0x22b5
 	ld a, d
 	and $f
 	sub e
-	jr nc, .asm_2449
-	add $10
-.asm_2449
+	jr nc, .loadTestPointOffsets
+	add 16
+.loadTestPointOffsets
+	; e = start index of consecutive collision points
+	; a = length of consecutive collision points
+	; The rest of the code here determines which of
+	; the collision mask tiles was the one that triggered
+	; the collision. It can be multiple tiles, so it uses
+	; first collision test point that was colliding. Then,
+	; that tile's collision attribute is saved in wCurCollisionAttribute.
 	add e
 	add e
 	inc a
 	and $1e
 	ld c, a
-	ld b, $0
-	ld hl, SubTileBallPosDeltas
+	ld b, 0
+	ld hl, BallCollisionTestPointOffsets
 	add hl, bc
 	ld a, [wSubTileBallXPos]
-	add $4
+	add 4
 	add [hl]
 	bit 3, a
 	ld c, b
-	jr z, .asm_2462
-	ld c, $2
-.asm_2462
+	jr z, .checkY
+	ld c, 2
+.checkY
 	ld a, [wSubTileBallYPos]
-	add $4
+	add 4
 	inc hl
 	add [hl]
 	bit 3, a
-	jr z, .asm_246e
+	jr z, .saveCollisionAttribute
 	inc c
-.asm_246e
+.saveCollisionAttribute
 	ld hl, wUpperLeftCollisionAttribute
 	add hl, bc
 	ld a, [hl]
 	ld [wCurCollisionAttribute], a
 	ld hl, BallPositionPointerOffsetDeltas
 	add hl, bc
-	ld a, [wBallPositionPointerOffsetFromStageTopLeft]
+	ld a, [wBallPositionTileOffset]
 	add [hl]
-	ld [wd7f6], a
-	ld a, [wBallPositionPointerOffsetFromStageTopLeft + 1]
-	adc $0
-	ld [wd7f7], a
+	ld [wCurCollisionTileOffset], a
+	ld a, [wBallPositionTileOffset + 1]
+	adc 0
+	ld [wCurCollisionTileOffset + 1], a
 	ret
 
-Func_248a: ; 0x248a
+TryLoadSpecialCollisionMask: ; 0x248a
+; If it's a special collision mask attribute, load the
+; pointer to its mask and set the carry flag.
+; If it's a regular static collision mask attribute, simply
+; reset the carry flag and don't return anything.
 	push af
 	ld a, [wCurrentStage]
 	bit 0, a
-	jr nz, .asm_2495
+	jr nz, .bottomStage
 	pop af
 	and a
 	ret
 
-.asm_2495
+.bottomStage
 	pop af
 	cp $d0
 	ccf
 	ret nc
 	cp $e0
-	jr nc, .asm_24ab
+	jr nc, .notAnimatedMonCollision
 	sub $d0
 	sla a
 	sla a
 	sla a
 	ld l, a
-	ld h, $c4
+	ld h, (wMonAnimatedCollisionMask >> 8)
 	scf
 	ret
 
-.asm_24ab
+.notAnimatedMonCollision
 	push de
 	sub $e0
 	ld b, a
@@ -2856,20 +2935,20 @@ Func_248a: ; 0x248a
 	jr nc, .bonusStage
 	bit 4, b
 	ld hl, BottomLeftCollisionMasks
-	ld a, [wd7af]
-	jr z, .asm_24c8
+	ld a, [wLeftFlipperState + 1]
+	jr z, .checkFlipperPosition
 	res 4, b
 	ld hl, BottomRightCollisionMasks
-	ld a, [wd7b3]
-.asm_24c8
+	ld a, [wRightFlipperState + 1]
+.checkFlipperPosition
 	ld de, $0080
-	cp $7
-	jr c, .asm_24d5
+	cp 7
+	jr c, .loadMaskPointer
 	add hl, de
-	cp $e
-	jr c, .asm_24d5
+	cp 14
+	jr c, .loadMaskPointer
 	add hl, de
-.asm_24d5
+.loadMaskPointer
 	ld e, b
 	sla e
 	sla e
@@ -2882,20 +2961,20 @@ Func_248a: ; 0x248a
 .bonusStage
 	bit 4, b
 	ld hl, BottomLeftBonusStageCollisionMasks
-	ld a, [wd7af]
-	jr z, .asm_24f2
+	ld a, [wLeftFlipperState + 1]
+	jr z, .checkFlipperPosition2
 	res 4, b
 	ld hl, BottomRightBonusStageCollisionMasks
-	ld a, [wd7b3]
-.asm_24f2
+	ld a, [wRightFlipperState + 1]
+.checkFlipperPosition2
 	ld de, $0080
-	cp $7
-	jr c, .asm_24ff
+	cp 7
+	jr c, .loadMaskPointer2
 	add hl, de
-	cp $e
-	jr c, .asm_24ff
+	cp 14
+	jr c, .loadMaskPointer2
 	add hl, de
-.asm_24ff
+.loadMaskPointer2
 	ld e, b
 	sla e
 	sla e
@@ -2909,7 +2988,7 @@ BallPositionPointerOffsetDeltas:
 	db $00, $20
 	db $01, $21
 
-SubTileBallPosDeltas:
+BallCollisionTestPointOffsets:
 	db  4,  0
 	db  4,  1
 	db  3,  3
@@ -2927,17 +3006,24 @@ SubTileBallPosDeltas:
 	db  3, -3
 	db  4, -1
 
-SubTileXPos_CollisionDataPointers: ; 0x252e
-	dw SubTileXPos_CollisionData0
-	dw SubTileXPos_CollisionData1
-	dw SubTileXPos_CollisionData2
-	dw SubTileXPos_CollisionData3
-	dw SubTileXPos_CollisionData4
-	dw SubTileXPos_CollisionData5
-	dw SubTileXPos_CollisionData6
-	dw SubTileXPos_CollisionData7
+; These tables facilitate testing the 16 collision points around the ball's origin.
+; Each table corresponds to an x sub-tile offset for a base point 4 pixels up and left of
+; the ball's origin.
+;
+; First byte:  y sub-tile offset, if its greater than 8, it bleeds over to the next tile in the 2x2 tile region
+; Second byte: bitmask to test against the 1bpp collision mask's row
+; Third byte:  index of wCollisionPointTests to save the result in
+CollisionTests: ; 0x252e
+	dw CollisionTest_X0
+	dw CollisionTest_X1
+	dw CollisionTest_X2
+	dw CollisionTest_X3
+	dw CollisionTest_X4
+	dw CollisionTest_X5
+	dw CollisionTest_X6
+	dw CollisionTest_X7
 
-SubTileXPos_CollisionData0: ; 0x253e
+CollisionTest_X0: ; 0x253e
 	db $00, $10, $0B
 	db $00, $08, $0C
 	db $00, $04, $0D
@@ -2955,7 +3041,7 @@ SubTileXPos_CollisionData0: ; 0x253e
 	db $08, $08, $04
 	db $08, $04, $03
 
-SubTileXPos_CollisionData1: ; 0x256e
+CollisionTest_X1: ; 0x256e
 	db $00, $08, $0B
 	db $00, $04, $0C
 	db $00, $02, $0D
@@ -2973,7 +3059,7 @@ SubTileXPos_CollisionData1: ; 0x256e
 	db $08, $04, $04
 	db $08, $02, $03
 
-SubTileXPos_CollisionData2: ; 0x259e
+CollisionTest_X2: ; 0x259e
 	db $00, $04, $0B
 	db $00, $02, $0C
 	db $00, $01, $0D
@@ -2991,7 +3077,7 @@ SubTileXPos_CollisionData2: ; 0x259e
 	db $08, $02, $04
 	db $08, $01, $03
 
-SubTileXPos_CollisionData3: ; 0x25ce
+CollisionTest_X3: ; 0x25ce
 	db $00, $02, $0B
 	db $00, $01, $0C
 	db $10, $80, $0D
@@ -3009,7 +3095,7 @@ SubTileXPos_CollisionData3: ; 0x25ce
 	db $08, $01, $04
 	db $18, $80, $03
 
-SubTileXPos_CollisionData4: ; 0x25fe
+CollisionTest_X4: ; 0x25fe
 	db $00, $01, $0B
 	db $10, $80, $0C
 	db $10, $40, $0D
@@ -3027,7 +3113,7 @@ SubTileXPos_CollisionData4: ; 0x25fe
 	db $18, $80, $04
 	db $18, $40, $03
 
-SubTileXPos_CollisionData5: ; 0x262e
+CollisionTest_X5: ; 0x262e
 	db $10, $80, $0B
 	db $10, $40, $0C
 	db $10, $20, $0D
@@ -3045,7 +3131,7 @@ SubTileXPos_CollisionData5: ; 0x262e
 	db $18, $40, $04
 	db $18, $20, $03
 
-SubTileXPos_CollisionData6: ; 0x265e
+CollisionTest_X6: ; 0x265e
 	db $10, $40, $0B
 	db $10, $20, $0C
 	db $10, $10, $0D
@@ -3063,7 +3149,7 @@ SubTileXPos_CollisionData6: ; 0x265e
 	db $18, $20, $04
 	db $18, $10, $03
 
-SubTileXPos_CollisionData7: ; 0x268e
+CollisionTest_X7: ; 0x268e
 	db $10, $20, $0B
 	db $10, $10, $0C
 	db $10, $08, $0D
@@ -3172,17 +3258,14 @@ BottomLeftBonusStageCollisionMasks:
 BottomRightBonusStageCollisionMasks:
 	INCBIN "data/collision/masks/bottom_right_bonus_stage_masks.masks"
 
+; These two squares data arrays must be aligned to $100 bytes and appear contiguously.
 SquaresLow:
-x = 0
-rept 256
-	db (x * x) % $100
-x = x + 1
-endr
+FOR X, 256
+	db (X * X) % $100
+ENDR
 
 SquaresHigh:
-x = 0
-rept 256
-	db (x * x) / $100
-x = x + 1
-endr
+FOR X, 256
+	db (X * X) / $100
+ENDR
 

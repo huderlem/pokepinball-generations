@@ -197,7 +197,7 @@ LoadEvolutionTrinketGraphics_GoldField: ; 0x14234
 	ld a, [wSpecialMode]
 	cp SPECIAL_MODE_EVOLUTION
 	ret nz
-	ld a, [wd554]
+	ld a, [wNumEvolutionTrinkets]
 	cp $3
 	ret z
 	ld a, [wCurrentStage]
@@ -217,8 +217,8 @@ LoadEvolutionTrinketGraphics_GoldField: ; 0x14234
 	ld a, [hGameBoyColorFlag]
 	and a
 	ret z
-	ld a, BANK(PaletteData_dd188)
-	ld hl, PaletteData_dd188
+	ld a, BANK(EvolutionTrinketPalette1)
+	ld hl, EvolutionTrinketPalette1
 	ld de, $0070
 	ld bc, $0010
 	call FarCopyCGBPals
@@ -285,7 +285,7 @@ Func_142b3_GoldField: ; 0x142b3
 
 Func_142c3_GoldField: ; 0x142c3
 	ld de, $0000
-	ld a, [wd554]
+	ld a, [wNumEvolutionTrinkets]
 	and a
 	ret z
 	ld b, a

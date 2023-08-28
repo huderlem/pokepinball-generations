@@ -63,7 +63,7 @@ INCLUDE "engine/pinball_game/evolution_mode.asm"
 INCLUDE "data/evolution_methods.asm"
 INCLUDE "data/mon_names.asm"
 INCLUDE "data/mon_initial_indicator_states.asm"
-INCLUDE "data/evolution_mode_indicator_sets.asm"
+INCLUDE "data/evolution_mode_mon_object_counts.asm"
 
 SECTION "bank5", ROMX
 
@@ -141,7 +141,6 @@ SECTION "bankc", ROMX
 
 INCLUDE "engine/pinball_game/stage_init/init_red_field.asm"
 INCLUDE "engine/pinball_game/ball_init/ball_init_red_field.asm"
-INCLUDE "engine/pinball_game/bonus_multiplier.asm"
 INCLUDE "engine/pinball_game/extra_ball.asm"
 INCLUDE "engine/pinball_game/map_move.asm"
 
@@ -1013,27 +1012,8 @@ INCLUDE "data/mon_gfx/mon_billboard_palettes_6.asm"
 INCLUDE "data/stage_palettes.asm"
 INCLUDE "data/billboard/map_palettes_2.asm"
 INCLUDE "data/ball_palettes.asm"
-
-PaletteData_dd188: ; 0xdd188
-	RGB 31, 31, 31
-    RGB 31, 29, 0
-    RGB 29, 3, 2
-    RGB 2, 2, 2
-PaletteData_dd190: ; 0xdd190
-    RGB 31, 31, 31
-    RGB 9, 22, 6
-    RGB 4, 13, 31
-    RGB 2, 2, 2
-SlotOnBillboardBGPalette: ; 0xdd198
-    RGB 31, 31, 31
-    RGB 31, 26, 2
-    RGB 31, 3, 0
-    RGB 0, 0, 0
-PaletteData_dd1a0: ; 0xdd1a0
-    RGB 31, 31, 31
-    RGB 31, 26, 2
-    RGB 31, 3, 0
-    RGB 0, 0, 0
+INCLUDE "data/evolution_trinket_palettes.asm"
+INCLUDE "data/slot_on_billboard_palettes.asm"
 
 SECTION "bank39", ROMX
 
@@ -1078,21 +1058,21 @@ TiltLeftOnlyForce:
 
 SECTION "bank3d", ROMX
 
-FlipperHorizontalCollisionAttributes: ; 0xf4000
-	INCBIN "data/collision/flippers/horizontal_attributes_0"
+FlipperCollisionRadii: ; 0xf4000
+	INCBIN "data/collision/flippers/radii_0"
 
 SECTION "bank3e", ROMX
 
-FlipperHorizontalCollisionAttributes2: ; 0xf8000
-	INCBIN "data/collision/flippers/horizontal_attributes_1"
+FlipperCollisionRadii2: ; 0xf8000
+	INCBIN "data/collision/flippers/radii_1"
 
-FlipperVerticalCollisionAttributes: ; 0xfa000
-	INCBIN "data/collision/flippers/vertical_attributes_0"
+FlipperCollisionNormalAngles: ; 0xfa000
+	INCBIN "data/collision/flippers/normal_angles_0"
 
 SECTION "bank3f", ROMX
 
-FlipperVerticalCollisionAttributes2: ; 0xfc000
-	INCBIN "data/collision/flippers/vertical_attributes_1"
+FlipperCollisionNormalAngles2: ; 0xfc000
+	INCBIN "data/collision/flippers/normal_angles_1"
 
 SECTION "bank40", ROMX
 
@@ -1504,7 +1484,7 @@ INCLUDE "data/mon_gfx/mon_billboard_pics_17.asm"
 SECTION "bank66", ROMX
 
 INCLUDE "data/collision/mon_collision_masks_3.asm"
-INCLUDE "data/evolution_lines.asm"
+INCLUDE "data/catchem_mons.asm"
 INCLUDE "data/mon_animated_sprite_types.asm"
 INCLUDE "data/collision/mon_collision_mask_pointers.asm"
 INCLUDE "data/mon_species.asm"

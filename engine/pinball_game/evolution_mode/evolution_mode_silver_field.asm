@@ -51,7 +51,7 @@ HandleEvolutionMode_SilverField: ; 0x20c08
 .asm_20c18
 	ld c, a
 	ld b, $0
-	ld hl, wd566
+	ld hl, wActiveEvolutionTrinkets
 	add hl, bc
 	ld a, [hl]
 	and a
@@ -98,7 +98,7 @@ ProgressEvolution_SilverField: ; 0x20c76
 	ld hl, EvolutionProgressIconsGfx
 	add hl, bc
 	add hl, bc
-	ld a, [wd554]
+	ld a, [wNumEvolutionTrinkets]
 	ld c, a
 	ld b, $0
 	swap c
@@ -113,9 +113,9 @@ ProgressEvolution_SilverField: ; 0x20c76
 	ld a, BANK(EvolutionProgressIconsGfx)
 	call LoadVRAMData
 .top
-	ld a, [wd554]
+	ld a, [wNumEvolutionTrinkets]
 	inc a
-	ld [wd554], a
+	ld [wNumEvolutionTrinkets], a
 	cp $1
 	jr nz, .asm_20cb8
 	lb de, $07, $28
@@ -279,10 +279,10 @@ HandleShellderCollision_EvolutionMode_SilverField: ; 0x20e34
 	jr z, .asm_20e5c
 	xor a
 	ld [wIndicatorStates + 9], a
-	ld a, [wd55c]
+	ld a, [wEvolutionObjectStates + 0]
 	and a
 	ld a, $0
-	ld [wd55c], a
+	ld [wEvolutionObjectStates + 0], a
 	jp nz, CreateEvolutionTrinket_SilverField
 	jp EvolutionTrinketNotFound_SilverField
 
@@ -300,10 +300,10 @@ HandleCloysterCollision_EvolutionMode_SilverField: ; 0x20e5e
 	xor a
 	ld [wIndicatorStates + 3], a
 	ld [wIndicatorStates + 10], a
-	ld a, [wd562]
+	ld a, [wEvolutionObjectStates + 6]
 	and a
 	ld a, $0
-	ld [wd562], a
+	ld [wEvolutionObjectStates + 6], a
 	jp nz, CreateEvolutionTrinket_SilverField
 	jp EvolutionTrinketNotFound_SilverField
 
@@ -314,121 +314,121 @@ HandleCloysterCollision_EvolutionMode_SilverField: ; 0x20e5e
 HandleSlowpokeCollision_EvolutionMode_SilverField: ; 0x20e82
 	ld a, [wEvolutionObjectsDisabled]
 	and a
-	jr nz, .asm_20ea4
+	jr nz, .disabled
 	ld a, [wIndicatorStates + 8]
 	and a
-	jr z, .asm_20ea4
+	jr z, .disabled
 	xor a
 	ld [wIndicatorStates + 8], a
 	ld [wIndicatorStates + 2], a
-	ld a, [wd561]
+	ld a, [wEvolutionObjectStates + 5]
 	and a
 	ld a, $0
-	ld [wd561], a
+	ld [wEvolutionObjectStates + 5], a
 	jp nz, CreateEvolutionTrinket_SilverField
 	jp EvolutionTrinketNotFound_SilverField
 
-.asm_20ea4
+.disabled
 	scf
 	ret
 
 HandlePoliwagCollision_EvolutionMode_SilverField: ; 0x20ea6
 	ld a, [wEvolutionObjectsDisabled]
 	and a
-	jr nz, .asm_20ec5
+	jr nz, .disabled
 	ld a, [wIndicatorStates + 13]
 	and a
-	jr z, .asm_20ec5
+	jr z, .disabled
 	xor a
 	ld [wIndicatorStates + 13], a
-	ld a, [wd55d]
+	ld a, [wEvolutionObjectStates + 1]
 	and a
 	ld a, $0
-	ld [wd55d], a
+	ld [wEvolutionObjectStates + 1], a
 	jp nz, CreateEvolutionTrinket_SilverField
 	jp EvolutionTrinketNotFound_SilverField
 
-.asm_20ec5
+.disabled
 	scf
 	ret
 
 HandlePsyduckCollision_EvolutionMode_SilverField: ; 0x20ec7
 	ld a, [wEvolutionObjectsDisabled]
 	and a
-	jr nz, .asm_20ee6
+	jr nz, .disabled
 	ld a, [wIndicatorStates + 14]
 	and a
-	jr z, .asm_20ee6
+	jr z, .disabled
 	xor a
 	ld [wIndicatorStates + 14], a
-	ld a, [wd55e]
+	ld a, [wEvolutionObjectStates + 2]
 	and a
 	ld a, $0
-	ld [wd55e], a
+	ld [wEvolutionObjectStates + 2], a
 	jp nz, CreateEvolutionTrinket_SilverField
 	jp EvolutionTrinketNotFound_SilverField
 
-.asm_20ee6
+.disabled
 	scf
 	ret
 
 HandleLeftBonusMultiplierCollision_EvolutionMode_SilverField: ; 0x20ee8
 	ld a, [wEvolutionObjectsDisabled]
 	and a
-	jr nz, .asm_20f07
+	jr nz, .disabled
 	ld a, [wIndicatorStates + 11]
 	and a
-	jr z, .asm_20f07
+	jr z, .disabled
 	xor a
 	ld [wIndicatorStates + 11], a
-	ld a, [wd55f]
+	ld a, [wEvolutionObjectStates + 3]
 	and a
 	ld a, $0
-	ld [wd55f], a
+	ld [wEvolutionObjectStates + 3], a
 	jp nz, CreateEvolutionTrinket_SilverField
 	jp EvolutionTrinketNotFound_SilverField
 
-.asm_20f07
+.disabled
 	scf
 	ret
 
 HandleRightBonusMultiplierCollision_EvolutionMode_SilverField: ; 0x20f09
 	ld a, [wEvolutionObjectsDisabled]
 	and a
-	jr nz, .asm_20f28
+	jr nz, .disabled
 	ld a, [wIndicatorStates + 12]
 	and a
-	jr z, .asm_20f28
+	jr z, .disabled
 	xor a
 	ld [wIndicatorStates + 12], a
-	ld a, [wd560]
+	ld a, [wEvolutionObjectStates + 4]
 	and a
 	ld a, $0
-	ld [wd560], a
+	ld [wEvolutionObjectStates + 4], a
 	jp nz, CreateEvolutionTrinket_SilverField
 	jp EvolutionTrinketNotFound_SilverField
 
-.asm_20f28
+.disabled
 	scf
 	ret
 
 HandleBallUpgradeCollision_EvolutionMode_SilverField: ; 0x20f2a
 	ld a, [wEvolutionObjectsDisabled]
 	and a
-	jr nz, .asm_20f49
+	jr nz, .disabled
 	ld a, [wIndicatorStates + 6]
 	and a
-	jr z, .asm_20f49
+	jr z, .disabled
 	xor a
 	ld [wIndicatorStates + 6], a
-	ld a, [wd565]
+	ld a, [wEvolutionObjectStates + 9]
 	and a
 	ld a, $0
-	ld [wd565], a
+	ld [wEvolutionObjectStates + 9], a
 	jp nz, CreateEvolutionTrinket_SilverField
 	jp EvolutionTrinketNotFound_SilverField
 
-.asm_20f49
+.disabled
 	scf
 	ret
 
@@ -438,20 +438,20 @@ HandleSpinnerCollision_EvolutionMode_SilverField: ; 0x20f4b
 	call AddBCDEToJackpot
 	ld a, [wEvolutionObjectsDisabled]
 	and a
-	jr nz, .asm_20f73
+	jr nz, .disabled
 	ld a, [wIndicatorStates + 7]
 	and a
-	jr z, .asm_20f73
+	jr z, .disabled
 	xor a
 	ld [wIndicatorStates + 7], a
-	ld a, [wd564]
+	ld a, [wEvolutionObjectStates + 8]
 	and a
 	ld a, $0
-	ld [wd564], a
+	ld [wEvolutionObjectStates + 8], a
 	jp nz, CreateEvolutionTrinket_SilverField
 	jp EvolutionTrinketNotFound_SilverField
 
-.asm_20f73
+.disabled
 	scf
 	ret
 
@@ -497,8 +497,8 @@ CreateEvolutionTrinket_SilverField: ; 0x20f75
 	ld a, [hGameBoyColorFlag]
 	and a
 	jr z, .asm_20fc3
-	ld a, BANK(PaletteData_dd188)
-	ld hl, PaletteData_dd188
+	ld a, BANK(EvolutionTrinketPalette1)
+	ld hl, EvolutionTrinketPalette1
 	ld de, $0070
 	ld bc, $0010
 	call Func_7dc
@@ -602,10 +602,10 @@ HandleLeftTriggerCollision_EvolutionMode_SilverField: ; 0x21089
 	jr z, .asm_210a8
 	xor a
 	ld [wIndicatorStates], a
-	ld a, [wd563]
+	ld a, [wEvolutionObjectStates + 7]
 	and a
 	ld a, $0
-	ld [wd563], a
+	ld [wEvolutionObjectStates + 7], a
 	jp nz, CreateEvolutionTrinket_SilverField
 	jp EvolutionTrinketNotFound_SilverField
 
@@ -668,7 +668,7 @@ ChooseNextEvolutionTrinketLocation_SilverField: ; 0x2111d
 	call RandomRange
 	ld c, a
 	ld b, $0
-	ld hl, wd566
+	ld hl, wActiveEvolutionTrinkets
 	add hl, bc
 	ret
 

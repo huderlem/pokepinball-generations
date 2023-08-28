@@ -197,17 +197,17 @@ DrawStaryu_GoldField: ; 0x17d92
 	and a
 	ret z
 	ld hl, AnimationData_17dd0_GoldField
-	ld de, wd504
+	ld de, wStaryuAnimation
 	call UpdateAnimation
-	ld a, [wd504]
+	ld a, [wStaryuAnimationFrameCounter]
 	and a
-	jr nz, .asm_17db1
+	jr nz, .drawStaryu
 	ld a, $13
-	ld [wd504], a
+	ld [wStaryuAnimationFrameCounter], a
 	xor a
-	ld [wd505], a
-	ld [wd506], a
-.asm_17db1
+	ld [wStaryuAnimationFrame], a
+	ld [wStaryuAnimationIndex], a
+.drawStaryu
 	ld a, $2b
 	ld hl, hSCX
 	sub [hl]
@@ -216,7 +216,7 @@ DrawStaryu_GoldField: ; 0x17d92
 	ld hl, hSCY
 	sub [hl]
 	ld c, a
-	ld a, [wd505]
+	ld a, [wStaryuAnimationFrame]
 	ld e, a
 	ld d, $0
 	ld hl, OAMIds_17dce_GoldField
@@ -250,7 +250,7 @@ DrawSpinner_GoldField: ; 0x17de1
 	ld hl, hSCY
 	sub [hl]
 	ld c, a
-	ld a, [wd50a]
+	ld a, [wSpinnerState + 1]
 	srl a
 	srl a
 	ld e, a
@@ -276,7 +276,7 @@ DrawPikachuSavers_GoldField: ; 0x17e08
 	ld a, [wd51c]
 	and a
 	jr nz, .asm_17e29
-	ld a, [hNumFramesDropped]
+	ld a, [hFrameCounter]
 	srl a
 	srl a
 	srl a
@@ -314,7 +314,7 @@ DrawEvolutionIndicatorArrows_GoldFieldTop: ; 0x17efb
 	ld a, [wEvolutionObjectsDisabled]
 	and a
 	ret nz
-	ld a, [hNumFramesDropped]
+	ld a, [hFrameCounter]
 	bit 4, a
 	ret z
 	ld de, wIndicatorStates + 5
@@ -326,7 +326,7 @@ DrawEvolutionIndicatorArrows_GoldFieldBottom: ; 0x17f0f
 	ld a, [wEvolutionObjectsDisabled]
 	and a
 	ret nz
-	ld a, [hNumFramesDropped]
+	ld a, [hFrameCounter]
 	bit 4, a
 	ret z
 	ld de, wIndicatorStates + 11
@@ -402,7 +402,7 @@ DrawEvolutionTrinket_GoldFieldTop: ; 0x17f64
 	ld a, [wEvolutionObjectsDisabled]
 	and a
 	ret z
-	ld de, wd566
+	ld de, wActiveEvolutionTrinkets
 	ld hl, EvolutionTrinketOAMOffsets_GoldFieldTop
 	ld b, $c
 	ld c, $39
@@ -412,7 +412,7 @@ DrawEvolutionTrinket_GoldFieldBottom: ; 0x17f75
 	ld a, [wEvolutionObjectsDisabled]
 	and a
 	ret z
-	ld de, wd572
+	ld de, wActiveEvolutionTrinkets + 12
 	ld hl, EvolutionTrinketOAMOffsets_GoldFieldBottom
 	ld b, $6
 	ld c, $40
@@ -432,7 +432,7 @@ DrawEvolutionTrinket_GoldField: ; 0x17f84
 	ld a, [hli]
 	sub c
 	ld c, a
-	ld a, [hNumFramesDropped]
+	ld a, [hFrameCounter]
 	and $e
 	jr nz, .asm_17f9c
 	dec c

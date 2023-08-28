@@ -272,7 +272,7 @@ HitRightDiglett3Times_GoldField: ; 0x14920
 	jr nc, .asm_14937
 	ld c, $a
 	call Modulo_C
-	callba z, IncrementBonusMultiplierFromFieldEvent
+	callba z, AddExtraBall
 .asm_14937
 	ld a, $1
 	ld [wMapMoveDirection], a
@@ -285,7 +285,7 @@ HitLeftDiglett3Times_GoldField: ; 0x14947
 	jr nc, .asm_1495e
 	ld c, $a
 	call Modulo_C
-	callba z, IncrementBonusMultiplierFromFieldEvent
+	callba z, AddExtraBall
 .asm_1495e
 	xor a
 	ld [wMapMoveDirection], a
@@ -298,7 +298,7 @@ AddScoreForHittingDiglett_GoldField: ; 0x1496d
 	ld a, $4
 	ld [wRumbleDuration], a
 	ld a, $2
-	ld [wd7eb], a
+	ld [wCollisionForceAmplification], a
 	ld bc, FiveHundredPoints
 	callba AddBigBCD6FromQueueWithBallMultiplier
 	lb de, $00, $0f
@@ -488,11 +488,11 @@ UpdateGoldStageSpinner: ; 0x14e10
 	ld a, b
 	ld [wSpinnerVelocity + 1], a
 	ld hl, wSpinnerVelocity
-	ld a, [wd509]
+	ld a, [wSpinnerState]
 	add [hl]
-	ld [wd509], a
+	ld [wSpinnerState], a
 	inc hl
-	ld a, [wd50a]
+	ld a, [wSpinnerState + 1]
 	adc [hl]
 	bit 7, a
 	ld c, $0
@@ -507,7 +507,7 @@ UpdateGoldStageSpinner: ; 0x14e10
 	sub $18
 	ld c, $1
 .asm_14e66
-	ld [wd50a], a
+	ld [wSpinnerState + 1], a
 	ld a, c
 	and a
 	ret z
@@ -848,7 +848,7 @@ ResolveBallUpgradeTriggersCollision_GoldField: ; 0x1535d
 	call UpdatePinballUpgradeBlinkingAnimation_GoldField
 	ret z
 
-LoadPinballUpgradeTriggersGraphics_GoldField
+LoadPinballUpgradeTriggersGraphics_GoldField:
 ; Loads the on or off graphics for each of the 3 pinball upgrade trigger dots, depending on their current toggle state.
 	ld a, [wStageCollisionState]
 	bit 0, a
@@ -1365,7 +1365,7 @@ ResolveBellsproutCollision_GoldField: ; 0x15e93
 	ret nc
 	ld c, $19
 	call Modulo_C
-	callba z, IncrementBonusMultiplierFromFieldEvent
+	callba z, AddExtraBall
 	ret
 
 .asm_15f35
@@ -1482,9 +1482,9 @@ ApplyBumperCollision_GoldField: ; 0x15fda
 	ld b, $0
 	ld hl, BumperCollisionAngleDeltas_GoldField
 	add hl, bc
-	ld a, [wCollisionForceAngle]
+	ld a, [wCollisionNormalAngle]
 	add [hl]
-	ld [wCollisionForceAngle], a
+	ld [wCollisionNormalAngle], a
 	lb de, $00, $0b
 	call PlaySoundEffect
 	ret
@@ -1837,7 +1837,7 @@ DoSlotLogic_GoldField: ; 0x16352
 	ld a, [wFramesUntilSlotCaveOpens]
 	and a
 	jr nz, .asm_163b3
-.asm_1637a
+.goToBonusStage
 	ld a, [wBonusStageSlotRewardActive]
 	and a
 	jr nz, .asm_16389
@@ -1867,12 +1867,12 @@ DoSlotLogic_GoldField: ; 0x16352
 	ret
 
 .asm_163b3
-	callba Func_ed8e
+	callba DoSlotRewardRoulette
 	xor a
 	ld [wOpenedSlotByGetting4CAVELights], a
-	ld a, [wd61d]
-	cp $d
-	jr nc, .asm_1637a
+	ld a, [wSlotRouletteBillboardPicture]
+	cp BILLBOARD_GENGAR_BONUS
+	jr nc, .goToBonusStage
 	ld a, $1
 	ld [wPinballIsVisible], a
 	ld [wEnableBallGravityAndTilt], a
@@ -2190,7 +2190,7 @@ UpdatePikachuSaverAnimation_GoldField: ; 0x1669e
 	jr nc, .asm_166f0
 	ld c, $a
 	call Modulo_C
-	callba z, IncrementBonusMultiplierFromFieldEvent
+	callba z, AddExtraBall
 .asm_166f0
 	lb de, $16, $10
 	call PlaySoundEffect
@@ -2225,7 +2225,7 @@ UpdatePikachuSaverAnimation_GoldField: ; 0x1669e
 	ret
 
 .asm_16732
-	ld a, [hNumFramesDropped]
+	ld a, [hFrameCounter]
 	swap a
 	and $1
 	ld [wPikachuSaverAnimationFrame], a
@@ -2403,7 +2403,7 @@ INCLUDE "data/queued_tiledata/gold_field/staryu_bumper.asm"
 
 UpdateArrowIndicators_GoldField: ; 0x169a6
 ; Updates the 5 blinking arrow indicators in the gold field bottom.
-	ld a, [hNumFramesDropped]
+	ld a, [hFrameCounter]
 	and $1f
 	ret nz
 	ld bc, $0000
@@ -2415,7 +2415,7 @@ UpdateArrowIndicators_GoldField: ; 0x169a6
 	jr z, .asm_169c5
 	ld a, [hl]
 	res 7, a
-	ld hl, hNumFramesDropped
+	ld hl, hFrameCounter
 	bit 5, [hl]
 	jr z, .asm_169c2
 	inc a
@@ -2505,7 +2505,7 @@ ResolveGoldStageBonusMultiplierCollision: ; 016d9d
 	jr nc, .asm_16e24
 	ld c, $19
 	call Modulo_C
-	callba z, IncrementBonusMultiplierFromFieldEvent
+	callba z, AddExtraBall
 .asm_16e24
 	ld a, [wBonusMultiplierTensDigit]
 	ld [wd614], a
@@ -2559,7 +2559,7 @@ UpdateBonusMultiplierRailing_GoldField: ; 0x16e51
 	cp $2
 	jr c, .asm_16ec1
 	cp $3
-	ld a, [hNumFramesDropped]
+	ld a, [hFrameCounter]
 	jr c, .asm_16ea0
 	srl a
 	srl a
@@ -2585,7 +2585,7 @@ UpdateBonusMultiplierRailing_GoldField: ; 0x16e51
 	cp $2
 	ret c
 	cp $3
-	ld a, [hNumFramesDropped]
+	ld a, [hFrameCounter]
 	jr c, .asm_16ed1
 	srl a
 	srl a

@@ -109,17 +109,17 @@ UpdateMonState_CatchemMode_RubyField: ; 0x200d3
 	ld a, [wCurrentCatchEmMon + 1]
 	cp (MEW - 1) & $FF
 	jr nz, .notMew
-	ld a, [wNumMewHitsLow]
+	ld a, [wNumMewHits]
 	inc a
-	ld [wNumMewHitsLow], a
-	jr nz, .asm_20116
+	ld [wNumMewHits], a
+	jr nz, .Not256MewHits
 .notMew
 	ld a, [wNumMonHits]
 	cp $3
 	jr z, .hitMonThreeTimes
 	inc a
 	ld [wNumMonHits], a
-.asm_20116
+.Not256MewHits
 	ld bc, ThreeHundredThousandPoints
 	callba AddBigBCD6FromQueue
 	ld bc, $0030

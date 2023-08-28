@@ -109,7 +109,7 @@ AnimateDogEntrance:
 	call Sine
 	; e = sin(a)
 	ld bc, ENTRANCE_JUMP_HEIGHT
-	call MultiplyBCByEAndRoundToMostSignificantShort
+	call MultiplyVectorComponentByAngleFactor
 	call NegateBC
 	; bc = number of pixels to travel upward
 	ld a, c
@@ -179,7 +179,7 @@ AnimateDogJumpAway:
 	call Sine
 	; e = sin(a)
 	ld bc, JUMP_AWAY_HEIGHT
-	call MultiplyBCByEAndRoundToMostSignificantShort
+	call MultiplyVectorComponentByAngleFactor
 	call NegativAbsC
 	pop de
 	ld b, d

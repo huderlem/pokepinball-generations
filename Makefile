@@ -8,7 +8,11 @@
 ROM := PinballGenerations.gbc
 OBJS := main.o wram.o sram.o
 
-MD5 := md5sum -c
+ifeq (,$(shell which sha1sum))
+SHA1 := shasum
+else
+SHA1 := sha1sum
+endif
 
 COMPILE_FLAGS :=
 
@@ -22,7 +26,7 @@ endif
 
 %.o: dep = $(shell tools/scan_includes $(@D)/$*.asm)
 %.o: %.asm $$(dep)
-	rgbasm $(COMPILE_FLAGS) -h -o $@ $<
+	rgbasm $(COMPILE_FLAGS) -h -Wunmapped-char=0 -l -o $@ $<
 
 $(ROM): $(OBJS) contents/contents.link
 	rgblink -n $(ROM:.gbc=.sym) -m $(ROM:.gbc=.map) -l contents/contents.link -o $@ $(OBJS)

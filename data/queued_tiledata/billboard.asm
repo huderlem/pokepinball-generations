@@ -59,7 +59,7 @@ PalletTownBillboardTileDataList:
 	dw PalletTownBillboardTileData7
 	dw PalletTownBillboardTileData8
 
-ViridianCityBillboardTileDataList
+ViridianCityBillboardTileDataList:
 	db $08
 	dw ViridianCityBillboardTileData1
 	dw ViridianCityBillboardTileData2
@@ -2938,7 +2938,7 @@ HurryUp2OnBillboardTileData2:
 	db Bank(HurryUp2OnPic)
 	db $00
 
-HurryUp2OnBillboardTileData3 ; 0x30a2f
+HurryUp2OnBillboardTileData3: ; 0x30a2f
 	dw Func_11d2
 	db $30, $03
 	dw vTilesSH tile $16
@@ -5359,8 +5359,8 @@ SlotOnBillboardBGPaletteData:
 	db $10
 	db $08 ; number of colors
 	db $30 ; OAM palettes
-	dw SlotOnBillboardBGPalette
-	db Bank(SlotOnBillboardBGPalette)
+	dw SlotOnBillboardBGPalettes
+	db Bank(SlotOnBillboardBGPalettes)
 	db $00 ; terminator
 
 SlotOnBillboardBGPaletteMapData:

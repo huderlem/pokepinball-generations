@@ -3,7 +3,7 @@ INCLUDE "constants/pokemon_constants.asm"
 
 SECTION "SRAM 0", SRAM
 
-saved_data: MACRO
+MACRO saved_data
 \1:: ds \2
 \1Signature:: ds 2
 \1Checksum:: dw

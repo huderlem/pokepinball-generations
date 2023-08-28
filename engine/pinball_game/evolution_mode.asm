@@ -46,7 +46,7 @@ ConcludeEvolutionMode:
 	ld [wNumberOfCatchModeTilesFlipped], a
 	ld [wNumMonHits], a
 	ld [wEvolutionObjectsDisabled], a
-	ld [wd554], a
+	ld [wNumEvolutionTrinkets], a
 	call ClearWildMonCollisionMask
 	callba StopTimer
 	ld a, [wCurrentStage]
@@ -434,18 +434,18 @@ InitEvolutionModeForMon:
 	ld b, a
 	ld a, [wCurrentCatchEmMon + 1]
 	ld c, a
-	ld hl, EvolutionModeIndicatorSets
+	ld hl, MonEvolutionObjectCounts
 	add hl, bc
 	ld a, [hl]
-	add $2
-	ld [wd555], a
+	add 2
+	ld [wNumPossibleEvolutionObjects], a
 	xor a
-	ld hl, wd566
-	ld b, $13
-.asm_10d40
+	ld hl, wActiveEvolutionTrinkets
+	ld b, 18 + 1 ; This goes out of bounds by 1--it's supposed to be 18. Doesn't result in any bad behavior, though.
+.clearEvoTrinketsLoop
 	ld [hli], a
 	dec b
-	jr nz, .asm_10d40
+	jr nz, .clearEvoTrinketsLoop
 	ld b, 2
 	ld c, 0
 	callba StartTimer
@@ -509,34 +509,37 @@ InitEvolutionModeForMon:
 .setEvolutionType
 	ld [wCurrentEvolutionType], a
 	xor a
-	ld [wd554], a
+	ld [wNumEvolutionTrinkets], a
 	ld [wEvolutionTrinketCooldownFrames], a
 	ld [wEvolutionTrinketCooldownFrames + 1], a
-	ld hl, wd55c
-	ld a, $1
-	ld b, $3
-.asm_10dac
+	; Randomly set three entries in wEvolutionObjectStates to $1.
+	; Each mon has a specified range of which entries can be set to $1.
+	; The idea is that rarer mons can have harder-to-hit objects.
+	ld hl, wEvolutionObjectStates
+	ld a, 1
+	ld b, 3
+.initLoop1
 	ld [hli], a
 	dec b
-	jr nz, .asm_10dac
+	jr nz, .initLoop1
 	xor a
-	ld b, $7
-.asm_10db3
+	ld b, 7
+.initLoop2
 	ld [hli], a
 	dec b
-	jr nz, .asm_10db3
-	ld de, wd55c
-	ld a, [wd555]
+	jr nz, .initLoop2
+	ld de, wEvolutionObjectStates
+	ld a, [wNumPossibleEvolutionObjects]
 	ld c, a
 	inc a
 	ld b, a
-.asm_10dc0
+.shuffleLoop
 	push bc
 	ld a, c
 	call RandomRange
 	ld c, a
 	ld b, $0
-	ld hl, wd55c
+	ld hl, wEvolutionObjectStates
 	add hl, bc
 	ld c, [hl]
 	ld a, [de]
@@ -546,7 +549,7 @@ InitEvolutionModeForMon:
 	pop bc
 	inc de
 	dec b
-	jr nz, .asm_10dc0
+	jr nz, .shuffleLoop
 	callba InitBallSaverForCatchEmMode
 	call ShowStartEvolutionModeText
 	call Func_3579
@@ -687,11 +690,11 @@ StartEvolutionMode_RedField:
 	ret z
 	call SelectPokemonToEvolve
 	call InitEvolutionModeForMon
-	ld a, [wd555]
-	sub $2
+	ld a, [wNumPossibleEvolutionObjects]
+	sub 2
 	ld c, a
 	sla c
-	ld hl, IndicatorStatesPointerTable_10f3b
+	ld hl, InitialIndicatorStates_RedField
 	add hl, bc
 	ld a, [hli]
 	ld h, [hl]
@@ -706,7 +709,7 @@ StartEvolutionMode_RedField:
 	jr nz, .loop
 	xor a
 	ld [wLeftAlleyCount], a
-	call Func_107b0
+	call CloseSlotCave_
 	ld a, $2
 	ld [wd7ad], a
 	ld de, MUSIC_CATCH_EM_BLUE ; Either MUSIC_CATCH_EM_BLUE or MUSIC_CATCH_EM_RED. They have the same id in their respective audio Banks.
@@ -751,38 +754,38 @@ LoadEvolutionTrinketGfx:
 	call LoadOrCopyVRAMData
 	ret
 
-IndicatorStatesPointerTable_10f3b:
-	dw IndicatorStates_10f4b
-	dw IndicatorStates_10f5e
-	dw IndicatorStates_10f71
-	dw IndicatorStates_10f84
-	dw IndicatorStates_10f97
-	dw IndicatorStates_10faa
-	dw IndicatorStates_10fbd
-	dw IndicatorStates_10fd0
+InitialIndicatorStates_RedField: ; 0x10f3b
+	dw InitialIndicatorStates0_RedField
+	dw InitialIndicatorStates1_RedField
+	dw InitialIndicatorStates2_RedField
+	dw InitialIndicatorStates3_RedField
+	dw InitialIndicatorStates4_RedField
+	dw InitialIndicatorStates5_RedField
+	dw InitialIndicatorStates6_RedField
+	dw InitialIndicatorStates7_RedField
 
-IndicatorStates_10f4b:  ; 0x10f4b
+InitialIndicatorStates0_RedField:  ; 0x10f4b
 	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $01, $00, $00, $00, $01, $01, $00, $00, $00, $00
 
-IndicatorStates_10f5e:  ; 0x10f5e
+InitialIndicatorStates1_RedField:  ; 0x10f5e
 	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $01, $00, $01, $00, $01, $01, $00, $00, $00, $00
 
-IndicatorStates_10f71:  ; 0x10f71
+InitialIndicatorStates2_RedField:  ; 0x10f71
 	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $01, $00, $01, $01, $01, $01, $00, $00, $00, $00
 
-IndicatorStates_10f84:  ; 0x10f84
+InitialIndicatorStates3_RedField:  ; 0x10f84
 	db $00, $00, $00, $00, $00, $00, $00, $00, $01, $01, $00, $01, $01, $01, $01, $00, $00, $00, $00
 
-IndicatorStates_10f97:  ; 0x10f97
+InitialIndicatorStates4_RedField:  ; 0x10f97
 	db $00, $00, $00, $80, $00, $00, $00, $00, $01, $01, $01, $01, $01, $01, $01, $00, $00, $00, $00
 
-IndicatorStates_10faa:  ; 0x10faa
+InitialIndicatorStates5_RedField:  ; 0x10faa
 	db $00, $00, $80, $80, $00, $00, $00, $00, $01, $01, $01, $01, $01, $01, $01, $00, $00, $00, $00
 
-IndicatorStates_10fbd:  ; 0x10fbd
+InitialIndicatorStates6_RedField:  ; 0x10fbd
 	db $00, $00, $80, $80, $00, $00, $00, $01, $01, $01, $01, $01, $01, $01, $01, $00, $00, $00, $00
 
-IndicatorStates_10fd0:  ; 0x10fd0
+InitialIndicatorStates7_RedField:  ; 0x10fd0
 	db $00, $00, $80, $80, $00, $00, $01, $01, $01, $01, $01, $01, $01, $01, $01, $00, $00, $00, $00
 
 ConcludeEvolutionMode_RedField:
@@ -828,11 +831,11 @@ StartEvolutionMode_BlueField:
 	call InitEvolutionModeForMon
 	ld a, $1
 	ld [wd643], a
-	ld a, [wd555]
-	sub $2
+	ld a, [wNumPossibleEvolutionObjects]
+	sub 2
 	ld c, a
 	sla c
-	ld hl, IndicatorStatesPointerTable_110ed
+	ld hl, InitialIndicatorStates_BlueField
 	add hl, bc
 	ld a, [hli]
 	ld h, [hl]
@@ -869,38 +872,38 @@ StartEvolutionMode_BlueField:
 	callba nz, Func_102bc
 	ret
 
-IndicatorStatesPointerTable_110ed:
-	dw IndicatorStates_110fd
-	dw IndicatorStates_11110
-	dw IndicatorStates_11123
-	dw IndicatorStates_11136
-	dw IndicatorStates_11149
-	dw IndicatorStates_1115c
-	dw IndicatorStates_1116f
-	dw IndicatorStates_11182
+InitialIndicatorStates_BlueField:
+	dw InitialIndicatorStates0_BlueField
+	dw InitialIndicatorStates1_BlueField
+	dw InitialIndicatorStates2_BlueField
+	dw InitialIndicatorStates3_BlueField
+	dw InitialIndicatorStates4_BlueField
+	dw InitialIndicatorStates5_BlueField
+	dw InitialIndicatorStates6_BlueField
+	dw InitialIndicatorStates7_BlueField
 
-IndicatorStates_110fd:
+InitialIndicatorStates0_BlueField: ; 0x110fd
 	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $01, $00, $00, $00, $01, $01, $00, $00, $00, $00
 
-IndicatorStates_11110:
+InitialIndicatorStates1_BlueField: ; 0x11110
 	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $01, $00, $01, $00, $01, $01, $00, $00, $00, $00
 
-IndicatorStates_11123:
+InitialIndicatorStates2_BlueField: ; 0x11123
 	db $00, $00, $00, $00, $00, $00, $00, $00, $00, $01, $00, $01, $01, $01, $01, $00, $00, $00, $00
 
-IndicatorStates_11136:
+InitialIndicatorStates3_BlueField: ; 0x11136
 	db $00, $00, $80, $00, $00, $00, $00, $00, $01, $01, $00, $01, $01, $01, $01, $00, $00, $00, $00
 
-IndicatorStates_11149:
+InitialIndicatorStates4_BlueField: ; 0x11149
 	db $00, $00, $80, $80, $00, $00, $00, $00, $01, $01, $01, $01, $01, $01, $01, $00, $00, $00, $00
 
-IndicatorStates_1115c:
+InitialIndicatorStates5_BlueField: ; 0x1115c
 	db $00, $00, $80, $80, $00, $00, $00, $00, $01, $01, $01, $01, $01, $01, $01, $00, $00, $00, $00
 
-IndicatorStates_1116f:
+InitialIndicatorStates6_BlueField: ; 0x1116f
 	db $80, $00, $80, $80, $00, $00, $00, $01, $01, $01, $01, $01, $01, $01, $01, $00, $00, $00, $00
 
-IndicatorStates_11182:
+InitialIndicatorStates7_BlueField: ; 0x11182
 	db $80, $00, $80, $80, $00, $00, $01, $01, $01, $01, $01, $01, $01, $01, $01, $00, $00, $00, $00
 
 ConcludeEvolutionMode_BlueField:
@@ -945,7 +948,7 @@ StartEvolutionMode_GoldField:
 	ret z
 	call SelectPokemonToEvolve
 	call InitEvolutionModeForMon
-	ld a, [wd555]
+	ld a, [wNumPossibleEvolutionObjects]
 	sub $2
 	ld c, a
 	sla c
@@ -964,7 +967,7 @@ StartEvolutionMode_GoldField:
 	jr nz, .loop
 	xor a
 	ld [wLeftAlleyCount], a
-	call Func_107b0_GoldField
+	call CloseSlotCave_GoldField
 	ld a, $2
 	ld [wd7ad], a
 	ld de, $0002
@@ -1063,7 +1066,7 @@ StartEvolutionMode_SilverField:
 	call InitEvolutionModeForMon
 	ld a, $1
 	ld [wd643], a
-	ld a, [wd555]
+	ld a, [wNumPossibleEvolutionObjects]
 	sub $2
 	ld c, a
 	sla c
@@ -1180,7 +1183,7 @@ StartEvolutionMode_RubyField:
 	ret z
 	call SelectPokemonToEvolve
 	call InitEvolutionModeForMon
-	ld a, [wd555]
+	ld a, [wNumPossibleEvolutionObjects]
 	sub $2
 	ld c, a
 	sla c
@@ -1199,7 +1202,7 @@ StartEvolutionMode_RubyField:
 	jr nz, .loop
 	xor a
 	ld [wLeftAlleyCount], a
-	call Func_107b0_RubyField
+	call CloseSlotCave_RubyField
 	ld a, $2
 	ld [wd7ad], a
 	ld de, $0002
@@ -1298,7 +1301,7 @@ StartEvolutionMode_SapphireField:
 	call InitEvolutionModeForMon
 	ld a, $1
 	ld [wd643], a
-	ld a, [wd555]
+	ld a, [wNumPossibleEvolutionObjects]
 	sub $2
 	ld c, a
 	sla c

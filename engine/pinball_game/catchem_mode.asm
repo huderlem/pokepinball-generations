@@ -44,19 +44,19 @@ StartCatchEmMode: ; 0x1003f
 	ld c, a
 	sla c
 	rl b
-	ld hl, EvolutionLineIds ;fetch the mon's evolution line
+	ld hl, CatchemMonIds ;fetch the mon's evolution line
 	add hl, bc
-	ld a, Bank(EvolutionLineIds)
+	ld a, Bank(CatchemMonIds)
 	call ReadByteFromBank
 	ld c, a
 	inc hl
-	ld a, Bank(EvolutionLineIds)
+	ld a, Bank(CatchemMonIds)
 	call ReadByteFromBank
 	ld b, a
 	ld h, b
 	ld l, c
 	add hl, bc
-	add hl, bc  ; multiply the evolution line id by 3, add it to pointer to ???
+	add hl, bc  ; multiply the catchem mod id by 3, add it to pointer to ???
 	ld bc, CatchSpriteFrameDurations ;mystery data, seems pokedex related too
 	add hl, bc
 	ld a, Bank(CatchSpriteFrameDurations)
@@ -324,7 +324,7 @@ Func_101d9: ; 0x101d9
 	pop bc
 	push de
 	xor a
-	ld de, Func_11d2 ;queue graphics load from the adjusted pointer bank 0 using this func
+	ld de, Func_11d2 ; queue graphics load from the adjusted pointer bank 0 using this func
 	call QueueGraphicsToLoadWithFunc
 	pop de
 	pop hl
@@ -570,13 +570,13 @@ Func_10362: ; 0x10362
 	call ReadByteFromBank
 	ld [$ff8e], a
 	ld de, wc150
-	ld bc, $0000
-.asm_10384
+	ld bc, 0
+.loop
 	call Func_1038e
 	inc c
 	ld a, c
 	cp $d
-	jr nz, .asm_10384
+	jr nz, .loop
 	ret
 
 Func_1038e: ; 0x1038e
@@ -874,13 +874,13 @@ CapturePokemonAnimation: ; 0x1052d
 	ld hl, wNumPokemonCaughtInBallBonus
 	call Increment_Max100
 	jr nc, .notMaxed
-	ld c, $a
+	ld c, 10
 	call Modulo_C
-	callba z, IncrementBonusMultiplierFromFieldEvent ; increments bonus multiplier every 10 pokemon caught
+	callba z, AddExtraBall ; increments bonus multiplier every 10 pokemon caught
 .notMaxed
 	call SetPokemonOwnedFlag
 	ld a, [wPreviousNumPokeballs]
-	cp $3
+	cp 3
 	ret z
 	inc a
 	ld [wNumPokeballs], a
@@ -1198,21 +1198,21 @@ ResetIndicatorStates: ; 0x107a5
 	jr nz, .loop
 	ret
 
-Func_107b0: ; 0x107b0
+CloseSlotCave_: ; 0x107b0
 	xor a
 	ld [wSlotIsOpen], a
 	ld [wIndicatorStates + 4], a
 	callba LoadSlotCaveCoverGraphics_RedField
 	ret
 
-Func_107b0_GoldField: ; 0x107b0
+CloseSlotCave_GoldField: ; 0x107b0
 	xor a
 	ld [wSlotIsOpen], a
 	ld [wIndicatorStates + 4], a
 	callba LoadSlotCaveCoverGraphics_GoldField
 	ret
 
-Func_107b0_RubyField: ; 0x107b0
+CloseSlotCave_RubyField: ; 0x107b0
 	xor a
 	ld [wSlotIsOpen], a
 	ld [wIndicatorStates + 4], a
@@ -1359,7 +1359,7 @@ Func_10871: ; 0x10871
 	jr nz, .loop
 	xor a
 	ld [wRightAlleyCount], a
-	call Func_107b0
+	call CloseSlotCave_
 	ld a, $4
 	ld [wd7ad], a
 	ld de, MUSIC_CATCH_EM_BLUE ; This is either MUSIC_CATCH_EM_BLUE or MUSIC_CATCH_EM_RED. They happen to have the same id in their respective audio Banks.
@@ -1422,7 +1422,7 @@ Func_10871_GoldField:
 	jr nz, .loop
 	xor a
 	ld [wRightAlleyCount], a
-	call Func_107b0_GoldField
+	call CloseSlotCave_GoldField
 	ld a, $4
 	ld [wd7ad], a
 	ld de, $0002
@@ -1485,7 +1485,7 @@ Func_10871_RubyField:
 	jr nz, .loop
 	xor a
 	ld [wRightAlleyCount], a
-	call Func_107b0_RubyField
+	call CloseSlotCave_RubyField
 	ld a, $4
 	ld [wd7ad], a
 	ld de, $0002

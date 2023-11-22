@@ -12,10 +12,10 @@ MACRO saved_data
 \1BackupChecksum:: dw
 ENDM
 
-	saved_data sHighScores, $186  ; a000
+	saved_data sHighScores, $104  ; a000
 	saved_data sPokedexFlags, (NUM_POKEMON + 1)
 	saved_data sKeyConfigs, $e
 	saved_data sSaveGame, $4c4    ; a36d
 
-	ds $29
+	ds $23b
 sRNGMod:: ; afff

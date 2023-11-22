@@ -101,7 +101,7 @@ ChangeFieldSelectRegion:
 	bit BIT_D_DOWN, a
 	jr z, .done
 	ld a, [wWhichFieldSelectRegion]
-	cp REGION_HOENN
+	cp REGION_JOHTO
 	ret z
 	inc a
 .move
@@ -295,7 +295,7 @@ UpdateRegionArrows:
 	ld [hli], a
 .skipUpArrow
 	ld a, [wWhichFieldSelectRegion]	
-	cp REGION_HOENN
+	cp REGION_JOHTO
 	jr z, .skipDownArrow
 	call .increaseOAMBufferSize
 	ld a, [wFieldSelectBlinkingBorderFrame]

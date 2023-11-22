@@ -2443,7 +2443,7 @@ wd961:: ; 0xd961
 	ds $1
 
 wPokedexFlags:: ; 0xd962
-	ds 386 ; NUM_POKEMON
+	ds 251 ; NUM_POKEMON
 
 wNumPokemonSeen:: ; 0xd9f9
 	ds $2

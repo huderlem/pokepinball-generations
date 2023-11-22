@@ -387,4 +387,4 @@ DEF const_value = 1
 	const JIRACHI     ; $181
 	const DEOXYS      ; $182
 
-DEF NUM_POKEMON EQU 386
+DEF NUM_POKEMON EQU 251

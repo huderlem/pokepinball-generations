@@ -878,7 +878,7 @@ MrMimeEvolutions:
 
 ScytherEvolutions:
 	db 1
-	dwb SCIZOR, EVO_BREEDING
+	dwb SCIZOR, EVO_LINK_CABLE
 
 JynxEvolutions:
 	db 1

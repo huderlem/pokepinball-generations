@@ -2030,5 +2030,5 @@ CryBasePointers_BankF: ; 0x3ef63
 	dw Cry_23_BankF
 	dw Cry_24_BankF
 	dw Cry_25_BankF
-
+    dw Cry_26_BankF ; CHIKORITA BASE
 INCLUDE "audio/cries_0f.asm"

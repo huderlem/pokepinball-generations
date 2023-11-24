@@ -225,6 +225,12 @@ Cry_25_BankF:
 	channel 5, Cry_25_BankF_Ch5
 	channel 6, Cry_25_BankF_Ch6
 	channel 8, Cry_25_BankF_Ch8
+	
+Cry_26_BankF:
+	channel_count 3
+	channel 5, Cry_Chikorita_Ch5
+	channel 6, Cry_Chikorita_Ch6
+	channel 8, Cry_Chikorita_Ch8
 
 Cry_Unused_BankF_Ch5:
 	duty_cycle_pattern 3, 3, 0, 0
@@ -1251,4 +1257,20 @@ Cry_22_BankF_Ch8:
 	noise_note 7, 11, 5, 41
 	noise_note 1, 10, 2, 57
 	noise_note 8, 9, 1, 73
+	sound_ret
+
+Cry_26_BankF_Ch5:
+	pitch_offset 32
+Cry_26_BankF_Ch6:
+	duty_cycle_pattern 0, 2, 0, 1
+	square_note 2, 12, 8, 1601
+	square_note 2, 4, 8, 1601
+	square_note 6, 15, 8, 1936
+	square_note 4, 15, 8, 1934
+	square_note 4, 15, 1, 1931
+	sound_ret
+
+Cry_26_BankF_Ch8:
+	noise_note 4, 9, 1, 16
+	noise_note 8, 9, 4, 3
 	sound_ret

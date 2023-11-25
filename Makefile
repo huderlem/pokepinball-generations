@@ -1,4 +1,4 @@
-.PHONY: all tools clean tidy tpp
+.PHONY: all tools clean tidy
 
 .SUFFIXES:
 .SECONDEXPANSION:
@@ -17,8 +17,6 @@ endif
 COMPILE_FLAGS :=
 
 all: $(ROM)
-tpp: COMPILE_FLAGS += -D _TPP
-tpp: all
 
 ifeq (,$(filter tools clean tidy,$(MAKECMDGOALS)))
 Makefile: tools

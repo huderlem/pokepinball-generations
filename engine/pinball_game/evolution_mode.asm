@@ -115,16 +115,9 @@ ShowStartEvolutionModeText:
 
 IsBreedingAllowed:
 ; Sets carry flag if not allowed.
-IF DEF(_TPP)	
 ; Allow breeding on every stage.	
 	and a	
-	ret	
-ELSE
-; Don't breed on Red/Blue stages
-	ld a, [wCurrentStage]
-	cp STAGE_BLUE_FIELD_BOTTOM + 1
 	ret
-ENDC
 
 InitEvolutionSelectionMenu:
 ; Initializes the list menu, which the player uses to select which pokemon to evolve.

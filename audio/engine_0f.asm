@@ -2031,4 +2031,7 @@ CryBasePointers_BankF: ; 0x3ef63
 	dw Cry_24_BankF
 	dw Cry_25_BankF
     dw Cry_26_BankF ; MARILL BASE
+	dw Cry_27_BankF ; MAREEP BASE
+	dw Cry_28_BankF ; HOOTHOOT BASE
+	dw Cry_29_BankF ; SENTRET BASE
 	INCLUDE "audio/cries_0f.asm"

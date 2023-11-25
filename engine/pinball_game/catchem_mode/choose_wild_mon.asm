@@ -41,7 +41,7 @@ ChooseWildMon:
 	ld b, $0
 	add hl, bc
 	add hl, bc
-	ld a, [wRareMonsFlag]  ; this gets set to $08 when the rare mons should be used.
+	ld a, [wRareMonsFlag]  ; this gets set to $10 when the rare mons should be used.
 	sla a
 	ld c, a
 	add hl, bc
@@ -70,7 +70,7 @@ CheckForMew:
 	cp INDIGO_PLATEAU
 	jr nz, .NotMew
 	ld a, [wRareMonsFlag]
-	cp $8
+	cp $10
 	jr nz, .NotMew
 	ld a, [wNumMewtwoBonusCompletions]
 	cp NUM_MEWTWO_COMPLETIONS_FOR_MEW
@@ -99,7 +99,7 @@ CheckForCelebi:
 	cp GS_BALL
 	jr nz, .notCelebi
 	ld a, [wRareMonsFlag]
-	cp $8
+	cp $10
 	jr nz, .notCelebi
 	call GenRandom
 	cp $40 ; 25% chance

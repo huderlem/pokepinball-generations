@@ -1584,7 +1584,7 @@ ResolveBellsproutCollision: ; 0x15e93
 	ld a, [wRightAlleyCount]
 	cp $2
 	jr c, .noCatchEmMode
-	ld a, $8
+	ld a, $10
 	jr nz, .startCatchEmMode
 	xor a
 .startCatchEmMode
@@ -2041,7 +2041,7 @@ ResolveSlotCollision_RedField: ; 0x16279
 	cp CATCHEM_MODE_SLOT_REWARD
 	ret nz
 	call GenRandom
-	and $8
+	and $10
 	ld [wRareMonsFlag], a
 	callba StartCatchEmMode
 	xor a

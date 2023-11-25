@@ -1080,7 +1080,7 @@ ResolveCloysterCollision_SapphireField: ; 0x1d32d
 	ld a, [wRightAlleyCount]
 	cp $2
 	jr c, .noCatchEmMode
-	ld a, $8
+	ld a, $10
 	jr nz, .asm_1d3a1
 	xor a
 .asm_1d3a1
@@ -2513,7 +2513,7 @@ ResolveSlotCollision_SapphireField: ; 0x1e757
 	cp CATCHEM_MODE_SLOT_REWARD
 	ret nz
 	call GenRandom
-	and $8
+	and $10
 	ld [wRareMonsFlag], a
 	callba StartCatchEmMode
 	xor a

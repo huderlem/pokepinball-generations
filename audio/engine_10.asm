@@ -2021,5 +2021,4 @@ CryBasePointers_Bank10:
 	dw Cry_23_Bank10
 	dw Cry_24_Bank10
 	dw Cry_25_Bank10
-
 INCLUDE "audio/cries_10.asm"

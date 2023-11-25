@@ -248,35 +248,33 @@ Cry_29_BankF:
 	channel 5, Cry_29_BankF_Ch5
 	channel 6, Cry_29_BankF_Ch6
 
-
-Cry_Unused_BankF_Ch5:
-	duty_cycle_pattern 3, 3, 0, 0
-	square_note 15, 14, 0, 1920
-	square_note 15, 15, 0, 1924
-	square_note 15, 12, 3, 1504
-	square_note 15, 12, 4, 1536
-	square_note 10, 6, -4, 1920
-	square_note 8, 7, 1, 1924
+Cry_30_BankF:
+	channel_count 3
+	channel 5, Cry_30_BankF_Ch5
+	channel 6, Cry_30_BankF_Ch6
+	channel 8, Cry_30_BankF_Ch8
+	
+Cry_30_BankF_Ch5:
+	duty_cycle 1
+	square_note 3, 2, -4, 1988
+	square_note 1, 0, 0, 1
+	square_note 5, 5, -1, 1977
+	square_note 6, 11, 4, 1979
 	sound_ret
 
-Cry_Unused_BankF_Ch6:
-	duty_cycle_pattern 0, 0, 1, 1
-	square_note 15, 10, 0, 1857
-	square_note 15, 11, 0, 1859
-	square_note 15, 9, 3, 1457
-	square_note 15, 9, 4, 1473
-	square_note 10, 4, -4, 1857
-	square_note 8, 3, 1, 1862
+Cry_30_BankF_Ch6:
+	duty_cycle_pattern 0, 2, 2, 2
+	square_note 3, 2, -4, 1991
+	square_note 1, 0, 0, 0
+	square_note 5, 5, -1, 1982
+	square_note 6, 11, 4, 1981
 	sound_ret
 
-Cry_Unused_BankF_Ch8:
-	noise_note 2, 15, 2, 76
-	noise_note 6, 14, 0, 58
-	noise_note 15, 13, 0, 58
-	noise_note 8, 13, 0, 44
-	noise_note 6, 14, 6, 76
-	noise_note 12, 7, -5, 76
-	noise_note 15, 13, 3, 76
+Cry_30_BankF_Ch8:
+	noise_note 3, 9, 2, 16
+	noise_note 1, 3, -1, 0
+	noise_note 5, 6, -1, 16
+	noise_note 6, 9, 3, 0
 	sound_ret
 
 Cry_09_BankF_Ch5:

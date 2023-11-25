@@ -2019,5 +2019,4 @@ CryBasePointers_Bank11:
 	dw Cry_23_Bank11
 	dw Cry_24_Bank11
 	dw Cry_25_Bank11
-
 INCLUDE "audio/cries_11.asm"

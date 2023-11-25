@@ -189,7 +189,7 @@ CryData:
 	dw $001E, $00EE, $017F  ; BAYLEEF
 	dw $001E, $00EE, $017F  ; MEGANIUM
 	dw $001E, $00EE, $017F  ; CYNDAQUIL
-	dw $001E, $00EE, $017F  ; QUILAVA
+	dw $002B, $321,  $120  ; QUILAVA
 	dw $001E, $00EE, $017F  ; TYPHLOSION
 	dw $001E, $00EE, $017F  ; TOTODILE
 	dw $001E, $00EE, $017F  ; CROCONAW
@@ -200,9 +200,9 @@ CryData:
 	dw $0028, $000,  $1a0  ; NOCTOWL
 	dw $001E, $00EE, $017F  ; LEDYBA
 	dw $001E, $00EE, $017F  ; LEDIAN
-	dw $001E, $00EE, $017F  ; SPINARAK
-	dw $001E, $00EE, $017F  ; ARIADOS
-	dw $001E, $00EE, $017F  ; CROBAT
+	dw $002A, $011,  $200  ; SPINARAK
+	dw $002A, -$0ae,  $1e2  ; ARIADOS
+	dw $001D, -$010,  $140  ; CROBAT
 	dw $001E, $00EE, $017F  ; CHINCHOU
 	dw $001E, $00EE, $017F  ; LANTURN
 	dw $001E, $00EE, $017F  ; PICHU
@@ -280,7 +280,7 @@ CryData:
 	dw $001E, $00EE, $017F  ; ENTEI
 	dw $001E, $00EE, $017F  ; SUICUNE
 	dw $001E, $00EE, $017F  ; LARVITAR
-	dw $001E, $00EE, $017F  ; PUPITAR
+	dw $002A, -$1db,  $150  ; PUPITAR
 	dw $001E, $00EE, $017F  ; TYRANITAR
 	dw $001E, $00EE, $017F  ; LUGIA
 	dw $001E, $00EE, $017F  ; HO_OH

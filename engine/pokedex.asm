@@ -1064,23 +1064,23 @@ DrawCornerInfoPokedexScreen: ; 0x2868b
 	bit BIT_SELECT, a
 	jr z, .asm_286c8
 	ld bc, $6d03
-	ld a, [wNumPokemonSeen + 1]
-	call LoadSeenOwnDigitOAM
-	ld a, [wNumPokemonSeen]
-	swap a
-	call LoadSeenOwnDigitOAM
-	ld a, [wNumPokemonSeen]
-	call LoadSeenOwnDigitOAM
-	ld bc, $8202
-	ld a, $76
-	call LoadOAMData  ; draws the "/" between the seen/owned numbers
-	ld bc, $8703
 	ld a, [wNumPokemonOwned + 1]
 	call LoadSeenOwnDigitOAM
 	ld a, [wNumPokemonOwned]
 	swap a
 	call LoadSeenOwnDigitOAM
 	ld a, [wNumPokemonOwned]
+	call LoadSeenOwnDigitOAM
+	ld bc, $8202
+	ld a, $76
+	call LoadOAMData  ; draws the "/" between the seen/owned numbers
+	ld bc, $8703
+	ld a, [wNumPokemonSeen + 1]
+	call LoadSeenOwnDigitOAM
+	ld a, [wNumPokemonSeen]
+	swap a
+	call LoadSeenOwnDigitOAM
+	ld a, [wNumPokemonSeen]
 	call LoadSeenOwnDigitOAM
 	ret
 

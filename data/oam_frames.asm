@@ -671,7 +671,7 @@ OAMData_3a: ; 0x45e0
 	db $80 ; terminator
 
 OAMData_3b: ; 0x45e5
-	db $10, $08, $92, $06
+	db $10, $08, $90, $17 ; leaf stone and water stone. stuff below is mislabed. need to sync with upstream pokepinball
 	db $80 ; terminator
 
 OAMData_3c: ; 0x45ea

@@ -2015,5 +2015,11 @@ CryBasePointers_Bank13:
 	dw Cry_23_Bank13
 	dw Cry_24_Bank13
 	dw Cry_25_Bank13
-
+	dw Cry_26_Bank13 ; MARILL BASE
+	dw Cry_27_Bank13 ; MAREEP BASE
+	dw Cry_28_Bank13 ; HOOTHOOT BASE
+	dw Cry_29_Bank13 ; SENTRET BASE
+	dw Cry_2A_Bank13 ; SPINARAK BASE
+	dw Cry_2B_Bank13 ; CYNDAQUIL BASE
+	dw Cry_2C_Bank13 ; TOGEPI BASE
 INCLUDE "audio/cries_13.asm"

@@ -2019,5 +2019,11 @@ CryBasePointers_Bank12:
 	dw Cry_23_Bank12
 	dw Cry_24_Bank12
 	dw Cry_25_Bank12
-
+	dw Cry_26_Bank12 ; MARILL BASE
+	dw Cry_27_Bank12 ; MAREEP BASE
+	dw Cry_28_Bank12 ; HOOTHOOT BASE
+	dw Cry_29_Bank12 ; SENTRET BASE
+	dw Cry_2A_Bank12 ; SPINARAK BASE
+	dw Cry_2B_Bank12 ; CYNDAQUIL BASE
+	dw Cry_2C_Bank12 ; TOGEPI BASE
 INCLUDE "audio/cries_12.asm"

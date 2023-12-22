@@ -2021,4 +2021,11 @@ CryBasePointers_Bank10:
 	dw Cry_23_Bank10
 	dw Cry_24_Bank10
 	dw Cry_25_Bank10
+	dw Cry_26_Bank10 ; MARILL BASE
+	dw Cry_27_Bank10 ; MAREEP BASE
+	dw Cry_28_Bank10 ; HOOTHOOT BASE
+	dw Cry_29_Bank10 ; SENTRET BASE
+	dw Cry_2A_Bank10 ; SPINARAK BASE
+	dw Cry_2B_Bank10 ; CYNDAQUIL BASE
+	dw Cry_2C_Bank10 ; TOGEPI BASE
 INCLUDE "audio/cries_10.asm"

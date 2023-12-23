@@ -2029,19 +2029,19 @@ CryBasePointers_Bank11:
 	dw Cry_2D_Bank11 ; TOGETIC BASE
 	dw Cry_2E_Bank11 ; GIRAFARIG BASE
 	dw Cry_2F_Bank11 ; RAIKOU BASE
-;dw Cry_28_Bank11 ; SLOWKING BASE
-;dw Cry_29_Bank11 ; CHIKORITA BASE
-;dw Cry_2A_Bank11 ; TOTODILE BASE
-;dw Cry_2B_Bank11 ; GLIGAR BASE
-;dw Cry_2C_Bank11 ; CLEFFA BASE
+	dw Cry_30_Bank11 ; TEDDIURSA BASE
+	dw Cry_31_Bank11 ; SLOWKING BASE
+	dw Cry_32_Bank11 ; NATU BASE
+	dw Cry_33_Bank11 ; CLEFFA BASE
+;dw Cry_2C_Bank11 ; GLIGAR BASE
 ;dw Cry_2D_Bank11 ; SLUGMA BASE
 ;dw Cry_26_Bank11 ; LEDYBA BASE
 ;dw Cry_27_Bank11 ; ENTEI BASE
 ;dw Cry_28_Bank11 ; WOOPER BASE
 ;dw Cry_29_Bank11 ; MANTINE BASE
 ;dw Cry_2A_Bank11 ; TYPHLOSION BASE
-;dw Cry_2B_Bank11 ; NATU BASE
-;dw Cry_2C_Bank11 ; TEDDIURSA BASE
+;dw Cry_2B_Bank11 ; CHIKORITA BASE
+;dw Cry_2C_Bank11 ; TOTODILE BASE
 ;dw Cry_2D_Bank11 ; SUNFLORA BASE
 ;dw Cry_26_Bank11 ; AMPHAROS BASE
 ;dw Cry_27_Bank11 ; MAGCARGO BASE

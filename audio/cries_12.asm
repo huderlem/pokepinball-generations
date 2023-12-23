@@ -283,6 +283,30 @@ Cry_2F_Bank12:
 	channel 5, Cry_2F_Bank12_Ch5
 	channel 6, Cry_2F_Bank12_Ch6
 	channel 8, Cry_2F_Bank12_Ch8
+	
+Cry_30_Bank12:
+	channel_count 3
+	channel 5, Cry_30_Bank12_Ch5
+	channel 6, Cry_30_Bank12_Ch6
+	channel 8, Cry_30_Bank12_Ch8
+	
+Cry_31_Bank12:
+	channel_count 3
+	channel 5, Cry_31_Bank12_Ch5
+	channel 6, Cry_31_Bank12_Ch6
+	channel 8, Cry_31_Bank12_Ch8
+	
+Cry_32_Bank12:
+	channel_count 3
+	channel 5, Cry_32_Bank12_Ch5
+	channel 6, Cry_32_Bank12_Ch6
+	channel 8, Cry_32_Bank12_Ch8
+	
+Cry_33_Bank12:
+	channel_count 3
+	channel 5, Cry_33_Bank12_Ch5
+	channel 6, Cry_33_Bank12_Ch6
+	channel 8, Cry_33_Bank12_Ch8
 
 Cry_09_Bank12_Ch5:
 	duty_cycle_pattern 3, 3, 0, 0
@@ -1485,3 +1509,141 @@ Cry_2F_Bank12_Ch8:
 	noise_note 3, 14, -4, 77
 	noise_note 16, 13, 2, 79
 	sound_ret
+	
+Cry_30_Bank12_Ch5:
+	duty_cycle_pattern 0, 1, 0, 2
+.loop1:
+	square_note 3, 12, 1, 1937
+	sound_loop 3, .loop1
+.loop2:
+	square_note 3, 13, 1, 1201
+	sound_loop 6, .loop2
+.loop3:
+	square_note 1, 13, 1, 1169
+	square_note 1, 11, 1, 1105
+	sound_loop 6, .loop3
+.loop4:
+	square_note 1, 10, 3, 1137
+	square_note 1, 8, 1, 1089
+	sound_loop 6, .loop4
+.loop5:
+	square_note 1, 4, 1, 1057
+	square_note 1, 2, 1, 1025
+	sound_loop 4, .loop5
+	sound_ret
+
+Cry_30_Bank12_Ch6:
+	duty_cycle_pattern 1, 3, 2, 0
+	square_note 8, 9, -1, 1856
+	square_note 8, 7, -1, 1862
+	square_note 16, 15, 6, 1933
+	square_note 8, 15, 8, 1937
+	square_note 8, 15, 8, 1933
+	square_note 8, 15, 8, 1927
+	square_note 24, 14, 2, 1923
+	sound_ret
+	
+Cry_30_Bank12_Ch8:
+	noise_note 8, 10, 6, 58
+	noise_note 8, 10, 1, 90
+	sound_ret
+
+Cry_31_Bank12_Ch5:
+	duty_cycle_pattern 0, 3, 0, 3
+	square_note 2, 15, 1, 1360
+	square_note 2, 15, 1, 1328
+	square_note 2, 15, 1, 1296
+	square_note 2, 15, 2, 1616
+	square_note 2, 15, 2, 1600
+	square_note 2, 15, 2, 1584
+	square_note 16, 15, 2, 1360
+	sound_ret
+
+Cry_31_Bank12_Ch6:
+	duty_cycle_pattern 3, 3, 0, 2
+	square_note 4, 14, 1, 1568
+	square_note 5, 14, 2, 1280
+	square_note 6, 14, 1, 1568
+	square_note 2, 14, 1, 1312
+	square_note 16, 14, 2, 1280
+	sound_ret
+
+Cry_31_Bank12_Ch8:
+	noise_note 2, 8, -2, 93
+	noise_note 2, 9, -2, 76
+	noise_note 5, 9, -2, 93
+	noise_note 2, 9, -2, 77
+	noise_note 2, 9, -2, 75
+	noise_note 2, 9, -2, 77
+	noise_note 2, 9, -2, 95
+	noise_note 16, 11, 2, 111
+	sound_ret
+	
+Cry_32_Bank12_Ch5:
+	duty_cycle_pattern 3, 1, 3, 2
+.body1:
+	square_note 4, 15, 8, 1969
+	square_note 4, 15, 8, 1968
+	square_note 4, 4, 8, 1967
+.body2:
+	square_note 4, 15, 8, 1970
+	square_note 4, 15, 8, 1971
+	square_note 4, 4, 8, 1972
+	sound_ret
+
+Cry_32_Bank12_Ch6:
+.body1:
+	duty_cycle_pattern 3, 3, 0, 2
+	square_note 4, 15, 8, 1970
+	square_note 4, 15, 8, 1969
+	square_note 4, 2, 8, 1968
+.body2:
+	square_note 4, 15, 8, 1972
+	square_note 4, 15, 8, 1974
+	square_note 4, 4, 8, 1976
+	sound_ret
+
+Cry_32_Bank12_Ch8:
+.body1:
+	noise_note 4, 8, 8, 5
+	noise_note 4, 8, 8, 4
+	noise_note 4, 3, 8, 3
+.body2:
+	noise_note 4, 8, 8, 5
+	noise_note 4, 8, 8, 4
+	noise_note 4, 8, 7, 4
+	sound_ret
+	
+Cry_33_Bank12_Ch5:
+	duty_cycle_pattern 0, 3, 2, 1
+	pitch_sweep 15, -7
+	square_note 2, 15, 8, 1824
+	square_note 2, 15, 8, 1831
+	square_note 2, 15, 8, 1920
+	pitch_sweep 8, 8
+	square_note 2, 15, 8, 1913
+	square_note 4, 15, 8, 1856
+	square_note 4, 15, 8, 1852
+	pitch_sweep 15, -7
+	square_note 8, 15, 1, 1847
+	pitch_sweep 8, 8
+	sound_ret
+
+Cry_33_Bank12_Ch6:
+	duty_cycle_pattern 0, 2, 0, 2
+	square_note 6, 11, 2, 1822
+	square_note 5, 9, 2, 1913
+	square_note 4, 8, 2, 1854
+	square_note 8, 10, 1, 1845
+	sound_ret
+
+Cry_33_Bank12_Ch8:
+	noise_note 2, 6, 4, 127
+	noise_note 2, 8, 4, 125
+	noise_note 2, 10, 4, 111
+	noise_note 2, 6, 4, 108
+	noise_note 2, 9, 4, 111
+	noise_note 2, 6, 1, 107
+	sound_ret
+
+

@@ -265,6 +265,23 @@ Cry_2C_BankF:
 	channel 5, Cry_2C_BankF_Ch5
 	channel 6, Cry_2C_BankF_Ch6
 	
+Cry_2D_BankF:
+	channel_count 2
+	channel 5, Cry_2D_BankF_Ch5
+	channel 6, Cry_2D_BankF_Ch6
+	
+Cry_2E_BankF:
+	channel_count 3
+	channel 5, Cry_2E_BankF_Ch5
+	channel 6, Cry_2E_BankF_Ch6
+	channel 8, Cry_2E_BankF_Ch8
+
+Cry_2F_BankF:
+	channel_count 3
+	channel 5, Cry_2F_BankF_Ch5
+	channel 6, Cry_2F_BankF_Ch6
+	channel 8, Cry_2F_BankF_Ch8
+	
 Cry_2A_BankF_Ch5:
 	duty_cycle 1
 	square_note 3, 2, -4, 1988
@@ -1399,4 +1416,70 @@ Cry_2C_BankF_Ch6:
 	square_note 4, 15, 1, 1837
 	square_note 7, 0, 0, 0
 	square_note 16, 15, 1, 1959
+	sound_ret
+	
+Cry_2D_BankF_Ch5:
+	pitch_offset 2
+Cry_2D_BankF_Ch6:
+	sound_call Cry_2C_BankF_Ch6
+	sound_loop 2, Cry_2D_BankF_Ch6
+	square_note 14, 0, 0, 0
+	square_note 8, 15, 2, 1986
+	sound_ret
+
+Cry_2E_BankF_Ch5:
+	duty_cycle 1
+	pitch_offset 4
+	sound_jump Cry_2E_BankF_Ch6.body
+
+Cry_2E_BankF_Ch6:
+	duty_cycle_pattern 1, 0, 0, 1
+.body:
+	square_note 4, 6, 8, 1880
+	square_note 2, 14, 8, 1888
+	square_note 2, 14, 8, 1895
+	square_note 2, 14, 8, 1900
+	square_note 7, 15, 1, 1895
+	sound_ret
+
+Cry_2E_BankF_Ch8:
+	noise_note 4, 2, -1, 0
+	noise_note 2, 3, -1, 1
+	noise_note 2, 4, -1, 2
+	noise_note 2, 5, -1, 1
+	noise_note 7, 4, 1, 0
+	sound_ret
+	
+Cry_2F_BankF_Ch5:
+	duty_cycle_pattern 3, 3, 2, 0
+	square_note 2, 15, 1, 1200
+	square_note 2, 15, 7, 1424
+	square_note 8, 15, 8, 1296
+	square_note 3, 15, 2, 1728
+	square_note 3, 15, 8, 1722
+	square_note 3, 15, 2, 1712
+	square_note 16, 15, 2, 1680
+	sound_ret
+
+Cry_2F_BankF_Ch6:
+	duty_cycle_pattern 3, 3, 0, 2
+	square_note 2, 15, 1, 1824
+	square_note 2, 14, 1, 1616
+	square_note 4, 15, 1, 1872
+	square_note 4, 13, 1, 928
+	square_note 3, 15, 1, 1648
+	square_note 3, 14, 1, 1664
+	square_note 3, 15, 2, 1680
+	square_note 16, 14, 2, 1696
+	sound_ret
+
+Cry_2F_BankF_Ch8:
+	noise_note 2, 8, -1, 46
+	noise_note 2, 9, -1, 31
+	noise_note 4, 8, -1, 78
+	noise_note 4, 8, -1, 123
+	noise_note 3, 13, 8, 75
+	noise_note 3, 14, 7, 76
+	noise_note 3, 14, -4, 77
+	noise_note 16, 13, 2, 79
 	sound_ret

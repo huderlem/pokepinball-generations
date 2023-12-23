@@ -198,13 +198,13 @@ CryData:
 	dw $001E, $00EE, $017F  ; TOTODILE (TODO)
 	dw $001E, $00EE, $017F  ; CROCONAW (TODO)
 	dw $001E, $00EE, $017F  ; FERALIGATR (TODO)
-	dw $0029, $08a,  $0b8  ; SENTRET
-	dw $0029, $06b,  $102  ; FURRET
-	dw $0028, $091,  $0d8  ; HOOTHOOT
-	dw $0028, $000,  $1a0  ; NOCTOWL
+	dw $0029, $08a,  $0b8   ; SENTRET
+	dw $0029, $06b,  $102   ; FURRET
+	dw $0028, $091,  $0d8   ; HOOTHOOT
+	dw $0028, $000,  $1a0   ; NOCTOWL
 	dw $001E, $00EE, $017F  ; LEDYBA (TODO)
 	dw $001E, $00EE, $017F  ; LEDIAN (TODO)
-	dw $002A, $011,  $200  ; SPINARAK
+	dw $002A, $011,  $200   ; SPINARAK
 	dw $002A, -$0ae,  $1e2  ; ARIADOS
 	dw $001D, -$010,  $140  ; CROBAT
 	dw $002B,  969,  320    ; CHINCHOU
@@ -212,8 +212,8 @@ CryData:
 	dw $001E, $00EE, $017F  ; PICHU (TODO)
 	dw $001E, $00EE, $017F  ; CLEFFA (TODO)
 	dw $001E, $00EE, $017F  ; IGGLYBUFF (TODO)
-	dw $002C, 16,  256  ; TOGEPI
-	dw $001E, $00EE, $017F  ; TOGETIC (TODO)
+	dw $002C, 16,  256      ; TOGEPI
+	dw $002D, 59,   56      ; TOGETIC
 	dw $001E, $00EE, $017F  ; NATU (TODO)
 	dw $001E, $00EE, $017F  ; XATU (TODO)
 	dw $0027, $022,  $0d8   ; MAREEP
@@ -240,7 +240,7 @@ CryData:
 	dw $0028, $130,  $0e8   ; MISDREAVUS (TODO)
 	dw $0028, $162,  $100   ; UNOWN
 	dw $001E, $00EE, $017F  ; WOBBUFFET (TODO)
-	dw $001E, $00EE, $017F  ; GIRAFARIG (TODO)
+	dw $002E, 65,  512      ; GIRAFARIG
 	dw $001E, $00EE, $017F  ; PINECO (TODO)
 	dw $001E, $00EE, $017F  ; FORRETRESS (TODO)
 	dw $001E, $00EE, $017F  ; DUNSPARCE (TODO)
@@ -270,7 +270,7 @@ CryData:
 	dw $001E, $00EE, $017F  ; KINGDRA (TODO)
 	dw $0029, $048,  $230   ; PHANPY (TODO)
 	dw $001E, $00EE, $017F  ; DONPHAN (TODO)
-	dw $001E, $00EE, $017F  ; PORYGON2 (TODO)
+	dw $002E, 115,  576     ; PORYGON2
 	dw $001E, $00EE, $017F  ; STANTLER (TODO)
 	dw $001E, $00EE, $017F  ; SMEARGLE (TODO)
 	dw $001E, $00EE, $017F  ; TYROGUE (TODO)
@@ -280,12 +280,12 @@ CryData:
 	dw $001E, $00EE, $017F  ; MAGBY (TODO)
 	dw $001E, $00EE, $017F  ; MILTANK (TODO)
 	dw $001E, $00EE, $017F  ; BLISSEY (TODO)
-	dw $001E, $00EE, $017F  ; RAIKOU (TODO)
+	dw $002F, 558,  288     ; RAIKOU
 	dw $001E, $00EE, $017F  ; ENTEI (TODO)
 	dw $001E, $00EE, $017F  ; SUICUNE (TODO)
-	dw $001E, $00EE, $017F  ; LARVITAR (TODO)
+	dw $002F,  95,  208     ; LARVITAR
 	dw $002A, -$1db,  $150  ; PUPITAR
-	dw $001E, $00EE, $017F  ; TYRANITAR (TODO)
+	dw $002F, -256,  384    ; TYRANITAR
 	dw $001E, $00EE, $017F  ; LUGIA (TODO)
 	dw $001E, $00EE, $017F  ; HO_OH (TODO)
 	dw $001E, $00EE, $017F  ; CELEBI (TODO)

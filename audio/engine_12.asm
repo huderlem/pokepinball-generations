@@ -2019,5 +2019,34 @@ CryBasePointers_Bank12:
 	dw Cry_23_Bank12
 	dw Cry_24_Bank12
 	dw Cry_25_Bank12
-
+	dw Cry_26_Bank12 ; MARILL BASE
+	dw Cry_27_Bank12 ; MAREEP BASE
+	dw Cry_28_Bank12 ; HOOTHOOT BASE
+	dw Cry_29_Bank12 ; SENTRET BASE
+	dw Cry_2A_Bank12 ; SPINARAK BASE
+	dw Cry_2B_Bank12 ; CYNDAQUIL BASE
+	dw Cry_2C_Bank12 ; TOGEPI BASE
+	dw Cry_2D_Bank12 ; TOGETIC BASE
+	dw Cry_2E_Bank12 ; GIRAFARIG BASE
+	dw Cry_2F_Bank12 ; RAIKOU BASE
+	dw Cry_30_Bank12 ; TEDDIURSA BASE
+	dw Cry_31_Bank12 ; SLOWKING BASE
+	dw Cry_32_Bank12 ; NATU BASE
+	dw Cry_33_Bank12 ; CLEFFA BASE
+;dw Cry_2C_Bank12 ; GLIGAR BASE
+;dw Cry_2D_Bank12 ; SLUGMA BASE
+;dw Cry_26_Bank12 ; LEDYBA BASE
+;dw Cry_27_Bank12 ; ENTEI BASE
+;dw Cry_28_Bank12 ; WOOPER BASE
+;dw Cry_29_Bank12 ; MANTINE BASE
+;dw Cry_2A_Bank12 ; TYPHLOSION BASE
+;dw Cry_2B_Bank12 ; CHIKORITA BASE
+;dw Cry_2C_Bank12 ; TOTODILE BASE
+;dw Cry_2D_Bank12 ; SUNFLORA BASE
+;dw Cry_26_Bank12 ; AMPHAROS BASE
+;dw Cry_27_Bank12 ; MAGCARGO BASE
+;dw Cry_28_Bank12 ; PICHU BASE
+;dw Cry_29_Bank12 ; AIPOM BASE
+;dw Cry_2A_Bank12 ; DUNSPARCE BASE
+;dw Cry_2B_Bank12 ; DONPHAN BASE
 INCLUDE "audio/cries_12.asm"

@@ -15,7 +15,7 @@ ENDM
 	saved_data sHighScores, $186  ; a000
 	saved_data sPokedexFlags, (NUM_POKEMON + 1)
 	saved_data sKeyConfigs, $e
-	saved_data sSaveGame, $4c4    ; a36d
+	saved_data sSaveGame, $4c6
 
-	ds $29
+	ds $25
 sRNGMod:: ; afff

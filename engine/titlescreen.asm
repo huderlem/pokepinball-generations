@@ -153,15 +153,15 @@ Func_c10e: ; 0xc10e
 	and a
 	jr z, .notLoadingSavedGame
 	ld hl, sSaveGame
-	ld de, wPartyMons
-	ld bc, $04c4
+	ld de, wSaveGameStart
+	ld bc, wSaveGameEnd - wSaveGameStart
 	call LoadSavedData
 	jr nc, .notLoadingSavedGame
 	xor a
 	ld [wSavedGame], a
-	ld hl, wPartyMons
+	ld hl, wSaveGameStart
 	ld de, sSaveGame
-	ld bc, $04c4
+	ld bc, wSaveGameEnd - wSaveGameStart
 	call SaveData
 	ld a, $1
 	ld [wLoadingSavedGame], a

@@ -91,8 +91,8 @@ FadeOutCopyrightScreenAndLoadData: ; 0x82a8
 	callba SaveDefaultKeyConfigs
 .asm_82f6
 	ld hl, sSaveGame
-	ld de, wPartyMons
-	ld bc, $04c4  ; This is saved game data from when the player saves in the middle of a game.
+	ld de, wSaveGameStart
+	ld bc, wSaveGameEnd - wSaveGameStart  ; This is saved game data from when the player saves in the middle of a game.
 	call LoadSavedData
 	jr c, .asm_8308
 	xor a

@@ -78,6 +78,7 @@ wFadeOBJPaletteData:: ; 0xd2c0
 	ds $40
 
 wPartyMons:: ; 0xd300
+wSaveGameStart::
 	ds 128 * 2
 
 wAddScoreQueue:: ; 0xd400
@@ -1831,6 +1832,7 @@ wRoamingDogsStatus::
 ;
 
 wSubTileBallXPos:: ; 0xd7c3
+wSaveGameEnd::
 	ds $1
 
 wSubTileBallYPos:: ; 0xd7c4

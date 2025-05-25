@@ -152,9 +152,9 @@ ExitFieldSelectScreen: ; 0xd774
 	pop af
 	xor a
 	ld [wSavedGame], a
-	ld hl, wPartyMons
+	ld hl, wSaveGameStart
 	ld de, sSaveGame
-	ld bc, $04c4
+	ld bc, wSaveGameEnd - wSaveGameStart
 	call SaveData
 	xor a
 	ld [wLoadingSavedGame], a

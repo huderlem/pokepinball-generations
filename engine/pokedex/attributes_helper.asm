@@ -57,7 +57,7 @@ Func_28a15: ; 0x28a15
 	inc de
 	inc de
 	hlCoord 16, 7, vBGMap
-	ld a, [rLCDC]
+	ldh a, [rLCDC]
 	bit 7, a
 	jr nz, .asm_28a7a
 	ld a, [de]
@@ -182,7 +182,7 @@ Func_28d71: ; 0x28d71
 
 Func_28d88: ; 0x28d88
 	push af
-	ld a, [rLCDC]
+	ldh a, [rLCDC]
 	bit 7, a
 	jr nz, .asm_28d92
 	pop af

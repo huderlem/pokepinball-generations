@@ -1,7 +1,7 @@
 HandleFlippers: ; 0xe0fe
 	xor a
 	ld [wFlipperCollision], a
-	ld [hFlipperCollisionRadius], a
+	ldh [hFlipperCollisionRadius], a
 	ld [wFlipperXForce], a
 	ld [wFlipperXForce + 1], a
 	call UpdateFlipperStates
@@ -151,17 +151,17 @@ CheckLeftFlipperCollision:
 	ld [$ff00+c], a
 	inc c
 	ld a, [wPreviousLeftFlipperState]
-	ld [hPreviousFlipperState], a
+	ldh [hPreviousFlipperState], a
 	ld a, [wLeftFlipperState + 1]
-	ld [hFlipperState], a
+	ldh [hFlipperState], a
 	call ReadFlipperCollisionAttributes
 	ld a, [wFlipperCollision]
 	and a
 	ret z
 	ld a, [wLeftFlipperStateChange]
-	ld [hFlipperStateChange], a
+	ldh [hFlipperStateChange], a
 	ld a, [wLeftFlipperStateChange + 1]
-	ld [hFlipperStateChange + 1], a
+	ldh [hFlipperStateChange + 1], a
 	ret
 
 CheckRightFlipperCollision: ; 0xe226
@@ -185,36 +185,36 @@ CheckRightFlipperCollision: ; 0xe226
 	ld [$ff00+c], a
 	inc c
 	ld a, [wPreviousRightFlipperState]
-	ld [hPreviousFlipperState], a
+	ldh [hPreviousFlipperState], a
 	ld a, [wRightFlipperState + 1]
-	ld [hFlipperState], a
+	ldh [hFlipperState], a
 	call ReadFlipperCollisionAttributes
 	ld a, [wFlipperCollision]
 	and a
 	ret z
 	; collision with flipper occurred
 	ld a, [wRightFlipperStateChange]
-	ld [hFlipperStateChange], a
+	ldh [hFlipperStateChange], a
 	ld a, [wRightFlipperStateChange + 1]
-	ld [hFlipperStateChange + 1], a
+	ldh [hFlipperStateChange + 1], a
 	ret
 
 ReadFlipperCollisionAttributes: ; 0xe25a
-	ld a, [hBallXPos + 1]
+	ldh a, [hBallXPos + 1]
 	sub 43  ; check if ball is in horizontal range of flippers
 	ret c
 	cp 48
 	ret nc
 	; ball is in horizontal range of flippers
-	ld [hBallXPos + 1], a  ; x offset of flipper horizontal range
-	ld a, [hBallYPos + 1]  ; ball y-position high byte
+	ldh [hBallXPos + 1], a  ; x offset of flipper horizontal range
+	ldh a, [hBallYPos + 1]  ; ball y-position high byte
 	sub 123  ; check if ball is in vertical range of flippers
 	ret c
 	cp 32
 	ret nc
 	; ball is in potential collision with flippers
-	ld [hBallYPos + 1], a
-	ld a, [hPreviousFlipperState]
+	ldh [hBallYPos + 1], a
+	ldh a, [hPreviousFlipperState]
 .collisionCheckLoop
 	push af
 	ld l, 0
@@ -224,7 +224,7 @@ ReadFlipperCollisionAttributes: ; 0xe25a
 	sla h
 	add h
 	ld h, a  ; hl = a * 0x600  (this is the length of the flipper collision attributes)
-	ld a, [hBallXPos + 1]  ; x offset of flipper horizontal range
+	ldh a, [hBallXPos + 1]  ; x offset of flipper horizontal range
 	ld c, a
 	ld b, 0
 	sla c
@@ -239,7 +239,7 @@ ReadFlipperCollisionAttributes: ; 0xe25a
 	rl b   ; bc = (ball x offset) * 32
 	; Each column of the flipper collision attributes is 32 bytes long.
 	add hl, bc  ; hl points to the start of the row in the flipper collision attributes
-	ld a, [hBallYPos + 1]  ; y offset of flipper vertical range
+	ldh a, [hBallYPos + 1]  ; y offset of flipper vertical range
 	ld c, a
 	ld b, 0
 	add hl, bc  ; hl points to the attribute byte in the flipper collision attributes
@@ -275,7 +275,7 @@ ReadFlipperCollisionAttributes: ; 0xe25a
 .collision
 	pop af  ; a = flipper state that resulted in a collision
 	ld a, b  ; a = collision point radius
-	ld [hFlipperCollisionRadius], a
+	ldh [hFlipperCollisionRadius], a
 	ld h, d
 	ld l, e
 	ld a, h
@@ -305,9 +305,9 @@ Func_e2e4:
 	or e
 	or d
 	jr nz, .asm_e2f3
-	ld a, [hBallXPos]
+	ldh a, [hBallXPos]
 	ld e, a
-	ld a, [hBallXPos + 1]
+	ldh a, [hBallXPos + 1]
 	ld d, a
 	ret
 
@@ -364,11 +364,11 @@ Func_e2e4:
 
 .asm_e32f
 	ld a, c
-	ld [$ff8c], a
+	ldh [$ff8c], a
 	pop bc
 	xor a
-	ld [$ff8d], a
-	ld [$ff8e], a
+	ldh [$ff8d], a
+	ldh [$ff8e], a
 .asm_e338
 	jr c, .asm_e344
 	ld a, d
@@ -388,23 +388,23 @@ Func_e2e4:
 	ld h, a
 	scf
 .asm_e34b
-	ld a, [$ff8d]
+	ldh a, [$ff8d]
 	rla
-	ld [$ff8d], a
-	ld a, [$ff8e]
+	ldh [$ff8d], a
+	ldh a, [$ff8e]
 	rla
-	ld [$ff8e], a
+	ldh [$ff8e], a
 	sla c
 	rl b
 	rl l
 	rl h
-	ld a, [$ff8c]
+	ldh a, [$ff8c]
 	dec a
-	ld [$ff8c], a
+	ldh [$ff8c], a
 	jr nz, .asm_e338
-	ld a, [$ff8d]
+	ldh a, [$ff8d]
 	ld e, a
-	ld a, [$ff8e]
+	ldh a, [$ff8e]
 	ld d, a
 .asm_e36a
 	pop af
@@ -431,7 +431,7 @@ CalculateFlipperYForce: ; 0xe379
 ; Returns: lb = resulting y force (yes, it's a logical 2-byte register composed of l and b)
 	ld a, b
 	xor d
-	ld [$ffbe], a
+	ldh [$ffbe], a
 	bit 7, b
 	jr z, .bcIsPositive
 	; negate bc so it's positive
@@ -499,7 +499,7 @@ CalculateFlipperYForce: ; 0xe379
 	pop de
 	add hl, de
 	; hlbc = 32-bit result of the multiplication
-	ld a, [$ffbe]
+	ldh a, [$ffbe]
 	bit 7, a
 	ret z
 	; negate hlbc
@@ -630,7 +630,7 @@ HandleFlipperCollision: ; 0xe442
 	ld [wCurCollisionAttribute], a
 	ld [wCurCollisionTileOffset], a
 	ld [wCurCollisionTileOffset + 1], a
-	ld a, [hFlipperCollisionRadius]
+	ldh a, [hFlipperCollisionRadius]
 	sla a
 	ld c, a
 	ld b, 0
@@ -640,9 +640,9 @@ HandleFlipperCollision: ; 0xe442
 	ld c, a
 	ld a, [hl]
 	ld b, a
-	ld a, [hFlipperStateChange]
+	ldh a, [hFlipperStateChange]
 	ld e, a
-	ld a, [hFlipperStateChange + 1]
+	ldh a, [hFlipperStateChange + 1]
 	ld d, a
 	sla e
 	rl d
@@ -677,9 +677,9 @@ DrawFlippers: ; 0xe4a1
 	and a
 	ret z
 	ld hl, FlippersOAMPixelOffsetData
-	ld a, [hSCX]
+	ldh a, [hSCX]
 	ld d, a
-	ld a, [hSCY]
+	ldh a, [hSCY]
 	ld e, a
 	ld a, [hli]
 	sub d
@@ -696,7 +696,7 @@ DrawFlippers: ; 0xe4a1
 	ld a, [hl]
 	cp $b
 	jr nz, .asm_e4d6
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr nz, .asm_e4d4
 	ld a, [wFlippersDisabled]
@@ -710,9 +710,9 @@ DrawFlippers: ; 0xe4a1
 .asm_e4d6
 	call LoadOAMData
 	pop hl
-	ld a, [hSCX]
+	ldh a, [hSCX]
 	ld d, a
-	ld a, [hSCY]
+	ldh a, [hSCY]
 	ld e, a
 	ld a, [hli]
 	sub d
@@ -728,7 +728,7 @@ DrawFlippers: ; 0xe4a1
 	ld a, [hl]
 	cp $8
 	jr nz, .asm_e506
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr nz, .asm_e504
 	ld a, [wFlippersDisabled]

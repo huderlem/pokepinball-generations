@@ -105,7 +105,7 @@ ResolveSapphireStagePinballLaunchCollision: ; 0x1c7d7
 ChooseInitialMap_SapphireField: ; 0x1c839
 ; While waiting to launch the pinball, this quickly rotates the billboard with the initial
 ; maps the player can start on.
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	callba nz, LoadGreyBillboardPaletteData
 .showNextMap
@@ -510,7 +510,7 @@ UpdateSpinnerChargeGraphics_SapphireField: ; 0x1cb43
 	sla c
 	ld b, $0
 	ld hl, TileDataPointers_1cb60_SapphireField
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr z, .asm_1cb56
 	ld hl, TileDataPointers_1cd10_SapphireField
@@ -566,7 +566,7 @@ LoadBumperGraphics_SapphireField: ; 0x1ce7a
 	ld c, a
 	ld b, $0
 	ld hl, TileDataPointers_1ceca_SapphireField
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr z, .asm_1ce8a
 	ld hl, TileDataPointers_1cf3a_SapphireField
@@ -860,7 +860,7 @@ UpdatePikachuSaverAnimation_SapphireField: ; 0x1d133
 	ret
 
 .asm_1d1c7
-	ld a, [hFrameCounter]
+	ldh a, [hFrameCounter]
 	swap a
 	and $1
 	ld [wPikachuSaverAnimationFrame], a
@@ -1162,7 +1162,7 @@ ResolveBonusMultiplierCollision_SapphireField: ; 0x1d438
 	ld a, [wWhichBonusMultiplierRailingId]
 	sub $f
 	jr nz, .hitRightRailing
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr nz, .asm_1d45c
 	ld a, $1f
@@ -1189,7 +1189,7 @@ ResolveBonusMultiplierCollision_SapphireField: ; 0x1d438
 	jr asm_1d4fa_SapphireField
 
 .hitRightRailing
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr nz, .asm_1d497
 	ld a, $21
@@ -1281,7 +1281,7 @@ UpdateBonusMultiplierRailing_SapphireField: ; 0x1d51b
 	cp $2
 	jr c, .asm_1d58b
 	cp $3
-	ld a, [hFrameCounter]
+	ldh a, [hFrameCounter]
 	jr c, .asm_1d56a
 	srl a
 	srl a
@@ -1307,7 +1307,7 @@ UpdateBonusMultiplierRailing_SapphireField: ; 0x1d51b
 	cp $2
 	ret c
 	cp $3
-	ld a, [hFrameCounter]
+	ldh a, [hFrameCounter]
 	jr c, .asm_1d59b
 	srl a
 	srl a
@@ -1361,7 +1361,7 @@ ShowBonusMultiplierMessage_SapphireField: ; 0x1d5bf
 
 _LoadBonusMultiplierRailingGraphics_SapphireField: ; 0x1d5f2
 	push af
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr nz, .gameboyColor
 	pop af
@@ -1447,7 +1447,7 @@ UpdateBonusMultiplierRailingLight_SapphireField: ; 0x1d692
 .turnOffLight
 	ld a, $0
 	ld [wBonusMultiplierRailingEndLightDuration], a
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr nz, .gameboy
 	ld a, $1e
@@ -1585,7 +1585,7 @@ UpdatePoliwag_SapphireField: ; 0x1dc95
 	ret nz
 	call Func_1130
 	ret nz
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr z, .asm_1dcd7
 	ld a, [wLeftMapMoveCounter]
@@ -1685,7 +1685,7 @@ UpdatePsyduck_SapphireField: ; 0x1dd2e
 	ret
 
 .asm_1dd74
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr z, .asm_1dd89
 	ld a, [wRightMapMoveCounter]
@@ -1846,7 +1846,7 @@ UpdateMapMoveCounters_SapphireFieldBottom: ; 0x1de93
 	dec a
 	ld [wLeftMapMoveCounter], a
 	call LoadPsyduckOrPoliwagNumberGraphics_SapphireField
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr z, .gameboy
 	ld a, [wLeftMapMoveCounter]
@@ -1888,7 +1888,7 @@ UpdateMapMoveCounters_SapphireFieldBottom: ; 0x1de93
 	ld [wRightMapMoveCounter], a
 	add $4
 	call LoadPsyduckOrPoliwagNumberGraphics_SapphireField
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr z, .gameboy_2
 	ld a, [wRightMapMoveCounter]
@@ -2089,7 +2089,7 @@ LoadPinballUpgradeTriggerGraphics_SapphireField: ; 0x1e484
 ; Input: a = toggle state
 	and a
 	jr z, .toggledOff
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr nz, .toggledOnGameboy
 	ld hl, TileDataPointers_1e520_SapphireField
@@ -2100,7 +2100,7 @@ LoadPinballUpgradeTriggerGraphics_SapphireField: ; 0x1e484
 	jr .load
 
 .toggledOff
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr nz, .toggledOffGameboy
 	ld hl, TileDataPointers_1e526_SapphireField
@@ -2305,7 +2305,7 @@ LoadCAVELightGraphics_SapphireField: ; 0x1e636
 ; Input: a = toggle state for CAVE light
 	and a
 	jr z, .toggledOff
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr nz, .toggledOnGameboy
 	ld hl, TileDataPointers_1e6d7_SapphireField
@@ -2316,7 +2316,7 @@ LoadCAVELightGraphics_SapphireField: ; 0x1e636
 	jr .load
 
 .toggledOff
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr nz, .toggledOffGameboy
 	ld hl, TileDataPointers_1e6df_SapphireField
@@ -2628,7 +2628,7 @@ LoadSlotCaveCoverGraphics_SapphireField: ; 0x1e8f6
 	ld c, a
 	ld b, $0
 	ld hl, TileDataPointers_1e91e_SapphireField
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr z, .asm_1e912
 	ld hl, TileDataPointers_1e970_SapphireField
@@ -2825,7 +2825,7 @@ _ApplySlotForceField_SapphireField: ; 0x1ea6a
 
 UpdateArrowIndicators_SapphireField: ; 0x1ead4
 ; Updates the 5 blinking arrow indicators in the Sapphire field bottom.
-	ld a, [hFrameCounter]
+	ldh a, [hFrameCounter]
 	and $f
 	ret nz
 	ld bc, $0000
@@ -2852,7 +2852,7 @@ UpdateArrowIndicators_SapphireField: ; 0x1ead4
 	ld a, c
 	cp $2
 	jr nz, .asm_1eadc
-	ld a, [hFrameCounter]
+	ldh a, [hFrameCounter]
 	and $f
 	ret nz
 	ld a, [wCurrentStage]
@@ -2901,7 +2901,7 @@ LoadArrowIndicatorGraphics_SapphireStage: ; 0x1eb41
 	push af
 	sla c
 	ld hl, TileDataPointers_1eb61_SapphireField
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr z, .gameboy
 	ld hl, TileDataPointers_1ed51_SapphireField
@@ -3374,7 +3374,7 @@ UpdateForceFieldGraphics_SapphireField: ; 0x1f18a
 	ld c, a
 	ld b, $0
 	ld hl, TileDataPointers_1f1b5_SapphireField
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr z, .gameboy
 	ld hl, TileDataPointers_1f201_SapphireField

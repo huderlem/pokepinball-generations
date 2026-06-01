@@ -77,7 +77,7 @@ HandleEvolutionMode_RubyField: ; 0x205e0
 	ld de, YeahYouGotItText
 	ld hl, wScrollingText1
 	call LoadScrollingText
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr z, .asm_2064f
 	ld a, BANK(StageRubyFieldBottomOBJPalette6)
@@ -163,7 +163,7 @@ Func_20651_RubyField: ; 0x20651
 	ld de, vTilesOB tile $20
 	ld bc, $00e0
 	call LoadVRAMData
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr z, .asm_20700
 	ld a, BANK(StageRubyFieldBottomOBJPalette7)
@@ -517,7 +517,7 @@ CreateEvolutionTrinket_RubyField: ; 0x20977
 	ld a, [wCurrentStage]
 	bit 0, a
 	callba nz, ClearAllRubyIndicators
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr z, .asm_209bf
 	ld a, BANK(EvolutionTrinketPalette1)
@@ -643,7 +643,7 @@ RecoverPokemon_RubyField:
 	ld a, [wCurrentStage]
 	bit 0, a
 	callba nz, ClearAllRubyIndicators
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr z, .asm_20ada
 	ld a, BANK(StageRubyFieldBottomOBJPalette6)

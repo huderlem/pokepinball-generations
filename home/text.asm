@@ -2,7 +2,7 @@ INCLUDE "text/scrolling_text.asm"
 
 EnableBottomText: ; 0x30db
 	ld a, $86
-	ld [hWY], a ;force text bar up
+	ldh [hWY], a ;force text bar up
 	ld a, $1
 	ld [wBottomTextEnabled], a
 	ld [wDisableDrawScoreboardInfo], a
@@ -65,36 +65,36 @@ PlaceText: ; 0x312b loads e chars of text text into de
 	and a
 	ret z ;if a = 0, jump
 	ld c, $81
-	cp " "
+	cp ' '
 	jr z, .space
-	cp ","
+	cp ','
 	jr z, .comma
-	cp "♂"
+	cp '♂'
 	jr z, .male
-	cp "♀"
+	cp '♀'
 	jr z, .female
-	cp "`"
+	cp '`'
 	jr z, .apostrophe
-	cp "!"
+	cp '!'
 	jr z, .exclamation
-	cp "x"
+	cp 'x'
 	jr z, .little_x
-	cp "e"
+	cp 'e'
 	jr z, .e_acute
-	cp "*"
+	cp '*'
 	jr z, .asterisk
-	cp "."
+	cp '.'
 	jr z, .period
-	cp ":"
+	cp ':'
 	jr z, .colon
-	cp "0"
+	cp '0'
 	jr c, .check_AtoZ
-	cp "9" + 1
+	cp '9' + 1
 	jr c, .digit
 .check_AtoZ
-	cp "A"
+	cp 'A'
 	jr c, .invalid
-	cp "Z" + 1
+	cp 'Z' + 1
 	jr c, .alphabet
 .invalid
 	jr .next_char
@@ -186,7 +186,7 @@ LoadSpecialTextChar: ; 0x31e1 copy special font data into VRAM based on the cont
 	push de
 	push hl
 	ld c, a
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	ld a, c
 	jr z, .asm_31ed
@@ -276,13 +276,13 @@ UnusedPlaceString: ; 0x3268 seems to place text based on different, confusing lo
 	and a
 	ret z
 	ld c, $81 ;special space?
-	cp " "
+	cp ' '
 	jr z, .Space ;space
-	cp ","
+	cp ','
 	jr z, .Comma ;comma
-	cp "0"
+	cp '0'
 	jr c, .Punctuation ;less than 0 is punctuation
-	cp "9" + 1
+	cp '9' + 1
 	jr c, .Digits ;less than colon is numbers, more than is a mix of punctuation and AtoZ
 .Punctuation
 	cp $a0
@@ -329,7 +329,7 @@ UnusedPlaceString: ; 0x3268 seems to place text based on different, confusing lo
 LoadScrollingTextFromBank:
 ; Bank specified in register a
 	ld b, a
-	ld a, [hLoadedROMBank]  ; currently-loaded Bank
+	ldh a, [hLoadedROMBank]  ; currently-loaded Bank
 	cp b
 	jp z, LoadScrollingText
 	push af
@@ -345,7 +345,7 @@ LoadScrollingTextFromBank:
 	ld d, [hl]
 	ld [hl], $0
 	ld [MBC5RomBank], a
-	ld [hLoadedROMBank], a
+	ldh [hLoadedROMBank], a
 	ld [hl], d
 	pop de
 	pop hl
@@ -436,10 +436,10 @@ Func_32cc: ; 0x32cc
 	call Func_3309
 	dec b
 	jr nz, .asm_32ec
-	ld a, "0"
+	ld a, '0'
 	ld [de], a
 	inc de
-	ld a, " "
+	ld a, ' '
 	ld [de], a
 	inc de
 	xor a
@@ -576,10 +576,10 @@ LoadScoreTextFromStack: ; 0x3372 load stationary text header DE into HL, then lo
 	call LoadBCDDigitAsText
 	dec b
 	jr nz, .Loop ;loop 4 times
-	ld a, "0"
+	ld a, '0'
 	ld [de], a
 	inc de
-	ld a, " " ;end with a 0 and a space
+	ld a, ' ' ;end with a 0 and a space
 	ld [de], a
 	inc de
 	xor a
@@ -595,7 +595,7 @@ LoadBCDDigitAsText: ; 0x33a7 Enter BCD digit a into text DE. b is a loop counter
 	and a
 	ret nz
 .EnterDigit
-	add "0" ;load digit into de
+	add '0' ;load digit into de
 	ld [de], a
 	inc de
 	ld c, $0 ;mark that a digit has been entered
@@ -605,7 +605,7 @@ LoadBCDDigitAsText: ; 0x33a7 Enter BCD digit a into text DE. b is a loop counter
 	cp $3
 	ret nz ;if b is 3 or 6, load a seperator comma into the text
 .EnterComma
-	ld a, ","
+	ld a, ','
 	ld [de], a
 	inc de
 	ret
@@ -716,9 +716,9 @@ UpdateBottomText: ; 0x33e3
 
 MainLoopUntilTextIsClear: ; 0x3475
 	xor a
-	ld [hJoypadState], a
-	ld [hNewlyPressedButtons], a
-	ld [hPressedButtons], a
+	ldh [hJoypadState], a
+	ldh [hNewlyPressedButtons], a
+	ldh [hPressedButtons], a
 	call HandleTilts
 	ld a, [wCurrentStage]
 	bit 0, a ;handle flippers if the stage has any

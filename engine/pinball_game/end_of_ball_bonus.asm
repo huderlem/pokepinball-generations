@@ -3,24 +3,24 @@ EndOfBallBonus:
 	call LoadEAcuteCharacterGfx
 	call Func_f57f
 	ld a, $60
-	ld [hWY], a
+	ldh [hWY], a
 	dec a
-	ld [hLYC], a
+	ldh [hLYC], a
 	ld a, $fd
-	ld [hLCDCMask], a
+	ldh [hLCDCMask], a
 	call ShowBallBonusSummary
 	ld a, $90
-	ld [hWY], a
+	ldh [hWY], a
 	ld a, $83
-	ld [hLYC], a
-	ld [hLastLYC], a
+	ldh [hLYC], a
+	ldh [hLastLYC], a
 	ld a, $ff
-	ld [hLCDCMask], a
+	ldh [hLCDCMask], a
 	call FillBottomMessageBufferWithBlackTile
 	ret
 
 LoadEAcuteCharacterGfx:
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr nz, .gameboyColor
 	ld a, BANK(E_Acute_CharacterGfx)
@@ -96,7 +96,7 @@ ShowBallBonusSummary:
 	call Func_f80d
 .waitForAPress
 	rst AdvanceFrame
-	ld a, [hNewlyPressedButtons]
+	ldh a, [hNewlyPressedButtons]
 	bit BIT_A_BUTTON, a
 	jr z, .waitForAPress
 	ret
@@ -171,7 +171,7 @@ Func_f676:
 	and a
 	jr z, .asm_f69f
 	rst AdvanceFrame
-	ld a, [hNewlyPressedButtons]
+	ldh a, [hNewlyPressedButtons]
 	bit BIT_A_BUTTON, a
 	jr z, .asm_f69f
 	xor a
@@ -207,7 +207,7 @@ Func_f676:
 	and a
 	jr z, .asm_f6f2
 	rst AdvanceFrame
-	ld a, [hNewlyPressedButtons]
+	ldh a, [hNewlyPressedButtons]
 	bit BIT_A_BUTTON, a
 	jr z, .asm_f6f2
 	xor a
@@ -244,7 +244,7 @@ Func_f70d:
 	and a
 	jr z, .asm_f736
 	rst AdvanceFrame
-	ld a, [hNewlyPressedButtons]
+	ldh a, [hNewlyPressedButtons]
 	bit BIT_A_BUTTON, a
 	jr z, .asm_f736
 	xor a
@@ -268,7 +268,7 @@ Func_f70d:
 	and a
 	jr z, .asm_f76c
 	rst AdvanceFrame
-	ld a, [hNewlyPressedButtons]
+	ldh a, [hNewlyPressedButtons]
 	bit BIT_A_BUTTON, a
 	jr z, .asm_f76c
 	xor a
@@ -322,23 +322,23 @@ PlaceTextAlphanumericOnly:
 	ld a, [hli]
 	and a
 	ret z ;if end of text, ret
-	cp "0"
+	cp '0'
 	jr c, .NotADigit ;if a digit, add $56 and skip letter check
-	cp "9" + 1
+	cp '9' + 1
 	jr nc, .NotADigit
 	add $56
 	jr .IsValidChar
 
 .NotADigit
-	cp "A"
+	cp 'A'
 	jr c, .NotALetter ;if a letter, add $56 and skip letter check
-	cp "Z" + 1
+	cp 'Z' + 1
 	jr nc, .NotALetter
 	add $bf
 	jr .IsValidChar
 
 .NotALetter
-	cp "e" ;check if acute e
+	cp 'e' ;check if acute e
 	jr nz, .NotAcuteE
 	ld a, $83
 	jr .IsValidChar
@@ -354,9 +354,9 @@ PlaceTextAlphanumericOnly:
 	ld a, [hli]
 	and a
 	ret z
-	cp "0"
+	cp '0'
 	jr c, .asm_f7ef
-	cp "9" + 1
+	cp '9' + 1
 	jr nc, .asm_f7ef
 	add $56
 	jr .asm_f809
@@ -422,7 +422,7 @@ Func_f83a:
 	push bc
 	rst AdvanceFrame
 	pop bc
-	ld a, [hNewlyPressedButtons]
+	ldh a, [hNewlyPressedButtons]
 	bit BIT_A_BUTTON, a
 	jr nz, .asm_f84e
 	dec b
@@ -454,7 +454,7 @@ Func_f853:
 	and a
 	jr z, .asm_f886
 	rst AdvanceFrame
-	ld a, [hNewlyPressedButtons]
+	ldh a, [hNewlyPressedButtons]
 	bit BIT_A_BUTTON, a
 	jr z, .asm_f886
 	xor a

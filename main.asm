@@ -1170,7 +1170,7 @@ StageGoldFieldTopCollisionMasks2:
 	INCBIN "data/collision/masks/gold_stage_top_2.masks"
 
 
-SECTION "bank45", ROMX
+SECTION "bank45", ROMX, BANK[$56]
 
 StageGoldFieldTopCollisionMasks3:
 	INCBIN "data/collision/masks/gold_stage_top_3.masks"
@@ -1322,7 +1322,7 @@ SECTION "bank59", ROMX
 
 INCLUDE "audio/cries.asm"
 
-SECTION "bank5A", ROMX
+SECTION "bank5A", ROMX, BANK[$15]
 
 INCLUDE "data/mon_gfx/mon_billboard_pics_16.asm"
 
@@ -1428,7 +1428,7 @@ StageSapphireFieldTopCollisionAttributes:
 StageSapphireFieldTopCollisionAttributesBallEntrance:
 	INCBIN "data/collision/maps/silver_stage_top_ball_entrance.collision"
 
-SECTION "bank62", ROMX
+SECTION "bank62", ROMX, BANK[$62]
 
 StageRubyFieldBottomCollisionMasks:
 	INCBIN "data/collision/masks/ruby_stage_bottom.masks"
@@ -1477,7 +1477,7 @@ StageSapphireFieldTopBaseGameBoyGfx:
 INCLUDE "engine/pinball_game/object_collision/sapphire_stage_object_collision.asm"
 INCLUDE "engine/pinball_game/object_collision/ruby_stage_object_collision.asm"
 
-SECTION "bank65", ROMX
+SECTION "bank65", ROMX, BANK[$38]
 
 INCLUDE "data/mon_gfx/mon_billboard_pics_17.asm"
 
@@ -1496,11 +1496,11 @@ SECTION "bank67", ROMX
 
 INCLUDE "data/mon_gfx/mon_animated_pics_10.asm"
 
-SECTION "bank68", ROMX
+SECTION "bank68", ROMX, BANK[$39]
 
 INCLUDE "data/mon_gfx/mon_animated_pics_11.asm"
 
-SECTION "bank69", ROMX
+SECTION "bank69", ROMX, BANK[$50]
 
 INCLUDE "data/mon_gfx/mon_animated_pics_12.asm"
 
@@ -1508,19 +1508,19 @@ SECTION "bank6A", ROMX
 
 INCLUDE "data/mon_gfx/mon_animated_pics_13.asm"
 
-SECTION "bank6B", ROMX
+SECTION "bank6B", ROMX, BANK[$5A]
 
 INCLUDE "data/mon_gfx/mon_billboard_pics_18.asm"
 
-SECTION "bank6C", ROMX
+SECTION "bank6C", ROMX, BANK[$5B]
 
 INCLUDE "data/mon_gfx/mon_billboard_pics_19.asm"
 
-SECTION "bank6D", ROMX
+SECTION "bank6D", ROMX, BANK[$45]
 
 INCLUDE "data/mon_gfx/mon_billboard_pics_20.asm"
 
-SECTION "bank6E", ROMX
+SECTION "bank6E", ROMX, BANK[$59]
 
 INCLUDE "data/mon_gfx/mon_billboard_pics_21.asm"
 

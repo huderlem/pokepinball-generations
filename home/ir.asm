@@ -1,6 +1,6 @@
 Func_1be3: ; 0x1be3
 	ld a, $c0
-	ld [rRP], a
+	ldh [rRP], a
 	ld a, $ff
 	ld [wd8ea], a
 	xor a
@@ -11,7 +11,7 @@ Func_1be3: ; 0x1be3
 	inc b
 	jr nz, .loop
 	ld hl, wd8eb
-	ld a, [rKEY1]
+	ldh a, [rKEY1]
 	bit 7, a
 	jr z, .normalSpeed
 	ld [hl], $e
@@ -71,7 +71,7 @@ Func_1c32: ; 0x1c32
 
 Func_1c39:
 	xor a
-	ld [hNumFramesSinceLastVBlank], a
+	ldh [hNumFramesSinceLastVBlank], a
 	ld a, $1
 	ld [wd8e9], a
 .asm_1c41
@@ -80,7 +80,7 @@ Func_1c39:
 	ld a, [$ff00+c]
 	and b
 	jr z, Func_1c50
-	ld a, [hNumFramesSinceLastVBlank]
+	ldh a, [hNumFramesSinceLastVBlank]
 	and a
 	jr nz, Func_1ca1
 	jr .asm_1c41
@@ -171,7 +171,7 @@ Func_1ca1: ; 0x1ca1
 
 Func_1cef:
 	xor a
-	ld [rRP], a
+	ldh [rRP], a
 	ld a, $ff
 	ld [wd8ea], a
 	ret

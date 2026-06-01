@@ -10,7 +10,7 @@ PointerTable_28004: ; 0x28004
 
 LoadPokedexScreen: ; 0x2800e
 	ld a, $23
-	ld [hLCDC], a
+	ldh [hLCDC], a
 	ld a, $e4
 	ld [wBGP], a
 	ld a, $93
@@ -18,26 +18,26 @@ LoadPokedexScreen: ; 0x2800e
 	ld a, $e4
 	ld [wOBP1], a
 	xor a
-	ld [hSCX], a
+	ldh [hSCX], a
 	ld a, $8
-	ld [hSCY], a
+	ldh [hSCY], a
 	ld a, $7
-	ld [hWX], a
+	ldh [hWX], a
 	ld a, $8c
-	ld [hWY], a
+	ldh [hWY], a
 	ld a, $3b
-	ld [hLYC], a
-	ld [hLastLYC], a
-	ld [hNextLYCSub], a
-	ld [hLYCSub], a
+	ldh [hLYC], a
+	ldh [hLastLYC], a
+	ldh [hNextLYCSub], a
+	ldh [hLYCSub], a
 	ld hl, hSTAT
 	set 6, [hl]
 	ld hl, rIE
 	set 1, [hl]
 	ld a, $2
-	ld [hStatIntrRoutine], a
+	ldh [hStatIntrRoutine], a
 	ld hl, PointerTable_280a2
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	call LoadVideoData
 	xor a
 	ld [wCurPokedexIndex], a
@@ -121,7 +121,7 @@ Data_280c4: ; 0x280c4
 
 MainPokedexScreen: ; 0x280fe
 	call Func_28513
-	ld a, [hNewlyPressedButtons]
+	ldh a, [hNewlyPressedButtons]
 	bit BIT_A_BUTTON, a
 	jr z, .asm_28142
 	ld a, [wd95f]
@@ -166,10 +166,10 @@ MainPokedexScreen: ; 0x280fe
 	ret
 
 .asm_2814f
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr z, .asm_28174
-	ld a, [hJoypadState]
+	ldh a, [hJoypadState]
 	bit BIT_START, a
 	jr z, .asm_28168
 	ld a, [wd960]
@@ -193,7 +193,7 @@ MonInfoPokedexScreen: ; 0x28178
 	ld a, [wd956]
 	bit 0, a
 	jr z, .asm_28190
-	ld a, [hNewlyPressedButtons]
+	ldh a, [hNewlyPressedButtons]
 	bit BIT_A_BUTTON, a
 	jr z, .asm_2818a
 	call Func_28912
@@ -205,7 +205,7 @@ MonInfoPokedexScreen: ; 0x28178
 	jr .asm_28196
 
 .asm_28190
-	ld a, [hNewlyPressedButtons]
+	ldh a, [hNewlyPressedButtons]
 	and $3
 	jr z, .asm_281a2
 .asm_28196
@@ -216,10 +216,10 @@ MonInfoPokedexScreen: ; 0x28178
 	ret
 
 .asm_281a2
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr z, .asm_281c7
-	ld a, [hJoypadState]
+	ldh a, [hJoypadState]
 	bit BIT_START, a
 	jr z, .asm_281bb
 	ld a, [wd960]
@@ -266,7 +266,7 @@ Func_281cb:
 	ld d, a
 	ld a, BANK(MonBillboardPalettePointers)
 	call ReadByteFromBank
-	ld [$ff8c], a
+	ldh [$ff8c], a
 	jr .asm_28214
 
 .asm_281fb
@@ -282,7 +282,7 @@ Func_281cb:
 	ld d, a
 	ld a, BANK(MonAnimatedPalettePointers)
 	call ReadByteFromBank
-	ld [$ff8c], a
+	ldh [$ff8c], a
 .asm_28214
 	ld h, d
 	ld l, e
@@ -290,11 +290,11 @@ Func_281cb:
 	ld b, $8
 .asm_2821b
 	push bc
-	ld a, [$ff8c]
+	ldh a, [$ff8c]
 	call ReadByteFromBank
 	inc hl
 	ld c, a
-	ld a, [$ff8c]
+	ldh a, [$ff8c]
 	call ReadByteFromBank
 	inc hl
 	ld b, a
@@ -424,7 +424,7 @@ Func_282e9: ; 0x282e9
 	ld a, Bank(MonAnimatedSpriteTypes)
 	call ReadByteFromBank
 	ld c, a
-	ld a, [hFrameCounter]
+	ldh a, [hFrameCounter]
 	swap a
 	and $7
 	cp $7
@@ -453,7 +453,7 @@ Func_282e9: ; 0x282e9
 	ld a, $63
 	call LoadOAMData
 	call Func_28368
-	ld a, [hNewlyPressedButtons]
+	ldh a, [hNewlyPressedButtons]
 	and $6
 	jr z, .asm_28367
 	ld a, BANK(PokedexTilemap)
@@ -462,14 +462,14 @@ Func_282e9: ; 0x282e9
 	ld bc, $0200
 	call LoadVRAMData
 	ld a, $1
-	ld [rVBK], a
+	ldh [rVBK], a
 	ld a, BANK(PokedexBGAttributes)
 	ld hl, PokedexBGAttributes
 	ld de, vBGWin
 	ld bc, $0200
 	call LoadVRAMData
 	xor a
-	ld [rVBK], a
+	ldh [rVBK], a
 	call Func_28972
 	callba Func_28a8a
 	call Func_28ad1
@@ -479,13 +479,13 @@ Func_282e9: ; 0x282e9
 	ret
 
 Func_28368: ; 0x28368
-	ld a, [hJoypadState]
+	ldh a, [hJoypadState]
 	bit BIT_A_BUTTON, a
 	jr nz, .asm_28371
 	jp Func_284bc
 
 .asm_28371
-	ld a, [hPressedButtons]
+	ldh a, [hPressedButtons]
 	ld b, a
 	ld a, [wdaa2]
 	ld e, a
@@ -674,7 +674,7 @@ SpritePaletteIndices_2848c:
 	db $EE, $00
 
 Func_284bc: ; 0x284bc
-	ld a, [hPressedButtons]
+	ldh a, [hPressedButtons]
 	ld b, a
 	ld a, [wdaa2]
 	bit 5, b
@@ -732,7 +732,7 @@ ExitPokedexScreen: ; 0x284f9
 	ret
 
 Func_28513: ; 0x28513
-	ld a, [hPressedButtons]
+	ldh a, [hPressedButtons]
 	ld hl, wd95e
 	or [hl]
 	ld [hl], a
@@ -1012,7 +1012,7 @@ Func_285db: ; 0x285db
 	ld bc, 4
 .asm_28647
 	push bc
-	ld a, [hJoypadState]
+	ldh a, [hJoypadState]
 	and a
 	ld a, [wd95b]
 	jr z, .asm_28652
@@ -1060,7 +1060,7 @@ DexScrollBarOAMIds:
 DrawCornerInfoPokedexScreen: ; 0x2868b
 ; If player is holding SELECT button, it draws the seen/own count in the top-right corner.
 ; Otherwise, it draws the word "POKeDEX".
-	ld a, [hJoypadState]
+	ldh a, [hJoypadState]
 	bit BIT_SELECT, a
 	jr z, .asm_286c8
 	ld bc, $6d03
@@ -1353,15 +1353,15 @@ Func_2887c: ; 0x2887c
 	ld bc, $0100
 	call LoadVRAMData
 	ld a, $3f
-	ld [hLYC], a
+	ldh [hLYC], a
 	ld a, $47
-	ld [hNextLYCSub], a
+	ldh [hNextLYCSub], a
 	ld b, $33
 .asm_28894
 	push bc
 	ld a, $7a
 	sub b
-	ld [hNextLYCSub], a
+	ldh [hNextLYCSub], a
 	rst AdvanceFrame
 	pop bc
 	dec b
@@ -1376,7 +1376,7 @@ Func_288a2: ; 0x288a2
 	push bc
 	ld a, $44
 	add b
-	ld [hNextLYCSub], a
+	ldh [hNextLYCSub], a
 	rst AdvanceFrame
 	pop bc
 	dec b
@@ -1384,8 +1384,8 @@ Func_288a2: ; 0x288a2
 	dec b
 	jr nz, .asm_288a4
 	ld a, $3b
-	ld [hLYC], a
-	ld [hNextLYCSub], a
+	ldh [hLYC], a
+	ldh [hNextLYCSub], a
 	ld a, BANK(PokedexTilemap2)
 	ld hl, PokedexTilemap2 + $100
 	deCoord 0, 8, vBGMap
@@ -1628,7 +1628,7 @@ Func_28ad1: ; 0x28ad1
 	swap a
 	and $f0
 	sub $3c
-	ld [hNextFrameHBlankSCX], a
+	ldh [hNextFrameHBlankSCX], a
 	ret
 
 Func_28add: ; 0x28add
@@ -1680,7 +1680,7 @@ Func_28add: ; 0x28add
 	call LoadOrCopyVRAMData
 	call Func_28cd4
 	pop bc
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	ret z
 	push bc
@@ -1723,7 +1723,7 @@ LoadUncaughtPokemonBackgroundGfx: ; 0x28b76
 	ld bc, $0180
 	call LoadOrCopyVRAMData
 	call Func_28cd4
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	ret z
 	ld a, BANK(UncaughtPokemonPaletteMap)
@@ -1768,7 +1768,7 @@ LoadSeenPokemonGfx: ; 0x28baf
 	ld bc, $0180
 	call LoadOrCopyVRAMData
 	call Func_28cd4
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	ret z
 	ld a, BANK(UncaughtPokemonPaletteMap)
@@ -1791,7 +1791,7 @@ Func_28bf5: ; 0x28bf5
 .asm_28c04
 	push bc
 	ld a, $1
-	ld [rVBK], a
+	ldh [rVBK], a
 	ld hl, MonAnimatedPicPointers
 	add hl, bc
 	ld a, Bank(MonAnimatedPicPointers)
@@ -1810,7 +1810,7 @@ Func_28bf5: ; 0x28bf5
 	ld bc, $0300
 	call LoadOrCopyVRAMData
 	xor a
-	ld [rVBK], a
+	ldh [rVBK], a
 	pop bc
 	push bc
 	ld a, [wCurPokedexIndex]
@@ -1856,7 +1856,7 @@ Func_28bf5: ; 0x28bf5
 	ld [wCurrentAnimatedMonSpriteFrame], a
 	call Func_28cf8
 	pop bc
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	ret z
 	ld hl, MonAnimatedPalettePointers
@@ -2083,20 +2083,20 @@ ClearPokedexData: ; 0x28d66
 Func_28d97: ; 0x28d97
 	push de
 	ld a, b
-	ld [$ff8c], a
-	ld [$ff8d], a
+	ldh [$ff8c], a
+	ldh [$ff8d], a
 	ld a, c
-	ld [$ff8f], a
+	ldh [$ff8f], a
 	xor a
-	ld [$ff8e], a
-	ld [$ff90], a
-	ld [$ff91], a
+	ldh [$ff8e], a
+	ldh [$ff90], a
+	ldh [$ff91], a
 	call Func_28e73
 .asm_28daa
 	call Func_2957c
 	jr nc, .asm_28dcb
 	push hl
-	ld [$ff92], a
+	ldh [$ff92], a
 	cp $ff
 	jr nz, .asm_28dbb
 	call Func_208c
@@ -2108,7 +2108,7 @@ Func_28d97: ; 0x28d97
 	ld hl, CharacterWidths
 	add hl, bc
 	ld a, [hl]
-	ld [$ff93], a
+	ldh [$ff93], a
 	call LoadDexVWFCharacter
 .asm_28dc8
 	pop hl
@@ -2137,7 +2137,7 @@ Func_28d97: ; 0x28d97
 .asm_28de9
 	ld hl, wPokedexFontBuffer
 	add hl, bc
-	ld a, [$ff8f]
+	ldh a, [$ff8f]
 	ld c, a
 	ld b, $0
 	sla c
@@ -2157,26 +2157,26 @@ Func_28d97: ; 0x28d97
 Func_28e09: ; 0x28e09
 	push de
 	ld a, b
-	ld [$ff8c], a
-	ld [$ff8d], a
+	ldh [$ff8c], a
+	ldh [$ff8d], a
 	ld a, c
-	ld [$ff8f], a
+	ldh [$ff8f], a
 	xor a
-	ld [$ff8e], a
-	ld [$ff90], a
-	ld [$ff91], a
+	ldh [$ff8e], a
+	ldh [$ff90], a
+	ldh [$ff91], a
 	call Func_28e73
 .asm_28e1c
 	call Func_295e1
 	jr nc, .asm_28e35
 	push hl
-	ld [$ff92], a
+	ldh [$ff92], a
 	ld c, a
 	ld b, $0
 	ld hl, CharacterWidths
 	add hl, bc
 	ld a, [hl]
-	ld [$ff93], a
+	ldh [$ff93], a
 	call LoadDexVWFCharacter
 	pop hl
 	jr nc, .asm_28e1c
@@ -2205,7 +2205,7 @@ Func_28e09: ; 0x28e09
 .asm_28e53
 	ld hl, wPokedexFontBuffer
 	add hl, bc
-	ld a, [$ff8f]
+	ldh a, [$ff8f]
 	ld c, a
 	ld b, $0
 	sla c
@@ -2224,7 +2224,7 @@ Func_28e09: ; 0x28e09
 
 Func_28e73: ; 0x28e73
 	push hl
-	ld a, [$ff8f]
+	ldh a, [$ff8f]
 	ld c, a
 	ld b, $0
 	sla c
@@ -2271,32 +2271,32 @@ Func_2957c: ; 0x2957c
 	ret
 
 .asm_2958c
-	cp "0"
+	cp '0'
 	jr c, .asm_29594
-	cp "9" + 1
+	cp '9' + 1
 	jr c, .asm_295be
 .asm_29594
-	cp "A"
+	cp 'A'
 	jr c, .asm_2959c
-	cp "Z" + 1
+	cp 'Z' + 1
 	jr c, .asm_295c2
 .asm_2959c
-	cp "a"
+	cp 'a'
 	jr c, .asm_295a4
-	cp "z" + 1
+	cp 'z' + 1
 	jr c, .asm_295c6
 .asm_295a4
-	cp " "
+	cp ' '
 	jr z, .asm_295ca
-	cp ","
+	cp ','
 	jr z, .asm_295cd
-	cp "."
+	cp '.'
 	jr z, .asm_295d1
-	cp "`"
+	cp '`'
 	jr z, .asm_295d5
-	cp "-"
+	cp '-'
 	jr z, .asm_295d9
-	cp "é"
+	cp 'é'
 	jr z, .asm_295dd
 	and a
 	ret

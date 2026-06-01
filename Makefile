@@ -14,7 +14,16 @@ else
 SHA1 := sha1sum
 endif
 
-COMPILE_FLAGS :=
+RGBDS ?=
+RGBASM  ?= $(RGBDS)rgbasm
+RGBLINK ?= $(RGBDS)rgblink
+RGBFIX  ?= $(RGBDS)rgbfix
+RGBGFX  ?= $(RGBDS)rgbgfx
+
+RGBASMFLAGS  ?=
+RGBLINKFLAGS ?=
+RGBFIXFLAGS  ?=
+RGBGFXFLAGS  ?=
 
 all: $(ROM)
 
@@ -24,11 +33,13 @@ endif
 
 %.o: dep = $(shell tools/scan_includes $(@D)/$*.asm)
 %.o: %.asm $$(dep)
-	rgbasm $(COMPILE_FLAGS) -h -Wunmapped-char=0 -l -o $@ $<
+	$(RGBASM) $(RGBASMFLAGS) -o $@ $<
 
+$(ROM): RGBLINKFLAGS += -l contents/contents.link -n $(ROM:.gbc=.sym) -m $(ROM:.gbc=.map)
+$(ROM): RGBFIXFLAGS += -jsvc -k 01 -l 0x33 -m 0x1e -p 0 -r 02 -t "POKEPINBALL" -i VPHE
 $(ROM): $(OBJS) contents/contents.link
-	rgblink -n $(ROM:.gbc=.sym) -m $(ROM:.gbc=.map) -l contents/contents.link -o $@ $(OBJS)
-	rgbfix -jsvc -k 01 -l 0x33 -m 0x1e -p 0 -r 02 -t "POKEPINBALL" -i VPHE $@
+	$(RGBLINK) $(RGBLINKFLAGS) -o $@ $(OBJS)
+	$(RGBFIX) $(RGBFIXFLAGS) $@
 
 tools:
 	$(MAKE) -C tools
@@ -41,14 +52,14 @@ clean: tidy
 	find . \( -iname '*.1bpp' -o -iname '*.2bpp' -o -iname '*.pcm' \) -exec rm {} +
 
 %.interleave.2bpp: %.interleave.png
-	rgbgfx -o $@ $<
+	$(RGBGFX) $(RGBGFXFLAGS) -o $@ $<
 	tools/gfx --interleave --png $< -o $@ $@
 
 %.2bpp: %.png
-	rgbgfx -o $@ $<
+	$(RGBGFX) $(RGBGFXFLAGS) -o $@ $<
 
 %.1bpp: %.png
-	rgbgfx -d1 -o $@ $<
+	$(RGBGFX) $(RGBGFXFLAGS) -d1 -o $@ $<
 
 %.pcm: %.wav
 	tools/pcm -o $@ $<

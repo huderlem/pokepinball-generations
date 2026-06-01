@@ -8,15 +8,15 @@ FieldSelectScreenFunctions: ; 0xd6d7
 
 LoadFieldSelectScreen: ; 0xd6dd
 	ld a, $43
-	ld [hLCDC], a
+	ldh [hLCDC], a
 	ld a, $e4
 	ld [wBGP], a
 	ld a, $d2
 	ld [wOBP0], a
 	ld [wOBP1], a
 	xor a
-	ld [hSCX], a
-	ld [hSCY], a
+	ldh [hSCX], a
+	ldh [hSCY], a
 	ld [wWhichFieldSelectRegion], a ; KANTO
 	xor a
 	ld hl, FieldSelectGfxPointers
@@ -72,10 +72,10 @@ ChooseFieldToPlay: ; 0xd74e
 	call MoveFieldSelectCursor
 	ld hl, FieldSelectBorderAnimationData
 	call AnimateBlinkingFieldSelectBorder
-	ld a, [hNewlyPressedButtons]
+	ldh a, [hNewlyPressedButtons]
 	and (D_UP | D_DOWN)
 	jp nz, ChangeFieldSelectRegion
-	ld a, [hNewlyPressedButtons]
+	ldh a, [hNewlyPressedButtons]
 	and (A_BUTTON | B_BUTTON)
 	ret z
 	ld [wFieldSelectPressedButton], a
@@ -131,7 +131,7 @@ ExitFieldSelectScreen: ; 0xd774
 	ld [wFieldSelectBlinkingBorderTimer], a
 	ret nz
 .didntPressA
-	ld a, [hJoypadState]
+	ldh a, [hJoypadState]
 	push af
 	call FadeOut
 	call DisableLCD
@@ -183,7 +183,7 @@ MoveFieldSelectCursor: ; 0xd7d3
 ; When the player presses Right or Left, the stage is
 ; illuminated with a blinking border.  This function keeps tracks
 ; of which field is currently selected.
-	ld a, [hPressedButtons]
+	ldh a, [hPressedButtons]
 	ld b, a
 	ld a, [wSelectedFieldIndex]
 	bit BIT_D_LEFT, b

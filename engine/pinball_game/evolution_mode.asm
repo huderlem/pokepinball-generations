@@ -292,7 +292,7 @@ UpdateEvolutionSelectionList:
 	add hl, bc
 	add hl, bc
 	call LoadMonNamesIntoEvolutionSelectionList
-	ld a, [hJoypadState]
+	ldh a, [hJoypadState]
 	and a
 	ld a, [wPartySelectionCursorCounter]
 	jr z, .asm_10c62
@@ -376,19 +376,19 @@ SelectPokemonToEvolve:
 	call FillBottomMessageBufferWithBlackTile
 	call InitEvolutionSelectionMenu
 	ld a, $60
-	ld [hWY], a
+	ldh [hWY], a
 	dec a
-	ld [hLYC], a
+	ldh [hLYC], a
 	ld a, $fd
-	ld [hLCDCMask], a
+	ldh [hLCDCMask], a
 	call SelectPokemonToEvolveMenu
 	ld a, $86
-	ld [hWY], a
+	ldh [hWY], a
 	ld a, $83
-	ld [hLYC], a
-	ld [hLastLYC], a
+	ldh [hLYC], a
+	ldh [hLastLYC], a
 	ld a, $ff
-	ld [hLCDCMask], a
+	ldh [hLCDCMask], a
 	ld a, BANK(StageRedFieldTopStatusBarSymbolsGfx_GameBoyColor)
 	ld hl, StageRedFieldTopStatusBarSymbolsGfx_GameBoyColor + $80
 	ld de, vTilesSH tile $08
@@ -549,11 +549,11 @@ InitEvolutionModeForMon:
 	ld a, [wCurrentStage]
 	bit 0, a
 	jr z, .done
-	ld a, [rLYC]
+	ldh a, [rLYC]
 	inc a
 	ld b, a
 .waitUntilAfterLYC
-	ld a, [rLY]
+	ldh a, [rLY]
 	cp b
 	jr c, .waitUntilAfterLYC
 	ld a, BANK(StageRedFieldBottomBaseGameBoyColorGfx)
@@ -600,15 +600,15 @@ ShowMonEvolvedText:
 	ld bc, Data_2b34
 	ld a, [hl]
 	; check if mon's name starts with a vowel, so it can print "an", instead of "a"
-	cp "A"
+	cp 'A'
 	jr z, .nameStartsWithVowel
-	cp "I"
+	cp 'I'
 	jr z, .nameStartsWithVowel
-	cp "U"
+	cp 'U'
 	jr z, .nameStartsWithVowel
-	cp "E"
+	cp 'E'
 	jr z, .nameStartsWithVowel
-	cp "O"
+	cp 'O'
 	jr z, .nameStartsWithVowel
 	ld de, ItEvolvedIntoAText  ; "It evolved into a"
 	ld a, [wCurrentEvolutionType]
@@ -719,7 +719,7 @@ StartEvolutionMode_RedField:
 	call LoadEvolutionTrinketGfx
 	callba ClearAllRedIndicators
 	callba Func_10184
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	callba nz, Func_102bc
 	ret
@@ -797,7 +797,7 @@ ConcludeEvolutionMode_RedField:
 	ld de, vTilesOB tile $20
 	ld bc, $00e0
 	call LoadVRAMData
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr z, .asm_11036
 	ld a, BANK(StageRedFieldBottomOBJPalette7)
@@ -860,7 +860,7 @@ StartEvolutionMode_BlueField:
 	call LoadEvolutionTrinketGfx
 	callba Func_1c2cb
 	callba Func_10184
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	callba nz, Func_102bc
 	ret
@@ -916,7 +916,7 @@ ConcludeEvolutionMode_BlueField:
 	ld de, vTilesOB tile $20
 	ld bc, $00e0
 	call LoadVRAMData
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr z, .asm_111f0
 	ld a, BANK(StageBlueFieldBottomOBJPalette7)
@@ -977,7 +977,7 @@ StartEvolutionMode_GoldField:
 	call LoadEvolutionTrinketGfx
 	callba ClearAllGoldIndicators
 	callba Func_10184
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	callba nz, Func_102bc
 	ret
@@ -1032,7 +1032,7 @@ ConcludeEvolutionMode_GoldField:
 	ld de, vTilesOB tile $20
 	ld bc, $00e0
 	call LoadVRAMData
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr z, .asm_11036
 	ld a, BANK(StageGoldFieldBottomOBJPalette7)
@@ -1095,7 +1095,7 @@ StartEvolutionMode_SilverField:
 	call LoadEvolutionTrinketGfx
 	callba Func_1c2cb
 	callba Func_10184
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	callba nz, Func_102bc
 	ret
@@ -1151,7 +1151,7 @@ ConcludeEvolutionMode_SilverField:
 	ld de, vTilesOB tile $20
 	ld bc, $00e0
 	call LoadVRAMData
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr z, .asm_111f0
 	ld a, BANK(StageSilverFieldBottomOBJPalette7)
@@ -1212,7 +1212,7 @@ StartEvolutionMode_RubyField:
 	call LoadEvolutionTrinketGfx
 	callba ClearAllRubyIndicators
 	callba Func_10184
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	callba nz, Func_102bc
 	ret
@@ -1267,7 +1267,7 @@ ConcludeEvolutionMode_RubyField:
 	ld de, vTilesOB tile $20
 	ld bc, $00e0
 	call LoadVRAMData
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr z, .asm_11036
 	ld a, BANK(StageRubyFieldBottomOBJPalette7)
@@ -1330,7 +1330,7 @@ StartEvolutionMode_SapphireField:
 	call LoadEvolutionTrinketGfx
 	callba Func_1c2cb
 	callba Func_10184
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	callba nz, Func_102bc
 	ret
@@ -1386,7 +1386,7 @@ ConcludeEvolutionMode_SapphireField:
 	ld de, vTilesOB tile $20
 	ld bc, $00e0
 	call LoadVRAMData
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr z, .asm_111f0
 	ld a, BANK(StageSapphireFieldBottomOBJPalette7)

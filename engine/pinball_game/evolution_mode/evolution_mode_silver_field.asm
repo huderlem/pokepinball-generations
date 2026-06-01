@@ -74,7 +74,7 @@ HandleEvolutionMode_SilverField: ; 0x20c08
 	ld de, YeahYouGotItText
 	ld hl, wScrollingText1
 	call LoadScrollingText
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr z, .asm_20c74
 	ld a, BANK(StageSilverFieldBottomOBJPalette6)
@@ -160,7 +160,7 @@ ProgressEvolution_SilverField: ; 0x20c76
 	ld de, vTilesOB tile $20
 	ld bc, $00e0
 	call LoadVRAMData
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr z, .asm_20d25
 	ld a, BANK(StageSilverFieldBottomOBJPalette7)
@@ -494,7 +494,7 @@ CreateEvolutionTrinket_SilverField: ; 0x20f75
 	ld a, [wCurrentStage]
 	bit 0, a
 	callba nz, Func_1c2cb_SilverField
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr z, .asm_20fc3
 	ld a, BANK(EvolutionTrinketPalette1)
@@ -641,7 +641,7 @@ RecoverPokemon_SilverField:
 	ld a, [wCurrentStage]
 	bit 0, a
 	callba nz, Func_1c2cb_SilverField
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr z, .asm_21102
 	ld a, BANK(StageSilverFieldBottomOBJPalette6)

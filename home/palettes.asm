@@ -1,12 +1,12 @@
 SetAllPalettesWhite: ; 0xb66
 ; Sets all BG and OBJ palettes to white and place current data in wPaletteData if CGB
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr nz, .gameboyColor
 	xor a
-	ld [hBGP], a
-	ld [hOBP0], a
-	ld [hOBP1], a
+	ldh [hBGP], a
+	ldh [hOBP0], a
+	ldh [hOBP1], a
 	ret
 
 .gameboyColor
@@ -16,14 +16,14 @@ SetAllPalettesWhite: ; 0xb66
 	ld c, $20
 .asm_b7d
 	ld a, b
-	ld [rBGPI], a ;look at PAL B
+	ldh [rBGPI], a ;look at PAL B
 	inc b
-	ld a, [rBGPD] ;load into paldata
+	ldh a, [rBGPD] ;load into paldata
 	ld [hli], a
 	ld a, b
-	ld [rBGPI], a ;twice per loop
+	ldh [rBGPI], a ;twice per loop
 	inc b
-	ld a, [rBGPD]
+	ldh a, [rBGPD]
 	ld [hli], a
 	dec c
 	jr nz, .asm_b7d
@@ -31,14 +31,14 @@ SetAllPalettesWhite: ; 0xb66
 	ld c, $20
 .asm_b92
 	ld a, b
-	ld [rOBPI], a ;repeat for OAM PALs
+	ldh [rOBPI], a ;repeat for OAM PALs
 	inc b
-	ld a, [rOBPD]
+	ldh a, [rOBPD]
 	ld [hli], a
 	ld a, b
-	ld [rOBPI], a
+	ldh [rOBPI], a
 	inc b
-	ld a, [rOBPD]
+	ldh a, [rOBPD]
 	ld [hli], a
 	dec c
 	jr nz, .asm_b92
@@ -65,7 +65,7 @@ SetAllPalettesWhite: ; 0xb66
 
 FadeIn: ; 0xbbe
 ; Fades palettes in from white screen.
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jp nz, FadeIn_GameboyColor
 	; Regular Gameboy
@@ -250,7 +250,7 @@ GetNextFadedPalette: ; 0xc60
 
 FadeOut: ; 0xcb5
 ; Fades palettes out to a white screen.
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jp nz, FadeOut_GameboyColor
 	; Regular Gameboy
@@ -369,16 +369,16 @@ FadeOutStep: ; 0xd11
 
 SetFadedPalettes: ; 0d61
 ; Sets the current palette data to the faded palettes.
-	ld a, [rIE]
+	ldh a, [rIE]
 	res 0, a
-	ld [rIE], a
+	ldh [rIE], a
 	ld hl, wFadeBGPaletteData
 	ld de, rBGPI
 	ld a, $80
 	ld [de], a
 	inc de
 .waitForVBlank
-	ld a, [rLY]
+	ldh a, [rLY]
 	cp $90
 	jr c, .waitForVBlank
 	ld b, $10
@@ -409,9 +409,9 @@ SetFadedPalettes: ; 0d61
 	ld [de], a
 	dec b
 	jr nz, .loadOBJColorsLoop
-	ld a, [rIE]
+	ldh a, [rIE]
 	set 0, a
-	ld [rIE], a
+	ldh [rIE], a
 	ret
 
 LoadCurrentPalettesIntoFadePalettes: ; 0xd9d
@@ -424,7 +424,7 @@ LoadCurrentPalettesIntoFadePalettes: ; 0xd9d
 .asm_da4
 	call Func_61b
 .asm_da7
-	ld a, [rSTAT]
+	ldh a, [rSTAT]
 	and $3
 	jr nz, .asm_da7  ; wait for lcd controller to finish transferring data
 	ld a, b

@@ -190,28 +190,28 @@ Func_10184: ; 0x10184 called by what looks like the "hit voltorb and shellder" h
 	add hl, bc
 	ld a, Bank(MonBillboardPicPointers)
 	call ReadByteFromBank
-	ld [$ff8c], a ;load 3 byte billboard pointer into Hram
+	ldh [$ff8c], a ;load 3 byte billboard pointer into Hram
 	inc hl
 	ld a, Bank(MonBillboardPicPointers)
 	call ReadByteFromBank
-	ld [$ff8d], a
+	ldh [$ff8d], a
 	inc hl
 	ld a, Bank(MonBillboardPicPointers)
 	call ReadByteFromBank
-	ld [$ff8e], a
+	ldh [$ff8e], a
 	ld hl, MonBillboardPaletteMapPointers ;and the PAL pointers
 	add hl, bc
 	ld a, Bank(MonBillboardPaletteMapPointers)
 	call ReadByteFromBank
-	ld [$ff8f], a
+	ldh [$ff8f], a
 	inc hl
 	ld a, Bank(MonBillboardPaletteMapPointers)
 	call ReadByteFromBank
-	ld [$ff90], a
+	ldh [$ff90], a
 	inc hl
 	ld a, Bank(MonBillboardPaletteMapPointers)
 	call ReadByteFromBank
-	ld [$ff91], a
+	ldh [$ff91], a
 	jr .loaded
 .loadBreedingPic
 	; load egg pic
@@ -220,28 +220,28 @@ Func_10184: ; 0x10184 called by what looks like the "hit voltorb and shellder" h
 	add hl, bc
 	ld a, Bank(EggBillboardPicPointers)
 	call ReadByteFromBank
-	ld [$ff8c], a
+	ldh [$ff8c], a
 	inc hl
 	ld a, Bank(EggBillboardPicPointers)
 	call ReadByteFromBank
-	ld [$ff8d], a
+	ldh [$ff8d], a
 	inc hl
 	ld a, Bank(EggBillboardPicPointers)
 	call ReadByteFromBank
-	ld [$ff8e], a
+	ldh [$ff8e], a
 	ld hl, EggBillboardPaletteMapPointers
 	add hl, bc
 	ld a, Bank(EggBillboardPaletteMapPointers)
 	call ReadByteFromBank
-	ld [$ff8f], a
+	ldh [$ff8f], a
 	inc hl
 	ld a, Bank(EggBillboardPaletteMapPointers)
 	call ReadByteFromBank
-	ld [$ff90], a
+	ldh [$ff90], a
 	inc hl
 	ld a, Bank(EggBillboardPaletteMapPointers)
 	call ReadByteFromBank
-	ld [$ff91], a
+	ldh [$ff91], a
 .loaded
 	ld de, wc000
 	ld hl, wBillboardTilesIlluminationStates
@@ -253,7 +253,7 @@ Func_10184: ; 0x10184 called by what looks like the "hit voltorb and shellder" h
 	jr z, .NextLoop
 	ld b, a ;else store in b
 	call nz, Func_101d9
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr z, .NextLoop ;skip if DMG
 	ld a, [wCurrentStage]
@@ -298,9 +298,9 @@ Func_101d9: ; 0x101d9
 	ld a, h
 	ld [de], a
 	inc de ;load result in to de
-	ld a, [$ff8c] ;loaded billboard pointer
+	ldh a, [$ff8c] ;loaded billboard pointer
 	ld l, a
-	ld a, [$ff8d]
+	ldh a, [$ff8d]
 	ld h, a
 	add hl, bc ;add ???*16
 	pop af
@@ -315,7 +315,7 @@ Func_101d9: ; 0x101d9
 	ld a, h
 	ld [de], a
 	inc de
-	ld a, [$ff8e]
+	ldh a, [$ff8e]
 	ld [de], a
 	inc de ;load adjusted pointer into de, then 0
 	ld a, $0
@@ -355,14 +355,14 @@ Func_10230: ; 0x10230
 	ld [de], a
 	inc de
 	srl c
-	ld a, [$ff8f];load PAL pointer
+	ldh a, [$ff8f];load PAL pointer
 	ld l, a
-	ld a, [$ff90]
+	ldh a, [$ff90]
 	ld h, a
 	add hl, bc ;add the value from Data_102a4
 	pop af
 	and a
-	ld a, [$ff91]
+	ldh a, [$ff91]
 	call ReadByteFromBank ;fetch pallete data
 	jr nz, .asm_10261 ;
 	ld a, $5
@@ -437,15 +437,15 @@ Func_102bc: ; 0x102bc
 	add hl, bc
 	ld a, Bank(MonBillboardPalettePointers)
 	call ReadByteFromBank
-	ld [$ff8c], a
+	ldh [$ff8c], a
 	inc hl
 	ld a, Bank(MonBillboardPalettePointers)
 	call ReadByteFromBank
-	ld [$ff8d], a
+	ldh [$ff8d], a
 	inc hl
 	ld a, Bank(MonBillboardPalettePointers)
 	call ReadByteFromBank
-	ld [$ff8e], a
+	ldh [$ff8e], a
 	ld de, wc1b8
 	ld a, $10
 	ld [de], a
@@ -456,13 +456,13 @@ Func_102bc: ; 0x102bc
 	ld a, $30
 	ld [de], a
 	inc de
-	ld a, [$ff8c]
+	ldh a, [$ff8c]
 	ld [de], a
 	inc de
-	ld a, [$ff8d]
+	ldh a, [$ff8d]
 	ld [de], a
 	inc de
-	ld a, [$ff8e]
+	ldh a, [$ff8e]
 	ld [de], a
 	inc de
 	ld a, $0
@@ -488,15 +488,15 @@ Func_10301: ; 0x10301
 	add hl, bc
 	ld a, Bank(MonAnimatedPalettePointers)
 	call ReadByteFromBank
-	ld [$ff8c], a
+	ldh [$ff8c], a
 	inc hl
 	ld a, Bank(MonAnimatedPalettePointers)
 	call ReadByteFromBank
-	ld [$ff8d], a
+	ldh [$ff8d], a
 	inc hl
 	ld a, Bank(MonAnimatedPalettePointers)
 	call ReadByteFromBank
-	ld [$ff8e], a
+	ldh [$ff8e], a
 	ld de, wc1b8
 	ld a, $10
 	ld [de], a
@@ -507,13 +507,13 @@ Func_10301: ; 0x10301
 	ld a, $58
 	ld [de], a
 	inc de
-	ld a, [$ff8c]
+	ldh a, [$ff8c]
 	ld [de], a
 	inc de
-	ld a, [$ff8d]
+	ldh a, [$ff8d]
 	ld [de], a
 	inc de
-	ld a, [$ff8e]
+	ldh a, [$ff8e]
 	ld [de], a
 	inc de
 	ld a, $4
@@ -522,9 +522,9 @@ Func_10301: ; 0x10301
 	ld a, $68
 	ld [de], a
 	inc de
-	ld a, [$ff8c]
+	ldh a, [$ff8c]
 	ld l, a
-	ld a, [$ff8d]
+	ldh a, [$ff8d]
 	ld h, a
 	ld bc, $0008
 	add hl, bc
@@ -534,7 +534,7 @@ Func_10301: ; 0x10301
 	ld a, h
 	ld [de], a
 	inc de
-	ld a, [$ff8e]
+	ldh a, [$ff8e]
 	ld [de], a
 	inc de
 	ld a, $0
@@ -560,15 +560,15 @@ Func_10362: ; 0x10362
 	add hl, bc
 	ld a, Bank(MonAnimatedPicPointers)
 	call ReadByteFromBank
-	ld [$ff8c], a
+	ldh [$ff8c], a
 	inc hl
 	ld a, Bank(MonAnimatedPicPointers)
 	call ReadByteFromBank
-	ld [$ff8d], a
+	ldh [$ff8d], a
 	inc hl
 	ld a, Bank(MonAnimatedPicPointers)
 	call ReadByteFromBank
-	ld [$ff8e], a
+	ldh [$ff8e], a
 	ld de, wc150
 	ld bc, 0
 .loop
@@ -601,16 +601,16 @@ Func_1038e: ; 0x1038e
 	ld a, [hli]
 	ld [de], a
 	inc de
-	ld a, [$ff8c]
+	ldh a, [$ff8c]
 	add [hl]
 	ld [de], a
 	inc hl
 	inc de
-	ld a, [$ff8d]
+	ldh a, [$ff8d]
 	adc [hl]
 	ld [de], a
 	inc de
-	ld a, [$ff8e]
+	ldh a, [$ff8e]
 	ld [de], a
 	inc de
 	ld a, $0
@@ -1041,15 +1041,15 @@ ShowCapturedPokemonText: ; 0x106b6
 	ld bc, Data_2a91
 	ld a, [hl]
 	; check if mon's name starts with a vowel, so it can print "an", instead of "a"
-	cp "A"
+	cp 'A'
 	jr z, .asm_106f1
-	cp "I"
+	cp 'I'
 	jr z, .asm_106f1
-	cp "U"
+	cp 'U'
 	jr z, .asm_106f1
-	cp "E"
+	cp 'E'
 	jr z, .asm_106f1
-	cp "O"
+	cp 'O'
 	jr z, .asm_106f1
 	ld de, YouGotAText ; "You got a"
 	ld bc, Data_2a79
@@ -1374,7 +1374,7 @@ Func_10871: ; 0x10871
 .asm_108d3
 	callba ClearAllRedIndicators
 	callba Func_10184
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	callba nz, Func_102bc
 	ret
@@ -1437,7 +1437,7 @@ Func_10871_GoldField:
 .asm_108d3
 	callba ClearAllRedIndicators
 	callba Func_10184
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	callba nz, Func_102bc
 	ret
@@ -1500,7 +1500,7 @@ Func_10871_RubyField:
 .asm_108d3
 	callba ClearAllRedIndicators
 	callba Func_10184
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	callba nz, Func_102bc
 	ret
@@ -1597,11 +1597,11 @@ Func_1098c: ; 0x1098c
 	bit 0, a
 	ret z
 	callba Func_1c2cb
-	ld [hFarCallTempA], a
+	ldh [hFarCallTempA], a
 	ld a, $4
 	ld hl, Func_10184
 	call BankSwitch
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	callba nz, Func_102bc
 	ret
@@ -1655,11 +1655,11 @@ Func_1098c_SilverField:
 	bit 0, a
 	ret z
 	callba Func_1c2cb
-	ld [hFarCallTempA], a
+	ldh [hFarCallTempA], a
 	ld a, $4
 	ld hl, Func_10184
 	call BankSwitch
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	callba nz, Func_102bc
 	ret
@@ -1713,11 +1713,11 @@ Func_1098c_SapphireField:
 	bit 0, a
 	ret z
 	callba Func_1c2cb
-	ld [hFarCallTempA], a
+	ldh [hFarCallTempA], a
 	ld a, $4
 	ld hl, Func_10184
 	call BankSwitch
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	callba nz, Func_102bc
 	ret

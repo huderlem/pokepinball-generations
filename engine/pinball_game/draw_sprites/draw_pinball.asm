@@ -25,13 +25,13 @@ DrawPinball: ; 0x17e81
 	and $7
 	add $0
 	call LoadOAMData
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	ret nz
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	ret nz
-	ld a, [hSGBFlag]
+	ldh a, [hSGBFlag]
 	and a
 	ret nz
 	ld a, [wd4c5]

@@ -352,7 +352,7 @@ _LoadDiglettGraphics_GoldField: ; 0x149d9
 	ld c, a
 	ld b, $0
 	ld hl, TileListDataPointers_14a11_GoldField
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr z, .asm_149e9
 	ld hl, TileListDataPointers_14a83_GoldField
@@ -372,7 +372,7 @@ LoadDiglettNumberGraphics_GoldField: ; 0x149f5
 	ld c, a
 	ld b, $0
 	ld hl, Data_14af5_GoldField
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr z, .asm_14a05
 	ld hl, TileListDataPointers_14c8d_GoldField
@@ -562,7 +562,7 @@ UpdateSpinnerChargeGraphics_GoldField: ; 0x14ece
 	sla c
 	ld b, $0
 	ld hl, TileDataPointers_14eeb_GoldField
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr z, .asm_14ee1
 	ld hl, TileDataPointers_1509b_GoldField
@@ -641,7 +641,7 @@ LoadCAVELightGraphics_GoldField: ; 0x1523c
 ; Input: a = toggle state for CAVE light
 	and a
 	jr z, .toggledOff
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr nz, .toggledOnGameboy
 	ld hl, TileDataPointers_152dd_GoldField
@@ -652,7 +652,7 @@ LoadCAVELightGraphics_GoldField: ; 0x1523c
 	jr .load
 
 .toggledOff
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr nz, .toggledOffGameboy
 	ld hl, TileDataPointers_152e5_GoldField
@@ -869,7 +869,7 @@ LoadPinballUpgradeTriggerGraphics_GoldField: ; 0x15465
 ; Input: a = toggle state
 	and a
 	jr z, .toggledOff
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr nz, .toggledOnGameboy
 	ld hl, TileDataPointers_15511_GoldField
@@ -880,7 +880,7 @@ LoadPinballUpgradeTriggerGraphics_GoldField: ; 0x15465
 	jr .load
 
 .toggledOff
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr nz, .toggledOffGameboy
 	ld hl, TileDataPointers_15517_GoldField
@@ -905,7 +905,7 @@ LoadPinballUpgradeTriggerGraphics_GoldField: ; 0x15465
 	ret
 
 LoadDisabledPinballUpgradeTriggerGraphics_GoldField: ; 0x15499
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	ret nz
 	ld b, $3
@@ -1258,7 +1258,7 @@ UpdateFieldStructures_GoldField: ; 0x159c9
 LoadFieldStructureGraphics_GoldField: ; 0x159f4
 ; Based on the current stage collision state, load the proper graphics.
 ; Things that change on the Gold field are Ditto, the lightning bolt guard rail, and the roof over the 3 Voltorbs.
-	ld a, [hLCDC]
+	ldh a, [hLCDC]
 	bit 7, a
 	jr z, .asm_15a13
 	ld a, [wd7f2]
@@ -1283,7 +1283,7 @@ LoadFieldStructureGraphics_GoldField: ; 0x159f4
 	ld c, a
 	ld b, $0
 	ld hl, TileDataPointers_15a3f_GoldField
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr z, .asm_15a2d
 	ld hl, TileDataPointers_15d05_GoldField
@@ -1451,7 +1451,7 @@ LoadBumperGraphics_GoldField: ; 0x15fc0
 	ld c, a
 	ld b, $0
 	ld hl, TileDataPointers_16010_GoldField
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr z, .asm_15fd0
 	ld hl, TileData_16080_GoldField
@@ -1931,7 +1931,7 @@ LoadSlotCaveCoverGraphics_GoldField: ; 0x16425
 	ld c, a
 	ld b, $0
 	ld hl, TileDataPointers_1644d_GoldField
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr z, .asm_16441
 	ld hl, TileDataPointers_164a1_GoldField
@@ -2038,7 +2038,7 @@ ResolveGoldStagePinballLaunchCollision: ; 0x1652d
 ChooseInitialMap_GoldField: ; 0x1658f
 ; While waiting to launch the pinball, this quickly rotates the billboard with the initial
 ; maps the player can start on.
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	callba nz, LoadGreyBillboardPaletteData
 .showNextMap
@@ -2225,7 +2225,7 @@ UpdatePikachuSaverAnimation_GoldField: ; 0x1669e
 	ret
 
 .asm_16732
-	ld a, [hFrameCounter]
+	ldh a, [hFrameCounter]
 	swap a
 	and $1
 	ld [wPikachuSaverAnimationFrame], a
@@ -2403,7 +2403,7 @@ INCLUDE "data/queued_tiledata/gold_field/staryu_bumper.asm"
 
 UpdateArrowIndicators_GoldField: ; 0x169a6
 ; Updates the 5 blinking arrow indicators in the gold field bottom.
-	ld a, [hFrameCounter]
+	ldh a, [hFrameCounter]
 	and $1f
 	ret nz
 	ld bc, $0000
@@ -2433,7 +2433,7 @@ LoadArrowIndicatorGraphics_GoldField: ; 0x169cd
 	push af
 	sla c ;double offset
 	ld hl, TileDataPointers_169ed_GoldField
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr z, .asm_169db
 	ld hl, TileDataPointers_16bef_GoldField
@@ -2559,7 +2559,7 @@ UpdateBonusMultiplierRailing_GoldField: ; 0x16e51
 	cp $2
 	jr c, .asm_16ec1
 	cp $3
-	ld a, [hFrameCounter]
+	ldh a, [hFrameCounter]
 	jr c, .asm_16ea0
 	srl a
 	srl a
@@ -2585,7 +2585,7 @@ UpdateBonusMultiplierRailing_GoldField: ; 0x16e51
 	cp $2
 	ret c
 	cp $3
-	ld a, [hFrameCounter]
+	ldh a, [hFrameCounter]
 	jr c, .asm_16ed1
 	srl a
 	srl a
@@ -2639,7 +2639,7 @@ ShowBonusMultiplierMessage_GoldField: ; 0x16ef5
 
 _LoadBonusMultiplierRailingGraphics_GoldField: ; 0x16f28
 	push af
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr nz, .gameboyColor
 	pop af

@@ -43,37 +43,37 @@ SECTION "Header", ROM0
 SECTION "Main", ROM0
 
 Start: ; 0x150
-	ld [hGameBoyColorFlag], a
+	ldh [hGameBoyColorFlag], a
 	ld sp, hGameBoyColorFlag
 	di
 	xor a
-	ld [rIF], a
-	ld a, [rLCDC]    ; LCD Control
+	ldh [rIF], a
+	ldh a, [rLCDC]    ; LCD Control
 	bit 7, a         ; Check if LCD Display is enabled
 	jr nz, .LCDDisplayEnabled
 	set 7, a
-	ld [rLCDC], a
+	ldh [rLCDC], a
 .LCDDisplayEnabled
 	ld bc, $0002
 	call SGBWait1750
 .waitForVBlank
-	ld a, [rLY]   ; LY register (LCDC Y-Coordinate)
+	ldh a, [rLY]   ; LY register (LCDC Y-Coordinate)
 	cp 145          ; > 144 means V-Blank
 	jr c, .waitForVBlank
 	ld a, $81
-	ld [rLCDC], a   ; Enable LCD Display
+	ldh [rLCDC], a   ; Enable LCD Display
 	xor a
-	ld [rBGP], a   ; Clear Palette Data
-	ld [rOBP0], a
-	ld [rOBP1], a
+	ldh [rBGP], a   ; Clear Palette Data
+	ldh [rOBP0], a
+	ldh [rOBP1], a
 	ld bc, $0002
 	call SGBWait1750
 .waitForVBlank2
-	ld a, [rLY]   ; LY register (LCDC Y-Coordinate)
+	ldh a, [rLY]   ; LY register (LCDC Y-Coordinate)
 	cp 145          ; > 144 means V-Blank
 	jr c, .waitForVBlank2
 	xor a
-	ld [rLCDC], a   ; Disable LCD Display
+	ldh [rLCDC], a   ; Disable LCD Display
 	ld hl, wc000
 	ld bc, $2000
 	call ClearData  ; Clear WRAM Bank 0
@@ -89,7 +89,7 @@ Start: ; 0x150
 	ld a, $0
 	ld [MBC5SRamBank], a   ; Set bits 5 and 6 of ROM Bank Number
 	ld a, $1
-	ld [hLoadedROMBank], a
+	ldh [hLoadedROMBank], a
 	ld a, $1
 	ld [MBC5RomBankOn], a   ; Enable RAM Banking Mode
 	ld a, $0
@@ -104,11 +104,11 @@ Start: ; 0x150
 	ld [wd7fb], a
 	ld [wd7fc], a
 	ld [wd7fd], a
-	ld [hStatIntrRoutine], a
-	ld [$ffb1], a
+	ldh [hStatIntrRoutine], a
+	ldh [$ffb1], a
 	ld [wd8e1], a
 	ld [wd7fe], a
-	ld [hSGBInit], a
+	ldh [hSGBInit], a
 	ld hl, hLCDC
 	xor a
 	ld [hli], a
@@ -129,22 +129,22 @@ Start: ; 0x150
 	ld a, Bank(PlaySong_BankF)
 	call SetSongBank
 	call Func_23b
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr nz, .asm_222
 	call InitSGB
 	rl a
 	and $1
-	ld [hSGBFlag], a
+	ldh [hSGBFlag], a
 	call SendSGBBorder
-	ld a, [hSGBFlag]
+	ldh a, [hSGBFlag]
 	and a
 	jr z, .asm_222
 	ld a, $1
 	ld [wd917], a
 .asm_222
 	ld a, $1
-	ld [rIE], a  ; Only enable LCD Status interrupt
+	ldh [rIE], a  ; Only enable LCD Status interrupt
 	ei
 	ld a, $ff
 	ld [wRNGModulus], a
@@ -155,25 +155,25 @@ Start: ; 0x150
 	ld hl, Main
 	call BankSwitchSimple
 Func_23b: ; 0x23b
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	cp $11
 	jr nz, .asm_248
 	ld a, $1
-	ld [hGameBoyColorFlag], a
-	ld [hGameBoyColorFlagBackup], a
+	ldh [hGameBoyColorFlag], a
+	ldh [hGameBoyColorFlagBackup], a
 	ret
 
 .asm_248
 	xor a
-	ld [hGameBoyColorFlag], a
-	ld [hGameBoyColorFlagBackup], a
+	ldh [hGameBoyColorFlag], a
+	ldh [hGameBoyColorFlagBackup], a
 	ret
 
 SoftReset:
 	di
 	ld sp, hGameBoyColorFlag
 	xor a
-	ld [rIF], a
+	ldh [rIF], a
 	ld bc, $2
 	call SGBWait1750
 	ld hl, wc000
@@ -191,7 +191,7 @@ SoftReset:
 	ld a, $0
 	ld [MBC5SRamBank], a
 	ld a, $1
-	ld [hLoadedROMBank], a
+	ldh [hLoadedROMBank], a
 	ld a, $1
 	ld [MBC5RomBankOn], a
 	ld a, $0
@@ -203,8 +203,8 @@ SoftReset:
 	ld [wd7fb], a
 	ld [wd7fc], a
 	ld [wd7fd], a
-	ld [hStatIntrRoutine], a
-	ld [$ffb1], a
+	ldh [hStatIntrRoutine], a
+	ldh [$ffb1], a
 	ld [wd8e1], a
 	ld [wd7fe], a
 	ld hl, hLCDC
@@ -226,20 +226,20 @@ SoftReset:
 	ld [wToggleAudioEngineUpdateMethod], a
 	ld a, BANK(Func_3c000)
 	call SetSongBank
-	ld a, [hSGBFlag]
+	ldh a, [hSGBFlag]
 	and a
 	jr z, .asm_02d5
 	ld a, $1
 	ld [wd917], a
 .asm_02d5
 	ld a, $1
-	ld [rIE], a
+	ldh [rIE], a
 	ei
 	ld a, $ff
 	ld [wRNGModulus], a
 	call ResetRNG
-	ld a, [hGameBoyColorFlag]
-	ld [hGameBoyColorFlagBackup], a
+	ldh a, [hGameBoyColorFlag]
+	ldh [hGameBoyColorFlagBackup], a
 	xor a
 	ld [wBootCheck], a
 	ld a, Bank(Main)
@@ -253,11 +253,11 @@ VBlank: ; 0x2f2
 	push de
 	push hl
 	call hPushOAM ; OAM DMA transfer
-	ld a, [hLCDC]
-	ld [rLCDC], a
+	ldh a, [hLCDC]
+	ldh [rLCDC], a
 	call Func_113a
 	ei
-	ld a, [rLY]
+	ldh a, [rLY]
 	cp $90
 	jr c, .asm_328
 	ld hl, hSTAT
@@ -291,22 +291,22 @@ VBlank: ; 0x2f2
 	ld a, [hli]
 	ld [$ff00+c], a
 .asm_328
-	ld a, [hLYC]
-	ld [hLastLYC], a
-	ld a, [hNextLYCSub]
-	ld [hLYCSub], a
-	ld a, [hNextFrameHBlankSCX]
-	ld [hHBlankSCX], a
-	ld a, [hNextFrameHBlankSCY]
-	ld [hHBlankSCY], a
+	ldh a, [hLYC]
+	ldh [hLastLYC], a
+	ldh a, [hNextLYCSub]
+	ldh [hLYCSub], a
+	ldh a, [hNextFrameHBlankSCX]
+	ldh [hHBlankSCX], a
+	ldh a, [hNextFrameHBlankSCY]
+	ldh [hHBlankSCY], a
 	call ReadJoypad
 	ld a, [wBootCheck]
 	and a
 	jr nz, .skipBootCheck
-	ld a, [hJoypadState]
+	ldh a, [hJoypadState]
 	cp $f
 	jr nz, .skipBootCheck
-	ld a, [hNewlyPressedButtons]
+	ldh a, [hNewlyPressedButtons]
 	and $f
 	jr z, .skipBootCheck
 	ld hl, sp + 8
@@ -345,13 +345,13 @@ VBlank: ; 0x2f2
 	ld a, $1
 	ld [wUpdateAudioEngineUsingTimerInterrupt], a
 	ld a, $78
-	ld [rTMA], a
+	ldh [rTMA], a
 	ld a, $0
-	ld [rTAC], a
+	ldh [rTAC], a
 	ld hl, rIE
 	set 2, [hl]
 	ld a, $4
-	ld [rTAC], a ; Timer interrupt will fire ~60 times per second
+	ldh [rTAC], a ; Timer interrupt will fire ~60 times per second
 .skipTimerToggle
 	ld hl, MBC5SRamBank
 	ld a, [wd917]
@@ -378,7 +378,7 @@ VBlank: ; 0x2f2
 	reti
 
 FadeAndSoftReset:
-	ld a, [rLCDC]
+	ldh a, [rLCDC]
 	bit 7, a
 	jr z, .LCD_disabled
 	call FadeOut
@@ -391,12 +391,12 @@ FadeAndSoftReset:
 	res 1, [hl] ; disable STAT interrupt
 	xor a
 	ld [MBC5SRamEnable], a
-	ld [rSB], a
-	ld [rSC], a
-	ld [rIE], a
-	ld [rNR52], a
-	ld a, [hGameBoyColorFlagBackup]
-	ld [hGameBoyColorFlag], a
+	ldh [rSB], a
+	ldh [rSC], a
+	ldh [rIE], a
+	ldh [rNR52], a
+	ldh a, [hGameBoyColorFlagBackup]
+	ldh [hGameBoyColorFlag], a
 	jp SoftReset
 
 LCDCStatus: ; 0x3ec
@@ -404,7 +404,7 @@ LCDCStatus: ; 0x3ec
 	push bc
 	push de
 	push hl
-	ld a, [hStatIntrRoutine]
+	ldh a, [hStatIntrRoutine]
 	sla a
 	ld c, a
 	ld b, 0
@@ -417,7 +417,7 @@ LCDCStatus: ; 0x3ec
 
 StatIntrDone: ; 0x3ff
 	ld a, $1
-	ld [hStatIntrFired], a
+	ldh [hStatIntrFired], a
 	pop hl
 	pop de
 	pop bc
@@ -455,7 +455,7 @@ Timer: ; 0x418
 	ld [wUpdateAudioEngineUsingTimerInterrupt], a
 	; disable timer
 	ld a, $0
-	ld [rTAC], a
+	ldh [rTAC], a
 	ld hl, rIE
 	res 2, [hl]
 .skipTimer
@@ -472,7 +472,7 @@ Serial: ; 0x445
 	push hl
 	ld hl, Data_45d
 	push hl
-	ld a, [$ffb1]
+	ldh a, [$ffb1]
 	sla a
 	ld c, a
 	ld b, $0
@@ -494,7 +494,7 @@ Joypad: ; 0x467
 	reti
 
 DelayFrame: ; 0x468
-	ld a, [rLCDC]
+	ldh a, [rLCDC]
 	bit 7, a
 	ret z
 	ld hl, hNumFramesSinceLastVBlank
@@ -560,13 +560,13 @@ CallInFollowingTable: ; 0x532
 
 BankSwitchSimple: ; 0x549
 ; Switches to Bank in register a and jumps to hl.
-	ld [hLoadedROMBank], a
+	ldh [hLoadedROMBank], a
 	ld [MBC5RomBank], a  ; Load Bank
 	jp hl
 
 BankSwitch: ; 0x54f
 	ld e, a
-	ld a, [hLoadedROMBank]  ; currently-loaded Bank
+	ldh a, [hLoadedROMBank]  ; currently-loaded Bank
 	cp e
 	jr z, .doJump
 	push af
@@ -582,39 +582,39 @@ BankSwitch: ; 0x54f
 	ld d, [hl]
 	ld [hl], $0
 	ld [MBC5RomBank], a
-	ld [hLoadedROMBank], a
+	ldh [hLoadedROMBank], a
 	ld [hl], d
 	pop de
 	pop hl
 	ret
 
 .doJump
-	ld a, [hFarCallTempE]
+	ldh a, [hFarCallTempE]
 	ld e, a
-	ld a, [hFarCallTempA]
+	ldh a, [hFarCallTempA]
 	jp hl
 
 DisableLCD: ; 0x576
-	ld a, [rLCDC]
+	ldh a, [rLCDC]
 	bit 7, a
 	ret z
-	ld a, [hLCDC]
+	ldh a, [hLCDC]
 	res 7, a
-	ld [hLCDC], a
+	ldh [hLCDC], a
 .asm_581
-	ld a, [rLCDC]
+	ldh a, [rLCDC]
 	bit 7, a
 	jr nz, .asm_581
 	ret
 
 EnableLCD: ; 0x588
-	ld a, [hFFC4]
+	ldh a, [hFFC4]
 	and a
 	call nz, .UpdatePals
-	ld a, [hLCDC]
+	ldh a, [hLCDC]
 	set 7, a
-	ld [rLCDC], a
-	ld [hLCDC], a
+	ldh [rLCDC], a
+	ldh [hLCDC], a
 	ret
 
 .UpdatePals
@@ -674,15 +674,15 @@ GreyscalePalette:
 	RGB 0, 0, 0
 
 VBlankIntDisable:
-	ld a, [rIE]
+	ldh a, [rIE]
 	res 0, a
-	ld [rIE], a
+	ldh [rIE], a
 	ret
 
 VBlankIntEnable:
-	ld a, [rIE]
+	ldh a, [rIE]
 	set 0, a
-	ld [rIE], a
+	ldh [rIE], a
 	ret
 
 WriteDMACodeToHRAM: ; 0x5f7
@@ -701,7 +701,7 @@ WriteDMACodeToHRAM: ; 0x5f7
 DMARoutine:
 ; This routine is initially loaded into hPushOAM - hFarCallTempA by WriteDMACodeToHRAM.
 	ld a, (wOAMBuffer >> 8)
-	ld [rDMA], a   ; start DMA
+	ldh [rDMA], a   ; start DMA
 	ld a, $28 ;reducing this to account for doublespeed is a free optimisation
 .waitLoop               ; wait for DMA to finish
 	dec a
@@ -711,7 +711,7 @@ DMARoutine:
 WaitForLCD: ; 0x60f
 ; Wait for LCD controller to stop reading from both OAM and VRAM because
 ; CPU can't access OAM, VRAM, or palette data ($ff69, $ff6b) during this time.
-	ld a, [rSTAT]    ; LCDC Status register
+	ldh a, [rSTAT]    ; LCDC Status register
 	and $3
 	jr nz, WaitForLCD
 	ld a, $a
@@ -921,11 +921,11 @@ DrawBottomMessageBox: ; 0xe69
 ; Draws the current scrolling bottom message box to VRAM during V-Blank.
 ; Note, this only applies to the 1-tile high message bar. When it displays, things like Ball Bonus summary, and
 ; the Save/Cancel menu, this is not used to draw the message buffer.
-	ld a, [rLY]
+	ldh a, [rLY]
 	cp $90
 	jr nc, DrawBottomMessageBox ; ensure we're in V-Blank
 .asm_e6f
-	ld a, [rSTAT]
+	ldh a, [rSTAT]
 	and $3
 	jr nz, .asm_e6f
 	ld a, $a
@@ -998,7 +998,7 @@ Load4BottomMessageBytes: ; 0xeef
 	ret
 
 Write4BottomMessageBytes: ; 0xef8
-	ld a, [rSTAT]
+	ldh a, [rSTAT]
 	and $3
 	jr nz, Write4BottomMessageBytes
 	ld a, b
@@ -1026,16 +1026,16 @@ StatIntrTogglePinballWindow:
 ; gameplay.
 	ld hl, hLastLYC
 	ld c, [hl]
-	ld a, [rLY]
+	ldh a, [rLY]
 	cp c
 	jp c, StatIntrDone
 	inc c
 	inc c
 	cp c
 	jp nc, StatIntrDone
-	ld a, [hLCDCMask]
+	ldh a, [hLCDCMask]
 	ld c, a
-	ld a, [hLCDC]
+	ldh a, [hLCDC]
 	xor $10 ; toggle window tile data
 	and c
 	ld c, a
@@ -1044,48 +1044,48 @@ StatIntrTogglePinballWindow:
 	ld a, [hl]
 	and $3
 	jr nz, .waitForHBlank
-	ld a, [rLCDC]
+	ldh a, [rLCDC]
 	and $80 ; enable LCD display
 	or c
-	ld [rLCDC], a
+	ldh [rLCDC], a
 	jp StatIntrDone
 
 StatIntrTogglePokedexWindow: ; 0xfea
 	ld hl, hLastLYC
-	ld a, [hLYCSub]
+	ldh a, [hLYCSub]
 	cp [hl]
 	jr nz, .asm_1015
-	ld a, [rLY]
+	ldh a, [rLY]
 	cp [hl]
 	jp nz, StatIntrDone
-	ld a, [hLCDC]
+	ldh a, [hLCDC]
 	xor $18 ; toggle window tile data and tile map
 	ld c, a
-	ld a, [hHBlankSCX]
+	ldh a, [hHBlankSCX]
 	ld b, a
 	ld hl, rSTAT
 .waitForHBlank
 	ld a, [hl]
 	and $3
 	jr nz, .waitForHBlank
-	ld a, [rLCDC]
+	ldh a, [rLCDC]
 	and $80 ; enable LCD display
 	or c
-	ld [rLCDC], a
+	ldh [rLCDC], a
 	ld a, b
-	ld [rSCY], a
+	ldh [rSCY], a
 	jp StatIntrDone
 
 .asm_1015
-	ld a, [rLY]
+	ldh a, [rLY]
 	cp [hl]
 	jr nz, .asm_1037
-	ld a, [hLastLYC]
+	ldh a, [hLastLYC]
 	ld hl, hLYCSub
 	sub [hl]
 	add $40
 	ld c, a
-	ld a, [hLYCSub]
+	ldh a, [hLYCSub]
 	ld b, a
 	ld hl, rSTAT
 .waitForHBlank_2
@@ -1093,46 +1093,46 @@ StatIntrTogglePokedexWindow: ; 0xfea
 	and $3
 	jr nz, .waitForHBlank_2
 	ld a, c
-	ld [rSCY], a
+	ldh [rSCY], a
 	ld a, b
-	ld [rLYC], a
+	ldh [rLYC], a
 	jp StatIntrDone
 
 .asm_1037
 	ld hl, hLYCSub
-	ld a, [rLY]
+	ldh a, [rLY]
 	cp [hl]
 	jp nz, StatIntrDone
-	ld a, [hLCDC]
+	ldh a, [hLCDC]
 	xor $18 ; toggle window tile data and tile map
 	ld c, a
-	ld a, [hHBlankSCX]
+	ldh a, [hHBlankSCX]
 	ld b, a
 	ld hl, rSTAT
 .waitForHBlank_3
 	ld a, [hl]
 	and $3
 	jr nz, .waitForHBlank_3
-	ld a, [rLCDC]
+	ldh a, [rLCDC]
 	and $80
 	or c
-	ld [rLCDC], a
+	ldh [rLCDC], a
 	ld a, b
-	ld [rSCY], a
+	ldh [rSCY], a
 	jp StatIntrDone
 
 StatIntrToggleHighScoresWindow:
 	ld hl, hLastLYC
-	ld a, [rLY]
+	ldh a, [rLY]
 	cp [hl]
 	jr z, .asm_1069
 	dec a
 	cp [hl]
 	jr nz, .asm_1080
 .asm_1069
-	ld a, [hLYCSub]
+	ldh a, [hLYCSub]
 	ld c, a
-	ld a, [hHBlankSCX]
+	ldh a, [hHBlankSCX]
 	ld b, a
 	ld hl, rSTAT
 .waitForHBlank
@@ -1140,21 +1140,21 @@ StatIntrToggleHighScoresWindow:
 	and $3
 	jr nz, .waitForHBlank
 	ld a, b
-	ld [rSCY], a
+	ldh [rSCY], a
 	ld a, c
-	ld [rLYC], a
+	ldh [rLYC], a
 	jp StatIntrDone
 
 .asm_1080
 	ld hl, hLYCSub
-	ld a, [rLY]
+	ldh a, [rLY]
 	cp [hl]
 	jr z, .asm_108d
 	dec a
 	cp [hl]
 	jp nz, StatIntrDone
 .asm_108d
-	ld a, [hHBlankSCY]
+	ldh a, [hHBlankSCY]
 	ld b, a
 	ld hl, rSTAT
 .waitForHBlank_2
@@ -1162,7 +1162,7 @@ StatIntrToggleHighScoresWindow:
 	and $3
 	jr nz, .waitForHBlank_2
 	ld a, b
-	ld [rSCY], a
+	ldh [rSCY], a
 	jp StatIntrDone
 
 StatIntrNothing2: ; 0x109e
@@ -1217,11 +1217,11 @@ QueueGraphicsToLoadWithFunc: ; 0x10c5
 ;		 bc: pointer to data
 ;		  a: bank of data
 	push af
-	ld a, [rLCDC]
+	ldh a, [rLCDC]
 	bit 7, a
 	jr z, .skip_wait_ly
 .wait_ly
-	ld a, [rLY]
+	ldh a, [rLY]
 	cp $88
 	jr nc, .wait_ly
 .skip_wait_ly
@@ -1240,11 +1240,11 @@ QueueGraphicsToLoadWithFunc: ; 0x10c5
 	inc h
 	ld [hl], d
 	ld e, $ff
-	ld [hROMBankBuffer], a
-	ld a, [hLoadedROMBank]
+	ldh [hROMBankBuffer], a
+	ldh a, [hLoadedROMBank]
 	push af ;put current bank on the stack, then switch to that bank
-	ld a, [hROMBankBuffer]
-	ld [hLoadedROMBank], a
+	ldh a, [hROMBankBuffer]
+	ldh [hLoadedROMBank], a
 	ld [MBC5RomBank], a
 	dec bc
 	ld a, [bc] ;load [bc] and add wd7fa
@@ -1258,7 +1258,7 @@ QueueGraphicsToLoadWithFunc: ; 0x10c5
 	add $4 ;add 4 more, then load back into wd7fa
 	ld [hl], a
 	pop af
-	ld [hLoadedROMBank], a
+	ldh [hLoadedROMBank], a
 	ld [MBC5RomBank], a ;swap bank back
 	ld hl, wd7fb
 	ld l, [hl]
@@ -1269,16 +1269,16 @@ QueueGraphicsToLoadWithFunc: ; 0x10c5
 	ld [hl], e ;load FF if less than $30, 0 if more
 	ld hl, wd7fb ;inc queue position
 	inc [hl]
-	ld a, [rLCDC]
+	ldh a, [rLCDC]
 	bit 7, a
 	ret nz ;return if LCD on
-	ld a, [rIE] ;disable vblank interupt
+	ldh a, [rIE] ;disable vblank interupt
 	push af
 	res 0, a
-	ld [rIE], a
+	ldh [rIE], a
 	call Func_113a
 	pop af
-	ld [rIE], a ;renable vblank interupt
+	ldh [rIE], a ;renable vblank interupt
 	ret
 
 Func_1129: ; 0x1129
@@ -1312,10 +1312,10 @@ Func_113a: ; 0x113a
 	inc h
 	ld d, [hl]
 	inc h
-	ld a, [hLoadedROMBank]
+	ldh a, [hLoadedROMBank]
 	push af ;put current bank on the stack
 	ld a, [hl] ;changed to the stored bank
-	ld [hLoadedROMBank], a
+	ldh [hLoadedROMBank], a
 	ld [MBC5RomBank], a
 	inc h
 	ld a, [hl]
@@ -1324,7 +1324,7 @@ Func_113a: ; 0x113a
 	ld l, a
 	call JumpToHL ;run the function
 	pop af
-	ld [hLoadedROMBank], a ;return to old bank
+	ldh [hLoadedROMBank], a ;return to old bank
 	ld [MBC5RomBank], a
 	pop hl
 	inc l
@@ -1369,10 +1369,10 @@ LoadTileLists: ; 0x117b
 
 LoadTileListsBank1: ; 0x118d
 	ld a, $1
-	ld [rVBK], a
+	ldh [rVBK], a
 	call LoadTileLists
 	xor a
-	ld [rVBK], a
+	ldh [rVBK], a
 	ret
 
 Func_1198:
@@ -1427,10 +1427,10 @@ Func_11b5: ; 11b5 (0:11b5)
 
 Func_11c7:
 	ld a, $1
-	ld [rVBK], a
+	ldh [rVBK], a
 	call Func_11b5
 	xor a
-	ld [rVBK], a
+	ldh [rVBK], a
 	ret
 
 Func_11d2:
@@ -1438,13 +1438,13 @@ Func_11d2:
 ;data structure: byte1 * 16 = bytes to load, destination start, source start, source bank
 	ld h, d ;load pointer into hl
 	ld l, e
-	ld a, [hLoadedROMBank]
-	ld [$ff94], a ;store current bank in ff94
+	ldh a, [hLoadedROMBank]
+	ldh [$ff94], a ;store current bank in ff94
 .asm_11d8
 	ld a, [hli] ;if first byte is 0, exit
 	and a
 	ret z
-	ld [$ff95], a ;otherwise, store in FF95
+	ldh [$ff95], a ;otherwise, store in FF95
 	ld a, [hli]
 	ld e, a
 	ld a, [hli] ;load data into e,d,c,b and then the bank 
@@ -1454,12 +1454,12 @@ Func_11d2:
 	ld a, [hli]
 	ld b, a
 	ld a, [hli]
-	ld [hLoadedROMBank], a
+	ldh [hLoadedROMBank], a
 	ld [MBC5RomBank], a
 	push hl ;store hl on the stack
 	ld h, b ;load bc into hl, then ff95 into b
 	ld l, c
-	ld a, [$ff95]
+	ldh a, [$ff95]
 	ld b, a
 .asm_11f1
 	ld a, [hli] ;load 16 bytes from hl to de b times
@@ -1513,28 +1513,28 @@ Func_11d2:
 	dec b 
 	jr nz, .asm_11f1
 	pop hl ;recover hl from the stack and switch back to the original bank
-	ld a, [$ff94]
-	ld [hLoadedROMBank], a
+	ldh a, [$ff94]
+	ldh [hLoadedROMBank], a
 	ld [MBC5RomBank], a
 	jr .asm_11d8 ;loop
 
 Func_122e:
 	ld a, $1
-	ld [rVBK], a
+	ldh [rVBK], a
 	ld h, d
 	ld l, e
-	ld a, [hLoadedROMBank]
-	ld [$ff94], a
+	ldh a, [hLoadedROMBank]
+	ldh [$ff94], a
 .asm_1238
 	ld a, [hli]
 	and a
 	jr nz, .asm_1240
 	xor a
-	ld [rVBK], a
+	ldh [rVBK], a
 	ret
 
 .asm_1240
-	ld [$ff95], a
+	ldh [$ff95], a
 	ld a, [hli]
 	ld e, a
 	ld a, [hli]
@@ -1544,12 +1544,12 @@ Func_122e:
 	ld a, [hli]
 	ld b, a
 	ld a, [hli]
-	ld [hLoadedROMBank], a
+	ldh [hLoadedROMBank], a
 	ld [MBC5RomBank], a
 	push hl
 	ld h, b
 	ld l, c
-	ld a, [$ff95]
+	ldh a, [$ff95]
 	ld b, a
 .asm_1256
 	ld a, [hli]
@@ -1558,8 +1558,8 @@ Func_122e:
 	dec b
 	jr nz, .asm_1256
 	pop hl
-	ld a, [$ff94]
-	ld [hLoadedROMBank], a
+	ldh a, [$ff94]
+	ldh [hLoadedROMBank], a
 	ld [MBC5RomBank], a
 	jr .asm_1238
 
@@ -1577,7 +1577,7 @@ LoadPalettes:
 	ld a, [hli]
 	and a
 	ret z
-	ld [$ff94], a
+	ldh [$ff94], a
 	ld a, [hli]
 	bit 6, a
 	ld de, rBGPI
@@ -1592,15 +1592,15 @@ LoadPalettes:
 	ld c, a
 	ld a, [hli]
 	ld b, a
-	ld a, [hLoadedROMBank]
+	ldh a, [hLoadedROMBank]
 	push af
 	ld a, [hli]
-	ld [hLoadedROMBank], a
+	ldh [hLoadedROMBank], a
 	ld [MBC5RomBank], a
 	push hl
 	ld h, b
 	ld l, c
-	ld a, [$ff94]
+	ldh a, [$ff94]
 	ld b, a
 .loadColor
 	ld a, [hli]
@@ -1611,7 +1611,7 @@ LoadPalettes:
 	jr nz, .loadColor
 	pop hl
 	pop af
-	ld [hLoadedROMBank], a
+	ldh [hLoadedROMBank], a
 	ld [MBC5RomBank], a
 	jr .loop
 
@@ -1668,7 +1668,7 @@ Func_1a59: ; 0x1a59
 	ld hl, rIE
 	set 3, [hl]
 	xor a
-	ld [$ffb1], a
+	ldh [$ffb1], a
 	ld a, $1
 	ld [wd8e1], a
 	ret
@@ -1686,7 +1686,7 @@ Func_1a89: ; 0x1a89
 	ret
 
 .asm_1a9f
-	ld a, [hNewlyPressedButtons]
+	ldh a, [hNewlyPressedButtons]
 	bit 1, a
 	jp nz, Func_1bd3
 	rst AdvanceFrame
@@ -1744,10 +1744,10 @@ Func_1ae2: ; 0x1ae2
 	ld a, [wd869]
 	ld h, a
 	add hl, bc
-	ld a, [hLoadedROMBank]
+	ldh a, [hLoadedROMBank]
 	push af
 	ld a, [wd86a]
-	ld [hLoadedROMBank], a
+	ldh [hLoadedROMBank], a
 	ld [MBC5RomBank], a
 REPT 15
 	ld a, [hli]
@@ -1758,7 +1758,7 @@ ENDR
 	ld [de], a
 	inc de
 	pop af
-	ld [hLoadedROMBank], a
+	ldh [hLoadedROMBank], a
 	ld [MBC5RomBank], a
 	pop hl
 	pop bc
@@ -1778,7 +1778,7 @@ Func_1b3d: ; 0x1b3d
 	ret
 
 .asm_1b56
-	ld a, [hNewlyPressedButtons]
+	ldh a, [hNewlyPressedButtons]
 	bit BIT_B_BUTTON, a
 	jp nz, Func_1bd3
 	rst AdvanceFrame
@@ -1800,7 +1800,7 @@ Func_1b60: ; 0x1b60
 	ret
 
 .asm_1b7e
-	ld a, [hNewlyPressedButtons]
+	ldh a, [hNewlyPressedButtons]
 	bit BIT_B_BUTTON, a
 	jp nz, Func_1bd3
 	rst AdvanceFrame
@@ -1820,7 +1820,7 @@ Func_1b88: ; 0x1b88
 	ret
 
 .asm_1b9d
-	ld a, [hNewlyPressedButtons]
+	ldh a, [hNewlyPressedButtons]
 	bit BIT_B_BUTTON, a
 	jp nz, Func_1bd3
 	rst AdvanceFrame
@@ -1878,10 +1878,10 @@ LoadOAMData2: ; 0x1f0b
 	ld d, $0
 	sla e
 	rl d
-	ld a, [hLoadedROMBank]
+	ldh a, [hLoadedROMBank]
 	push af
 	ld a, Bank(OAMDataPointers2)
-	ld [hLoadedROMBank], a
+	ldh [hLoadedROMBank], a
 	ld [MBC5RomBank], a
 	ld hl, OAMDataPointers2
 	jr asm_1f3b
@@ -1896,10 +1896,10 @@ LoadOAMData: ; 0x1f24
 	ld d, $0
 	sla e
 	rl d  ; multiply de by 2
-	ld a, [hLoadedROMBank]
+	ldh a, [hLoadedROMBank]
 	push af
 	ld a, Bank(OAMDataPointers)
-	ld [hLoadedROMBank], a
+	ldh [hLoadedROMBank], a
 	ld [MBC5RomBank], a
 	ld hl, OAMDataPointers
 asm_1f3b: ; 0x1f3b
@@ -1934,7 +1934,7 @@ asm_1f3b: ; 0x1f3b
 	ld a, l
 	ld [wOAMBufferSize], a
 	pop af
-	ld [hLoadedROMBank], a
+	ldh [hLoadedROMBank], a
 	ld [MBC5RomBank], a
 	pop hl
 	pop de
@@ -1949,10 +1949,10 @@ Func_1f9a:
 	ld d, $0
 	sla e
 	rl d
-	ld a, [hLoadedROMBank]
+	ldh a, [hLoadedROMBank]
 	push af
 	ld a, BANK(OAMDataPointers2)
-	ld [hLoadedROMBank], a
+	ldh [hLoadedROMBank], a
 	ld [MBC5RomBank], a
 	ld hl, OAMDataPointers2
 	jr asm_1fca
@@ -1965,10 +1965,10 @@ Func_1fb3:
 	ld d, $0
 	sla e
 	rl d
-	ld a, [hLoadedROMBank]
+	ldh a, [hLoadedROMBank]
 	push af
 	ld a, BANK(OAMDataPointers)
-	ld [hLoadedROMBank], a
+	ldh [hLoadedROMBank], a
 	ld [MBC5RomBank], a
 	ld hl, OAMDataPointers
 asm_1fca:
@@ -2007,7 +2007,7 @@ asm_1fca:
 	ld a, l
 	ld [wOAMBufferSize], a
 	pop af
-	ld [hLoadedROMBank], a
+	ldh [hLoadedROMBank], a
 	ld [MBC5RomBank], a
 	pop hl
 	pop de
@@ -2067,43 +2067,43 @@ CallTable_2049: ; 0x2049
 
 LoadDexVWFCharacter: ; 0x206d
 ; Loads a single variable-width-font character used in various parts of the Pokedex screen.
-	ld a, [hLoadedROMBank]
+	ldh a, [hLoadedROMBank]
 	push af
 	ld a, Bank(LoadDexVWFCharacter_)
-	ld [hLoadedROMBank], a
+	ldh [hLoadedROMBank], a
 	ld [MBC5RomBank], a
 	call LoadDexVWFCharacter_
 	jr c, .asm_2084
 	pop af
-	ld [hLoadedROMBank], a
+	ldh [hLoadedROMBank], a
 	ld [MBC5RomBank], a
 	and a
 	ret
 
 .asm_2084
 	pop af
-	ld [hLoadedROMBank], a
+	ldh [hLoadedROMBank], a
 	ld [MBC5RomBank], a
 	scf
 	ret
 
 Func_208c: ; 0x208c
-	ld a, [hLoadedROMBank]
+	ldh a, [hLoadedROMBank]
 	push af
 	ld a, Bank(Func_8ee0)
-	ld [hLoadedROMBank], a
+	ldh [hLoadedROMBank], a
 	ld [MBC5RomBank], a
 	call Func_8ee0
 	jr c, .asm_20a3
 	pop af
-	ld [hLoadedROMBank], a
+	ldh [hLoadedROMBank], a
 	ld [MBC5RomBank], a
 	and a
 	ret
 
 .asm_20a3
 	pop af
-	ld [hLoadedROMBank], a
+	ldh [hLoadedROMBank], a
 	ld [MBC5RomBank], a
 	scf
 	ret
@@ -2112,7 +2112,7 @@ MultiplyBbyCUnsigned: ; 0x20ab
 	; u16 bc = (u8)b * (u8)c
 	push af
 	xor a
-	ld [hSignedMathSignBuffer], a
+	ldh [hSignedMathSignBuffer], a
 	jr MultiplyBbyCSigned.asm_20c6
 
 MultiplyBbyCSigned:
@@ -2120,7 +2120,7 @@ MultiplyBbyCSigned:
 	push af
 	ld a, b
 	xor c
-	ld [hSignedMathSignBuffer], a
+	ldh [hSignedMathSignBuffer], a
 	bit 7, b
 	jr z, .asm_20be
 	ld a, b
@@ -2186,7 +2186,7 @@ MultiplyBbyCSigned:
 	rr l
 	ld b, h
 	ld c, l
-	ld a, [hSignedMathSignBuffer]
+	ldh a, [hSignedMathSignBuffer]
 	rlca
 	jr nc, .done
 	ld a, c
@@ -2212,7 +2212,7 @@ MultiplyVectorComponentByAngleFactor: ; 0x210b
 	push hl
 	ld a, b
 	xor d
-	ld [hSignedMathSignBuffer2], a
+	ldh [hSignedMathSignBuffer2], a
 	bit 7, b
 	jr z, .positive
 	; negate bc
@@ -2241,7 +2241,7 @@ MultiplyVectorComponentByAngleFactor: ; 0x210b
 	ld c, e
 	call MultiplyBbyCUnsigned
 	add hl, bc
-	ld a, [hSignedMathSignBuffer2]
+	ldh a, [hSignedMathSignBuffer2]
 	rlca
 	jr nc, .positive2
 	; negate hl
@@ -2271,7 +2271,7 @@ Sine: ; 0x2149
 	; Output: e = sin(a)
 	;         d = 0 if sin(a) is positive, $ff if sin(a) is negative
 	push hl
-	ld [hSignedMathSignBuffer], a
+	ldh [hSignedMathSignBuffer], a
 	and $7f ; ensure angle is between 0 and 180 degrees
 	cp $40
 	jr c, .firstQuadrant
@@ -2286,7 +2286,7 @@ Sine: ; 0x2149
 	ld e, [hl]
 	pop hl
 	ld d, $0
-	ld a, [hSignedMathSignBuffer]
+	ldh a, [hSignedMathSignBuffer]
 	sla a
 	ret nc
 	ld d, $ff
@@ -2395,24 +2395,24 @@ RotateVector: ; 0x21e7
 	push hl
 	push bc
 	push de
-	ld [hRotationAngleBuffer], a
+	ldh [hRotationAngleBuffer], a
 	call Cosine
 	ld a, e
-	ld [hCosineResultBuffer], a
+	ldh [hCosineResultBuffer], a
 	ld a, d
-	ld [hCosineResultBuffer + 1], a
+	ldh [hCosineResultBuffer + 1], a
 	; xComponent * cos(angle)
 	call MultiplyVectorComponentByAngleFactor
 	ld l, c
 	ld h, b
 	pop bc
 	push bc
-	ld a, [hRotationAngleBuffer]
+	ldh a, [hRotationAngleBuffer]
 	call Sine
 	ld a, e
-	ld [hSineResultBuffer], a
+	ldh [hSineResultBuffer], a
 	ld a, d
-	ld [hSineResultBuffer + 1], a
+	ldh [hSineResultBuffer + 1], a
 	; yComponent * sin(angle)
 	call MultiplyVectorComponentByAngleFactor
 	add hl, bc  ; hl = xComponent * cos(angle) + yComponent * sin(angle)
@@ -2420,9 +2420,9 @@ RotateVector: ; 0x21e7
 	pop bc
 	push hl
 	push de
-	ld a, [hSineResultBuffer]
+	ldh a, [hSineResultBuffer]
 	ld e, a
-	ld a, [hSineResultBuffer + 1]
+	ldh a, [hSineResultBuffer + 1]
 	cpl
 	ld d, a
 	; xComponent * -sin(angle)
@@ -2430,9 +2430,9 @@ RotateVector: ; 0x21e7
 	ld l, c
 	ld h, b
 	pop bc
-	ld a, [hCosineResultBuffer]
+	ldh a, [hCosineResultBuffer]
 	ld e, a
-	ld a, [hCosineResultBuffer + 1]
+	ldh a, [hCosineResultBuffer + 1]
 	ld d, a
 	; yComponent * cos(angle)
 	call MultiplyVectorComponentByAngleFactor
@@ -2616,10 +2616,10 @@ CheckStageCollision: ; 0x22b5
 	ld a, [wStageCollisionMapPointer + 1]
 	ld b, a
 	add hl, bc  ; hl = address of ball tile's collision attribute
-	ld a, [hLoadedROMBank]
+	ldh a, [hLoadedROMBank]
 	push af
 	ld a, [wStageCollisionMapBank]
-	ld [hLoadedROMBank], a
+	ldh [hLoadedROMBank], a
 	ld [MBC5RomBank], a
 	ld bc, 32 - 1  ; stage's number of tiles wide - 1
 	ld a, [hli]
@@ -2632,12 +2632,12 @@ CheckStageCollision: ; 0x22b5
 	ld a, [hl]
 	ld [wLowerRightCollisionAttribute], a
 	pop af
-	ld [hLoadedROMBank], a
+	ldh [hLoadedROMBank], a
 	ld [MBC5RomBank], a
-	ld a, [hLoadedROMBank]
+	ldh a, [hLoadedROMBank]
 	push af
 	ld a, [wStageCollisionMasksBank]
-	ld [hLoadedROMBank], a
+	ldh [hLoadedROMBank], a
 	ld [MBC5RomBank], a
 	ld a, [wSubTileBallXPos]
 	sla a
@@ -2715,7 +2715,7 @@ CheckStageCollision: ; 0x22b5
 	dec b
 	jr nz, .testCollisionPointLoop
 	pop af
-	ld [hLoadedROMBank], a
+	ldh [hLoadedROMBank], a
 	ld [MBC5RomBank], a
 	ld hl, wCollisionPointTests
 	ld de, wd7d9
@@ -2801,10 +2801,10 @@ CheckStageCollision: ; 0x22b5
 	ld [wIsBallColliding], a
 	and a
 	ret z
-	ld a, [hLoadedROMBank]
+	ldh a, [hLoadedROMBank]
 	push af
 	ld a, Bank(CollisionForceAngles)
-	ld [hLoadedROMBank], a
+	ldh [hLoadedROMBank], a
 	ld [MBC5RomBank], a
 	push de
 	; Based on the start and end collision point indices, look
@@ -2840,7 +2840,7 @@ CheckStageCollision: ; 0x22b5
 	ld [wBallXPos + 1], a
 	pop de
 	pop af
-	ld [hLoadedROMBank], a
+	ldh [hLoadedROMBank], a
 	ld [MBC5RomBank], a
 	ld a, d
 	swap a
@@ -3176,7 +3176,7 @@ LoadFlippersPalette: ; 0x2862
 	ld a, [wFlippersDisabled]
 	and a
 	jr nz, .flippersDisabled
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr z, .done
 	ld a, Bank(ActiveFlippersPalette)
@@ -3188,7 +3188,7 @@ LoadFlippersPalette: ; 0x2862
 	ret
 
 .flippersDisabled
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr z, .done2
 	ld a, Bank(DisabledFlippersPalette)
@@ -3220,28 +3220,28 @@ INCLUDE "home/bcd.asm"
 INCLUDE "home/tilt.asm"
 
 SetDoubleSpeedMode:
-	ld a, [rKEY1]
+	ldh a, [rKEY1]
 	bit 7, a
 	ret nz
 	jp ToggleDoubleSpeedMode
 
 SetNormalSpeedMode:
-	ld a, [rKEY1]
+	ldh a, [rKEY1]
 	bit 7, a
 	ret z
 	; fall through
 ToggleDoubleSpeedMode:
-	ld a, [rIE]
+	ldh a, [rIE]
 	push af
 	xor a
-	ld [rIE], a
+	ldh [rIE], a
 	ld a, $30
-	ld [rJOYP], a
+	ldh [rJOYP], a
 	ld a, 1
-	ld [rKEY1], a
+	ldh [rKEY1], a
 	stop
 	pop af
-	ld [rIE], a
+	ldh [rIE], a
 	ret
 
 SECTION "bank0.2", ROM0

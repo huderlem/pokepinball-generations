@@ -64,11 +64,11 @@ TryReleaseRoamingDogs:
 	jr nz, .waitForScrollingText
 	ret
 
-ENTRANCE_FRAMES EQU $1A
-ENTRANCE_JUMP_HEIGHT EQU $28
-ENTRANCE_Y_OFFSET EQU $18
-JUMP_AWAY_FRAMES EQU $30
-JUMP_AWAY_HEIGHT EQU $10
+DEF ENTRANCE_FRAMES EQU $1A
+DEF ENTRANCE_JUMP_HEIGHT EQU $28
+DEF ENTRANCE_Y_OFFSET EQU $18
+DEF JUMP_AWAY_FRAMES EQU $30
+DEF JUMP_AWAY_HEIGHT EQU $10
 
 DrawPortal:
 	ld a, $88
@@ -303,7 +303,7 @@ LoadMapPalettesIntoDestinationPalettes:
 .asm_da4
 	call Func_61b
 .asm_da7
-	ld a, [rSTAT]
+	ldh a, [rSTAT]
 	and $3
 	jr nz, .asm_da7  ; wait for lcd controller to finish transferring data
 	ld a, b

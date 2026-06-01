@@ -516,7 +516,7 @@ _LoadDiglettGraphics: ; 0x149d9
 	ld c, a
 	ld b, $0
 	ld hl, TileListDataPointers_14a11
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr z, .asm_149e9
 	ld hl, TileListDataPointers_14a83
@@ -536,7 +536,7 @@ LoadDiglettNumberGraphics: ; 0x149f5
 	ld c, a
 	ld b, $0
 	ld hl, Data_14af5
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr z, .asm_14a05
 	ld hl, TileListDataPointers_14c8d
@@ -726,7 +726,7 @@ UpdateSpinnerChargeGraphics_RedField: ; 0x14ece
 	sla c
 	ld b, $0
 	ld hl, TileDataPointers_14eeb
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr z, .asm_14ee1
 	ld hl, TileDataPointers_1509b
@@ -805,7 +805,7 @@ LoadCAVELightGraphics_RedField: ; 0x1523c
 ; Input: a = toggle state for CAVE light
 	and a
 	jr z, .toggledOff
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr nz, .toggledOnGameboy
 	ld hl, TileDataPointers_152dd
@@ -816,7 +816,7 @@ LoadCAVELightGraphics_RedField: ; 0x1523c
 	jr .load
 
 .toggledOff
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr nz, .toggledOffGameboy
 	ld hl, TileDataPointers_152e5
@@ -1033,7 +1033,7 @@ LoadPinballUpgradeTriggerGraphics_RedField: ; 0x15465
 ; Input: a = toggle state
 	and a
 	jr z, .toggledOff
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr nz, .toggledOnGameboy
 	ld hl, TileDataPointers_15511
@@ -1044,7 +1044,7 @@ LoadPinballUpgradeTriggerGraphics_RedField: ; 0x15465
 	jr .load
 
 .toggledOff
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr nz, .toggledOffGameboy
 	ld hl, TileDataPointers_15517
@@ -1069,7 +1069,7 @@ LoadPinballUpgradeTriggerGraphics_RedField: ; 0x15465
 	ret
 
 LoadDisabledPinballUpgradeTriggerGraphics_RedField: ; 0x15499
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	ret nz
 	ld b, $3
@@ -1489,7 +1489,7 @@ UpdateFieldStructures_RedField: ; 0x159c9
 LoadFieldStructureGraphics_RedField: ; 0x159f4
 ; Based on the current stage collision state, load the proper graphics.
 ; Things that change on the Red field are Ditto, the lightning bolt guard rail, and the roof over the 3 Voltorbs.
-	ld a, [hLCDC]
+	ldh a, [hLCDC]
 	bit 7, a
 	jr z, .asm_15a13
 	ld a, [wd7f2]
@@ -1514,7 +1514,7 @@ LoadFieldStructureGraphics_RedField: ; 0x159f4
 	ld c, a
 	ld b, $0
 	ld hl, TileDataPointers_15a3f
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr z, .asm_15a2d
 	ld hl, TileDataPointers_15d05
@@ -1682,7 +1682,7 @@ LoadBumperGraphics_RedField: ; 0x15fc0
 	ld c, a
 	ld b, $0
 	ld hl, TileDataPointers_16010
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr z, .asm_15fd0
 	ld hl, TileData_16080
@@ -2162,7 +2162,7 @@ LoadSlotCaveCoverGraphics_RedField: ; 0x16425
 	ld c, a
 	ld b, $0
 	ld hl, TileDataPointers_1644d
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr z, .asm_16441
 	ld hl, TileDataPointers_164a1
@@ -2269,7 +2269,7 @@ ResolveRedStagePinballLaunchCollision: ; 0x1652d
 ChooseInitialMap_RedField: ; 0x1658f
 ; While waiting to launch the pinball, this quickly rotates the billboard with the initial
 ; maps the player can start on.
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	callba nz, LoadGreyBillboardPaletteData
 .showNextMap
@@ -2456,7 +2456,7 @@ UpdatePikachuSaverAnimation_RedField: ; 0x1669e
 	ret
 
 .asm_16732
-	ld a, [hFrameCounter]
+	ldh a, [hFrameCounter]
 	swap a
 	and $1
 	ld [wPikachuSaverAnimationFrame], a
@@ -2603,7 +2603,7 @@ LoadStaryuGraphics_Top: ; 0x16859
 	ld c, a
 	ld b, $0
 	ld hl, TileDataPointers_16899
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr z, .asm_1686c
 	ld hl, TileDataPointers_16910
@@ -2625,7 +2625,7 @@ LoadStaryuGraphics_Bottom: ; 0x16878
 	ld c, a
 	ld b, $0
 	ld hl, TileDataPointers_1695a
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr z, .asm_1688d
 	ld hl, TileDataPointers_16980
@@ -2644,7 +2644,7 @@ INCLUDE "data/queued_tiledata/red_field/staryu_bumper.asm"
 
 UpdateArrowIndicators_RedField: ; 0x169a6
 ; Updates the 5 blinking arrow indicators in the red field bottom.
-	ld a, [hFrameCounter]
+	ldh a, [hFrameCounter]
 	and $1f
 	ret nz
 	ld bc, $0000
@@ -2674,7 +2674,7 @@ LoadArrowIndicatorGraphics_RedField: ; 0x169cd
 	push af
 	sla c ;double offset
 	ld hl, TileDataPointers_169ed
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr z, .asm_169db
 	ld hl, TileDataPointers_16bef
@@ -2800,7 +2800,7 @@ UpdateBonusMultiplierRailing_RedField: ; 0x16e51
 	cp $2
 	jr c, .asm_16ec1
 	cp $3
-	ld a, [hFrameCounter]
+	ldh a, [hFrameCounter]
 	jr c, .asm_16ea0
 	srl a
 	srl a
@@ -2826,7 +2826,7 @@ UpdateBonusMultiplierRailing_RedField: ; 0x16e51
 	cp $2
 	ret c
 	cp $3
-	ld a, [hFrameCounter]
+	ldh a, [hFrameCounter]
 	jr c, .asm_16ed1
 	srl a
 	srl a
@@ -2880,7 +2880,7 @@ ShowBonusMultiplierMessage_RedField: ; 0x16ef5
 
 _LoadBonusMultiplierRailingGraphics_RedField: ; 0x16f28
 	push af
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr nz, .gameboyColor
 	pop af

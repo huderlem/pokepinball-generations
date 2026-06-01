@@ -109,12 +109,12 @@ DrawVoltorbSprite: ; 0x17cdc
 .drawVoltorb
 	pop hl
 	inc de
-	ld a, [hSCX]
+	ldh a, [hSCX]
 	ld b, a
 	ld a, [hli]
 	sub b
 	ld b, a
-	ld a, [hSCY]
+	ldh a, [hSCY]
 	ld c, a
 	ld a, [hli]
 	sub c
@@ -210,7 +210,7 @@ BellsproutHeadAnimationOAMIds: ; 0x17d76
 	db $C1
 
 DrawBellsproutBody: ; 0x17d7a
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	ret z
 	ld a, $67
@@ -226,7 +226,7 @@ DrawBellsproutBody: ; 0x17d7a
 	ret
 
 DrawStaryu: ; 0x17d92
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	ret z
 	ld hl, StaryuAnimation
@@ -298,9 +298,9 @@ SpinnerOAMIds_RedField: ; 0x17e02
 	db $C2, $C3, $C4, $C5, $C6, $C7
 
 DrawPikachuSavers_RedStage: ; 0x17e08
-	ld a, [hSCX]
+	ldh a, [hSCX]
 	ld d, a
-	ld a, [hSCY]
+	ldh a, [hSCY]
 	ld e, a
 	ld a, [wPikachuSaverSlotRewardActive]
 	and a
@@ -309,7 +309,7 @@ DrawPikachuSavers_RedStage: ; 0x17e08
 	ld a, [wd51c]
 	and a
 	jr nz, .asm_17e29
-	ld a, [hFrameCounter]
+	ldh a, [hFrameCounter]
 	srl a
 	srl a
 	srl a
@@ -354,9 +354,9 @@ UnusedData_7e55: ; 0x17e55
 
 Func_17e5e: ; 0x17e5e
 ; unused
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	ld e, a
-	ld a, [hSCX]
+	ldh a, [hSCX]
 	ld d, a
 .asm_17e64
 	ld a, [hli]
@@ -372,7 +372,7 @@ Func_17e5e: ; 0x17e5e
 	ld a, [hli]
 	sub d
 	ld b, a
-	ld a, [hSCY]
+	ldh a, [hSCY]
 	ld c, a
 	ld a, [hli]
 	sub c
@@ -388,7 +388,7 @@ DrawEvolutionIndicatorArrows_RedFieldTop: ; 0x17efb
 	ld a, [wEvolutionObjectsDisabled]
 	and a
 	ret nz
-	ld a, [hFrameCounter]
+	ldh a, [hFrameCounter]
 	bit 4, a
 	ret z
 	ld de, wIndicatorStates + 5
@@ -400,7 +400,7 @@ DrawEvolutionIndicatorArrows_RedFieldBottom: ; 0x17f0f
 	ld a, [wEvolutionObjectsDisabled]
 	and a
 	ret nz
-	ld a, [hFrameCounter]
+	ldh a, [hFrameCounter]
 	bit 4, a
 	ret z
 	ld de, wIndicatorStates + 11
@@ -408,12 +408,12 @@ DrawEvolutionIndicatorArrows_RedFieldBottom: ; 0x17f0f
 	ld b, $8
 DrawEvolutionIndicatorArrows_RedField: ; 0x17f21
 	push bc
-	ld a, [hSCX]
+	ldh a, [hSCX]
 	ld b, a
 	ld a, [hli]
 	sub b
 	ld b, a
-	ld a, [hSCY]
+	ldh a, [hSCY]
 	ld c, a
 	ld a, [hli]
 	sub c
@@ -496,17 +496,17 @@ DrawEvolutionTrinket_RedField: ; 0x17f84
 	add c
 	cp c
 	push af
-	ld a, [hSCX]
+	ldh a, [hSCX]
 	ld b, a
 	ld a, [hli]
 	sub b
 	ld b, a
-	ld a, [hSCY]
+	ldh a, [hSCY]
 	ld c, a
 	ld a, [hli]
 	sub c
 	ld c, a
-	ld a, [hFrameCounter]
+	ldh a, [hFrameCounter]
 	and $e
 	jr nz, .asm_17f9c
 	dec c

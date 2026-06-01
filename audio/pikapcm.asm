@@ -12,18 +12,18 @@ PlayPikachuSoundClip: ; 0x50000
 	di
 	ld b, $4
 .asm_50010
-	ld a, [rLY]
+	ldh a, [rLY]
 	and a
 	jr nz, .asm_50010
 	dec b
 	jr nz, .asm_50010
 	xor a
-	ld [rNR50], a
-	ld [rNR51], a
+	ldh [rNR50], a
+	ldh [rNR51], a
 	ld a, $80
-	ld [rNR52], a
+	ldh [rNR52], a
 	xor a
-	ld [rNR30], a
+	ldh [rNR30], a
 	ld hl, wd84b
 	ld c, $30
 	ld b, $10
@@ -36,25 +36,25 @@ PlayPikachuSoundClip: ; 0x50000
 	dec b
 	jr nz, .asm_5002b
 	ld a, $80
-	ld [rNR30], a
+	ldh [rNR30], a
 	ld a, $ff
-	ld [rNR31], a
+	ldh [rNR31], a
 	ld a, $20
-	ld [rNR32], a
+	ldh [rNR32], a
 	ld a, $ff
-	ld [rNR33], a
+	ldh [rNR33], a
 	ld a, $87
-	ld [rNR34], a
+	ldh [rNR34], a
 	ld a, $77
-	ld [rNR50], a
+	ldh [rNR50], a
 	ld a, $44
-	ld [rNR51], a
+	ldh [rNR51], a
 	pop hl
 	call PlayPikachuPCM
 	xor a
-	ld [rNR50], a
-	ld [rNR51], a
-	ld [rNR52], a
+	ldh [rNR50], a
+	ldh [rNR51], a
+	ldh [rNR52], a
 	ld hl, wd84b
 	ld c, $30
 	ld b, $10
@@ -65,11 +65,11 @@ PlayPikachuSoundClip: ; 0x50000
 	dec b
 	jr nz, .asm_50062
 	ld a, $77
-	ld [rNR50], a
+	ldh [rNR50], a
 	ld a, $ff
-	ld [rNR51], a
+	ldh [rNR51], a
 	ld a, $80
-	ld [rNR52], a
+	ldh [rNR52], a
 	ei
 	ret
 
@@ -131,7 +131,7 @@ LoadNextSoundClipSample: ; 0x51f94
 	and $80
 	srl a
 	srl a
-	ld [rNR32], a
+	ldh [rNR32], a
 	sla d
 	ret
 

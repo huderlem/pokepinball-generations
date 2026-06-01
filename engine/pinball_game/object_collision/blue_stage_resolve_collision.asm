@@ -105,7 +105,7 @@ ResolveBlueStagePinballLaunchCollision: ; 0x1c7d7
 ChooseInitialMap_BlueField: ; 0x1c839
 ; While waiting to launch the pinball, this quickly rotates the billboard with the initial
 ; maps the player can start on.
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	callba nz, LoadGreyBillboardPaletteData
 .showNextMap
@@ -510,7 +510,7 @@ UpdateSpinnerChargeGraphics_BlueField: ; 0x1cb43
 	sla c
 	ld b, $0
 	ld hl, TileDataPointers_1cb60
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr z, .asm_1cb56
 	ld hl, TileDataPointers_1cd10
@@ -566,7 +566,7 @@ LoadBumperGraphics_BlueField: ; 0x1ce7a
 	ld c, a
 	ld b, $0
 	ld hl, TileDataPointers_1ceca
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr z, .asm_1ce8a
 	ld hl, TileDataPointers_1cf3a
@@ -860,7 +860,7 @@ UpdatePikachuSaverAnimation_BlueField: ; 0x1d133
 	ret
 
 .asm_1d1c7
-	ld a, [hFrameCounter]
+	ldh a, [hFrameCounter]
 	swap a
 	and $1
 	ld [wPikachuSaverAnimationFrame], a
@@ -1162,7 +1162,7 @@ ResolveBonusMultiplierCollision_BlueField: ; 0x1d438
 	ld a, [wWhichBonusMultiplierRailingId]
 	sub $f
 	jr nz, .hitRightRailing
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr nz, .asm_1d45c
 	ld a, $1f
@@ -1189,7 +1189,7 @@ ResolveBonusMultiplierCollision_BlueField: ; 0x1d438
 	jr asm_1d4fa
 
 .hitRightRailing
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr nz, .asm_1d497
 	ld a, $21
@@ -1281,7 +1281,7 @@ UpdateBonusMultiplierRailing_BlueField: ; 0x1d51b
 	cp $2
 	jr c, .asm_1d58b
 	cp $3
-	ld a, [hFrameCounter]
+	ldh a, [hFrameCounter]
 	jr c, .asm_1d56a
 	srl a
 	srl a
@@ -1307,7 +1307,7 @@ UpdateBonusMultiplierRailing_BlueField: ; 0x1d51b
 	cp $2
 	ret c
 	cp $3
-	ld a, [hFrameCounter]
+	ldh a, [hFrameCounter]
 	jr c, .asm_1d59b
 	srl a
 	srl a
@@ -1361,7 +1361,7 @@ ShowBonusMultiplierMessage_BlueField: ; 0x1d5bf
 
 _LoadBonusMultiplierRailingGraphics_BlueField: ; 0x1d5f2
 	push af
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr nz, .gameboyColor
 	pop af
@@ -1484,7 +1484,7 @@ UpdateBonusMultiplierRailingLight: ; 0x1d692
 .turnOffLight
 	ld a, $0
 	ld [wBonusMultiplierRailingEndLightDuration], a
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr nz, .gameboy
 	ld a, $1e
@@ -1622,7 +1622,7 @@ UpdatePoliwag: ; 0x1dc95
 	ret nz
 	call Func_1130
 	ret nz
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr z, .asm_1dcd7
 	ld a, [wLeftMapMoveCounter]
@@ -1725,7 +1725,7 @@ UpdatePsyduck: ; 0x1dd2e
 	ret
 
 .asm_1dd74
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr z, .asm_1dd89
 	ld a, [wRightMapMoveCounter]
@@ -1827,7 +1827,7 @@ _LoadPsyduckOrPoliwagGraphics: ; 0x1de4b
 	ld c, a
 	ld b, $0
 	ld hl, TileDataPointers_1df66
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr z, .gameboyColor
 	ld hl, TileDataPointers_1e00f
@@ -1853,7 +1853,7 @@ LoadPsyduckOrPoliwagNumberGraphics: ; 0x1de6f
 	ld c, a
 	ld b, $0
 	ld hl, TileDataPointers_1e0a4
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr z, .asm_1de87
 	ld hl, TileDataPointers_1e1d6
@@ -1894,7 +1894,7 @@ UpdateMapMoveCounters_BlueFieldBottom: ; 0x1de93
 	dec a
 	ld [wLeftMapMoveCounter], a
 	call LoadPsyduckOrPoliwagNumberGraphics
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr z, .gameboy
 	ld a, [wLeftMapMoveCounter]
@@ -1936,7 +1936,7 @@ UpdateMapMoveCounters_BlueFieldBottom: ; 0x1de93
 	ld [wRightMapMoveCounter], a
 	add $4
 	call LoadPsyduckOrPoliwagNumberGraphics
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr z, .gameboy_2
 	ld a, [wRightMapMoveCounter]
@@ -2137,7 +2137,7 @@ LoadPinballUpgradeTriggerGraphics_BlueField: ; 0x1e484
 ; Input: a = toggle state
 	and a
 	jr z, .toggledOff
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr nz, .toggledOnGameboy
 	ld hl, TileDataPointers_1e520
@@ -2148,7 +2148,7 @@ LoadPinballUpgradeTriggerGraphics_BlueField: ; 0x1e484
 	jr .load
 
 .toggledOff
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr nz, .toggledOffGameboy
 	ld hl, TileDataPointers_1e526
@@ -2353,7 +2353,7 @@ LoadCAVELightGraphics_BlueField: ; 0x1e636
 ; Input: a = toggle state for CAVE light
 	and a
 	jr z, .toggledOff
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr nz, .toggledOnGameboy
 	ld hl, TileDataPointers_1e6d7
@@ -2364,7 +2364,7 @@ LoadCAVELightGraphics_BlueField: ; 0x1e636
 	jr .load
 
 .toggledOff
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr nz, .toggledOffGameboy
 	ld hl, TileDataPointers_1e6df
@@ -2676,7 +2676,7 @@ LoadSlotCaveCoverGraphics_BlueField: ; 0x1e8f6
 	ld c, a
 	ld b, $0
 	ld hl, TileDataPointers_1e91e
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr z, .asm_1e912
 	ld hl, TileDataPointers_1e970
@@ -2873,7 +2873,7 @@ _ApplySlotForceField_BlueField: ; 0x1ea6a
 
 UpdateArrowIndicators_BlueField: ; 0x1ead4
 ; Updates the 5 blinking arrow indicators in the blue field bottom.
-	ld a, [hFrameCounter]
+	ldh a, [hFrameCounter]
 	and $f
 	ret nz
 	ld bc, $0000
@@ -2900,7 +2900,7 @@ UpdateArrowIndicators_BlueField: ; 0x1ead4
 	ld a, c
 	cp $2
 	jr nz, .asm_1eadc
-	ld a, [hFrameCounter]
+	ldh a, [hFrameCounter]
 	and $f
 	ret nz
 	ld a, [wCurrentStage]
@@ -2949,7 +2949,7 @@ LoadArrowIndicatorGraphics_BlueStage: ; 0x1eb41
 	push af
 	sla c
 	ld hl, TileDataPointers_1eb61
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr z, .gameboy
 	ld hl, TileDataPointers_1ed51
@@ -3422,7 +3422,7 @@ UpdateForceFieldGraphics: ; 0x1f18a
 	ld c, a
 	ld b, $0
 	ld hl, TileDataPointers_1f1b5
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	jr z, .gameboy
 	ld hl, TileDataPointers_1f201
@@ -3508,7 +3508,7 @@ CloseSlotCave: ; 0x1f2ed
 	xor a
 	ld [wSlotIsOpen], a
 	ld [wIndicatorStates + 4], a
-	ld [hFarCallTempA], a
+	ldh [hFarCallTempA], a
 	ld a, Bank(LoadSlotCaveCoverGraphics_BlueField)  ; this is in the same bank...
 	ld hl, LoadSlotCaveCoverGraphics_BlueField
 	call BankSwitch

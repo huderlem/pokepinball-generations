@@ -3624,7 +3624,7 @@ OAMData_Politoad2: ; 95
 	db $22, $08, $1a, $11
 	db $80 ; terminator
 	
-OAMData_Politoad3 : ;96
+OAMData_Politoad3: ;96
 	db $12, $18, $a8, $11
 	db $12, $10, $a6, $11
 	db $12, $08, $a4, $11

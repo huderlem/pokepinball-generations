@@ -35,12 +35,12 @@ DrawShellderSprites_SapphireField: ; 0x1f395
 	; fall through
 
 DrawShellderSprite_SapphireField: ; 0x1f3ad
-	ld a, [hSCX]
+	ldh a, [hSCX]
 	ld b, a
 	ld a, [hli]
 	sub b
 	ld b, a
-	ld a, [hSCY]
+	ldh a, [hSCY]
 	ld c, a
 	ld a, [hli]
 	sub c
@@ -143,9 +143,9 @@ CloysterOAMIds_SapphireField:
 	db $91, $92, $93
 
 DrawPikachuSavers_SapphireStage: ; 0x1f448
-	ld a, [hSCX]
+	ldh a, [hSCX]
 	ld d, a
-	ld a, [hSCY]
+	ldh a, [hSCY]
 	ld e, a
 	ld a, [wPikachuSaverSlotRewardActive]
 	and a
@@ -154,7 +154,7 @@ DrawPikachuSavers_SapphireStage: ; 0x1f448
 	ld a, [wd51c]
 	and a
 	jr nz, .asm_1f469
-	ld a, [hFrameCounter]
+	ldh a, [hFrameCounter]
 	srl a
 	srl a
 	srl a
@@ -192,7 +192,7 @@ DrawEvolutionIndicatorArrows_SapphireFieldTop: ; 0x1f48f
 	ld a, [wEvolutionObjectsDisabled]
 	and a
 	ret nz
-	ld a, [hFrameCounter]
+	ldh a, [hFrameCounter]
 	bit 4, a
 	ret z
 	ld de, wIndicatorStates + 5
@@ -204,7 +204,7 @@ DrawEvolutionIndicatorArrows_SapphireFieldBottom: ; 0x1f4a3
 	ld a, [wEvolutionObjectsDisabled]
 	and a
 	ret nz
-	ld a, [hFrameCounter]
+	ldh a, [hFrameCounter]
 	bit 4, a
 	ret z
 	ld de, wIndicatorStates + 11
@@ -212,12 +212,12 @@ DrawEvolutionIndicatorArrows_SapphireFieldBottom: ; 0x1f4a3
 	ld b, $8
 DrawEvolutionIndicatorArrows_SapphireField:
 	push bc
-	ld a, [hSCX]
+	ldh a, [hSCX]
 	ld b, a
 	ld a, [hli]
 	sub b
 	ld b, a
-	ld a, [hSCY]
+	ldh a, [hSCY]
 	ld c, a
 	ld a, [hli]
 	sub c
@@ -304,17 +304,17 @@ DrawEvolutionTrinket_SapphireField: ; 0x1f518
 	add c
 	cp c
 	push af
-	ld a, [hSCX]
+	ldh a, [hSCX]
 	ld b, a
 	ld a, [hli]
 	sub b
 	ld b, a
-	ld a, [hSCY]
+	ldh a, [hSCY]
 	ld c, a
 	ld a, [hli]
 	sub c
 	ld c, a
-	ld a, [hFrameCounter]
+	ldh a, [hFrameCounter]
 	and $e
 	jr nz, .asm_1f530
 	dec c

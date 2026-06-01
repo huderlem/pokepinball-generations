@@ -136,7 +136,7 @@ Func_1414b_GoldField: ; 0x1414b
 .asm_14165
 	callba Func_141f2_GoldField
 	callba Func_10362
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	callba nz, Func_10301
 	ld a, [wCapturingMon]
@@ -185,7 +185,7 @@ Func_14210_GoldField: ; 0x14210
 	dec b
 	jr nz, .asm_14215
 	callba Func_10184
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	callba nz, Func_102bc
 	ret
@@ -214,7 +214,7 @@ LoadEvolutionTrinketGraphics_GoldField: ; 0x14234
 	ld a, [wEvolutionObjectsDisabled]
 	and a
 	ret z
-	ld a, [hGameBoyColorFlag]
+	ldh a, [hGameBoyColorFlag]
 	and a
 	ret z
 	ld a, BANK(EvolutionTrinketPalette1)

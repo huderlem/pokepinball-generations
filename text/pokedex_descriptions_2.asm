@@ -29,9 +29,9 @@ CyndaquilPokedexDescription:
 	dex_text "It is timid, and"
 	dex_line "always curls"
 	dex_line "itself up in a"
-	dex_line "ball. If attacked"
+	dex_line "ball. If attacked,"
 	dex_line "it flares up its"
-	dex_line "back."
+	dex_line "back for protection."
 	dex_end
 
 QuilavaPokedexDescription:

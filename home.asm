@@ -353,21 +353,21 @@ VBlank: ; 0x2f2
 	ld a, $4
 	ldh [rTAC], a ; Timer interrupt will fire ~60 times per second
 .skipTimerToggle
-	ld hl, MBC5SRamBank
 	ld a, [wd917]
 	and a
-	jr nz, .asm_3b5
+	jr nz, .rumbleOff
 	ld a, [wRumblePattern]
 	rrca
 	ld [wRumblePattern], a
 	and $1
-	jr z, .asm_3b5
-	set 3, [hl]
-	jr .asm_3b7
+	jr z, .rumbleOff
+	ld a, $8 ; rumble on, SRAM bank 0
+	jr .setRumble
 
-.asm_3b5
-	res 3, [hl]
-.asm_3b7
+.rumbleOff
+	xor a ; rumble off, SRAM bank 0
+.setRumble
+	ld [MBC5SRamBank], a
 	ld a, [wDrawBottomMessageBox]
 	and a
 	call nz, DrawBottomMessageBox

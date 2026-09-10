@@ -250,7 +250,7 @@ PokemonNames: ; 0x11a4e
 	db " PUPITAR@       "
 	db "*TYRANITAR@     "
 	db "*LUGIA@         "
-	db "*HO_OH@         "
+	db "*HO-OH@         "
 	db "*CELEBI@        "
 	db " TREECKO@       "
 	db " GROVYLE@       "

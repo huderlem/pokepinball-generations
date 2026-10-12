@@ -609,7 +609,7 @@ Func_cdce: ; 0xcdce
 	call Func_1dda
 	ld a, [wd8ea]
 	cp $0
-	jr nz, .asm_ceb6
+	jp nz, .asm_ceb6
 	push af
 	ld a, $5
 	ld [$abf6], a
@@ -619,7 +619,7 @@ Func_cdce: ; 0xcdce
 	call Func_1cf8
 	ld a, [wd8ea]
 	cp $0
-	jr nz, .asm_ceb6
+	jp nz, .asm_ceb6
 .asm_ce4d
 	push af
 	ld a, $6
@@ -665,12 +665,17 @@ Func_cdce: ; 0xcdce
 	ld a, $8
 	ld [$abf6], a
 	pop af
+	; Only the Kanto high scores are transferred, so only redraw them if they're being shown.
+	ld a, [wHighScoresStage]
+	cp 2
+	jr nc, .skipRedraw
 	hlCoord 0, 14, vBGMap
 	ld de, wRedHighScore5Id + $3
 	call Func_d361
 	hlCoord 0, 14, vBGWin
 	ld de, wBlueHighScore5Id + $3
 	call Func_d361
+.skipRedraw
 	ld hl, wRedHighScore1Points
 	ld de, sHighScores
 	ld bc, $186

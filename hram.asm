@@ -32,6 +32,7 @@ DEF hNextFrameHBlankSCY EQU $FFAD
 DEF hHBlankSCY          EQU $FFAE
 DEF hLCDCMask           EQU $FFAF
 DEF hStatIntrRoutine    EQU $FFB0
+DEF hSerialIntrRoutine  EQU $FFB1
 
 DEF hNumFramesSinceLastVBlank EQU $FFB2
 DEF hFrameCounter             EQU $FFB3

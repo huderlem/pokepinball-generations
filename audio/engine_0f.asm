@@ -2030,5 +2030,34 @@ CryBasePointers_BankF: ; 0x3ef63
 	dw Cry_23_BankF
 	dw Cry_24_BankF
 	dw Cry_25_BankF
-
-INCLUDE "audio/cries_0f.asm"
+    dw Cry_26_BankF ; MARILL BASE
+	dw Cry_27_BankF ; MAREEP BASE
+	dw Cry_28_BankF ; HOOTHOOT BASE
+	dw Cry_29_BankF ; SENTRET BASE
+	dw Cry_2A_BankF ; SPINARAK BASE
+	dw Cry_2B_BankF ; CYNDAQUIL BASE
+	dw Cry_2C_BankF ; TOGEPI BASE
+	dw Cry_2D_BankF ; TOGETIC BASE
+	dw Cry_2E_BankF ; GIRAFARIG BASE
+	dw Cry_2F_BankF ; RAIKOU BASE
+	dw Cry_30_BankF ; TEDDIURSA BASE
+	dw Cry_31_BankF ; SLOWKING BASE
+	dw Cry_32_BankF ; NATU BASE
+	dw Cry_33_BankF ; CLEFFA BASE
+;dw Cry_2C_BankF ; GLIGAR BASE
+;dw Cry_2D_BankF ; SLUGMA BASE
+;dw Cry_26_BankF ; LEDYBA BASE
+;dw Cry_27_BankF ; ENTEI BASE
+;dw Cry_28_BankF ; WOOPER BASE
+;dw Cry_29_BankF ; MANTINE BASE
+;dw Cry_2A_BankF ; TYPHLOSION BASE
+;dw Cry_2B_BankF ; CHIKORITA BASE
+;dw Cry_2C_BankF ; TOTODILE BASE
+;dw Cry_2D_BankF ; SUNFLORA BASE
+;dw Cry_26_BankF ; AMPHAROS BASE
+;dw Cry_27_BankF ; MAGCARGO BASE
+;dw Cry_28_BankF ; PICHU BASE
+;dw Cry_29_BankF ; AIPOM BASE
+;dw Cry_2A_BankF ; DUNSPARCE BASE
+;dw Cry_2B_BankF ; DONPHAN BASE
+	INCLUDE "audio/cries_0f.asm"
